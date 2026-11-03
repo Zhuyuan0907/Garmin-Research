@@ -1,0 +1,154 @@
+{
+  "updated_utc": "2026-10-04T12:56:26.394449+00:00",
+  "static_only": true,
+  "source_sha256": {
+    "scripts/native_dispatcher_multiowner_vfp.py": "5dbe3df3dc3f220dd658d6c25408b1292025a5009338cc89faafc74b671aeff8",
+    "scripts/probe_native_multiowner_vfp.py": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+    "scripts/verify_native_multiowner_vfp_micro.py": "9f83f16fc7ab6800a524d6a5a73949dfe439e903b23ce55ea9f71f9b530abf3e",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "scripts/probe_native_cold_fp_controller.py": "0c4f4bb7e0077da701da225c183c262fa14346685dd605994438bd3edac1be3c",
+    "scripts/native_cold_fp_guard_copies.py": "b6849ca9dc226078ac83754ea9bb02acae60a8cae13a3f6da95f8c1ba278079b",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-dispatcher-fp/fp-static/native-multiowner-vfp-observer-contract.json": "142ee737b8f7dd75e24fc52e6f96d1a17aba40c5c20b932b38634ec574efb419",
+    "staging/native-player-dispatcher-fp/fp-static/native-vfp-retry-and-control-branch-clarification.json": "ed5ac88a1a7578829e961b6f9ef867a170b74d5788a1db6398277ff23c1984c8",
+    "staging/native-player-dispatcher-fp/fp-static/multiowner-vfp-helper-peer-review-8fc0a2bcf631.json": "49a54639b4bb639b4d9b8247cb48bc7a4654d3e894b0a2f35bcb92994cf6cb67",
+    "evidence/firmware-analysis/native-cold-fp-controller-emulation.json": "be78a70d2be6b94b0d8fecb6973f805dfe85b2618b1986b3ccae98b1d53ce5a0",
+    "scripts/probe_native_settings_lazy_vfp_v2.py": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "staging/native-player-dispatcher-native-body/fp-static/prepare_native_dispatcher_vfp_integration_contract.py": "927420da395afa6d1480e1fb37fc50640e3c58f1af057d26a6d280f2be5728ae",
+    "evidence/firmware-analysis/native-multiowner-vfp-fragment-controls.json": "6fde83340e8c5b082681c361b549365327aaa045c50f1dd9e3e5e8dbac376e60"
+  },
+  "source": "scripts/native_dispatcher_multiowner_vfp.py",
+  "source_hash": "5dbe3df3dc3f220dd658d6c25408b1292025a5009338cc89faafc74b671aeff8",
+  "source_exclusive_to_static_agent": true,
+  "pure_compile_passed": true,
+  "AST_no_guest_execute_or_memory_or_register_write_calls": true,
+  "helper_imported_or_instantiated_by_review": false,
+  "guest_executed": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "frozen_source_proof_or_canonical_modified": false,
+  "assertions_passed": true,
+  "subclass": "NativeDispatcherMultiOwnerVFPState",
+  "frozen_parent": "MultiOwnerVFPState",
+  "delegated_exact_guard_methods": {
+    "__init__": {
+      "line": 74,
+      "end_line": 116,
+      "delegates_to_frozen_method": true,
+      "source_sha256": "e7a58eca55beed883ef8b2c4ab66d2adc7e97a0aeba2e9346e7a0fce334a7d76"
+    },
+    "enter": {
+      "line": 135,
+      "end_line": 150,
+      "delegates_to_frozen_method": true,
+      "source_sha256": "9fa2f3755037a9c3a1a7fb9cba861179b14da84c1304cc2a76978fbc0c3d801a"
+    },
+    "observe": {
+      "line": 152,
+      "end_line": 174,
+      "delegates_to_frozen_method": true,
+      "source_sha256": "4271df94544967ac5b150a64c63636eb4c474bd70092370689360d9d583659ae"
+    },
+    "journal": {
+      "line": 267,
+      "end_line": 282,
+      "delegates_to_frozen_method": true,
+      "source_sha256": "61acb9bcf06f5cf9bd15ff93dc83109d870891ee35f4f1deee6b9aa66347d40c"
+    },
+    "verify": {
+      "line": 284,
+      "end_line": 291,
+      "delegates_to_frozen_method": true,
+      "source_sha256": "55ca6953109cb0a267d7ee4cd81295df77ca5ed5aa803d5e3c73fbda437db447"
+    }
+  },
+  "constructor_signature": "NativeDispatcherMultiOwnerVFPState(uc, stock, running_task, live, stack_top, tasks, prior_lazy, exclusive=False)",
+  "parent_journal_bridge_snippet": "def journal_zone_write(self, uc, access, address, size, value, data):\n    lazy = getattr(self, 'lazy', None)\n    if self.zone_active and isinstance(lazy, NativeDispatcherMultiOwnerVFPState):\n        row = lazy.validate_parent_store(uc, access, address, size, value, data)\n        if row is not None:\n            zone = next((z for low, z in self.zone_rows.items()\n                         if low <= address and address+size <= low+z['bytes']), None)\n            require(zone is not None and len(zone['stores']) < 20000,\n                    'Native FP parent store crossed zone/budget')\n            zone['stores'].append(dict(row, phase=self.phase))\n            return\n    return super().journal_zone_write(uc, access, address, size, value, data)\n",
+  "hook_order_contract": {
+    "bridge": "Pure validation and returned row only; it does not alter push.seen, VSTM coverage, control.seen or helper zones.",
+    "own_hook": "Inherited constructor registers the subclass journal hook once for each nonoverlapping helper zone; inherited journal records/consumes exact coverage once.",
+    "parent": "Append returned row to matching parent zone plus phase; enforce complete zone containment/budget. Call inherited parent only on None. Never call helper.journal manually.",
+    "old_phase": "Until the complete cold/component endpoint, retain prior LazyVFPState and frozen two-push path. Swap self.lazy after helper construction; parent observe then calls the new observer.",
+    "active_scope": "Bridge all active original FP stores, including initial/nested pushes, metadata/pool owner stores, VSTM and control STM. It does not generally admit every8-byte store."
+  },
+  "construction_preconditions": {
+    "endpoint": "Full frozen11-helper cold-controller endpoint has returned to actual controller; complete parent whole guards still pass before new helper.",
+    "owner": "OWNER3AB1038=C9503F90, F09094=0, F09090==running_task==C, enabledFPEXC40000000, accessCPACR bitsF00000.",
+    "prior": "Same UC and guardedUNDtop, prior_lazy.activeNone, nonempty complete first/same-controller rows with ownerC. Their canonical observer-row hash remains unchanged during new helper verify.",
+    "inputs": "Exactly C plus actual Dispatcher TCBs. C has M9400900/pool9500000 from original cold descriptor. Actual D/M/pool must be read from original native builder inventory, not synthesized from the micro fixture.",
+    "pools": "Both slots0, originalM40 live, pool320FF and base+320 strictly below supplied minimum_live_SP; inherited constructor preserves initialTCB108, exactM40 and nonoverlapping whole-zone histories.",
+    "live": "live(pointer,length) must admit declared actual resident backing for TCB108, originalM40, pool320, and future native clone40 within original stack/pool.",
+    "no_live_input_patch": "No source code path writes any live TCB, owner, metadata, allocator header, context or FP bank. Only inherited architectural UND entry writes CPU exception banked state."
+  },
+  "getter_contract": {
+    "entry": "Original handler20EC84 BLX358D24; actualThumbUND getter entry LR20EC88; its actualARMUND return at20EC88 hasr0==running_task.",
+    "native_bytes_hex": "002003490968002901d10248006870479490f0009090f000",
+    "marker": "F09094 nonzero returns0; exact zero marker required before admission/active stores/retry.",
+    "native_ready": "F09090 value must equal task identified by actual native restore destination. Callback must not fall back to ready head.",
+    "checks": "Original getter bytes/literals unchanged; observer records entry and actual returnedr0. No host invocation of current getter."
+  },
+  "runtime_code_mapping": {
+    "admitted_runtime_start_addresses": [
+      "0x50000",
+      "0x4400000",
+      "0x5400000"
+    ],
+    "mapping": "Fault admission resolves unique complete4-byte runtime code copy to exact load origin and compares guest bytes before inheritedenter. Adapter changes only file addressing; inheriteddecode still resolves each writer and exactopcode.",
+    "excluded": "InitializedF00000 data, vector-copy region, zero-filled storage and compiled companion instructions are not native FP fault/store admission targets.",
+    "copied_code": "Copied440/540 payloads are conditional original code. Actual loaded guest bytes must match; static mapping is not evidence that hardwarestartup selected a copy.",
+    "double_mapping": "Copiedcode load addresses are outside admitted runtime code ranges; frozen decoder load-address reads remain load-domain reads."
+  },
+  "added_store_constraints": {
+    "active": "All frozen exactpush/VSTM/control/readback/nativeallocation/clone/TCB108/wholezone guards remain delegated. Extra validation also checks poolheader/cursor, clone chunks/writablebyte and publications against pending typed history.",
+    "outside_active_rejected": [
+      "ownerword4",
+      "C/D TCB+28 word4",
+      "originalM40",
+      "pool320 including nativeclone/current slot/trailing64",
+      "wholeguardedUND4096"
+    ],
+    "outside_active_preserved": "Original unchanged store instructions in remaining helper zones (TCB fields and ownerpage other fields) remain chronological CPU history with actual_running_task, ready_head and IRQmarker. Independent full task/actor guard must still validate their semantics.",
+    "VSTM": "New helper retains1/2/4/8 byte exactpayload tile support; sealed micro actually observed8-byte callbacks. Parent bridge masks width and accepts only pending original128-byte VSTM ranges.",
+    "nested_push": "Every native UND push remains exactPC/mode/SP/register/address/coverage. Required originals20EBE0,20EC78,F6EDC(req148),6E0830,F6E14,F6EDC(req40) follow existing contract; bridge supports both ARM and Thumb."
+  },
+  "minimum_parent_guard_changes": [
+    "Retain old first/same-controller rows separately and journal existing ownerC as the new baseline. Do not reset owner or slots to reproduce the micro firstowner case.",
+    "Full parent controller pool must allow only replayed originalheader/context stores; move controllerFF64 boundary tobase+256. Parent originalGUI leading64 predicate must move only actualDispatcher boundary tobase+256 after nativefirstsave/clone; retain Thread nativeleading64 unchanged.",
+    "Extend/declare required full parent typedmetadata/pool zones without overlap; newhelper owns independent fullTCB108/M40/pool320/ownerpage/UND journals. Replay parentoldbaseline to final, and helperpostcomponent baseline to final separately.",
+    "Replace cold M+28==0/all256FF predicates with observed nativefirstsave/clone history after stores; retainM/namecanaries, oldreadonlyM40, exactclone40, allocatorbudget256/trailing64 and actualstackframe bounds.",
+    "Do not reuse first-ownerOWNER==controller final predicate after actualDfault. Compare owner with observed nativehistory and actualrunning/current at eachfault; metadata pointerchange remains only observed originalF6E40 publication.",
+    "Keep ALL/ready/ownedmutex/lifetime/current restored-frame checks and Threadtimednode20/kernelclock unchanged. Replay context-frame stores from originalkernel separately; this FPhelper does not validate ordinarytask-store semantics.",
+    "Parent final multiowner claim requires actualCtoD firstsave/noDrestore, subsequentDtoC saveD/clone40/restoreC and laterCtoD restoreD. Helper.verify validates each completedtrap, not existence of a complete native scheduler roundtrip."
+  ],
+  "three_stage_expected": {
+    "first_D": {
+      "old_owner": "C",
+      "new_owner": "D",
+      "save_C": true,
+      "restore_D": false,
+      "D_slot_before": 0,
+      "retry_bank": "actualfaultbank"
+    },
+    "return_C": {
+      "old_owner": "D",
+      "new_owner": "C",
+      "save_D": true,
+      "clone_D_metadata40": true,
+      "restore_C": true,
+      "retry_bank": "savedCbank"
+    },
+    "later_D": {
+      "old_owner": "C",
+      "new_owner": "D",
+      "save_C_existing": true,
+      "restore_D": true,
+      "retry_bank": "savedDbank"
+    },
+    "same_owner": "NoVLDM evenvalidslot; actualfaultbank preserved. No manualbank/task/wake manipulation to force these stages."
+  },
+  "new_runtime_or_actual_Dispatcher_body_success_claimed": false,
+  "physical_App_direct_phone_music_package_acceptance_verified": false
+}

@@ -1,0 +1,113 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .text          0x00000000        0x0 /root/garmin/staging/native-memory-notice/runtime.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-memory-notice/runtime.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-memory-notice/runtime.o
+ .text.prototype_arena_reset
+                0x00000000       0x14 /root/garmin/staging/native-memory-notice/runtime.o
+ .text.prototype_arena_used
+                0x00000000       0x10 /root/garmin/staging/native-memory-notice/runtime.o
+ .text.malloc   0x00000000       0x48 /root/garmin/staging/native-memory-notice/runtime.o
+ .text.free     0x00000000        0x4 /root/garmin/staging/native-memory-notice/runtime.o
+ .text.unlikely.__aeabi_idiv0
+                0x00000000        0x4 /root/garmin/staging/native-memory-notice/runtime.o
+ .text.unlikely.__aeabi_ldiv0
+                0x00000000        0x4 /root/garmin/staging/native-memory-notice/runtime.o
+ .bss.used      0x00000000        0x4 /root/garmin/staging/native-memory-notice/runtime.o
+ .bss.arena     0x00000000     0x4000 /root/garmin/staging/native-memory-notice/runtime.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-memory-notice/runtime.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-memory-notice/runtime.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08500000                        . = 0x8500000
+
+.text           0x08500000      0x35c
+ *(.notice_api)
+ .notice_api    0x08500000       0x10 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x08500000                memory_notice_api
+ *(.text .text.*)
+ .text.lock     0x08500010       0x14 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .text.unlock   0x08500024        0xc /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .text.memory_notice_disarm
+                0x08500030       0x44 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x08500030                memory_notice_disarm
+ .text.memory_notice_configure
+                0x08500074       0x98 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x08500074                memory_notice_configure
+ .text.memory_notice_dispatch
+                0x0850010c      0x18c /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x0850010c                memory_notice_dispatch
+ .text.memory_notice_pop
+                0x08500298       0x90 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x08500298                memory_notice_pop
+ .text.memset   0x08500328       0x18 /root/garmin/staging/native-memory-notice/runtime.o
+                0x08500328                memset
+ .text.memcpy   0x08500340       0x1c /root/garmin/staging/native-memory-notice/runtime.o
+                0x08500340                memcpy
+ *(.rodata .rodata.*)
+                0x0850035c                        __notice_code_end = .
+                0x00000001                        ASSERT ((__notice_code_end <= 0x8501000), observer code exceeds page)
+
+.glue_7         0x0850035c        0x0
+ .glue_7        0x0850035c        0x0 linker stubs
+
+.glue_7t        0x0850035c        0x0
+ .glue_7t       0x0850035c        0x0 linker stubs
+
+.vfp11_veneer   0x0850035c        0x0
+ .vfp11_veneer  0x0850035c        0x0 linker stubs
+
+.v4_bx          0x0850035c        0x0
+ .v4_bx         0x0850035c        0x0 linker stubs
+
+.iplt           0x0850035c        0x0
+ .iplt          0x0850035c        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+
+.igot.plt       0x0850035c        0x0
+ .igot.plt      0x0850035c        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+
+.rel.dyn        0x0850035c        0x0
+ .rel.iplt      0x0850035c        0x0 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x08501000                        . = 0x8501000
+                0x08501000                        __notice_state_start = .
+
+.bss            0x08501000       0x8c
+ *(.bss .bss.*)
+ .bss.notice_slots
+                0x08501000       0x50 /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .bss.memory_notice_control
+                0x08501050       0x3c /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+                0x08501050                memory_notice_control
+ *(COMMON)
+                0x0850108c                        __notice_state_end = .
+                0x00000001                        ASSERT ((__notice_state_end <= 0x8501fc0), observer state exceeds guarded page)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+LOAD /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+LOAD /root/garmin/staging/native-memory-notice/runtime.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-memory-notice/notice-armv6.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-memory-notice/memory_notice_observer.o
+ .ARM.attributes
+                0x0000002f       0x2f /root/garmin/staging/native-memory-notice/runtime.o

@@ -1,0 +1,58 @@
+There are generic sort descriptions for various code pages.
+
+You could write one for a particular language.
+
+
+An ordering of characters for a given code page.
+Characters are represented either as themselves (in unicode) or
+as two or more hex digits of the unicode representation.
+
+There are three ordering strengths represented in this file.
+
+These are Primary (different letters), secondary (different
+accents), tertiary (different case).
+See the java documentation for the Collator class for some more
+discussion of the strength concept and examples.
+
+Note that primary differences always determine the order even if
+they are later in the word than secondary differences.
+ie A B comes after A-acute A, even though A-acute sorts after A.
+
+The word 'code' starts the ordering section.
+
+Primary differences are represented by the '<' separator.
+Characters with secondary differences are separated by semicolons
+and characters with tertiary differences are separated by commas.
+
+The code section ends if the word 'expansion' is seen.
+This introduces a character that should sort as though it is
+two (or more) separate characters.
+
+
+ID values
+---------
+
+I believe that these are arbitary identifiers.  Here is a registry of
+values we are using.  If you make a variation on a code-page
+sort-order then give it a different id2 value.
+It is believed that having sorts with the same id1/id2 but different data loaded
+on the same device will give unexpected results
+
+code-page  id1  description
+
+1250       12   Central European sort
+1251        8   Cyrillic sort
+1252        7   Western European sort
+1253       13   Greek sort
+1254       14   Turkish sort
+1255       15   Hebrew sort
+1256       16?9 Arabic sort		cp1256.txt has id1=9, original version of this doc said 16
+1257       17   Latin Baltic sort
+1258       18   Vietnamese sort
+874        11   Thai. 8-bit		not implemented
+932         9   Japanese. Shift JIS	not implemented. Note id1=9 used by 1256
+936         5   Simplified Chinese	not implemented
+949        10   Korean. Unified Hangui	not implemented
+
+65001      19   Unicode sort
+0          0    ASCII 7-bit sort

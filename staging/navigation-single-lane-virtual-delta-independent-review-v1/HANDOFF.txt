@@ -1,0 +1,19 @@
+本範圍完成普通 DATA artifact 的獨立 review。沒有開 IMG/PBF/MAIN、沒有 CPU/guest/firmware/phone/audio/device 執行，也沒有重跑 producer 的128MB stream 或舊 suite。
+
+Producer final seal e70643bf37de5edd1dc4a4701da9df0f54e8ea03580040034f23b360ade0cde0、proof ab8b53fbae9521501fb744a559ce8550a68e699d0a0bcfb24be4dfb5be43aabd 的全部32小檔 pin/size/stat/mode皆實讀核對，前後stat未變。實際mode0644原樣保留；hash-sealed不是readonly-mode。本review含前置inspection及失敗讀取合計943452B，小於1MiB。本scope不修改producer檔案。
+
+獨立 reader只用 actual-stream-windows.bin 88047B及sealedindex映射為128360448B virtual地址空間；任何缺少capture的range直接reject，沒有source/IMG fallback。沒有import/執行producer mapper/writer。完整captured header/FAT73728B有DSKIMG/XOR0/GARMIN/signature、(9,3)4Kexponents、32768blocks及262144sectors，capacity134217728B。六components actualpart/blocks無重複、無洞且size/allocation相符；continuation rows part>0 logicalsize0。
+
+Actual captures的MDR六DIR推導出L3 firstwidth23/stride112，L4/L5/L6 stride128/126/68保持；真physical6→5→4→3→2→1→DIR無插入lookahead。Actual L3 ID1153 四川路二段first3781595/count267/flag4，跟原current-v2 payload只有first/count欄位差。267 actualcopied L4 siblings逐筆比對sealed原4272B：266筆全128bits原樣，第6筆4巷只改first/count32bits，rawflags5及其他字段保留。其newID3781600，指newL5 first2667574/count5；不是只patch stock而留下current copy舊指標。
+
+L5實际labels順序是 + 交叉路口 +、1號、2號、4號、7號。新2號ID2667576/ref19/raw24[1164928,5660270]等於sealedsource-bound126bits，source node12084620255/group3508619/fullsource witness綁定。旧四筆各完整126bits、原相對順序及rawflags[6,8,0,0]保留；第一筆next6/first120119/count1仍能reach實際captured L6 child。1號rawflag8沒有被改零或推定它是terminal旗標。New L5 global shifts6/4/2/0/6與tight630bit append對照通過；没有per-record/group padding。
+
+GMP/LBL實際captured header及CP950 refs真decode各267 sibling/selectedpath與民權controls的文字；原民權parent與6/150/184三筆significant fields、refs、coords、CP950byte及windowSHA都跟sealed original-v2 control artifact相符。這只是DATA對照，不是重跑native搜尋或route。
+
+Inverse925a的來源可明確區別：build_virtual_delta_v1.py:270 真repack_stream(image,sink,...)後，由stream_support_v1.py:155 write(raw)接收actualemitted transformedbytes；181-185從這個raw取MDR slice送InverseMDR.consume；109-122保留source-length spans、apply sparsemask後update inverse_whole；其他五component也取同個emitted raw，僅原11999B tailpadding額外補入。它不是OriginalMDRDigest的original-supplier/source-cache identitycheck。後者是另一object/檔original-MDR-source-digest.json，計算MDR8cd9…的來源順序hash。五條exact-source/line/SHA dataflow witness在independent-decoded-witnesses.json。
+
+Producer actualexecution ab0374 EXIT0 evidence稱whole emittedforward SHAfa4df4aed873eeecebb8b35d12e87111691fb72725c027ddbb35ee1f4c626959及inversewhole925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb。這是producer完整串流執行的receipt，review沒有獨立重新hash完整forward或inverse。88047B captures缺其餘約128MB資料，不能重建全inverse。獨立實際驗到：完整captured FAT逆980packedruns、captured MDR header600/DIR/root masks、oldL5 two-high-padding mask以及46B gzip lossless解出11999B、六component index/digests一致。這些partialinverse檢查與wholeexecution資料流一致，但不是full outputfile readback；原本就沒有persist/reopen fulloutput IMG。
+
+Producer既有prestream failure（streamposition0、verbose inverseJSON超小artifactbudget）與source originalzero-flags假設失敗均由其seal保留。Lossless metadata/padding壓縮只改小檔儲存方式，與renderer/rootcause/admission沒有關係。本review另有兩個own hostfail：f7e017未讀任何content即因額外mode0444假設fail；d2ffd0因我要求所有FAT續頁size相同而fail。failedsource/actualreceipt都保留，不稱平台阻擋、內容損壞或producerfailed。修正使用實際sealedmode與part>0 size0後4e063b EXIT0。失敗reader內部log未寫出，因此其278247B以已完成的39個hash-pinned read/file sizes及exact執行source計入budget，這個區別明載於failure receipt；成功stage保留actualtrackedreadlogs。
+
+未驗：原native comparator/binarylookup/query/UI/render、道路是否正常、實機route、新selected source districtpolygon或officialaddress，以及v3道路消失根因。Header checksum/CHS bytes保留不代表checksum算法或renderer接受已驗。這是有限virtualdelta evidence，沒有可安裝IMG/ZIP/DB/labelpool/record reservation；native_write_ready/install_ready/fullgoal=false。全部handlesclosed，停止本scope，交root判斷下一gate。

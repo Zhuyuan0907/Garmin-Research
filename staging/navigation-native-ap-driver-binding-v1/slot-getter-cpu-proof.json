@@ -1,0 +1,97 @@
+{
+  "schema": "bounded-original-slot-getter-CPU-fixture/v1",
+  "source_sha256": "d86d6b4af566dde8688653a7255e422fae4698f1234e02609bd694502bf45193",
+  "input_capture_sha256": "ca91a6ad4cecb69779a9ab95343baf87c94fa919fdc55431215ba482cd0b297c",
+  "input_capture_stat_before": [
+    45826,
+    538499,
+    145158,
+    1791347963549318323,
+    1791347963549318323
+  ],
+  "input_capture_stat_after": [
+    45826,
+    538499,
+    145158,
+    1791347963549318323,
+    1791347963549318323
+  ],
+  "MAIN_SHA_inherited": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "exact_original_entry": "0xfe67e",
+  "exact_original_code_hex": "632802d25349085c7047ff207047",
+  "exact_original_PC_literal_address": "0xfe7d0",
+  "exact_original_PC_literal_value": "0xf00114",
+  "CPU": "ARM1176 / original Thumb instructions",
+  "fixtures": [
+    {
+      "name": "mapped_slot_nonzero",
+      "input_index": 2,
+      "expected": 99,
+      "actual": 99,
+      "table_mapped": true,
+      "table_and_code_readonly": true,
+      "actual_original_instruction_trace": [
+        "0xfe67e",
+        "0xfe680",
+        "0xfe682",
+        "0xfe684",
+        "0xfe686"
+      ],
+      "stopped_after_original_BX_LR": true
+    },
+    {
+      "name": "last_valid_slot",
+      "input_index": 98,
+      "expected": 100,
+      "actual": 100,
+      "table_mapped": true,
+      "table_and_code_readonly": true,
+      "actual_original_instruction_trace": [
+        "0xfe67e",
+        "0xfe680",
+        "0xfe682",
+        "0xfe684",
+        "0xfe686"
+      ],
+      "stopped_after_original_BX_LR": true
+    },
+    {
+      "name": "first_invalid_slot_unmapped_table",
+      "input_index": 99,
+      "expected": 255,
+      "actual": 255,
+      "table_mapped": false,
+      "table_and_code_readonly": true,
+      "actual_original_instruction_trace": [
+        "0xfe67e",
+        "0xfe680",
+        "0xfe688",
+        "0xfe68a"
+      ],
+      "stopped_after_original_BX_LR": true
+    },
+    {
+      "name": "unsigned_negative_index_unmapped_table",
+      "input_index": 4294967295,
+      "expected": 255,
+      "actual": 255,
+      "table_mapped": false,
+      "table_and_code_readonly": true,
+      "actual_original_instruction_trace": [
+        "0xfe67e",
+        "0xfe680",
+        "0xfe688",
+        "0xfe68a"
+      ],
+      "stopped_after_original_BX_LR": true
+    }
+  ],
+  "instruction_semantics_or_return_hooks": [],
+  "code_hook": "Read-only instruction observer only",
+  "stop_point": "Original BX LR to fixture sentinel; no getter return substituted",
+  "synthetic_fixture_scope": "99-slot byte mapping table only; values63/64 correspond to compared values in110308 caller, not a proved AP file binding",
+  "actual_map_or_driver_descriptor_tested": false,
+  "geometry_or_block_size_tested": false,
+  "AP_admission_or_rendering_proved": false,
+  "no_MAIN_IMG_USB_device_or_old_CPU_suite_opened": true
+}

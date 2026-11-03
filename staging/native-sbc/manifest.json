@@ -1,0 +1,305 @@
+{
+  "compiler": "arm-linux-gnueabi-gcc (Debian 14.2.0-19) 14.2.0",
+  "upstream": {
+    "version": "2.1",
+    "archive": "sources/deep-research/sbc-2.1.tar.xz",
+    "url": "https://www.kernel.org/pub/linux/bluetooth/sbc-2.1.tar.xz",
+    "archive_sha256": "426633cabd7c798236443516dfa8335b47e004b0ef37ff107e0c7ead3299fcc2",
+    "license": "LGPL-2.1-or-later",
+    "sbc_c_modified": false,
+    "source_and_headers_verified_against_archive": true
+  },
+  "source_sha256": {
+    "sources/deep-research/sbc-2.1/sbc/sbc.c": "42d16642f3eebf51f7f9e84a03f62a1d722c03414ed3265ba183bdaa0d9dccc4",
+    "native/sbc-prototype/decoder.c": "b82ae30f71cd5c5a61120aff9435164bcc375397a90a775d2e0255db78e28661",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "native/sbc-prototype/emulation.ld": "9febdd0ec1c55f0086075817c914e79494dff4d832b3c23f698320569dcb0054",
+    "sources/deep-research/sbc-2.1/sbc/sbc.h": "ab2e351d97ee25d7836902465ef1e5589c7bc07988e5c2bdc484ac1ffee754ab",
+    "sources/deep-research/sbc-2.1/sbc/sbc_math.h": "4cbe03013967fd9872c86677f4ff398994010706ffc6f77d39792f44bc8f2fdf",
+    "sources/deep-research/sbc-2.1/sbc/sbc_primitives.h": "9cf89824889d2e0464d4135808ead9a7d70ee223d6e1b73e43969fa969a3951e",
+    "sources/deep-research/sbc-2.1/sbc/sbc_primitives_armv6.h": "208502fd6c4c87724e33e2fe38eaa8396398098c68c82a34bbaa36b8c2804920",
+    "sources/deep-research/sbc-2.1/sbc/sbc_primitives_iwmmxt.h": "f9639119449c9253cf70e500f423e3459f27fa7ea6ed172aa8eb11e952a78e19",
+    "sources/deep-research/sbc-2.1/sbc/sbc_primitives_mmx.h": "f15c79ba06f6151e03e3b6224ce2c863dd8c352aa216f558fddc07b3f2ef9796",
+    "sources/deep-research/sbc-2.1/sbc/sbc_primitives_neon.h": "84207b29dd78ef26a66e89a77dab01982d398a2255c6b1c2c60870e336082142",
+    "sources/deep-research/sbc-2.1/sbc/sbc_primitives_sse.h": "7f80becc4b448b1e17100ab515f86d62a6719086ef704109707c72cd6d9d52d6",
+    "sources/deep-research/sbc-2.1/sbc/sbc_private.h": "16dd9e1621d73c387ac4b2027320028e963e5a2d09013d9dccec4ede3142a140",
+    "sources/deep-research/sbc-2.1/sbc/sbc_tables.h": "fe57949c20000aa3cacc359887ea1ea0cb31146371beb2488f732bc6bdf17933"
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c",
+      "-o",
+      "/root/garmin/staging/native-sbc/sbc.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/decoder.c",
+      "-o",
+      "/root/garmin/staging/native-sbc/decoder.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/runtime.c",
+      "-o",
+      "/root/garmin/staging/native-sbc/runtime.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-sbc/decoder.map",
+      "-Wl,-T,/root/garmin/native/sbc-prototype/emulation.ld",
+      "-Wl,--undefined=garmin_sbc_decode_frame",
+      "/root/garmin/staging/native-sbc/sbc.o",
+      "/root/garmin/staging/native-sbc/decoder.o",
+      "/root/garmin/staging/native-sbc/runtime.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-sbc/decoder-armv6.elf"
+    ]
+  ],
+  "elf": "staging/native-sbc/decoder-armv6.elf",
+  "elf_sha256": "2682ec7fa0868af3ccb795eede209923747ca0772f4209da8c3aaf72f36bc06a",
+  "flat_binary_bytes": 11988,
+  "flat_binary_sha256": "4b83586956e694f0d2ca5029e06e235339d0089f693ef8d03d66486045e55e65",
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x800223c\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08000000 0x08000000 0x02ed4 0x02ed4 R E 0x10000\n  LOAD           0x003000 0x08003000 0x08003000 0x00000 0x04040 RW  0x10000\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .rodata \n   01     .bss \n",
+  "symbols": {
+    "shift": {
+      "address": 0,
+      "type": "a"
+    },
+    "sbc_crc8": {
+      "address": 134217728,
+      "type": "t"
+    },
+    "sbc_calculate_bits": {
+      "address": 134217844,
+      "type": "t"
+    },
+    "sbc_unpack_frame_internal": {
+      "address": 134220356,
+      "type": "t"
+    },
+    "sbc_unpack_frame": {
+      "address": 134221280,
+      "type": "t"
+    },
+    "msbc_unpack_frame": {
+      "address": 134221552,
+      "type": "t"
+    },
+    "sbc_pack_frame": {
+      "address": 134221672,
+      "type": "t"
+    },
+    "msbc_pack_frame": {
+      "address": 134223920,
+      "type": "t"
+    },
+    "sbc_set_defaults": {
+      "address": 134224424,
+      "type": "t"
+    },
+    "sbc_init": {
+      "address": 134224516,
+      "type": "T"
+    },
+    "sbc_get_codesize": {
+      "address": 134224628,
+      "type": "T"
+    },
+    "sbc_decode": {
+      "address": 134224728,
+      "type": "T"
+    },
+    "garmin_sbc_reset": {
+      "address": 134226492,
+      "type": "T"
+    },
+    "garmin_sbc_decode_frame": {
+      "address": 134226564,
+      "type": "T"
+    },
+    "prototype_arena_reset": {
+      "address": 134227092,
+      "type": "T"
+    },
+    "prototype_arena_used": {
+      "address": 134227112,
+      "type": "T"
+    },
+    "malloc": {
+      "address": 134227128,
+      "type": "T"
+    },
+    "memset": {
+      "address": 134227200,
+      "type": "T"
+    },
+    "memcpy": {
+      "address": 134227224,
+      "type": "T"
+    },
+    "__aeabi_idiv0": {
+      "address": 134227252,
+      "type": "T"
+    },
+    "__aeabi_ldiv0": {
+      "address": 134227256,
+      "type": "T"
+    },
+    ".udivsi3_skip_div0_test": {
+      "address": 134227260,
+      "type": "t"
+    },
+    "__aeabi_uidiv": {
+      "address": 134227260,
+      "type": "T"
+    },
+    "__udivsi3": {
+      "address": 134227260,
+      "type": "T"
+    },
+    "__aeabi_uidivmod": {
+      "address": 134227752,
+      "type": "T"
+    },
+    "__aeabi_uldivmod": {
+      "address": 134227784,
+      "type": "T"
+    },
+    "__udivmoddi4": {
+      "address": 134227844,
+      "type": "T"
+    },
+    "crc_table": {
+      "address": 134228132,
+      "type": "r"
+    },
+    "synmatrix8": {
+      "address": 134228388,
+      "type": "r"
+    },
+    "synmatrix4": {
+      "address": 134228900,
+      "type": "r"
+    },
+    "sbc_proto_8_80m1": {
+      "address": 134229028,
+      "type": "r"
+    },
+    "sbc_proto_8_80m0": {
+      "address": 134229188,
+      "type": "r"
+    },
+    "sbc_proto_4_40m1": {
+      "address": 134229348,
+      "type": "r"
+    },
+    "sbc_proto_4_40m0": {
+      "address": 134229428,
+      "type": "r"
+    },
+    "sbc_offset8": {
+      "address": 134229508,
+      "type": "r"
+    },
+    "sbc_offset4": {
+      "address": 134229636,
+      "type": "r"
+    },
+    "rates.0": {
+      "address": 134229700,
+      "type": "r"
+    },
+    "stream_config": {
+      "address": 134230016,
+      "type": "b"
+    },
+    "have_config": {
+      "address": 134230020,
+      "type": "b"
+    },
+    "ready": {
+      "address": 134230024,
+      "type": "b"
+    },
+    "decoder": {
+      "address": 134230028,
+      "type": "b"
+    },
+    "used": {
+      "address": 134230048,
+      "type": "b"
+    },
+    "arena": {
+      "address": 134230080,
+      "type": "b"
+    }
+  },
+  "undefined_symbols": [],
+  "device_io": false,
+  "firmware_patch": false,
+  "garmin_abi_identified": false,
+  "native_on_device_verified": false,
+  "synthetic_link_base": "0x08000000",
+  "limitations": "Single-context SBC decoder only. No Garmin loader, UI, A2DP transport or speaker ABI. ELF/flat addresses are emulator mappings, not known free Garmin RAM. Preserve upstream source/licenses and relinkable objects for any future distribution."
+}

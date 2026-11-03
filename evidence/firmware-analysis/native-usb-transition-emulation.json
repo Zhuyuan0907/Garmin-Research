@@ -1,0 +1,1061 @@
+{
+  "updated_utc": "2026-10-03T05:58:35.792414+00:00",
+  "exact_target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "source_sha256": {
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "scripts/analyze_native_loader.py": "4f83c8e1c9f1aa12e350db7238a78ee557259fbf1123662fb3e52a5496a072b1",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_native_loader.py": "88f02fc748aa5aa98926bc343ebf4633a22b708a7bd85a0bc1598891c055168d",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_projection_io.py": "e35721965e7c62fa307e79d3c70bf09f5017514e2be5de1a76a0873bb0c605b9",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_sbc_component.py": "ab81b6471be88ffdf77537e8ceea1380f2906fb58bf1214e59feaea6a328707e",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_usb_transition.py": "b736b4ebb7f74ca31a7ac2f76605290694a6df53747392c5b435eb3fb6c47cd9"
+  },
+  "transition_cases": [
+    {
+      "name": "TypeB_to_TypeA",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 13,
+        "policy": 0,
+        "task_handle": "0x12345678",
+        "queue_enabled": 1,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 13,
+          "current_type_field": 0,
+          "candidate_field": 0,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "queue_publication",
+          "message_hex": "01000d000100",
+          "fixture_return": 1,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 1,
+      "native_publication_gate_calls": 1,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x37bce4",
+          "boundary": "queue_publication",
+          "message_hex": "01000d000100",
+          "fixture_return": 1,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "TypeA_to_TypeB",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 0,
+        "policy": 0,
+        "task_handle": "0x12345678",
+        "queue_enabled": 1,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 13,
+          "old_type_field": 14,
+          "current_type_field": 0,
+          "candidate_field": 13,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 13,
+          "old_type_field": 14,
+          "current_type_field": 0,
+          "candidate_field": 13,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 13,
+          "old_type_field": 0,
+          "current_type_field": 13,
+          "candidate_field": 13,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "queue_publication",
+          "message_hex": "0100000d0001",
+          "fixture_return": 1,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "boundary": "state_notification",
+          "message_hex": "000d00",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 1,
+      "native_publication_gate_calls": 1,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x37bce4",
+          "boundary": "queue_publication",
+          "message_hex": "0100000d0001",
+          "fixture_return": 1,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "000d00",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "missing_task_handle",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 13,
+        "policy": 0,
+        "task_handle": "0x0",
+        "queue_enabled": 1,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "state_notification",
+          "message_hex": "000d0e",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 1,
+      "native_publication_gate_calls": 1,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "000d0e",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "disabled_publication",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 13,
+        "policy": 0,
+        "task_handle": "0x12345678",
+        "queue_enabled": 0,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "state_notification",
+          "message_hex": "000d0e",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 1,
+      "native_publication_gate_calls": 1,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "000d0e",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "publication_return_zero_is_ignored_by_wrapper",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 13,
+        "policy": 0,
+        "task_handle": "0x12345678",
+        "queue_enabled": 1,
+        "queue_return": 0
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 13,
+          "current_type_field": 0,
+          "candidate_field": 0,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "queue_publication",
+          "message_hex": "01000d000100",
+          "fixture_return": 0,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 1,
+      "native_publication_gate_calls": 1,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x37bce4",
+          "boundary": "queue_publication",
+          "message_hex": "01000d000100",
+          "fixture_return": 0,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "policy11_bypasses_publication",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 13,
+        "policy": 11,
+        "task_handle": "0x0",
+        "queue_enabled": 1,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 13,
+          "current_type_field": 0,
+          "candidate_field": 0,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 0,
+      "native_publication_gate_calls": 0,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "candidate_churn_restarts_debounce",
+      "fixtures": {
+        "channel": 0,
+        "old_type": 13,
+        "policy": 0,
+        "task_handle": "0x12345678",
+        "queue_enabled": 1,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 13,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 13,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 1
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 0,
+          "debounce_counter": 2
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 13,
+          "current_type_field": 0,
+          "candidate_field": 0,
+          "debounce_counter": 3
+        }
+      ],
+      "events": [
+        {
+          "boundary": "queue_publication",
+          "message_hex": "01000d000100",
+          "fixture_return": 1,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "all_passed": true,
+      "native_transition_calls": 5,
+      "native_message_builder_calls": 1,
+      "native_publication_gate_calls": 1,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [
+        {
+          "function": "0x37bce4",
+          "boundary": "queue_publication",
+          "message_hex": "01000d000100",
+          "fixture_return": 1,
+          "caller_LR": "0x322ef3"
+        },
+        {
+          "function": "0x3cc594",
+          "boundary": "state_notification",
+          "message_hex": "00000d",
+          "caller_LR": "0x33229d"
+        }
+      ],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    },
+    {
+      "name": "unknown_channel_ignored",
+      "fixtures": {
+        "channel": 4,
+        "old_type": 13,
+        "policy": 0,
+        "task_handle": "0x12345678",
+        "queue_enabled": 1,
+        "queue_return": 1
+      },
+      "snapshots": [
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 14,
+          "debounce_counter": 0
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 14,
+          "debounce_counter": 0
+        },
+        {
+          "candidate_input": 0,
+          "old_type_field": 14,
+          "current_type_field": 13,
+          "candidate_field": 14,
+          "debounce_counter": 0
+        }
+      ],
+      "events": [],
+      "all_passed": true,
+      "native_transition_calls": 3,
+      "native_message_builder_calls": 0,
+      "native_publication_gate_calls": 0,
+      "record_and_control_guards_intact": true,
+      "function_fixtures": [],
+      "immutable_channel_registration_fields_unchanged": true,
+      "actual_queue_worker_ADC_USB_role_or_VBUS_executed": false
+    }
+  ],
+  "original_callback_initializer": {
+    "original_initializer": "0x323818",
+    "original_ARM_clear": "0x35b4f4",
+    "profile_bytes": 19264,
+    "channel_stride": 4816,
+    "type_stride": 344,
+    "records": [
+      {
+        "channel": 0,
+        "type": 0,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 0,
+        "type": 1,
+        "close_callback": "0x323593",
+        "open_callback": "0x323595"
+      },
+      {
+        "channel": 0,
+        "type": 2,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 0,
+        "type": 3,
+        "close_callback": "0x32358f",
+        "open_callback": "0x323591"
+      },
+      {
+        "channel": 0,
+        "type": 4,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 0,
+        "type": 5,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 0,
+        "type": 6,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 0,
+        "type": 7,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 0,
+        "type": 8,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 0,
+        "type": 9,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 0,
+        "type": 10,
+        "close_callback": "0x322de1",
+        "open_callback": "0x322dd7"
+      },
+      {
+        "channel": 0,
+        "type": 11,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 0,
+        "type": 12,
+        "close_callback": "0x322e89",
+        "open_callback": "0x322e77"
+      },
+      {
+        "channel": 0,
+        "type": 13,
+        "close_callback": "0x322ec7",
+        "open_callback": "0x322e93"
+      },
+      {
+        "channel": 1,
+        "type": 0,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 1,
+        "type": 1,
+        "close_callback": "0x323593",
+        "open_callback": "0x323595"
+      },
+      {
+        "channel": 1,
+        "type": 2,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 1,
+        "type": 3,
+        "close_callback": "0x32358f",
+        "open_callback": "0x323591"
+      },
+      {
+        "channel": 1,
+        "type": 4,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 1,
+        "type": 5,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 1,
+        "type": 6,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 1,
+        "type": 7,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 1,
+        "type": 8,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 1,
+        "type": 9,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 1,
+        "type": 10,
+        "close_callback": "0x322de1",
+        "open_callback": "0x322dd7"
+      },
+      {
+        "channel": 1,
+        "type": 11,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 1,
+        "type": 12,
+        "close_callback": "0x322e89",
+        "open_callback": "0x322e77"
+      },
+      {
+        "channel": 1,
+        "type": 13,
+        "close_callback": "0x322ec7",
+        "open_callback": "0x322e93"
+      },
+      {
+        "channel": 2,
+        "type": 0,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 2,
+        "type": 1,
+        "close_callback": "0x323593",
+        "open_callback": "0x323595"
+      },
+      {
+        "channel": 2,
+        "type": 2,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 2,
+        "type": 3,
+        "close_callback": "0x32358f",
+        "open_callback": "0x323591"
+      },
+      {
+        "channel": 2,
+        "type": 4,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 2,
+        "type": 5,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 2,
+        "type": 6,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 2,
+        "type": 7,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 2,
+        "type": 8,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 2,
+        "type": 9,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 2,
+        "type": 10,
+        "close_callback": "0x322de1",
+        "open_callback": "0x322dd7"
+      },
+      {
+        "channel": 2,
+        "type": 11,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 2,
+        "type": 12,
+        "close_callback": "0x322e89",
+        "open_callback": "0x322e77"
+      },
+      {
+        "channel": 2,
+        "type": 13,
+        "close_callback": "0x322ec7",
+        "open_callback": "0x322e93"
+      },
+      {
+        "channel": 3,
+        "type": 0,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 3,
+        "type": 1,
+        "close_callback": "0x323593",
+        "open_callback": "0x323595"
+      },
+      {
+        "channel": 3,
+        "type": 2,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 3,
+        "type": 3,
+        "close_callback": "0x32358f",
+        "open_callback": "0x323591"
+      },
+      {
+        "channel": 3,
+        "type": 4,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 3,
+        "type": 5,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 3,
+        "type": 6,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 3,
+        "type": 7,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 3,
+        "type": 8,
+        "close_callback": "0x3230ff",
+        "open_callback": "0x3230fd"
+      },
+      {
+        "channel": 3,
+        "type": 9,
+        "close_callback": "0x323551",
+        "open_callback": "0x323569"
+      },
+      {
+        "channel": 3,
+        "type": 10,
+        "close_callback": "0x322de1",
+        "open_callback": "0x322dd7"
+      },
+      {
+        "channel": 3,
+        "type": 11,
+        "close_callback": "0x32338d",
+        "open_callback": "0x32341f"
+      },
+      {
+        "channel": 3,
+        "type": 12,
+        "close_callback": "0x322e89",
+        "open_callback": "0x322e77"
+      },
+      {
+        "channel": 3,
+        "type": 13,
+        "close_callback": "0x322ec7",
+        "open_callback": "0x322e93"
+      }
+    ],
+    "all_passed": true,
+    "guard_intact": true,
+    "default_callbacks_executed_and_returned": true,
+    "default_callbacks_exact_body": "BX LR",
+    "function_fixtures": [
+      {
+        "function": "0x32303e",
+        "boundary": "diagnostic_logging",
+        "caller_LR": "0x3238df"
+      }
+    ],
+    "other_task_control_bytes_unchanged": true,
+    "nondefault_callbacks_or_hardware_not_executed": true
+  },
+  "board_control_selector_cases": [
+    {
+      "synthetic_selector": 0,
+      "selected_initializer": "0x21279c",
+      "slots": {
+        "0": "0x154be3",
+        "4": "0x154d73",
+        "8": "0x0",
+        "12": "0x154da7",
+        "16": "0x154ecd",
+        "20": "0x154f5f",
+        "24": "0x154f59",
+        "28": "0x155087",
+        "32": "0x1550bb",
+        "36": "0x1550f7",
+        "40": "0x1551a1",
+        "44": "0x1551b1",
+        "48": "0x155213",
+        "52": "0x155277",
+        "56": "0x155281",
+        "60": "0x15512b",
+        "64": "0x155287",
+        "68": "0x155335",
+        "72": "0x0",
+        "76": "0x15504b",
+        "80": "0x0",
+        "84": "0x1553f1",
+        "88": "0x0",
+        "92": "0x15541d",
+        "96": "0x155443",
+        "100": "0x155601",
+        "104": "0x155489",
+        "108": "0x155173"
+      },
+      "all_passed": true,
+      "guard_intact": true,
+      "function_fixtures": [],
+      "board_selector_actual_value_or_target_functions_executed": false,
+      "not_claimed_as_USB_host_driver_vector": true
+    },
+    {
+      "synthetic_selector": 3,
+      "selected_initializer": "0x212740",
+      "slots": {
+        "0": "0x12253b",
+        "4": "0x12263b",
+        "8": "0x0",
+        "12": "0x1226a5",
+        "16": "0x122763",
+        "20": "0x12288f",
+        "24": "0x122849",
+        "28": "0x1229ff",
+        "32": "0x1229ff",
+        "36": "0x1229ff",
+        "40": "0x122b29",
+        "44": "0x122b29",
+        "48": "0x122b29",
+        "52": "0x122bcb",
+        "56": "0x122bed",
+        "60": "0x122ab3",
+        "64": "0x122c31",
+        "68": "0x122c6b",
+        "72": "0x0",
+        "76": "0x1224ff",
+        "80": "0x0",
+        "84": "0x122ca5",
+        "88": "0x0",
+        "92": "0x122ca7",
+        "96": "0x122ca9",
+        "100": "0x0",
+        "104": "0x0",
+        "108": "0x122afb"
+      },
+      "all_passed": true,
+      "guard_intact": true,
+      "function_fixtures": [],
+      "board_selector_actual_value_or_target_functions_executed": false,
+      "not_claimed_as_USB_host_driver_vector": true
+    },
+    {
+      "synthetic_selector": 5,
+      "selected_initializer": "0x21279c",
+      "slots": {
+        "0": "0x154be3",
+        "4": "0x154d73",
+        "8": "0x0",
+        "12": "0x154da7",
+        "16": "0x154ecd",
+        "20": "0x154f5f",
+        "24": "0x154f59",
+        "28": "0x155087",
+        "32": "0x1550bb",
+        "36": "0x1550f7",
+        "40": "0x1551a1",
+        "44": "0x1551b1",
+        "48": "0x155213",
+        "52": "0x155277",
+        "56": "0x155281",
+        "60": "0x15512b",
+        "64": "0x155287",
+        "68": "0x155335",
+        "72": "0x0",
+        "76": "0x15504b",
+        "80": "0x0",
+        "84": "0x1553f1",
+        "88": "0x0",
+        "92": "0x15541d",
+        "96": "0x155443",
+        "100": "0x155601",
+        "104": "0x155489",
+        "108": "0x155173"
+      },
+      "all_passed": true,
+      "guard_intact": true,
+      "function_fixtures": [],
+      "board_selector_actual_value_or_target_functions_executed": false,
+      "not_claimed_as_USB_host_driver_vector": true
+    }
+  ],
+  "synthetic_softconnect_cases": [
+    {
+      "synthetic_POWER_byte_before": 165,
+      "argument": 1,
+      "after": 229,
+      "original_function": "0x332012",
+      "register_address": "0x10200001",
+      "all_passed": true,
+      "adjacent_register_bytes_unchanged": true,
+      "function_fixtures": [],
+      "real_softconnect_VBUS_or_host_session_not_executed": true
+    },
+    {
+      "synthetic_POWER_byte_before": 229,
+      "argument": 0,
+      "after": 165,
+      "original_function": "0x332012",
+      "register_address": "0x10200001",
+      "all_passed": true,
+      "adjacent_register_bytes_unchanged": true,
+      "function_fixtures": [],
+      "real_softconnect_VBUS_or_host_session_not_executed": true
+    },
+    {
+      "synthetic_POWER_byte_before": 0,
+      "argument": 1,
+      "after": 64,
+      "original_function": "0x332012",
+      "register_address": "0x10200001",
+      "all_passed": true,
+      "adjacent_register_bytes_unchanged": true,
+      "function_fixtures": [],
+      "real_softconnect_VBUS_or_host_session_not_executed": true
+    },
+    {
+      "synthetic_POWER_byte_before": 255,
+      "argument": 0,
+      "after": 191,
+      "original_function": "0x332012",
+      "register_address": "0x10200001",
+      "all_passed": true,
+      "adjacent_register_bytes_unchanged": true,
+      "function_fixtures": [],
+      "real_softconnect_VBUS_or_host_session_not_executed": true
+    }
+  ],
+  "all_passed": true,
+  "stock_code_mappings_write_protected": true,
+  "device_io": false,
+  "firmware_modified": false,
+  "device_install_candidate": false,
+  "USB_host_AOA_VBUS_or_phone_session_verified": false,
+  "verification_history": {
+    "initial_callback_table_expectation_rejected": true,
+    "cause": "Harness initially reversed the two default close/open BX-LR pointers; original stores put3230FF at+4 and3230FD at+8. Expected mapping corrected, then all cases rerun from fresh VMs. Stock bytes were never changed.",
+    "complete_fresh_run_after_correction": true
+  },
+  "scope": "Original state debounce, six-byte transition messages, task/enable gate, four-channel 14-type callback initialization and two board-control vector constructors execute offline. Queue publication, state notification and initializer logging are explicit fixtures. Original register bit0x40 toggle only uses synthetic10200001 RAM. Actual queue scheduling, nondefault callbacks, board I/O, ADC, VBUS, host transfers, phone and installed App are untested."
+}

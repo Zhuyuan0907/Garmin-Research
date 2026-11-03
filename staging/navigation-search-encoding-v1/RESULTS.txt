@@ -1,0 +1,97 @@
+Garmin navigation-search encoding analysis, mkgmap r4924
+=======================================================
+Scope: Offline analysis and tiny actual map compilation. No live USB access,
+Garmin state changes, large map compilation, firmware changes, or physical
+search execution. The music / native OS research remains paused.
+
+Confirmed observations
+----------------------
+1. Installed source IMG (Taiwan_OSM_20261001_ZhuYuan) has a 102485-byte SRT,
+   CP65001, sort IDs 19/4, max page255. SRT7 page offsets for 民、權、和、路、
+   台、中、臺、市 are all -1. Their 256-codepoint pages are not in SRT8.
+   installed-srt-coverage.json documents the exact offsets.
+2. This is NOT a host-side 民權路==民和路 collision. Executing the untouched
+   r4924 jar's Sort/SrtTextReader gives SECONDARY comparison +1 and distinct
+   keys 95d394ccb7b100000000 and 95d37e4eb7b100000000. 台中市 and 臺中市
+   are also distinct. The host uses implicit primary uint16(codepoint+10690)
+   for entirely absent pages. The SRT writer omits those pages.
+3. The Garmin firmware's actual missing-page policy is unmeasured. Therefore
+   missing SRT pages are a compatibility hypothesis, not a proved root cause
+   of the reported two-hour search or 民權→民和 result. A firmware that derives
+   the same fallback could already handle these entries correctly.
+4. A separate real host collision exists on a partially defined page:
+   4D00 and4D01 (CJK Ext-A) have primary0 because page4D already exists for
+   Yijing hexagrams. Names 4D00+路 and4D01+路 compare equal. This does not
+   explain the common-character 民權/民和 symptom. writer-only patch preserves
+   this existing behavior; it must not be claimed to fix every CJK name.
+5. CP950 is not a demonstrated remedy. No cp950 resource exists. The loader
+   substitutes the CP1252 sort (IDs7/2), changes only the charset to cp950,
+   then sorts Big5 encoded bytes using Western European weights. Sample
+   names differ, but there is no genuine Traditional Chinese sort table or
+   tested Garmin compatibility. Do not switch to950 on this evidence alone.
+6. scripts/verify_garmin_map.py only verifies IMG structural presence of
+   routing/index components and some UTF8 label bytes. Its own output says
+   device_search_verified=false. Those checks do not prove address lookup,
+   city association, route calculation, response times, or compatibility.
+
+Minimal controlled prototype
+----------------------------
+writer-patch-src/.../SRTFile.java shadows only the SRT writer. It scans existing
+sort weights to recover10690, serializes each wholly absent valid BMP page as
+flags0,primary uint16(codepoint+10690),secondary0,tertiary0. It leaves the Sort
+object, host MDR ordering and existing table entries unchanged, and excludes
+surrogate pages. It does not claim supplementary Unicode support.
+
+Two actual r4924 compilations of one tiny OSM fixture (臺中市 and two roads)
+prove every non-SRT component is byte-identical: TRE/RGN/LBL/NET/NOD/MDR/MPS.
+SRT grows102485→329045 bytes. All18175 previously defined valid-BMP weights
+are unchanged;45312 previously absent valid-BMP weights match the host's
+implicit fallback exactly. Major CJK through9FFF does not overflow uint16.
+High BMP weights can wrap exactly as the existing host does; this is not a
+claim that every Unicode value is unique or semantically supported.
+See writer-only-fixture-proof.json and compare_fixture_components.py.
+
+A second tiny prototype uses sort-id-resource/sort/cp65001.txt, which changes
+only ID2 to7052 and description, preserving every original sort definition.
+It compiles to IDs19/7052 with329073-byte SRT. All sampled host keys/comparisons
+remain identical. See new-id-fixture-proof.json.
+
+Example compiler invocation for a NEW full build, subject to root's decision:
+  java -Xmx2800m -cp /root/garmin/staging/navigation-search-encoding-v1/writer-patch-classes:/root/garmin/staging/navigation-search-encoding-v1/sort-id-resource:/root/garmin/sources/maps/mkgmap-r4924/mkgmap.jar uk.me.parabola.mkgmap.main.Main --route --index --housenumbers --gmapsupp --code-page=65001 [existing language/routing flags] [NEW output-dir] -c [PBF splitter template]
+Do not use -jar, which ignores this classpath override. Do not repackage old
+compiled tiles and assume the new ID is effective: FileInfo.getSort() reads
+sortOrderId from each tile LBL and overwrites the resource IDs. All new tiles,
+MDR and SRT must agree. Any eventual candidate must be tested alone, without
+an overlapping older version or inconsistent sort table using the same IDs.
+
+Not recommended:
+custom-resource/sort/cp65001.txt was an exploratory full-CJK resource insertion.
+It changes maxPrimary and adds nonzero secondary/tertiary weights, affecting
+other implicit characters. It is retained only to document the rejected
+approach. It is NOT the writer-only prototype and must not be used to build
+an installation candidate.
+
+Next decisive validation
+-------------------------
+Root should independently verify actual city→street index references, input
+OSM names/admin/city metadata, map selection/duplicate overlays, and the exact
+user address-search flow. Then compare a controlled candidate on the actual
+nüvi2565RT: 臺中市/台中市 selection, 民權路 vs民和路 exact result, other previously
+missing streets, bounded search times, and route simulation. Neither a green
+fixture nor the existence of an MDR proves physical search repaired.
+There is no official complete GarminOS source tree here; rebuilding mkgmap
+map data is possible, rebuilding the proprietary OS from source is not.
+
+Primary sources
+---------------
+https://www.mkgmap.org.uk/download/mkgmap-r4924-src.zip
+  Exact official r4924 source archive; selected source hash receipt retained.
+https://www.mkgmap.org.uk/download/mkgmap.html
+  Official compiler distribution and revision page.
+https://www.mkgmap.org.uk/news/2014/06/18/unicode-searching-now-you-can
+  Historical official notice: Unicode search availability with65001/index/route
+  but Chinese support was uncertain. This old note alone is not used as proof
+  of behavior in4924. The current jar/source/IMG analysis is authoritative.
+https://www.mkgmap.org.uk/doc/options
+  Compiler options; Unicode support depends on device, index generation and
+  consistent code page/sorting options between tiles and global index.

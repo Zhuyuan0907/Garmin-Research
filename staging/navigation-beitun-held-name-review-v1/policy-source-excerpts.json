@@ -1,0 +1,111 @@
+{
+  "source": "staging/navigation-beitun-new-street-bounded-source-v1/analyze_v1.py",
+  "SHA256": "25b98dbaab0978ca54f689a209f85aba0bc38e2de45c4bda74df6654095cb052",
+  "source_read_only_not_executed": true,
+  "excerpts": [
+    {
+      "line": 30,
+      "source": "def one_edit(a,b):"
+    },
+    {
+      "line": 31,
+      "source": " if abs(len(a)-len(b))>1:return False"
+    },
+    {
+      "line": 32,
+      "source": " if len(a)==len(b):return sum(x!=y for x,y in zip(a,b))<=1"
+    },
+    {
+      "line": 33,
+      "source": " if len(a)>len(b):a,b=b,a"
+    },
+    {
+      "line": 34,
+      "source": " return any(a==b[:i]+b[i+1:] for i in range(len(b)))"
+    },
+    {
+      "line": 92,
+      "source": "    parse_failures.append({'line':rows,'offset':offset,'SHA256':sha(line),'error':str(error)});offset+=len(line);continue"
+    },
+    {
+      "line": 95,
+      "source": "    offset+=len(line);continue"
+    },
+    {
+      "line": 98,
+      "source": "    reason_counts['exact_stock_street_present']=reason_counts.get('exact_stock_street_present',0)+1;offset+=len(line);continue"
+    },
+    {
+      "line": 99,
+      "source": "   missing_groups+=1;missing_names.add(street);reasons=[]"
+    },
+    {
+      "line": 102,
+      "source": "   if not isinstance(street,str) or not re.fullmatch(r'[\\u3400-\\u9fff]{2,14}[路街]',street) or re.search(r'[巷弄之段村里鄰交叉口]',street):reasons.append('not_conservative_flat_road_or_street_literal')"
+    },
+    {
+      "line": 103,
+      "source": "   if not isinstance(raw[3],str) or not re.fullmatch(r'[1-9][0-9]*',raw[3]) or label!=raw[3]+'號':reasons.append('not_literal_positive_integer_house')"
+    },
+    {
+      "line": 105,
+      "source": "   if not isinstance(ids,list) or not ids or len(ids)!=group.get('source_node_count') or len(set(ids))!=len(ids) or any(type(n)is not int or n<=0 for n in ids):reasons.append('incomplete_or_invalid_source_IDs')"
+    },
+    {
+      "line": 106,
+      "source": "   if group.get('different_coordinate_nodes')!=0 or group.get('coordinate_selection_ready') is not True or group.get('needs_coordinate_review') is not False:reasons.append('coordinate_conflict_or_unready')"
+    },
+    {
+      "line": 107,
+      "source": "   if group.get('embedded_floor_unit') or group.get('separate_floor_unit_nodes')!=0:reasons.append('floor_unit_metadata_present')"
+    },
+    {
+      "line": 108,
+      "source": "   near=[r for r in snapshot['old_info_rows'] if one_edit(r['label'],street)]"
+    },
+    {
+      "line": 109,
+      "source": "   prefixes=[r for r in snapshot['old_info_rows'] if street.startswith(r['label']) or r['label'].startswith(street)]"
+    },
+    {
+      "line": 110,
+      "source": "   if near or prefixes:reasons.append('possible_spelling_or_prefix_alias_relation')"
+    },
+    {
+      "line": 112,
+      "source": "   except (UnicodeEncodeError,UnicodeDecodeError,AssertionError):reasons.append('CP950_roundtrip_failure')"
+    },
+    {
+      "line": 113,
+      "source": "   if reasons:"
+    },
+    {
+      "line": 114,
+      "source": "    for reason in reasons:reason_counts[reason]=reason_counts.get(reason,0)+1"
+    },
+    {
+      "line": 115,
+      "source": "    offset+=len(line);continue"
+    },
+    {
+      "line": 118,
+      "source": "    offset+=len(line);continue"
+    },
+    {
+      "line": 125,
+      "source": "    geometry_rejections.append({'street':street,'group_id':group['group_id'],'source_status':source_result['status'],'raw24_status':native_result['status']});offset+=len(line);continue"
+    },
+    {
+      "line": 128,
+      "source": "   selected.append({'schema':'conservative source-backed new street data example/v1','status':'held_official_name_and_historical_alias_unknown','group':group,'group_id':group['group_id'],'complete_source_node_IDs':ids,'sourcepoint_decimal_strings':point,'native24':native,'native24_degrees':[str(Decimal(n)*Decimal(360)/Decimal(1<<24)) for n in native],'quantization_policy':'Nearest grid Decimal ROUND_HALF_UP; stock rounding unknown.','raw_complete_JSONL_line_SHA256':sha(line),'raw_complete_JSONL_line_bytes':len(line),'complete_line_number':rows,'decompressed_prefix_offset':offset,'within_repeated_first24MiB':offset+len(line)<=REPEAT_D,'source_origin':'Complete prepared OSM-node planning group; all member IDs retained, different_coordinate_nodes0; version/timestamp not in group, full node ledger not opened.','original_city_district_relation':{'stock_city':snapshot['city'],'stock_district':snapshot['district'],'source_raw_city':raw[0],'source_raw_district':raw[1],'normalization':'Explicit 臺中市→台中市 city spelling only; district/street literals unchanged.'},'stock_JAI_name_classification':{'exact_absent_in_complete441_original_family':True,'basis':'Frozen complete original JAI selected-family snapshot, full stock DB not reopened here.','one_character_edit_candidates':near,'either_direction_prefix_candidates':prefixes,'conservative_possible_alias_matches':False,'historical_alias_exclusion_proved':False},'encoding':{'codepage':950,'street_roundtrip':True,'street_hex':street_bytes.hex(),'house_label_roundtrip':True,'house_label_hex':house_bytes.hex(),'street_bytes_with_NUL':len(street_bytes)+1},'house':{'raw_literal':raw[3],'class':'positive_integer','integer':int(raw[3]),'label':label,'existing_label_ref':existing,'existing_label_ref_scope':'Original numeric label text only; no existing-address or route overlap proved.'},'district_membership':{'sourcepoint':source_result,'exact_native24':native_result},'official_street_name_verified':False,'formal_house_address_or_route_verified':False,'record_ID_reserved':False,'IMG_JAI_bundle_created':False})"
+    },
+    {
+      "line": 131,
+      "source": "  counters={'schema':'new explicit repeated/extended bounded source counters/v1','started_utc':started,'finished_utc':datetime.now(timezone.utc).isoformat(),'source_path':str(GROUPS.relative_to(ROOT)),'source_file_bytes':before[2],'source_stat_before':before,'source_stat_after':sig(GROUPS),'source_stat_unchanged':True,'source_single_pass_claim':False,'source_prefix_previously_read_in_other_scopes':True,'repeated_part':{'physical_compressed_bytes_read_again':len(repeat_compressed),'compressed_SHA256':sha(repeat_compressed),'decompressed_bytes_produced_again':len(repeat_plain),'decompressed_SHA256':sha(repeat_plain),'complete_rows_wholly_repeated_prefix':repeated_rows,'unconsumed_compressed_tail_passed_to_extension':len(repeated_compressed_tail),'matches_prior3MiB_24MiB_prefix':True},'extension_part':{'new_physical_compressed_bytes_after_first3MiB':len(extra_compressed),'compressed_new_range_start':REPEAT_C,'compressed_new_range_end_exclusive':REPEAT_C+NEW_C,'compressed_new_range_SHA256':sha(extra_compressed),'new_decompressed_output_after_first24MiB':len(extra_plain),'decompressed_extension_SHA256':sha(extra_plain),'complete_rows_finished_after24MiB_including_boundary_crossing':rows-repeated_rows,'uses_previous740947B_unconsumed_tail_plus_new_physical_range':True},'total_this_scope':{'physical_compressed_bytes_read':state['compressed_bytes_actually_read'],'decompressed_bytes_produced':state['decompressed_bytes_produced'],'compressed_budget':REPEAT_C+NEW_C,'decompressed_budget':REPEAT_D+NEW_D,'compressed12MiB_prefix_SHA256':sha(repeat_compressed+extra_compressed),'decompressed96MiB_prefix_SHA256':sha(plain),'complete_JSONL_rows':rows,'complete_JSONL_bytes':len(complete),'partial_final_row_bytes_not_parsed':len(partial),'gzip_EOF':inflater.eof,'gzip_footer_CRC_not_validated':True,'unconsumed_compressed_bytes_after96MiB':len(inflater.unconsumed_tail),'JSONL_parse_failures':parse_failures},'same_city_district_groups_in_prefix':same_admin,'missing_exact_stock_street_groups':missing_groups,'missing_exact_stock_distinct_street_names':len(missing_names),'conservative_ready_group_counts_by_street':conservative_names,'reject_reason_counts':reason_counts,'actual_sourcepoint_membership_calls':geometry_calls['source'],'actual_raw24_membership_calls':geometry_calls['raw24'],'geometry_rejection_statuses':geometry_rejections,'new_source_examples_saved':len(selected),'max_new_examples':2,'old_368_point_or_seven_controls_rerun':False,'no_full_source_EOF_hash_PBF_or_node_ledger':True}"
+    },
+    {
+      "line": 132,
+      "source": "  save('prefix-read-counters.json',counters);save('source-examples.json',selected)"
+    }
+  ]
+}

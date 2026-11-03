@@ -1,0 +1,44 @@
+--- staging/navigation-country-v2-v3-address-path-diagnostic-v1/bounded_ap_reader_v1.py
++++ captured_ap_reader_v1.py
+@@ -1,4 +1,4 @@
+-# Ordinary FILE/bit reader copied from pinned previous scope; no writer/native import.
++# Ordinary read-only parser of actual captured virtual-stream windows; no writer/native import.
+ import hashlib
+ import struct
+ from pathlib import Path
+@@ -23,12 +23,10 @@
+ class Image:
+     # Adapted read-only allocation mapping from sealed independent Image8K.
+     # Explicit block_bytes permits actual v2 4K and actual v3 8K; not a writer.
+-    def __init__(self, name, p, block_bytes):
+-        self.name, self.path, self.block_bytes = name, p, block_bytes
+-        self.before = stat(p)
+-        self.size = self.before[2]
+-        self.f = p.open('rb')
+-        OPEN_HANDLES.append(self.f)
++    def __init__(self, name, handle, size, block_bytes):
++        self.name, self.path, self.block_bytes = name, Path("actual-virtual-stream"), block_bytes
++        self.size = size
++        self.f = handle
+         need(self.size > 0 and self.size % block_bytes == 0, 'Whole physical blocks')
+         h = self.physical(0, 512, 'actual AP header')
+         self.header = h
+@@ -95,7 +93,7 @@
+         self.f.seek(at)
+         b = self.f.read(n)
+         need(len(b) == n, 'Complete actual physical read')
+-        READS.append({'source': self.name, 'path': str(self.path.relative_to(ROOT)), 'physical_offset': at,
++        READS.append({'source': self.name, 'path': str(self.path), 'physical_offset': at,
+                       'bytes': n, 'SHA256': sha(b), 'purpose': reason})
+         return b
+ 
+@@ -112,8 +110,7 @@
+         return bytes(result)
+ 
+     def close(self):
+-        self.f.close()
+-        need(self.before == stat(self.path), 'Actual IMG stat changed')
++        pass  # No filesystem IMG output exists; handle reads only actual captured output windows.
+ 
+ def decode_parent(raw, initial_shift, table):
+     value = int.from_bytes(raw, 'little') >> initial_shift & ((1 << table['stride']) - 1)

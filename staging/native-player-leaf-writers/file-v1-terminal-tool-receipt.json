@@ -1,0 +1,18 @@
+{
+  "terminal": true,
+  "actual_terminal": {
+    "chunk_id": "f399d6",
+    "wall_time_seconds": 0.000023241,
+    "exit_code": 1,
+    "original_token_count": 408,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-leaf-writers/verify_leaf_writer_files_v1.py\", line 423, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-leaf-writers/verify_leaf_writer_files_v1.py\", line 419, in main\n    try:row=verify_writers(d,build,reference)\n            ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-leaf-writers/verify_leaf_writer_files_v1.py\", line 402, in verify_writers\n    snapshots=verify_memory_snapshots_and_semantics(d,controls[0]);o=controls[0]['object'];params=controls[0]['parameters']\n  File \"/root/garmin/staging/native-player-leaf-writers/verify_leaf_writer_files_v1.py\", line 350, in verify_memory_snapshots_and_semantics\n    actual=bytes.fromhex(after['object_hex']);require(actual[:512]==bytes(512) and struct.unpack('<8I',actual[528:560])==(0x5e759f,0x5e75b3,0x5e75bb,0x5e75f1,0x5e7623,0x5e7667,0x5e7677,0x5e7687)and struct.unpack_from('<I',actual,560)[0]==12,'original memory kind callback table/clear/type');obj[:]=actual\n                                              ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-leaf-writers/verify_leaf_writer_files_v1.py\", line 19, in require\n    if not v:raise ValueError(msg)\n             ^^^^^^^^^^^^^^^^^^^^^\nValueError: original memory kind callback table/clear/type\n"
+  },
+  "initial": {
+    "chunk_id": "f0dca0",
+    "wall_time_seconds": 1.001958096,
+    "session_id": 38744,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "completed_scopes": 0
+}

@@ -1,0 +1,99 @@
+{
+  "schema": "selected-family-adapter-new-controls/v1",
+  "all_assigned_checks_passed": true,
+  "actual_source_selected_info_rows": 441,
+  "actual_source_selected_FTS_rows": 1444,
+  "controls": [
+    {
+      "name": "actual441_info_1444_selected_FTS_plus_unrelated_tables_and_FTS_rows",
+      "passed": true,
+      "result": {
+        "schema": "selected-family-JAI-FTS8-adapter-result/v1",
+        "selected_old_info_rows": 441,
+        "selected_old_FTS_rows": 1444,
+        "old_logical_FTS_rows_updated_or_deleted": 0,
+        "new_info_rows": 1,
+        "new_FTS_rows": 1,
+        "new_FTS_rowid": 500004,
+        "single_family_row_updated": true,
+        "whole_index_equality_required": false,
+        "atomic_committed": true,
+        "all_other_logical_rows_preserved_by_DML_scope": true,
+        "prefix_segment_tables_written": false,
+        "full_original_DB_adapter_certified": false,
+        "native_frontend_or_device_acceptance_proved": false,
+        "install_candidate": false
+      },
+      "total_old_index8_rows": 1447,
+      "all1447_old_logical_index8_rows_preserved": true,
+      "all_other_table_rows_preserved": true,
+      "other_info_rows_preserved": 4,
+      "other_family_rows_preserved": 364,
+      "host_new_exact_name_result": [
+        [
+          48219,
+          "tkfadgjtkgdjedtkgbdgctkldhfi",
+          805354680
+        ]
+      ],
+      "source_prefix_dun_still_absent": true,
+      "host_FTS_success_is_not_native_frontend_success": true
+    },
+    {
+      "name": "extra_selected_infoID_FTS_tuple_rejected",
+      "passed": true,
+      "refusal": "ScopeRefusal: Exact selected info-ID FTS8 scope; unrelated rows allowed",
+      "all_logical_tables_exact_unchanged": true,
+      "whole_fixture_before_after_digest": "b85d0f1c17302c5c2f7252c7291ecfd7d0f2958f14a4035f83b1db676003d239"
+    },
+    {
+      "name": "corrupt_selected_FTS_preimage_rejected",
+      "passed": true,
+      "refusal": "ScopeRefusal: Exact selected info-ID FTS8 scope; unrelated rows allowed",
+      "all_logical_tables_exact_unchanged": true,
+      "whole_fixture_before_after_digest": "f1a5865e97acd45e14a3045c83b866a23c9a786fdade62f5bcc1e2c5993af332"
+    },
+    {
+      "name": "new_global_info_ID_collision_rejected",
+      "passed": true,
+      "refusal": "ScopeRefusal: New global info ID collision",
+      "all_logical_tables_exact_unchanged": true,
+      "whole_fixture_before_after_digest": "6664019cf239ee26e6a0c13f46af392c59f70b1202e07f71db9783e2df3f9a14"
+    },
+    {
+      "name": "new_record_key_range_collision_rejected",
+      "passed": true,
+      "refusal": "ScopeRefusal: New physical record-key range collision",
+      "all_logical_tables_exact_unchanged": true,
+      "whole_fixture_before_after_digest": "2309987cc572b2eb0865cee91d78611ecb691c6cde9c2f9c1da6d5af41c90fa3"
+    },
+    {
+      "name": "mutation_target_trigger_rejected_before_write",
+      "passed": true,
+      "refusal": "ScopeRefusal: Application triggers on mutation targets/shadows are unsupported",
+      "all_logical_tables_exact_unchanged": true,
+      "whole_fixture_before_after_digest": "c807bc2f0edb1ecaa46fff0fbbececa6eb6914092e1a3434acb62445a85f1c5c"
+    },
+    {
+      "name": "FTS_insert_authorizer_failure_rolls_back441_remaps_family_and_newinfo",
+      "passed": true,
+      "refusal": "DatabaseError: not authorized",
+      "all_logical_tables_exact_unchanged": true,
+      "whole_fixture_before_after_digest": "c807bc2f0edb1ecaa46fff0fbbececa6eb6914092e1a3434acb62445a85f1c5c"
+    },
+    {
+      "name": "read_only_fixture_connection_cannot_mutate",
+      "passed": true,
+      "refusal": "OperationalError: attempt to write a readonly database",
+      "fixture_bytes": 204800,
+      "before_after_sha256": "97f4fd180bf71d37caa25f6e70fc247734d923c257544a26c74b8571452c5339",
+      "exact_file_bytes_unchanged": true
+    }
+  ],
+  "all_controls_passed": true,
+  "synthetic_other_rows_and_tables": true,
+  "complete_original_DB_never_opened_or_copied": true,
+  "new_module_source_sha256": "c86004ab302f3cdb624289e0e576f958acf73bfdc1150c6f6f3fa6d350640216",
+  "old_writer_or_tests_executed": false,
+  "production_original_DB_complete_adapter_certified": false
+}

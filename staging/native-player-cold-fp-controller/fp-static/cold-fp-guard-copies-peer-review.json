@@ -1,0 +1,117 @@
+{
+  "updated_utc": "2026-10-04T11:49:32.846000+00:00",
+  "static_only": true,
+  "guest_executed": false,
+  "device_io": false,
+  "frozen_source_proof_or_canonical_modified": false,
+  "source_sha256": {
+    "staging/native-player-cold-fp-controller/fp-static/review_cold_fp_guard_copies.py": "57aca1c70259caca02cd43343ca8bcf3822b31ec8dc1655c6893addfdc5c74cb",
+    "staging/native-player-cold-fp-controller/guard-copy-provenance.json": "448ce2c02379b429928a55b5b6bd0e5b62a1b2c9d81e861cad6cd30e188fa8c6",
+    "scripts/native_cold_fp_guard_copies.py": "b6849ca9dc226078ac83754ea9bb02acae60a8cae13a3f6da95f8c1ba278079b",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/probe_native_controller_gir_component.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "scripts/probe_native_controller_gir_component_contiguous.py": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-cold-fp-controller/fp-static/cold-fp-first-controller-boot-contract.json": "061c354dfc96d2a37983f37e36c8e1eb6e6ae3122e849e390559fde232b3f518",
+    "staging/native-player-cache-declared-followup/fp-static/native-multiowner-fp-input-and-journal-recipe.json": "87db585fdcdda4d7c84969a429c46d2c3efdd932428316757e25fd815c6803a3"
+  },
+  "guard_methods_reviewed": [
+    {
+      "source": "scripts/emulate_native_task_runtime_full.py",
+      "class_name": "FullTaskVM",
+      "original_method": "verify_memory",
+      "new_method": "verify_memory",
+      "frozen_file_sha256": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+      "exact_source_segment_sha256": "3e12cdfb8f5d7698e5680550e9d56052bb2897229141588f1eafa87a68e85f18",
+      "declared_changes": [
+        {
+          "before": "require(bytes(self.uc.mem_read(bottom,64))==b'\\xa5'*64,'Synthetic stack leading64 canary changed')",
+          "after": "self.verify_cold_controller_or_idle_boundary(bottom)"
+        }
+      ],
+      "normalized_AST_sha256": "3c51396305ce9bfdceb7070c3a5ea32ac7cf3960a13ad5bb4798128042897d00",
+      "exact_declared_changes_only": true,
+      "guest_mutating_calls_in_copied_method": []
+    },
+    {
+      "source": "scripts/probe_native_controller_gir_component.py",
+      "class_name": "ControllerGIRVM",
+      "original_method": "verify_component_memory",
+      "new_method": "_verify_component_base",
+      "frozen_file_sha256": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+      "exact_source_segment_sha256": "6b8ebc3d7ebe1a4560f5d9c324b5a113b4a3192f9f4cf2fde3bc8cb80a3f3568",
+      "declared_changes": [
+        {
+          "before": "def verify_component_memory(",
+          "after": "def _verify_component_base("
+        },
+        {
+          "before": "require(bytes(self.uc.mem_read(bottom,64))==b'\\xa5'*64,'Native controller/idle stack guard changed')",
+          "after": "self.verify_cold_controller_or_idle_boundary(bottom)"
+        }
+      ],
+      "normalized_AST_sha256": "ba6ff1cb19069b3b5ed356a4015dd1e01d393febb78e6fc4f7dfa7a6b2aa3e27",
+      "exact_declared_changes_only": true,
+      "guest_mutating_calls_in_copied_method": []
+    },
+    {
+      "source": "scripts/probe_native_controller_gir_component_contiguous.py",
+      "class_name": "ContiguousFontControllerGIRVM",
+      "original_method": "verify_component_memory",
+      "new_method": "verify_component_memory",
+      "frozen_file_sha256": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+      "exact_source_segment_sha256": "daa5303d98fd2d88e1cc28f738b0cf151b03a5d706deb644e4842b02553c7f9c",
+      "declared_changes": [
+        {
+          "before": "result=super().verify_component_memory(voice,exports,dbsha)",
+          "after": "result=self._verify_component_base(voice,exports,dbsha)"
+        }
+      ],
+      "normalized_AST_sha256": "9520c6f2a78a7b7e4434c5232612899bba767515af79520679038e6699456907",
+      "exact_declared_changes_only": true,
+      "guest_mutating_calls_in_copied_method": []
+    },
+    {
+      "source": "scripts/probe_native_heap_settings_boot.py",
+      "class_name": "HeapSettingsVM",
+      "original_method": "verify_heap",
+      "new_method": "verify_heap",
+      "frozen_file_sha256": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+      "exact_source_segment_sha256": "e12ca43d9344eeafe3c53d976fd6c4643a439d2b8807785177c54073eb275af7",
+      "declared_changes": [
+        {
+          "before": "p in [0x3a7f150,0x3a7f160]",
+          "after": "p in [0x3a7f150,0x3a7f160,0x3ab1028]"
+        },
+        {
+          "before": "[r['pointer']for r in nodes]==[0x3a7f150,0x3a7f160]",
+          "after": "[r['pointer']for r in nodes]==[0x3a7f150,0x3a7f160,0x3ab1028]"
+        },
+        {
+          "before": "nodes[1]['words'][1:]==['0x3000000','0x388b37','0x0'],'Two original heap listeners differ')",
+          "after": "nodes[1]['words'][1:]==['0x3000000','0x388b37','0x0'] and\n            nodes[2]['words']==['0x0','0x7fffffff','0x20edb1','0x0'],'Three original heap/FP listeners differ')"
+        }
+      ],
+      "normalized_AST_sha256": "b70f5f43e298d2661ea2e71f3d30c8c6ff407c97738b3bf0031b46584700729e",
+      "exact_declared_changes_only": true,
+      "guest_mutating_calls_in_copied_method": []
+    }
+  ],
+  "conclusion": "Fourcopiedmethods are exactly frozenAST plusdeclaredcoldinput/FPlistener/basecall changes. Noothermethodsemanticdifference.",
+  "boundary_helper_requirement": "verify_cold_controller_or_idle_boundary must require witnessedoriginalcontrollerwholeFFfill/poolprefix FF/noFPalloc forfirstsame, idleA5exact; it cannot rewrite bytes or relaxboth to eitherpattern.",
+  "listener_requirement": "OriginalFPbootregisteronce; exact150->160->3AB1028 andFPnode[0,7FFFFFFF,20EDB1,0]. Whole96/8192recipes andbothheapnative0returns/pendinglockguards remain.",
+  "component_base_requirement": "NewmixininMRObeforeDeclaredCacheVM/ContiguousVM. verify_component_memory invokescopiedbase plus unchangedcache/fullfont/frees/rawreads/CPUreplayguards; newrunner must actually callit atcomplete11helperendpoint.",
+  "original_guard_checks_preserved": [
+    "voiceRAM/40exports/private12/player2API/RXcode",
+    "alloriginalcodeimages/initializedregions and wholeGUIjournal",
+    "storage/descriptor/allocation/opaque/canaries",
+    "idleTimerGUIstacks/sentinels/DB/SQL/providerinputs/GIRcatalog",
+    "fonts/nativeparserstreamownership/resident8streams/rawinputledger",
+    "wholecacheindependentreplay/nativeallocfreeandreaderreturnbindings/fontactivationandselection",
+    "heap96/8192/prefix/freeheader/backendzero-retag/twoheaplistenerreturns/pendinglocks"
+  ],
+  "runner_MRO_initialization_helper_and_endpoint_not_yet_reviewed": true,
+  "copied_guards_do_not_replace_needed_boot_TCB_metadata_pool_owner_UND_journals": true,
+  "assertion_passed": true,
+  "limits": "StaticAST/sourcehashonly. No runtime import/guestexecution, rootrunnerreview, bootregister/nativeFF/newmetadata/11helper/fullmemory/multiowner orphysicalApp proof. Frozenmethods retaintheiroriginalscopequalifiers."
+}

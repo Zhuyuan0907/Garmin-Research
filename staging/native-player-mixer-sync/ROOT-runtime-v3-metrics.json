@@ -1,0 +1,91 @@
+{
+  "all_passed": true,
+  "scope": "Actual ROOT runtime metrics only; independent FILE verification pending",
+  "proof": "staging/native-player-mixer-sync/mixer-sync-v3-proof.json",
+  "proof_sha256": "1203ebadc01d44f4199aabcf6ea7f0dbfdd82134a328e86520b459896bc59554",
+  "actual_terminal_session": 89948,
+  "actual_terminal_chunk": "925a2b",
+  "actual_terminal_exit_code": 0,
+  "cases": [
+    {
+      "name": "normal_reuse_reselection_reset",
+      "instructions": 147194,
+      "CPU_stores": 24567,
+      "joint_events": 24629,
+      "tracked_zones": 24,
+      "full_pulls": 32,
+      "full_sync_returns": 1,
+      "condition_wait_entries": 1,
+      "ACK8": 1,
+      "compiled_sync_status": {
+        "ms_sync_entries": 1,
+        "ms_sync_grants": 1,
+        "ms_sync_reuses": 0,
+        "ms_sync_rejections": 0,
+        "ms_before_result": 0,
+        "ms_original_sync_completed": 1
+      },
+      "actual_final_RX_zone_count": 3,
+      "serialized_endpoint_count": 35
+    },
+    {
+      "name": "Stop_revokes_new_original_pulls",
+      "instructions": 58030,
+      "CPU_stores": 10746,
+      "joint_events": 10784,
+      "tracked_zones": 24,
+      "full_pulls": 8,
+      "full_sync_returns": 2,
+      "condition_wait_entries": 2,
+      "ACK8": 2,
+      "compiled_sync_status": {
+        "ms_sync_entries": 2,
+        "ms_sync_grants": 1,
+        "ms_sync_reuses": 1,
+        "ms_sync_rejections": 0,
+        "ms_before_result": 0,
+        "ms_original_sync_completed": 1
+      },
+      "actual_final_RX_zone_count": 3,
+      "serialized_endpoint_count": 29
+    },
+    {
+      "name": "original_profile_rewrite_revokes_mixer",
+      "instructions": 52112,
+      "CPU_stores": 9618,
+      "joint_events": 9652,
+      "tracked_zones": 24,
+      "full_pulls": 8,
+      "full_sync_returns": 1,
+      "condition_wait_entries": 1,
+      "ACK8": 1,
+      "compiled_sync_status": {
+        "ms_sync_entries": 1,
+        "ms_sync_grants": 1,
+        "ms_sync_reuses": 0,
+        "ms_sync_rejections": 0,
+        "ms_before_result": 0,
+        "ms_original_sync_completed": 1
+      },
+      "actual_final_RX_zone_count": 3,
+      "serialized_endpoint_count": 25
+    }
+  ],
+  "totals": {
+    "instructions": 257336,
+    "CPU_stores": 44931,
+    "joint_events": 45065,
+    "tracked_zones": 72,
+    "full_pulls": 48,
+    "full_sync_returns": 4,
+    "condition_wait_entries": 4,
+    "ACK8": 4
+  },
+  "original_raw_mutex_and_condition_executed": true,
+  "native_Timer_TCB_created_not_registered_or_posted": true,
+  "direct_constructor_boot_callers_are_declared_inputs": true,
+  "guest_only_original_BL_patches": 4,
+  "full_App_native_exclusive_STOP_DONE_or_hardware_music": false,
+  "device_io": false,
+  "independent_file_review_passed": false
+}

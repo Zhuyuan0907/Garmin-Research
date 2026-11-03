@@ -1,0 +1,99 @@
+
+Discarded input sections
+
+ .comment       0x00000000       0x20 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08800000                        . = 0x8800000
+
+.text           0x08800000      0x5fc
+ *(.text .text.*)
+ .text          0x08800000        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+ .text.active   0x08800000       0x40 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+ .text.aoa_bulk_init
+                0x08800040      0x104 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x08800040                aoa_bulk_init
+ .text.aoa_bulk_poll
+                0x08800144       0x60 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x08800144                aoa_bulk_poll
+ .text.aoa_bulk_queue_tx
+                0x088001a4       0x80 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x088001a4                aoa_bulk_queue_tx
+ .text.aoa_bulk_next_tx
+                0x08800224       0xcc /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x08800224                aoa_bulk_next_tx
+ .text.aoa_bulk_next_rx
+                0x088002f0       0xe8 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x088002f0                aoa_bulk_next_rx
+ .text.aoa_bulk_read_rx
+                0x088003d8       0x80 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x088003d8                aoa_bulk_read_rx
+ .text.aoa_bulk_complete
+                0x08800458      0x11c /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x08800458                aoa_bulk_complete
+ .text.aoa_bulk_stop
+                0x08800574       0x40 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x08800574                aoa_bulk_stop
+ .text.aoa_bulk_quiescent
+                0x088005b4       0x34 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x088005b4                aoa_bulk_quiescent
+ .text.aoa_bulk_context_bytes
+                0x088005e8        0xc /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x088005e8                aoa_bulk_context_bytes
+ .text.aoa_bulk_request_bytes
+                0x088005f4        0x8 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+                0x088005f4                aoa_bulk_request_bytes
+ *(.rodata .rodata.*)
+                0x088005fc                        __code_end = .
+
+.data           0x088005fc        0x0
+ .data          0x088005fc        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+
+.igot.plt       0x088005fc        0x0
+ .igot.plt      0x088005fc        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+
+.glue_7         0x088005fc        0x0
+ .glue_7        0x088005fc        0x0 linker stubs
+
+.glue_7t        0x088005fc        0x0
+ .glue_7t       0x088005fc        0x0 linker stubs
+
+.vfp11_veneer   0x088005fc        0x0
+ .vfp11_veneer  0x088005fc        0x0 linker stubs
+
+.v4_bx          0x088005fc        0x0
+ .v4_bx         0x088005fc        0x0 linker stubs
+
+.iplt           0x088005fc        0x0
+ .iplt          0x088005fc        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+
+.rel.dyn        0x088005fc        0x0
+ .rel.iplt      0x088005fc        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+
+.bss            0x088005fc        0x0
+ *(.bss .bss.*)
+ .bss           0x088005fc        0x0 /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+ *(COMMON)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /root/garmin/staging/native-aoa-bulk/usb_bulk.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-aoa-bulk/usb_bulk.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-aoa-bulk/usb_bulk.o

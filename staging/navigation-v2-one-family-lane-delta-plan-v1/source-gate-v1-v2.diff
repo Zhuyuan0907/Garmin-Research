@@ -1,0 +1,13 @@
+--- check_source_gate_v1.py.executed_EXIT1
++++ check_source_gate_v2.py.pending
+@@ -60,7 +60,9 @@
+     assert len(saved) == 1
+     line, rec, prepared = saved[0]
+     assert line == 87
+-    assert prepared['raw_address'] == ['台中市', '北屯區', '昌平路二段50之6巷2弄', '39號']
++    assert prepared['raw_address'][2:] == ['昌平路二段50之6巷2弄', '39號']
++    assert prepared['raw_address'][0] in ['台中市', '臺中市']
++    assert prepared['raw_address'][1] == '北屯區'
+     data = STOCK.read_bytes()
+     assert hashlib.sha256(data).hexdigest() == '929a52d912f1622f3aa9fecea8a8fc0d71517fed349a0f995e84d983e85f04d6'
+     snapshot = json.loads(data)

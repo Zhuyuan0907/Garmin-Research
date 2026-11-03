@@ -1,0 +1,872 @@
+{
+  "updated_utc": "2026-10-04T14:16:10.883411+00:00",
+  "static_and_supplied_runtime_record_review": true,
+  "guest_execution": false,
+  "guest_VM_imported_or_instantiated": false,
+  "frozen_sources_or_canonical_modified": false,
+  "source_sha256": {
+    "staging/native-player-decoder-scope/gui-static/record_dispatcher_settings_boundary.py": "190e654e7832423cb63a9a5e928dd87136cd95c8e3bb7c61e7a87565b8c80885",
+    "staging/native-player-decoder-scope/runtime/terminal-metadata.json": "87b3c72adef7b573ce9386154431cd534948f71a7ecabd5031aacdc313367e4c",
+    "staging/native-player-decoder-scope/runtime/terminal-probe.json": "e87379de52371e68d00dc62f58f698395afece78fbf6db8da56a37ff65898088",
+    "staging/native-player-decoder-scope/runtime/terminal-tool-receipt.json": "f7ea454e11c58ff3e0cad16c6a897944c76c6be303102bd9d7aaff1566c82190",
+    "scripts/probe_native_dispatcher_decoder.py": "a9deadbbeb89b8cf5ca3550164736f852abb16c522a953c6e6dc84009ddc644e",
+    "staging/native-player-decoder-scope/gui-static/decoder_actor_observer_v2.py": "9ac6b6d8a1139e0ff41413b0bfe0ba715b69b290c60be360629216bd266fa9a1",
+    "staging/native-player-decoder-scope/gui-static/decoder-native-prefix-partial-verification.json": "4184213fa9f5170fd5d022d3f6b416954b438b05edef4db1afa3820835515c79",
+    "scripts/probe_mainmenu_native_settings_journal.py": "1034c6157923dafe44d5f7ea952c87543c3125db4cfd8d5ccd0c744f266bfde3",
+    "scripts/probe_native_player_mainmenu.py": "e9fc9c84fa518e5cd2ead7eb6d6d0cc60a2af2e0cd3521e99c56f5c4459a5280",
+    "staging/native-player-mainmenu-native-prep/mutex-static/mainmenu-native-settings-mutex-preflight.json": "a2a6b1f38f4b6903f25c142a834dadc04e653b82c6c8fbc0dbb77f1a166ba377",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "session_id": 44634,
+  "authoritative_terminal_exit_code": 1,
+  "terminal_error": "Native raw mutex pointer/actor/storage differs",
+  "terminal_registers": {
+    "r0": "0x148e6cc",
+    "r1": "0x0",
+    "r2": "0x4",
+    "r3": "0x8804048",
+    "lr": "0x2cabfb",
+    "pc": "0x3009a0",
+    "sp": "0x8804018"
+  },
+  "guard": {
+    "source": "scripts/probe_mainmenu_native_settings_journal.py:105",
+    "predicate": "r0==reviewedpointer and running_task==controller and ready_current==controller and declared_storage(pointer,24)",
+    "current_boundary": "Original raw caller/pointer match settingsget pair; actual queuedDispatcher stack is present. Old controller-only admission rejects this actor before native rawbody/ledger begin.",
+    "firmware_fault_or_deadlock_proven": false
+  },
+  "actor_contract": {
+    "actor": "original constructed Dispatcher0x8804FB8",
+    "callback_SP": "0x8804f78",
+    "PageMainMenu_entry_SP": "0x8804f50",
+    "PageMainMenu_original_call": "0x4053be",
+    "PageMainMenu_actual_LR": "0x4053c3",
+    "observed_page_ctor_pointer": "0x881bca0",
+    "observed_page_ctor_flag": 1,
+    "PageMainMenu_return_observed": false,
+    "settings_containing_function": "0x2cabbc",
+    "settings_function_entry_SP": "T=0x8804030",
+    "function_push_bytes": 24,
+    "lock": {
+      "entry": "0x3009a0",
+      "call": "0x2cabf6",
+      "continuation": "0x2cabfa",
+      "LR": "0x2cabfb",
+      "SP": "T-24=0x8804018"
+    },
+    "unlock": {
+      "entry": "0x3008b0",
+      "call": "0x2cac04",
+      "continuation": "0x2cac08",
+      "LR": "0x2cac09",
+      "SP": "T-24"
+    },
+    "pointer": "0x148e6cc",
+    "literal": "0x2cadc8",
+    "tag": "0x2cbf6c",
+    "tag_ascii": "&get_smphr",
+    "classification_byte": 0,
+    "native_pending_compatibility": "Only this actualD pair adds existing native_mutex_runs/task_mutex_ops[D] rows; native300A0A/30092A remain delegated, with actual caller/SP/result/ownership checks. Controller init/other36 pairs stay unchanged.",
+    "fullsettings_or_original_raw_return_observed": false
+  },
+  "exact_frame_witnesses": {
+    "original_stack_pushes": [
+      {
+        "PC": "0x2cad0a",
+        "load_PC": "0x2cad0a",
+        "Thumb": true,
+        "address": "0x8804030",
+        "size": 4,
+        "value": 142622792,
+        "before_hex": "00000000",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cad0a",
+        "load_PC": "0x2cad0a",
+        "Thumb": true,
+        "address": "0x8804034",
+        "size": 4,
+        "value": 61533448,
+        "before_hex": "00000000",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cad0a",
+        "load_PC": "0x2cad0a",
+        "Thumb": true,
+        "address": "0x8804038",
+        "size": 4,
+        "value": 61536296,
+        "before_hex": "603a8208",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cad0a",
+        "load_PC": "0x2cad0a",
+        "Thumb": true,
+        "address": "0x880403c",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cad0a",
+        "load_PC": "0x2cad0a",
+        "Thumb": true,
+        "address": "0x8804040",
+        "size": 4,
+        "value": 61536264,
+        "before_hex": "02ffffff",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cad0a",
+        "load_PC": "0x2cad0a",
+        "Thumb": true,
+        "address": "0x8804044",
+        "size": 4,
+        "value": 2547001,
+        "before_hex": "27dd2600",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cabbc",
+        "load_PC": "0x2cabbc",
+        "Thumb": true,
+        "address": "0x8804018",
+        "size": 4,
+        "value": 142622792,
+        "before_hex": "98408008",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cabbc",
+        "load_PC": "0x2cabbc",
+        "Thumb": true,
+        "address": "0x880401c",
+        "size": 4,
+        "value": 142622792,
+        "before_hex": "39e71100",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cabbc",
+        "load_PC": "0x2cabbc",
+        "Thumb": true,
+        "address": "0x8804020",
+        "size": 4,
+        "value": 4,
+        "before_hex": "603c8208",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cabbc",
+        "load_PC": "0x2cabbc",
+        "Thumb": true,
+        "address": "0x8804024",
+        "size": 4,
+        "value": 61536312,
+        "before_hex": "ffffffff",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cabbc",
+        "load_PC": "0x2cabbc",
+        "Thumb": true,
+        "address": "0x8804028",
+        "size": 4,
+        "value": 61536264,
+        "before_hex": "00000000",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      },
+      {
+        "PC": "0x2cabbc",
+        "load_PC": "0x2cabbc",
+        "Thumb": true,
+        "address": "0x880402c",
+        "size": 4,
+        "value": 2927927,
+        "before_hex": "00000000",
+        "opcode_hex": "f8b5",
+        "original_instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "running_task": "0x8804fb8",
+        "processor_mode": 31
+      }
+    ],
+    "inner_saved_LR": {
+      "address": "0x880402c",
+      "value": "0x2cad37",
+      "original_call": "0x2cad32",
+      "callee": "0x2cabbc"
+    },
+    "outer_entry_SP": "0x8804048",
+    "outer_saved_LR": {
+      "address": "0x8804044",
+      "value": "0x26dd39",
+      "original_call": "0x26dd34",
+      "callee": "0x2cad0a"
+    },
+    "original_settings_id_literal": "0x26e0bc",
+    "original_settings_id": "0x100d",
+    "outer_arguments": {
+      "r0": "0x100d",
+      "r1": "0x3aaf838",
+      "r2": 4,
+      "r3": "0x8804048"
+    },
+    "child_arguments": {
+      "r0": "0x100d",
+      "r1": "0x8804048"
+    },
+    "current_child_local_output_word": "0x0"
+  },
+  "backend_before_native_entry": {
+    "raw24_hex": "00000000b03f500900000000000000006cbf2c0000000000",
+    "words": [
+      "0x0",
+      "0x9503fb0",
+      "0x0",
+      "0x0",
+      "0x2cbf6c",
+      "0x0"
+    ],
+    "whole_inherited_zone_replayed_to_derive": true,
+    "native_initializer_six_zero_witnesses": [
+      {
+        "PC": "0x3008a2",
+        "address": "0x148e6cc",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "phase": "settings",
+        "running_task": "0x9503f90",
+        "Thumb": true,
+        "original_instruction": "str r1, [r0]",
+        "opcode_hex": "0160"
+      },
+      {
+        "PC": "0x3008a4",
+        "address": "0x148e6d0",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "phase": "settings",
+        "running_task": "0x9503f90",
+        "Thumb": true,
+        "original_instruction": "str r1, [r0, #4]",
+        "opcode_hex": "4160"
+      },
+      {
+        "PC": "0x3008a6",
+        "address": "0x148e6d4",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "phase": "settings",
+        "running_task": "0x9503f90",
+        "Thumb": true,
+        "original_instruction": "str r1, [r0, #8]",
+        "opcode_hex": "8160"
+      },
+      {
+        "PC": "0x3008a8",
+        "address": "0x148e6d8",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "phase": "settings",
+        "running_task": "0x9503f90",
+        "Thumb": true,
+        "original_instruction": "str r1, [r0, #0xc]",
+        "opcode_hex": "c160"
+      },
+      {
+        "PC": "0x3008aa",
+        "address": "0x148e6dc",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "phase": "settings",
+        "running_task": "0x9503f90",
+        "Thumb": true,
+        "original_instruction": "str r1, [r0, #0x10]",
+        "opcode_hex": "0161"
+      },
+      {
+        "PC": "0x3008ac",
+        "address": "0x148e6e0",
+        "size": 4,
+        "value": 0,
+        "before_hex": "00000000",
+        "phase": "settings",
+        "running_task": "0x9503f90",
+        "Thumb": true,
+        "original_instruction": "str r1, [r0, #0x14]",
+        "opcode_hex": "4161"
+      }
+    ],
+    "native_controller_tag_store": {
+      "PC": "0x2cbd58",
+      "address": "0x148e6dc",
+      "size": 4,
+      "value": 2932588,
+      "before_hex": "00000000",
+      "phase": "settings",
+      "running_task": "0x9503f90",
+      "Thumb": true,
+      "original_instruction": "str r0, [r1, #0x10]",
+      "opcode_hex": "0861"
+    },
+    "native_owner": 0,
+    "native_waiter": 0,
+    "native_depth": 0,
+    "released_plus4_link": "0x9503fb0 retained from prior originalcontroller ownership",
+    "no_reinitialization_or_host_seed_required_or_authorized": true
+  },
+  "known_next_lower_input": {
+    "entry": "0x2cab14",
+    "call": "0x2cabfe",
+    "continuation": "0x2cac02",
+    "r0": "actualsettingsid100D",
+    "r1": "original local outputSP0x8804018",
+    "existing_parent_fixture": "MainMenuVM at scripts/probe_native_player_mainmenu.py:77 supplies no record for IDs other than19B when catalog fixture exists and output word is0; this is a declared lower inventory input, not physical settings content.",
+    "candidate_no_record_branch": "If actual existing lower fixture returns no record, original2CABBC returnsFFFFFFFF, original2CAD0A performs no memcpy, and26DD38 nonpositive branch may execute26DD3C zero store at actualR7+30=3AAF838.",
+    "future_callback_or_store_actual_execution_not_proven": true,
+    "scope_warning": "That possible3AAF838 writer lies in3AAF000, outside rootnew3AAE000 page; require its own original store/input scope before claiming full newGUI memory closure."
+  },
+  "exact_original_instruction_evidence": [
+    {
+      "PC": "0x2cabbc",
+      "opcode_hex": "f8b5",
+      "instruction": "push {r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x2cabbe",
+      "opcode_hex": "0600",
+      "instruction": "movs r6, r0"
+    },
+    {
+      "PC": "0x2cabc0",
+      "opcode_hex": "7948",
+      "instruction": "ldr r0, [pc, #0x1e4]"
+    },
+    {
+      "PC": "0x2cabc2",
+      "opcode_hex": "0025",
+      "instruction": "movs r5, #0"
+    },
+    {
+      "PC": "0x2cabc4",
+      "opcode_hex": "c078",
+      "instruction": "ldrb r0, [r0, #3]"
+    },
+    {
+      "PC": "0x2cabc6",
+      "opcode_hex": "0c00",
+      "instruction": "movs r4, r1"
+    },
+    {
+      "PC": "0x2cabc8",
+      "opcode_hex": "ed43",
+      "instruction": "mvns r5, r5"
+    },
+    {
+      "PC": "0x2cabca",
+      "opcode_hex": "0028",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "PC": "0x2cabcc",
+      "opcode_hex": "01d0",
+      "instruction": "beq #0x2cabd2"
+    },
+    {
+      "PC": "0x2cabce",
+      "opcode_hex": "002c",
+      "instruction": "cmp r4, #0"
+    },
+    {
+      "PC": "0x2cabd0",
+      "opcode_hex": "01d1",
+      "instruction": "bne #0x2cabd6"
+    },
+    {
+      "PC": "0x2cabd2",
+      "opcode_hex": "2800",
+      "instruction": "movs r0, r5"
+    },
+    {
+      "PC": "0x2cabd4",
+      "opcode_hex": "f8bd",
+      "instruction": "pop {r3, r4, r5, r6, r7, pc}"
+    },
+    {
+      "PC": "0x2cabd6",
+      "opcode_hex": "2168",
+      "instruction": "ldr r1, [r4]"
+    },
+    {
+      "PC": "0x2cabd8",
+      "opcode_hex": "0029",
+      "instruction": "cmp r1, #0"
+    },
+    {
+      "PC": "0x2cabda",
+      "opcode_hex": "0091",
+      "instruction": "str r1, [sp]"
+    },
+    {
+      "PC": "0x2cabdc",
+      "opcode_hex": "0ad0",
+      "instruction": "beq #0x2cabf4"
+    },
+    {
+      "PC": "0x2cabde",
+      "opcode_hex": "0800",
+      "instruction": "movs r0, r1"
+    },
+    {
+      "PC": "0x2cabe0",
+      "opcode_hex": "2038",
+      "instruction": "subs r0, #0x20"
+    },
+    {
+      "PC": "0x2cabe2",
+      "opcode_hex": "808b",
+      "instruction": "ldrh r0, [r0, #0x1c]"
+    },
+    {
+      "PC": "0x2cabe4",
+      "opcode_hex": "c004",
+      "instruction": "lsls r0, r0, #0x13"
+    },
+    {
+      "PC": "0x2cabe6",
+      "opcode_hex": "c00c",
+      "instruction": "lsrs r0, r0, #0x13"
+    },
+    {
+      "PC": "0x2cabe8",
+      "opcode_hex": "c01c",
+      "instruction": "adds r0, r0, #3"
+    },
+    {
+      "PC": "0x2cabea",
+      "opcode_hex": "8008",
+      "instruction": "lsrs r0, r0, #2"
+    },
+    {
+      "PC": "0x2cabec",
+      "opcode_hex": "8000",
+      "instruction": "lsls r0, r0, #2"
+    },
+    {
+      "PC": "0x2cabee",
+      "opcode_hex": "4018",
+      "instruction": "adds r0, r0, r1"
+    },
+    {
+      "PC": "0x2cabf0",
+      "opcode_hex": "001f",
+      "instruction": "subs r0, r0, #4"
+    },
+    {
+      "PC": "0x2cabf2",
+      "opcode_hex": "0090",
+      "instruction": "str r0, [sp]"
+    },
+    {
+      "PC": "0x2cabf4",
+      "opcode_hex": "7448",
+      "instruction": "ldr r0, [pc, #0x1d0]"
+    },
+    {
+      "PC": "0x2cabf6",
+      "opcode_hex": "35f0d3fe",
+      "instruction": "bl #0x3009a0"
+    },
+    {
+      "PC": "0x2cabfa",
+      "opcode_hex": "3000",
+      "instruction": "movs r0, r6"
+    },
+    {
+      "PC": "0x2cabfc",
+      "opcode_hex": "6946",
+      "instruction": "mov r1, sp"
+    },
+    {
+      "PC": "0x2cabfe",
+      "opcode_hex": "fff789ff",
+      "instruction": "bl #0x2cab14"
+    },
+    {
+      "PC": "0x2cac02",
+      "opcode_hex": "7148",
+      "instruction": "ldr r0, [pc, #0x1c4]"
+    },
+    {
+      "PC": "0x2cac04",
+      "opcode_hex": "35f054fe",
+      "instruction": "bl #0x3008b0"
+    },
+    {
+      "PC": "0x2cac08",
+      "opcode_hex": "0099",
+      "instruction": "ldr r1, [sp]"
+    },
+    {
+      "PC": "0x2cac0a",
+      "opcode_hex": "0029",
+      "instruction": "cmp r1, #0"
+    },
+    {
+      "PC": "0x2cac0c",
+      "opcode_hex": "01d1",
+      "instruction": "bne #0x2cac12"
+    },
+    {
+      "PC": "0x2cac0e",
+      "opcode_hex": "2800",
+      "instruction": "movs r0, r5"
+    },
+    {
+      "PC": "0x2cac10",
+      "opcode_hex": "05e0",
+      "instruction": "b #0x2cac1e"
+    },
+    {
+      "PC": "0x2cac12",
+      "opcode_hex": "0888",
+      "instruction": "ldrh r0, [r1]"
+    },
+    {
+      "PC": "0x2cac14",
+      "opcode_hex": "c004",
+      "instruction": "lsls r0, r0, #0x13"
+    },
+    {
+      "PC": "0x2cac16",
+      "opcode_hex": "c00c",
+      "instruction": "lsrs r0, r0, #0x13"
+    },
+    {
+      "PC": "0x2cac18",
+      "opcode_hex": "001f",
+      "instruction": "subs r0, r0, #4"
+    },
+    {
+      "PC": "0x2cac1a",
+      "opcode_hex": "091d",
+      "instruction": "adds r1, r1, #4"
+    },
+    {
+      "PC": "0x2cac1c",
+      "opcode_hex": "0091",
+      "instruction": "str r1, [sp]"
+    },
+    {
+      "PC": "0x2cac1e",
+      "opcode_hex": "2160",
+      "instruction": "str r1, [r4]"
+    },
+    {
+      "PC": "0x2cac20",
+      "opcode_hex": "f8bd",
+      "instruction": "pop {r3, r4, r5, r6, r7, pc}"
+    },
+    {
+      "PC": "0x2cad0a",
+      "opcode_hex": "f8b5",
+      "instruction": "push {r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x2cad0c",
+      "opcode_hex": "0e00",
+      "instruction": "movs r6, r1"
+    },
+    {
+      "PC": "0x2cad0e",
+      "opcode_hex": "2649",
+      "instruction": "ldr r1, [pc, #0x98]"
+    },
+    {
+      "PC": "0x2cad10",
+      "opcode_hex": "1500",
+      "instruction": "movs r5, r2"
+    },
+    {
+      "PC": "0x2cad12",
+      "opcode_hex": "c978",
+      "instruction": "ldrb r1, [r1, #3]"
+    },
+    {
+      "PC": "0x2cad14",
+      "opcode_hex": "1c00",
+      "instruction": "movs r4, r3"
+    },
+    {
+      "PC": "0x2cad16",
+      "opcode_hex": "0029",
+      "instruction": "cmp r1, #0"
+    },
+    {
+      "PC": "0x2cad18",
+      "opcode_hex": "01d1",
+      "instruction": "bne #0x2cad1e"
+    },
+    {
+      "PC": "0x2cad1a",
+      "opcode_hex": "481e",
+      "instruction": "subs r0, r1, #1"
+    },
+    {
+      "PC": "0x2cad1c",
+      "opcode_hex": "f8bd",
+      "instruction": "pop {r3, r4, r5, r6, r7, pc}"
+    },
+    {
+      "PC": "0x2cad1e",
+      "opcode_hex": "002c",
+      "instruction": "cmp r4, #0"
+    },
+    {
+      "PC": "0x2cad20",
+      "opcode_hex": "02d0",
+      "instruction": "beq #0x2cad28"
+    },
+    {
+      "PC": "0x2cad22",
+      "opcode_hex": "2168",
+      "instruction": "ldr r1, [r4]"
+    },
+    {
+      "PC": "0x2cad24",
+      "opcode_hex": "0029",
+      "instruction": "cmp r1, #0"
+    },
+    {
+      "PC": "0x2cad26",
+      "opcode_hex": "02d1",
+      "instruction": "bne #0x2cad2e"
+    },
+    {
+      "PC": "0x2cad28",
+      "opcode_hex": "0021",
+      "instruction": "movs r1, #0"
+    },
+    {
+      "PC": "0x2cad2a",
+      "opcode_hex": "0091",
+      "instruction": "str r1, [sp]"
+    },
+    {
+      "PC": "0x2cad2c",
+      "opcode_hex": "00e0",
+      "instruction": "b #0x2cad30"
+    },
+    {
+      "PC": "0x2cad2e",
+      "opcode_hex": "0091",
+      "instruction": "str r1, [sp]"
+    },
+    {
+      "PC": "0x2cad30",
+      "opcode_hex": "6946",
+      "instruction": "mov r1, sp"
+    },
+    {
+      "PC": "0x2cad32",
+      "opcode_hex": "fff743ff",
+      "instruction": "bl #0x2cabbc"
+    },
+    {
+      "PC": "0x2cad36",
+      "opcode_hex": "a842",
+      "instruction": "cmp r0, r5"
+    },
+    {
+      "PC": "0x2cad38",
+      "opcode_hex": "00db",
+      "instruction": "blt #0x2cad3c"
+    },
+    {
+      "PC": "0x2cad3a",
+      "opcode_hex": "2800",
+      "instruction": "movs r0, r5"
+    },
+    {
+      "PC": "0x2cad3c",
+      "opcode_hex": "0500",
+      "instruction": "movs r5, r0"
+    },
+    {
+      "PC": "0x2cad3e",
+      "opcode_hex": "002e",
+      "instruction": "cmp r6, #0"
+    },
+    {
+      "PC": "0x2cad40",
+      "opcode_hex": "06d0",
+      "instruction": "beq #0x2cad50"
+    },
+    {
+      "PC": "0x2cad42",
+      "opcode_hex": "002d",
+      "instruction": "cmp r5, #0"
+    },
+    {
+      "PC": "0x2cad44",
+      "opcode_hex": "04dd",
+      "instruction": "ble #0x2cad50"
+    },
+    {
+      "PC": "0x2cad46",
+      "opcode_hex": "0099",
+      "instruction": "ldr r1, [sp]"
+    },
+    {
+      "PC": "0x2cad48",
+      "opcode_hex": "2a00",
+      "instruction": "movs r2, r5"
+    },
+    {
+      "PC": "0x2cad4a",
+      "opcode_hex": "3000",
+      "instruction": "movs r0, r6"
+    },
+    {
+      "PC": "0x2cad4c",
+      "opcode_hex": "a8f0bcea",
+      "instruction": "blx #0x3732c8"
+    },
+    {
+      "PC": "0x2cad50",
+      "opcode_hex": "002c",
+      "instruction": "cmp r4, #0"
+    },
+    {
+      "PC": "0x2cad52",
+      "opcode_hex": "01d0",
+      "instruction": "beq #0x2cad58"
+    },
+    {
+      "PC": "0x2cad54",
+      "opcode_hex": "0098",
+      "instruction": "ldr r0, [sp]"
+    },
+    {
+      "PC": "0x2cad56",
+      "opcode_hex": "2060",
+      "instruction": "str r0, [r4]"
+    },
+    {
+      "PC": "0x2cad58",
+      "opcode_hex": "2804",
+      "instruction": "lsls r0, r5, #0x10"
+    },
+    {
+      "PC": "0x2cad5a",
+      "opcode_hex": "0014",
+      "instruction": "asrs r0, r0, #0x10"
+    },
+    {
+      "PC": "0x2cad5c",
+      "opcode_hex": "f8bd",
+      "instruction": "pop {r3, r4, r5, r6, r7, pc}"
+    },
+    {
+      "PC": "0x26dd26",
+      "opcode_hex": "b320",
+      "instruction": "movs r0, #0xb3"
+    },
+    {
+      "PC": "0x26dd28",
+      "opcode_hex": "0001",
+      "instruction": "lsls r0, r0, #4"
+    },
+    {
+      "PC": "0x26dd2a",
+      "opcode_hex": "2118",
+      "instruction": "adds r1, r4, r0"
+    },
+    {
+      "PC": "0x26dd2c",
+      "opcode_hex": "e348",
+      "instruction": "ldr r0, [pc, #0x38c]"
+    },
+    {
+      "PC": "0x26dd2e",
+      "opcode_hex": "0422",
+      "instruction": "movs r2, #4"
+    },
+    {
+      "PC": "0x26dd30",
+      "opcode_hex": "6b46",
+      "instruction": "mov r3, sp"
+    },
+    {
+      "PC": "0x26dd32",
+      "opcode_hex": "0096",
+      "instruction": "str r6, [sp]"
+    },
+    {
+      "PC": "0x26dd34",
+      "opcode_hex": "5cf0e9ff",
+      "instruction": "bl #0x2cad0a"
+    },
+    {
+      "PC": "0x26dd38",
+      "opcode_hex": "0028",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "PC": "0x26dd3a",
+      "opcode_hex": "00dc",
+      "instruction": "bgt #0x26dd3e"
+    },
+    {
+      "PC": "0x26dd3c",
+      "opcode_hex": "3e63",
+      "instruction": "str r6, [r7, #0x30]"
+    }
+  ],
+  "bounded_MAIN_ranges": 3,
+  "full_Dispatcher_body_or_foreground_or_hardware_or_App_verified": false
+}

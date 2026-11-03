@@ -1,0 +1,51 @@
+{
+  "all_passed": true,
+  "checked_at": "2026-10-05T22:09:24.229664+08:00",
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "actual_production_logic_executed": [
+    "manifest/source validation",
+    "XML identity/interfaces",
+    "USB candidate filtering",
+    "sysfs ancestor/interface/serial/size reader on synthetic tree",
+    "mountinfo rejection on synthetic text",
+    "stock/old/new file hashing",
+    "exclusive creation/copy/fsync/readback",
+    "Linux renameat2 NOREPLACE",
+    "old image disable/restore",
+    "rollback own-hash deletion",
+    "precommit fault undo",
+    "RO-before-RW and final sync/umount order with mocked system operations"
+  ],
+  "synthetic_image_bytes": 102400,
+  "actual_usb_discovery": false,
+  "actual_mount": false,
+  "actual_remount": false,
+  "actual_garmin_file_write": false,
+  "raw_private_identity_in_results": false,
+  "real_vfat_atomic_rename_verified": false,
+  "physical_device_navigation_verified": false,
+  "limitations": [
+    "Tests use synthetic XML/USB IDs and 100 KiB images; original device identities are not exported.",
+    "Transactions run on a temporary host filesystem, not the Garmin FAT mount.",
+    "System mount/remount/umount and live reconfirm calls are mocked in the full-flow cases.",
+    "Undo is tested before commit; after rollback commit, unmount failure is reported and cannot undo a deleted new image.",
+    "No test proves physical map acceptance, Chinese address search, or navigation correctness."
+  ],
+  "source_files": {
+    "install_navigation_bundle.py": {
+      "bytes": 23411,
+      "sha256": "9b3f11d2743cbcdc341a060992311adb3bdbdd1342a616ffe8a664b83eb21c90"
+    },
+    "test_install_navigation_bundle.py": {
+      "bytes": 19081,
+      "sha256": "903ead3bba492109df2c1d501dea4e59460081a877d257182f3cc4a01c12737b"
+    },
+    "verify_installer_tests.py": {
+      "bytes": 2827,
+      "sha256": "30892f087d279ebd7984b1a725d6bc9f58addf69f6df4dd15e661d564015896a"
+    }
+  },
+  "test_output": "test_corrupt_readback_and_identity_failure_undo (navigation_installer_tests.InstallerTests.test_corrupt_readback_and_identity_failure_undo) ... ok\ntest_exact_usb_selection_and_negatives (navigation_installer_tests.InstallerTests.test_exact_usb_selection_and_negatives) ... ok\ntest_full_flow_mock_ro_before_rw_and_final_unmount (navigation_installer_tests.InstallerTests.test_full_flow_mock_ro_before_rw_and_final_unmount) ... ok\ntest_full_flow_waiting_no_mount_or_system_operation (navigation_installer_tests.InstallerTests.test_full_flow_waiting_no_mount_or_system_operation) ... ok\ntest_identity_and_interfaces (navigation_installer_tests.InstallerTests.test_identity_and_interfaces) ... ok\ntest_install_idempotent_rollback_idempotent (navigation_installer_tests.InstallerTests.test_install_idempotent_rollback_idempotent) ... ok\ntest_install_undo_at_every_precommit_event (navigation_installer_tests.InstallerTests.test_install_undo_at_every_precommit_event) ... ok\ntest_manifest_contract_and_source_hash (navigation_installer_tests.InstallerTests.test_manifest_contract_and_source_hash) ... ok\ntest_manifest_protected_path_collision (navigation_installer_tests.InstallerTests.test_manifest_protected_path_collision) ... ok\ntest_mountinfo_existing_mount_rejected (navigation_installer_tests.InstallerTests.test_mountinfo_existing_mount_rejected) ... ok\ntest_no_replace_race_preserves_unknown_destination (navigation_installer_tests.InstallerTests.test_no_replace_race_preserves_unknown_destination) ... ok\ntest_protected_stock_mismatch_blocks_writes (navigation_installer_tests.InstallerTests.test_protected_stock_mismatch_blocks_writes) ... ok\ntest_readonly_preflight_rejects_low_space (navigation_installer_tests.InstallerTests.test_readonly_preflight_rejects_low_space) ... ok\ntest_real_sysfs_reader_on_synthetic_tree (navigation_installer_tests.InstallerTests.test_real_sysfs_reader_on_synthetic_tree) ... ok\ntest_rollback_undo_at_every_precommit_event (navigation_installer_tests.InstallerTests.test_rollback_undo_at_every_precommit_event) ... ok\ntest_symlink_and_path_escape_rejected (navigation_installer_tests.InstallerTests.test_symlink_and_path_escape_rejected) ... ok\ntest_unknown_new_map_never_deleted_or_overwritten (navigation_installer_tests.InstallerTests.test_unknown_new_map_never_deleted_or_overwritten) ... ok\ntest_unknown_old_or_recovery_file_refuses (navigation_installer_tests.InstallerTests.test_unknown_old_or_recovery_file_refuses) ... ok\ntest_waiting_and_loop_exclusion (navigation_installer_tests.InstallerTests.test_waiting_and_loop_exclusion) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.075s\n\nOK\n"
+}

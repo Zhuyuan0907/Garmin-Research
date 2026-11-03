@@ -1,0 +1,557 @@
+{
+  "all_passed": true,
+  "static_only": true,
+  "guest_execution": false,
+  "VM_import_or_instantiation": false,
+  "device_io": false,
+  "source_sha256": {
+    "staging/native-player-native-allocation/gui-static/native_allocation_observer.py": "f072a33b6505e21aa515a02d3e668f458d5842b6c4082debdd56ac60f1c181e8",
+    "staging/native-player-native-allocation/gui-static/verify_native_allocation_host_controls.py": "a868bc2e8cb14d909ad55831a9c084eccd0c53163e1ab544d4a2c540e6977b7a",
+    "staging/native-player-native-allocation/gui-static/native-heap-original-opcodes.json": "04af8ff13024ec9028858fdfa0c31d9985d4a93d5f41899e0d1196250a9165da",
+    "staging/native-player-native-allocation/gui-static/native-public-heap-input-config.json": "2d895f58547a43804957dbe11947ee44d49da1528c56b04bcc04bdeaafd55ad9",
+    "staging/native-player-native-allocation/gui-static/build_native_public_heap_contract.py": "d57daee402b310a49531934012725e997c1ecd5bc1a585a2f16c7e038e5c54db",
+    "staging/native-player-native-allocation/gui-static/build_native_public_heap_contract_unexecuted_cfg_v1.py": "7ddb6d4be2e16423c14725d163cffe798dd297db1bb40b06ab8449f11a09dcfe",
+    "staging/native-player-clock-caller/gui-static/clock_caller_observer_v2.py": "1a3253998dbdee390aa99fadf53e9c2bdc1de806b417d7e3258372ad7780a0b1",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "scripts/native_cold_fp_guard_copies.py": "b6849ca9dc226078ac83754ea9bb02acae60a8cae13a3f6da95f8c1ba278079b",
+    "scripts/probe_native_cold_fp_controller.py": "0c4f4bb7e0077da701da225c183c262fa14346685dd605994438bd3edac1be3c",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_dispatcher_clock_caller.py": "b9cc22e15a478e1cd555fe77a67abafd8fa155f23e8780cce7b2e5deb0bbef3d",
+    "staging/native-player-clock-caller/runtime/terminal-probe.json": "2045dfe86fe55b439b583a943989063689df79971657dba3ee485aad7d28782b",
+    "staging/native-player-clock-caller/terminal-receipt.json": "5597d7f9ffe96929e6e76143ecb054dff253bc5453d78ef8893816c562030fe4",
+    "staging/native-player-native-allocation/previous-checkpoint.json": "39703c5e7124a69077541e2657f2f9f442623fb1e3509d6387d5ea781d9cccad",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "host_only_controls": [
+    {
+      "name": "whole cold public/private fixture recipe including descriptor gaps",
+      "passed": true
+    },
+    {
+      "name": "actual sealed B/48/raw 0x38851c shape",
+      "passed": true
+    },
+    {
+      "name": "48/0x38851c/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x38851c/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/48/raw 0x388534 shape",
+      "passed": true
+    },
+    {
+      "name": "48/0x388534/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388534/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/48/raw 0x388812 shape",
+      "passed": true
+    },
+    {
+      "name": "48/0x388812/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388812/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/48/raw 0x388826 shape",
+      "passed": true
+    },
+    {
+      "name": "48/0x388826/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "48/0x388826/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/8/raw 0x38851c shape",
+      "passed": true
+    },
+    {
+      "name": "8/0x38851c/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x38851c/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/8/raw 0x388534 shape",
+      "passed": true
+    },
+    {
+      "name": "8/0x388534/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388534/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/8/raw 0x388812 shape",
+      "passed": true
+    },
+    {
+      "name": "8/0x388812/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388812/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "actual sealed B/8/raw 0x388826 shape",
+      "passed": true
+    },
+    {
+      "name": "8/0x388826/reject wrong task",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong current",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong Thumb",
+      "passed": true,
+      "expected_rejection": "Allocator raw actualD/current/mode differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong pointer",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong SP",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong LR",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong tag",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "8/0x388826/reject wrong class",
+      "passed": true,
+      "expected_rejection": "Allocator raw pointer/frame/tag/class differs"
+    },
+    {
+      "name": "reject unrelated allocator caller/shape (142622642, 48, 3757364)",
+      "passed": true,
+      "expected_rejection": "Native allocation body SP invalid"
+    },
+    {
+      "name": "reject unrelated allocator caller/shape (142622640, 16, 3757380)",
+      "passed": true,
+      "expected_rejection": "Only original48/8 callers admitted"
+    },
+    {
+      "name": "reject unrelated allocator caller/shape (142622640, 48, 3757380)",
+      "passed": true,
+      "expected_rejection": "Only original48/8 callers admitted"
+    },
+    {
+      "name": "reject unrelated allocator caller/shape (142622640, 8, 3757364)",
+      "passed": true,
+      "expected_rejection": "Only original48/8 callers admitted"
+    },
+    {
+      "name": "89 bounded heap store opcodes + six native initializer + threeTCB + two payload opcodes",
+      "passed": true
+    },
+    {
+      "name": "source forbids guest context/return replacement and native malloc host inventory impersonation",
+      "passed": true
+    }
+  ],
+  "host_only_control_count": 79,
+  "declared_fixture_host_operations": [
+    {
+      "method": "prepare_native_public_heap_input",
+      "operation": "mem_write",
+      "line": 113
+    },
+    {
+      "method": "prepare_native_public_heap_input",
+      "operation": "mem_write",
+      "line": 114
+    },
+    {
+      "method": "prepare_native_public_heap_input",
+      "operation": "mem_write",
+      "line": 115
+    },
+    {
+      "method": "prepare_native_public_heap_input",
+      "operation": "mem_write",
+      "line": 116
+    },
+    {
+      "method": "prepare_native_public_heap_input",
+      "operation": "mem_map",
+      "line": 112
+    }
+  ],
+  "actual_prior_terminal": {
+    "session": 5264,
+    "chunk": "3bd84b",
+    "PC": "0x3954cc",
+    "LR": "0x395535",
+    "SP": "0x8803fb0",
+    "r0": "0x30",
+    "allocator_return_not_seen": true,
+    "private_only_heap_no_public_free_bins": true
+  },
+  "observer_interface": {
+    "source_path": "staging/native-player-native-allocation/gui-static/native_allocation_observer.py",
+    "class_name": "NativeAllocationDispatcherActorObserverMixin",
+    "parent_source_path": "staging/native-player-clock-caller/gui-static/clock_caller_observer_v2.py",
+    "initialization": "root constructor calls init_dispatcher_actor_observer after original super().__init__",
+    "first_cold_sequence": [
+      "after original seal_cold_boot: prepare_native_public_heap_input()",
+      "begin_extra_zones(existing inventory,timed)",
+      "phase='heap_ctor'",
+      "native_heap_init_arguments(EXTENT)",
+      "original current-controller kernel_invoke388B6D with returned4arguments",
+      "verify_heap(cold=True)",
+      "verify_native_public_heap_guards()"
+    ],
+    "input_capture": "inherited capture_decoder_inputs then capture_dispatcher_settings_inputs; new allocation capture is chained at end",
+    "body_observer": "root observe_dispatcher_actor before parent; True only native allocator entries and exact raw rows and48/8 continuations",
+    "final_or_partial_guards": "always verify_native_public_heap_guards; only complete two-allocation prefix calls verify_native_allocation_prefix",
+    "new_whole_zones": [
+      "public guarded envelope18304000/24576",
+      "descriptor page1830B000/4096"
+    ],
+    "heap_ctor_separate_stack_journal": "NEW whole actual controller stack16384 before first388B6C, captured originalPUSH/register effects, replay/seal at genuine native RETURN; old five boot zones stay sealed",
+    "original_epilogues": "300A0A/30092A delegate and consume same parent task_mutex_ops ledger"
+  },
+  "native_public_init": {
+    "original_ABI": "r0/privatearray,r1/count,r2/publicarray,r3/count",
+    "new_arguments": [
+      "EXTENT",
+      1,
+      "0x1830b020",
+      1
+    ],
+    "original_boot_private": [
+      "0x14e5238",
+      "0x1800000"
+    ],
+    "original_boot_public": [
+      "0xc0000000",
+      "0x10000000"
+    ],
+    "original_boot_file_data_is_not_guest_mapping_or_hardware_free_heap": true,
+    "actual_WORK96_zero_before_firstcall_required": true,
+    "repeated_WORK_reset_or_warm_public_extension_forbidden": true,
+    "original_initializer": "388BCC→3008A0 six native zero STRs; tag388BD2=388D00/class0",
+    "free_bin_recipe_expected_only": {
+      "private_extent8192": true,
+      "prefix4096": true,
+      "descriptor_page4096": true,
+      "descriptors170_stride24": true,
+      "Hstart": "0x18302fd8",
+      "Hend": "0x18302fc0",
+      "remaining": "0x18302fa8",
+      "bin_slot": "0x1830157c",
+      "WORK50": 8192,
+      "WORK54": 8192,
+      "WORK58": 8192
+    },
+    "initialization_returns_or_recipe_not_yet_runtime_verified": true
+  },
+  "native_allocation_scope": {
+    "native_chain": [
+      "3954CC ARMveneer",
+      "2DC9EA original F070B0 flags0/alignment8/callerLR",
+      "2DC954",
+      "38850A rawwrapper",
+      "3881BC",
+      "388804 rawquery",
+      "388E92 handlevalidator",
+      "2DC97E prefixstore",
+      "2DC980 originalcallerreturn"
+    ],
+    "only_original_callers": [
+      "395530→395534 N48",
+      "395540→395544 N8"
+    ],
+    "raw_pairs": [
+      "38851C",
+      "388534",
+      "388812",
+      "388826"
+    ],
+    "backend": "0x3a7f18c",
+    "backend_whole24_actual_histories": true,
+    "TCB_whole108_before_and_after_allfive_required": true,
+    "exact_D_TCB24_offset36_native_ownerhead_only": true,
+    "exact_native_raw_D_TCB32_push_restore": true,
+    "released_stale_links_not_zeroed": true,
+    "native_handle24_original_private_descriptor_page_lifetime": true,
+    "actual_output_cell_cpu_order": [
+      "2DC954 PUSHsavedr3=captured callerLR",
+      "2DC95C zero",
+      "3881CA zero",
+      "3884C0 actualH"
+    ],
+    "payload_initializer": "original395548 vtableC1C0EC;395550 actualstackbyteB+30;P8+5..7actualbefore preserved",
+    "no_native_allocations_inserted_in_hostraw_dictionary": true,
+    "next_explicit_boundary": "395552 before post-allocation timer/container initialization; nofree/dtor/362A2C lifecycle admitted",
+    "allocation_return_or_success_not_yet_runtime_verified": true
+  },
+  "scope_qualifications": {
+    "fullcold_run_with_new_public_inputs_verified": false,
+    "physical_App_or_foreground_verified": false,
+    "native_hardware_or_actual_device_free_heap_verified": false,
+    "unknown_provider_or_diagnostic_branch_hardstop": true,
+    "old_manager_clock_controller_timer_FP_decoder_settings_global_inline_checks_retained": true,
+    "prelaunch_correction": "ColdFPControllerVM.seal_cold_boot disables oldcoldjournal. New independent heap_ctor stack ledger implemented; no guest failure or oldjournal restart.",
+    "host_producer_first_attempt": "Original reused CFG utility incorrectly classified conditional BX as immediate branch; saved producer v1 failed before any outputs or guest, new local CFG handles BX modes."
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "updated_utc": "2026-10-02T21:58:27.169097+00:00",
+  "elf": "staging/native-media-worker/worker-armv6.elf",
+  "elf_sha256": "3eac037bb2dec199d912eb8ea10f38072e830a30a139fe860ed122a5906a4d47",
+  "flat_binary": "staging/native-media-worker/worker-armv6.bin",
+  "flat_binary_sha256": "43c7d1a667eafcd8fea7109e7abd67fcbd3abfdb08a6663035855417730c093f",
+  "flat_binary_bytes": 2016,
+  "load_base": 137363456,
+  "symbols": {
+    "lock": {
+      "address": 137363456,
+      "type": "t"
+    },
+    "unlock": {
+      "address": 137363476,
+      "type": "t"
+    },
+    "discard_pending": {
+      "address": 137363488,
+      "type": "t"
+    },
+    "media_queue_begin": {
+      "address": 137363540,
+      "type": "T"
+    },
+    "media_queue_stop": {
+      "address": 137363740,
+      "type": "T"
+    },
+    "media_queue_step": {
+      "address": 137363812,
+      "type": "T"
+    },
+    "media_queue_init": {
+      "address": 137364292,
+      "type": "T"
+    },
+    "media_queue_callback": {
+      "address": 137364408,
+      "type": "T"
+    },
+    "post": {
+      "address": 137364780,
+      "type": "t"
+    },
+    "media_worker_notify_capacity": {
+      "address": 137364808,
+      "type": "T"
+    },
+    "media_worker_entry": {
+      "address": 137364876,
+      "type": "T"
+    },
+    "media_worker_init": {
+      "address": 137365040,
+      "type": "T"
+    },
+    "media_worker_callback": {
+      "address": 137365092,
+      "type": "T"
+    },
+    "media_worker_shutdown": {
+      "address": 137365176,
+      "type": "T"
+    },
+    "media_worker_boot": {
+      "address": 137365236,
+      "type": "T"
+    },
+    "memset": {
+      "address": 137365376,
+      "type": "T"
+    },
+    "memcpy": {
+      "address": 137365400,
+      "type": "T"
+    },
+    "media_queue_api": {
+      "address": 137365428,
+      "type": "R"
+    },
+    "media_worker_api": {
+      "address": 137365448,
+      "type": "R"
+    },
+    "__queue_code_end": {
+      "address": 137365472,
+      "type": "R"
+    },
+    "__queue_state_start": {
+      "address": 137367552,
+      "type": "B"
+    },
+    "lengths": {
+      "address": 137367552,
+      "type": "b"
+    },
+    "media_queue_stats": {
+      "address": 137367568,
+      "type": "B"
+    },
+    "media_queue_control": {
+      "address": 137367604,
+      "type": "B"
+    },
+    "descriptor": {
+      "address": 137367640,
+      "type": "b"
+    },
+    "media_worker_state": {
+      "address": 137367660,
+      "type": "B"
+    },
+    "__queue_state_end": {
+      "address": 137367692,
+      "type": "B"
+    },
+    "__queue_payload_start": {
+      "address": 137375744,
+      "type": "B"
+    },
+    "slots": {
+      "address": 137375744,
+      "type": "b"
+    },
+    "__queue_payload_end": {
+      "address": 137392128,
+      "type": "B"
+    },
+    "__worker_stack_start": {
+      "address": 137396224,
+      "type": "B"
+    },
+    "worker_stack": {
+      "address": 137396224,
+      "type": "b"
+    },
+    "__worker_stack_end": {
+      "address": 137412608,
+      "type": "B"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/media_queue.c",
+      "-o",
+      "/root/garmin/staging/native-media-worker/media_queue.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/media_worker.c",
+      "-o",
+      "/root/garmin/staging/native-media-worker/media_worker.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/runtime.c",
+      "-o",
+      "/root/garmin/staging/native-media-worker/runtime.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-media-worker/worker.map",
+      "-Wl,-T,/root/garmin/staging/native-media-worker/worker.ld",
+      "/root/garmin/staging/native-media-worker/media_queue.o",
+      "/root/garmin/staging/native-media-worker/media_worker.o",
+      "/root/garmin/staging/native-media-worker/runtime.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-media-worker/worker-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8300630\nThere are 4 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08300000 0x08300000 0x007e0 0x007e0 R E 0x10000\n  LOAD           0x001000 0x08301000 0x08301000 0x00000 0x0008c RW  0x10000\n  LOAD           0x003000 0x08303000 0x08303000 0x00000 0x04000 RW  0x10000\n  LOAD           0x008000 0x08308000 0x08308000 0x00000 0x04000 RW  0x10000\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .rodata \n   01     .bss \n   02     .queue_payload \n   03     .worker_stack \n",
+  "source_sha256": {
+    "native/sbc-prototype/media_queue.c": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+    "native/sbc-prototype/media_worker.c": "be69e2096232d93cf6517df72ac600657b161f62fb080ad209cc8bfff26acbad",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/media_queue.h": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+    "native/sbc-prototype/media_worker.h": "f942220caf544fd6c4db4dbd2607c6c923772ca822e6436234a35112774353ab",
+    "staging/native-media-worker/worker.ld": "63f745590a66ead2b993ee4b397f6efdb776f2155a6f976dcb181e7b9f7c180d",
+    "scripts/build_native_media_worker.py": "db207e598408903d11ad3252d1ab76141c2b21a4b5b1fb12a2d84b4c648c622b"
+  },
+  "undefined_symbols": [],
+  "queue_slots": 4,
+  "packet_capacity_bytes": 4096,
+  "payload_bytes": 16384,
+  "preallocated_stack_bytes": 16384,
+  "conservative_pcm_free_bytes": 8961,
+  "linux_runtime_required": false,
+  "kernel_context_builder": "0x358bf9",
+  "descriptor_registry": "0x2fbbbf",
+  "event_post": "0x2fcf44",
+  "event_wait": "0x2fd035",
+  "descriptor_word_1": 0,
+  "allocates_stack_or_task_wrapper": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Standalone companion ELF, not merged into a DLLIMG/VPM. First initialization requires quiescence; only one boot is allowed. Stack/module are retained after shutdown. Consumer capacity notification must still be connected to the real audio consumer; navigation output ownership, cold PCM initialization, package acceptance, SEP/UI and hardware remain unverified."
+}

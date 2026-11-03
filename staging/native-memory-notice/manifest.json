@@ -1,0 +1,148 @@
+{
+  "updated_utc": "2026-10-02T23:16:49.671570+00:00",
+  "load_base": 139460608,
+  "elf": "staging/native-memory-notice/notice-armv6.elf",
+  "elf_sha256": "fefa57196c7dee16d5181e8092b48704b4bc1980e1e7bc384dc5892071b6576c",
+  "flat_binary": "staging/native-memory-notice/notice-armv6.bin",
+  "flat_binary_sha256": "de75bbda61fd8157f4d7b146ae32a341358e23ecfaea256c67451fce786f7f3f",
+  "flat_binary_bytes": 860,
+  "symbols": {
+    "memory_notice_api": {
+      "address": 139460608,
+      "type": "T"
+    },
+    "lock": {
+      "address": 139460624,
+      "type": "t"
+    },
+    "unlock": {
+      "address": 139460644,
+      "type": "t"
+    },
+    "memory_notice_disarm": {
+      "address": 139460656,
+      "type": "T"
+    },
+    "memory_notice_configure": {
+      "address": 139460724,
+      "type": "T"
+    },
+    "memory_notice_dispatch": {
+      "address": 139460876,
+      "type": "T"
+    },
+    "memory_notice_pop": {
+      "address": 139461272,
+      "type": "T"
+    },
+    "memset": {
+      "address": 139461416,
+      "type": "T"
+    },
+    "memcpy": {
+      "address": 139461440,
+      "type": "T"
+    },
+    "__notice_code_end": {
+      "address": 139461468,
+      "type": "T"
+    },
+    "__notice_state_start": {
+      "address": 139464704,
+      "type": "B"
+    },
+    "notice_slots": {
+      "address": 139464704,
+      "type": "b"
+    },
+    "memory_notice_control": {
+      "address": 139464784,
+      "type": "B"
+    },
+    "__notice_state_end": {
+      "address": 139464844,
+      "type": "B"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/memory_notice_observer.c",
+      "-o",
+      "/root/garmin/staging/native-memory-notice/memory_notice_observer.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/runtime.c",
+      "-o",
+      "/root/garmin/staging/native-memory-notice/runtime.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-memory-notice/notice.map",
+      "-Wl,-T,/root/garmin/staging/native-memory-notice/notice.ld",
+      "/root/garmin/staging/native-memory-notice/memory_notice_observer.o",
+      "/root/garmin/staging/native-memory-notice/runtime.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-memory-notice/notice-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x850010c\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08500000 0x08500000 0x0035c 0x0108c RWE 0x10000\n  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .bss \n   01     \n",
+  "source_sha256": {
+    "native/sbc-prototype/memory_notice_observer.c": "457df4d4fcc4d414d167cab8cf27050551fa9cc41963a00e18b8c5a829c38a84",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "staging/native-memory-notice/notice.ld": "6841011f0363d6d68614d2851dd481ba1d494bd058c81d36c92514a0c063f41c",
+    "scripts/build_native_memory_notice.py": "74eace444aab4f2a482d39c5a790175548e41c155ad4799afd89d1a55f389808"
+  },
+  "stock_notice_dispatcher": "0x455b65",
+  "raw_notice_bytes": 20,
+  "journal_slots": 4,
+  "uses_original_irq_save_restore": true,
+  "installed_hook": false,
+  "pcm_recycling_or_native_client_registration_implemented": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Standalone ARMv6 observer prototype, not merged into VPM or installed. Requires loader-cleared BSS and valid20-byte raw report frames at the original task interface. Always forwards original dispatcher/control and preserves its return; copies only configured channel/events to a bounded journal. Configuration epochs do not identify source stream generations. Disarm is not module/source callback quiescence. Journal overflow does not permit safe PCM recycle. Actual hook installation, whole native client dispatch, scheduling/lifetime, audio adapter/decoder/SEP/UI/phone/speaker and accepted package loading are unverified."
+}

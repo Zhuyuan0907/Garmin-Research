@@ -1,0 +1,56 @@
+Persistent OS20 music-command worker, HWID 1352 / software 8.00
+
+This is offline research code, not an installable App or Garmin SDK.
+resident_music_v2.c is the corrected implementation of resident_music_v1.h.
+The earlier v1 implementation called the Thumb CURRENT helper with an ARM
+pointer. Its native controller rejected that result; the failed image,
+source and terminal evidence remain frozen. Only the verified 3,865-original-
+instruction creation/restore prefix was reused, before any compiled C code
+or incorrect CURRENT call executed. The corrected pointer is 0x358D25.
+
+The actual compiled native controller issues ten commands to one OS20 task:
+START, frame0, duplicate START, frame1, STOP, rejected frame while stopped,
+START, frame2, frame3, STOP. START while active returns -16 and preserves
+decoder history. A frame while stopped returns -11 and leaves its output
+and result untouched. Successful START resets the decoder and increments
+generation. STOP makes this decoder worker inactive but does not exit it.
+
+Two streams produce 1,024 PCM bytes equal to upstream libsbc 2.1. The second
+stream starts with a fresh synthesis history; continuing the first decoder
+history would produce different bytes. The worker enters once, remains the
+same native TCB and adapter, and occupies one of the fifteen adapter slots.
+There is no native task creation or allocation for each frame or restart.
+
+The original POST/WAIT scheduler executes both wake-before-WAIT and already-
+blocked-WAIT paths. A compiled idle task sends one heartbeat to let the
+worker block before START. All ten publications and acknowledgements after
+dispatch are guest C stores and original helpers, not host command hooks.
+The fixture uses one controller, one outstanding request and pinned input,
+output, result and job storage. It is not a multi-producer media queue API.
+
+Combined evidence: 28,050 CPU stores, 266,145 instructions, 64 scoped full
+helper returns, 28 original context destinations, 18 tracked whole regions.
+The sealed prefix contributes 1,826 stores / 3,865 instructions / 9 returns
+/ one context destination. FILE v2 checks the new tail: 26,224 effective
+store addresses and values / 55 returns / 27 context destinations, and
+replays all final region bytes. FILE v1 stopped before tail review due to a
+Python Path/string error; its failed source and receipt remain frozen.
+
+At the final idle checkpoint the controller and worker are still in native
+WAIT, and root / worker / controller functions remain on their task stacks.
+No kernel self-exit executes. Adapter / descriptor / module / decoder / stack
+storage remains resident; full reclamation and safe unload are unverified.
+This STOP is a decoder-control acknowledgement, not the audio pipeline's
+native STOP_DONE, speaker drain, module unloading or Bluetooth teardown.
+
+All three TCBs came from original kernel code in the sealed prefix. Initial
+controller/idle ready membership is still a host bootstrap fixture. The new
+scope restores one frozen GP/CPSR endpoint before C execution; every later
+context switch is original firmware. MMU remains disabled; no full physical
+CP15/cache, heap, real clock, Bluetooth, DAC, GUI or App loading is proved.
+
+Next connect the persistent OS20 worker to the existing copied-media/typed
+PCM FIFO and Source/mixer path, then UI/menu ownership and physical loading.
+Retain the original forty voice interfaces and resident lifetime checks.
+Android Auto and offline Google Maps remain later goals, not completed by
+the decoder or OSM map update. Physical pairing takes immediate priority.

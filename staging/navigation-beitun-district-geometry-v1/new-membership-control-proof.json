@@ -1,0 +1,111 @@
+{
+  "schema": "new-Beitun-source-membership-wrapper-controls/v1",
+  "created_utc": "2026-10-07T04:48:05.505136+00:00",
+  "all_assigned_new_wrapper_checks_passed": true,
+  "controls": [
+    {
+      "name": "sole_actual_source_and_exact_raw24_same_Beitun_district",
+      "passed": true,
+      "source_ids": [
+        8280986017
+      ],
+      "sourcepoint": {
+        "city": "台中市",
+        "district": "北屯區",
+        "source_city_relation_id": 2921154,
+        "source_district_relation_id": 2959946,
+        "native_city_record": 268435464,
+        "native_district_record": 536870986,
+        "geometry_sha256": "c4b4c2a842af2042ca4fff893fb9e5ccd33940ffe27e445aa3222121269d49b3",
+        "primary_source_geometry_only": true,
+        "official_street_alias_verified": false,
+        "eligible": true,
+        "status": "inside_explicit_source_district",
+        "point_kind": "original_OSM_decimal_strings"
+      },
+      "raw24": {
+        "city": "台中市",
+        "district": "北屯區",
+        "source_city_relation_id": 2921154,
+        "source_district_relation_id": 2959946,
+        "native_city_record": 268435464,
+        "native_district_record": 536870986,
+        "geometry_sha256": "c4b4c2a842af2042ca4fff893fb9e5ccd33940ffe27e445aa3222121269d49b3",
+        "primary_source_geometry_only": true,
+        "official_street_alias_verified": false,
+        "eligible": true,
+        "status": "inside_explicit_source_district",
+        "point_kind": "exact_native_raw24_rational_no_decimal_rounding",
+        "signed24": [
+          1127253,
+          5625400
+        ]
+      }
+    },
+    {
+      "name": "wrong_city_does_not_reassign_source_point",
+      "passed": true,
+      "result": {
+        "eligible": false,
+        "status": "unsupported_native_city"
+      }
+    },
+    {
+      "name": "wrong_district_does_not_infer_name_alias",
+      "passed": true,
+      "result": {
+        "eligible": false,
+        "status": "unsupported_native_district"
+      }
+    },
+    {
+      "name": "known_Taipei_point_outside_Beitun",
+      "passed": true,
+      "result": {
+        "city": "台中市",
+        "district": "北屯區",
+        "source_city_relation_id": 2921154,
+        "source_district_relation_id": 2959946,
+        "native_city_record": 268435464,
+        "native_district_record": 536870986,
+        "geometry_sha256": "c4b4c2a842af2042ca4fff893fb9e5ccd33940ffe27e445aa3222121269d49b3",
+        "primary_source_geometry_only": true,
+        "official_street_alias_verified": false,
+        "eligible": false,
+        "status": "outside_explicit_source_district",
+        "point_kind": "original_OSM_decimal_strings"
+      }
+    },
+    {
+      "name": "excess_source_precision_not_rounded",
+      "passed": true,
+      "result": {
+        "eligible": false,
+        "status": "source_coordinate_exceeds_OSM_precision"
+      }
+    },
+    {
+      "name": "boolean_raw24_not_accepted_as_point",
+      "passed": true,
+      "result": {
+        "eligible": false,
+        "status": "invalid_explicit_raw24_integers"
+      }
+    },
+    {
+      "name": "changed_geometry_bytes_refused_before_membership",
+      "passed": true,
+      "refusal": "Unverified membership input /root/garmin/staging/navigation-beitun-district-geometry-v1/corrupt-geometry-control-atq7phel/geometry.json",
+      "only_temporary_fixture_modified": true
+    }
+  ],
+  "control_count": 7,
+  "source_API_sha256": "fa424f632cdc41b1e797e59f46246d5a1d0992749b0cd982338142d67e9fffb6",
+  "source_script_sha256": "aa97d58b1d7b73e6121cedd603049d01b52e0b72e683bfccbcad185fb976cd67",
+  "previous_city_KH_flat_geometry_or_CPU_cases_executed": false,
+  "original_PBF_not_opened_by_wrapper_controls": true,
+  "temporary_fixture_removed": true,
+  "official_street_alias_or_native_UI_proved": false,
+  "device_IO": false,
+  "install_candidate": false
+}

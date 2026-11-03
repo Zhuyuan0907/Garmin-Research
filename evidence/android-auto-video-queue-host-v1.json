@@ -1,0 +1,577 @@
+{
+  "schema": "android-auto-video-queue-host-v1",
+  "pass": true,
+  "created_utc": "2026-10-08T00:42:28.446171+00:00",
+  "host_arch": "aarch64",
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "category_count": 12,
+  "assertions_per_build": 1312,
+  "categories": [
+    {
+      "name": "owned_two_slot_capacity_and_source_lifetime",
+      "assertions": 56
+    },
+    {
+      "name": "partial_consumption_tail",
+      "assertions": 52
+    },
+    {
+      "name": "paused_frame_no_duplicate_input",
+      "assertions": 45
+    },
+    {
+      "name": "signed_media_session_and_timestamp",
+      "assertions": 34
+    },
+    {
+      "name": "invalid_consumption_guard",
+      "assertions": 33
+    },
+    {
+      "name": "EOF_held_frame_retry_finished",
+      "assertions": 30
+    },
+    {
+      "name": "STOP_restart_stale_owner",
+      "assertions": 51
+    },
+    {
+      "name": "decoder_error_details",
+      "assertions": 78
+    },
+    {
+      "name": "dependency_callback_reentry_guards",
+      "assertions": 75
+    },
+    {
+      "name": "serialized_owner_stop",
+      "assertions": 30
+    },
+    {
+      "name": "RGB565_strides_canaries_padding",
+      "assertions": 96
+    },
+    {
+      "name": "RGB565_rejection_before_write",
+      "assertions": 732
+    }
+  ],
+  "builds": [
+    {
+      "build": "ordinary",
+      "binary": "staging/android-auto-video-queue-host-v1/ordinary/test_video_queue",
+      "binary_sha256": "41c901478bbd30f09855f4fd74a79f0314d555df7107b156b366ae716dd7c816",
+      "flags": [
+        "-O2"
+      ],
+      "runtime": {
+        "pass": true,
+        "assertions": 1312,
+        "categories": [
+          {
+            "name": "owned_two_slot_capacity_and_source_lifetime",
+            "assertions": 56
+          },
+          {
+            "name": "partial_consumption_tail",
+            "assertions": 52
+          },
+          {
+            "name": "paused_frame_no_duplicate_input",
+            "assertions": 45
+          },
+          {
+            "name": "signed_media_session_and_timestamp",
+            "assertions": 34
+          },
+          {
+            "name": "invalid_consumption_guard",
+            "assertions": 33
+          },
+          {
+            "name": "EOF_held_frame_retry_finished",
+            "assertions": 30
+          },
+          {
+            "name": "STOP_restart_stale_owner",
+            "assertions": 51
+          },
+          {
+            "name": "decoder_error_details",
+            "assertions": 78
+          },
+          {
+            "name": "dependency_callback_reentry_guards",
+            "assertions": 75
+          },
+          {
+            "name": "serialized_owner_stop",
+            "assertions": 30
+          },
+          {
+            "name": "RGB565_strides_canaries_padding",
+            "assertions": 96
+          },
+          {
+            "name": "RGB565_rejection_before_write",
+            "assertions": 732
+          }
+        ],
+        "decoder_dependency": "synthetic_C_stub_no_decoding",
+        "device_IO": false
+      }
+    },
+    {
+      "build": "asan-ubsan",
+      "binary": "staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue",
+      "binary_sha256": "147f16a905f19c8dc7eb9c3a12fa9454332e70081b762dd49559b364de9c8171",
+      "flags": [
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer"
+      ],
+      "runtime": {
+        "pass": true,
+        "assertions": 1312,
+        "categories": [
+          {
+            "name": "owned_two_slot_capacity_and_source_lifetime",
+            "assertions": 56
+          },
+          {
+            "name": "partial_consumption_tail",
+            "assertions": 52
+          },
+          {
+            "name": "paused_frame_no_duplicate_input",
+            "assertions": 45
+          },
+          {
+            "name": "signed_media_session_and_timestamp",
+            "assertions": 34
+          },
+          {
+            "name": "invalid_consumption_guard",
+            "assertions": 33
+          },
+          {
+            "name": "EOF_held_frame_retry_finished",
+            "assertions": 30
+          },
+          {
+            "name": "STOP_restart_stale_owner",
+            "assertions": 51
+          },
+          {
+            "name": "decoder_error_details",
+            "assertions": 78
+          },
+          {
+            "name": "dependency_callback_reentry_guards",
+            "assertions": 75
+          },
+          {
+            "name": "serialized_owner_stop",
+            "assertions": 30
+          },
+          {
+            "name": "RGB565_strides_canaries_padding",
+            "assertions": 96
+          },
+          {
+            "name": "RGB565_rejection_before_write",
+            "assertions": 732
+          }
+        ],
+        "decoder_dependency": "synthetic_C_stub_no_decoding",
+        "device_IO": false
+      }
+    }
+  ],
+  "source_sha256": {
+    "native/aa-control/control.h": "fd7263c950c00bf812bc560515bd5fc9353cbf34cec3b9ec3af84ad17617b149",
+    "native/aa-h264/h264.h": "11795fc54ad413b42e95dcc497cf8ddf88a06155f64b87581161bc80ec626e68",
+    "native/aa-message/message.h": "54e35ab33937fa6841d235b16cae0b121d643b6079f1e6efebf86af399dc975c",
+    "native/aa-proto/generated/AVChannelData.pb.h": "b910fb1528af5985a1e8a09ee4b46d4206e306e3efa51929282366d9e5133000",
+    "native/aa-proto/generated/AVChannelSetupRequestMessage.pb.h": "199cfbced49d4e8230c378a92f93c27e460b37247f8914ac575c2ca759afa692",
+    "native/aa-proto/generated/AVChannelSetupResponseMessage.pb.h": "c18b9a826cc31dd5f2ca168ab0d653d95ac9a846c002135702af5bf607a8211c",
+    "native/aa-proto/generated/AVChannelSetupStatusEnum.pb.h": "5f09ceacb73a731f9bd31b3636f943be95393df5159175eef7a77f9d15288574",
+    "native/aa-proto/generated/AVChannelStartIndicationMessage.pb.h": "5e9efcb798816a7a61b95411a8311f6d452ca2eae5700fc0a97843a792c80404",
+    "native/aa-proto/generated/AVChannelStopIndicationMessage.pb.h": "4b1408b68bb8480cc17bf74cb173e04b107d41780b5ac9032c932cf3b9005abb",
+    "native/aa-proto/generated/AVInputChannelData.pb.h": "3aafe461ec6904775ad64f367ac04699d0d21e18191d40acd23e9913a13945f6",
+    "native/aa-proto/generated/AVMediaAckIndicationMessage.pb.h": "596921cb711b112d94d17d2f89323654cefcfc0297cbc61606388f89eee248ba",
+    "native/aa-proto/generated/AVStreamTypeEnum.pb.h": "8d2b6b1d28d77971af5e846e5cae59a12c1e1d7b65d2f0c9239b907a1dddc223",
+    "native/aa-proto/generated/AudioConfigData.pb.h": "15bceb88b28268bdbc8a13a37f422ff0b492c713a2bafed9fa8bcc9cf1aeca31",
+    "native/aa-proto/generated/AudioFocusRequestMessage.pb.h": "7f456e762e20acb312eb48b5df5d5fa3127a800699b8ea95332204a698ac98aa",
+    "native/aa-proto/generated/AudioFocusResponseMessage.pb.h": "cbd3880bb6a00c3f668eef1acf49720b323f0b36d1ebb2ef22ad649042d35913",
+    "native/aa-proto/generated/AudioFocusStateEnum.pb.h": "ff631cf15efb17414a00cad11a096f1bd26482b97aa7767051154c139f520f36",
+    "native/aa-proto/generated/AudioFocusTypeEnum.pb.h": "b4181ce5c8cfe439e37c4b97fcf2e1e9690bd21966ef49bcd8206bef628544b1",
+    "native/aa-proto/generated/AudioTypeEnum.pb.h": "bc45f5ed07af3c1ae6e9e0147b0015161f2bd1d361ba41b4188505b08034eda8",
+    "native/aa-proto/generated/BindingRequestMessage.pb.h": "dd3a1abe1154ef2b16f40547e27e0857850b5d3a6bf0d47d0c5841156e980cb6",
+    "native/aa-proto/generated/BindingResponseMessage.pb.h": "bcbc526f97cc70010613afcfdeab7dc4ad955d833013183cb3bd216fc2e51963",
+    "native/aa-proto/generated/BluetoothChannelData.pb.h": "ba1a1bc0800ba59e114d8df0e2573d767f4cb5cce605c729369ef9f70bba8b48",
+    "native/aa-proto/generated/BluetoothPairingMethodEnum.pb.h": "646ef5fd30f5e6348a272b861a701cc00e53a0fee83bd248ede35ec8bf9778fa",
+    "native/aa-proto/generated/ChannelDescriptorData.pb.h": "c692898b41db74b80e4f7e9871d97cc91d5ff038f47f50973d1e99490c13edf3",
+    "native/aa-proto/generated/ChannelOpenRequestMessage.pb.h": "92abab1bbe0f98b0f28a568c79ce9999d0f223b18259e24dd591fff7ed39e3b5",
+    "native/aa-proto/generated/ChannelOpenResponseMessage.pb.h": "875d7523bf2b0b90fcb44d6d7d902a030a48efd769ee2403cca7c0bfd5a319ee",
+    "native/aa-proto/generated/InputChannelData.pb.h": "5c9291232f72a8bbd580e0a838d889c56d0c5225817a06c7a66dec0f28c1cb95",
+    "native/aa-proto/generated/NavigationChannelData.pb.h": "d1023915f6323ea521127492b557efa2b7ac5b8e74dc2866df7b250eec3c97bd",
+    "native/aa-proto/generated/NavigationImageOptionsData.pb.h": "e20788196e73b00514e473da3ebeee140a5dfd7bcb4f5f812b3d085bad698449",
+    "native/aa-proto/generated/PingRequestMessage.pb.h": "01a382f049ceee99ebc1bb8b8a1f268861fe0ec6f24cbad3e07cb30f4b0dd093",
+    "native/aa-proto/generated/PingResponseMessage.pb.h": "26c00f81091b0d315ebe39facd00c1a81a2810242d5ce226882ec164b82f7593",
+    "native/aa-proto/generated/SensorChannelData.pb.h": "5be60e0f628c737d942297bccd173834aa51938b22a71a453a02782721ca2976",
+    "native/aa-proto/generated/SensorData.pb.h": "842864aec4c9af4dc80e9a2632fb8b0dee225592fb2e1ffc9f046402dcdf1480",
+    "native/aa-proto/generated/SensorTypeEnum.pb.h": "fdb668883451c4ad859d6b9f773d3ec970a8e6c685d4265af53ff9ad36cebb04",
+    "native/aa-proto/generated/ServiceDiscoveryRequestMessage.pb.h": "d5a08c38b99db56f0def2f35ca3e8d63719e1a6417d6b81889c90f1e7aadb75c",
+    "native/aa-proto/generated/ServiceDiscoveryResponseMessage.pb.h": "c28749dfcc9aa63b9a5da73d92731473abd745173577235434e4f6a156a37c1f",
+    "native/aa-proto/generated/ShutdownReasonEnum.pb.h": "64076738e4dcb4106e3add9fcfdbcf4d3063f2171dc018560f1601a2aab6185b",
+    "native/aa-proto/generated/ShutdownRequestMessage.pb.h": "25d98597077a48daf4246ce55a5f24a36877b6e9ac6fe62d6c4e8192326fbd5e",
+    "native/aa-proto/generated/ShutdownResponseMessage.pb.h": "1c61486a2427e614c41418cd26b693f36be253f40c816c686943d6583377ac7a",
+    "native/aa-proto/generated/StatusEnum.pb.h": "78e64e96a6548e04d941fbe39ec00870b73f7723799e6411b8874e7da70b60e0",
+    "native/aa-proto/generated/TouchConfigData.pb.h": "ed1174e48eaccb05c768aae5e71a72439e4330ff21468dfd4ba50d96e2fb6dc9",
+    "native/aa-proto/generated/VendorExtensionChannelData.pb.h": "c73af963f754171be27141d51d88f7a66a10dcbdf25de75b4a879dcd78a54c00",
+    "native/aa-proto/generated/VideoConfigData.pb.h": "d7dfe0acf6d653866555b990cc38ad942f0053fc4ab6abe6de77a666dfbd97dd",
+    "native/aa-proto/generated/VideoFPSEnum.pb.h": "8ea8c88ea06f176b1f326492b99733240fc231befb440f37bda05f51dc5525e4",
+    "native/aa-proto/generated/VideoFocusIndicationMessage.pb.h": "98b1ba82672b039c0ef4d3efbb1d015a35d9cac769585e6185ddabfb55dc8eb0",
+    "native/aa-proto/generated/VideoFocusModeEnum.pb.h": "7cca4d7e2a887dfffce40754430318047637d1f337c6d915cf4c561f7ada5f87",
+    "native/aa-proto/generated/VideoFocusReasonEnum.pb.h": "9af2bb5cb2b99cd0b77f1173424b146b2e862e050c58fcb42b6d9f0459120ffb",
+    "native/aa-proto/generated/VideoFocusRequestMessage.pb.h": "c0ed7a6d3560cc147b253a0c8463ec7cd19eed25d59dadf2f92d4e70271a21ab",
+    "native/aa-proto/generated/VideoResolutionEnum.pb.h": "96e908d299886eba46cbc15085b16d59751114ca51c693a064f817dee546d401",
+    "native/aa-proto/proto.h": "4e5700c4710f17a5937c2bfc21ffe4a843b826bff82350490721af2a2668fcf9",
+    "native/aa-proto/runtime/pb.h": "a2ecdca9fdaeef5f4972ed983540c0d6fb0a5c402a2e0b0349d7e1bc5e188d29",
+    "native/aa-proto/runtime/pb_decode.h": "1747746e5961de5789bcf0795588da0790cd18b2e4e706ad9c7099a0fa1cc83f",
+    "native/aa-proto/runtime/pb_encode.h": "9aa00fee4ff08adf0da16e33a55be08810ea657800a648dc78f82e89c60c10cf",
+    "native/aa-video/rgb565.c": "14ca7bdcc82ef6b25c9ea73dcc96b089f95498f66a770cac1229f0db47af53a6",
+    "native/aa-video/rgb565.h": "f744aa8b8fba413c150b2e4b388bc87967f3db1add9874d2905ae2ee06047073",
+    "native/aa-video/test_video_queue.c": "09f90762b5987a548d1e84fa0758e4631081d612dc765de91316c07c9bbddfd1",
+    "native/aa-video/video.c": "7ece5997bb8938f8ed31a7404b8d34ffd21521690736c6c808a050539c9be2eb",
+    "native/aa-video/video.h": "6fcb445a9bbfabbcfe67fb1e2b9d28b09a8bc8df8ea8707cb0a4fa285f5f8ce2",
+    "scripts/test_aa_video_queue_host.py": "59da5e5d1b31fb11daf7489fadcc30fb759784b06694e313449f6bb7388f4e06"
+  },
+  "actual_subprocess_receipts": [
+    {
+      "argv": [
+        "gcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "gcc (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": "",
+      "elapsed_host_seconds": 0.001523
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-O2",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "-MMD",
+        "-MF",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/video.d",
+        "-c",
+        "/root/garmin/native/aa-video/video.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/video.o"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.129794
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-O2",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "-MMD",
+        "-MF",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/rgb565.d",
+        "-c",
+        "/root/garmin/native/aa-video/rgb565.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/rgb565.o"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.069793
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-O2",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "-MMD",
+        "-MF",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/test_video_queue.d",
+        "-c",
+        "/root/garmin/native/aa-video/test_video_queue.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/test_video_queue.o"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.727114
+    },
+    {
+      "argv": [
+        "gcc",
+        "-O2",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/video.o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/rgb565.o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/test_video_queue.o",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/test_video_queue"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.020813
+    },
+    {
+      "argv": [
+        "/root/garmin/staging/android-auto-video-queue-host-v1/ordinary/test_video_queue"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\":true,\"assertions\":1312,\"categories\":[{\"name\":\"owned_two_slot_capacity_and_source_lifetime\",\"assertions\":56},{\"name\":\"partial_consumption_tail\",\"assertions\":52},{\"name\":\"paused_frame_no_duplicate_input\",\"assertions\":45},{\"name\":\"signed_media_session_and_timestamp\",\"assertions\":34},{\"name\":\"invalid_consumption_guard\",\"assertions\":33},{\"name\":\"EOF_held_frame_retry_finished\",\"assertions\":30},{\"name\":\"STOP_restart_stale_owner\",\"assertions\":51},{\"name\":\"decoder_error_details\",\"assertions\":78},{\"name\":\"dependency_callback_reentry_guards\",\"assertions\":75},{\"name\":\"serialized_owner_stop\",\"assertions\":30},{\"name\":\"RGB565_strides_canaries_padding\",\"assertions\":96},{\"name\":\"RGB565_rejection_before_write\",\"assertions\":732}],\"decoder_dependency\":\"synthetic_C_stub_no_decoding\",\"device_IO\":false}\n",
+      "stderr": "",
+      "elapsed_host_seconds": 0.013602
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "-MMD",
+        "-MF",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/video.d",
+        "-c",
+        "/root/garmin/native/aa-video/video.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/video.o"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.297856
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "-MMD",
+        "-MF",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/rgb565.d",
+        "-c",
+        "/root/garmin/native/aa-video/rgb565.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/rgb565.o"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.136265
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "-MMD",
+        "-MF",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue.d",
+        "-c",
+        "/root/garmin/native/aa-video/test_video_queue.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue.o"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 3.111549
+    },
+    {
+      "argv": [
+        "gcc",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/video.o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/rgb565.o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue.o",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.080037
+    },
+    {
+      "argv": [
+        "/root/garmin/staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pass\":true,\"assertions\":1312,\"categories\":[{\"name\":\"owned_two_slot_capacity_and_source_lifetime\",\"assertions\":56},{\"name\":\"partial_consumption_tail\",\"assertions\":52},{\"name\":\"paused_frame_no_duplicate_input\",\"assertions\":45},{\"name\":\"signed_media_session_and_timestamp\",\"assertions\":34},{\"name\":\"invalid_consumption_guard\",\"assertions\":33},{\"name\":\"EOF_held_frame_retry_finished\",\"assertions\":30},{\"name\":\"STOP_restart_stale_owner\",\"assertions\":51},{\"name\":\"decoder_error_details\",\"assertions\":78},{\"name\":\"dependency_callback_reentry_guards\",\"assertions\":75},{\"name\":\"serialized_owner_stop\",\"assertions\":30},{\"name\":\"RGB565_strides_canaries_padding\",\"assertions\":96},{\"name\":\"RGB565_rejection_before_write\",\"assertions\":732}],\"decoder_dependency\":\"synthetic_C_stub_no_decoding\",\"device_IO\":false}\n",
+      "stderr": "",
+      "elapsed_host_seconds": 0.042509
+    },
+    {
+      "argv": [
+        "gcc",
+        "-std=c11",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-Wpedantic",
+        "-I/root/garmin/native/aa-video",
+        "-I/root/garmin/native/aa-h264",
+        "-I/root/garmin/native/aa-control",
+        "-I/root/garmin/native/aa-message",
+        "-I/root/garmin/native/aa-proto",
+        "-I/root/garmin/native/aa-proto/generated",
+        "-I/root/garmin/native/aa-proto/runtime",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/video-stop-negative.c",
+        "/root/garmin/native/aa-video/rgb565.c",
+        "/root/garmin/native/aa-video/test_video_queue.c",
+        "-o",
+        "/root/garmin/staging/android-auto-video-queue-host-v1/test_video_queue_stop_negative"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_host_seconds": 0.936134
+    },
+    {
+      "argv": [
+        "/root/garmin/staging/android-auto-video-queue-host-v1/test_video_queue_stop_negative"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "check failed category=serialized_owner_stop at /root/garmin/native/aa-video/test_video_queue.c:38: aa_video_status(d->owner,OWNER)==AA_VIDEO_E_REENTRANT\n",
+      "elapsed_host_seconds": 0.012805
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "staging/android-auto-video-queue-host-v1/ordinary/test_video_queue",
+      "sha256": "41c901478bbd30f09855f4fd74a79f0314d555df7107b156b366ae716dd7c816"
+    },
+    {
+      "path": "staging/android-auto-video-queue-host-v1/asan-ubsan/test_video_queue",
+      "sha256": "147f16a905f19c8dc7eb9c3a12fa9454332e70081b762dd49559b364de9c8171"
+    }
+  ],
+  "negative_control": {
+    "description": "Staging-only owner-stop copy with busy guard removed; regression must fail.",
+    "path": "staging/android-auto-video-queue-host-v1/video-stop-negative.c",
+    "sha256": "60121cf3391f3175a55ce282719f0f2a122521709d5d49cc7fdffe80049595a5",
+    "binary": "staging/android-auto-video-queue-host-v1/test_video_queue_stop_negative",
+    "binary_sha256": "28b6c6b681cb569c7082f91ddddc0f0db1a6dc892c3ddb5ea1e961cfd0a0971c",
+    "expected_exit_code": 1,
+    "observed_exit_code": 1,
+    "observed_category": "serialized_owner_stop"
+  },
+  "decoder_dependency": "synthetic_C_stub_no_decoding",
+  "actual_video_c_and_rgb565_c_host_tested": true,
+  "video_queue_and_renderer_ASan_UBSan_verified": true,
+  "simulated_dependency_callback_guards_verified": true,
+  "real_codec_stop_callback_observed": false,
+  "software_H264_decode_verified": false,
+  "TLS_integration_verified": false,
+  "device_IO": false,
+  "native_guest_executed": false,
+  "original_Garmin_code_executed": false,
+  "ARM_crosscompile": false,
+  "hardware_display_verified": false,
+  "phone_interoperability_verified": false,
+  "install_candidate": false,
+  "limitations": [
+    "The C dependency is explicitly synthetic: no H.264 parser/decoder or real decoded frame.",
+    "Calls/reentry are synchronous and serialized; no OS threads, IRQ, cancellation/quiescence or real timing proof.",
+    "Capacity is two complete 262144-byte owned compressed indications; acceptance is not frame/display ACK.",
+    "Timestamp/session transport is verified only as copied metadata, not a verified phone clock or audiovisual synchronization.",
+    "RGB565 black/white endpoint and nearest selection tests cover explicit software matrix/range; no inferred phone VUI or physical framebuffer ABI.",
+    "ASan/UBSan applies only to these host C sources/stub, not the separate real decoder integration."
+  ],
+  "elapsed_host_seconds": 5.597879
+}

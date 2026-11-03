@@ -1,0 +1,30 @@
+--- measure_reuse_v1.py
++++ measure_reuse_v2.py
+@@ -206,14 +206,14 @@
+   if any(x!=1 for x in degrees['v3'][newfirst:newfirst+count]):rejected['new_v3_range_not_exclusive_across_allL3']+=1;continue
+   structural.append({'root_ID':ID,'oldfirst':first,'newfirst':newfirst,'count':count})
+  required=sum(r['count']*32 for r in structural)
+- preflight={'structural_candidate_roots':len(structural),'structural_candidate_L4_rows':sum(r['count'] for r in structural),
++ read_plan={'structural_candidate_roots':len(structural),'structural_candidate_L4_rows':sum(r['count'] for r in structural),
+   'actual_IMG_bytes_before_L4':BUDGET.bytes,'required_exact_old_new_L4_read_bytes':required,
+   'projected_total_actual_IMG_bytes':BUDGET.bytes+required,'hard_total_limit':IMG_LIMIT,'rejected_root_counts':dict(rejected)}
+- save('actual-L4-read-budget-preflight.json',preflight)
+- print(json.dumps({'phase':'actual structural candidate preflight',**preflight}),flush=True)
++ save('actual-L4-read-budget-preflight.json',read_plan)
++ print(json.dumps({'phase':'actual structural candidate preflight',**read_plan}),flush=True)
+  if BUDGET.bytes+required>IMG_LIMIT:
+   # Keep cap: close with a real finite gap, never raise or silently select a successful subset.
+-  save('budget-gap.json',{'all_structural_roots_examined':True,'all_target_L4_rows_compared':False,**preflight,
++  save('budget-gap.json',{'all_structural_roots_examined':True,'all_target_L4_rows_compared':False,**read_plan,
+    'cap_not_raised':True,'next_root_decision_required':True});return False
+  accepted=[];failed=[];samples=[];mask4=((1<<32)-1)<<39;compared=changed=0;flags=Counter();rolling=hashlib.sha256()
+  for ordinal,r in enumerate(structural):
+@@ -249,7 +249,7 @@
+  savings=sum(r['count'] for r in accepted);plan=arithmetic(summary,imagefacts['v3']['components'],savings)
+  baselinecalc=arithmetic(summary,imagefacts['v3']['components'],0)
+  need(baselinecalc['projected_4K_IMG_bytes']==137170944,'Independent original4K/FAT baseline matches V5')
+- need(BUDGET.bytes==preflight['projected_total_actual_IMG_bytes'],'Exact targeted source read plan consumed, no hidden fulltable pass')
++ need(BUDGET.bytes==read_plan['projected_total_actual_IMG_bytes'],'Exact targeted source read plan consumed, no hidden fulltable pass')
+  for tag in PINS:need(stat(ROOT/PINS[tag]['path'])==before[tag],'Source stat immutable during actual comparisons')
+  save('reuse-root-plan.json.gz',{'schema':'exclusive-stock-L4-reuse-readonly-plan/v1','roots':accepted,
+   'source_pairwise_ranges':pairwise,'only_old_L4_first_count_fields_would_be_patched':True,

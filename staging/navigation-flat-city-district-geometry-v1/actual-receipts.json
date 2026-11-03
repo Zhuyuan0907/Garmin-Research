@@ -1,0 +1,184 @@
+{
+  "schema": "flat-native-city-source-district-actual-receipts/v1",
+  "sealed_utc": "2026-10-06T19:10:38.129982+00:00",
+  "preparation": {
+    "command": "python3 staging/navigation-flat-city-district-geometry-v1/prepare_flat_city_districts.py",
+    "initial_exec_chunk_id": "fe5540",
+    "session_id": 13237,
+    "terminal_write_stdin_chunk_id": "dc7077",
+    "actual_exit_code": 0,
+    "started_utc": "2026-10-06T19:06:12.588689+00:00",
+    "finished_utc": "2026-10-06T19:06:20.071740+00:00",
+    "max_RSS_KiB": 424240,
+    "explicit_source_district_relations": 24,
+    "observed_counts_by_source_city": {
+      "嘉義市": 2,
+      "基隆市": 7,
+      "新竹市": 3,
+      "臺北市": 12
+    },
+    "vertices": 17912,
+    "native_district_records": 0,
+    "osmium_commands_count": 50,
+    "osmium_all_actual_exit_codes_zero": true,
+    "osmium_command_stdout_bytes_total": 934419,
+    "command_receipts": "proof.json commands plus export_relation_receipts",
+    "assigned_input_content_bytes_hashed": 5774620,
+    "external_osmium_total_disk_IO_bytes_observed": false,
+    "small_source_PBF_bytes": 4349834,
+    "small_source_PBF_hash_passes_in_preparation": 1,
+    "single_relation_ephemeral_memfd_exports": 24,
+    "all_memfds_closed_and_temporary_PBF_symlink_removed": true,
+    "complete_original_327MB_PBF_read": false,
+    "proof_sha256": "d9961345335eea3b8ff0ff41f4aff6283d7053ecf367b6ce900f79ab9106186c"
+  },
+  "new_API_controls": {
+    "command": "python3 staging/navigation-flat-city-district-geometry-v1/test_source_district_membership.py",
+    "actual_exec_chunk_id": "944f7b",
+    "actual_exit_code": 0,
+    "started_utc": "2026-10-06T19:08:43.310076+00:00",
+    "finished_utc": "2026-10-06T19:08:43.876599+00:00",
+    "counts": {
+      "districts_with_positive_source_and_native_pair": 24,
+      "source_signed_winding_comparisons": 264,
+      "source_inside": 189,
+      "exact_rational_native_grid_comparisons": 189,
+      "source_outside": 75,
+      "actual_source_boundary_quantization_rejections": 21,
+      "actual_geometry_boundary_controls": 24,
+      "literal_source_native_Taipei_binding_control": 1,
+      "new_rational_hole_boundary_controls": 9
+    },
+    "guard_controls": 21,
+    "identity_tamper_controls": 5,
+    "temporary_identity_fixtures_removed": true,
+    "membership_test_proof_sha256": "094aeed90441d1724efbded18a096e924bf1ea2003be3aa637ac4eae475df2ed",
+    "boundary_quantization_rejections_are_address_source_statistics": false
+  },
+  "all_existing_source_stats_unchanged_at_seal": true,
+  "source_immutability": [
+    {
+      "path": "staging/navigation-repair-v1/taiwan-admin-selected-from-source.osm.pbf",
+      "bytes": 4349834,
+      "sha256_from_completed_preparation_pass": "5b8cd8d1de51a55446abc2d42164244c909e1bc70cadc55fe20fd9808e949c7d",
+      "stat_at_seal": [
+        45826,
+        523629,
+        4349834,
+        1791208508325756167,
+        1791208508325756167
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-road-coverage-v1/native-all-city-closure-proof.json",
+      "bytes": 143946,
+      "sha256_from_completed_preparation_pass": "e28ce491a3463c3aebb6662b304270aae02596240de8d40ce092af13d77f438a",
+      "stat_at_seal": [
+        45826,
+        523631,
+        143946,
+        1791208559106955889,
+        1791208559106955889
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-road-coverage-v1/native-taiwan-admin-roots.json",
+      "bytes": 45537,
+      "sha256_from_completed_preparation_pass": "4a66ad7483723dd2f6935f96697f4482829c4e29581da438a90dfec21b0d52c4",
+      "stat_at_seal": [
+        45826,
+        523609,
+        45537,
+        1791208299585876774,
+        1791208299585876774
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-taiwan-address-ingestion-v1/native-hierarchy.jsonl.gz",
+      "bytes": 1210093,
+      "sha256_from_completed_preparation_pass": "45333390cec4996db40b4a4a987eb421641fec352203bb318aedfd6a6fce2776",
+      "stat_at_seal": [
+        45826,
+        537256,
+        1210093,
+        1791306524903793153,
+        1791306524903793153
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "scripts/prepare_taichung_city_geometry_v1.py",
+      "bytes": 5776,
+      "sha256_from_completed_preparation_pass": "2fff38c613a41017553f8a59978b85811fce6b118b6db87cfc07fe1e17d74101",
+      "stat_at_seal": [
+        45826,
+        537405,
+        5776,
+        1791309294522957370,
+        1791309294522957370
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-kaohsiung-district-geometry-v1/district_membership.py",
+      "bytes": 6731,
+      "sha256_from_completed_preparation_pass": "c99ba1ad496356ca389f0bd8a8f1c7b00929a216066b7ed05a6c100359d0e998",
+      "stat_at_seal": [
+        45826,
+        537660,
+        6731,
+        1791312915693382622,
+        1791313025105602622
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-kaohsiung-district-geometry-v1/sealed-files.json",
+      "bytes": 1932,
+      "sha256_from_completed_preparation_pass": "3cffbeb8246e8f87428ce1fe376f1b2de1922f37d6386575be993a7c56095541",
+      "stat_at_seal": [
+        45826,
+        537667,
+        1932,
+        1791313025105244325,
+        1791313025105602622
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-kaohsiung-district-geometry-v1/membership-test-proof.json",
+      "bytes": 9031,
+      "sha256_from_completed_preparation_pass": "21b7de4d24627719668b71925fdd4e75c7d32e86b0bb0c1f49eeefe47dfd79bf",
+      "stat_at_seal": [
+        45826,
+        537664,
+        9031,
+        1791312919457960231,
+        1791313025105602622
+      ],
+      "unchanged_from_preparation": true
+    },
+    {
+      "path": "staging/navigation-country-city-geometry-v1/proof.json",
+      "bytes": 1740,
+      "sha256_from_completed_preparation_pass": "de9a7dc37f8506fe137480b1d79dd4235e4ac721356586c5e3db17a5a20033f3",
+      "stat_at_seal": [
+        45826,
+        537493,
+        1740,
+        1791310470218676676,
+        1791310470218676676
+      ],
+      "unchanged_from_preparation": true
+    }
+  ],
+  "native_district_verified": false,
+  "closed_Kaohsiung_21city_country_review_suites_rerun": false,
+  "address_ready_full_group_node_ledgers_read": false,
+  "new_native_records_JAI_IMG_USB_canonical_report_ZIP": false,
+  "full_Taiwan_update_complete": false,
+  "scope": "24 explicit source district geometries for four originally flat native cities; source/native-grid containment prerequisite API only."
+}

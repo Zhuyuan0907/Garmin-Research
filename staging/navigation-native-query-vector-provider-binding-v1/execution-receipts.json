@@ -1,0 +1,25 @@
+{
+  "schema": "garmin-native-query-vector-binding-execution-receipts/v1",
+  "all_assigned_checks_passed": true,
+  "new_MAIN_bytes_read": 32768,
+  "new_IMG_bytes_read": 0,
+  "guest_cases_executed": 0,
+  "old_cases_or_suites_replayed": false,
+  "actual_runs": [
+    {"script": "capture_binding_windows.py", "args": ["0x044B0000"], "terminal": "a728f7", "exit_code": 0, "actual_source_bytes": 4096},
+    {"script": "capture_binding_windows.py", "args": ["0x0032D000"], "terminal": "e6676d", "exit_code": 0, "actual_source_bytes": 4096},
+    {"script": "capture_binding_windows.py", "args": ["0x00351000", "0x003C2000", "0x00B9E000"], "terminal": "0409b6", "exit_code": 0, "actual_source_bytes": 12288},
+    {"script": "capture_binding_windows.py", "args": ["0x044DB000", "0x044DC000"], "terminal": "c7ac44", "exit_code": 0, "actual_source_bytes": 8192},
+    {"script": "capture_binding_windows.py", "args": ["0x00872000"], "terminal": "58a99e", "exit_code": 0, "actual_source_bytes": 4096},
+    {"script": "analyze_binding.py", "terminal": "28ba8e", "exit_code": 1, "failure": "Preparation SyntaxError: one surplus closing parenthesis; before Python evaluation, no source read/guest execution. Fixed exact syntax and retained failure receipt.", "actual_source_bytes": 0},
+    {"script": "analyze_binding.py", "terminal": "874815", "exit_code": 0, "all_assigned_checks_passed": true, "work_kind": "Exact-byte static ABI; no guest", "actual_original_source_bytes": 0, "sealed_saved_artifacts_read": true}
+  ],
+  "intermediate_operations": [
+    {"operation": "Rejected empty-context apply_patch attempt", "file_changed": false, "source_IO": false, "guest_execution": false},
+    {"terminal": "69d3bf", "exit_code": 0, "operation": "Correct surplus parenthesis in new unsealed script; bounded inspection of frozen source tuple chain", "original_source_IO": false}
+  ],
+  "all_original_source_handles_closed": true,
+  "unknown_original_callee_returns_faked": false,
+  "original_MAIN_patched": false,
+  "device_IO": false
+}

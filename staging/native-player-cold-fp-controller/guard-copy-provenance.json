@@ -1,0 +1,72 @@
+{
+  "guard_source": "scripts/native_cold_fp_guard_copies.py",
+  "guard_source_sha256": "b6849ca9dc226078ac83754ea9bb02acae60a8cae13a3f6da95f8c1ba278079b",
+  "frozen_methods": [
+    {
+      "source": "scripts/emulate_native_task_runtime_full.py",
+      "source_sha256": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+      "class_name": "FullTaskVM",
+      "method": "verify_memory",
+      "source_method_sha256": "3e12cdfb8f5d7698e5680550e9d56052bb2897229141588f1eafa87a68e85f18",
+      "declared_changes": [
+        {
+          "before": "require(bytes(self.uc.mem_read(bottom,64))==b'\\xa5'*64,'Synthetic stack leading64 canary changed')",
+          "after": "self.verify_cold_controller_or_idle_boundary(bottom)"
+        }
+      ]
+    },
+    {
+      "source": "scripts/probe_native_controller_gir_component.py",
+      "source_sha256": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+      "class_name": "ControllerGIRVM",
+      "method": "verify_component_memory",
+      "source_method_sha256": "6b8ebc3d7ebe1a4560f5d9c324b5a113b4a3192f9f4cf2fde3bc8cb80a3f3568",
+      "declared_changes": [
+        {
+          "before": "def verify_component_memory(",
+          "after": "def _verify_component_base("
+        },
+        {
+          "before": "require(bytes(self.uc.mem_read(bottom,64))==b'\\xa5'*64,'Native controller/idle stack guard changed')",
+          "after": "self.verify_cold_controller_or_idle_boundary(bottom)"
+        }
+      ]
+    },
+    {
+      "source": "scripts/probe_native_controller_gir_component_contiguous.py",
+      "source_sha256": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+      "class_name": "ContiguousFontControllerGIRVM",
+      "method": "verify_component_memory",
+      "source_method_sha256": "daa5303d98fd2d88e1cc28f738b0cf151b03a5d706deb644e4842b02553c7f9c",
+      "declared_changes": [
+        {
+          "before": "result=super().verify_component_memory(voice,exports,dbsha)",
+          "after": "result=self._verify_component_base(voice,exports,dbsha)"
+        }
+      ]
+    },
+    {
+      "source": "scripts/probe_native_heap_settings_boot.py",
+      "source_sha256": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+      "class_name": "HeapSettingsVM",
+      "method": "verify_heap",
+      "source_method_sha256": "e12ca43d9344eeafe3c53d976fd6c4643a439d2b8807785177c54073eb275af7",
+      "declared_changes": [
+        {
+          "before": "p in [0x3a7f150,0x3a7f160]",
+          "after": "p in [0x3a7f150,0x3a7f160,0x3ab1028]"
+        },
+        {
+          "before": "[r['pointer']for r in nodes]==[0x3a7f150,0x3a7f160]",
+          "after": "[r['pointer']for r in nodes]==[0x3a7f150,0x3a7f160,0x3ab1028]"
+        },
+        {
+          "before": "nodes[1]['words'][1:]==['0x3000000','0x388b37','0x0'],'Two original heap listeners differ')",
+          "after": "nodes[1]['words'][1:]==['0x3000000','0x388b37','0x0'] and\n            nodes[2]['words']==['0x0','0x7fffffff','0x20edb1','0x0'],'Three original heap/FP listeners differ')"
+        }
+      ]
+    }
+  ],
+  "changes_are_typed_cold_input_and_original_FP_listener_checks_only": true,
+  "guest_memory_or_read_result_rewritten": false
+}

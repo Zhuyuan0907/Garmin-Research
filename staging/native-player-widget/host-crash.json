@@ -1,0 +1,30 @@
+{
+  "session_id": 49064,
+  "terminal_exit": 139,
+  "stdout_empty": true,
+  "phase_unconfirmed": true,
+  "device_io": false,
+  "source_at_failure": "staging/native-player-widget/source-at-host-crash-20261003T203650624123Z.py",
+  "source_sha256": "beacffc954572f3cb8a077a1c6378f948b669c477d372df8c61dce942e3e69c1",
+  "cause_not_yet_diagnosed": true,
+  "gdb_reproduction_session": 61404,
+  "gdb_terminal": true,
+  "gdb_host_fault_PC": "0x00007fff6ce0002c",
+  "phase_confirmed": "Original outer loader returned, then normal factory execution entered before native host SIGSEGV.",
+  "gdb_native_library": "/lib/aarch64-linux-gnu/libunicorn.so.2",
+  "system_binding": "2.1.0",
+  "system_native": [
+    2,
+    1,
+    33620479
+  ],
+  "specific_crash_root_cause_identified": false,
+  "isolated_214_run_session": 45321,
+  "isolated_214_run_exit": 1,
+  "isolated_guest_error": {
+    "PC": "0x3954fa",
+    "unmapped_address": "0xa5a5a5a9",
+    "reason": "Poisoned output shared_ptr holder released by the stock assignment; caller must initialize an empty holder. No claim this caused system SIGSEGV."
+  },
+  "development_fix": "Initialize output shared_ptr to empty, retain Widget holders in separate addresses; isolated synthetic normal factory then returned with stock Widget and click signal."
+}

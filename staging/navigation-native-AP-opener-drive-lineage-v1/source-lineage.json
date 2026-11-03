@@ -1,0 +1,39 @@
+{
+  "schema": "static-AP-to-production-drive-lineage/v1",
+  "exact_static_chain": [
+    "167272 selector4D ->16727A/16713A ->1188B6 ->FE648 ->startup slot2",
+    "1186B8 slot ->FE8E8 startup selector4D ->2D3380",
+    "2D3380 ->mapped pair105E424[2*4D] ->J ->inventory105E624+36*J ->FILE at+1C",
+    "generic2D3166 incoming filename ->31D09A ->31D032 path ordinal ->1FDC0C ->24E790 F001A8 drive array",
+    "type1 open child+2C=drive; read1FDE12 ->drive+18 fileops+8 ->conditional3A132D",
+    "registered production drive+20=context+64; lowerops+8=3FEA37"
+  ],
+  "missing_edges": [
+    {
+      "from_node": "true physical AP gmapprom1.img filename/volume opener",
+      "to_node": "2D3166 or other actual mapping producer",
+      "missing": "actual caller/setup showing selector4D with exact original AP UTF16 path"
+    },
+    {
+      "from_node": "AP inventory FILE",
+      "to_node": "specific live F001A8 drive entry",
+      "missing": "AP actual path ordinal, drive type, initialized mount registration and current lowerops pointer"
+    },
+    {
+      "from_node": "shared drive array",
+      "to_node": "AP production partition/storage context",
+      "missing": "live partition/storage mapping and callback selection; no slot/ordinal identity assumption"
+    }
+  ],
+  "domain_separation": [
+    "selector0x4D",
+    "query slot2",
+    "mapped inventory indexJ",
+    "embedded IMG volume ordinal",
+    "FILE path drive ordinal",
+    "storage partition ordinal",
+    "physical storage ID"
+  ],
+  "AP_opener_to_production_storage_closed": false,
+  "minimum_next_step": "Find the real AP filename builder/caller to mapped-region installation, with register setup showing selector4D and exact UTF16 path. Then bind returned drive ordinal through24E790; do not infer it from query slot2. No generic driver case is needed again."
+}

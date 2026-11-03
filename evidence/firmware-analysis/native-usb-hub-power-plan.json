@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-10-03T08:44:20.893487+00:00",
+  "requested": "Garmin single microUSB port needs power while directly connected to phone; can hub solve it?",
+  "standard_self_powered_hub_charges_upstream_Garmin": false,
+  "Garmin_USB_host_VBUS_output_and_hub_driver_verified": false,
+  "ordinary_hub_changes_Garmin_to_host": false,
+  "current_AOA_prototype_contains_hub_driver": false,
+  "single_microUSB_host_while_charging_requires_verified_ACA_or_board_specific_power_path": true,
+  "Garmin_ACA_ID_detection_and_charge_while_host_supported": null,
+  "Garmin_USB_Port_PD_capability_claimed": false,
+  "candidate_paths": [
+    {
+      "path": "Garmin internal battery / direct OTG / phone",
+      "status": "conditional research only",
+      "requires": [
+        "physical host role and VBUS source capability",
+        "actual USB host driver/AOA backend",
+        "native receiver loading and full projection implementation"
+      ],
+      "advantage": "Can separate a short host-role experiment from continuous Garmin charging; no claim currently usable"
+    },
+    {
+      "path": "Garmin internal battery / OTG / self-powered hub / phone",
+      "status": "conditional research only",
+      "requires": [
+        "physical host and upstream VBUS detection",
+        "USB hub enumeration/class requests/downstream port power/reset/status and addressing",
+        "AOA phone re-enumeration bound to correct downstream port",
+        "external downstream power budget"
+      ],
+      "limitation": "A standard hub supplies downstream phone/hub power; it is not upstream Garmin charging"
+    },
+    {
+      "path": "supported ACA or documented independent Garmin power path",
+      "status": "unverified",
+      "requires": [
+        "Garmin charge-while-host and ID detection",
+        "actual connector/power circuit and reverse-current isolation",
+        "matching hardware/driver; a passive Y cable is not proof"
+      ]
+    },
+    {
+      "path": "original dock dedicated power and camera connection",
+      "status": "user lacks dock",
+      "requires": [
+        "actual connector pinout and power/data routing",
+        "camera path role and generic host use verified"
+      ],
+      "limitation": "Manual separate dock power/camera ports does not prove phone AOA or an available second generic USB bus"
+    }
+  ],
+  "next": "Continue actual host/VBUS/power control analysis; no new diagnostic traversal, adapter purchase or powered wiring requested until route is concrete. Continue freestanding TLS independently.",
+  "source_sha256": {
+    "sources/usb-power/source-snapshots.json": "365adb7dff9472f4d2dca909ccb1af72e66b396fc67a1f8297e569ab5f0d056e",
+    "sources/usb-power/ti-usb-power-distribution.pdf": "58f48e1003606fefd96bdc048a526866e36c7223bbd9c43fe17e4abcb1b93597",
+    "sources/usb-power/ti-usb-power-distribution.txt": "07e886d702b7305954e47f0e7986bdd29ca7a9bea676225079071fa7f5447a2b",
+    "sources/nuvi2555_2565T_2565RT-manual.txt": "49d98929185d01cb20ae8f166c726b54191b25a69a4b136558a2563f1c507938",
+    "sources/nuvi2555_2565T_2565RT_TW_0B.pdf": "b48f6b5d3a22d0fa376d00623f4985164eb29235a31da27e788ef762e0fc4912",
+    "evidence/firmware-analysis/native-diagnostic-pages-survey.json": "3264bbe25e6466db8e040bbfb525f78cca671aa1d6e39c50cd939a024c4992e4",
+    "evidence/device-diagnostic-menus-20261003T084420893487Z.json": "e84322dd9d50771c8806cd6019e4246f4cdd7f89f1ea2736b4da272ba76fc942"
+  },
+  "device_io": false,
+  "device_files_written": false,
+  "phone_session_verified": false,
+  "device_install_candidate": false
+}

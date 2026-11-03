@@ -1,0 +1,344 @@
+{
+  "updated_utc": "2026-10-03T09:30:15.885324+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "cpu_model": "ARM1176",
+  "Unicorn_version": "2.1.0",
+  "handler": "0x5748e4",
+  "serializer": "0x5a6928",
+  "cases": [
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130212"
+        }
+      ],
+      "allocations": [],
+      "free_calls": 0,
+      "stock_serializer_executed": false,
+      "stock_reject_executed": true,
+      "instructions": 94,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "inactive_endpoint",
+      "parameters": {
+        "state": 0
+      },
+      "expected_wire_hex": "130212",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130212"
+        }
+      ],
+      "allocations": [],
+      "free_calls": 0,
+      "stock_serializer_executed": false,
+      "stock_reject_executed": true,
+      "instructions": 94,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "SDP_enabled_endpoint_still_inactive",
+      "parameters": {
+        "state": 0,
+        "sdp_only": true
+      },
+      "expected_wire_hex": "130212",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "12020100060380000007060000ffff0235"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 21,
+          "failed": false
+        }
+      ],
+      "free_calls": 1,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": false,
+      "instructions": 236,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "SBC_capabilities_first_endpoint",
+      "parameters": {},
+      "expected_wire_hex": "12020100060380000007060000ffff0235",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "12020100060380000007060000ffff0235"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 21,
+          "failed": false
+        }
+      ],
+      "free_calls": 1,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": false,
+      "instructions": 236,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "SBC_capabilities_third_endpoint",
+      "parameters": {
+        "slot": 2,
+        "seid": 3
+      },
+      "expected_wire_hex": "12020100060380000007060000ffff0235",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130211"
+        }
+      ],
+      "allocations": [],
+      "free_calls": 0,
+      "stock_serializer_executed": false,
+      "stock_reject_executed": true,
+      "instructions": 81,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "missing_request_payload",
+      "parameters": {
+        "length": 0
+      },
+      "expected_wire_hex": "130211",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130212"
+        }
+      ],
+      "allocations": [],
+      "free_calls": 0,
+      "stock_serializer_executed": false,
+      "stock_reject_executed": true,
+      "instructions": 88,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "out_of_range_SEID_zero",
+      "parameters": {
+        "seid": 0
+      },
+      "expected_wire_hex": "130212",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130212"
+        }
+      ],
+      "allocations": [],
+      "free_calls": 0,
+      "stock_serializer_executed": false,
+      "stock_reject_executed": true,
+      "instructions": 88,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "out_of_range_SEID_four",
+      "parameters": {
+        "seid": 4
+      },
+      "expected_wire_hex": "130212",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130231"
+        }
+      ],
+      "allocations": [],
+      "free_calls": 0,
+      "stock_serializer_executed": false,
+      "stock_reject_executed": true,
+      "instructions": 101,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "unsupported_endpoint_state",
+      "parameters": {
+        "state": 64
+      },
+      "expected_wire_hex": "130231",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "120201000603800000"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 13,
+          "failed": false
+        }
+      ],
+      "free_calls": 1,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": false,
+      "instructions": 197,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "missing_codec_descriptor",
+      "parameters": {
+        "descriptor_present": false
+      },
+      "expected_wire_hex": "120201000603800000",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "130231"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 21,
+          "failed": true
+        }
+      ],
+      "free_calls": 0,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": true,
+      "instructions": 170,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "allocator_failure_then_stack_reject",
+      "parameters": {
+        "fail_first_alloc": true
+      },
+      "expected_wire_hex": "130231",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "120401000706000021150235"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 16,
+          "failed": false
+        }
+      ],
+      "free_calls": 1,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": false,
+      "instructions": 186,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "negotiated_configuration_separate_from_capabilities",
+      "parameters": {
+        "signal": 4,
+        "state": 2
+      },
+      "expected_wire_hex": "120401000706000021150235",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "1204010006030000000706000021150235"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 21,
+          "failed": false
+        }
+      ],
+      "free_calls": 1,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": false,
+      "instructions": 241,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "negotiated_configuration_category6_bytes",
+      "parameters": {
+        "signal": 4,
+        "state": 2,
+        "negotiated_flags": 9
+      },
+      "expected_wire_hex": "1204010006030000000706000021150235",
+      "passed": true
+    },
+    {
+      "reply": [
+        {
+          "channel": 4660,
+          "wire_hex": "12020100060380000007060002ffff0235"
+        }
+      ],
+      "allocations": [
+        {
+          "bytes": 21,
+          "failed": false
+        }
+      ],
+      "free_calls": 1,
+      "stock_serializer_executed": true,
+      "stock_reject_executed": false,
+      "instructions": 236,
+      "code_images_and_guard_canaries_intact": true,
+      "stack_restored": true,
+      "name": "codec_ID_passthrough_does_not_prove_decoder",
+      "parameters": {
+        "codec_id": 2
+      },
+      "expected_wire_hex": "12020100060380000007060002ffff0235",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "case_count": 13,
+  "source_sha256": {
+    "scripts/emulate_avdtp_capabilities.py": "bfefec705d8790914f888fb5de0c3e86f21900d878a740f8075c6e6df2a37f06",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "fixture_boundaries": [
+    "Synthetic SEP state/codec descriptors/channel context",
+    "Allocator/free/memcpy/log/L2CAP send hooks"
+  ],
+  "conclusion": "Stock capability serializer can advertise supplied SBC bytes and report separately supplied negotiated bytes. Active SEP/codec data was supplied by fixture; no endpoint registration was executed.",
+  "codec_ID_and_codec_info_are_serialized_not_decoded_or_validated": true,
+  "local_SEP_registration_verified": false,
+  "SDP_activation_verified_on_device": false,
+  "device_io": false,
+  "firmware_modified": false,
+  "device_install_candidate": false,
+  "actual_phone_reception_or_speaker_or_UI_verified": false,
+  "sources": [
+    "https://www.bluetooth.com/specifications/specs/advanced-audio-distribution-profile/"
+  ],
+  "limitations": "No SetConfiguration/Open/Start lifecycle, SBC decoding or real reception. Codec ID passthrough is not codec support. Heap hooks and synthetic endpoints do not establish stock registration API, live state, physical performance or install acceptance."
+}

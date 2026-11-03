@@ -1,0 +1,710 @@
+{
+  "updated_utc": "2026-10-04T17:30:22.891184+00:00",
+  "source_sha256": {
+    "staging/native-player-clock-caller/gui-static/clock_caller_observer_v2.py": "1a3253998dbdee390aa99fadf53e9c2bdc1de806b417d7e3258372ad7780a0b1",
+    "staging/native-player-clock-caller/gui-static/record_clock_caller_observer_v2_contract.py": "c4acb405f806a174fb6d160f5f3195d9de71514a1777742c467caf57d5166e01",
+    "evidence/firmware-analysis/native-inline-fields-checkpoint-audit.json": "05649316d052441a3a7d00e68fc931dbce189b462de57f4a80aae52f325db784",
+    "staging/native-player-inline-fields/gui-static/inline_fields_observer.py": "f8ef74225acadc6a8e9ec13791baf9103a5227e66c1532ce177d2226e6a8c681",
+    "staging/native-player-inline-fields/gui-static/inline-fields-observer-contract.json": "40dbc448fcc5eba142a0e9c128aac35cbfa2cd290a00bca7de7fa571fa0f6c02",
+    "staging/native-player-inline-fields/gui-static/next-clock-caller-contract.json": "6d70ad2adf662db93ad32fab6d1fe1d52b47f94279db6d4fcdae7f6b27622bc9",
+    "staging/native-player-inline-fields/gui-static/inline-fields-observed-prefix.json": "84e5ee3b07010a2e6a846c9bd19ad21fd66b141fd764f74fd07c53678931b365",
+    "staging/native-player-inline-fields/runtime/terminal-probe.json": "28a4037c8534aa7a3864d1c7b53b1f51e9b95a2dbec6ece02e80a17e70cc65d2",
+    "staging/native-player-inline-fields/runtime/terminal-metadata.json": "2ae58fad63183151b1bd68d2928dfb476b2b00c6e7da0d7f39ea6732924cace8",
+    "staging/native-player-inline-fields/runtime/terminal-tool-receipt.json": "6a2d6801bf624a2d95de63d812d35e8250b3854464b3625bc9c47cf56bf5ac33",
+    "staging/native-player-dispatcher-native-body/gui-static/dispatcher_actor_observer.py": "a323501d1af12aae3d4ed87822165b8ed6fea849fe767ba9ed08fdda0281ac5c",
+    "staging/native-player-dispatcher-fp/gui-static/dispatcher_actor_shapes.py": "8275e21abb736367660d7bf0bec2ec57a7cc838d07f61c2d2322c9ad4f852fbf",
+    "scripts/probe_native_dispatcher_inline_fields.py": "9585208df30e30f11e8151c5c910d86cd0082835add9890da233bb2bdee2e3e8",
+    "scripts/probe_native_mainmenu_controller.py": "d9f3c1ce76e362515a2a410dd39f01b5d87e8195b94f53bc304e820c34bd9d15",
+    "scripts/emulate_native_player_menu_loaded.py": "eb54cee452d9551aa84e6485524d01b6a04d7a4369ca1d2f3fc9bd4899f91ce8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-clock-caller/gui-static/clock_caller_observer.py": "3308a82834d4a957d492b41f75efdd8cc59bf54a2e360c0cfe75bad6a045590e",
+    "staging/native-player-clock-caller/gui-static/clock-caller-observer-contract.json": "b9c273cc71c1e03616ed154739079ec1efcfa10ffb72dea0b521b7d6d7cd3a65",
+    "staging/native-player-clock-caller/gui-static/clock-caller-v1-static-admission-erratum.json": "4dfc58f25f180e0438f8d7e8f291fa1b0e042ae62d4dedd713daa07d4e89188a",
+    "scripts/probe_native_dispatcher_condition.py": "7969f8609694ac0f062eab1a91f4024aeb4c298a1848ffdf629b8620a2c73c45",
+    "scripts/probe_mainmenu_native_settings_journal.py": "1034c6157923dafe44d5f7ea952c87543c3125db4cfd8d5ccd0c744f266bfde3"
+  },
+  "helper": {
+    "path": "staging/native-player-clock-caller/gui-static/clock_caller_observer_v2.py",
+    "sha256": "1a3253998dbdee390aa99fadf53e9c2bdc1de806b417d7e3258372ad7780a0b1",
+    "class_name": "ClockCallerDispatcherActorObserverMixin"
+  },
+  "exact_MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "all_static_and_pure_controls_passed": true,
+  "guest_execution": false,
+  "VM_driver_imported": false,
+  "VM_instantiated": false,
+  "device_io": false,
+  "source_fixture_supplied_or_guest_registers_or_memory_changed": false,
+  "checkpoint": {
+    "path": "evidence/firmware-analysis/native-inline-fields-checkpoint-audit.json",
+    "sha256": "05649316d052441a3a7d00e68fc931dbce189b462de57f4a80aae52f325db784",
+    "protected_files": 1529,
+    "full_registry_rescan_by_this_producer": false,
+    "only_referenced_dependency_hashes_rechecked": true
+  },
+  "interface": {
+    "init": "Call init_dispatcher_actor_observer after root constructor mappings; super initializes frozen parents.",
+    "capture": "Existing capture_dispatcher_settings_inputs chain adds clock_caller_inputs; call after begin_body_observer and decoder capture, before Signal80 publication.",
+    "observe": "Root calls observe_dispatcher_actor first when dispatcher_body_active; True only at exact353A9C newcaller to suppress inherited clock observer, never suppress native guest instruction.",
+    "snapshot": "Adds clock_caller_observer to inherited snapshot; records incomplete containing functions and allocator boundary explicitly.",
+    "verify": "Runs frozen parent verification first; clock-prefix verification cannot elevate incomplete parent body/foreground.",
+    "root_attributes": [
+      "mutable_bank_start",
+      "mutable_bank_size",
+      "mutable_journal_active",
+      "mutable_bank_before",
+      "body_zones existing whole-D stack journal",
+      "dispatcher_body_active",
+      "dispatcher_task",
+      "dispatcher_callback_SP",
+      "manager_object",
+      "running_task",
+      "native_TCBs",
+      "pending_restore"
+    ],
+    "new_guest_mappings_required": false,
+    "new_native_pages_or_host_scalars_seeded": false
+  },
+  "exact_shape": {
+    "SFS_entry": 2546920,
+    "SFS_entry_SP": 142622864,
+    "wrapper_entry": 3757966,
+    "wrapper_call": 2547036,
+    "wrapper_LR": 2547041,
+    "wrapper_entry_SP": 142622792,
+    "wrapper_body_SP": 142622768,
+    "wrapper_push_bytes": 24,
+    "constructor_entry": 3757344,
+    "constructor_call": 3758002,
+    "constructor_LR": 3758007,
+    "constructor_entry_SP": 142622768,
+    "constructor_push_bytes": 36,
+    "constructor_local_bytes": 92,
+    "clock_entry": 3488412,
+    "clock_call": 3757352,
+    "clock_LR": 3757357,
+    "clock_entry_SP": 142622640,
+    "clock_return": 3757356,
+    "clock_word": 15765656,
+    "clock_result_store_PC": 3757356,
+    "clock_result_address": 142622700,
+    "clock_result_size": 4,
+    "clock_result_value": 0,
+    "clock_host_write_allowed": false
+  },
+  "actual_native_frame_guards": {
+    "native_source_caller": "26DD5C→39578E→3957B2→395520",
+    "wrapper_arguments": [
+      "SFSbodySP+28",
+      "SFSbodySP+10",
+      "EA60",
+      "1"
+    ],
+    "constructor_arguments": [
+      "wrapperR0",
+      "actual_live_manager+E34",
+      "wrapperR1",
+      "wrapperR2"
+    ],
+    "constructor_fifth": "Original3957B0 STRr7,[SP] value1 verified in root whole-stack ledger",
+    "PUSH_capture": "Capture actual beforebytes/pre-instruction registers at native entry; consume root original actual-SP/register-bound PUSH6/PUSH9 stores and independently replay their spans.",
+    "native_frame_or_clock_seeded": false,
+    "synthetic_manager38D4BE_frame_allowed": false,
+    "function_entry_bypassed_or_synthesized": false
+  },
+  "clock_contract": {
+    "original_read": "353A9C LDRr1,literalF09098;353A9E LDRr0,[r1];353AA0 BXLR",
+    "entry_LR": "39552D",
+    "entry_SP": "captured395520SP−128",
+    "native_current": "8804FB8",
+    "fixed_existing_clock_input": 0,
+    "storage_provenance": {
+      "storage_class": "original_initialized_data_copy",
+      "bank_start": "0xf00000",
+      "bank_bytes": 467532,
+      "load_start": "0xcb1980",
+      "clock_address": "0xf09098",
+      "clock_load_address": "0xcbaa18",
+      "inherited_whole_bank_journal_required": true,
+      "new_mapping_or_BSS_zero_assumption": false
+    },
+    "original_instruction_events_required": 3,
+    "actual_return_PC": "39552C",
+    "actual_return_SP": "same getter entrySP",
+    "actual_return_registers": [
+      "R0=0",
+      "R1=F09098",
+      "R2=originalentryR2",
+      "R3=originalentryR3"
+    ],
+    "result_store": "Original39552C STRr0,[SP,#3C], exact4bytes0; native return ledger required before CPU write.",
+    "native_getter_return_or_original_stack_store_observed_by_this_static_record": false,
+    "clock_host_tick_increment_or_return_allowed": false,
+    "original_clock_word_attempted_writes_hardstop": true,
+    "result_hook_preserves_old_journals_and_root_records_original_store_once": true
+  },
+  "preserved_parent_scopes": {
+    "manager_clock_callers": [
+      "38D912",
+      "38D91E"
+    ],
+    "manager38D4BE_frame_guards_unchanged": true,
+    "native_raw_epilogues": [
+      "300A0A",
+      "30092A"
+    ],
+    "all_old_GIR_font_cache_settings_decoder_FP_guards_unchanged": true,
+    "unrecognized_clock_callers_delegate_to_frozen_parent_and_remain_unreviewed": true
+  },
+  "explicit_next_boundaries": [
+    {
+      "entry": "3954CC ARM",
+      "original_call": "395530 BLX",
+      "continuation": "395534",
+      "request48": 48,
+      "shape_SP": "captured395520SP−128",
+      "admitted": false
+    },
+    {
+      "entry": "3954CC ARM",
+      "original_call": "395540 BLX",
+      "continuation": "395544",
+      "request8": 8,
+      "shape_SP": "captured395520SP−128",
+      "admitted": false
+    }
+  ],
+  "allocation_qualification": "Inherited guarded C++ allocation/hostreturn remains an offline provider fixture; this new caller stops before provider dispatch. Neither native heap success nor those returns is admitted.",
+  "bounded_original_instructions": {
+    "SFS_exact_caller": [
+      {
+        "PC": "0x26dd3e",
+        "opcode_hex": "e048",
+        "instruction": "ldr r0, [pc, #0x380]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd40",
+        "opcode_hex": "2300",
+        "instruction": "movs r3, r4",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd42",
+        "opcode_hex": "4269",
+        "instruction": "ldr r2, [r0, #0x14]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd44",
+        "opcode_hex": "0169",
+        "instruction": "ldr r1, [r0, #0x10]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd46",
+        "opcode_hex": "01a8",
+        "instruction": "add r0, sp, #4",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd48",
+        "opcode_hex": "a9f78efa",
+        "instruction": "bl #0x217268",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd4c",
+        "opcode_hex": "01a9",
+        "instruction": "add r1, sp, #4",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd4e",
+        "opcode_hex": "04a8",
+        "instruction": "add r0, sp, #0x10",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd50",
+        "opcode_hex": "a4f7e8fa",
+        "instruction": "bl #0x212324",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd54",
+        "opcode_hex": "0100",
+        "instruction": "movs r1, r0",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd56",
+        "opcode_hex": "db4a",
+        "instruction": "ldr r2, [pc, #0x36c]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd58",
+        "opcode_hex": "0123",
+        "instruction": "movs r3, #1",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd5a",
+        "opcode_hex": "0aa8",
+        "instruction": "add r0, sp, #0x28",
+        "Thumb": true
+      },
+      {
+        "PC": "0x26dd5c",
+        "opcode_hex": "27f117fd",
+        "instruction": "bl #0x39578e",
+        "Thumb": true
+      }
+    ],
+    "wrapper": [
+      {
+        "PC": "0x39578e",
+        "opcode_hex": "f8b5",
+        "instruction": "push {r3, r4, r5, r6, r7, lr}",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395790",
+        "opcode_hex": "0500",
+        "instruction": "movs r5, r0",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395792",
+        "opcode_hex": "0e00",
+        "instruction": "movs r6, r1",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395794",
+        "opcode_hex": "1400",
+        "instruction": "movs r4, r2",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395796",
+        "opcode_hex": "1f00",
+        "instruction": "movs r7, r3",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395798",
+        "opcode_hex": "0020",
+        "instruction": "movs r0, #0",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39579a",
+        "opcode_hex": "fef747f9",
+        "instruction": "bl #0x393a2c",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39579e",
+        "opcode_hex": "0168",
+        "instruction": "ldr r1, [r0]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957a0",
+        "opcode_hex": "ff31",
+        "instruction": "adds r1, #0xff",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957a2",
+        "opcode_hex": "0131",
+        "instruction": "adds r1, #1",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957a4",
+        "opcode_hex": "c968",
+        "instruction": "ldr r1, [r1, #0xc]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957a6",
+        "opcode_hex": "8847",
+        "instruction": "blx r1",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957a8",
+        "opcode_hex": "0100",
+        "instruction": "movs r1, r0",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957aa",
+        "opcode_hex": "2300",
+        "instruction": "movs r3, r4",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957ac",
+        "opcode_hex": "3200",
+        "instruction": "movs r2, r6",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957ae",
+        "opcode_hex": "2800",
+        "instruction": "movs r0, r5",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957b0",
+        "opcode_hex": "0097",
+        "instruction": "str r7, [sp]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957b2",
+        "opcode_hex": "fff7b5fe",
+        "instruction": "bl #0x395520",
+        "Thumb": true
+      },
+      {
+        "PC": "0x3957b6",
+        "opcode_hex": "f8bd",
+        "instruction": "pop {r3, r4, r5, r6, r7, pc}",
+        "Thumb": true
+      }
+    ],
+    "constructor_clock_prefix": [
+      {
+        "PC": "0x395520",
+        "opcode_hex": "ffb5",
+        "instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395522",
+        "opcode_hex": "97b0",
+        "instruction": "sub sp, #0x5c",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395524",
+        "opcode_hex": "209d",
+        "instruction": "ldr r5, [sp, #0x80]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395526",
+        "opcode_hex": "1c00",
+        "instruction": "movs r4, r3",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395528",
+        "opcode_hex": "bef7b8fa",
+        "instruction": "bl #0x353a9c",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39552c",
+        "opcode_hex": "0f90",
+        "instruction": "str r0, [sp, #0x3c]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39552e",
+        "opcode_hex": "3020",
+        "instruction": "movs r0, #0x30",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395530",
+        "opcode_hex": "fff7ccef",
+        "instruction": "blx #0x3954cc",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395534",
+        "opcode_hex": "1390",
+        "instruction": "str r0, [sp, #0x4c]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395536",
+        "opcode_hex": "0120",
+        "instruction": "movs r0, #1",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395538",
+        "opcode_hex": "1490",
+        "instruction": "str r0, [sp, #0x50]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39553a",
+        "opcode_hex": "1398",
+        "instruction": "ldr r0, [sp, #0x4c]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39553c",
+        "opcode_hex": "0a90",
+        "instruction": "str r0, [sp, #0x28]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x39553e",
+        "opcode_hex": "0820",
+        "instruction": "movs r0, #8",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395540",
+        "opcode_hex": "fff7c4ef",
+        "instruction": "blx #0x3954cc",
+        "Thumb": true
+      },
+      {
+        "PC": "0x395544",
+        "opcode_hex": "fa49",
+        "instruction": "ldr r1, [pc, #0x3e8]",
+        "Thumb": true
+      }
+    ],
+    "clock_getter": [
+      {
+        "PC": "0x353a9c",
+        "opcode_hex": "0149",
+        "instruction": "ldr r1, [pc, #4]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x353a9e",
+        "opcode_hex": "0868",
+        "instruction": "ldr r0, [r1]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x353aa0",
+        "opcode_hex": "7047",
+        "instruction": "bx lr",
+        "Thumb": true
+      }
+    ],
+    "manager_E34_accessor": [
+      {
+        "PC": "0x223a08",
+        "opcode_hex": "0149",
+        "instruction": "ldr r1, [pc, #4]",
+        "Thumb": true
+      },
+      {
+        "PC": "0x223a0a",
+        "opcode_hex": "4018",
+        "instruction": "adds r0, r0, r1",
+        "Thumb": true
+      },
+      {
+        "PC": "0x223a0c",
+        "opcode_hex": "7047",
+        "instruction": "bx lr",
+        "Thumb": true
+      }
+    ],
+    "unknown_allocator_ARM_gate": [
+      {
+        "PC": "0x3954cc",
+        "opcode_hex": "00c09fe5",
+        "instruction": "ldr ip, [pc]",
+        "Thumb": false
+      },
+      {
+        "PC": "0x3954d0",
+        "opcode_hex": "1cff2fe1",
+        "instruction": "bx ip",
+        "Thumb": false
+      }
+    ]
+  },
+  "pure_host_controls": [
+    {
+      "name": "exact395528_clock_currentD_native_frame",
+      "accepted": true
+    },
+    {
+      "name": "exact_return_bound_original_stack_store",
+      "accepted": true
+    },
+    {
+      "name": "clock_wrong_actor",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller actor/current/mode differs"
+    },
+    {
+      "name": "clock_wrong_current",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller actor/current/mode differs"
+    },
+    {
+      "name": "clock_wrong_Thumb",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller actor/current/mode differs"
+    },
+    {
+      "name": "clock_wrong_entry",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller native entry/LR/SP/fixed input differs"
+    },
+    {
+      "name": "clock_wrong_LR",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller native entry/LR/SP/fixed input differs"
+    },
+    {
+      "name": "clock_wrong_SP",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller native entry/LR/SP/fixed input differs"
+    },
+    {
+      "name": "clock_wrong_clock_word",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock caller native entry/LR/SP/fixed input differs"
+    },
+    {
+      "name": "result_wrong_PC",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store lacks exact actual return/tuple/SP"
+    },
+    {
+      "name": "result_wrong_address",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store lacks exact actual return/tuple/SP"
+    },
+    {
+      "name": "result_wrong_size",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store lacks exact actual return/tuple/SP"
+    },
+    {
+      "name": "result_wrong_value",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store lacks exact actual return/tuple/SP"
+    },
+    {
+      "name": "result_wrong_SP",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store lacks exact actual return/tuple/SP"
+    },
+    {
+      "name": "result_wrong_actor",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store actor/current/mode differs"
+    },
+    {
+      "name": "result_wrong_current",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store actor/current/mode differs"
+    },
+    {
+      "name": "result_wrong_Thumb",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store actor/current/mode differs"
+    },
+    {
+      "name": "result_wrong_actual_return_seen",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock result store lacks exact actual return/tuple/SP"
+    },
+    {
+      "name": "unaligned_real_SFS_frame",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Invalid actual SFS native entry SP"
+    },
+    {
+      "name": "non_address_real_SFS_frame",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Invalid actual SFS native entry SP"
+    },
+    {
+      "name": "exact_initialized_copy_bank_clock0_not_zeroBSS",
+      "accepted": true,
+      "shape": {
+        "storage_class": "original_initialized_data_copy",
+        "bank_start": "0xf00000",
+        "bank_bytes": 467532,
+        "load_start": "0xcb1980",
+        "clock_address": "0xf09098",
+        "clock_load_address": "0xcbaa18",
+        "inherited_whole_bank_journal_required": true,
+        "new_mapping_or_BSS_zero_assumption": false
+      }
+    },
+    {
+      "name": "wrong_bank_start",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock input lacks exact original initialized-copy bank provenance"
+    },
+    {
+      "name": "wrong_bank_size",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock input lacks exact original initialized-copy bank provenance"
+    },
+    {
+      "name": "inactive_bank_journal",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock fixed0 input lacks existing whole initialized-bank journal/beforeimage"
+    },
+    {
+      "name": "nonzero_actual_clock_before",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock fixed0 input lacks existing whole initialized-bank journal/beforeimage"
+    },
+    {
+      "name": "wrong_initialized_copy_source",
+      "accepted": false,
+      "expected_rejection": true,
+      "error": "Dispatcher actor observer: Clock input lacks exact original initialized-copy bank provenance"
+    }
+  ],
+  "pure_host_controls_count": 26,
+  "code_ast_has_guest_execution_or_mutation_calls": false,
+  "superseded_static_candidate": {
+    "source": "staging/native-player-clock-caller/gui-static/clock_caller_observer.py",
+    "contract": "staging/native-player-clock-caller/gui-static/clock-caller-observer-contract.json",
+    "erratum": "staging/native-player-clock-caller/gui-static/clock-caller-v1-static-admission-erratum.json",
+    "guest_execution": false,
+    "runtime_rejection_observed": false,
+    "corrected_initialized_data_admission": true
+  },
+  "whole395520_constructor_or39578E_function_return_verified": false,
+  "full_dispatcher_body_or_foreground_verified": false,
+  "physical_App_music_or_install_verified": false
+}

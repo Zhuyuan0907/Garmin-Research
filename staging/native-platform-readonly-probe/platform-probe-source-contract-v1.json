@@ -1,0 +1,54 @@
+{
+  "all_passed": true,
+  "device_IO": false,
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "original_version_getter": 2573558,
+  "exact_five_UTF16_copy_limit": {
+    "instruction": 2573592,
+    "opcode_hex": "0522",
+    "copy_call": 2573596
+  },
+  "original_native_SCTLR_read_PC": 7274796,
+  "original_native_SCTLR_read_hex": "100f11ee",
+  "allowed_CP15_modes": [
+    19,
+    31
+  ],
+  "skipped_modes_are_not_privilege_elevation": true,
+  "tag_bits": {
+    "high_nibble": {
+      "bit0": "System mode1 vs Supervisor0",
+      "bit1": "SCTLR.M",
+      "bit2": "SCTLR.C",
+      "bit3": "SCTLR.I"
+    },
+    "low12": "MIDR bits15:4 part number",
+    "skip": "U plus3hex mode for User, X plus3hex mode otherwise"
+  },
+  "only_platform_reads": [
+    "CPSR via MRS",
+    "MIDR via CP15 c0,c0,0 MRC",
+    "SCTLR via CP15 c1,c0,0 MRC"
+  ],
+  "no_platform_register_writes_or_table_dereferences": true,
+  "mode_CPU_model_registers_are_not_physical_observations": true,
+  "tag_not_MAIN_writeability_or_Ram_flash_or_permissions_or_heap_proof": true,
+  "Arm_primary_sources": [
+    {
+      "title": "ARM1176JZF-S TRM DDI0301H",
+      "url": "https://documentation-service.arm.com/static/5e8e294efd977155116a6ca3",
+      "relevant": "Main ID privileged-only, part field15:4; control registerM/C/I bits"
+    },
+    {
+      "title": "ARM926EJ-S TRM DDI0198E",
+      "url": "https://documentation-service.arm.com/static/5e8e3d1088295d1e18d3a9b2",
+      "relevant": "ID c0 read and part926; control registerM/C/I bits"
+    }
+  ],
+  "source_sha256": {
+    "staging/native-platform-readonly-probe/platform_cache_marker_entry_v1.c": "d2c650f09ae2bb31f33cd84118ac073cb771e1da49c65bee8d168134f0f262ef",
+    "staging/native-platform-readonly-probe/build_platform_probe_v1.py": "a6f492c5bd364f5ba36b8352686ae825ffbd7f49c25aedd0dd232086340d1f5b",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  }
+}

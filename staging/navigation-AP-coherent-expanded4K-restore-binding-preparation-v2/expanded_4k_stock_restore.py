@@ -1,0 +1,468 @@
+#!/usr/bin/env python3
+"""Strict pure-host coherent expanded4K -> exact stock4K restore preparation.
+Production reconstruction requires a fresh full actual input SHA before yielding.
+No generic IMG profile, output writer, installer, device or native execution.
+"""
+
+
+from dataclasses import dataclass
+import gzip
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import re
+import struct
+
+
+BLOCK4 = 4096
+
+BLOCK8 = 8192
+
+MDR = '00004171.MDR'
+
+NAMES = ('00004171.MD2', MDR, '00004171.SRT', 'I053061A.GMP', 'I053061A.SRT', 'MAPSOURC.MPS')
+
+RECIPE_SHA = '6e1381006e3f56a466c8cdd93134f418eab18ee592cbfd5e57f1a55c2950c0a7'
+
+RECIPE_BYTES = 879499
+
+RECIPE_PLAIN_BYTES = 1779988
+
+STOCK_SHA = '864d128f8d4660570d443b2e14772c9c5356ebdf0bbb6a5891f3318b836053c2'
+
+STOCK_BYTES = 96739328
+
+V2_SHA = '925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb'
+
+V2_BYTES = 128356352
+
+LOWER_STRIDES = {4:128, 5:126, 6:68}
+
+STOCK_COUNTS = {4:2133948, 5:2341096, 6:1973316}
+
+FUTURE_COUNTS = {4:4896236, 5:3077845, 6:2062771}
+
+WIDTHS = {1:[16,9,24,19,1,10,0,0], 2:[16,9,24,19,1,10,0,0],
+          3:[23,9,24,19,1,12,0,0], 4:[22,9,24,19,1,10,0,0],
+          5:[21,9,24,19,1,9,0,0], 6:[0,0,24,19,1,0,0,0]}
+
+FLAGS = {1:[1,1], 2:[1,1], 3:[1,0], 4:[1,1], 5:[1,1], 6:[1,0]}
+
+def require(ok, message):
+    if not ok: raise ValueError(message)
+
+def integer(value, message, low=0, high=0xffffffff):
+    require(type(value) is int and low <= value <= high, message)
+    return value
+
+def digest(raw): return hashlib.sha256(raw).hexdigest()
+
+def digest_field(value):
+    require(type(value) is str and re.fullmatch('[0-9a-f]{64}',value) is not None, 'Invalid SHA256 field')
+    return value
+
+def canonical(value):
+    return (json.dumps(value,ensure_ascii=False,sort_keys=True,separators=(',',':'))+'\n').encode()
+
+def identity(stream):
+    try:
+        s=os.fstat(stream.fileno())
+        return [s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns,s.st_nlink]
+    except (AttributeError,OSError,io.UnsupportedOperation): return None
+
+def _read(stream, at, count):
+    integer(at,'Invalid physical read offset');integer(count,'Invalid physical read length',0,1024*1024)
+    stream.seek(at);raw=stream.read(count)
+    require(len(raw)==count,'Truncated bounded physical read')
+    return raw
+
+def logical_read(stream, component, block_bytes, offset, length):
+    integer(offset,'Invalid logical offset');integer(length,'Invalid bounded logical length',0,65536)
+    require(offset+length<=component['size'],'Logical read outside component')
+    out=[]
+    while length:
+        index,inside=divmod(offset,block_bytes);count=min(length,block_bytes-inside)
+        out.append(_read(stream,component['blocks'][index]*block_bytes+inside,count))
+        offset+=count;length-=count
+    return b''.join(out)
+
+@dataclass(frozen=True)
+class StockRecipe:
+    data: dict
+    compressed_sha256: str
+    compressed_bytes: int
+    uncompressed_sha256: str
+    fixture: bool
+
+def _parse_stock_layout(stream, file_size, block_bytes, expected_header=None):
+    """Bounded strict six-component AP metadata parser; no generic IMG fallback."""
+    require(block_bytes==BLOCK4,'Only original stock4K recipe metadata supported')
+    integer(file_size,'Invalid aligned AP byte length',block_bytes,32768*block_bytes)
+    require(file_size%block_bytes==0,'Partial physical final block')
+    header=_read(stream,0,4096)
+    require(header[0]==0 and header[16:23]==b'DSKIMG\0','Unsupported IMG signature/XOR')
+    require((header[97],header[98],header[64])==(9,3 if block_bytes==BLOCK4 else 4,8),
+            'Unexpected exact AP block exponent/directory sector')
+    require(struct.unpack_from('<H',header,0x18)[0]==(16 if block_bytes==BLOCK4 else 32)
+            and struct.unpack_from('<H',header,0x5f)[0]==(16 if block_bytes==BLOCK4 else 32)
+            and struct.unpack_from('<H',header,0x63)[0]==32768
+            and struct.unpack_from('<I',header,0x1ca)[0]==(262144 if block_bytes==BLOCK4 else 524288),
+            'Unsupported AP declared geometry profile')
+    if expected_header is not None:require(header==expected_header,'Header differs from explicitly supported transformation')
+    root=_read(stream,4096,512)
+    require(root[0]==1 and root[1:12]==b' '*11 and root[16]==3
+            and struct.unpack_from('<H',root,17)[0]==0,'Unsupported root FAT record')
+    end=struct.unpack_from('<I',root,12)[0]
+    require(4608<=end<=1024*1024 and end%block_bytes==0 and end<=file_size,'Invalid bounded metadata span')
+    prefix=header+root+_read(stream,4608,end-4608)
+    root_slots=struct.unpack_from('<240H',root,32)
+    metadata_blocks=end//block_bytes
+    require(metadata_blocks<=240 and list(root_slots)==list(range(metadata_blocks))+[65535]*(240-metadata_blocks),
+            'Root FAT must allocate exactly the metadata blocks')
+    components={};fat_parts={};used=set(range(metadata_blocks));order=[];seen_empty=False;previous=None
+    for at in range(4608,end,512):
+        row=prefix[at:at+512]
+        if row[0]==0:
+            require(row==bytes(512),'Unsupported nonzero inactive FAT row')
+            seen_empty=True;continue
+        require(not seen_empty and row[0]==1 and row[16]!=3,'Unexpected/gapped FAT record')
+        try:name=row[1:9].decode('ascii').rstrip()+'.'+row[9:12].decode('ascii').rstrip()
+        except UnicodeDecodeError:raise ValueError('Non-ASCII FAT component name')
+        require(name in NAMES,'Unexpected AP component')
+        part=struct.unpack_from('<H',row,17)[0];length=struct.unpack_from('<I',row,12)[0]
+        if name not in components:
+            require(part==0 and length>0,'Invalid first FAT part')
+            require(name==NAMES[len(order)],'Unexpected six-component order')
+            order.append(name);components[name]={'size':length,'blocks':[],'parts':0};fat_parts[name]=[]
+        item=components[name]
+        require(previous in (None,name) or part==0,'Noncontiguous component continuation')
+        require(part==item['parts'] and (part==0 or length==0),'FAT continuation number/size mismatch')
+        item['parts']+=1;previous=name
+        slots=struct.unpack_from('<240H',row,32);trailing=False;actual=0
+        for b in slots:
+            if b==65535:trailing=True;continue
+            require(not trailing and b not in used and (b+1)*block_bytes<=file_size,
+                    'FAT alias, reserved gap or allocation out of file')
+            used.add(b);item['blocks'].append(b);actual+=1
+        require(actual>0 and (part==0 or len(item['blocks'])>240),'Empty or unnecessary continuation')
+        nonallocation=row[:12]+row[16:17]+row[19:32]
+        if fat_parts[name]:require(nonallocation==bytes.fromhex(fat_parts[name][0]['row_hex'])[:12]
+                +bytes.fromhex(fat_parts[name][0]['row_hex'])[16:17]
+                +bytes.fromhex(fat_parts[name][0]['row_hex'])[19:32],
+                'Distinct continuation metadata unsupported by explicit8K writer contract')
+        fat_parts[name].append({'part':part,'size':length,'blocks':list(slots[:actual]),'row_hex':row.hex()})
+    require(tuple(order)==NAMES,'Incomplete six AP components')
+    for item in components.values():
+        require(len(item['blocks'])==(item['size']+block_bytes-1)//block_bytes,'Component allocation count mismatch')
+        require(item['parts']==(len(item['blocks'])+239)//240,'Component part count mismatch')
+    return {'prefix':prefix,'metadata_bytes':end,'components':components,'FAT_parts':fat_parts,'block_bytes':block_bytes,
+            'unused_blocks':sorted(set(range(file_size//block_bytes))-used)}
+
+def _decode_recipe(raw, fixture):
+    require(fixture is False, 'Production recipe only; no synthetic full-image API')
+    require(len(raw)<=1024*1024,'Compact compressed recipe exceeds bound')
+    with gzip.GzipFile(fileobj=io.BytesIO(raw)) as f:plain=f.read(2*1024*1024+1)
+    require(len(plain)<=2*1024*1024,'Compact recipe JSON exceeds bound')
+    r=json.loads(plain)
+    require(r['schema']==('garmin-native-layout-restore/synthetic-mixed-v1' if fixture else 'garmin-native-layout-restore/v1'),
+            'Unsupported stock recipe schema')
+    if not fixture:
+        require(len(raw)==RECIPE_BYTES and digest(raw)==RECIPE_SHA and len(plain)==RECIPE_PLAIN_BYTES,
+                'Production supports only the pinned closed v2 STOCK recipe')
+        require(r['original_bytes']==STOCK_BYTES and r['original_sha256']==STOCK_SHA
+                and r['candidate_bytes']==V2_BYTES and r['candidate_sha256']==V2_SHA,
+                'Recipe original/current-v2 identity mismatch')
+    else:
+        require(r.get('fixture_profile')==FIXTURE_PROFILE and r['original_bytes']<=8*1024*1024,
+                'Only explicitly named small synthetic recipe supported')
+    prefix=bytes.fromhex(r['original_prefix_hex'])
+    parsed=_parse_stock_layout(io.BytesIO(prefix),r['original_bytes'],BLOCK4)
+    require(len(prefix)==r['original_metadata_bytes']==parsed['metadata_bytes']
+            and parsed['components']==r['original_components'],'Stored STOCK header/FAT binding')
+    ranges=r['MDR_ranges'];require(len(ranges)==8,'Expected exact eight-part stock MDR recipe')
+    require(sum(integer(x['length'],'Invalid original range length',1) for x in ranges)==r['original_components'][MDR]['size'],
+            'Original MDR range coverage mismatch')
+    for i,x in enumerate(ranges):
+        require(set(x)==({'length','original_hex'} if i in (0,5,7) else {'length','candidate_offset'}),
+                'Unknown or shifted original MDR range role')
+        if 'original_hex' in x:require(len(bytes.fromhex(x['original_hex']))==x['length'],'Stored original bytes length mismatch')
+    require(ranges[0]['length']==772 and ranges[7]['length']==120,'Stock header/directory recipe shape')
+    for name,item in r['original_components'].items():
+        rem=item['size']%BLOCK4
+        require((name in r['original_tail_hex'])==bool(rem),'Original component tail coverage')
+        if rem:require(len(bytes.fromhex(r['original_tail_hex'][name]))==BLOCK4-rem,'Original padding length mismatch')
+    require(set(r['original_unused_blocks_hex'])==set(map(str,parsed['unused_blocks'])),'Original unused physical blocks coverage')
+    return StockRecipe(r,digest(raw),len(raw),digest(plain),fixture)
+
+def load_stock_recipe(path):
+    """Load only the pinned879,499-byte production recipe; never a full image."""
+    path=Path(path);before=path.stat();require(before.st_size==RECIPE_BYTES,'Closed recipe file size mismatch')
+    raw=path.read_bytes();require(path.stat()==before,'Recipe changed while read')
+    return _decode_recipe(raw,False)
+
+# New explicit expanded4K adapter. Common recipe/stock reconstruction functions
+# above are copied from pinned old source; the old source is never mutated.
+PROFILE = 'stock-1352-8.00-v3-coherent-expanded4K-geometry/v1'
+BINDING_SCHEMA = 'garmin-coherent-expanded4k-stock-layout-restore/v1'
+CANDIDATE_BYTES = 153337856
+CANDIDATE_SHA = '8749b2614f0ef4cfb3ac631dd316b35dd3551e3ab97d2ac058f13a89052f50f6'
+HEADER_SHA = '63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6'
+MDR_HEADER_SHA = '6cef8684580f782d770f33f4cc2f0367648b726efa31ccc9434a0bfe5b46f5d4'
+MDR_DIRECTORY_SHA = 'c5bacd4c23165f2332e5122b42190ee6c23c4e3cf1d23a047a849ea01957e2a7'
+METADATA_BYTES = 90112
+DIRECTORY_START = 149220236
+MDR_BYTES = 149220356
+ALLOCATIONS = (
+    ('00004171.MD2', 240, 22, 1, 1),
+    (MDR, MDR_BYTES, 23, 36431, 152),
+    ('00004171.SRT', 101058, 36454, 25, 1),
+    ('I053061A.GMP', 3812824, 36479, 931, 4),
+    ('I053061A.SRT', 101058, 37410, 25, 1),
+    ('MAPSOURC.MPS', 138, 37435, 1, 1),
+)
+RANGE_OFFSETS = [None,772,4195100,21728654,70204713,None,149214669,None]
+EXPECTED_TABLES = (
+    (1,149219900,336,22,122),
+    (2,149214669,5231,343,122),
+    (3,148544489,670180,47870,112),
+    (4,70204713,78339776,4896236,128),
+    (5,21728654,48476059,3077845,126),
+    (6,4195100,17533554,2062771,68),
+)
+
+
+def _decode_directory(raw):
+    require(len(raw)==120 and digest(raw)==MDR_DIRECTORY_SHA,
+            'Only pinned actual v3 120-byte native directory supported')
+    tables=[]
+    for level in range(1,7):
+        start,length,stride,a,b=struct.unpack_from('<5I',raw,(level-1)*20)
+        widths=[(a>>18)&63,(a>>24)&63,(a>>12)&63,(a>>6)&63,a&63,b&63,(b>>11)&63,(b>>17)&63]
+        actual=(level,start,length,length*8//stride,stride)
+        require(actual==EXPECTED_TABLES[level-1], 'Actual table offset/size/count/stride mismatch')
+        require(widths==WIDTHS[level] and [(a>>30)&1,(a>>31)&1]==FLAGS[level],
+                'Actual native directory widths/flags mismatch')
+        tables.append({'level':level,'start':start,'bytes':length,'count':actual[3],
+                       'stride':stride,'widths':widths,'flags':[(a>>30)&1,(a>>31)&1],
+                       'raw_words':[start,length,stride,a,b]})
+    return tables
+
+
+def _check_coherent_header(raw):
+    require(len(raw)==512 and digest(raw)==HEADER_SHA, 'Exact coherent expanded4K512 header required')
+    require(raw[0]==0 and raw[16:23]==b'DSKIMG\0' and (raw[97],raw[98],raw[64])==(9,3,8),
+            'Exact expanded4K signature/exponents/directory sector mismatch')
+    require(struct.unpack_from('<H',raw,0x63)[0]==37436 and struct.unpack_from('<I',raw,0x1ca)[0]==299488,
+            'Exact expanded4K block/sector declaration mismatch')
+    require(struct.unpack_from('<H',raw,0x18)[0]==32 and struct.unpack_from('<H',raw,0x5f)[0]==32,
+            'Coherent repeated sectors mismatch')
+    require(struct.unpack_from('<H',raw,0x1a)[0]==16 and struct.unpack_from('<H',raw,0x5d)[0]==16,
+            'Coherent repeated heads mismatch')
+    sector=raw[452]&63; cylinder=((raw[452]&192)<<2)|raw[453];head=raw[451]
+    require((cylinder,head,sector)==(584,14,32) and ((cylinder*16+head)*32+sector)==299488,
+            'Coherent expanded4K end CHS mismatch')
+    require(raw[15]==219, 'Opaque checksum byte must remain the exact supported byte')
+
+
+def _parse_candidate_prefix(prefix):
+    """Only this complete37436-block contiguous six-component profile."""
+    require(len(prefix)==METADATA_BYTES, 'Exact expanded4K metadata size required')
+    _check_coherent_header(prefix[:512])
+    root=prefix[4096:4608]
+    require(root[0]==1 and root[1:12]==b' '*11 and root[16]==3
+            and struct.unpack_from('<H',root,17)[0]==0
+            and struct.unpack_from('<I',root,12)[0]==METADATA_BYTES,
+            'Exact expanded4K root FAT mismatch')
+    require(list(struct.unpack_from('<240H',root,32))==list(range(22))+[65535]*218,
+            'Expanded4K metadata root allocation mismatch')
+    components={};active_rows=0;component_index=0;part_index=0;collected=[];common=None;ended=False
+    for at in range(4608,METADATA_BYTES,512):
+        row=prefix[at:at+512]
+        if row==bytes(512):ended=True;continue
+        require(not ended and row[0]==1 and row[16]!=3, 'Unexpected expanded4K FAT row or gap')
+        require(component_index<len(ALLOCATIONS), 'Extra expanded4K component')
+        name,size,first,count,parts=ALLOCATIONS[component_index]
+        expected_name=name.split('.')[0].encode().ljust(8,b' ')+name.split('.')[1].encode().ljust(3,b' ')
+        require(row[1:12]==expected_name and struct.unpack_from('<H',row,17)[0]==part_index
+                and struct.unpack_from('<I',row,12)[0]==(size if part_index==0 else 0),
+                'Expanded4K FAT component name/part/length mismatch')
+        slots=list(struct.unpack_from('<240H',row,32))
+        n=min(240,count-len(collected))
+        expected=list(range(first+len(collected),first+len(collected)+n))
+        require(slots==expected+[65535]*(240-n), 'Expanded4K allocation alias/gap/order mismatch')
+        nonallocation=row[:12]+row[16:17]+row[19:32]
+        require(common is None or nonallocation==common, 'Distinct continuation opaque fields unsupported')
+        common=nonallocation;collected.extend(expected);active_rows+=1;part_index+=1
+        if part_index==parts:
+            require(len(collected)==count, 'Expanded4K exact group blockcount mismatch')
+            components[name]={'size':size,'blocks':collected,'parts':parts}
+            component_index+=1;part_index=0;collected=[];common=None
+    require(component_index==6 and part_index==0 and active_rows==160,
+            'Expanded4K six exact components/continuations incomplete')
+    require(ALLOCATIONS[-1][2]+ALLOCATIONS[-1][3]==37436,
+            'Expanded4K physical coverage must end exactly at37436')
+    return {'prefix':prefix,'metadata_bytes':METADATA_BYTES,'components':components,
+            'block_bytes':BLOCK4,'unused_blocks':[]}
+
+
+def prepare_restore_binding(stock, coherent_prefix, actual_mdr_header, actual_directory):
+    """Prepare small binding from measured metadata; no full input acceptance."""
+    require(type(stock) is StockRecipe and not stock.fixture, 'Pinned production stock recipe required')
+    require(stock.compressed_sha256==RECIPE_SHA and stock.compressed_bytes==RECIPE_BYTES
+            and stock.uncompressed_sha256=='44ac0746da599dfd67f317bcba70fa891f315576cf0995f8a483ed9ba18401aa',
+            'Only unchanged closed production recipe supported')
+    require(digest((json.dumps(stock.data,ensure_ascii=False,separators=(',',':'))+'\n').encode())
+            ==stock.uncompressed_sha256, 'Loaded pinned stock recipe data changed after verified decode')
+    current=_parse_candidate_prefix(coherent_prefix)
+    require(len(actual_mdr_header)==772 and digest(actual_mdr_header)==MDR_HEADER_SHA,
+            'Exact measured MDR772 header required')
+    require(struct.unpack_from('<4I',actual_mdr_header,600)==(DIRECTORY_START,120,20,1),
+            'Original decimal600 directory descriptor mismatch')
+    tables=_decode_directory(actual_directory)
+    # All raw directory words survive in actual_directory_hex and its SHA;
+    # decoded fields explain rollback roles without rewriting unknown bits.
+    require(sum(x['length'] for x in stock.data['MDR_ranges'])==92653600,
+            'Pinned stock MDR range coverage mismatch')
+    require([x['length'] for x in stock.data['MDR_ranges']]==
+            [772,4194328,16773186,36872262,34143168,664197,5567,120],
+            'Stock eight-range semantic roles mismatch')
+    for name in NAMES:
+        if name!=MDR:
+            require(current['components'][name]['size']==stock.data['original_components'][name]['size'],
+                    'Other five logical component sizes changed')
+    return {'schema':BINDING_SCHEMA,'profile':PROFILE,
+            'stock_recipe':{'compressed_bytes':RECIPE_BYTES,'compressed_SHA256':RECIPE_SHA,
+                            'decoded_SHA256':stock.uncompressed_sha256},
+            'original':{'bytes':STOCK_BYTES,'SHA256':STOCK_SHA,'block_bytes':BLOCK4},
+            'candidate':{'bytes':CANDIDATE_BYTES,'SHA256':CANDIDATE_SHA,'block_bytes':BLOCK4,
+                         'declared_blocks':37436,'declared_sectors':299488,
+                         'metadata_bytes':METADATA_BYTES,'metadata_prefix_SHA256':digest(coherent_prefix),
+                         'header512_SHA256':HEADER_SHA},
+            'components':[{'name':n,'size':s,'first_block':f,'block_count':c,'FAT_parts':p}
+                          for n,s,f,c,p in ALLOCATIONS],
+            'MDR':{'size':MDR_BYTES,'header772_SHA256':MDR_HEADER_SHA,
+                   'directory_start':DIRECTORY_START,'directory120_SHA256':MDR_DIRECTORY_SHA,
+                   'actual_directory_hex':actual_directory.hex(),'tables':tables},
+            'MDR_candidate_offsets_by_original_range_index':RANGE_OFFSETS,
+            'bit_width_inverse_transform_required':False,
+            'production_fresh_full_input_hash_required_before_first_yield':True,
+            'generator_EOF_original_stock_hash_required':True,
+            'device_acceptance_verified':False,'header_checksum_rule_known':False}
+
+
+def load_restore_binding(path, expected_sha256):
+    digest_field(expected_sha256);path=Path(path);before=path.stat()
+    require(before.st_size<=16384, 'Only compact supported-profile binding allowed')
+    raw=path.read_bytes()
+    require(path.stat()==before and digest(raw)==expected_sha256, 'Binding content/stat pin mismatch')
+    binding=json.loads(raw)
+    require(binding.get('schema')==BINDING_SCHEMA and binding.get('profile')==PROFILE,
+            'Only separate coherent expanded4K binding supported')
+    return binding
+
+
+def _hash_file_fresh(stream, expected_bytes, expected_sha256):
+    """Internal bounded host primitive; public production wrapper fixes profile."""
+    before=identity(stream)
+    require(before is not None and before[2]==expected_bytes, 'Actual input stat/size mismatch')
+    stream.seek(0);h=hashlib.sha256();count=0
+    while True:
+        raw=stream.read(65536)
+        if not raw:break
+        count+=len(raw);require(count<=expected_bytes, 'Fresh input exceeds exact expected size')
+        h.update(raw)
+    require(count==expected_bytes and h.hexdigest()==expected_sha256,
+            'Fresh complete input SHA256 mismatch; no restored block admitted')
+    require(identity(stream)==before, 'Input changed during fresh complete SHA256')
+    return {'bytes':count,'SHA256':h.hexdigest(),'stat_before_after':before}
+
+
+def _layouts_and_header(stream, stock, binding, log):
+    require(identity(stream) is not None and identity(stream)[2]==CANDIDATE_BYTES,
+            'Actual supported expanded4K file required')
+    prefix=_read(stream,0,METADATA_BYTES)
+    current=_parse_candidate_prefix(prefix)
+    header=logical_read(stream,current['components'][MDR],BLOCK4,0,772)
+    directory=logical_read(stream,current['components'][MDR],BLOCK4,DIRECTORY_START,120)
+    expected=prepare_restore_binding(stock,prefix,header,directory)
+    require(binding==expected, 'Binding differs from exact actual supported metadata/stock recipe')
+    log.extend([{'purpose':'actual_coherent_expanded4K_header_FAT','bytes':len(prefix),'SHA256':digest(prefix)},
+                {'purpose':'actual_MDR_header','bytes':len(header),'SHA256':digest(header)},
+                {'purpose':'actual_MDR_directory','bytes':len(directory),'SHA256':digest(directory)}])
+    return current
+
+
+def restored_stock_blocks(candidate_path, recipe_path, binding_path, binding_sha256, read_receipts=None):
+    """Read-only generator. Fresh actual input hash precedes first yield.
+
+    Callers must consume through StopIteration for the final stock hash/stat
+    checks; a partial generator consumption is never a verified rollback.
+    No file write, installer, generic geometry fallback or externally minted
+    acceptance token is provided.
+    """
+    stock=load_stock_recipe(recipe_path)
+    binding=load_restore_binding(binding_path,binding_sha256)
+    log=read_receipts if read_receipts is not None else []
+    with Path(candidate_path).open('rb') as stream:
+        require(type(stream) is io.BufferedReader and stream.mode=='rb',
+                'Production opens only an actual read-only file')
+        witness=_hash_file_fresh(stream,CANDIDATE_BYTES,CANDIDATE_SHA)
+        verified_stat=tuple(witness['stat_before_after'])
+        log.append({'purpose':'fresh_complete_supported_input_hash_before_first_yield',**witness})
+        require(tuple(identity(stream))==verified_stat, 'Input changed after fresh full SHA before restore')
+        yield from _restored_blocks(stream,stock,binding,log)
+        require(tuple(identity(stream))==verified_stat, 'Input stat differs from fresh full SHA witness at EOF')
+
+
+def reconstructed_stock_hash(candidate_path, recipe_path, binding_path, binding_sha256, read_receipts=None):
+    h=hashlib.sha256();count=0
+    for raw in restored_stock_blocks(candidate_path,recipe_path,binding_path,binding_sha256,read_receipts):
+        h.update(raw);count+=len(raw)
+    require(count==STOCK_BYTES and h.hexdigest()==STOCK_SHA, 'Complete original EOF/hash mismatch')
+    return h.hexdigest()
+
+
+def _restored_blocks(stream, stock, binding, read_receipts):
+    before=identity(stream);r=stock.data;log=read_receipts if read_receipts is not None else []
+    current=_layouts_and_header(stream,stock,binding,log)
+    prefix=bytes.fromhex(r['original_prefix_hex']);components=r['original_components'];owners={}
+    for name,item in components.items():
+        for index,block in enumerate(item['blocks']):
+            require(block not in owners,'Original block allocation alias');owners[block]=(name,index)
+    offsets=binding['MDR_candidate_offsets_by_original_range_index']
+    ranges=r['MDR_ranges']
+    def read_original_component(name, offset, length):
+        if name!=MDR:
+            raw=logical_read(stream,current['components'][name],BLOCK4,offset,length)
+            log.append({'purpose':'unchanged_component','component':name,'offset':offset,'bytes':len(raw)})
+            return raw
+        out=[];position=0;remaining=length
+        for index,x in enumerate(ranges):
+            stop=position+x['length']
+            if offset<stop and remaining:
+                inside=offset-position;count=min(remaining,stop-offset)
+                if offsets[index] is None:
+                    part=bytes.fromhex(x['original_hex'])[inside:inside+count]
+                else:
+                    at=offsets[index]+inside;part=logical_read(stream,current['components'][name],BLOCK4,at,count)
+                    log.append({'purpose':'original_MDR_byte_prefix_or_unchanged_span','range_index':index,
+                                'candidate_offset':at,'bytes':len(part)})
+                out.append(part);offset+=count;remaining-=count
+            position=stop
+        require(remaining==0,'Incomplete original MDR range reconstruction')
+        return b''.join(out)
+    restored_digest=hashlib.sha256()
+    for block in range(r['original_bytes']//BLOCK4):
+        if block*BLOCK4<len(prefix):raw=prefix[block*BLOCK4:(block+1)*BLOCK4]
+        elif block in owners:
+            name,index=owners[block];item=components[name];offset=index*BLOCK4;count=min(BLOCK4,item['size']-offset)
+            raw=read_original_component(name,offset,count)
+            if count<BLOCK4:raw+=bytes.fromhex(r['original_tail_hex'][name])
+        else:raw=bytes.fromhex(r['original_unused_blocks_hex'][str(block)])
+        require(len(raw)==BLOCK4,'Reconstructed block differs from exact stock4K size')
+        restored_digest.update(raw)
+        yield raw
+    require(identity(stream)==before,'Candidate source changed during full generator consumption')
+    require(restored_digest.hexdigest()==r['original_sha256'],'Exact original reconstruction SHA256 mismatch at EOF')

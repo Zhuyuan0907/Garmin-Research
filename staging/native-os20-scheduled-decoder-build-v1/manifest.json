@@ -1,0 +1,54 @@
+{
+  "all_passed": true,
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-pie",
+      "-fno-stack-protector",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--build-id=none,-T,/root/garmin/native/os20-task-bridge/scheduled_decoder_v1.ld",
+      "/root/garmin/native/os20-task-bridge/scheduled_decoder_v1.c",
+      "-o",
+      "/root/garmin/staging/native-os20-scheduled-decoder-build-v1/scheduled-decoder-v1.elf"
+    ]
+  ],
+  "source_sha256": {
+    "native/os20-task-bridge/scheduled_decoder_v1.c": "4f053de1f7a505d2c6b0061744e4811265f23b75c2d4c0a093c0fd61c459431e",
+    "native/os20-task-bridge/scheduled_decoder_v1.ld": "78bbf442dd34c2ae9ffcf1fa2921bcc996c5587b824a463179b566538a69472f",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "staging/native-sbc/manifest.json": "bd338047a161bbf43eb03835c08098077abc2922942acabf5ef460d063be5754",
+    "staging/native-sbc/decoder-armv6.elf": "2682ec7fa0868af3ccb795eede209923747ca0772f4209da8c3aaf72f36bc06a",
+    "scripts/build_os20_scheduled_decoder_v1.py": "cc8e0768a6b6815f28ad8714ea0ed9d9419d3c23c7055d796c7fc01ddf481e2f"
+  },
+  "ELF": "staging/native-os20-scheduled-decoder-build-v1/scheduled-decoder-v1.elf",
+  "ELF_sha256": "9e611e4d41790f0f2109baed246823279239267fcb27ae338e1541ef32936a8e",
+  "symbols": {
+    "scheduled_decode_entry_v1": {
+      "address": 151322624,
+      "type": "T"
+    },
+    "scheduled_idle_v1": {
+      "address": 151322700,
+      "type": "T"
+    }
+  },
+  "decoder_ELF": "staging/native-sbc/decoder-armv6.elf",
+  "decoder_ELF_sha256": "2682ec7fa0868af3ccb795eede209923747ca0772f4209da8c3aaf72f36bc06a",
+  "undefined_symbols": [],
+  "device_IO": false,
+  "install_candidate": false
+}

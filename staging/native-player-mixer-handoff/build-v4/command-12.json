@@ -1,0 +1,28 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-nostdlib",
+    "-no-pie",
+    "-Wl,--gc-sections",
+    "-Wl,--no-undefined",
+    "-Wl,-T,/root/garmin/staging/native-player-mixer-handoff/build-v4/audio-session.ld",
+    "-Wl,-Map,/root/garmin/staging/native-player-mixer-handoff/build-v4/audio-session.map",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/00-audio_session_driver_v4.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/01-mixer_source_task_v3.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/02-pcm_fifo_session_owner_v4.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/03-runtime.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/04-bounded_pull_entry.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/05-music_session_guard_v4.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/06-native_context_v4.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/07-pull_bridge_v4.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/08-memory_output_session_owner_v4.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/09-media_queue.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/10-media_worker.o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/11-ui_music_control.o",
+    "-o",
+    "/root/garmin/staging/native-player-mixer-handoff/build-v4/audio-session-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored\n"
+}

@@ -1,0 +1,199 @@
+{
+  "schema": "bounded-original-map-load-registry-guards/v1",
+  "source_sha256": "5cc498d2a44b644ae1fa7d0ce8bbfb896e05b29bdf2e4fc0c8098cef23212655",
+  "captures": [
+    {
+      "path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-seeds.json",
+      "sha256": "b0135d04601855936481b9728a38bcc66c7404840b6039c11c9247a400cc2ab0"
+    },
+    {
+      "path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-registry.json",
+      "sha256": "c25fc6dbaf4deb5d0963c941f27179626cbfc07c5cbc8968f76ac64a964c6748"
+    },
+    {
+      "path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-exacttables.json",
+      "sha256": "b2877dff9edfab827d8d3e08357bb580036acb6f4e62b139e19b7df4adb43d4c"
+    },
+    {
+      "path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-registrations.json",
+      "sha256": "ea3a8380408aceefa2cabe6ac1021ae211869a58b252ee796589863fe820a72d"
+    },
+    {
+      "path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-cpuguard.json",
+      "sha256": "f7efe3a5a6d2aa17b0072500a0c2293465123f05e67141f9306d5870cbccec38"
+    },
+    {
+      "path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-exactguards.json",
+      "sha256": "0a58b4cb82cd2822b8ff877d570ef98a8cf8947865b79854959da22ed2c7533c"
+    }
+  ],
+  "code_ranges": [
+    {
+      "start": "0x1101fc",
+      "bytes": 38
+    },
+    {
+      "start": "0xfe648",
+      "bytes": 54
+    },
+    {
+      "start": "0xfe7d0",
+      "bytes": 4
+    },
+    {
+      "start": "0xf00114",
+      "bytes": 99
+    },
+    {
+      "start": "0x110fee",
+      "bytes": 34
+    },
+    {
+      "start": "0x10df5a",
+      "bytes": 94
+    },
+    {
+      "start": "0x10dfb8",
+      "bytes": 4
+    },
+    {
+      "start": "0x10e150",
+      "bytes": 12
+    },
+    {
+      "start": "0x1111b4",
+      "bytes": 4
+    }
+  ],
+  "case_count": 3,
+  "cases": [
+    {
+      "name": "registry_drop_guard",
+      "entry": "0x110fee",
+      "slot_fixture": 2,
+      "minimum_fixture": 5,
+      "threshold_fixture": 6,
+      "stop": "0x111004",
+      "instruction_count": 11,
+      "trace": [
+        "0x110fee",
+        "0x110ff0",
+        "0x110ff2",
+        "0x110ff4",
+        "0x110ff6",
+        "0x110ff8",
+        "0x110ffa",
+        "0x110ffc",
+        "0x110ffe",
+        "0x111000",
+        "0x111002",
+        "0x111004"
+      ],
+      "no_registry_mutation_before_stop": true,
+      "field_semantics_notinferred": true
+    },
+    {
+      "name": "standalone_original_link_drop",
+      "entry": "0x10df5a",
+      "slot_fixture": 2,
+      "caller_notcompleted": true,
+      "registry_head_dropped": true,
+      "stop": "0x2108000",
+      "instruction_count": 58,
+      "trace": [
+        "0x10df5a",
+        "0x10df5c",
+        "0x10df5e",
+        "0x10df60",
+        "0x10df62",
+        "0x10df64",
+        "0x10df66",
+        "0x10df68",
+        "0x10df6a",
+        "0x10df6c",
+        "0x10df6e",
+        "0x10df70",
+        "0x10df72",
+        "0x10df74",
+        "0x10df76",
+        "0x10df78",
+        "0x10df7a",
+        "0x10df7c",
+        "0x10df7e",
+        "0x10df80",
+        "0x10df82",
+        "0x10df84",
+        "0x10df86",
+        "0x10df88",
+        "0x10df78",
+        "0x10df7a",
+        "0x10df7c",
+        "0x10df7e",
+        "0x10df80",
+        "0x10df82",
+        "0x10df84",
+        "0x10df86",
+        "0x10df88",
+        "0x10df8a",
+        "0x10df8c",
+        "0x10df8e",
+        "0x10df90",
+        "0x10df92",
+        "0x10df94",
+        "0x10df96",
+        "0x10df98",
+        "0x10df9a",
+        "0x10df9c",
+        "0x10df9e",
+        "0x10dfa0",
+        "0x10dfa2",
+        "0x10dfa4",
+        "0x10dfa6",
+        "0x10dfa8",
+        "0x10dfaa",
+        "0x10dfac",
+        "0x10dfae",
+        "0x10dfb0",
+        "0x10dfb2",
+        "0x10dfb4",
+        "0x10dfb6",
+        "0x10dfb8",
+        "0x10dfba",
+        "0x2108000"
+      ],
+      "all_other_registry_bytes_preserved": true,
+      "all_node_tail_fields_preserved": true,
+      "field_semantics_notinferred": true
+    },
+    {
+      "name": "registry_retain_guard",
+      "entry": "0x110fee",
+      "slot_fixture": 2,
+      "minimum_fixture": 7,
+      "threshold_fixture": 6,
+      "stop": "0x11102e",
+      "instruction_count": 4,
+      "trace": [
+        "0x110fee",
+        "0x110ff0",
+        "0x110ff2",
+        "0x110ff4",
+        "0x11102e"
+      ],
+      "no_registry_mutation_before_stop": true,
+      "field_semantics_notinferred": true
+    }
+  ],
+  "all_passed": true,
+  "synthetic_stack_and_registry": true,
+  "startup_inventory_is_exact_filebacked_data": true,
+  "live_inventory_unknown": true,
+  "semantic_hooks": [],
+  "observer_stops_only": true,
+  "IMG_reads": 0,
+  "complete_map_loader_run": false,
+  "APphysicalopener_bound": false,
+  "admission_renderer_or_regression_rootcause_proved": false,
+  "old_closed_cases_notrun": true,
+  "handles_closed": true
+}

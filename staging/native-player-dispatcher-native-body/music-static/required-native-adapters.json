@@ -1,0 +1,199 @@
+{
+  "sole_bootstrap": {
+    "resolved_candidate_symbol": "native_ui_music_single_entry",
+    "unresolved_common_symbol": "native_app_component_entry",
+    "calls_common_once": true,
+    "guard_initialized_data_hex": "31534955",
+    "required_final_layout": "Keep .data.native_ui_music_entry_phase outside __app_zero_start/end; include all NEW BSS in common zero-span; preserve original TTS40; original loader serialization/pinning/no reload still required.",
+    "old_entries_not_linked_or_called": [
+      "native_music_component_entry",
+      "native_player_component_entry"
+    ]
+  },
+  "GUI": {
+    "candidate_install": "native_ui_music_menu_install",
+    "registry_original_getter": "0x31590b",
+    "Grid_record_bytes": 100,
+    "launch_offset": 84,
+    "context_offset": 88,
+    "appearance_offset": 96,
+    "icon_id": "0x7f135201",
+    "context": "0x13528000",
+    "borrowed_icon_hash": "0x08a56eac",
+    "original_helpers": {
+      "string_ctor": "0x39274f",
+      "grid_ctor": "0x498fc4",
+      "append": "0x31592b",
+      "grid_dtor": "0x399088",
+      "string_dtor": "0x392773"
+    },
+    "required_owner_input": "actual live GUI/Dispatcher TCB; must separately observe original native queued launch, resource/font/SQL/render/frame lifetimes",
+    "duplicate_known_id_returns": 2,
+    "already_registered_old_player_record_replaced": false,
+    "integration_change": "A new sole entry/deferred GUI registration must use this installer before legacy player ID exists. Existing immutable menu record is not patched live.",
+    "page_or_two_button_ABI_invented": false,
+    "native_GUI_constructor_or_touch_executed_by_this_test": false
+  },
+  "runtime_boot": {
+    "actual_existing_API": "music_runtime_boot(uint32_t channel,uint32_t decoder_priority,uint32_t source_priority)",
+    "candidate_first_route_args": [
+      8,
+      36,
+      40
+    ],
+    "auto_called_by_candidate": false,
+    "deferred_guard": "Original radio/SDP/driver and exclusive channel inventory complete; source init full return owner/result and both entered persistent actors required before umcn_owner_ready.",
+    "known_continuous_radio_fixture_entries": [
+      "0x4ccfb4",
+      "0x4ccc3c",
+      "0x5d7588"
+    ],
+    "physical_radio_or_HFP_boot_recovered": false,
+    "stock_Handsfree_static_activation": [
+      {
+        "entry": "0x3ae10c",
+        "lookup_call": "0x3ae124",
+        "lookup_profile_index": 4,
+        "enable_call": "0x3ae15c",
+        "record_handle": "0x90005",
+        "service": "Handsfree"
+      }
+    ],
+    "HFP_preservation": "Existing stock Handsfree90005 connection/service must remain owned by stock. Do not rerun generic SDP initializer after live profiles as it initializes only SDP active. Three fixture radio entries are not a full HFP or physical stack boot contract.",
+    "endpoint_API": "native_music_start() installs11 exact patch sites/publishes Sink90007 after prerequisites; existing current variant VM MAIN patch64 bytes, not unchanged-MAIN integration."
+  },
+  "same_image_symbols": {
+    "coordinator_state": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "media_queue_control": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "media_worker_state": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "memory_output_control": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "memory_output_slots": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "music_runtime_cancel": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "music_runtime_state": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "native_app_component_entry": {
+      "role": "original-TTS common bootstrap",
+      "old_continuous_address_inherited": false
+    },
+    "native_ui_music_owned_anchor_address": {
+      "role": "MISSING fresh same-image owned-anchor accessor",
+      "old_continuous_address_inherited": false
+    },
+    "owned_media_control": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "source_worker_completed": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    },
+    "source_worker_state": {
+      "role": "same relinked continuous module symbol",
+      "old_continuous_address_inherited": false
+    }
+  },
+  "missing_anchor_accessor": {
+    "required_symbol": "native_ui_music_owned_anchor_address",
+    "provided": false,
+    "exact_source": "native/music-continuous/memory_output.c:30 static uint16_t anchor_zero; line147 original parameter points to &anchor_zero with bytes2",
+    "must_supply": "New same-image accessor in a NEW copy of the owner source, or exact final linked local-symbol observation with pointer provenance. Existing static anchor_zero cannot resolve as an extern global; do not use old absolute map."
+  },
+  "missing_native_ownership": {
+    "required_callback": "umcn_bindings.ownership_snapshot",
+    "must_supply": "Serialized generation/cookie/source token/channel8/owner TCB/epoch and actual exclusion of independent writers plus future borrowing callbacks; no cookie/IRQ/count0 substitute.",
+    "provided": false
+  },
+  "missing_session": {
+    "required_callback": "umcn_bindings.prepare_session",
+    "must_supply": "Characterized AV-mutex coherent session/queue epoch resume or await actual remote START; cannot fabricate SEP state/event17/packet.",
+    "provided": false
+  },
+  "source_loop": {
+    "service": "native_ui_music_service_owner",
+    "ready": "native_ui_music_owner_ready",
+    "event": "0x80000",
+    "call_site_installed": false,
+    "required_change": "NEW copy of source_worker_entry lines44-75 must consume controller pending on same source TCB; call owner_ready only after full coordinator initializer; service before pump/cancel as characterized and again after native return. Frozen loop currently consumes pending and only pump/cancel, so link alone does not service new control."
+  },
+  "publication": {
+    "candidate": "native_ui_music_note_publication",
+    "call_site_installed": false,
+    "boundary": "Original owned registration returned, coordinator/output/slot true token, before native36B721 START; no supplied fake handle."
+  },
+  "iteration": {
+    "candidate": "native_ui_music_after_iteration",
+    "call_site_installed": false,
+    "boundary": "Only after actual source cancel/pump returns and source_worker lines71-72 clear cancel_requested; pass unchanged actualresult. Real counters/remove/release/FIFO return barriers required."
+  },
+  "cleanup": {
+    "candidate": "umcn_cleanup_bridge",
+    "native_site": "0x3b9dfc",
+    "resume": "0x3b9e07",
+    "signature": "single-r0 source record; preserved r4-r8/LR and original result;64-byte frame/aligned8",
+    "site_installed": false,
+    "whole_callback_until_full_original_return": true,
+    "binding_rule": "Use exactly one replacement instead of old source_completion_hook; forward unchanged source_worker_completed; never run both original cleanups."
+  },
+  "admission": {
+    "candidate": "native_ui_music_admission",
+    "call_sites_installed": false,
+    "required_sites": {
+      "configuration": "music_stream_configuration_gate",
+      "remote_START": "music_runtime_start_gate",
+      "event17": "music_stream_callback event0x17",
+      "F1": "music_stream_callback event0xf1",
+      "consumer": "music_stream_consume"
+    },
+    "additional_lease_calls": [
+      "native_ui_music_media_begin",
+      "native_ui_music_media_current",
+      "native_ui_music_media_end"
+    ],
+    "scope": "Admission gate alone is insufficient; actual media/selected consumer references must span use and recheck generation/session; preserve original policy/syntax/locks/queue epochs."
+  },
+  "source9": {
+    "candidate_support": "UNSUPPORTED_ROUTE/fail closed",
+    "actual_mapping": {
+      "table": "0xACB12C",
+      "record_bytes": 28,
+      "matched_source_ID_row": 9,
+      "matched_ID": 9,
+      "source_record": "0x34e8150",
+      "ID_lookup_must_not_be_replaced_with_generic_order_assumption": true
+    },
+    "register": "525F14 ARM veneer→27058B:9,22,11,path,38,0,0; clears existingqueue before registration, so foreign occupancy must reject before call",
+    "START": "36B721 original synchronous class2/opcode1; not stop/refresh",
+    "STOP": "36AF75 original asynchronous class2/opcode3;30EDD4 ignores sendresult and returns0; no STOP_DONE",
+    "clear": "270537 only after independently proven native quiescence and owned node consistency",
+    "heap_callback": "388746 pre-core callback when descriptor flag&6==6; callback outside heapmutex while source/list locks mayremain held",
+    "release": "388676 mutates allocator/zeros caller opaquehandle aftercallback; notaudio stop/unload and not guessed structlayout",
+    "missing": "Route9 owned node/provider/native stop completion and original clear/callback/core-release returned witnesses; current channel8 source completion filter does not handle9",
+    "no_direct_clear_release_or_WAV_registration_called_by_candidate": true
+  },
+  "minimal_next_test_boundaries": [
+    "First relink sole entry/common/newBSS/data guard and calculate complete symbol/import/hook map in NEW layout; verify40 exports and repeated-entry refusal without any worker/UI boot.",
+    "On actual original GUI actor, register known one ID before legacy entry, observe native registry callback copy, appearance/font/SQL/resource guards and queued launch; no hostdirect callback as touchproof.",
+    "In a separate NEW native runtime, supply actual ownership/session bindings and wire same-source loop/publication/fullcleanup/iteration/media admission; execute START→STOP→delayedcallback→completion→restart through original kernel queue. Current REL does not prove that integration.",
+    "Route9 remains separate until exact owned WAV lifecycle witnessed; do not use diagnosticWAV/hardware success as App/directphone proof."
+  ]
+}

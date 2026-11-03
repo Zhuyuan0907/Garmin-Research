@@ -1,0 +1,280 @@
+#!/usr/bin/env python3
+"""Original raw external fonts, native Grid geometry/state refresh/player events.
+
+No invented font metrics/glyphs, Widget frames, enable0 write or direct compiled
+callback. The containing window/outer Grid frames, numeric events, kernel/audio
+endpoints, DB/cache/driver/heap inventory and module timing remain fixtures.
+"""
+from datetime import datetime,timezone
+import hashlib,json,struct,sys
+from pathlib import Path
+import unicorn
+from analyze_native_sections import NativeImage,ROOT,EXPECTED
+from analyze_native_loader import IMAGE,STUBS
+from emulate_native_player_external_fonts import ExternalFontVM
+from test_native_font_file_wrappers import run as run_read_controls
+from emulate_native_player_menu_selection import DATABASE,SQL_OUT,sha
+from emulate_native_player_menu_loaded import PLAYER_ID
+from emulate_native_vpm_filesystem import require
+from emulate_native_sbc import verify_guard_faults
+
+BUILD='staging/native-player-text/manifest.json'
+
+
+def main():
+    require(unicorn.__version__=='2.1.4' and unicorn.uc_version()==(2,1,33621247),'Use isolated Unicorn2.1.4')
+    build=json.loads((ROOT/BUILD).read_text())
+    for path,expected in build['source_sha256'].items():require(sha(path)==expected,'Build dependency changed '+path)
+    database_sha=sha(DATABASE);vm=ExternalFontVM(NativeImage(),build);cases=[]
+    print(json.dumps({'phase':'before_original_outer_loader'}),flush=True);load=vm.load()
+    print(json.dumps({'phase':'original_outer_loader_returned'}),flush=True)
+    oldram=struct.unpack_from('<I',(ROOT/build['original_binary']).read_bytes(),4)[0]
+    voice=bytes(vm.uc.mem_read(IMAGE+12,oldram-12));exports=bytes(vm.uc.mem_read(STUBS,480))
+    appearance_state=vm.symbol('native_player_appearance_state')
+    require(bytes(vm.uc.mem_read(appearance_state,24))==b'\0'*24,'Updater diagnostics BSS not cleared')
+    require(vm.word(0xf071f0)==0,'Expected uninitialized native font context')
+    vm.external_IO_active=True
+    reader=run_read_controls(vm);cases.append(reader)
+    print(json.dumps({'case':reader['name'],'passed':True}),flush=True)
+    vm.invoke(0x4df249,());font_status=vm.invoke(0x4de237,(1,));fonts=vm.fonts()
+    active=[r['index']for r in fonts if r['metadata_flags'][1]]
+    require(font_status==0 and active==[0,1,2,3,4,5,7,8,9,10,12] and vm.word(0xf071f0)==0x14b5004,
+            'Native external+embedded initializer result differs')
+    require(all(fonts[n]['metadata_flags'][1]==0 for n in [6,11]),'Missing backup font active unexpectedly')
+    candidates=json.loads((ROOT/'staging/native-player-external-fonts/candidate-inventory.json').read_text())
+    by_name={Path(row['file']).name:row for row in candidates['files']}
+    preflight=json.loads((ROOT/'staging/native-player-external-fonts/byte-transform-path-preflight.json').read_text())
+    filenames={row['index']:row['filename']for row in preflight['descriptors']}
+    glyphs=[]
+    for index in active:
+        context=int(fonts[index]['context'],16)
+        result={hex(ord(c)):vm.invoke(0x26849f,(context,ord(c)))for c in 'Pi播放器竺原'}
+        row={'font_index':index,'native_glyph_indices':result}
+        if index in filenames:
+            candidate=by_name[filenames[index]]
+            require(all(any(g['glyph']==value for g in candidate['cmap_glyph_queries'][code])
+                        for code,value in result.items()),'Original external cmap lookup differs from backup')
+            row.update(raw_backup_candidate=candidate['file'],matched_independent_candidate_cmap=True)
+        glyphs.append(row)
+    chinese=next(row for row in glyphs if row['font_index']==2)
+    require(chinese['native_glyph_indices']=={'0x50':81,'0x69':106,'0x64ad':13358,'0x653e':13503,
+        '0x5668':9705,'0x7afa':19067,'0x539f':8992},'Actual native Chinese glyph indices differ')
+    cases.append({'name':'original_external_font_initializer_reads_raw_backup_and_native_CJK_queries_match',
+        'passed':True,'static_initializer':'0x4df248','runtime_initializer':'0x4de236','initializer_return':font_status,
+        'test_requested_external_font_loading_parameter':1,'active_font_indices':active,
+        'active_external_font_indices':[0,1,2,7,8,9,10,12],'active_embedded_font_indices':[3,4,5],
+        'missing_backup_descriptor_indices':[6,11],'font_inventory':fonts,
+        'current_context_record':hex(vm.word(0xf071f0)),'native_glyph_queries':glyphs,
+        'original_query_entry':'0x26849e','raw_external_backup_fonts_loaded':True,
+        'native_read_wrapper_XOR_executed':True,'host_decoded_font_bytes_supplied':False,
+        'fonts_metrics_or_glyph_success_hooked_or_fabricated':False,'CJK_glyphs_available_in_loaded_fonts':True,
+        'real_boot_resource_inventory_or_physical_font_loading_verified':False,
+        'original_reserved_cache_pointer':'0x34fa3bc','cache_requested_bytes':0xc0000,
+        'host_constructed_current_font_context':False,'external_font_streams_remain_native_resident':True})
+    print(json.dumps({'case':cases[-1]['name'],'passed':True}),flush=True)
+    vm.invoke(0x395981,());vm.init_DB_fixture()
+    page=vm.invoke(0x3954cc,(0x7c4,));require(vm.invoke(0x5a2995,(page,))==page,'Containing Page ctor failed')
+    vm.set_cell(12,PLAYER_ID,0);database_selected=list(vm.db.execute('SELECT id,icon,size FROM custom_table ORDER BY id'))
+    grid=vm.invoke(0x3954cc,(0x420,));require(vm.invoke(0x546c95,(grid,0))==grid,'Original automatic Grid ctor failed')
+    rows=vm.grid_rows(grid);chosen=rows[11];record=int(chosen['address'],16);widget=int(chosen['widget'],16)
+    require(len(rows)==15 and vm.word(grid+0x7c)==19 and vm.word(widget+0x48)==grid and
+            vm.word(record+0x14)==vm.symbol('native_player_menu_appearance') and
+            vm.word(record+0x18)==0x13528000,'Native updater registration/automatic parenting failed')
+    before_state=list(vm.uc.mem_read(widget+0xc8,3));before_rect=list(struct.unpack('<4I',vm.uc.mem_read(widget+0x20,16)))
+    require(before_state==[1,4,4] and before_rect==[0,0,0,0],'Unexpected factory initial state/frame')
+    vm.watch=(widget,widget+0x550);vm.page_writes=[];layouts=[];rect=SQL_OUT+0x500
+    for frame in [[0,0,480,220],[40,30,360,180]]:
+        vm.uc.mem_write(rect,struct.pack('<4I',*frame));write_start=len(vm.page_writes)
+        vm.invoke(0x377ab9,(grid,rect,0,0),(0,0,0,0))
+        # Virtual3 consumes a one-time dirty flag. Subsequent resize alone
+        # does not re-run layout in this partial controller fixture. Stock
+        # MainMenu refresh403DEE itself calls547020 directly; request that
+        # original body for this second size rather than inventing a flag.
+        direct_relayout=bool(layouts)
+        if direct_relayout:vm.invoke(0x547021,(grid,))
+        layouts.append({'outer_Grid_frame_supplied_by_test':frame,
+            'original_relayout_body_requested_by_test':direct_relayout,
+            'original_calculated_Widget_frame':list(struct.unpack('<4I',vm.uc.mem_read(widget+0x20,16))),
+            'native_Widget_writes':vm.page_writes[write_start:]})
+    require([r['original_calculated_Widget_frame']for r in layouts]==[[288,146,96,73],[216,120,72,60]],
+            'Original geometry did not recompute actual cell position/sizes')
+    require(all(any(0x20<=int(w['offset'],16)<0x30 for w in r['native_Widget_writes'])for r in layouts),
+            'Native frame writes not observed')
+    caption=vm.wide(vm.invoke(0x3927f5,(record+0x1c,)))
+    require(caption=='Pi 播放器' and database_selected==list(vm.db.execute('SELECT id,icon,size FROM custom_table ORDER BY id')),
+            'Original geometry changed selected DB/caption')
+    cases.append({'name':'original_automatic_Grid_native_geometry_recomputes_player_frame_for_two_outer_sizes','passed':True,
+        'Page':hex(page),'Grid':hex(grid),'Widget':hex(widget),'record':hex(record),'selected_cell':12,
+        'row_count':15,'child_count':19,'caption':caption,'normal_mode':0,
+        'factory_initial_state':before_state,'factory_initial_frame':before_rect,'layouts':layouts,
+        'native_geometry_API':'0x377ab8','native_Grid_geometry_body':'0x547020',
+        'stock_MainMenu_direct_relayout_caller_verified':'0x403dee',
+        'GUI_resize_or_dirty_flag_notification_executed':False,
+        'host_Widgets_frame_writes_or_geometry_success_hook':False,
+        'updater_pointer':hex(vm.word(record+0x14)),'native_appearance_symbol':hex(vm.symbol('native_player_menu_appearance')),
+        'DB_rows_preserved':True,'Containing_Page_still_requires_native_reselection_after_setting_failure':True,
+        'actual_MainMenu_controller_or_root_installation_executed':False})
+    print(json.dumps({'case':cases[-1]['name'],'passed':True}),flush=True)
+    # Native state-refresh54A4EC invokes the registered updater. Its outputs
+    # are stock default shared_ptr/CString objects left byte-identical by C.
+    vm.invoke(0x54a4ed,(grid,));enabled=list(vm.uc.mem_read(widget+0xc8,3))
+    require(enabled==[1,0,0] and vm.appearance_calls[-1]['caller']=='0x54a364' and
+            vm.appearance_calls[-1]['returned_state']==0,'Stock state refresh did not enable player')
+    vm.invoke(0x37707b,(page,grid,0,0))
+    require(vm.word(page+0x7c)==5 and vm.word(grid+0x48)==page,
+            'Original explicit parent insertion-mode0 failed')
+    vm.invoke(vm.word(vm.word(page)+9*4),(page,1))
+    # Containing Page frame remains an explicit input-dispatch fixture.
+    # Full native Page geometry exhausted allocator/SQL inventories; preserve
+    # those failures and do not claim its actual layout/controller completed.
+    vm.uc.mem_write(page+0x20,struct.pack('<4I',0,0,480,272))
+    require(list(struct.unpack('<4I',vm.uc.mem_read(widget+0x20,16)))==[216,120,72,60],
+            'Containing Page altered native calculated cell frame')
+    vm.invoke(0x27abf9,(widget,0x36))
+    x,y,width,height=struct.unpack('<4I',vm.uc.mem_read(widget+0x20,16))
+    gx,gy,gw,gh=struct.unpack('<4I',vm.uc.mem_read(grid+0x20,16));center=[gx+x+width//2,gy+y+height//2]
+    event=SQL_OUT+0x400;vm.uc.mem_write(event,b'\0'*64)
+    def dispatch(action,point=None):
+        p=point or center;vm.put(event+0x10,p[0]);vm.put(event+0x14,p[1]);vm.uc.mem_write(event+0x28,bytes([action]))
+        a=len(vm.audio);n=len(vm.numeric_widget_inputs)
+        returned=vm.invoke(vm.word(vm.word(page)+16),(page,event))
+        require([vm.word(event+0x10),vm.word(event+0x14)]==p,'Original nested parents did not restore global point')
+        inputs=[r for r in vm.numeric_widget_inputs[n:]if r['widget']==hex(widget)]
+        return {'numeric_action':action,'global_point':p,'returned':hex(returned),
+            'player_Widget_inputs':inputs,'Widget_state':list(vm.uc.mem_read(widget+0xc8,3)),
+            'new_audio_API_requests':vm.audio[a:]}
+    actions=[dispatch(a)for a in [0,1,2]]
+    hit_probe={'Page':hex(page),'Grid':hex(grid),'Widget':hex(widget),
+        'Page_children':vm.word(page+0x7c),'frames':{'Page':list(struct.unpack('<4I',vm.uc.mem_read(page+0x20,16))),
+        'Grid':[gx,gy,gw,gh],'Widget':[x,y,width,height]},'center':center,'actions':actions,
+        'all_numeric_Widget_inputs':vm.numeric_widget_inputs,'grid_rows':vm.grid_rows(grid),
+        'original_appearance_calls':vm.appearance_calls,'recent':list(vm.recent),'device_io':False}
+    (ROOT/'staging/native-player-external-fonts/native-hit-development-probe.json').write_text(json.dumps(hit_probe,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps({'phase':'native_hit_probe','actions':actions}),flush=True)
+    require([len(r['new_audio_API_requests'])for r in actions]==[0,0,2] and
+            all(r['returned']==hex(widget) and len(r['player_Widget_inputs'])==1 and
+                r['player_Widget_inputs'][0]['point']==[36,30]for r in actions),
+            'Input at native computed geometry did not launch resident player')
+    require(not vm.control_clicks and vm.uc.mem_read(widget+0x112,1)[0]==0,'Synthetic callback/Widget flag used')
+    cases.append({'name':'native_Grid_state_updater_enables_player_and_native_calculated_hit_region_dispatches','passed':True,
+        'original_state_refresh':'0x54a4ec','state_before':before_state,'state_after':enabled,
+        'compiled_updater_called_through_original_factory_and_refresh':True,
+        'host_called_compiled_updater_or_enable0_API_or_signal_directly':False,
+        'Containing_Page_frame_written_by_test_for_input':[0,0,480,272],
+        'stock_parent_API_arguments':[page,grid,0,0],'Page_children_after_Grid_attach':5,
+        'Grid_parent':hex(vm.word(grid+0x48)),
+        'native_Containing_Page_geometry_or_root_controller_completed':False,
+        'native_Widget_frame':[x,y,width,height],'outer_Grid_frame':[gx,gy,gw,gh],'center_computed_by_test':center,
+        'actions':actions,'test_nondefault_sound_selector36_via_original_API':True,
+        'physical_touch_classification_or_OS_event_delivery_executed':False,'Widget_flag112_remains0':True})
+    print(json.dumps({'case':cases[-1]['name'],'passed':True}),flush=True)
+    vm.invoke(vm.word(vm.word(page)+9*4),(page,0));hidden=dispatch(2)
+    vm.invoke(vm.word(vm.word(page)+9*4),(page,1))
+    # Negative control changes only the in-memory row context. The original
+    # refresh still calls C; C returns disabled4 and the native setter applies it.
+    vm.put(record+0x18,0xffffffff);vm.invoke(0x54a4ed,(grid,))
+    require(list(vm.uc.mem_read(widget+0xc8,3))==[1,4,4] and vm.appearance_calls[-1]['returned_state']==4,
+            'Unexpected-context updater control did not disable Widget')
+    disabled=dispatch(2)
+    vm.put(record+0x18,0x13528000);vm.invoke(0x54a4ed,(grid,))
+    require(list(vm.uc.mem_read(widget+0xc8,3))==[1,0,0],'Restored native refresh did not enable Widget')
+    outside=dispatch(2,[gx+gw,gy+gh]);resumed=dispatch(2)
+    require(all(not r['new_audio_API_requests']for r in [hidden,disabled,outside]) and
+            len(resumed['new_audio_API_requests'])==2,'Native visibility/context/outside control failed')
+    require(all(r['stock_output_objects_byte_unchanged']for r in vm.appearance_calls) and
+            not vm.appearance_pending,'Compiled updater altered stock outputs or did not return')
+    updater_state=list(struct.unpack('<6I',vm.uc.mem_read(appearance_state,24)))
+    require(updater_state[0]==4 and updater_state[1]==1 and updater_state[2]==0x13528000,'Updater diagnostics differ')
+    cases.append({'name':'native_visibility_unexpected_context_disabled_and_outside_Grid_controls_restore_player','passed':True,
+        'hidden':hidden,'unexpected_context_disabled':disabled,'outside_Grid_inside_Page':outside,'restored':resumed,
+        'test_modified_in_memory_row_context_only_then_restored':True,'DB_catalog_original_context_unchanged':True,
+        'native_appearance_calls':vm.appearance_calls,'compiled_updater_state':updater_state,
+        'stock_output_objects_byte_unchanged':True,'negative_context_return4_applied_by_native_Widget_setter':True})
+    print(json.dumps({'case':cases[-1]['name'],'passed':True}),flush=True)
+    for id,icon,size in vm.database_before:vm.set_cell(id,icon,size)
+    require(list(vm.db.execute('SELECT id,icon,size FROM custom_table ORDER BY id'))==vm.database_before and
+            all(r['closed']for r in vm.statements.values()) and sha(DATABASE)==database_sha,
+            'DB restore/finalize/backup integrity failed')
+    require(not vm.invalid_accesses and not vm.control_clicks,'Full run memory fault or fixture callback')
+    require(bytes(vm.uc.mem_read(IMAGE+12,oldram-12))==voice and bytes(vm.uc.mem_read(STUBS,480))==exports,
+            'Original voice RAM40 exports changed after font/GUI/events')
+    snapshot=vm.finish();require(snapshot['native_menu_state']==[1,1,2,0x13528000,2,2],'Player state differs')
+    required=[0x4df248,0x4de236,0x265f16,0x4de0e0,0x26707a,0x266d0e,0x26849e,0x140878,
+        0x5a2994,0x546c94,0x546878,0x547020,0x377ab8,0x4ddd60,0x54a4ec,0x54a2fa,
+        0x30c91a,0x5496ba,0x376bf6,0x27a502,0x31649a,0x14093e,0x14098c,0x1409a8,0x1409ac]
+    visits={hex(a):vm.visits[a]for a in required};require(all(visits.values()),'Claimed native entry not executed')
+    vm.db.close()
+    paths={ROOT/p for p in build['source_sha256']}|{ROOT/BUILD,ROOT/DATABASE,ROOT/build['package'],
+        ROOT/build['combined_binary'],ROOT/build['extension_elf'],ROOT/build['extension_flat'],
+        ROOT/'staging/native-music-stream/emulator-runtime.json'}
+    paths.update((ROOT/'staging/native-player-external-fonts').glob('*preflight.json'))
+    for name in ['candidate-inventory.json','first-file-write-failure.json','source-at-first-file-write-failure.py',
+        'captured-zero-page-write-failure.json','captured-zero-page-write-failure-probe.json',
+        'source-at-captured-zero-page-write-failure.py','first-native-CJK-glyphs-probe.json',
+        'first-native-CJK-glyphs-metadata.json','source-at-first-native-CJK-glyphs.py',
+        'read-wrapper-development-probe.json','native-hit-development-probe.json',
+        'overbroad-file-boundary-failure.json','integration-source-at-overbroad-file-boundary-failure.py',
+        'VM-source-at-overbroad-file-boundary-failure.py']:
+        paths.add(ROOT/'staging/native-player-external-fonts'/name)
+    paths.update(vm.backup_paths[key]for key in vm.raw_font_sources)
+    paths.add(ROOT/'scripts/analyze_native_player_fonts.py')
+    for module in tuple(sys.modules.values()):
+        name=getattr(module,'__file__',None)
+        if name:
+            path=Path(name).resolve()
+            if path.is_file() and path.is_relative_to(ROOT/'scripts'):paths.add(path)
+    paths.add(Path(__file__).resolve())
+    proof={'updated_utc':datetime.now(timezone.utc).isoformat(),'MAIN_sha256':EXPECTED,'build_manifest':BUILD,
+        'build_manifest_sha256':sha(BUILD),'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)},
+        'case_count':len(cases),'all_passed':True,'cases':cases,'load':load,'snapshot':snapshot,
+        'native_font_geometry_state_entry_visits':visits,'original_font_calls':vm.font_calls,
+        'original_font_allocator_post_allocate_records':vm.font_allocator_records,
+        'mapped_startup_zero_pages':vm.zero_pages,'font_metrics_or_glyphs_mocked':False,
+        'original_voice_RAM_and40_exports_retained_after_font_geometry_state_events':True,
+        'only_three_exact_original_GUI_guard_words_change_conditional_initialized_data':True,
+        'native_Widget_geometry_executed':True,'native_normal_state_refresh_executed':True,
+        'actual_page_controller_switch_executed':False,'actual_boot_resource_setup_executed':False,'raw_backup_CJK_fonts_loaded_offline':True,
+        'host_decoded_font_bytes_supplied':False,'native_XOR76_reader_executed':True,
+        'font_backup_files_unchanged':True,'font_file_manager_boundaries_fixture':True,
+        'generic_font_file_requests':vm.external_file_requests,
+        'resident_font_stream_inventory':vm.external_files,
+        'native_font_file_wrapper_calls':vm.native_font_file_calls,
+        'callback_verified_startup_zero_mappings':vm.callback_zero_mappings,
+        'actual_input_classification_executed':False,'real_rendering_or_display_verified':False,
+        'prior_embedded_only_paint_probe':'staging/native-player-text/paint-no-pixels-probe.json',
+        'original_kernel_wake_boundary_fixture':{'entry':'0x2fcf44','result':0,'requests':vm.wake_boundaries,'actual_kernel_wake_delivery':False},
+        'all15_DB_rows_restored_in_memory':True,'original_SQL_statement_finalization':True,
+        'database_sha256':database_sha,'database_backup_unchanged':True,
+        'objects_fonts_contexts_handles_callbacks_module_remain_pinned':True,
+        'emulator_binding_version':unicorn.__version__,'emulator_native_version':list(unicorn.uc_version()),
+        'guard_fault_controls':verify_guard_faults(),'device_io':False,'device_files_modified':False,'sounds_emitted':False,
+        'device_install_candidate':False,'actual_package_acceptance_verified':False,
+        'native_App_running_on_device':False,'phone_direct_music_verified':False,
+        'limits':'Exact HWID1352 SW8.00 original outer/module loader registers unchanged54982-byte player/updater. '
+        'Stock font static/runtime initializers use explicit test parameter1, original path conversion/fixed filenames, '
+        'native14098C XOR76 and unchanged parser/glyph queries. Lower generic file-manager inventory/read/seek/close/tell '
+        'serve exact raw backup bytes for exact fopen caller and owned virtual handles only; unrelated shared '
+        'file-manager calls delegate to unchanged inherited backend. Physical FAT/file manager/kernel boot/resource '
+        'initialization is not executed. '
+        'No decoded font bytes, metrics, glyph success/current context supplied by host. Eight external and three embedded '
+        'fonts active; two named files absent from this exact USB backup remain inactive. Native Chinese glyph indices '
+        'match independently parsed cmap. This is not drawing/display proof. Prior embedded-only paint changed0pixels; '
+        'new external-font paint is not yet tested. Widget geometry/registered state refresh/nested numeric events and '
+        'negative controls execute original code. Second size explicitly requests original547020 relayout body; '
+        'actual resize notification/rootcontroller remains open. Containing Page geometry earlier exhausted virtual '
+        'raw/SQL inventories; its outer frame stays a host input fixture. Actual touch/click-wait/queue/kernel/DAC '
+        'and speaker are unproved. Original Font malloc prefixes/pointer queries and fixture bookkeeping0/canaries '
+        'checked; no native pin counts/lock1 claim. All non-font and released-font temporary ownership checks retained. '
+        'Font contexts and eight original external streams stay resident, no artificial close; safe release unknown. '
+        'DB/cache/driver/heap/timer/VFP/kernel/audio boundaries remain fixtures. Callback mem_write maps only verified '
+        'startup-zero BSS pages for native cache destinations; no arbitrary or null maps. Original voice wholeRAM40 '
+        'exports/private12/player2/code/complete regions with only three exact native once-words retained; SQL15 '
+        'rows restored/finalized, backup fonts/database unchanged. Same EMULATION-ONLY VPM, SIG/package acceptance '
+        'and actual App/direct phone music/sourceID9 lifecycle/unload remain open. No device I/O or sounds.'}
+    out=ROOT/'evidence/firmware-analysis/native-player-external-fonts-emulation.json'
+    out.write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps({'evidence':str(out.relative_to(ROOT)),'groups':len(cases),'dependencies':len(proof['source_sha256']),
+                      'all_passed':True,'device_io':False}),flush=True)
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,1463 @@
+{
+  "updated_utc": "2026-10-04T06:21:14.804447+00:00",
+  "exact_target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "original_static_artifact": {
+    "path": "staging/native-player-task-mutex/gui-worker-boot-preflight.json",
+    "sha256": "dfb39b1beaf8587206fa43f95ae1029699cba5133058b1bd737ad694c1e13087",
+    "source_and_artifact_unchanged": true,
+    "complete_25_Thumb_CFGs_are_unmodified": true
+  },
+  "source_sha256": {
+    "staging/native-player-task-mutex/gui-worker-boot-preflight.json": "dfb39b1beaf8587206fa43f95ae1029699cba5133058b1bd737ad694c1e13087",
+    "scripts/analyze_native_gui_worker_boot.py": "4c9f1002b0b496953156ffa4b95f2a8103fc30c42eca52f693898184dd975d74",
+    "staging/native-player-task-mutex/auxiliary-wrapper-scope-terminal-failure.json": "75673126635ac3ff4dcf3ff297b49269642a66b840ae16b8ded1e9f88967e7cf",
+    "staging/native-player-task-mutex/source-at-auxiliary-wrapper-scope-failure.py": "59076659aae1118804757cc77319f8419371485caa324b4653c6c89ff5efb6e8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "metadata_erratum": {
+    "error": "The original supplemental prose called address0xf08c87 zero-BSS. That storage classification was wrong.",
+    "corrected_fields": [
+      "post_notification_thread_run.loop_dependencies item3",
+      "post_notification_thread_run.zero_BSS_gate_contents_not_read_or_assumed",
+      "limitations generic BSS wording when applied to this specific address"
+    ],
+    "correction": "0xf08c87 is file-backed normal initialized data, load0xcba607, initial byte00. Static original instructions/literals/CFGs are unchanged. No current guest/live gate value was read in that artifact.",
+    "original_literal_and_instruction_evidence_was_correct": true
+  },
+  "initialized_data_gates": [
+    {
+      "runtime_address": "0xf08c87",
+      "load_address": "0xcba607",
+      "length": 1,
+      "file_initial_hex": "00",
+      "storage": "normal initialized-data startup copy",
+      "copy_region": {
+        "call": 966130,
+        "runtime_start": 15728640,
+        "runtime_end": 16196172,
+        "size": 467532,
+        "conditional": false,
+        "load_start": 13310336,
+        "load_end": 13777868,
+        "relocation_delta": 2418304
+      },
+      "belongs_to_zero_fill_region": false,
+      "current_guest_or_live_device_value_read": false,
+      "file_initial_bytes_do_not_prove_later_runtime_gate_value": true
+    },
+    {
+      "runtime_address": "0xf00510",
+      "load_address": "0xcb1e90",
+      "length": 8,
+      "file_initial_hex": "0000000000000000",
+      "storage": "normal initialized-data startup copy",
+      "copy_region": {
+        "call": 966130,
+        "runtime_start": 15728640,
+        "runtime_end": 16196172,
+        "size": 467532,
+        "conditional": false,
+        "load_start": 13310336,
+        "load_end": 13777868,
+        "relocation_delta": 2418304
+      },
+      "belongs_to_zero_fill_region": false,
+      "current_guest_or_live_device_value_read": false,
+      "file_initial_bytes_do_not_prove_later_runtime_gate_value": true
+    }
+  ],
+  "run64774_crosscheck": {
+    "path": "staging/native-player-task-mutex/auxiliary-wrapper-scope-terminal-failure.json",
+    "sha256": "75673126635ac3ff4dcf3ff297b49269642a66b840ae16b8ded1e9f88967e7cf",
+    "exit_code": 1,
+    "completed": false,
+    "native_descriptors": [
+      {
+        "descriptor_record": {
+          "original_builder": "0x358bf8",
+          "native_caller": "0x10000",
+          "descriptor": "0x9400800",
+          "running_task": "0x0",
+          "raw_hex": "0000400900000000009050090000f00000000000",
+          "words": [
+            "0x9400000",
+            "0x0",
+            "0x9509000",
+            "0xf00000",
+            "0x0"
+          ],
+          "flag_C": 0,
+          "flag_D": 0,
+          "base_priority_E": 240,
+          "field_F": 0,
+          "host_modified_native_descriptor": false
+        },
+        "expected_from_original_builder": {
+          "entry": "0x9400000",
+          "descriptor_word1": 0,
+          "stack_top": "0x9509000",
+          "flag_C": 0,
+          "field_D": 0,
+          "base_and_current_priority_E": 240,
+          "field_F": 0,
+          "metadata_pointer": 0,
+          "TCB_placement_formula": "align_down(descriptor_word2 - 0x6c, 8)",
+          "computed_TCB": "0x9508f90"
+        },
+        "raw_descriptor_matches_declared_inputs": true,
+        "computed_TCB_matches_original_guest_insertion": true,
+        "TCB_fields_derived_from_original_instruction_stores": true,
+        "independent_whole_TCB_field_snapshot_available": false
+      },
+      {
+        "descriptor_record": {
+          "original_builder": "0x358bf8",
+          "native_caller": "0x10000",
+          "descriptor": "0x9400820",
+          "running_task": "0x0",
+          "raw_hex": "0400400900000000004050090000100000000000",
+          "words": [
+            "0x9400004",
+            "0x0",
+            "0x9504000",
+            "0x100000",
+            "0x0"
+          ],
+          "flag_C": 0,
+          "flag_D": 0,
+          "base_priority_E": 16,
+          "field_F": 0,
+          "host_modified_native_descriptor": false
+        },
+        "expected_from_original_builder": {
+          "entry": "0x9400004",
+          "descriptor_word1": 0,
+          "stack_top": "0x9504000",
+          "flag_C": 0,
+          "field_D": 0,
+          "base_and_current_priority_E": 16,
+          "field_F": 0,
+          "metadata_pointer": 0,
+          "TCB_placement_formula": "align_down(descriptor_word2 - 0x6c, 8)",
+          "computed_TCB": "0x9503f90"
+        },
+        "raw_descriptor_matches_declared_inputs": true,
+        "computed_TCB_matches_original_guest_insertion": true,
+        "TCB_fields_derived_from_original_instruction_stores": true,
+        "independent_whole_TCB_field_snapshot_available": false
+      },
+      {
+        "descriptor_record": {
+          "original_builder": "0x358bf8",
+          "native_caller": "0x353d4e",
+          "descriptor": "0x2d226e0",
+          "running_task": "0x9503f90",
+          "raw_hex": "793d3500000000003428d2020000010000000000",
+          "words": [
+            "0x353d79",
+            "0x0",
+            "0x2d22834",
+            "0x10000",
+            "0x0"
+          ],
+          "flag_C": 0,
+          "flag_D": 0,
+          "base_priority_E": 1,
+          "field_F": 0,
+          "host_modified_native_descriptor": false
+        },
+        "expected_from_original_builder": {
+          "entry": "0x353d79",
+          "descriptor_word1": 0,
+          "stack_top": "0x2d22834",
+          "flag_C": 0,
+          "field_D": 0,
+          "base_and_current_priority_E": 1,
+          "field_F": 0,
+          "metadata_pointer": 0,
+          "TCB_placement_formula": "align_down(descriptor_word2 - 0x6c, 8)",
+          "computed_TCB": "0x2d227c8"
+        },
+        "raw_descriptor_matches_declared_inputs": true,
+        "computed_TCB_matches_original_guest_insertion": true,
+        "TCB_fields_derived_from_original_instruction_stores": true,
+        "independent_whole_TCB_field_snapshot_available": false
+      }
+    ],
+    "original_all_task_insertions": [
+      {
+        "native_store_PC": "0x358cd2",
+        "TCB": "0x9508f90"
+      },
+      {
+        "native_store_PC": "0x358cd2",
+        "TCB": "0x9503f90"
+      },
+      {
+        "native_store_PC": "0x358cd2",
+        "TCB": "0x2d227c8"
+      }
+    ],
+    "original_resumes": [
+      {
+        "current": "0x2d227c8",
+        "previous_running_task": "0x9503f90",
+        "saved_context": "0x2d22794",
+        "saved_PC": "0x353d79",
+        "context_format": 0,
+        "original_restore_entry_reached": true,
+        "original_task_resume_destination_reached": true,
+        "python_CPU_context_restore": false
+      },
+      {
+        "current": "0x9503f90",
+        "previous_running_task": "0x2d227c8",
+        "saved_context": "0x9503f54",
+        "saved_PC": "0x2fd016",
+        "context_format": 0,
+        "original_restore_entry_reached": true,
+        "original_task_resume_destination_reached": true,
+        "python_CPU_context_restore": false
+      }
+    ],
+    "GUI_descriptors_observed": 0,
+    "stopped_before_GUI_worker_construction_at_original_wrapper_mutex_caller": "0x46c2ae",
+    "complete_singleton_or_full_guards_claimed": false
+  },
+  "original_instruction_extracts": [
+    {
+      "name": "readiness_record_copy",
+      "start": "0x32c078",
+      "end": "0x32c08c",
+      "instructions": [
+        {
+          "address": "0x32c078",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x114]"
+        },
+        {
+          "address": "0x32c07a",
+          "mode": "Thumb",
+          "instruction": "ldrh r2, [r1]"
+        },
+        {
+          "address": "0x32c07c",
+          "mode": "Thumb",
+          "instruction": "strh r2, [r0]"
+        },
+        {
+          "address": "0x32c07e",
+          "mode": "Thumb",
+          "instruction": "ldrh r2, [r1, #2]"
+        },
+        {
+          "address": "0x32c080",
+          "mode": "Thumb",
+          "instruction": "strh r2, [r0, #2]"
+        },
+        {
+          "address": "0x32c082",
+          "mode": "Thumb",
+          "instruction": "ldrh r2, [r1, #4]"
+        },
+        {
+          "address": "0x32c084",
+          "mode": "Thumb",
+          "instruction": "strh r2, [r0, #4]"
+        },
+        {
+          "address": "0x32c086",
+          "mode": "Thumb",
+          "instruction": "ldrh r1, [r1, #6]"
+        },
+        {
+          "address": "0x32c088",
+          "mode": "Thumb",
+          "instruction": "strh r1, [r0, #6]"
+        },
+        {
+          "address": "0x32c08a",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "readiness_status_query",
+      "start": "0x2ddb28",
+      "end": "0x2ddb58",
+      "instructions": [
+        {
+          "address": "0x2ddb28",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x2ddb2a",
+          "mode": "Thumb",
+          "instruction": "movs r4, #1"
+        },
+        {
+          "address": "0x2ddb2c",
+          "mode": "Thumb",
+          "instruction": "bl #0x2ddaee"
+        },
+        {
+          "address": "0x2ddb30",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x2ddb32",
+          "mode": "Thumb",
+          "instruction": "bne #0x2ddb46"
+        },
+        {
+          "address": "0x2ddb34",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x1d0]"
+        },
+        {
+          "address": "0x2ddb36",
+          "mode": "Thumb",
+          "instruction": "lsls r1, r0, #2"
+        },
+        {
+          "address": "0x2ddb38",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r2, r1]"
+        },
+        {
+          "address": "0x2ddb3a",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #8"
+        },
+        {
+          "address": "0x2ddb3c",
+          "mode": "Thumb",
+          "instruction": "beq #0x2ddb46"
+        },
+        {
+          "address": "0x2ddb3e",
+          "mode": "Thumb",
+          "instruction": "adds r1, r1, r2"
+        },
+        {
+          "address": "0x2ddb40",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r1, #1]"
+        },
+        {
+          "address": "0x2ddb42",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x2ddb44",
+          "mode": "Thumb",
+          "instruction": "bne #0x2ddb4a"
+        },
+        {
+          "address": "0x2ddb46",
+          "mode": "Thumb",
+          "instruction": "movs r4, #0"
+        },
+        {
+          "address": "0x2ddb48",
+          "mode": "Thumb",
+          "instruction": "b #0x2ddb54"
+        },
+        {
+          "address": "0x2ddb4a",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, #1"
+        },
+        {
+          "address": "0x2ddb4c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r0, #0x10"
+        },
+        {
+          "address": "0x2ddb4e",
+          "mode": "Thumb",
+          "instruction": "asrs r0, r0, #0x10"
+        },
+        {
+          "address": "0x2ddb50",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0x11"
+        },
+        {
+          "address": "0x2ddb52",
+          "mode": "Thumb",
+          "instruction": "blo #0x2ddb36"
+        },
+        {
+          "address": "0x2ddb54",
+          "mode": "Thumb",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0x2ddb56",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "status_query_ROM_config_predicate",
+      "start": "0x2ddaee",
+      "end": "0x2ddb28",
+      "instructions": [
+        {
+          "address": "0x2ddaee",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6}"
+        },
+        {
+          "address": "0x2ddaf0",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [pc, #0x218]"
+        },
+        {
+          "address": "0x2ddaf2",
+          "mode": "Thumb",
+          "instruction": "ldr r6, [pc, #0x214]"
+        },
+        {
+          "address": "0x2ddaf4",
+          "mode": "Thumb",
+          "instruction": "movs r4, #0"
+        },
+        {
+          "address": "0x2ddaf6",
+          "mode": "Thumb",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "address": "0x2ddaf8",
+          "mode": "Thumb",
+          "instruction": "movs r1, r4"
+        },
+        {
+          "address": "0x2ddafa",
+          "mode": "Thumb",
+          "instruction": "lsls r2, r1, #1"
+        },
+        {
+          "address": "0x2ddafc",
+          "mode": "Thumb",
+          "instruction": "adds r2, r2, r1"
+        },
+        {
+          "address": "0x2ddafe",
+          "mode": "Thumb",
+          "instruction": "adds r2, r2, r5"
+        },
+        {
+          "address": "0x2ddb00",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r2, #2]"
+        },
+        {
+          "address": "0x2ddb02",
+          "mode": "Thumb",
+          "instruction": "lsls r2, r2, #0x1c"
+        },
+        {
+          "address": "0x2ddb04",
+          "mode": "Thumb",
+          "instruction": "bpl #0x2ddb1a"
+        },
+        {
+          "address": "0x2ddb06",
+          "mode": "Thumb",
+          "instruction": "lsls r2, r1, #2"
+        },
+        {
+          "address": "0x2ddb08",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r6, r2]"
+        },
+        {
+          "address": "0x2ddb0a",
+          "mode": "Thumb",
+          "instruction": "movs r4, #1"
+        },
+        {
+          "address": "0x2ddb0c",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #6"
+        },
+        {
+          "address": "0x2ddb0e",
+          "mode": "Thumb",
+          "instruction": "beq #0x2ddb1a"
+        },
+        {
+          "address": "0x2ddb10",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #8"
+        },
+        {
+          "address": "0x2ddb12",
+          "mode": "Thumb",
+          "instruction": "beq #0x2ddb1a"
+        },
+        {
+          "address": "0x2ddb14",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "address": "0x2ddb16",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x2ddb18",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "address": "0x2ddb1a",
+          "mode": "Thumb",
+          "instruction": "adds r1, r1, #1"
+        },
+        {
+          "address": "0x2ddb1c",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0x11"
+        },
+        {
+          "address": "0x2ddb1e",
+          "mode": "Thumb",
+          "instruction": "blo #0x2ddafa"
+        },
+        {
+          "address": "0x2ddb20",
+          "mode": "Thumb",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "address": "0x2ddb22",
+          "mode": "Thumb",
+          "instruction": "beq #0x2ddb14"
+        },
+        {
+          "address": "0x2ddb24",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "address": "0x2ddb26",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "sleep_IRQ_entry",
+      "start": "0x353bec",
+      "end": "0x353c00",
+      "instructions": [
+        {
+          "address": "0x353bec",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "address": "0x353bf0",
+          "mode": "ARM",
+          "instruction": "orr r3, r1, #0x80"
+        },
+        {
+          "address": "0x353bf4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "address": "0x353bf8",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "address": "0x353bfc",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "sleep_queue_and_remove_current",
+      "start": "0x353c00",
+      "end": "0x353c22",
+      "instructions": [
+        {
+          "address": "0x353c00",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp, #0x18]"
+        },
+        {
+          "address": "0x353c02",
+          "mode": "Thumb",
+          "instruction": "add r1, sp, #4"
+        },
+        {
+          "address": "0x353c04",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x78]"
+        },
+        {
+          "address": "0x353c06",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "address": "0x353c08",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "address": "0x353c0a",
+          "mode": "Thumb",
+          "instruction": "bl #0x353d68"
+        },
+        {
+          "address": "0x353c0e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x74]"
+        },
+        {
+          "address": "0x353c10",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r0]"
+        },
+        {
+          "address": "0x353c12",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r2]"
+        },
+        {
+          "address": "0x353c14",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "address": "0x353c16",
+          "mode": "Thumb",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x353c18",
+          "mode": "Thumb",
+          "instruction": "str r1, [r2]"
+        },
+        {
+          "address": "0x353c1a",
+          "mode": "Thumb",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x353c1c",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r2, #0x16]"
+        },
+        {
+          "address": "0x353c1e",
+          "mode": "Thumb",
+          "instruction": "adr r0, #4"
+        },
+        {
+          "address": "0x353c20",
+          "mode": "Thumb",
+          "instruction": "bx r0"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "sleep_context_save",
+      "start": "0x353c24",
+      "end": "0x353c60",
+      "instructions": [
+        {
+          "address": "0x353c24",
+          "mode": "ARM",
+          "instruction": "mov r0, sp"
+        },
+        {
+          "address": "0x353c28",
+          "mode": "ARM",
+          "instruction": "push {r0, lr}"
+        },
+        {
+          "address": "0x353c2c",
+          "mode": "ARM",
+          "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+        },
+        {
+          "address": "0x353c30",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #0x2c"
+        },
+        {
+          "address": "0x353c34",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x353c38",
+          "mode": "ARM",
+          "instruction": "mrs r0, apsr"
+        },
+        {
+          "address": "0x353c3c",
+          "mode": "ARM",
+          "instruction": "orr r0, r0, #0x20"
+        },
+        {
+          "address": "0x353c40",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x353c44",
+          "mode": "ARM",
+          "instruction": "str sp, [r2, #0xc]"
+        },
+        {
+          "address": "0x353c48",
+          "mode": "ARM",
+          "instruction": "mov r0, #0"
+        },
+        {
+          "address": "0x353c4c",
+          "mode": "ARM",
+          "instruction": "strb r0, [r2, #0x17]"
+        },
+        {
+          "address": "0x353c50",
+          "mode": "ARM",
+          "instruction": "lsr r0, sp, #3"
+        },
+        {
+          "address": "0x353c54",
+          "mode": "ARM",
+          "instruction": "lsl sp, r0, #3"
+        },
+        {
+          "address": "0x353c58",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #1"
+        },
+        {
+          "address": "0x353c5c",
+          "mode": "ARM",
+          "instruction": "bx r0"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "sleep_restore_request",
+      "start": "0x353c60",
+      "end": "0x353c6a",
+      "instructions": [
+        {
+          "address": "0x353c60",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4"
+        },
+        {
+          "address": "0x353c64",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #0x18]"
+        },
+        {
+          "address": "0x353c66",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "address": "0x353c68",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "sleep_return_IRQ_restore",
+      "start": "0x353c6c",
+      "end": "0x353c78",
+      "instructions": [
+        {
+          "address": "0x353c6c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "address": "0x353c70",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "address": "0x353c74",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "initial_mailbox_read",
+      "start": "0x2fcf10",
+      "end": "0x2fcf24",
+      "instructions": [
+        {
+          "address": "0x2fcf10",
+          "mode": "Thumb",
+          "instruction": "str r0, [sp, #4]"
+        },
+        {
+          "address": "0x2fcf12",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x20]"
+        },
+        {
+          "address": "0x2fcf14",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "address": "0x2fcf16",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r1, #4]"
+        },
+        {
+          "address": "0x2fcf18",
+          "mode": "Thumb",
+          "instruction": "movs r2, #2"
+        },
+        {
+          "address": "0x2fcf1a",
+          "mode": "Thumb",
+          "instruction": "ands r2, r0"
+        },
+        {
+          "address": "0x2fcf1c",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1, #4]"
+        },
+        {
+          "address": "0x2fcf1e",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [sp, #4]"
+        },
+        {
+          "address": "0x2fcf20",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "address": "0x2fcf22",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "queue_pop_core",
+      "start": "0x37bc1c",
+      "end": "0x37bc88",
+      "instructions": [
+        {
+          "address": "0x37bc1c",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp, #4]"
+        },
+        {
+          "address": "0x37bc1e",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x7c]"
+        },
+        {
+          "address": "0x37bc20",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "address": "0x37bc22",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r1, #0x12]"
+        },
+        {
+          "address": "0x37bc24",
+          "mode": "Thumb",
+          "instruction": "mov lr, r2"
+        },
+        {
+          "address": "0x37bc26",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r1, #0x15]"
+        },
+        {
+          "address": "0x37bc28",
+          "mode": "Thumb",
+          "instruction": "mov ip, r3"
+        },
+        {
+          "address": "0x37bc2a",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r3"
+        },
+        {
+          "address": "0x37bc2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x37bc3a"
+        },
+        {
+          "address": "0x37bc2e",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1, #4]"
+        },
+        {
+          "address": "0x37bc30",
+          "mode": "Thumb",
+          "instruction": "movs r3, #2"
+        },
+        {
+          "address": "0x37bc32",
+          "mode": "Thumb",
+          "instruction": "bics r2, r3"
+        },
+        {
+          "address": "0x37bc34",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1, #4]"
+        },
+        {
+          "address": "0x37bc36",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x37bc38",
+          "mode": "Thumb",
+          "instruction": "b #0x37bc82"
+        },
+        {
+          "address": "0x37bc3a",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r1, #0x14]"
+        },
+        {
+          "address": "0x37bc3c",
+          "mode": "Thumb",
+          "instruction": "muls r2, r3, r2"
+        },
+        {
+          "address": "0x37bc3e",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r1, #8]"
+        },
+        {
+          "address": "0x37bc40",
+          "mode": "Thumb",
+          "instruction": "adds r4, r4, r2"
+        },
+        {
+          "address": "0x37bc42",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r2}"
+        },
+        {
+          "address": "0x37bc44",
+          "mode": "Thumb",
+          "instruction": "stm r0!, {r2}"
+        },
+        {
+          "address": "0x37bc46",
+          "mode": "Thumb",
+          "instruction": "subs r3, #4"
+        },
+        {
+          "address": "0x37bc48",
+          "mode": "Thumb",
+          "instruction": "beq #0x37bc52"
+        },
+        {
+          "address": "0x37bc4a",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r2}"
+        },
+        {
+          "address": "0x37bc4c",
+          "mode": "Thumb",
+          "instruction": "stm r0!, {r2}"
+        },
+        {
+          "address": "0x37bc4e",
+          "mode": "Thumb",
+          "instruction": "subs r3, #4"
+        },
+        {
+          "address": "0x37bc50",
+          "mode": "Thumb",
+          "instruction": "bgt #0x37bc42"
+        },
+        {
+          "address": "0x37bc52",
+          "mode": "Thumb",
+          "instruction": "mov r3, lr"
+        },
+        {
+          "address": "0x37bc54",
+          "mode": "Thumb",
+          "instruction": "adds r3, #1"
+        },
+        {
+          "address": "0x37bc56",
+          "mode": "Thumb",
+          "instruction": "ldrb r4, [r1, #0x13]"
+        },
+        {
+          "address": "0x37bc58",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r4"
+        },
+        {
+          "address": "0x37bc5a",
+          "mode": "Thumb",
+          "instruction": "blt #0x37bc5e"
+        },
+        {
+          "address": "0x37bc5c",
+          "mode": "Thumb",
+          "instruction": "movs r3, #0"
+        },
+        {
+          "address": "0x37bc5e",
+          "mode": "Thumb",
+          "instruction": "strb r3, [r1, #0x12]"
+        },
+        {
+          "address": "0x37bc60",
+          "mode": "Thumb",
+          "instruction": "cmp r3, ip"
+        },
+        {
+          "address": "0x37bc62",
+          "mode": "Thumb",
+          "instruction": "bne #0x37bc6c"
+        },
+        {
+          "address": "0x37bc64",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1, #4]"
+        },
+        {
+          "address": "0x37bc66",
+          "mode": "Thumb",
+          "instruction": "movs r3, #2"
+        },
+        {
+          "address": "0x37bc68",
+          "mode": "Thumb",
+          "instruction": "bics r2, r3"
+        },
+        {
+          "address": "0x37bc6a",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1, #4]"
+        },
+        {
+          "address": "0x37bc6c",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r1, #0x18]"
+        },
+        {
+          "address": "0x37bc6e",
+          "mode": "Thumb",
+          "instruction": "lsrs r0, r0, #0x1e"
+        },
+        {
+          "address": "0x37bc70",
+          "mode": "Thumb",
+          "instruction": "blo #0x37bc80"
+        },
+        {
+          "address": "0x37bc72",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0x50"
+        },
+        {
+          "address": "0x37bc74",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r1"
+        },
+        {
+          "address": "0x37bc76",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r0, #8]"
+        },
+        {
+          "address": "0x37bc78",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r1"
+        },
+        {
+          "address": "0x37bc7a",
+          "mode": "Thumb",
+          "instruction": "bne #0x37bc80"
+        },
+        {
+          "address": "0x37bc7c",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "address": "0x37bc80",
+          "mode": "Thumb",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "address": "0x37bc82",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x37bc84",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "address": "0x37bc86",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "queue_push_core",
+      "start": "0x37bd1c",
+      "end": "0x37bd6e",
+      "instructions": [
+        {
+          "address": "0x37bd1c",
+          "mode": "Thumb",
+          "instruction": "str r0, [sp]"
+        },
+        {
+          "address": "0x37bd1e",
+          "mode": "Thumb",
+          "instruction": "ldrb r0, [r4, #0x14]"
+        },
+        {
+          "address": "0x37bd20",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r4, #0x15]"
+        },
+        {
+          "address": "0x37bd22",
+          "mode": "Thumb",
+          "instruction": "mov ip, r3"
+        },
+        {
+          "address": "0x37bd24",
+          "mode": "Thumb",
+          "instruction": "muls r3, r0, r3"
+        },
+        {
+          "address": "0x37bd26",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r4, #8]"
+        },
+        {
+          "address": "0x37bd28",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "address": "0x37bd2a",
+          "mode": "Thumb",
+          "instruction": "ldm r1!, {r2}"
+        },
+        {
+          "address": "0x37bd2c",
+          "mode": "Thumb",
+          "instruction": "stm r3!, {r2}"
+        },
+        {
+          "address": "0x37bd2e",
+          "mode": "Thumb",
+          "instruction": "subs r0, #4"
+        },
+        {
+          "address": "0x37bd30",
+          "mode": "Thumb",
+          "instruction": "beq #0x37bd3a"
+        },
+        {
+          "address": "0x37bd32",
+          "mode": "Thumb",
+          "instruction": "ldm r1!, {r2}"
+        },
+        {
+          "address": "0x37bd34",
+          "mode": "Thumb",
+          "instruction": "stm r3!, {r2}"
+        },
+        {
+          "address": "0x37bd36",
+          "mode": "Thumb",
+          "instruction": "subs r0, #4"
+        },
+        {
+          "address": "0x37bd38",
+          "mode": "Thumb",
+          "instruction": "bgt #0x37bd2a"
+        },
+        {
+          "address": "0x37bd3a",
+          "mode": "Thumb",
+          "instruction": "mov r1, ip"
+        },
+        {
+          "address": "0x37bd3c",
+          "mode": "Thumb",
+          "instruction": "adds r1, #1"
+        },
+        {
+          "address": "0x37bd3e",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r4, #0x13]"
+        },
+        {
+          "address": "0x37bd40",
+          "mode": "Thumb",
+          "instruction": "cmp r1, r2"
+        },
+        {
+          "address": "0x37bd42",
+          "mode": "Thumb",
+          "instruction": "blt #0x37bd46"
+        },
+        {
+          "address": "0x37bd44",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x37bd46",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r4, #0x15]"
+        },
+        {
+          "address": "0x37bd48",
+          "mode": "Thumb",
+          "instruction": "cmp r5, #0"
+        },
+        {
+          "address": "0x37bd4a",
+          "mode": "Thumb",
+          "instruction": "beq #0x37bd68"
+        },
+        {
+          "address": "0x37bd4c",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #0"
+        },
+        {
+          "address": "0x37bd4e",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r4, #0x12]"
+        },
+        {
+          "address": "0x37bd50",
+          "mode": "Thumb",
+          "instruction": "subs r3, r1, r3"
+        },
+        {
+          "address": "0x37bd52",
+          "mode": "Thumb",
+          "instruction": "asrs r1, r3, #0x1f"
+        },
+        {
+          "address": "0x37bd54",
+          "mode": "Thumb",
+          "instruction": "bics r2, r1"
+        },
+        {
+          "address": "0x37bd56",
+          "mode": "Thumb",
+          "instruction": "subs r3, r2, r3"
+        },
+        {
+          "address": "0x37bd58",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #1"
+        },
+        {
+          "address": "0x37bd5a",
+          "mode": "Thumb",
+          "instruction": "beq #0x37bd62"
+        },
+        {
+          "address": "0x37bd5c",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "address": "0x37bd60",
+          "mode": "Thumb",
+          "instruction": "b #0x37bd68"
+        },
+        {
+          "address": "0x37bd62",
+          "mode": "Thumb",
+          "instruction": "adds r1, r4, #0"
+        },
+        {
+          "address": "0x37bd64",
+          "mode": "Thumb",
+          "instruction": "bl #0x300ae4"
+        },
+        {
+          "address": "0x37bd68",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp]"
+        },
+        {
+          "address": "0x37bd6a",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "address": "0x37bd6c",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    },
+    {
+      "name": "queue_push_native_event2",
+      "start": "0x37bd7c",
+      "end": "0x37bd84",
+      "instructions": [
+        {
+          "address": "0x37bd7c",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "address": "0x37bd7e",
+          "mode": "Thumb",
+          "instruction": "movs r1, #2"
+        },
+        {
+          "address": "0x37bd80",
+          "mode": "Thumb",
+          "instruction": "blx #0x2fcf44"
+        }
+      ],
+      "selected_instruction_extract_only": true,
+      "complete_recursive_CFG_claimed": false
+    }
+  ],
+  "remaining_gate_inputs": [
+    {
+      "priority": 1,
+      "scope": "Second Thread after initial condition notification",
+      "input": "Original timed-wait scheduling and clock progression for353BE4(1)",
+      "evidence": "353C04 reads clock counter pointer at literal353C80=F09098;353D68 reaches original353E48 timed-wait linked-list registration;353C44 stores native context;353C60 calls358EC4.",
+      "needs": "Keep persistent original timer/current/idle tasks and native timed-wait node resident; recover actual counter/tick-to-timer notification rather than return successful sleep.",
+      "original_wait_unit_known": false
+    },
+    {
+      "priority": 2,
+      "scope": "Second Thread readiness loop",
+      "input": "Original writers/bootstrap ofF08C87 andF00510..F00517",
+      "evidence": "32C078 copies exactly four halfwords from initializedF00510 to the8-byte stack snapshot;4AED18 requiresF08C87 nonzero;4AED28 checks snapshot byte4==4, i.e. copied source byteF00514.",
+      "file_initial_values_are_zero": true,
+      "needs": "Identify/execute authorized original setters; a host-written ready byte or synthetic successful helper return would not prove real readiness."
+    },
+    {
+      "priority": 3,
+      "scope": "Second Thread status predicate",
+      "input": "Original status producer for17 four-byte records at14B2370",
+      "evidence": "2DDB28 first calls2DDAEE, then rejects any queried record statebyte==8 or nextbyte==0.2DDAEE uses17 three-byte ROM config entries89E1F4; none of their initial flagbyte bit3 is set.",
+      "status_storage": {
+        "address": "0x14b2370",
+        "record_count": 17,
+        "stride": 4,
+        "zero_fill_region": {
+          "call": 966140,
+          "runtime_start": 16196172,
+          "runtime_end": 61542508,
+          "size": 45346336,
+          "conditional": false
+        },
+        "values_not_read_as_file_backed": true
+      },
+      "needs": "Recover status writers/bootstrap and predicate semantics; these gates execute after initial constructor notification."
+    },
+    {
+      "priority": 4,
+      "scope": "Dispatcher queued callbacks",
+      "input": "Original37BCE4 publication and37BC00 dequeue over its native TCB queue",
+      "evidence": "Descriptor word1 D+4B04 becomesTCB+8 queue-buffer pointer;C=8 becomesTCB+14 message bytes;D=20 becomesTCB+13 slot limit.37BD7E/37BD80 posts event2;37BC2E..34 and37BC64..6A clear event2 once queue empties.",
+      "queue_fields": {
+        "read_index": "TCB+0x12",
+        "write_index": "TCB+0x15",
+        "message_bytes": "TCB+0x14",
+        "slot_limit": "TCB+0x13",
+        "buffer": "*(TCB+8)"
+      },
+      "wrapper": "5D28E8 accepts Dispatcher/object/argument and publishes two words;5D218E calls callback object virtualslot8 underD+AE8 mutex.",
+      "initial_helper": "2FCEF4 returns current mailbox and leaves only event2 stored; boot event16 does not create a queued callback.",
+      "needs": "Execute original publication/dequeue with a separately scoped known callback; retain native queue ownership and validate queue-empty event acknowledgement. No callback/device App success is established yet."
+    },
+    {
+      "priority": 5,
+      "scope": "Dispatcher exit",
+      "input": "Original event512 post plus task termination and lifetime guards",
+      "evidence": "5D2932/5D2934 posts0x200 through2FCF44;5D21A0 testsbit9 and5D21B0 storesD+AA4=1 before returning.",
+      "needs": "Treat worker return/native exit and any join5250EC as separate lifecycle scope; do not reclaim stack/object/module merely from byteD+AA4."
+    }
+  ],
+  "all_assertions_passed": true,
+  "static_analysis_and_preserved_runtime_crosscheck_only": true,
+  "new_runtime_executed": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "firmware_modified": false,
+  "install_candidate": false,
+  "actual_readiness_queue_callback_GUI_foreground_or_safe_unload_verified": false,
+  "limitations": "This supplement corrects one storage-classification prose error while retaining the immutable25CFG evidence. Run64774 only captured the three synthetic-input native-built idle/controller/timer tasks and stopped at caller46C2AE before GUI construction. Native builder stores explain descriptor fields and placement; this supplement does not independently read full guest TCB snapshots. Instruction extracts and next-input lists are static evidence, not newly executed scheduler/queue/readiness tests. No device I/O or install/App/audio claim."
+}

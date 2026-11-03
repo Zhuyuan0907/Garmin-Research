@@ -1,0 +1,406 @@
+{
+  "schema": "coherent-control-rollback-synthetic-preflight/v1",
+  "all_assigned_checks_passed": true,
+  "unittest_methods": 8,
+  "errors": 0,
+  "failures": 0,
+  "cases": [
+    {
+      "case": "synthetic_actual_fd_inverse_reads_via_unchanged_helper",
+      "passed": true,
+      "receipt": {
+        "actual_corrected_full_sha256": "9832a5e013e2b2d42e356cc8ae9fbf30f9c02c9ede4aba68ea479a977c075a6c",
+        "computed_inverse_full_sha256": "55d381edfdea6a2bb2d7a3af1aa304c0e542670ef745a4ad24531e0a704377aa",
+        "candidate_bytes_read": 4096,
+        "source_stat_before": [
+          35,
+          5172,
+          4096,
+          1791361372923571089,
+          1791361372923571089,
+          1
+        ],
+        "source_stat_after_full_verify": [
+          35,
+          5172,
+          4096,
+          1791361372923571089,
+          1791361372923571089,
+          1
+        ],
+        "inverse_view_bytes_returned": 5716,
+        "overlay_bytes": 512,
+        "changed_offsets": [
+          452
+        ],
+        "physical_source_write_bytes": 0,
+        "borrowed_handle_owned_by_caller": true,
+        "stock_hash_verified": false
+      },
+      "fixture_bytes": 4096,
+      "old_helper_functions_executed": [
+        "identity",
+        "_read"
+      ],
+      "full_parse_or_stock_restore_executed": false,
+      "source_handle_closed_by_caller": true
+    },
+    {
+      "case": "wrong_actual_corrected_header",
+      "passed": true,
+      "actual_error": "Actual corrected first512 header mismatch",
+      "fixture_bytes": 4096,
+      "returned_overlay": false,
+      "physical_source_write_bytes": 0,
+      "source_handle_closed_by_caller": true
+    },
+    {
+      "case": "wrong_corrected_fullSHA",
+      "passed": true,
+      "actual_error": "Actual coherent fullSHA/EOF mismatch",
+      "fixture_bytes": 4096,
+      "returned_overlay": false,
+      "physical_source_write_bytes": 0,
+      "source_handle_closed_by_caller": true
+    },
+    {
+      "case": "wrong_inverse_fullSHA",
+      "passed": true,
+      "actual_error": "Computed inverse old-v3 fullSHA mismatch",
+      "fixture_bytes": 4096,
+      "returned_overlay": false,
+      "physical_source_write_bytes": 0,
+      "source_handle_closed_by_caller": true
+    },
+    {
+      "case": "readwrite_descriptor_refused",
+      "passed": true,
+      "actual_error": "Borrowed source must be an actual read-only rb descriptor",
+      "fixture_bytes": 4096,
+      "returned_overlay": false,
+      "physical_source_write_bytes": 0,
+      "source_handle_closed_by_caller": true
+    },
+    {
+      "case": "post_verification_source_stat_mutation",
+      "passed": true,
+      "actual_error": "Source changed after full verification",
+      "fixture_bytes": 4096,
+      "source_handle_closed_by_caller": true,
+      "no_physical_body_transform": true
+    },
+    {
+      "case": "unchanged_old_helper_rejects_direct_corrected_header",
+      "passed": true,
+      "actual_error": "Header differs from explicitly supported transformation",
+      "fixture_bytes": 8192,
+      "declared_size_is_synthetic_guard_input": true,
+      "full_candidate_parse": false
+    },
+    {
+      "case": "unchanged_old_helper_rejects_expanded4K_declared_size",
+      "passed": true,
+      "actual_error": "Invalid aligned AP byte length",
+      "fixture_bytes": 4096,
+      "actual_IMG_read": false
+    },
+    {
+      "case": "adapter_expanded4K_refused_before_stream_access",
+      "passed": true,
+      "actual_error": "Expanded4K/unknown control is not supported by this8K adapter",
+      "candidate_stream_accessed": false
+    },
+    {
+      "case": "fixed_real_small_recipe_binding_static_preflight",
+      "passed": true,
+      "stock_bytes": 96739328,
+      "stock_sha256": "864d128f8d4660570d443b2e14772c9c5356ebdf0bbb6a5891f3318b836053c2",
+      "old_helper_prepare_binding_executed": true,
+      "candidate_read": false,
+      "decompressed_recipe_bytes": 1779988
+    }
+  ],
+  "real_IMG_open_or_stat": false,
+  "real_IMG_bytes_read": 0,
+  "real_IMG_bytes_written": 0,
+  "production_candidate_verification_invoked": false,
+  "actual_stock_reconstruction_executed": false,
+  "fixture_max_bytes": 8192,
+  "adapter_sha256": "284b164a568edaca06707b572f0dd1f4bd2d96b913546adb56e7a99979480dbc",
+  "test_sha256": "e34b52b42eb456d11aac804aee2ea50fe79e813dc0f6161e3d9306cdf3579774",
+  "installable": false,
+  "checksum_UI_renderer_rootcause_verified": false,
+  "input_receipts": [
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/prepared-control-plan.json",
+      "bytes": 5276,
+      "sha256": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+      "stat_before": [
+        45826,
+        539794,
+        5276,
+        1791359084268207745,
+        1791359084268207745,
+        1
+      ],
+      "stat_after": [
+        45826,
+        539794,
+        5276,
+        1791359084268207745,
+        1791359084268207745,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/proof.json",
+      "bytes": 2853,
+      "sha256": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+      "stat_before": [
+        45826,
+        539797,
+        2853,
+        1791359084789279036,
+        1791359084789279036,
+        1
+      ],
+      "stat_after": [
+        45826,
+        539797,
+        2853,
+        1791359084789279036,
+        1791359084789279036,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/sealed-files.json",
+      "bytes": 2064,
+      "sha256": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da",
+      "stat_before": [
+        45826,
+        539800,
+        2064,
+        1791359084804925599,
+        1791359084804925599,
+        1
+      ],
+      "stat_after": [
+        45826,
+        539800,
+        2064,
+        1791359084804925599,
+        1791359084804925599,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/eightK_end_mirror-header.bin",
+      "bytes": 512,
+      "sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+      "stat_before": [
+        45826,
+        539792,
+        512,
+        1791359084252939757,
+        1791359084256851713,
+        1
+      ],
+      "stat_after": [
+        45826,
+        539792,
+        512,
+        1791359084252939757,
+        1791359084256851713,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/expanded_fourK_geometry-header.bin",
+      "bytes": 512,
+      "sha256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+      "stat_before": [
+        45826,
+        539793,
+        512,
+        1791359084261389281,
+        1791359084264851736,
+        1
+      ],
+      "stat_after": [
+        45826,
+        539793,
+        512,
+        1791359084261389281,
+        1791359084264851736,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-country-address-package-v3/native_8k_stock_restore.py",
+      "bytes": 26503,
+      "sha256": "43e041518baa72bfbdbc26c627d435749c4bf85adf7882e47ffcfb655c46fe5f",
+      "stat_before": [
+        45826,
+        538077,
+        26503,
+        1791317760439533124,
+        1791318074640367236,
+        1
+      ],
+      "stat_after": [
+        45826,
+        538077,
+        26503,
+        1791317760439533124,
+        1791318074640367236,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-country-address-package-v3/restore-layout.json.gz",
+      "bytes": 879499,
+      "sha256": "6e1381006e3f56a466c8cdd93134f418eab18ee592cbfd5e57f1a55c2950c0a7",
+      "stat_before": [
+        45826,
+        538078,
+        879499,
+        1791317760439592550,
+        1791318074640367236,
+        1
+      ],
+      "stat_after": [
+        45826,
+        538078,
+        879499,
+        1791317760439592550,
+        1791318074640367236,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-country-address-package-v3/actual-stock-restore-binding.json",
+      "bytes": 292144,
+      "sha256": "0884c9d705c40d84a84512c691ba124cef419e2cee6d432155e45cee6ed1dd89",
+      "stat_before": [
+        45826,
+        538079,
+        292144,
+        1791317760440193736,
+        1791318074640367236,
+        1
+      ],
+      "stat_after": [
+        45826,
+        538079,
+        292144,
+        1791317760440193736,
+        1791318074640367236,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-native-8k-layout-restore-api-v1/sealed-files.json",
+      "bytes": 4882,
+      "sha256": "7bef13e816951f51c32e75b2f9e00940b9104f971ba67a7f67d3684e5561af04",
+      "stat_before": [
+        45826,
+        538034,
+        4882,
+        1791317216946319673,
+        1791317216946319673,
+        1
+      ],
+      "stat_after": [
+        45826,
+        538034,
+        4882,
+        1791317216946319673,
+        1791317216946319673,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-country-native-lane-restore-v3/sealed-files.json",
+      "bytes": 3015,
+      "sha256": "78c11001e46ae749568cb6066b7edc4381412dee309d1fd10947480a111e1048",
+      "stat_before": [
+        45826,
+        538064,
+        3015,
+        1791317504740517860,
+        1791317504740517860,
+        1
+      ],
+      "stat_after": [
+        45826,
+        538064,
+        3015,
+        1791317504740517860,
+        1791317504740517860,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-country-native-lane-restore-v3/proof.json",
+      "bytes": 8102,
+      "sha256": "bebeb18b29fd934d048111f5a0c05c7dd5a9c93f8d7899159f3fe69b8c5dea9a",
+      "stat_before": [
+        45826,
+        538051,
+        8102,
+        1791317444377333028,
+        1791317504736963562,
+        1
+      ],
+      "stat_after": [
+        45826,
+        538051,
+        8102,
+        1791317444377333028,
+        1791317504736963562,
+        1
+      ]
+    }
+  ],
+  "input_raw_bytes": 1225362,
+  "input_decompressed_bytes": 1779988,
+  "design": {
+    "schema": "fixed-coherent-AP-rollback-design/v1",
+    "supported_control": "eightK_end_mirror",
+    "coherent_candidate": {
+      "bytes": 153346048,
+      "sha256": "9af1e68e1308bf28deeb7f7d4c7cfab88efd0063c38f4f2df77fcde352990dd3",
+      "corrected_header_sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b"
+    },
+    "inverse_virtual_old_v3": {
+      "bytes": 153346048,
+      "sha256": "1f468eb78cc1268951873c82ffce4abe3292dcece69c0eee405c5d7aca3cc360",
+      "original_header_sha256": "e3b9dad35486683869b4bfc811e591a2af020c5764b12cfb4d9cf31a441e0ca3",
+      "unchanged_binding_sha256": "0884c9d705c40d84a84512c691ba124cef419e2cee6d432155e45cee6ed1dd89"
+    },
+    "stock": {
+      "bytes": 96739328,
+      "sha256": "864d128f8d4660570d443b2e14772c9c5356ebdf0bbb6a5891f3318b836053c2",
+      "recipe_sha256": "6e1381006e3f56a466c8cdd93134f418eab18ee592cbfd5e57f1a55c2950c0a7"
+    },
+    "expanded_fourK_geometry": {
+      "bytes": 153337856,
+      "source_sha256": "cc019c5f83c7fce442d0a6b64d8cc216dbc39e1cfa08dfe3f57c757f3bdfbfe9",
+      "coherent_sha256": "8749b2614f0ef4cfb3ac631dd316b35dd3551e3ab97d2ac058f13a89052f50f6",
+      "adapter_supported": false,
+      "required": "Separate actual expanded4K FAT/layout binding and strict supported-profile restore API; old4K geometry/32768-block limits remain."
+    },
+    "old_helper_sha256": "43e041518baa72bfbdbc26c627d435749c4bf85adf7882e47ffcfb655c46fe5f",
+    "decompressed_recipe_bytes": 1779988,
+    "actual_old_stock_hash_inherited_only": true,
+    "metadata_header_inverse_overlay_bytes": 512,
+    "physically_changed_byte_offsets": [
+      452
+    ],
+    "direct_old_helper_accepts_corrected_header": false,
+    "checksum_policy_or_UI_or_renderer_rootcause_known": false,
+    "real_inverse_stock_hash_validation_executed": false,
+    "installable": false
+  }
+}

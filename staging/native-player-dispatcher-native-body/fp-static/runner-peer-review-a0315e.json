@@ -1,0 +1,392 @@
+{
+  "updated_utc": "2026-10-04T13:19:02.281957+00:00",
+  "static_only": true,
+  "guest_executed_by_review": false,
+  "helper_imported_or_instantiated_by_review": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "frozen_sources_proofs_or_canonical_modified": false,
+  "source_sha256": {
+    "scripts/probe_native_dispatcher_body_fp.py": "a0315eadfe40ab66ea8e601c236d9c358731ed1513983a3a2e2bc88c9b05a4e0",
+    "scripts/native_dispatcher_multiowner_vfp.py": "5dbe3df3dc3f220dd658d6c25408b1292025a5009338cc89faafc74b671aeff8",
+    "scripts/probe_native_multiowner_vfp.py": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+    "scripts/probe_native_cold_fp_controller.py": "0c4f4bb7e0077da701da225c183c262fa14346685dd605994438bd3edac1be3c",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "staging/native-player-dispatcher-native-body/gui-static/dispatcher_actor_observer.py": "a323501d1af12aae3d4ed87822165b8ed6fea849fe767ba9ed08fdda0281ac5c",
+    "staging/native-player-dispatcher-native-body/fp-static/native-dispatcher-vfp-integration-contract-5dbe3df3dc3f.json": "2297d341fcbdcaa915374b4978385e13941afda547d9193bbcc14d1862c086d8",
+    "staging/native-player-dispatcher-native-body/runtime/runner-at-run.py": "a0315eadfe40ab66ea8e601c236d9c358731ed1513983a3a2e2bc88c9b05a4e0",
+    "staging/native-player-dispatcher-native-body/runtime/inputs-before-run.json": "4018edf57074381d58bfafa53956838b10e1ec5919f4966294ff55d459ed9834",
+    "staging/native-player-dispatcher-native-body/runtime/terminal-probe.json": "43b8c72a88ea44f3853805faf9d94a5b0448c824aedd9047cf60100fb6083110",
+    "scripts/seal_native_dispatcher_body.py": "f37b389bf851a064a0188ff1657c6c97b90107942e382c424e758cd56fd71c22",
+    "staging/native-player-dispatcher-native-body/runtime/cold-prefix-sealed.json": "0bfed6b6f54d6bd505c7e6d55a9df3a33fd2384d632c9e5d966dc2ea74b5ed5a",
+    "staging/native-player-dispatcher-native-body/runtime/terminal-metadata.json": "3b4535d420d7e8b3ff30be3b6e9c1645f47181abe322c9ab7f9b6baa736b0731",
+    "scripts/probe_native_settings_lazy_vfp_v2.py": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "scripts/probe_native_controller_gir_cache_declared.py": "3b190aa2cd832191863815c083572273fc4c99279ef019e0d5425df7e83d70b8",
+    "scripts/probe_native_controller_gir_component_contiguous.py": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+    "scripts/probe_native_controller_gir_component.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f"
+  },
+  "assertions_passed": true,
+  "concrete_FP_integration_blockers": [],
+  "review_result": "Exact FP integration is consistent for the observed first C-to-D save/no-D-restore stage. The run failed at a later unadmitted native raw mutex caller; final foreground/full-body guards were not reached.",
+  "runner_method_source_inventory": {
+    "begin_body_observer": {
+      "line": 55,
+      "end_line": 69,
+      "source_sha256": "f1f043213c39428c436d77ccfa4f5430e5e081dd0bfe1547077915cef43e8d7f"
+    },
+    "journal_zone_write": {
+      "line": 114,
+      "end_line": 130,
+      "source_sha256": "b0690c96225df4f61776b4eb6ecdd7a3c0e2d3ac6958ae62a28f53e183460c5f"
+    },
+    "observe": {
+      "line": 132,
+      "end_line": 148,
+      "source_sha256": "1ec7c922c1e525af87eca5e571ec4cf7b923bd94dbc4e0b662c19479b6b197c6"
+    },
+    "resume_same_native_work": {
+      "line": 150,
+      "end_line": 162,
+      "source_sha256": "5da1ce4f85e8fbfbb4c65989289bd7b6720738ede5c4a01fbe3d574de939c14f"
+    },
+    "verify_body_zones": {
+      "line": 164,
+      "end_line": 174,
+      "source_sha256": "4b7f449ddc70b5e01e24789dcb83ab73eb4ef4217e6c6896e9cf1364d36d1bcb"
+    }
+  },
+  "parent_journal_bridge": {
+    "validated": true,
+    "pure_helper_validation": true,
+    "coverage_double_consumption": false,
+    "exact_whole_zone_containment_and_budget": true,
+    "VSTM8_and_nested_UND_pushes_supported": true,
+    "old_parent_path_retained_outside_active_FP": true,
+    "body_extended_push_vstr_vstm_path": "Original native opcode/width/whole-zone bound, actual pre-instructionpush binding; separate body/parent histories. The broad body path is not a complete arbitrary VFP or foreground memory guard."
+  },
+  "actual_running_task_provenance": {
+    "callback": "lambda:self.running_task, no ready-head fallback",
+    "producer": "Frozen NativeTaskMutexVM observes originalRESTORE target savedframe and sets running_task only at actualsavedPC destination; full restore rows retained.",
+    "last_native_restore": {
+      "current": "0x8804fb8",
+      "previous_running_task": "0x9503f90",
+      "saved_context": "0x8804f5c",
+      "saved_PC": "0x2fd0ac",
+      "context_format": 0,
+      "original_restore_entry_reached": true,
+      "original_task_resume_destination_reached": true,
+      "python_CPU_context_restore": false
+    },
+    "FP_gate": "Nativehelper requiresF09094zero/F09090==running task and captures actual original358D24→20EC88r0 return.",
+    "observer_order": "Body actor skips inherited observer only at exact rawinitializer/rawentry/clockgetter scopes. FP getter/allocator/clone/handler/return PCs pass to parentLazySettingsVM.observe and newFP observer. Original savedPC2FD0AC attribution occurs before callback405340."
+  },
+  "cold_prefix_separation": {
+    "path": "staging/native-player-dispatcher-native-body/runtime/cold-prefix-sealed.json",
+    "sha256": "0bfed6b6f54d6bd505c7e6d55a9df3a33fd2384d632c9e5d966dc2ea74b5ed5a",
+    "all11_helpers_returned": true,
+    "whole_scoped_prefix_guards_passed": true,
+    "old_lazy_rows": 1,
+    "body_FP_helper_constructed_only_after_prefix": true,
+    "deep_copied_result_before_body": true,
+    "separate_exclusive_file": true,
+    "body_partial_outcome_does_not_reclassify_cold_prefix": true,
+    "independent_complete_cold_suite_reverified_by_this_review": false,
+    "prefix_hardcount_note": "Parent reports a separately preserved verifier-v1 hardcount discrepancy and v2 replay accounting for one same-byte write; this review does not use instruction/store count equality as complete cold-prefix equivalence."
+  },
+  "activation_and_resume": {
+    "original_Signal80_ctor_and_native_registration_publication": true,
+    "stock_cleanup_Signal_Thread_retained": true,
+    "original_WAIT_switch_into_actual_Dispatcher": true,
+    "callback_entry_ABI": "TCB8804FB8/SP8804F78/LR60935D",
+    "first_stop_before_callback_instruction": true,
+    "resume_same_current_callback_PC_inThumb": true,
+    "no_host_direct_callback_or_saved_CPU_context_restore": true,
+    "architectural_UND_entry_remains_explicit_fixture": true,
+    "quanta": 48,
+    "per_quantum_instruction_limit": 3000000
+  },
+  "terminal": {
+    "session_id": 67576,
+    "authoritative_exit_code": 1,
+    "phase": "actual_Dispatcher405340_body",
+    "error": "Native mutex caller outside explicit per-task GUI scope: 0x396b4e",
+    "failure_before_native_raw3009A0_body": true,
+    "registers": {
+      "r0": "0x2d1654c",
+      "r1": "0x8804f40",
+      "r2": "0x0",
+      "r3": "0x8804f28",
+      "lr": "0x396b4f",
+      "pc": "0x3009a0",
+      "sp": "0x8804f28"
+    },
+    "completed": false,
+    "callback_entry_seen": true,
+    "callback_return_seen": false,
+    "body_full_guards_passed": false
+  },
+  "first_actual_native_FP_stage": {
+    "faultPC": "0x70dff8",
+    "fault_load_PC": "0x70dff8",
+    "old_owner": "0x9503f90",
+    "new_owner": "0x8804fb8",
+    "old_context": "0x0",
+    "new_context_before": "0x0",
+    "save_C_complete": true,
+    "restore_D": false,
+    "D_bank_source": "actual_fault_bank",
+    "original_current_getter_result": "0x8804fb8",
+    "original_handler_and_return_retry_completed": true,
+    "actual_control_words": [
+      "0x40000000",
+      "0x9503f90",
+      "0x20ecc4",
+      "0x3000010"
+    ],
+    "allocation": {
+      "task": "0x9503f90",
+      "request": 148,
+      "LR": "0x20ecc4",
+      "result": "0x9500008",
+      "advance": 152,
+      "end": "0x95000a0",
+      "original_allocator_capacity_check": false,
+      "external_pool_budget": 256,
+      "returned": true
+    },
+    "D_clone40_observed": false,
+    "C_saved_bank_restore_observed": false,
+    "D_saved_bank_restore_observed": false,
+    "full_three_stage_exchange_observed": false
+  },
+  "partial_guard_summary": {
+    "partial_FP_zone_verification": [
+      {
+        "start": "0x3ab1000",
+        "bytes": 4096,
+        "CPU_stores": 1,
+        "passed": true
+      },
+      {
+        "start": "0x8800fe0",
+        "bytes": 40,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x8801024",
+        "bytes": 320,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x8804fb8",
+        "bytes": 108,
+        "CPU_stores": 11,
+        "passed": true
+      },
+      {
+        "start": "0x9400900",
+        "bytes": 40,
+        "CPU_stores": 1,
+        "passed": true
+      },
+      {
+        "start": "0x9500000",
+        "bytes": 320,
+        "CPU_stores": 23,
+        "passed": true
+      },
+      {
+        "start": "0x9503f90",
+        "bytes": 108,
+        "CPU_stores": 7,
+        "passed": true
+      },
+      {
+        "start": "0x18310000",
+        "bytes": 4096,
+        "CPU_stores": 14,
+        "passed": true
+      }
+    ],
+    "partial_body_zone_verification": [
+      {
+        "start": "0x9500000",
+        "bytes": 16384,
+        "CPU_stores": 98,
+        "passed": true
+      },
+      {
+        "start": "0x8801024",
+        "bytes": 16384,
+        "CPU_stores": 7348,
+        "passed": true
+      },
+      {
+        "start": "0x34f9000",
+        "bytes": 4096,
+        "CPU_stores": 17,
+        "passed": true
+      },
+      {
+        "start": "0x3aae000",
+        "bytes": 4096,
+        "CPU_stores": 1,
+        "passed": true
+      }
+    ],
+    "partial_inherited_zone_verification": [
+      {
+        "start": "0x3a7f150",
+        "bytes": 128,
+        "CPU_stores": 238,
+        "passed": true
+      },
+      {
+        "start": "0x2d226b4",
+        "bytes": 64,
+        "CPU_stores": 9,
+        "passed": true
+      },
+      {
+        "start": "0x148e680",
+        "bytes": 708,
+        "CPU_stores": 112,
+        "passed": true
+      },
+      {
+        "start": "0x18301000",
+        "bytes": 8192,
+        "CPU_stores": 1028,
+        "passed": true
+      },
+      {
+        "start": "0x3ab1000",
+        "bytes": 4096,
+        "CPU_stores": 2,
+        "passed": true
+      },
+      {
+        "start": "0x18310020",
+        "bytes": 4032,
+        "CPU_stores": 22,
+        "passed": true
+      },
+      {
+        "start": "0x18320000",
+        "bytes": 4096,
+        "CPU_stores": 72,
+        "passed": true
+      },
+      {
+        "start": "0xea11000",
+        "bytes": 4096,
+        "CPU_stores": 1,
+        "passed": true
+      },
+      {
+        "start": "0x34f7000",
+        "bytes": 4096,
+        "CPU_stores": 17,
+        "passed": true
+      },
+      {
+        "start": "0x9500000",
+        "bytes": 256,
+        "CPU_stores": 23,
+        "passed": true
+      },
+      {
+        "start": "0x94008e0",
+        "bytes": 104,
+        "CPU_stores": 1,
+        "passed": true
+      },
+      {
+        "start": "0x9400960",
+        "bytes": 81,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x88092b0",
+        "bytes": 108,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x880922c",
+        "bytes": 52,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x8804fb8",
+        "bytes": 108,
+        "CPU_stores": 11,
+        "passed": true
+      },
+      {
+        "start": "0x8804f5c",
+        "bytes": 52,
+        "CPU_stores": 49,
+        "passed": true
+      },
+      {
+        "start": "0x2d227c8",
+        "bytes": 108,
+        "CPU_stores": 1,
+        "passed": true
+      },
+      {
+        "start": "0x2d2278c",
+        "bytes": 52,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x9503f90",
+        "bytes": 108,
+        "CPU_stores": 131,
+        "passed": true
+      },
+      {
+        "start": "0x9508f90",
+        "bytes": 108,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x9508f54",
+        "bytes": 52,
+        "CPU_stores": 0,
+        "passed": true
+      },
+      {
+        "start": "0x8809264",
+        "bytes": 20,
+        "CPU_stores": 0,
+        "passed": true
+      }
+    ]
+  },
+  "partial_initialized_data_bank": {
+    "start": "0xf00000",
+    "bytes": 467532,
+    "CPU_stores": 46,
+    "whole_bank_replay_passed": true
+  },
+  "next_scope_requirements": [
+    "Bound exact396B4E rawcaller and its native tag/storage/owner/lock continuation before extending observer; preserve original guard rejection as this failure.",
+    "Full three-stage actual scheduling still requiresDtoC firstsaveD/clone40/restoreC and laterCtoDrestoreD; this runner has no explicit3-stage assertion and stopped after stage1.",
+    "Do not apply inherited cold slot0/all256FF/OWNER==controller guards to a future exchanged endpoint. Introduce newguardcopy delta only for replayed nativecontext/clone stores and retain all other wholeinventory guards.",
+    "Full foreground/font/cache/manager lifecycle/code/ALL-ready-owned-residentframe cleanup guards remain separate. component_active/controller-only inherited font/cache hooks can reject actual Dispatcher font allocations and require exactnew scope rather than broad actor relaxation.",
+    "Broad nativebody pushes record exactpayload/address but do not independently enforce per-push completecoverage/postSP; wholebody replay is a net-write guard. FPpush completeness/postSP remains enforced by the frozenFP observer."
+  ],
+  "runtime_completed": false,
+  "complete_native_cold_Dispatcher_suite_verified": false,
+  "fullbody_or_foreground_success_claimed": false,
+  "physical_App_direct_music_package_acceptance_verified": false
+}

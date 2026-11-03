@@ -1,0 +1,23 @@
+Offline AP4K→AP8K streaming container primitive. This is not a fullTaiwan map, an installed update, a native-parser acceptance proof, or a platform capacity limit.
+
+API:
+from ap_8k_writer import Source4K, Replacement, repack_stream, repack_new_path
+source = Source4K(binary_source_stream)
+replacement = Replacement(new_MDR_size, callable_returning_bounded_byte_chunks)
+receipt = repack_stream(source, new_empty_output_stream, {"00004171.MDR": replacement})
+# Optional exclusive-new-path wrapper cleans its own partially created path on error:
+receipt = repack_new_path(source_path, new_destination_path, [("00004171.MDR", replacement)])
+
+Only explicit MDR replacement is accepted; no-replacement can convert identical logical contents. Caller is responsible for all MDR internal offsets/records/directory and exact source/candidate binding. This module never calls the withdrawn L3 helper in the reused sealed general-writer module: only its previously validated4K StreamIMG parser is reused. This module has no CLI, default output, firmware code or USB/installed-image access.
+
+Supported source: XOR0, allocation exponents9+3, directory at sector8/4096, sectors/track16 at0x18/0x5F,32768 allocation blocks at0x63,262144 partition sectors at0x1CA. Fixed six exact AP names/order: MD2,MDR,SRT,GMP,GMP-associatedSRT,MPS. Unknown nonallocation metadata must be uniform across a component's continuation rows; otherwise reblocking could lose discarded-row metadata and is rejected. Stock source fresh57,344B header/FAT read confirms this condition. No original component bytes or97MB full image were read/copied/repacked.
+
+Output geometry: exponents9+4(8192B), sectors32 at0x18/0x5F, partition sectors524288 at0x1CA.0x63 remains32768, hence explicit268,435,456B capacity(256MiB), not a GarminOS platform maximum. Parent task's268MiB wording denotes268,435,456 decimal bytes; the precise value is256MiB. Output above that size is rejected before writes. Root allocation has at most2408K blocks/no continuation; FAT240-block row continuations are regenerated and all uint16FFFF sentinel/alias/bounds controls remain enforced.
+
+Header changes only allowed fields0x0F,0x18..19,0x5F..60,0x62,0x1CA..1CD. Actual original-profile fixture changes byte offsets15,24,95,98,460. Byte0x0F is deliberately set0 following official mkgmap's createHeader convention. The real Garmin AP checksum rule is unknown, original two stock512B sums are notzero, and original header checksum/device acceptance is not claimed verified. Author/date/map descriptions/license/GMP/MPS logical contents are unchanged. Bytes512..4096 preserve exact metadata prefix. New root size/allocation and component size/part/allocation tables change; unknown root/component reserved bytes and name/flag/status preserve original values. Missing new continuation templates reuse last uniform original metadata. Unneeded old FAT rows are omitted without losing their uniform unknown values; inactive new rows and component tail padding are zero.
+
+Streaming: unchanged source components are read by logical4K allocation mappings, aggregated at most64KiB; bounded replacement chunks at most1MiB are streamed into new contiguous8K extents. No whole component is retained. Partial stream output is invalid and caller-owned cleanup; successful receipt is returned only after exact supplier/output byte counts. New-path wrapper refuses existing paths/symlinks/aliases, opens exclusively, flushes/fsyncs, and removes only its exclusively created partial path on failure. This is a container primitive, not an atomic installer/readback/rollback system.
+
+Actual tests:6 positive +40 rejection controls, all EXIT0. Synthetic source2,015,232B has noncontiguous4K MDR blocks. Independent sector/FAT reader and rolling SHA verify all6 identity conversion /other5 with replacement,240→2418Kblock continuation boundary, exact directory/root allocation, unknown metadata, zero tails, genuine short-write retry, once-only replacement generator, source/destination aliases, source metadata malformation, source/order/duplicate/part/bounds guards, supplier short/long/empty/type/exception, exclusive-path partial cleanup. Exact268,435,456B plan boundary and one-byte-over rejection are arithmetic only; no large output was allocated. Larger97MB production input/repack, widenedMDR native CPU/parser acceptance, fresh installed image readback/search/route and Garmin header acceptance remain unverified.
+
+Evidence:8k-writer-focused-proof.json, stock-metadata-only-source-check.json,execution-receipts.json,sealed-files.json. All test handles terminal; do not rerun these completed scopes without a new justified change/failure.

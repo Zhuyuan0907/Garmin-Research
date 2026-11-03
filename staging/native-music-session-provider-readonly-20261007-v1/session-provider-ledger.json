@@ -1,0 +1,508 @@
+{
+  "schema": "garmin-native-music-session-provider-file-ledger/v1",
+  "target": {
+    "HWID": 1352,
+    "software": "8.00"
+  },
+  "scope": "Finite normal FILE-only source/metadata analysis; no target import or execution.",
+  "contracts": [
+    {
+      "contract": "phone_identity_and_accepted_configuration",
+      "implementation": {
+        "functions": [
+          "identity",
+          "view",
+          "nsg_config_begin",
+          "nsg_reply_witness",
+          "nsg_config_end"
+        ],
+        "phone_epoch": "nsg.epoch increments only after matching accepted configuration witness and native state2 checks",
+        "identity_fields": [
+          "exact callback",
+          "native context",
+          "local/remote SEID",
+          "peer6 bytes",
+          "native codec",
+          "channel index",
+          "LCID",
+          "flags/type",
+          "MTU"
+        ],
+        "no_wrap_guard": "UINT32_MAX fails begin"
+      },
+      "caller_supplied_or_external_state": [
+        "Caller holds declared original AVDTP mutex at config/command gate.",
+        "Bounded validated configure body and command-scope ID supplied by upstream reply/gate wrapper.",
+        "Native SEP/context/channel RAM is preinitialized in existing offline scopes."
+      ],
+      "what_THIS_FILE_review_confirms": "Source code directly implements matching identity and config-epoch state. Manifest pins code; no body/peer/runtime RAM read here.",
+      "unknown_or_live_unbound": [
+        "Actual upstream reply_binding_v1.c command-scope producer and body/lock preconditions were not read in this12-file scope.",
+        "No live peer/session fixture or native provider exists by this review.",
+        "The raw peer is never captured or published."
+      ],
+      "references": [
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 13,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 22
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 31,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 80
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.h",
+          "line": 4,
+          "sha256": "47cabb1bbd60298e2dd11c67ba2af46915ca92e50d6b2cd727bcad5f15c73389",
+          "through_line": 8
+        }
+      ]
+    },
+    {
+      "contract": "accepted_Start_command_scope_vs_phone_epoch",
+      "implementation": {
+        "functions": [
+          "nsg_start_begin",
+          "nsg_start_end"
+        ],
+        "start_before": "native state4, no pendingOpen, matching channel/LCID/type/flags",
+        "start_after": "matching command reply witness, full-return0, identity/view/policy guard; only then nsg.admitting=1",
+        "event17": "notification only, does not open admission"
+      },
+      "caller_supplied_or_external_state": [
+        "Caller supplies context, SEID, signal and nested command ID from the command/reply dispatcher.",
+        "music_guard_packet implementation is a linked dependency, not read here."
+      ],
+      "what_THIS_FILE_review_confirms": "The begin/end logic and event17 treatment are visible in current C; command IDs and accepted epoch are separate fields.",
+      "unknown_or_live_unbound": [
+        "Original native command/reply hooks and their actual placement remain outside this review.",
+        "No generated-image opcode or live accepted Start is revalidated."
+      ],
+      "references": [
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 62,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 65
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 82,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 99
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 134,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 139
+        }
+      ]
+    },
+    {
+      "contract": "five_argument_F1_bridge_and_epoch_boundary",
+      "implementation": {
+        "C_type": "int32_t(event:uint32,status:uint32,handle:const void*,packet:const uint8_t*,bytes:uint32)",
+        "phone_scope": "nsg.policy uses nsg.epoch; peer/codec/native channel identity checked before admission",
+        "Source_call": "NSG_SOURCE_INGRESS(event,status,handle,packet,length)",
+        "Source_epoch_argument": false,
+        "inflight": "one callback admitted at a time; AV lock released before Source call"
+      },
+      "caller_supplied_or_external_state": [
+        "Native callback provides borrowed12-byte handle/packet.",
+        "Source local mcs guard generation/ownership has already been initialized.",
+        "The actual remote callback code is pinned/resident for full call return."
+      ],
+      "what_THIS_FILE_review_confirms": "Remote v1 checks phone identity/packet framing, then invokes the typed Source address. There is no explicit phone epoch/ownership argument in this ABI.",
+      "unknown_or_live_unbound": [
+        "No explicit phone nsg.epoch→Source g.generation/queue epoch mapping is present in these entry signatures. This is an integration dependency, not proof of runtime failure.",
+        "No claim of atomic cross-domain coherence from file inspection.",
+        "Cached native callbacks and post-copy revocation/quiescence require the broader lifecycle/provider contract."
+      ],
+      "references": [
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 11,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 134,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 161
+        },
+        {
+          "path": "staging/native-remote-source-binding/source_imports_v1.h",
+          "line": 1,
+          "sha256": "884ffd83d4e80e1dcfe8f12df3b3f727d9c26bf619b3941fc3474dc9af9dfc34",
+          "through_line": 3
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/sbc_fifo_ingress_owner_v2.c",
+          "line": 17,
+          "sha256": "af9b5996eabdc383b3c5ab1c3c60bf2ac74a3ec79833178c02ad3aa362f75153",
+          "through_line": 51
+        }
+      ]
+    },
+    {
+      "contract": "Source_ingress_typed_leases_and_copy",
+      "implementation": {
+        "entry": "aas_media_ingress",
+        "checks": [
+          "mcs_bridge_context magic",
+          "Source TCB exists and initialized without failure",
+          "guard.owner==mh_source_tcb",
+          "actual Source record+160 queue bridge identity"
+        ],
+        "lease": "mcs_event_begin(g,g.generation,UMC_GATE_F1,&frame)",
+        "copy": "media_queue_callback(event,status,handle,packet,bytes)",
+        "recheck": "umc_media_current and record queue bridge",
+        "completion": "mcs_event_end before Source POST(g.owner,UMC_SOURCE_EVENT)"
+      },
+      "caller_supplied_or_external_state": [
+        "Actual local guard/controller/TCB and Source record pointer supplied by initializer.",
+        "Bodies of mcs_event_begin/end, umc_media_current and media_queue_callback are linked dependencies not reviewed here."
+      ],
+      "what_THIS_FILE_review_confirms": "Typed five-argument entry, local generation checks, queue-copy call and lease-before-POST order are visible. The4-argument sbi_receive_packet convenience is explicitly not native SEP registration.",
+      "unknown_or_live_unbound": [
+        "Only caller-side checks/order confirmed; full transitive lease/copy semantics inherit prior scopes, not fresh proven here.",
+        "No live Source TCB, ownership epoch, current callback pool or producer synchronization validated."
+      ],
+      "references": [
+        {
+          "path": "staging/native-player-sbc-ingress/sbc_fifo_ingress_owner_v2.c",
+          "line": 24,
+          "sha256": "af9b5996eabdc383b3c5ab1c3c60bf2ac74a3ec79833178c02ad3aa362f75153",
+          "through_line": 51
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/sbc_fifo_ingress_owner_v2.c",
+          "line": 54,
+          "sha256": "af9b5996eabdc383b3c5ab1c3c60bf2ac74a3ec79833178c02ad3aa362f75153",
+          "through_line": 57
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/sbc_fifo_ingress_owner_v2.c",
+          "line": 59,
+          "sha256": "af9b5996eabdc383b3c5ab1c3c60bf2ac74a3ec79833178c02ad3aa362f75153",
+          "through_line": 69
+        }
+      ]
+    },
+    {
+      "contract": "Source_command_is_mailbox_submission_not_completion",
+      "implementation": {
+        "entry": "int mh_request_command(uint32 command)",
+        "allowed_values": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "checks": [
+          "Source TCB exists",
+          "initialized without initializer error",
+          "empty command mailbox"
+        ],
+        "submission": "write mh_command under IRQ-save then POST Source event1",
+        "worker": "takes command then process_command before data on same wake",
+        "Stop5": "aas_stop must return UMC_PENDING, then may send mixer16/17/18; local0 means pending request"
+      },
+      "caller_supplied_or_external_state": [
+        "Native Source actor, queue/mixer transport and IRQ routines supplied by fixture/real environment.",
+        "Remote retire posts command5 only after AV unlock."
+      ],
+      "what_THIS_FILE_review_confirms": "Implemented request validation and worker command handling are directly readable; success from mh_request_command is mailbox+POST invocation, not Stop_DONE.",
+      "unknown_or_live_unbound": [
+        "Single command argument has no phone epoch/ownership token. Its applicability relies on the caller/provider state and resident Source guard.",
+        "Hardware STOP_DONE, task cancellation/unload and durable ownership not supplied by this source.",
+        "Mixer copied-queue transport has void ABI; local0 means valid invocation returned, not native-success status."
+      ],
+      "references": [
+        {
+          "path": "staging/native-player-sbc-ingress/mixer_source_ingress_v2.c",
+          "line": 30,
+          "sha256": "a4b554b64d93f2b3199e769b2ab25ce9e63f6ea0b37a89a5a19f5e0c74e4b7bc",
+          "through_line": 39
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/mixer_source_ingress_v2.c",
+          "line": 89,
+          "sha256": "a4b554b64d93f2b3199e769b2ab25ce9e63f6ea0b37a89a5a19f5e0c74e4b7bc",
+          "through_line": 146
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 124,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4",
+          "through_line": 132
+        }
+      ]
+    },
+    {
+      "contract": "Source_decoder_FIFO_generation_and_actor_scope",
+      "implementation": {
+        "consumer": "owned_media_consume",
+        "checks": [
+          "current_actor==g.owner",
+          "Source queue bridge identity",
+          "mcs_event_begin UMC_GATE_CONSUMER",
+          "local media_queue_control.epoch rechecked before PCM publication"
+        ],
+        "decode": "whole-packet SBC/FIR gather, publish only after packet parse and local media lease current",
+        "reader": "slot.in_flight held across unlocked memcpy; current queue epoch rechecked; capacity wake only after slot freed",
+        "epochs": [
+          "phone nsg.epoch",
+          "local g.generation/frame.media",
+          "media_queue_control.epoch",
+          "mixer_generation/mixer_admission_epoch exposed in status"
+        ]
+      },
+      "caller_supplied_or_external_state": [
+        "Serialized single decoder producer, initialized memory-output FIFO, valid current actor and selected native Source record.",
+        "memory_output_submit/media_queue lifecycle/UMC guard implementations not re-read."
+      ],
+      "what_THIS_FILE_review_confirms": "Visible C separately tracks these domains and exposes their checks; no silent assertion that identical numeric values mean identical session.",
+      "unknown_or_live_unbound": [
+        "Cross-domain generation/ownership correspondence is a provider responsibility.",
+        "No source packet, audio performance, actual mixer/DMA/clock or speaker observation here."
+      ],
+      "references": [
+        {
+          "path": "staging/native-player-sbc-ingress/owned_media_ingress_v1.c",
+          "line": 1,
+          "sha256": "3f408907a3ba3e8421e85c8349acf06749fd2ba9eac86cf8eda6ff022e735dfa",
+          "through_line": 3
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/owned_media_ingress_v1.c",
+          "line": 74,
+          "sha256": "3f408907a3ba3e8421e85c8349acf06749fd2ba9eac86cf8eda6ff022e735dfa",
+          "through_line": 122
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/owned_media_ingress_v1.c",
+          "line": 149,
+          "sha256": "3f408907a3ba3e8421e85c8349acf06749fd2ba9eac86cf8eda6ff022e735dfa",
+          "through_line": 204
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/mixer_source_ingress_v2.c",
+          "line": 159,
+          "sha256": "a4b554b64d93f2b3199e769b2ab25ce9e63f6ea0b37a89a5a19f5e0c74e4b7bc",
+          "through_line": 177
+        }
+      ]
+    },
+    {
+      "contract": "initializer_caller_state_is_explicit_cold_fixture",
+      "implementation": {
+        "source_init": "initialize_stage1 invokes global277E21, all18 channel269F6D, channel8/profile0 via277D27, then aas_initialize",
+        "raw_Source_creator": "mh_boot_source builds descriptor/stack and uses358BF9/2FBBBF/POST",
+        "first_packet": "aas_register(ticket), queue-start277537, source sync3B9B67 and ms_validate_completed_sync"
+      },
+      "caller_supplied_or_external_state": [
+        "Cold-system initialized native globals/channels and valid Source task/stack are explicit assumptions of this reviewed version.",
+        "Source actor is already current when initializer is called."
+      ],
+      "what_THIS_FILE_review_confirms": "Current C labels this as explicit cold-system test caller, unsuitable for resetting a warm navigation system.",
+      "unknown_or_live_unbound": [
+        "This12-file review is not the separate newer OS20 warm initializer contract.",
+        "Real loaded warm-owner snapshot/service lifetime is not produced by these calls or this review."
+      ],
+      "references": [
+        {
+          "path": "staging/native-player-sbc-ingress/mixer_source_ingress_v2.c",
+          "line": 41,
+          "sha256": "a4b554b64d93f2b3199e769b2ab25ce9e63f6ea0b37a89a5a19f5e0c74e4b7bc",
+          "through_line": 59
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/mixer_source_ingress_v2.c",
+          "line": 113,
+          "sha256": "a4b554b64d93f2b3199e769b2ab25ce9e63f6ea0b37a89a5a19f5e0c74e4b7bc",
+          "through_line": 136
+        }
+      ]
+    },
+    {
+      "contract": "v1_distinct_ELFs_exact_metadata_import_binding",
+      "implementation": {
+        "remote_ELF": {
+          "path": "staging/native-remote-source-binding/build-v1/reply-admission-EMULATION-ONLY.elf",
+          "sha256": "8b3e86fe66515e2b0854d9152108b669464b474e07a28fa7c9b84fb6954e29b0",
+          "base": "0x8e00000"
+        },
+        "Source_ELF": {
+          "path": "staging/native-player-sbc-ingress/build-v3/audio-session-EMULATION-ONLY.elf",
+          "sha256": "9b767b808d0ffe58774e3a26266be1865a81d34a6e938d0c3d726c0fd63f4612",
+          "aas_media_ingress": "0x7000e90",
+          "mh_request_command": "0x7000938"
+        },
+        "same_generated_image": false,
+        "Source_reference_sha_exact_match": true
+      },
+      "caller_supplied_or_external_state": [
+        "Remote builder reads a prior Source build manifest/ELF, then compiles only remote endpoint/gates/reply/bridge objects.",
+        "Two separate VM placements and native RAM/PSM/heap fixtures were provided in earlier guest scopes."
+      ],
+      "what_THIS_FILE_review_confirms": "Both captured manifests match current small-source hashes; remote Source_ELF pin matches Source manifest ELF pin and two imports match its symbols.",
+      "unknown_or_live_unbound": [
+        "No binary was opened or freshly hashed here.",
+        "Metadata matching does not provide load placement or physical import table."
+      ],
+      "references": [
+        {
+          "path": "staging/native-remote-source-binding/build-v1.json",
+          "line": 3,
+          "sha256": "1f764964ee742a84d21239bffa1f09d21476331692745f047550f1c17e4ff62f",
+          "through_line": 8
+        },
+        {
+          "path": "staging/native-remote-source-binding/build-v1.json",
+          "line": 90,
+          "sha256": "1f764964ee742a84d21239bffa1f09d21476331692745f047550f1c17e4ff62f",
+          "through_line": 95
+        },
+        {
+          "path": "staging/native-remote-source-binding/build_remote_binding_v1.py",
+          "line": 16,
+          "sha256": "ebbf916cea10374a38e1d1381d5e55b0c5b74f017e5f6121e15de7dbd6e73023",
+          "through_line": 23
+        },
+        {
+          "path": "staging/native-remote-source-binding/build_remote_binding_v1.py",
+          "line": 49,
+          "sha256": "ebbf916cea10374a38e1d1381d5e55b0c5b74f017e5f6121e15de7dbd6e73023",
+          "through_line": 74
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/build-v3.json",
+          "line": 56,
+          "sha256": "002b2ab36546ed4f07ea97c28837e85f43a461b6cceafd3cbbe823dbe5d5f8a6",
+          "through_line": 58
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/build_sbc_ingress_v3.py",
+          "line": 47,
+          "sha256": "93d781e12866c8035d8c5f3f7836f60fb781a22e068f8120a39355676f5278e3",
+          "through_line": 65
+        }
+      ]
+    },
+    {
+      "contract": "later_loaded_v2_symbolic_relink_is_different_artifact",
+      "implementation": {
+        "generated_header": "&aas_media_ingress and &mh_request_command",
+        "recipe": "loaded builder replaces absolute Source/PCM references, compiles remote_pause derivatives and links Source objects with resident image",
+        "module_address": "0x02D4BB74 stock-address recipe",
+        "source_families": "native-player-remote-pause Source-v2/remote-v1, not reviewed remote_binding_v1 body",
+        "same_image_recipe": true
+      },
+      "caller_supplied_or_external_state": [
+        "Builder reads prior pause Source/remote manifests and reused relocatable objects.",
+        "Actual native loader/module allocation, initialized state and symbol provider supplied later."
+      ],
+      "what_THIS_FILE_review_confirms": "This source/header pair requires same linked symbols and has matching type signatures. Their names are not a universal constant-offset relocation contract.",
+      "unknown_or_live_unbound": [
+        "The75903B loaded manifest exceeds this scope single-file limit and was not read here; no generated binary/REL validation here.",
+        "Loaded pause implementation has different source bodies; old v1 epoch/restart semantics do not automatically transfer.",
+        "Actual menu/native-adapter/original-import provider linkage is not established by Source control functions being compiled."
+      ],
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build_loaded_image_v2.py",
+          "line": 21,
+          "sha256": "624bc81001a23fbdd4e8ea4da22b8a92e45aca778c44342a6bab69c0b1ae0c85",
+          "through_line": 24
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build_loaded_image_v2.py",
+          "line": 32,
+          "sha256": "624bc81001a23fbdd4e8ea4da22b8a92e45aca778c44342a6bab69c0b1ae0c85",
+          "through_line": 57
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build_loaded_image_v2.py",
+          "line": 101,
+          "sha256": "624bc81001a23fbdd4e8ea4da22b8a92e45aca778c44342a6bab69c0b1ae0c85",
+          "through_line": 116
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build_loaded_image_v2.py",
+          "line": 128,
+          "sha256": "624bc81001a23fbdd4e8ea4da22b8a92e45aca778c44342a6bab69c0b1ae0c85",
+          "through_line": 150
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/source_imports_v1.h",
+          "line": 1,
+          "sha256": "68b1cc523c4310a583c8b91886a9be5f820cba0efb72b88d86efd76e454bdb76",
+          "through_line": 5
+        }
+      ]
+    }
+  ],
+  "root_independent_loaded_metadata": {
+    "source": "parent message; root tools8d3aac/b4c941",
+    "read_by_THIS_scope": false,
+    "manifest_path": "staging/native-player-loaded-single-image/build-v2.json",
+    "bytes": 75903,
+    "sha256": "ee7d464e806cfc2d2f506989ffc7b2d7b30c6ce5e2d5f068b95f303cc6b76f75",
+    "reported_one_native_DLL_image": true,
+    "reported_no_absolute_Source_imports": true,
+    "reported_symbols": {
+      "aas_media_ingress": 49799216,
+      "mh_request_command": 49797808,
+      "umc_request_start": 49819004
+    },
+    "reported_unincluded": [
+      "native_adapter.c",
+      "original_imports.c",
+      "player-resources menu"
+    ],
+    "reported_false": [
+      "guest_executed",
+      "activation_performed_by_entry",
+      "device_IO",
+      "modified_VPM_generated",
+      "device_install_candidate"
+    ],
+    "root_metadata_ledger_seal_not_received_at_this_closure": true,
+    "interpretation": "Root metadata report supports same generated linked core and UMC logic; it does not bind UI/native adapter/menu or live phone/provider. This scope does not adopt old remote-v1 semantics for the pause-derived image."
+  },
+  "core_findings": [
+    "Typed five-argument F1 and one-argument Source command interfaces have real implementations in selected C.",
+    "v1 phone accepted epoch, Source/controller generation and queue epoch are distinct domains; entry ABI carries no explicit phone epoch. Their real correspondence must be established by the session/ownership provider.",
+    "v1 Source imports exactly match metadata symbols and Source ELF pin, but remote and Source are separate generated ELF artifacts.",
+    "Later loaded recipe uses symbolic same-image imports, derives from newer pause bodies, and parent separately reports matching same-image generated metadata; native adapter/menu is still unlinked.",
+    "Command submission0/POST is not full command completion or hardware STOP_DONE. Explicit cold init source is not warm readiness."
+  ],
+  "unproven": [
+    "live native SDP/SEP/provider dispatch",
+    "actual phone identity/accepted session",
+    "warm durable all-writer ownership epoch",
+    "Source/module/stack/cached callback lifetime",
+    "full generation-domain correspondence",
+    "hardware Stop completion/unload",
+    "native App/menu plus direct phone speaker playback"
+  ],
+  "source_content_bytes": 118232,
+  "file_count": 12,
+  "filename_index_IO": "Metadata-only filename/path discovery not byte-instrumented; separate from source-content capture count.",
+  "excluded_reads": [
+    "no binaries/MAIN/RAM/ELF/REL/phone data",
+    "loadedbuild-v2 large manifest not read by this scope",
+    "no UI source bodies",
+    "no additional transitive guard/reply/queue bodies"
+  ],
+  "target_runtime_execution": 0,
+  "ordinary_host_reviewer_executed": true
+}

@@ -1,0 +1,509 @@
+{
+  "updated_utc": "2026-10-04T06:18:13.271760+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/analyze_native_task_mutex_static.py": "6614da71ab4c0d5d298e602c50559c2a356e754c8cefb74ac7d4a176e44fe5ca",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_native_mutex_owner.py": "64042f37ab348e030bab13cab62a2e50e40a546f88f5bd64eb2297c7b378f13f",
+    "scripts/analyze_native_kernel_context.py": "62325fba9af6338f5289af927faf81b723a04d3a0a89d6d4cba8a8a28dd4aab2",
+    "scripts/analyze_native_usb_transition.py": "5deb660142324f8c07287055c02b748a97540330024600a2cf00d3041d878b3b",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "staging/native-player-task-mutex/source-at-auxiliary-wrapper-scope-failure.py": "59076659aae1118804757cc77319f8419371485caa324b4653c6c89ff5efb6e8",
+    "staging/native-player-task-mutex/auxiliary-wrapper-scope-terminal-failure.json": "75673126635ac3ff4dcf3ff297b49269642a66b840ae16b8ded1e9f88967e7cf"
+  },
+  "analysis_method": "Read-only original instruction decoder using frozen bounded() helper; explicit specs and original target assertions below. No emulator CPU run.",
+  "reproducible_bounded_Thumb_specs": [
+    {
+      "entry": "0x46c274",
+      "end_exclusive": "0x46c28e",
+      "terminal": "0x46c28c",
+      "terminal_instruction": "pop {r4, pc}"
+    },
+    {
+      "entry": "0x46c28e",
+      "end_exclusive": "0x46c296",
+      "terminal": "0x46c294",
+      "terminal_instruction": "pop {r4, pc}"
+    },
+    {
+      "entry": "0x46c296",
+      "end_exclusive": "0x46c2a6",
+      "terminal": "0x46c2a4",
+      "terminal_instruction": "pop {r4, pc}"
+    },
+    {
+      "entry": "0x46c2a6",
+      "end_exclusive": "0x46c2b6",
+      "terminal": "0x46c2b4",
+      "terminal_instruction": "pop {r4, pc}"
+    },
+    {
+      "entry": "0x46c2b6",
+      "end_exclusive": "0x46c2c2",
+      "terminal": "0x46c2c0",
+      "terminal_instruction": "pop {r4, pc}"
+    },
+    {
+      "entry": "0x3103d8",
+      "end_exclusive": "0x3103ee",
+      "terminal": "0x3103ec",
+      "terminal_instruction": "pop {r4, pc}"
+    },
+    {
+      "entry": "0x3103ee",
+      "end_exclusive": "0x3103f0",
+      "terminal": "0x3103ee",
+      "terminal_instruction": "bx lr"
+    }
+  ],
+  "complete_bounded_CFG_count": 7,
+  "functions": {
+    "0x46c274": {
+      "entry": "0x46c274",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x46c274",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x46c276",
+          "mode": "Thumb",
+          "instruction": "bl #0x3103d8",
+          "direct_call": "0x3103d8",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c27a",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x48]",
+          "literal_address": "0x46c2c4",
+          "literal_value": "0xc1b5c4"
+        },
+        {
+          "address": "0x46c27c",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": "0x46c27e",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "address": "0x46c280",
+          "mode": "Thumb",
+          "instruction": "adds r0, #0x1c"
+        },
+        {
+          "address": "0x46c282",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008a0",
+          "direct_call": "0x3008a0",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c286",
+          "mode": "Thumb",
+          "instruction": "adr r0, #0x40"
+        },
+        {
+          "address": "0x46c288",
+          "mode": "Thumb",
+          "instruction": "str r0, [r4, #0x2c]"
+        },
+        {
+          "address": "0x46c28a",
+          "mode": "Thumb",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0x46c28c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x46c28c"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x46c28e": {
+      "entry": "0x46c28e",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x46c28e",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x46c290",
+          "mode": "Thumb",
+          "instruction": "bl #0x3103ee",
+          "direct_call": "0x3103ee",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c294",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x46c294"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x46c296": {
+      "entry": "0x46c296",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x46c296",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x46c298",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": "0x46c29a",
+          "mode": "Thumb",
+          "instruction": "bl #0x46c28e",
+          "direct_call": "0x46c28e",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c29e",
+          "mode": "Thumb",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0x46c2a0",
+          "mode": "Thumb",
+          "instruction": "bl #0x386f14",
+          "direct_call": "0x386f14",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c2a4",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x46c2a4"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x46c2a6": {
+      "entry": "0x46c2a6",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x46c2a6",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x46c2a8",
+          "mode": "Thumb",
+          "instruction": "adds r0, #0x1c"
+        },
+        {
+          "address": "0x46c2aa",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0",
+          "direct_call": "0x3009a0",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c2ae",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x46c2b0",
+          "mode": "Thumb",
+          "instruction": "beq #0x46c2b4"
+        },
+        {
+          "address": "0x46c2b2",
+          "mode": "Thumb",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "address": "0x46c2b4",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x46c2b4"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x46c2b6": {
+      "entry": "0x46c2b6",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x46c2b6",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x46c2b8",
+          "mode": "Thumb",
+          "instruction": "adds r0, #0x1c"
+        },
+        {
+          "address": "0x46c2ba",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0",
+          "direct_call": "0x3008b0",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x46c2be",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x46c2c0",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x46c2c0"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x3103d8": {
+      "entry": "0x3103d8",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x3103d8",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x3103da",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": "0x3103dc",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x38]",
+          "literal_address": "0x310418",
+          "literal_value": "0xc1b5dc"
+        },
+        {
+          "address": "0x3103de",
+          "mode": "Thumb",
+          "instruction": "str r0, [r4]"
+        },
+        {
+          "address": "0x3103e0",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #4"
+        },
+        {
+          "address": "0x3103e2",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008a0",
+          "direct_call": "0x3008a0",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x3103e6",
+          "mode": "Thumb",
+          "instruction": "adr r0, #0x34"
+        },
+        {
+          "address": "0x3103e8",
+          "mode": "Thumb",
+          "instruction": "str r0, [r4, #0x14]"
+        },
+        {
+          "address": "0x3103ea",
+          "mode": "Thumb",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0x3103ec",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x3103ec"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x3103ee": {
+      "entry": "0x3103ee",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x3103ee",
+          "mode": "Thumb",
+          "instruction": "bx lr",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x3103ee"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    }
+  },
+  "wrapper": {
+    "constructor": "0x46c274",
+    "minimum_object_bytes": 52,
+    "base_constructor": "0x3103d8",
+    "base_native_semaphore_offset": 4,
+    "base_native_bytes": 24,
+    "recursive_native_semaphore_offset": 28,
+    "recursive_native_bytes": 24,
+    "object_vtable_store": "0x46c27e",
+    "vtable": "0xc1b5c4",
+    "vtable_entries": [
+      "0x46c28f",
+      "0x46c297",
+      "0x46c2a7",
+      "0x46c2b7"
+    ],
+    "second_native_initializer_call": "0x46c282",
+    "initializer_continuation": "0x46c286",
+    "native_diagnostic_tag_address": "0x46c2c8",
+    "native_diagnostic_tag": "&mRecMutex",
+    "tag_original_ADR": "0x46c286",
+    "tag_store": "0x46c288",
+    "tag_object_offset": 44,
+    "tag_native_semaphore_offset": 16,
+    "lock_entry": "0x46c2a6",
+    "lock_call": "0x46c2aa",
+    "lock_continuation": "0x46c2ae",
+    "lock_LR": "0x46c2af",
+    "lock_body": "0x3009a0",
+    "lock_argument": "r0=object+0x1c",
+    "lock_wrapper_return": "original native0 stays0; anynonzero native result maps1",
+    "lock_return": "0x46c2b4 POP{r4,PC}",
+    "unlock_entry": "0x46c2b6",
+    "unlock_call": "0x46c2ba",
+    "unlock_continuation": "0x46c2be",
+    "unlock_LR": "0x46c2bf",
+    "unlock_body": "0x3008b0",
+    "unlock_argument": "r0=object+0x1c",
+    "unlock_wrapper_return": 0,
+    "unlock_return": "0x46c2c0 POP{r4,PC}",
+    "all_entries_and_native_calls_Thumb": true
+  },
+  "proposed_scoped_observer_guards": [
+    "Accept only native3009A0 LR&~1=46C2AE and native3008B0 LR&~1=46C2BE for this wrapper.",
+    "Require declared fullobject storage(nativeptr-28,52) plus nativeptr24 bytes; require original object vtable(nativeptr-28)==C1B5C4 and tag(nativeptr+16)==46C2C8.",
+    "Retain original3008A0 zero-init proof at caller46C286, already allowed by existingDispatcherVM. Do not fake initialization or ownership.",
+    "Do not apply firstwrapper ptr-4/vtableC1B5DC/tag31041C guard to this second native semaphore.",
+    "For native lock return0 verify actual-task ownership, outside-special-condition; record originalnonzero return failure ratherthan assuming C++wrapper success.",
+    "Handle nativeunlock waiters/fullrelease/reschedule using existing per-task pending identity; no counterfake/ownerstore/fakewake."
+  ],
+  "preserved_runtime_failure": {
+    "session": 64774,
+    "native_entry": "0x3009a0",
+    "native_caller": "0x46c2ae",
+    "running_task": "0x9503f90",
+    "ready_head": "0x9503f90",
+    "native_pointer": "0x088009bc",
+    "object_pointer": "0x088009a0",
+    "native_body_had_not_started": true,
+    "classification": "observer whitelist scope limit, not nativefault"
+  },
+  "nonrecursive_external_callees": [
+    "0x386f14 destructor allocator/free route; outside this wrapper preflight",
+    "Native3008A0/3009A0/3008B0 bodies are separately frozen30-CFG preflight; wrapper artifact does not rerun runtime"
+  ],
+  "raw_Thumb_BL_pattern_scan": {
+    "scan_ranges": [
+      {
+        "runtime_start": "0x4400000",
+        "runtime_end": "0x470ce18",
+        "load_start": "0xd23bcc"
+      },
+      {
+        "runtime_start": "0x5400000",
+        "runtime_end": "0x551ce40",
+        "load_start": "0x10309e4"
+      },
+      {
+        "runtime_start": "0x50000",
+        "runtime_end": "0xcb179c",
+        "load_start": "0x50000"
+      },
+      {
+        "runtime_start": "0xffff0000",
+        "runtime_end": "0xffff01e4",
+        "load_start": "0xcb179c"
+      },
+      {
+        "runtime_start": "0xf00000",
+        "runtime_end": "0xf7224c",
+        "load_start": "0xcb1980"
+      }
+    ],
+    "candidate_count": {
+      "0x3009a0": 1832,
+      "0x3008b0": 1952,
+      "0x300bb8": 4
+    },
+    "fullrelease_direct_pattern_calls": [
+      "0x300906",
+      "0x300c6a",
+      "0x3ec63e",
+      "0x3ec644"
+    ],
+    "qualification": "Exact original ARMv6 Thumb BL halfword patterns over all startup-copy-backed ranges; these are candidates until surrounding reachableCFG validatescode. Does not find indirectcalls or certify wholefirmware caller reachability. Do not wholesale allow all rawmutexcalls."
+  },
+  "real_GUI_App_or_device_kernel_verified": false,
+  "new_runtime_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "install_candidate": false,
+  "limits": "Seven original Thumb wrapper/constructor/destructor leaf CFGs. These support precise secondwrapper caller/layout/tag guards only, not successful native mutex acquisition, GUIworker scheduling, fullsingleton/controller/foreground/App or directphone playback. Existing30-CFG/source/proofs remain unchanged."
+}

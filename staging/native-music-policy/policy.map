@@ -1,0 +1,94 @@
+
+Discarded input sections
+
+ .comment       0x00000000       0x20 /root/garmin/staging/native-music-policy/policy.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-music-policy/policy.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08b00000                        . = 0x8b00000
+
+.text           0x08b00000      0x867
+ *(.text .text.*)
+ .text          0x08b00000        0x0 /root/garmin/staging/native-music-policy/policy.o
+ .text.range    0x08b00000       0x40 /root/garmin/staging/native-music-policy/policy.o
+ .text.single   0x08b00040       0x1c /root/garmin/staging/native-music-policy/policy.o
+ .text.codec    0x08b0005c      0x154 /root/garmin/staging/native-music-policy/policy.o
+ .text.music_config_bytes
+                0x08b001b0        0x8 /root/garmin/staging/native-music-policy/policy.o
+                0x08b001b0                music_config_bytes
+ .text.music_guard_bytes
+                0x08b001b8        0x8 /root/garmin/staging/native-music-policy/policy.o
+                0x08b001b8                music_guard_bytes
+ .text.music_view_bytes
+                0x08b001c0        0x8 /root/garmin/staging/native-music-policy/policy.o
+                0x08b001c0                music_view_bytes
+ .text.music_validate_configuration
+                0x08b001c8      0x1e0 /root/garmin/staging/native-music-policy/policy.o
+                0x08b001c8                music_validate_configuration
+ .text.music_guard_bind
+                0x08b003a8      0x150 /root/garmin/staging/native-music-policy/policy.o
+                0x08b003a8                music_guard_bind
+ .text.music_guard_unbind
+                0x08b004f8       0x5c /root/garmin/staging/native-music-policy/policy.o
+                0x08b004f8                music_guard_unbind
+ .text.music_guard_packet
+                0x08b00554      0x170 /root/garmin/staging/native-music-policy/policy.o
+                0x08b00554                music_guard_packet
+ .text.music_guard_frame
+                0x08b006c4      0x19c /root/garmin/staging/native-music-policy/policy.o
+                0x08b006c4                music_guard_frame
+ *(.rodata .rodata.*)
+ .rodata.CSWTCH.24
+                0x08b00860        0x7 /root/garmin/staging/native-music-policy/policy.o
+                0x08b00867                        __code_end = .
+
+.data           0x08b00867        0x0
+ .data          0x08b00867        0x0 /root/garmin/staging/native-music-policy/policy.o
+
+.igot.plt       0x08b00868        0x0
+ .igot.plt      0x08b00868        0x0 /root/garmin/staging/native-music-policy/policy.o
+
+.glue_7         0x08b00868        0x0
+ .glue_7        0x08b00868        0x0 linker stubs
+
+.glue_7t        0x08b00868        0x0
+ .glue_7t       0x08b00868        0x0 linker stubs
+
+.vfp11_veneer   0x08b00868        0x0
+ .vfp11_veneer  0x08b00868        0x0 linker stubs
+
+.v4_bx          0x08b00868        0x0
+ .v4_bx         0x08b00868        0x0 linker stubs
+
+.iplt           0x08b00868        0x0
+ .iplt          0x08b00868        0x0 /root/garmin/staging/native-music-policy/policy.o
+
+.rel.dyn        0x08b00868        0x0
+ .rel.iplt      0x08b00868        0x0 /root/garmin/staging/native-music-policy/policy.o
+
+.bss            0x08b00867        0x0
+ *(.bss .bss.*)
+ .bss           0x08b00867        0x0 /root/garmin/staging/native-music-policy/policy.o
+ *(COMMON)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /root/garmin/staging/native-music-policy/policy.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-music-policy/policy.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-music-policy/policy.o

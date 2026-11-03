@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "item": "Full512 exact captured-header diffs and LE/CHS",
+      "verdict": "PASS actual small bytes",
+      "evidence": "Onebyte452/D0→E0 and fivebytes24,95,451,452,453; independent decoder confirms exact declarations/last-sector arithmetic."
+    },
+    {
+      "item": "Original/virtual whole hashes",
+      "verdict": "CONSISTENT recorded fullstream, not independently recomputed",
+      "evidence": "9b63ea terminal/proof/perstreamreceipts match;306683904 originalbytes recorded and originalSHA equals fixedpins. Independent source does not open IMG."
+    },
+    {
+      "item": "Virtual stream transformation scope",
+      "verdict": "PASS static ordinary DATA flow",
+      "evidence": "First chunk source512 is compared to pinned original; virtual hash consumes corrected512 + same rawtail, all later rawchunks. Input mode rb, no image writes. Blockexponents/FAT/payload bytes untouched."
+    },
+    {
+      "item": "188870 supplement records",
+      "verdict": "PRESERVATION by nonheader identity; count inherited",
+      "evidence": "No per-record traversal/count performed by producer or independent review. All nonheader bytes source-identical under fixed transformation; native lookup semantics held."
+    },
+    {
+      "item": "Read/RAM resource guards",
+      "verdict": "PASS recorded bounded singleprocess scope",
+      "evidence": "Fixed320Msumguard,1MiBchunks,lengthchecks,combinedactual_read increments,perchunkprocVmRSS/VmHWM64MiB;actual19040KiB. No historicalru used."
+    },
+    {
+      "item": "Stat and handles",
+      "verdict": "PASS flow/record consistency, caveat explicit",
+      "evidence": "Regular-file dev/inode/size/mtime/ctime before/after equal in receipts, wholeoriginalSHA recorded; completed with rb infersclose. Producer sets source_handle_closed=True rather than directly measuring stream.closed/fstat."
+    },
+    {
+      "item": "Failure and guard change",
+      "verdict": "PASS preserved real failure",
+      "evidence": "1f2f04 EXIT1/IMG0 source/failure/receipt sealed. Only OUTv2 and expected endhead-byte list changed; geometry arithmetic/guards unchanged. V1 not called passed."
+    },
+    {
+      "item": "Fakepass/static robustness limits",
+      "verdict": "HELD future generalized writer",
+      "evidence": "Python assert checks depend on optimization being disabled; command uses python3 with no-O but no sys.flags.optimize attestation. Captured producer/helper bytes are post-run snapshots, not independently bound loadedcode. Fixedinputs relativeLBA0 valid; future nonzeroLBA/general geometry unsupported here. No independent fullstream rerun."
+    },
+    {
+      "item": "Checksum/device/renderer/capacity interpretation",
+      "verdict": "HELD",
+      "evidence": "Opaque0x0F preserved, no checksum algorithm proved; referenceJava comments are not exact HWID1352 policy. Header coherence is not rendering-cause proof, admission proof, or128MiB hardwarelimit."
+    }
+  ],
+  "producer_AST_SHA256": "2e1d0d591428afe0b5dae14de72e9f00eca960a5d500310a79b762c09d1409f9",
+  "actual_header_write_ranges_half_open": [
+    [
+      451,
+      452
+    ],
+    [
+      452,
+      453
+    ],
+    [
+      453,
+      454
+    ],
+    [
+      24,
+      26
+    ],
+    [
+      95,
+      97
+    ]
+  ],
+  "producer_or_helper_execution": false,
+  "producer_source_SHA256": "bb44b0f0c87261f970f87c956323b29191f49deb6c52f5696b46c4f0f8f2625a",
+  "helper_source_SHA256": "3a0bab92e8cbb78252425fcf10491273d1081e630dd2f53c63c995032af963f1"
+}

@@ -1,0 +1,64 @@
+{
+  "kind": "ROOT FILE reviewer assertion corrected; frozen guest source and results unchanged",
+  "old_verifier_sha256": "35cd73a5fd31da376f86817c8ebe2cf1a5a79ab61da372495b4f62a9d488f8ab",
+  "terminal_exit": 1,
+  "completed_FILE_cases": 2,
+  "reason": "Three pending entries retain Mixer borrow/media/callback, and a fourth retains callback only after borrow/media release. The actual C predicate correctly defers all four. Reviewer wrongly required borrow at every pending return.",
+  "actual_pending": [
+    {
+      "entry": 42724,
+      "returned": 42737,
+      "leases": {
+        "borrow": 157294272,
+        "selected_session": 1,
+        "selected_instance": 0,
+        "media": 1,
+        "callback": 1,
+        "current_TCB": 125845392
+      },
+      "ns_hold": 0
+    },
+    {
+      "entry": 42740,
+      "returned": 42753,
+      "leases": {
+        "borrow": 157294272,
+        "selected_session": 1,
+        "selected_instance": 0,
+        "media": 1,
+        "callback": 1,
+        "current_TCB": 125845392
+      },
+      "ns_hold": 0
+    },
+    {
+      "entry": 42757,
+      "returned": 42770,
+      "leases": {
+        "borrow": 157294272,
+        "selected_session": 1,
+        "selected_instance": 0,
+        "media": 1,
+        "callback": 1,
+        "current_TCB": 125845392
+      },
+      "ns_hold": 0
+    },
+    {
+      "entry": 42928,
+      "returned": 42941,
+      "leases": {
+        "borrow": 0,
+        "selected_session": 1,
+        "selected_instance": 0,
+        "media": 0,
+        "callback": 1,
+        "current_TCB": 125845392
+      },
+      "ns_hold": 0
+    }
+  ],
+  "new_verifier": "staging/native-player-sbc-retirement/verify_retirement_files_root_v3.py",
+  "guest_rerun": false,
+  "device_IO": false
+}

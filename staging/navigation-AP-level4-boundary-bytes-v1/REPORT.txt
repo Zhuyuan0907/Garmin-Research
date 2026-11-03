@@ -1,0 +1,10 @@
+新有限原廠 AP 子表首尾讀取
+
+依封存原指令 child-range/read-plan，民權路 level3/ID16707 所選下層為level4、first904706、last904789，共84筆。本次只沿原AP FAT讀首尾各16bytes（32內容bytes），不讀中間82筆、不命名門牌、不解碼欄位。
+
+首筆：MDR+72315828、bit0，6b01300b807752e60303972a119ed055。
+尾筆：MDR+72317156、bit0，ffff2f34000000000000252b1106d055。
+
+原IMG備份stat未改、沒有整圖hash/USB/DB改写。內容與邏輯/實體FAT映射見level4-boundary-bytes-evidence.json，交由native agent於新scope執行真bitreader。
+
+實際讀取 EXIT0/chunkcefe70；尚未完整原生地址查詢或導航修復。

@@ -1,0 +1,86 @@
+Scope: NEW bounded readonly AP Map registry / resource consumer, closed with gaps.
+
+Result
+------
+The actual original Map-load function at 0x10FEF8 classifies selector 0x4D
+(AP) alongside 0x31 using FE648. Its registry is 0x1286BCC + 24*inventory
+ordinal, with three linked heads at +0/+4/+8, u16 count +0C and byte +0E.
+The exact initialized inventory maps 4D to ordinal 2. Live inventory is unknown.
+
+The actual registry retain/clear branch is 110FEE..11100C. A linked record+6
+u16 minimum reaches SP+60 and is compared to SP+6C. BHI at 110FF4 skips the
+clear side. Otherwise the original caller loads record+8/+C, calls unknown
+10CC8E, then calls 10DF5A. The meanings and actual runtime origin of these
+fields are unproved. They are not named priority, checksum or physical offset.
+
+Five witnesses with exact original instruction bytes are in
+actual-call-chain-witnesses.json. Discovery window names are not authoritative
+semantic labels; proof.json explicitly corrects provisional names.
+
+Original CPU evidence
+---------------------
+One initial new guest run failed (EXIT 1, chunk f04ace, UC_ERR_READ_UNMAPPED)
+in its first registry guard. Its exact source and receipt are preserved.
+Four earlier selector classifier assertions were reached but per-case traces
+were not durably saved. They are partial only and were not replayed.
+The fault PC/address was not recorded, so an exact fault diagnosis is not claimed.
+
+A corrected finite pending-case run passed (EXIT 0, chunk 2e629c): 3 durable
+cases, 73 original instructions. The clear-side guard stops before original
+BL 10CC8E at 111004; the retain guard stops at 11102E. Both verify no registry
+mutation before the stop. A separate call to original 10DF5A clears all three
+linked heads, count/byte and parallel arrays while preserving unrelated bytes
+and node tails. It does not invent a result for 10CC8E or complete that caller.
+There are no semantic hooks or return substitutes. Fixtures are synthetic stack,
+registry heads, node payload values and stop sentinel. This is not live Map load.
+
+File/resource relationship
+--------------------------
+Actual FB558 registers slot 3 descriptor 02D144B4 with entries 8DD22C,
+ops 8DD208 and source RAM F08BC4. Entry 8DD254 is exact 4D00000000000000.
+Ops+8=FB589 clears both direct-view outputs and returns 11; this is an
+unsupported direct-view API, not a failed physical opener. Ops+0C=FB599 calls
+2D3380 with selector/file-relative arguments. Ops+10=FB5B7 calls 2D30C4 and
+clamps a 64-bit size to FFFFFFFF. The observed clamp is not an 08000000 guard.
+Live F08BC4 handle binding and the real AP filename constructor remain unknown.
+
+The actual file-change callback 2DDD4C has a generic selector path through
+FE648 -> FEA50 and event 1<<17 through 2FCF44. Its selector-31 branch also calls
+10CE3C, a Map reload frontier. The static inventory entry at 89E1FD is 10 4D 01.
+First/third-byte semantics, live callback delivery and the downstream reload
+to complete Map load/overlay policy were not executed or established.
+
+Boundaries and next scope
+-------------------------
+MAIN actual reads: 17,134 bytes / 160 operations, under 65,536-byte cap.
+Startup-copy metadata maps addresses; no blanket runtime-base subtraction.
+MAIN inherited digest is cited; no complete MAIN read/hash was performed.
+MAIN stat is unchanged. IMG reads: zero for all three images. No device, USB,
+service, shared sealed source, report, ZIP or installer changes. The 15 reader
+and 3 mount closed cases were not rerun. All scope input handles are closed.
+
+The physical GMP-position / 128 MiB hypothesis remains open. This limited
+verified path does not demonstrate an 08000000/window/offset-mask admission
+guard; it also does not exclude one in unread storage/cache/mount/resource code.
+Do not label v3 accepted, AP physical opener bound, renderer proven, root cause
+fixed or the complete Taiwan address update finished. Vehicle v2 remains the
+physically healthy version; this scope never requests a physical test.
+
+Minimal next entries, each requiring a separate authorized bounded scope:
+  10CC8E from 111004 (fbf743fe): r0=record+8, r1=record+0C, r2=0.
+  10E328 from 110FD4 (fdf7a8f9): matched-metadata consumer affects SP+60.
+  10CE3C from 2DDDE8 (2ff628f8): actual file-change/Map reload frontier.
+Avoid expanding into the whole OS or board stack. The other worker's actual
+metadata getter independently uses 1286BCC+24*slot through 1EE156/32BE40;
+cross-scope semantics require their sealed proof, not this scope's inference.
+
+Primary outputs
+---------------
+proof.json, actual-call-chain-witnesses.json, registry-guard-pending-cpu-proof.json,
+actual-tool-receipts.json, initial-guest-failure.json, read-ledger.json.
+Exact executed pending-case source remains unchanged. Early capture helper was
+restored byte for byte by reversing DATA support; its SHA exactly matches early
+capture receipts. No MAIN capture or guest case was rerun for that restoration.
+
+Final source/output audit: EXIT 0, chunk 75eee0. Seal receipt is returned by the
+local seal tool; sealed-files.json excludes its own self-referential digest.

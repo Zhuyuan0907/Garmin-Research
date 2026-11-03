@@ -1,0 +1,44 @@
+{
+  "scope": "native-music-single-image-map-readonly-20261007-v1",
+  "review_only": true,
+  "read_receipts": [
+    {
+      "batch": 1,
+      "tool": "exec_command",
+      "terminal": true,
+      "chunk_id": "c9fe26",
+      "exit_code": 0,
+      "source_content_bytes": 15564,
+      "normal_reader_command_recovered": false,
+      "activity": "ordinary regular-file reads, scalar source metadata/hash and JSON/text parse; no target/producer import or execution"
+    },
+    {
+      "batch": 2,
+      "tool": "exec_command",
+      "terminal": true,
+      "chunk_id": "df8932",
+      "exit_code": 0,
+      "source_content_bytes": 57948,
+      "normal_reader_command_recovered": false,
+      "activity": "ordinary regular-file reads, scalar source metadata/hash and JSON/text parse; no target/producer import or execution"
+    },
+    {
+      "batch": 3,
+      "tool": "exec_command",
+      "terminal": true,
+      "chunk_id": "2c89d6",
+      "exit_code": 0,
+      "source_content_bytes": 65853,
+      "normal_reader_command": "python3 - <<'PY'\nimport os, stat, hashlib, json\npaths=[\n'staging/ui-music-control-prototype/verification.json',\n'native/ui-music-native-adapter/native_adapter.h',\n'native/ui-music-native-adapter/host_controls.c',\n'native/music-continuous/runtime.c',\n'native/music-continuous/runtime.h']\nbase='/root/garmin'\nrows=[]; contents={}; total=0\nfor rel in paths:\n    path=os.path.join(base,rel); s=os.lstat(path)\n    if not stat.S_ISREG(s.st_mode) or s.st_size>65536: raise RuntimeError('source shape/size guard')\n    total+=s.st_size\n    if total>65853: raise RuntimeError('declared batch guard')\n    fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW)\n    try:\n        before=os.fstat(fd); data=b''\n        while len(data)<=s.st_size:\n            chunk=os.read(fd,min(16384,s.st_size+1-len(data)))\n            if not chunk: break\n            data+=chunk\n        after=os.fstat(fd)\n    finally: os.close(fd)\n    end=os.lstat(path)\n    pin=lambda x:{'dev':str(x.st_dev),'ino':str(x.st_ino),'size':str(x.st_size),'mtime_ns':str(x.st_mtime_ns),'ctime_ns':str(x.st_ctime_ns),'mode':oct(stat.S_IMODE(x.st_mode))}\n    if len(data)!=s.st_size or pin(s)!=pin(before) or pin(s)!=pin(after) or pin(s)!=pin(end): raise RuntimeError('source stability guard')\n    rows.append({'path':rel,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'stat':pin(s),'fd_closed':True})\n    value=data.decode('utf-8')\n    contents[rel]=json.loads(value) if rel.endswith('.json') else value\nprint(json.dumps({'body_bytes':total,'pins':rows,'contents':contents},ensure_ascii=False))\nPY",
+      "activity": "ordinary regular-file reads, scalar source metadata/hash and JSON/text parse; no target/producer import or execution"
+    }
+  ],
+  "preserved_local_failure": {
+    "stage": "functions.exec JavaScript parse before tool invocation",
+    "failure": "Invalid regular expression: Unterminated group",
+    "filesystem_body_reads": 0,
+    "target_executions": 0,
+    "result": "Corrected local output selector only; no source/target/guard changed."
+  },
+  "no_background_session_or_native_process_started": true
+}

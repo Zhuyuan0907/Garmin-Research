@@ -1,0 +1,18 @@
+{
+  "terminal": true,
+  "start": {
+    "chunk_id": "5a225d",
+    "wall_time_seconds": 1.000936838,
+    "session_id": 10076,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "actual_terminal": {
+    "chunk_id": "c42957",
+    "wall_time_seconds": 0.000018537,
+    "exit_code": 1,
+    "original_token_count": 501,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v1.py\", line 310, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v1.py\", line 301, in main\n    m.boot_pg_racer();m.attack_pg('provider racer after actual private binding');raw=m.cycle(True);m.compare(raw,m.expected(0));m.retirement_records.append(dict(kind='actual music before Stop',PCM_hex=raw.hex(),expected_PCM_hex=m.expected(0).hex()))\n                      ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v1.py\", line 266, in attack_pg\n    require(self.invoke_kernel('pg_request_attack',phase=phase)==racer,'provider racer POST failed')\n            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v1.py\", line 231, in invoke_kernel\n    r=super().invoke_kernel(*args,**kwargs);self.finish_pg(self.uc.reg_read(UC_ARM_REG_PC),True);return r\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v1.py\", line 47, in invoke_kernel\n    result = super().invoke_kernel(entry, args, phase)\n  File \"/root/garmin/staging/native-player-route-entries/emulate_route_entries_v5.py\", line 25, in invoke_kernel\n    result=super().invoke_kernel(entry,args,phase)\n  File \"/root/garmin/staging/native-player-remote-pause/emulate_remote_pause_v3.py\", line 32, in invoke_kernel\n    self.uc.emu_start(start,B.old.RETURN,count=500000,timeout=15000000)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 766, in emu_start\n    raise UcError(status)\nunicorn.unicorn_py3.unicorn.UcError: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED)\n"
+  },
+  "completed_scopes": 0
+}

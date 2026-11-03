@@ -1,0 +1,134 @@
+{
+  "updated_utc": "2026-10-02T23:37:55.998028+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "script_sha256": "11fc53296aa7cd2c022aa692a7b7d385a7578b35e3ce8bd19a5c0b27e8d0e0a0",
+  "dependency_sha256": {
+    "scripts/emulate_native_memory_completion.py": "52c48d03a8e231ea4b777327897b2ba1f84e37dd9218228bc772352087cdd60d",
+    "scripts/emulate_native_memory_audio.py": "cdf1d1bbbaa675314d1cbedf5999e2c220f21cb43f2efe2877a09b346ff1f166",
+    "scripts/emulate_native_memory_notice.py": "d7dd21c35133a531ee4063f659868639dc90a58899c40a8841ab73ce229807e0",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/emulate_native_audio_messages.py": "443e3c25edaa8475adeb414cb0f99a141c3a83216c982ee094c2ec0dee3fe570",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+    "staging/native-media-consumer/manifest.json": "d8e9b16766423cb73062d5a9318d1b4b17c876b058ef473b43a5b8a564072919",
+    "staging/native-memory-output/manifest.json": "c75ec71766d4f25803f2ed626d5f56f10b289068055fd4e6911eb6aa2f0f617e"
+  },
+  "output_elf_sha256": "a29f87440ef880655a9cf5224515360c5126e0d2057a0a1b69589b8b348fe7fb",
+  "output_flat_binary_bytes": 2440,
+  "consumer_companion_elf_sha256": "5fd98a0abb449a8c8bb510e5c76cee4f874ccc4489b55ef7a89f85e1f0a44b07",
+  "route": {
+    "name": "four_owned_buffers_through_original_serialized_actor",
+    "cases": [
+      {
+        "ticket": 4,
+        "native_instance": 0,
+        "pcm_bytes": 384,
+        "pcm_sha256": "ef055a03f54ae23136ca271d7aa5d3655a5a0a72256a52fc9ea1354b68d29290",
+        "reference_byte_identical": true
+      },
+      {
+        "ticket": 9,
+        "native_instance": 0,
+        "pcm_bytes": 600,
+        "pcm_sha256": "4a860df1321c1faa437751d8dd7d26114644d69cf344e2cd0cba6e38d05c4861",
+        "reference_byte_identical": true
+      },
+      {
+        "ticket": 14,
+        "native_instance": 0,
+        "pcm_bytes": 4096,
+        "pcm_sha256": "c2abeb9e897175c50b33efa522480de5cb7face4eacd02b289589002154573f9",
+        "reference_byte_identical": true
+      },
+      {
+        "ticket": 19,
+        "native_instance": 0,
+        "pcm_bytes": 512,
+        "pcm_sha256": "0a4a3401318a5107613f2c251ba61a5fa5ff5ed81c4b4d38d34f559955477cb6",
+        "reference_byte_identical": true
+      }
+    ],
+    "queued_private_blocks": 4,
+    "pcm_bytes": 5592,
+    "caller_input_destroyed_after_submit": true,
+    "native_registration_uses_null_metadata_not_private_tokens": true,
+    "only_one_native_source_published_at_a_time": true,
+    "original_select13_read18_stop15_cleanup19_and_node_remove_executed": true,
+    "max_buffer_original_mixer_stalls_at1792_without_consumer": true,
+    "mixer_consumer_index_advance_explicitly_supplied_after_stall": true,
+    "actual_dma_or_capacity_wakeup_verified": false,
+    "release_rejected_at_queue_eof_stop_and_cleanup_before_node_removal": true,
+    "private_generation_stale_tokens_rejected_after_reuse": true,
+    "source_instances": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "tts_context_entire_ring_unchanged": true,
+    "passed": true
+  },
+  "controls": [
+    {
+      "name": "parameters_token_generation_and_unrelated_method_guards",
+      "invalid_pcm_pointer_count_overlap_and_wrap_rejected": true,
+      "live_reconfigure_published_discard_unprepared_attach_rejected": true,
+      "unrelated_format_rejected_without_changing_descriptor": true,
+      "private_positive_token_generation_overflow_rejected": true,
+      "passed": true
+    },
+    {
+      "name": "original_node_allocation_failure_keeps_ready_owned_pcm",
+      "original_registration_failure_code": 5,
+      "no_native_node_provider_on_failure": true,
+      "same_private_ticket_and_immutable_pcm_retry_passed": true,
+      "passed": true
+    },
+    {
+      "name": "full_native_kind10_pool_rejects_selection_before_constructor",
+      "original_kind10_providers_prepared": 5,
+      "original_kind11_adjacent_provider_prepared": true,
+      "pool_bytes_unchanged_and_no_new_factory_invocation": true,
+      "guard_is_admission_not_global_cross_actor_reservation": true,
+      "real_allocator_race_or_pool_reservation_proved": false,
+      "passed": true
+    },
+    {
+      "name": "original_remove_in_flight_keeps_owned_pcm_pinned",
+      "original_report23_called_before_remove_return": true,
+      "null_metadata_filters_notice_transport": true,
+      "compiled_release_rejects_count1_before_node_free": true,
+      "separate_stacks_python_restore_then_complete_remove_release": true,
+      "actual_os_preemption_or_callback_quiescence_proved": false,
+      "passed": true
+    },
+    {
+      "name": "entered_reader_pins_pcm_even_after_controlled_native_cleanup_remove",
+      "original_reader_pause_address": "0x48edf8",
+      "original_read_bytes_after_cleanup": 0,
+      "compiled_counter_blocks_release_after_all_native_state_checks_clear": true,
+      "release_only_after_reader_and_wrapper_return": true,
+      "explicit_callback_separate_stacks_python_restore_control": true,
+      "not_yet_entered_callback_exclusion_or_real_os_quiescence_proved": false,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "compiled_pcm_copy_registration_reader_and_release_executed": true,
+  "private_ticket_not_native_client_id": true,
+  "native_pool_guard_not_cross_actor_reservation": true,
+  "source_serialization_and_exclusive_channel_list_are_caller_contracts": true,
+  "post_selection_and_lifecycle_hook_installed": false,
+  "not_yet_entered_callback_exclusion_real_os_quiescence_unload_proved": false,
+  "sbc_decoder_queue_worker_output_redirected_or_called": false,
+  "existing_consumer_init_runs_in_inherited_fixture": true,
+  "existing_consumer_audio_pipeline_called_or_changed": false,
+  "raw_notice_observer_or_main_client_exercised": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Offline standalone owned finite mono16k PCM source prototype. Four guarded static4096-byte buffers use private monotonic positive tickets and copy before original registration, which uses NULL metadata. Only one source is published at a time. Original mixer actor13/18/15/19 and original source-list removal execute, but admission/post-selector/release are explicit test calls at serialized boundaries, not installed production hooks or automatic playback. Maximum buffer stalls after1792bytes in the2048-byte mixer without consumption; test explicitly advances its read index after proving that stall, not real DMA/hardware consumption or capacity wakeup. Pool inspection avoids full-pool construction only under supplied exclusive allocation boundary; no cross-actor reservation. Release checks native source/method/prepared/pool/mixer/list states and entered-reader counts; they supplement the required one-actor/exclusive-channel contract and do not exclude not-yet-entered callbacks or permit real module unload. Early remove and entered callback controls use separate stacks/Python context restoration; entered-reader cleanup is defensive controlled interleaving, not normal actor ordering/actual OS preemption. Inherited wait/message/handle/mutex/priority/start and activation/mixer/scratch remain fixtures, no actual hardware14/drain/navigation/speaker/resampling. Consumer init is inherited setup only; decoder/FIR/queue/worker output is not redirected or called and no journal/main client is exercised. Actual task/hook installation, capacity wakeup/auto-advance/stop-restart, accepted VPM/SEP/SDP/UI/phone and Google Maps remain incomplete. No device I/O or install candidate."
+}

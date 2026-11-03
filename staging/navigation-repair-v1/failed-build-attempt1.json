@@ -1,0 +1,50 @@
+{
+  "started_utc": "2026-10-05T13:54:07.361899+00:00",
+  "state": "failed",
+  "family_id": 7052,
+  "map_id_start": 70520001,
+  "tile_count": 36,
+  "sort_id1": 19,
+  "sort_id2": 7052,
+  "code_page": 65001,
+  "osm_data_timestamp": "2026-10-01T20:22:06Z",
+  "original_split_inputs_reused": true,
+  "candidate": true,
+  "device_installed": false,
+  "device_search_verified": false,
+  "device_routing_verified": false,
+  "stock_maps_modified": false,
+  "map_description": "OSM TW 2026-10-01 Search v1",
+  "changes": [
+    "Serialize existing implicit BMP sort weights in SRT",
+    "Use a consistent new LBL/MDR/SRT sort identity",
+    "Assign Taiwan cities using administrative boundaries",
+    "Normalize selected administrative 台/臺 name variants",
+    "Disable nearest-place city inference"
+  ],
+  "commands": [
+    [
+      "osmium",
+      "getid",
+      "-r",
+      "--id-file",
+      "/root/garmin/staging/navigation-repair-v1/taiwan-admin-ids.txt",
+      "/root/garmin/staging/navigation-repair-v1/taiwan-admin.osm.pbf",
+      "-o",
+      "/root/garmin/staging/navigation-repair-v1/taiwan-only-admin.osm.pbf"
+    ]
+  ],
+  "pinned_compiler_inputs": {
+    "/root/garmin/staging/navigation-search-encoding-v1/writer-patch-src/uk/me/parabola/imgfmt/app/srt/SRTFile.java": "98b3a515c11c8eedcc3374ae5ffff56e343d856e5f615d24717bc12f40126b68",
+    "/root/garmin/staging/navigation-search-encoding-v1/writer-patch-classes/uk/me/parabola/imgfmt/app/srt/SRTFile.class": "70f59492d7a3d399911454f05267cc52852762f71d1ab3531fe165c7562a5085",
+    "/root/garmin/staging/navigation-search-encoding-v1/sort-id-resource/sort/cp65001.txt": "7a03161eb7b419666f5bb690e4d105d070feb447fe4c2a7a70e5d619e026a715"
+  },
+  "command_results": [
+    {
+      "log": "taiwan-admin-selection.log",
+      "exit_code": 1
+    }
+  ],
+  "error": "taiwan-admin-selection.log: exit 1",
+  "finished_utc": "2026-10-05T13:54:08.258525+00:00"
+}

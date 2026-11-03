@@ -1,0 +1,73 @@
+{
+  "all_passed": true,
+  "kind": "Bounded exact profile no-op branch plus saved explicit input control; no full warm boot claim",
+  "original_read_profile_byte_offset": 349,
+  "original_conditional_branch_rows": [
+    {
+      "PC": 2588006,
+      "opcode": "3000",
+      "instruction": "movs r0, r6"
+    },
+    {
+      "PC": 2588008,
+      "opcode": "ff30",
+      "instruction": "adds r0, #0xff"
+    },
+    {
+      "PC": 2588010,
+      "opcode": "4130",
+      "instruction": "adds r0, #0x41"
+    },
+    {
+      "PC": 2588012,
+      "opcode": "0500",
+      "instruction": "movs r5, r0"
+    },
+    {
+      "PC": 2588014,
+      "opcode": "407f",
+      "instruction": "ldrb r0, [r0, #0x1d]"
+    },
+    {
+      "PC": 2588016,
+      "opcode": "0228",
+      "instruction": "cmp r0, #2"
+    },
+    {
+      "PC": 2588018,
+      "opcode": "01d0",
+      "instruction": "beq #0x277d78"
+    },
+    {
+      "PC": 2588020,
+      "opcode": "b842",
+      "instruction": "cmp r0, r7"
+    },
+    {
+      "PC": 2588022,
+      "opcode": "49d0",
+      "instruction": "beq #0x277e0c"
+    }
+  ],
+  "actual_profile0_return": {
+    "entry": "0x277d26",
+    "r0": 0,
+    "instructions": 52,
+    "seconds": 0.0005339279887266457
+  },
+  "after_profile_callback_pointer": 0,
+  "after_profile_type": 0,
+  "tag": "WFFA",
+  "conclusion": "When the stored profile byte already equals requested0 and is not2, original277D26 can return0 without installing callbacks. The saved explicit startup-zero input case shows callback slot remains0. Profile return0 alone cannot establish receiver/source readiness.",
+  "warm_entry_requirement": "Inspect actual callback/profile/condition/channel mapping and ownership; do not reset all18 channels or infer initialization/exclusivity from profile success.",
+  "native_condition_constructor_remaining": "Guest-v2 attempted original3EC540 but inherited raw lock fixture lacked its ownership-transfer/Timer semantics. Retain failure; new observation controls leave condition storage cold instead. Diagnostic reads do not initialize it.",
+  "source_sha256": {
+    "staging/native-player-warm-probe/seal_warm_probe_v1.py": "f7b7591dc8e4bb620558846c15b9e9f65b5130fc51c40b9a4ca0b2a7afdb6791",
+    "staging/native-player-warm-probe/guest-v3/original_initialized_idle.json": "26646a29a9d35a5b7ff30eb2247718362f169233741a4bfc52c6073f4aca9bf4",
+    "staging/native-player-warm-probe/guest-v2/terminal-failure.json": "d096c7e26f086b776d763df2117ebdaf09969c545d73baca68046ca22b783c4c",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f"
+  },
+  "guest_executed": false,
+  "device_IO": false
+}

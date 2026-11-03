@@ -1,0 +1,89 @@
+{
+  "schema": "native-production-block-read-registration-proof/v1",
+  "all_assigned_bounded_checks_passed": true,
+  "closed_with_live_binding_gap": true,
+  "source_sha256": "badfc8cfaf5c8f385ab42f6f8c296fc0fe151c65e2136fc99f4548f26c590b20",
+  "capture_source_sha256": "1a81f7b447648d8e0b87fb1e7f3e2c546e4bee893b96fb144006b28bff94fc30",
+  "fresh_MAIN_bytes": 2856,
+  "fresh_MAIN_operations": 31,
+  "MAIN_limit": 32768,
+  "IMG_bytes": 0,
+  "IMG_operations": 0,
+  "whole_MAIN_or_IMG_hash": false,
+  "device_operations": 0,
+  "captures": [
+    {
+      "path": "staging/navigation-native-production-block-read-binding-v1/windows-construction.json",
+      "sha256": "a09bf19e7ba0a6448bcabd8d9edc71131f19d4d6aa0c839c46852e1a4ac2a846",
+      "readbytes": 1048,
+      "operations": 7
+    },
+    {
+      "path": "staging/navigation-native-production-block-read-binding-v1/windows-drive.json",
+      "sha256": "8c8031e7991a6da8cba0ccf9fff06e5dd40c8d8910ca5b6bd69bd7e9b229b93f",
+      "readbytes": 1276,
+      "operations": 8
+    },
+    {
+      "path": "staging/navigation-native-production-block-read-binding-v1/windows-callbacks.json",
+      "sha256": "6e7636ab5b807b1681697a06daa6bc0f6356796e2834bf6fbdeedb6fb88fd025",
+      "readbytes": 532,
+      "operations": 16
+    }
+  ],
+  "source_pins_verified": true,
+  "MAIN_stat_stable": true,
+  "five_witnesses_sha256": "6167a0252aae5cb85852b1798dcd767a9bf0109c9eb5cf5c1da2a5abe8ecd9c3",
+  "sole_CPU_case_sha256": "46af862538ea7a35ad50701b8fb35a9ace664225210fbf2b7d9228597d88b28f",
+  "original_CPU_cases": 1,
+  "original_instructions": 62,
+  "precise_binding": {
+    "drive_lowerops_store": "24E8A0 2162",
+    "caller": "3FE830 supplies context+64",
+    "lowerops_read_store": "3FEB40 e066: context+6C ← 3FEA37",
+    "raw_read_provider": "1D84D8 2160: context+C ← 225B19",
+    "raw_or_cached_copy": "3FEB8E raw context+C; 3FEB5C cached 1E2CCB",
+    "partition_dispatch": "3FEAB6 b847 after physical-sector translation",
+    "SD_capacity_guard": "225794..2257A2 runtime64bit bytecapacity>>9"
+  },
+  "synthetic_fixture": {
+    "drive": true,
+    "ops_record": true,
+    "partition_inventory": true,
+    "sector_exponent": 9,
+    "remaining_bytes": 8192,
+    "extent_first_sector": 262144,
+    "extent_total_sectors": 8,
+    "relative_sector": 2,
+    "partition_sectors": 262148,
+    "partition_start_sector": 2048,
+    "noncache_branch_explicitly_selected": true
+  },
+  "CPU_stop_before_SD_body": true,
+  "no_unknown_callback_return": true,
+  "live_AP_drive_ordinal_or_cache_policy_proven": false,
+  "board_capacity_or_storage_IO_proven": false,
+  "renderer_proven": false,
+  "literal_128MiB_guard_identified": false,
+  "AP_renderer_root_cause_established": false,
+  "v3_fixed": false,
+  "physical_acceptance": false,
+  "App_completed": false,
+  "full_address_update_completed": false,
+  "firmware_or_authorization_modified": false,
+  "previous_closed_suites_rerun": false,
+  "shared_or_sealed_inputs_modified": false,
+  "corrections": [
+    "24E8A0 drive+20 is the fourth incoming argument saved atSP+10 after PUSH plus SUB. 3A0F76 fileobject+20 and2D31D0 ordinal inventory+20 are different objects, not lowerops stores.",
+    "New type1_mount_full_prologue starts at39EAC0 in the middle of the parser, not a function prologue; drive_registration_cluster overlaps unrelated MMIO code. These heuristic labels are preserved but not claimed as true control-flow or primary binding witnesses.",
+    "Linear disassembly across embedded literal pools in3FEA6C..9A and1D84E4..EA is not reachable code; only selected exact instructions and the actual guest trace establish control."
+  ],
+  "remaining_blockers": [
+    "True production lowerops registration exists, but live AP selector4D→drive ordinal→partition storage/cache selection is not observed.",
+    "Context storage initializer and SD present/bytecapacity words are runtime data; no board/MMIO/DMA operation or storage-byte result was executed.",
+    "The sole case supplies mid-function adapter state and explicit non-cache inventories; it does not execute cold registration, filesystem mount, or AP admission.",
+    "No evidence establishes a fixed128MiB guard, v3 road regression cause, renderer acceptance or fix. Runtime card count guards are not Garmin IMG container capacity."
+  ],
+  "minimum_next_frontier": "Bind actual startup selection into24E83A drive ordinal and context+C4 cache choice, or a separately authorized new22577C→224296 command/window ABI; keep live/MMIO results unknown.",
+  "all_scope_handles_closed": true
+}

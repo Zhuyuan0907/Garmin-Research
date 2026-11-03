@@ -1,0 +1,15 @@
+--- a/src/ba-rfcomm.c
++++ b/src/ba-rfcomm.c
+@@ -194,6 +194,12 @@
+  * GET: Standard indicator update AT command */
+ static int rfcomm_handler_cind_get_cb(struct ba_rfcomm *r, const struct bt_at *at) {
+ 	(void)at;
++
++	/* A connected external handler owns the simulated telephony state. */
++	if (r->handler_fd != -1) {
++		debug("Garmin external CIND state handler");
++		return 0;
++	}
+ 
+ 	const int fd = r->fd;
+ 	const int battchg = config.battery.available ? (config.battery.level + 1) / 17 : 5;

@@ -1,0 +1,12 @@
+{
+  "terminal": true,
+  "session_id": 38160,
+  "actual_terminal_result": {
+    "chunk_id": "d37f2a",
+    "wall_time_seconds": 0.000023833,
+    "exit_code": 1,
+    "original_token_count": 426,
+    "output": "{\"name\": \"two_Suspend_resume_cycles_keep_same_anchor\", \"whole_RW_zones\": 32, \"unchanged_RX_zones\": 4, \"native_callbacks\": 10, \"Source_ingress\": 3, \"SBC_full_returns\": 6, \"native_full_returns\": 32}\n{\"name\": \"failed_resume_Start_keeps_FIFO_until_retry\", \"whole_RW_zones\": 32, \"unchanged_RX_zones\": 4, \"native_callbacks\": 8, \"Source_ingress\": 2, \"SBC_full_returns\": 4, \"native_full_returns\": 24}\n{\"name\": \"pause_before_first_input_then_resume\", \"whole_RW_zones\": 32, \"unchanged_RX_zones\": 4, \"native_callbacks\": 6, \"Source_ingress\": 1, \"SBC_full_returns\": 2, \"native_full_returns\": 8}\n{\"name\": \"Pause_full_FIFO_keeps_pending_compressed_then_capacity_resumes\", \"whole_RW_zones\": 32, \"unchanged_RX_zones\": 4, \"native_callbacks\": 11, \"Source_ingress\": 6, \"SBC_full_returns\": 12, \"native_full_returns\": 26}\n{\"name\": \"profile_rewrite_while_paused_rejects_resume_data\", \"whole_RW_zones\": 32, \"unchanged_RX_zones\": 4, \"native_callbacks\": 7, \"Source_ingress\": 1, \"SBC_full_returns\": 2, \"native_full_returns\": 8}\nTraceback (most recent call last):\n  File \"/root/garmin/staging/native-player-remote-pause/verify_remote_pause_files_v2.py\", line 180, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-remote-pause/verify_remote_pause_files_v2.py\", line 164, in main\n    if 'profile_rewrite'in selected['name']or 'Disconnect'in selected['name']:assert final['paused']==1 and final['last_playback']and d['source_pause_final']['mh_remote_paused']==1\n                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "scope": "ROOT FILE predicate accidentally required nonzero last_playback on both rejected profile resume and successful disconnected pause. Only profile rejection requires that error. Guest evidence unchanged."
+}

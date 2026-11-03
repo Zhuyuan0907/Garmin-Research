@@ -1,0 +1,247 @@
+{
+  "updated_utc": "2026-10-04T12:25:55.191941+00:00",
+  "static_only": true,
+  "guest_executed": false,
+  "device_io": false,
+  "frozen_source_proof_or_canonical_modified": false,
+  "source_sha256": {
+    "staging/native-player-dispatcher-fp/fp-static/clarify_native_vfp_retry_branches.py": "a8ecfb26b7edac6e9cc4c72bdf2882e471dc0ae2c139fd44a2d37117b2fee99e",
+    "staging/native-player-dispatcher-fp/fp-static/native-multiowner-vfp-observer-contract.json": "142ee737b8f7dd75e24fc52e6f96d1a17aba40c5c20b932b38634ec574efb419",
+    "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json": "19fc548d527d4ebb363a30e9910e1913e679f6bc5fbbc9fc4eabbdce651f08b6",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_gui_worker_boot.py": "4c9f1002b0b496953156ffa4b95f2a8103fc30c42eca52f693898184dd975d74"
+  },
+  "main_contract_unchanged_sha256": "142ee737b8f7dd75e24fc52e6f96d1a17aba40c5c20b932b38634ec574efb419",
+  "original_instruction_evidence": [
+    {
+      "address": "0x20ec90",
+      "mode": "ARM",
+      "opcode_hex": "040050e1",
+      "instruction": "cmp r0, r4"
+    },
+    {
+      "address": "0x20ec94",
+      "mode": "ARM",
+      "opcode_hex": "2500000a",
+      "instruction": "beq #0x20ed30"
+    },
+    {
+      "address": "0x20ec98",
+      "mode": "ARM",
+      "opcode_hex": "000081e5",
+      "instruction": "str r0, [r1]"
+    },
+    {
+      "address": "0x20eca4",
+      "mode": "ARM",
+      "opcode_hex": "1400000a",
+      "instruction": "beq #0x20ecfc"
+    },
+    {
+      "address": "0x20ecb4",
+      "mode": "ARM",
+      "opcode_hex": "0700001a",
+      "instruction": "bne #0x20ecd8"
+    },
+    {
+      "address": "0x20eccc",
+      "mode": "ARM",
+      "opcode_hex": "0140a0e1",
+      "instruction": "mov r4, r1"
+    },
+    {
+      "address": "0x20ecd0",
+      "mode": "ARM",
+      "opcode_hex": "d64613eb",
+      "instruction": "bl #0x6e0830",
+      "direct_call": "0x6e0830",
+      "target_mode": "ARM"
+    },
+    {
+      "address": "0x20ece0",
+      "mode": "ARM",
+      "opcode_hex": "101af8ee",
+      "instruction": "vmrs r1, fpexc"
+    },
+    {
+      "address": "0x20ece4",
+      "mode": "ARM",
+      "opcode_hex": "020111e3",
+      "instruction": "tst r1, #0x80000000"
+    },
+    {
+      "address": "0x20ece8",
+      "mode": "ARM",
+      "opcode_hex": "102af91e",
+      "instruction": "vmrsne r2, fpinst"
+    },
+    {
+      "address": "0x20ecec",
+      "mode": "ARM",
+      "opcode_hex": "010211e3",
+      "instruction": "tst r1, #0x10000000"
+    },
+    {
+      "address": "0x20ecf0",
+      "mode": "ARM",
+      "opcode_hex": "103afa1e",
+      "instruction": "vmrsne r3, fpinst2"
+    },
+    {
+      "address": "0x20ecf8",
+      "mode": "ARM",
+      "opcode_hex": "0e1080e8",
+      "instruction": "stm r0, {r1, r2, r3, ip}"
+    },
+    {
+      "address": "0x20ecfc",
+      "mode": "ARM",
+      "opcode_hex": "0500a0e1",
+      "instruction": "mov r0, r5"
+    },
+    {
+      "address": "0x20ed00",
+      "mode": "ARM",
+      "opcode_hex": "c64613eb",
+      "instruction": "bl #0x6e0820",
+      "direct_call": "0x6e0820",
+      "target_mode": "ARM"
+    },
+    {
+      "address": "0x20ed04",
+      "mode": "ARM",
+      "opcode_hex": "000050e3",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "address": "0x20ed08",
+      "mode": "ARM",
+      "opcode_hex": "0800000a",
+      "instruction": "beq #0x20ed30"
+    },
+    {
+      "address": "0x20ed0c",
+      "mode": "ARM",
+      "opcode_hex": "200b90ec",
+      "instruction": "vldmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}"
+    },
+    {
+      "address": "0x20ed1c",
+      "mode": "ARM",
+      "opcode_hex": "020111e3",
+      "instruction": "tst r1, #0x80000000"
+    },
+    {
+      "address": "0x20ed20",
+      "mode": "ARM",
+      "opcode_hex": "102ae91e",
+      "instruction": "vmsrne fpinst, r2"
+    },
+    {
+      "address": "0x20ed24",
+      "mode": "ARM",
+      "opcode_hex": "01021113",
+      "instruction": "tstne r1, #0x10000000"
+    },
+    {
+      "address": "0x20ed28",
+      "mode": "ARM",
+      "opcode_hex": "103aea1e",
+      "instruction": "vmsrne fpinst2, r3"
+    },
+    {
+      "address": "0x20ed30",
+      "mode": "ARM",
+      "opcode_hex": "2040bde8",
+      "instruction": "pop {r5, lr}"
+    },
+    {
+      "address": "0x6e0820",
+      "mode": "ARM",
+      "opcode_hex": "1c0090e5",
+      "instruction": "ldr r0, [r0, #0x1c]"
+    },
+    {
+      "address": "0x6e0824",
+      "mode": "ARM",
+      "opcode_hex": "000050e3",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "address": "0x6e0828",
+      "mode": "ARM",
+      "opcode_hex": "1c009015",
+      "instruction": "ldrne r0, [r0, #0x1c]"
+    },
+    {
+      "address": "0x6e082c",
+      "mode": "ARM",
+      "opcode_hex": "1eff2fe1",
+      "instruction": "bx lr",
+      "resolved_native_return": true
+    }
+  ],
+  "clarification": "Treatsameowner separatelyfromowner0. Maincontractno_owner_or_same_owner combineslabels; followingtable isexactoriginaldecisionpredicate.",
+  "exact_retry_table": [
+    {
+      "oldowner_relation": "owner==current",
+      "new_slot": "any/unused",
+      "original_path": "20EC94->20ED30",
+      "old_save": false,
+      "new_restore": false,
+      "retry_D16_FPSCR": "faultbank evenif metadata.slotnonzero",
+      "slot_query_not_executed": true
+    },
+    {
+      "oldowner_relation": "owner0",
+      "new_slot": 0,
+      "original_path": "20ECA4->20ECFC;20ED08->20ED30",
+      "old_save": false,
+      "new_restore": false,
+      "retry_D16_FPSCR": "faultbank"
+    },
+    {
+      "oldowner_relation": "owner0",
+      "new_slot": "validsavedblock",
+      "original_path": "20ECA4->20ECFC;20ED0CVLDM",
+      "old_save": false,
+      "new_restore": true,
+      "retry_D16_FPSCR": "newowner savedbank"
+    },
+    {
+      "oldowner_relation": "nonzeroowner!=current",
+      "new_slot": 0,
+      "original_path": "oldsave;20ED08->20ED30",
+      "old_save": true,
+      "new_restore": false,
+      "retry_D16_FPSCR": "faultbank; oldowner saveonly"
+    },
+    {
+      "oldowner_relation": "nonzeroowner!=current",
+      "new_slot": "validsavedblock",
+      "original_path": "oldsave;20ED0CVLDM",
+      "old_save": true,
+      "new_restore": true,
+      "retry_D16_FPSCR": "newowner savedbank"
+    }
+  ],
+  "observer_predicate": "did_native_restore = (owner_before != current) and bool(newslot_before); requireactual20ED0C iff did_native_restore. Sameowner ignoresvalidslot and remainsfaultbank.",
+  "exact_existing_slot_control_case": {
+    "original_path": "20ECAC6E0820 nonzeroslot ->20ECB4->20ECD8; skipsalloc/attach/clone.",
+    "plus136": "opcode & 0xF00 from20EC08; covered358D24/6E0820 do notmodifyR2.",
+    "plus140": "faultGP3 incoveredexisting-slotpath; noF6EDCPOP-r3 orcloneLDM.",
+    "actual_pre_STM_snapshot_remains_authoritative": true
+  },
+  "other_control_cases_preserved": "Mutablefirstattach +136=oldTCB/+14020ECC4. Readonlyfirstclone +136oldM.word36/+140oldM.word24. Nevergenericzeroassumption.",
+  "conditional_FP_instructions": {
+    "save_FPinst": "20ECE8 executeswhenFPEXCbit31 set",
+    "save_FPinst2": "20ECEC unconditionalTSTbit28;20ECF0 executeswhenbit28 set",
+    "restore_FPinst": "20ED20 executeswhenloadedFPEXCbit31 set",
+    "restore_FPinst2": "20ED24TSTNE runs onlyif priorbit31testNE;20ED28VMSRNE therefore requiresbothbit31andbit28.",
+    "normal_observed_scope": "Original20EC80sets40000000 beforeallsaves; normalproducedcontrolwords havebothbitsclear. FPINST registersarenotrestoredonthisscope.",
+    "new_host_FPinst_values_or_unsupported_register_seed_forbidden": true
+  },
+  "assertion_passed": true,
+  "limits": "OnlyreusedboundedARMbranch/opcoderecheck. No guestexecution/callbackwidth/actualmultiownersave-restore orhardwareexceptionproof; no mainartifactoverwrite."
+}

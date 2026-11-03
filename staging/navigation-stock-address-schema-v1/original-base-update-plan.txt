@@ -1,0 +1,32 @@
+原廠基礎更新：短方案與驗證門檻（研究計畫，非可安裝成果）
+
+原廠依賴：FID4171/PID1 的 CN 主路圖 MapID0x533A5C → HWM graph sidecar；
+同一原廠 family 的 AP圖 MapID0x53061A → TWNJAI 的 map-ID驗證／縣市FTS／分層地址記錄。
+AP有自己的CP950 sort21,2和大MDR，主路圖有CP950 sort6,1以及NET/NOD。
+JAI的family是地址階層；IMG的family-ID是產品系列，兩者不可混稱。
+原廠CN+AP互補；現場三層配置結果應保留獨立實測證據，不能據此推新門牌已進入原DB。
+
+下一步順序：
+1. 原函式確認查詢／索引token codec及臺中市、民權路的實際key（checkpoint_prep）。
+2. 原MDR parser確認special descriptors／ctx+2B8/+2C0的真正來源與接受條件（navigation_index_encoding）。
+3. 沿JAI第三層logical record追AP house-number／座標記錄，確定184號的原生記錄定位。
+4. 確認該目的地如何交給主道路圖路由，以及更新OSM幾何時要改哪些內部map/node/link references。
+5. 上述鏈完整後才設計少量原生格式新資料的離線重建，維持原廠功能，再考慮單區／單街實機試驗。
+不以修改CP950／version欄或新增GPI／UI捷徑替代原生地址資料重建。
+
+輸入與只讀驗證門檻：
+- 中文查詢轉token與原函式一致，反向label來源有確認，包含台/臺及民權/民和的區別。
+- 分縣市FTS的record_info、info PK、logical record level、family及segments都通過原函式解讀。
+- 原廠17個缺號及4個不存在的family first-child是原數據現象，不亂施加新外鍵規則。
+- AP extended-MDR結構在原loader產生必要描述值，排序／字串encoding與真正payload一致。
+- house-number數值、label、位置、AP record及路網引用逐項有實際讀出，而非只有metadata聲稱可用。
+- 以至少一個已知184號與不相同道路／城市的negative cases，確認新資料不能錯指另一地址。
+- 最終分開驗收原機城市／街道／門牌搜尋、目的地位置、路由計算及新道路覆蓋。
+
+寫入門檻（本輪沒有寫入）：
+先產生有限候選與明確可回復的檔案清單，保留既有完整備份及原廠CN/AP原件。
+新資料若修改JAI/HWM，不能使用現有只更新IMG、把原DB列為不可變的v2.1安裝器假裝支援。
+需另外設計逐檔精確hash、原件保留、atomic寫入／讀回與rollback，使所有map-ID／sidecar同步。
+在載體編码／引用尚未確認前，不產生「最新原廠格式地圖」或安裝新版DB。
+
+本輪已重建的是資料結構的證據，不是GarminOS程式，也不是可用的原廠圖資編譯器。

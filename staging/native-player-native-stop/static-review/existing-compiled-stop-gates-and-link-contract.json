@@ -1,0 +1,33 @@
+{
+  "all_passed": true,
+  "static_only": true,
+  "guest_execution": false,
+  "source_sha256": {
+    "staging/native-player-mixer-sync/music_session_guard_sync_v1.c": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+    "staging/native-player-mixer-handoff/audio_session_driver_v4.c": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+    "staging/native-player-mixer-sync/build-v2/source-snapshot/12-memory_output_session_owner_v4.c": "6f25fc689aa8d979a3b1105d4ed1be730c2cf4116e5693cba6380eba6ccd9c02",
+    "staging/native-player-mixer-sync/build-v2.json": "a04c84a7d64fb9db91583592fd8f91e322cf7e1970b8f93819bc2fa40bc7e0e0"
+  },
+  "existing_source_API": {
+    "mcs_mutation_begin": "existingSource owner/normal/held guard; rejects borrow/pendingmutation, marksnative_mutation1",
+    "mcs_mutation_end": "Sourceowner releasesmarker aftercompletecleanup transaction",
+    "memory_output_release_session": "requiresoldretainedsession/epoch/selectedidentity+held+native_mutation+registrationseed andzero borrowedreaders; checksactualnative provider/method/listidle beforeclear",
+    "mcs_release_scoped": "requiresUMC_STOPPED andall private/inflight/providerleases0; nativeboundedMixerFIFO retirement cannotmanufacturethisstate"
+  },
+  "build_v2_ELF_symbol_presence": {
+    "mcs_mutation_begin": false,
+    "mcs_mutation_end": false,
+    "memory_output_release_session": true,
+    "mcs_release_scoped": false,
+    "continuous_media_cancel_ready": false
+  },
+  "next_build_requirement": "NEW compiled Source calls mustretain/link neededmutation/cancel APIs from existing source. Their names inC source are notcallableentrypoints in frozenbuild-v2 ELF ifGCremoved.",
+  "completion_distinction": {
+    "aas_stop": "requestStop closesnew PLAY/queueadmission butreturnsUMC_PENDING",
+    "ordered15_19_20_ACK_and277674": "canproveboundednativeMixer/provider/listretirement afteractualreturns",
+    "UMC_native_STOP_DONE": "absent currentadapter path; staySTOP_PENDING/retain scopedguard ownership/module",
+    "hardware_or_all_future_callbacks_drained": false
+  },
+  "no_gate_generation_or_owner_host_seed": true,
+  "no_fake_STOP_DONE": true
+}

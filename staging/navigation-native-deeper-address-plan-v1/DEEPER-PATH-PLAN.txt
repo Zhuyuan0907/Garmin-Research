@@ -1,0 +1,17 @@
+原廠 next5 / next6 地址路徑準備（僅 bounded read，未更新地圖）
+
+全台匹配来源：next5 541,855 個門牌群組 / 13,421 筆原廠街道；next6 16,735 個群組 / 706 筆街道。
+這是 source planning groups，尚未判定與原廠重疊，不能稱新增地址數。
+
+next5 本身可以直接存門牌。原廠湖海路二段、北投路二段、台中太平民權街為 L3→L5；同群第一筆『+ 交叉路口 +』再指向 L6 路名。
+next6 也直接存門牌並有 primary text ref。基隆三合街 L6 的『2號』與台中仁美九巷 L6 的『78之1號』等已直接讀出。
+民權路原廠另有 L3民權路(ID16707)→L4 186巷(ID904781)→L5 3弄(ID1021924)→L6 的完整4筆門牌子群。
+
+後續可延伸各街原 next_level=5 或6來 merge，保留既有交叉路口與巷弄子群；不可把全部街道強制轉成L4。
+巷／弄文字也可能是完整 JAI L3街名；不能只依文字決定層級，不能静默拆字或加中文街別名。
+
+raw flags8／13 只記為靜態觀察值。first-separator／adjacency 是本 scope 未證明的解釋，不提供13→5改寫規則。實際寫入前仍要驗證對應層級的原 query／order／旗標處理。
+現行原廠 profile：L3 firstchild22bits、count12bits；L5 childpointer21bits、count9bits。這不是整個GarminOS平台硬上限。L6有primaryref／座標，沒有child fields／secondaryref。
+
+下一步是沿現有完整planning-group ledger輸出全台4／5／6候選。四個direct-city佈局須保留district-unverified類別；缺街名、ambiguous、coordinates conflict不得猜解或丟棄。
+全台原生圖資更新仍未完成；此 scope 沒有 PBF掃描、native CPU、裝置I/O、映像改寫或安裝。

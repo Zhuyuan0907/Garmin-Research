@@ -1,0 +1,8 @@
+{
+  "exit_status": 1,
+  "tool_chunk_id": "c591f3",
+  "failure": "AssertionError: Derived stock CP950 pool contract",
+  "cause": "Initial reader added LBL header offset to a field stored as GMP-logical pool offset. Rejected before any selected child group reads/results.",
+  "failed_source_sha256": "9ea2c209fc8d0f640374e7166fb231eb2139a12d2f6c6d90d765b8f0e625304e",
+  "fix": "Use actual LBL +21 u32 as GMP-logical label pool start; retain actual GMP pointer for locating LBL header."
+}

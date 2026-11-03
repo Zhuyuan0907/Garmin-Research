@@ -1,0 +1,94 @@
+{
+  "schema": "music-pi-conversion-offline-input-guard-followup-proof/v2",
+  "all_assigned_checks_passed": true,
+  "scope": "guard correction only; prior actual failed suite remains failed and preserved",
+  "failed_suite_sha256": "b0b705ed1a2120e1a0126491bade2d67f3f13f3838da467476ea3115743c8cd1",
+  "failed_suite_actual_exit": 1,
+  "four_successful_runtime_guards": [
+    {
+      "check": "actual_local_FIFO_lstat_reject_before_open",
+      "open_calls": 0,
+      "source_content_bytes": 0,
+      "output_created": false
+    },
+    {
+      "check": "actual_local_symlink_lstat_reject_before_open",
+      "open_calls": 0,
+      "fixture_bytes": 2,
+      "output_created": false
+    },
+    {
+      "check": "actual_10ms_FFmpeg_regular_file_with_flags",
+      "source_open_flags": 35072,
+      "input_bytes": 160,
+      "output_bytes": 238,
+      "output_sha256": "dfbb27ddcc44c624d0153bfefcb208c84661cdf40e12d30627393dada6507849",
+      "temporary_files_removed": true
+    },
+    {
+      "check": "four_actual_argparse_conflict_refusals",
+      "expected_exit_code": 2,
+      "no_device_or_dbus_branch": true
+    }
+  ],
+  "static_correction_sha256": "4502278267d63d91a91a9c921f90e8c6307278af772a70afead078de3f220ae8",
+  "corrected_test_only_index_error": true,
+  "same_conversion_functions_AST": {
+    "conversion_plan": true,
+    "raw_ffmpeg_command": true,
+    "plan_for_track": true
+  },
+  "source_bindings": [
+    {
+      "path": "scripts/garmin_phone_audio_bridge.py",
+      "bytes": 8219,
+      "sha256": "8454b61d2dc329b6f9b1e2ba326f671aaf99ac92f61562774606728fe9abe72b",
+      "stat": [
+        45826,
+        525709,
+        8219,
+        1791366330061698096,
+        1791366330061698096
+      ]
+    },
+    {
+      "path": "scripts/garmin_music_player.py",
+      "bytes": 8325,
+      "sha256": "f9e04d28632b60fc97dffb11e04432e1ba77614a3a94a5373885188878eef111",
+      "stat": [
+        45826,
+        524597,
+        8325,
+        1791366330061698096,
+        1791366330061698096
+      ]
+    },
+    {
+      "path": "scripts/garmin_audio_conversion.py",
+      "bytes": 6618,
+      "sha256": "cfa0391ad6f121f55bc3523873621bcc8403b4837f463d161ffe0af5cb23087f",
+      "stat": [
+        45826,
+        540281,
+        6618,
+        1791366330061698096,
+        1791366330061698096
+      ]
+    }
+  ],
+  "baseline_seal_sha256": "c212e042ae763a65a6245ad86f3f1612aad41081cbf361ff81c1bda87f53337f",
+  "production_changes": [
+    "offline pre-open lstat regular/non-symlink guard",
+    "O_NOFOLLOW|O_NONBLOCK|O_NOCTTY and exact fd identity",
+    "plan/offline/check or plan/prepare mutually exclusive modes"
+  ],
+  "baseline11_and_channel3_methods_replayed": false,
+  "new_FFmpeg_fixture_seconds": 0.01,
+  "persistent_PCM_WAV_fixtures_bytes": 0,
+  "real_device_paths_opened": false,
+  "BlueZ_DBus_PCM_services_playback_guest": false,
+  "live_default_or_Garmin_DSP_changed": false,
+  "physical_music_quality_verified": false,
+  "all_handles_closed": true,
+  "STOP": true
+}

@@ -1,0 +1,218 @@
+{
+  "updated_utc": "2026-10-02T23:37:51.135654+00:00",
+  "load_base": 140509184,
+  "elf": "staging/native-memory-output/output-armv6.elf",
+  "elf_sha256": "a29f87440ef880655a9cf5224515360c5126e0d2057a0a1b69589b8b348fe7fb",
+  "flat_binary": "staging/native-memory-output/output-armv6.bin",
+  "flat_binary_sha256": "55a61519c6691a7833b1eb455c1286bc469d67d96caa352b91f317b9665fc67e",
+  "flat_binary_bytes": 2440,
+  "symbols": {
+    "memory_output_api": {
+      "address": 140509184,
+      "type": "T"
+    },
+    "lock": {
+      "address": 140509216,
+      "type": "t"
+    },
+    "unlock": {
+      "address": 140509236,
+      "type": "t"
+    },
+    "record": {
+      "address": 140509248,
+      "type": "t"
+    },
+    "find": {
+      "address": 140509280,
+      "type": "t"
+    },
+    "methods_clear": {
+      "address": 140509352,
+      "type": "t"
+    },
+    "memory_output_configure": {
+      "address": 140509408,
+      "type": "T"
+    },
+    "memory_output_discard": {
+      "address": 140509556,
+      "type": "T"
+    },
+    "memory_output_selection_guard": {
+      "address": 140509628,
+      "type": "T"
+    },
+    "memory_output_read": {
+      "address": 140509792,
+      "type": "T"
+    },
+    "memory_output_after_selection": {
+      "address": 140510024,
+      "type": "T"
+    },
+    "memory_output_submit": {
+      "address": 140510412,
+      "type": "T"
+    },
+    "memory_output_register": {
+      "address": 140510776,
+      "type": "T"
+    },
+    "memory_output_release": {
+      "address": 140511216,
+      "type": "T"
+    },
+    "memset": {
+      "address": 140511556,
+      "type": "T"
+    },
+    "memcpy": {
+      "address": 140511580,
+      "type": "T"
+    },
+    "buffers": {
+      "address": 140511608,
+      "type": "t"
+    },
+    "__output_code_end": {
+      "address": 140511624,
+      "type": "T"
+    },
+    "__output_state_start": {
+      "address": 140517376,
+      "type": "B"
+    },
+    "memory_output_slots": {
+      "address": 140517376,
+      "type": "B"
+    },
+    "memory_output_control": {
+      "address": 140517472,
+      "type": "B"
+    },
+    "__output_state_end": {
+      "address": 140517520,
+      "type": "B"
+    },
+    "pcm0": {
+      "address": 140525568,
+      "type": "b"
+    },
+    "pcm1": {
+      "address": 140533760,
+      "type": "b"
+    },
+    "pcm2": {
+      "address": 140541952,
+      "type": "b"
+    },
+    "pcm3": {
+      "address": 140550144,
+      "type": "b"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "/root/garmin/native/sbc-prototype/memory_output.c",
+      "-o",
+      "/root/garmin/staging/native-memory-output/memory_output.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "/root/garmin/native/sbc-prototype/runtime.c",
+      "-o",
+      "/root/garmin/staging/native-memory-output/runtime.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-memory-output/output.map",
+      "-Wl,-T,/root/garmin/staging/native-memory-output/output.ld",
+      "/root/garmin/staging/native-memory-output/memory_output.o",
+      "/root/garmin/staging/native-memory-output/runtime.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-memory-output/output-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x86004cc\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08600000 0x08600000 0x00988 0x0b000 RWE 0x10000\n  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .bss .pcm0 .pcm1 .pcm2 .pcm3 \n   01     \n",
+  "source_sha256": {
+    "native/sbc-prototype/memory_output.c": "0a20c1d7a9d4dca5147b49054542f5ed1c57701a3ed1b440c94ef086186cc770",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "staging/native-memory-output/output.ld": "42c26c66a0f0e5ac37065e3f51abeaab3dcd759f16ee60299d66629ca35a5bf9",
+    "scripts/build_native_memory_output.py": "775da044a1d529fedc05fb11c0ef56e2678f8a9b034ce1bc78d19a00739c6be3"
+  },
+  "pcm_pages": [
+    140525568,
+    140533760,
+    140541952,
+    140550144
+  ],
+  "pcm_slot_bytes": 4096,
+  "pcm_slots": 4,
+  "format": {
+    "channels": 1,
+    "rate": 16000,
+    "bits": 16
+  },
+  "source_kind": 10,
+  "source_flags": 12,
+  "original_register": "0x270459",
+  "original_reader": "0x48edf9",
+  "requires_loader_cleared_bss": true,
+  "private_ticket_is_not_native_client_id": true,
+  "source_channel_actor_and_list_exclusive_serialization_required": true,
+  "pool_guard_is_admission_not_cross_actor_reservation": true,
+  "post_selection_hook_installed": false,
+  "native_callback_quiescence_module_unload_or_decoder_redirection_verified": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Offline owned-PCM prototype with four static4096-byte buffers and private monotonic tickets. One native source is published at a time, original kind10/flags12 registration uses NULL metadata. Explicit guard and post-selector wrapper calls are required on a serialized actor controlling the channel list and native pool allocation boundary. Pool inspection is not reservation against other actors. Release state checks require reader return, native cleanup/prepared/method clear and source-list empty, but do not prove not-yet-entered callbacks are excluded across real tasks/IRQs or permit unload. No actual hook/message lifecycle/decoder-worker output redirection/capacity wakeup, accepted VPM/SEP/UI/phone/speaker/navigation coexistence. No device installation."
+}

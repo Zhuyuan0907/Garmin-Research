@@ -1,0 +1,171 @@
+{
+  "all_passed": false,
+  "error": "ValueError('Mutex scope pending at native return')",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v2.py\", line 143, in main\n    case=run(stock,inventory,m,kind,runtime);cases.append(case);print(json.dumps(case),flush=True)\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v2.py\", line 70, in run\n    vm.call(0x3ec540,(RECORD+0x70,))\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-inline-fields/code-marker/source-at-v4-run.py\", line 92, in call\n    require(not self.pending and not any(self.mutexes.values()),'Mutex scope pending at native return')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/scripts/emulate_native_vpm_filesystem.py\", line 51, in require\n    if not condition: raise ValueError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Mutex scope pending at native return\n",
+  "completed_cases": [
+    {
+      "name": "cold_zero_audio",
+      "path": "staging/native-player-warm-probe/guest-v2/cold_zero_audio.json",
+      "sha256": "ab4ee31a2c2ace0d032cfafac932ce980dd8137e3bbe1f8688316fb5a36694fe",
+      "all_passed": true,
+      "tag": "W7E8",
+      "reason": 0,
+      "CPU_version_stores": 5,
+      "new_audio_reads": 83,
+      "original40_preserved": true,
+      "native_audio_unchanged": true
+    }
+  ],
+  "device_IO": false,
+  "partial": {
+    "last_PC": 65536,
+    "original_calls": [
+      {
+        "entry": "0x3008a0",
+        "r0": 54841088,
+        "instructions": 9,
+        "seconds": 0.0005483920103870332
+      },
+      {
+        "entry": "0x3008a0",
+        "r0": 61337996,
+        "instructions": 9,
+        "seconds": 0.0001671300269663334
+      },
+      {
+        "entry": "0x3008a0",
+        "r0": 17163816,
+        "instructions": 9,
+        "seconds": 0.00023070501629263163
+      },
+      {
+        "entry": "0x3008a0",
+        "r0": 134459424,
+        "instructions": 9,
+        "seconds": 0.00020042603136971593
+      },
+      {
+        "entry": "0x1d897c",
+        "r0": 0,
+        "instructions": 880671,
+        "seconds": 2.9016535700066015
+      },
+      {
+        "entry": "0x277e20",
+        "r0": 18,
+        "instructions": 244,
+        "seconds": 0.0012244500103406608
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 0,
+        "instructions": 162,
+        "seconds": 0.0011646170169115067
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 1,
+        "instructions": 173,
+        "seconds": 0.0008349120034836233
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 2,
+        "instructions": 184,
+        "seconds": 0.0007754850084893405
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 3,
+        "instructions": 195,
+        "seconds": 0.0007569859735667706
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 4,
+        "instructions": 206,
+        "seconds": 0.0008028369629755616
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 5,
+        "instructions": 217,
+        "seconds": 0.000809744989965111
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 6,
+        "instructions": 228,
+        "seconds": 0.000862726999912411
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 7,
+        "instructions": 239,
+        "seconds": 0.0009114120039157569
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 8,
+        "instructions": 250,
+        "seconds": 0.0009188010008074343
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 9,
+        "instructions": 261,
+        "seconds": 0.0009761900291778147
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 10,
+        "instructions": 283,
+        "seconds": 0.0010252090287394822
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 11,
+        "instructions": 294,
+        "seconds": 0.001022726995870471
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 12,
+        "instructions": 305,
+        "seconds": 0.0011001169914379716
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 13,
+        "instructions": 272,
+        "seconds": 0.0012724509579129517
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 14,
+        "instructions": 316,
+        "seconds": 0.0011645990307442844
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 15,
+        "instructions": 327,
+        "seconds": 0.0012163579813204706
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 16,
+        "instructions": 338,
+        "seconds": 0.0013242660206742585
+      },
+      {
+        "entry": "0x269f6c",
+        "r0": 17,
+        "instructions": 349,
+        "seconds": 0.001286413986235857
+      }
+    ],
+    "probe_reads": [],
+    "CPU_write_journal": []
+  }
+}

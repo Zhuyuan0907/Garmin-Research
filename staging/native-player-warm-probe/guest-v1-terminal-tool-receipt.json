@@ -1,0 +1,19 @@
+{
+  "terminal": true,
+  "started_session_id": 53887,
+  "actual_launch_result": {
+    "chunk_id": "01d1f4",
+    "wall_time_seconds": 1.001206603,
+    "session_id": 53887,
+    "original_token_count": 427,
+    "output": "{\"resource\": {\"phase\": \"before parent VM constructor\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"137040 kB\", \"VmHWM\": \"97696 kB\", \"VmRSS\": \"86272 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0xd23bcc\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1188128 kB\", \"VmHWM\": \"97696 kB\", \"VmRSS\": \"89744 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0x10309e4\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1192224 kB\", \"VmHWM\": \"97696 kB\", \"VmRSS\": \"93184 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0x50000\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1193856 kB\", \"VmHWM\": \"97696 kB\", \"VmRSS\": \"94368 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0xcb179c\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1210128 kB\", \"VmHWM\": \"107552 kB\", \"VmRSS\": \"107552 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0xcb1980\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1210208 kB\", \"VmHWM\": \"107584 kB\", \"VmRSS\": \"107584 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0xd23bcc\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1220176 kB\", \"VmHWM\": \"108176 kB\", \"VmRSS\": \"108176 kB\"}}}\n{\"resource\": {\"phase\": \"parent original copy/code-image read:0x50000\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1220176 kB\", \"VmHWM\": \"108176 kB\", \"VmRSS\": \"108176 kB\"}}}\n{\"resource\": {\"phase\": \"after parent VM constructor\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1220176 kB\", \"VmHWM\": \"108192 kB\", \"VmRSS\": \"108192 kB\"}}}\n{\"resource\": {\"phase\": \"after original cold init/tag fragments\", \"ru_maxrss_kib\": 504320, \"proc\": {\"VmSize\": \"1244336 kB\", \"VmHWM\": \"124352 kB\", \"VmRSS\": \"124352 kB\"}}}\n"
+  },
+  "actual_terminal_result": {
+    "chunk_id": "f9d13f",
+    "wall_time_seconds": 2.3427e-05,
+    "exit_code": 1,
+    "original_token_count": 258,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 149, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 138, in main\n    case=run(stock,inventory,m,kind,runtime);cases.append(case);print(json.dumps(case),flush=True)\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 78, in run\n    expected=reference_sample(vm);expected_mask=mask(expected)\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 27, in reference_sample\n    methods=bytes(vm.uc.mem_read(RECORD+0xf4,68))\n                  ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 980, in mem_read\n    raise UcError(status, address, size)\nunicorn.unicorn_py3.unicorn.UcError: Invalid memory read (UC_ERR_READ_UNMAPPED)\n"
+  },
+  "device_IO": false
+}

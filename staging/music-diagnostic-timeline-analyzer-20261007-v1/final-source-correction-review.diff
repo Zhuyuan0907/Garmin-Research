@@ -1,0 +1,93 @@
+--- first20-pinned-source
++++ final-pinned-source
+@@ -22 +22 @@
+-KNOWN_CODECS = {'cvsd', 'msbc', 'sbc', 'aac', 'lc3-swb', 'aptx', 'aptx-hd', 'ldac'}
++KNOWN_CODECS = {'cvsd', 'msbc', 'sbc', 'aac', 'lc3', 'lc3-swb', 'faststream', 'opus', 'mp3', 'aptx', 'aptx-hd', 'ldac'}
+@@ -31,0 +32,2 @@
++    if maximum is None:
++        maximum = 2**63 - 1
+@@ -36 +38 @@
+-    return type(value) in (int, float) and math.isfinite(value) and minimum <= value <= maximum
++    return type(value) in (int, float) and minimum <= value <= maximum and math.isfinite(value)
+@@ -124 +126 @@
+-    mono_missing, utc_missing = 0, 0
++    mono_missing, utc_missing, run_missing = 0, 0, 0
+@@ -130,0 +133,2 @@
++        else:
++            run_missing += 1
+@@ -152 +156,2 @@
+-            'rows_without_monotonic': mono_missing, 'rows_without_aware_UTC': utc_missing}
++            'rows_without_monotonic': mono_missing, 'rows_without_aware_UTC': utc_missing,
++            'rows_without_run_id': run_missing}
+@@ -237 +242 @@
+-    safe_reason = reason if reason in {'input_eof','downstream_closed','truncated_sample_frame','signal_2','signal_15'} else 'missing_or_other_error'
++    safe_reason = reason if isinstance(reason,str) and reason in {'input_eof','downstream_closed','truncated_sample_frame','signal_2','signal_15'} else 'missing_or_other_error'
+@@ -257,5 +262 @@
+-        if row.get('role') == 'garmin' and gain > 15:
+-            raise DataError('SCO_gain_out_of_range')
+-    if len(channels) == 1 and raw & 255:
+-        raise DataError('mono_volume_low_byte_nonzero')
+-    if type(row.get('soft_volume')) is not bool:
++    if 'soft_volume' in row and type(row['soft_volume']) is not bool:
+@@ -265 +266,7 @@
+-    return {'raw_q': raw, 'channel_count': len(channels), 'soft_volume': row['soft_volume'], 'codec': codec}
++    result = {'raw_q': raw, 'channel_count': len(channels),
++            'channel_controls': [{'gain_0_127': channel['gain_0_127'], 'mute': channel['mute']} for channel in channels],
++            'unused_mono_low_byte_nonzero': len(channels) == 1 and bool(raw & 255),
++            'soft_volume': row.get('soft_volume'), 'codec': codec}
++    if row.get('role') == 'garmin' and any(channel['gain_0_127'] > 15 for channel in channels):
++        result['protocol_interpretation']='held_SCO_0_15_range_not_established_by_this_metadata'
++    return result
+@@ -295 +302,8 @@
+-                event['changed_fields']=[key for key in current if current[key] != before[key]]
++                if current['channel_controls'] != before['channel_controls']:
++                    event['changed_fields'].append('Volume_channels')
++                if current['soft_volume'] is not None and before['soft_volume'] is not None and current['soft_volume'] != before['soft_volume']:
++                    event['changed_fields'].append('SoftVolume')
++                if current['codec'] not in ('absent','unknown_unlisted') and before['codec'] not in ('absent','unknown_unlisted') and current['codec'] != before['codec']:
++                    event['changed_fields'].append('Codec')
++                event['optional_metadata_availability_changed']=(current['soft_volume'] is None) != (before['soft_volume'] is None) or (current['codec'] in ('absent','unknown_unlisted')) != (before['codec'] in ('absent','unknown_unlisted'))
++                event['ignored_mono_low_byte_changed']=current['channel_count']==before['channel_count']==1 and current['channel_controls']==before['channel_controls'] and current['raw_q']!=before['raw_q']
+@@ -296,0 +311,2 @@
++                elif event['optional_metadata_availability_changed']:event['classification']='optional_metadata_availability_change_only'
++                elif event['ignored_mono_low_byte_changed']:event['classification']='ignored_mono_low_byte_metadata_change_only'
+@@ -310 +326 @@
+-        for key in ('rows_written','rows_skipped','diagnostic_rows_skipped_at_byte_cap','cap_dropped_rows','rpc_errors','poll_count'):
++        for key in ('rows_written','rows_skipped','diagnostic_rows_skipped_at_byte_cap','cap_dropped_rows','rpc_errors','poll_count','events_written','events_dropped','polls'):
+@@ -315 +331,5 @@
+-                if value and key in ('rows_skipped','diagnostic_rows_skipped_at_byte_cap','cap_dropped_rows'):gaps.append('volume_rows_dropped_at_cap')
++                if value and key in ('rows_skipped','diagnostic_rows_skipped_at_byte_cap','cap_dropped_rows','events_dropped'):gaps.append('volume_rows_dropped_at_cap')
++        if 'output_cap_reached' in summary:
++            if type(summary['output_cap_reached']) is not bool:raise DataError('invalid_volume_cap_flag')
++            safe_counts['output_cap_reached']=summary['output_cap_reached']
++            if summary['output_cap_reached']:gaps.append('volume_output_cap_reached')
+@@ -380,0 +401,2 @@
++        if not math.isfinite(ratio):
++            result.append({'status':'held_nonfinite_RMS_ratio'});continue
+@@ -402 +424 @@
+-        if role not in safe_roles:continue
++        if not isinstance(role,str) or role not in safe_roles:continue
+@@ -414 +436,2 @@
+-        if failure.get('role') in safe_roles:
++        if isinstance(failure.get('role'),str) and failure['role'] in safe_roles:
++            error_kind=failure.get('error_kind')
+@@ -416 +439 @@
+-                'error_kind':failure.get('error_kind') if failure.get('error_kind') in safe_classes else 'other'})
++                'error_kind':error_kind if isinstance(error_kind,str) and error_kind in safe_classes else 'other'})
+@@ -422 +445 @@
+-        'optional_observer_failures':[role for role in optional if role in safe_roles],
++        'optional_observer_failures':[role for role in optional if isinstance(role,str) and role in safe_roles],
+@@ -437 +460 @@
+-    bound=all(ids) and len(set(ids))==1 and all(c['kinds']=={'host_monotonic_ns'} and not c['monotonic_reset'] for c in clocks)
++    bound=all(ids) and len(set(ids))==1 and all(c['kinds']=={'host_monotonic_ns'} and not c['monotonic_reset'] and c['rows_without_monotonic']==0 and c['rows_without_run_id']==0 for c in clocks)
+@@ -445,0 +469,2 @@
++        for flag in ('optional_metadata_availability_changed','ignored_mono_low_byte_changed'):
++            if flag in event:row[flag]=event[flag]
+@@ -464 +489,2 @@
+-            'rows_without_monotonic':clock['rows_without_monotonic'],'rows_without_aware_UTC':clock['rows_without_aware_UTC']})
++            'rows_without_monotonic':clock['rows_without_monotonic'],'rows_without_run_id':clock['rows_without_run_id'],
++            'rows_without_aware_UTC':clock['rows_without_aware_UTC']})
+@@ -519,0 +546,3 @@
++    except (TypeError,ValueError,OverflowError,RecursionError):
++        print(json.dumps({'error':'malformed_metadata_shape','role':None,'device_or_audio_operations':0}))
++        return 2

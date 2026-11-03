@@ -1,0 +1,170 @@
+{
+  "updated_utc": "2026-10-03T01:52:46.885911+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "load_base": 145752064,
+  "elf": "staging/native-media-coordinator/coordinator-armv6.elf",
+  "elf_sha256": "0f78fc5338c1b653ba94af1987201a8af411d29cfcc45f2f2cd9e511e456e91f",
+  "flat_binary": "staging/native-media-coordinator/coordinator-armv6.bin",
+  "flat_binary_sha256": "793c24c6f4beb9b5d7e5004811866c4f9dac1f77cc9738b861640355aebc8022",
+  "flat_binary_bytes": 1468,
+  "symbols": {
+    "memory_output_selection_guard": {
+      "address": 142617456,
+      "type": "A"
+    },
+    "memory_output_register": {
+      "address": 142618604,
+      "type": "A"
+    },
+    "owned_media_next": {
+      "address": 142619544,
+      "type": "A"
+    },
+    "owned_media_release": {
+      "address": 142620112,
+      "type": "A"
+    },
+    "media_queue_stop": {
+      "address": 142620972,
+      "type": "A"
+    },
+    "memory_output_slots": {
+      "address": 142885152,
+      "type": "A"
+    },
+    "memory_output_control": {
+      "address": 142885248,
+      "type": "A"
+    },
+    "owned_media_control": {
+      "address": 142886080,
+      "type": "A"
+    },
+    "coordinator_api": {
+      "address": 145752064,
+      "type": "T"
+    },
+    "lock": {
+      "address": 145752076,
+      "type": "t"
+    },
+    "unlock": {
+      "address": 145752088,
+      "type": "t"
+    },
+    "record": {
+      "address": 145752100,
+      "type": "t"
+    },
+    "native_idle": {
+      "address": 145752132,
+      "type": "t"
+    },
+    "finish": {
+      "address": 145752328,
+      "type": "t"
+    },
+    "media_coordinator_init": {
+      "address": 145752388,
+      "type": "T"
+    },
+    "enter": {
+      "address": 145752568,
+      "type": "t"
+    },
+    "cancel_step": {
+      "address": 145752672,
+      "type": "t"
+    },
+    "media_coordinator_cancel": {
+      "address": 145753216,
+      "type": "T"
+    },
+    "media_coordinator_pump": {
+      "address": 145753300,
+      "type": "T"
+    },
+    "__coordinator_code_end": {
+      "address": 145753532,
+      "type": "T"
+    },
+    "__coordinator_state_start": {
+      "address": 145760256,
+      "type": "B"
+    },
+    "coordinator_state": {
+      "address": 145760256,
+      "type": "B"
+    },
+    "__coordinator_state_end": {
+      "address": 145760316,
+      "type": "B"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/media_coordinator.c",
+      "-o",
+      "/root/garmin/staging/native-media-coordinator/coordinator.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-media-coordinator/coordinator.map",
+      "-Wl,-T,/root/garmin/staging/native-media-coordinator/coordinator.ld",
+      "/root/garmin/staging/native-media-coordinator/coordinator.o",
+      "-o",
+      "/root/garmin/staging/native-media-coordinator/coordinator-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8b00144\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08b00000 0x08b00000 0x005bc 0x0203c RWE 0x10000\n  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .bss \n   01     \n",
+  "absolute_private_imports": {
+    "memory_output_control": 142885248,
+    "memory_output_slots": 142885152,
+    "memory_output_register": 142618604,
+    "memory_output_selection_guard": 142617456,
+    "owned_media_control": 142886080,
+    "owned_media_next": 142619544,
+    "owned_media_release": 142620112,
+    "media_queue_stop": 142620972
+  },
+  "owned_elf_sha256_required": "eb5f93ca2656c6b9130778d53ef960ef925d9e61e84177a6a5259feaa7cb8262",
+  "source_sha256": {
+    "native/sbc-prototype/media_coordinator.c": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "staging/native-media-coordinator/coordinator.ld": "32556c11456bfb65911e4e9658eea07a16519df1b192ec77efb406dc9cf25e61",
+    "scripts/build_native_media_coordinator.py": "f9d46fa6600886c1a093711930965270b8307cdfe01d06b1b58e0228b1ec37af",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844"
+  },
+  "original_remove_wrapper": "0x277674",
+  "original_queue_mutex_offset": "0x38",
+  "original_remove_body": "0x277596",
+  "original_current_tcb_query": "0x358d24",
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Offline exact private owned-media ABI at virtual addresses. One actor captured from stock current-TCB helper owns pump/cancel. Pump selects/releases/registers/starts finite published PCM via stock source requests and frozen before-START reader hook. Cancel stops synthetic producer queue, waits owned producer idle/native cleanup, holds private native_calls through entire original mutex/list removal then owned-release; never-selected READY PCM registers/removes without reads to use characterized QUEUED release. Caller still polls pump; no autonomous coordinator worker/events/timer, infinite stream, global reservation/future callback quiescence or safe unload. Register/start failures retain state for reconciliation, not fully recovered. No actual loader/App/UI/SEP/SDP/phone/speaker/navigation/DAC/DMA/IRQ/Android Auto/Google Maps or installation."
+}

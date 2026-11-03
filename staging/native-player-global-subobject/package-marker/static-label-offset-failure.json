@@ -1,0 +1,14 @@
+{
+  "kind": "Pure host static-analysis assertion failure; no guest executed",
+  "session": 86190,
+  "terminal_exit_code": 1,
+  "actual_terminal_chunk": "0e7daa",
+  "source_snapshot": "staging/native-player-global-subobject/package-marker/source-at-static-label-offset-failure.py",
+  "boundary": "The preliminary Voice(TTS) Test label address 5C17F0 was inside the string; the original constructor ADR5C156E resolves to the exact start5C17E4. Speak5C1808 was correct.",
+  "protected_1274_before_check_completed": true,
+  "protected_after_check_or_success_artifact_completed": false,
+  "native_or_firmware_fault": false,
+  "guest_execution": false,
+  "existing_frozen_files_modified": false,
+  "correction": "Use exact ADR-derived UTF16 label start5C17E4; preserve the failed assertion and source. This does not change the independently sealed Aud Ver contract."
+}

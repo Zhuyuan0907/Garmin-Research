@@ -1,0 +1,11 @@
+--- staging/navigation-road-regression-v1/ReadRoadGeometryV2.java
++++ staging/navigation-Dunfu6-compiled-road-linkage-v1/ReadRoadGeometryV2.java
+@@ -36,7 +36,7 @@
+    for(Region r:m.getRegions())if(r!=null)regions.put(r.getIndex(),r);
+    for(Country c:m.getCountries())if(c!=null)countries.put(c.getIndex(),c);
+    Map<Integer,RoadDef> target=new HashMap<>();
+-   for(RoadDef r:m.getRoads())for(Label l:r.getLabels())if(l!=null&&(l.getText().contains("民權路")||l.getText().contains("民和路")))target.put(r.getOffsetNet1(),r);
++   for(RoadDef r:m.getRoads())for(Label l:r.getLabels())if(l!=null&&l.getText().equals("敦富六街"))target.put(r.getOffsetNet1(),r);
+    Map<Integer,List<String>> segments=new HashMap<>();
+    for(Polyline line:m.linesForLevel(detailedLevel)){
+     if(!line.isRoad()||!target.containsKey(line.getOffsetNet1()))continue;

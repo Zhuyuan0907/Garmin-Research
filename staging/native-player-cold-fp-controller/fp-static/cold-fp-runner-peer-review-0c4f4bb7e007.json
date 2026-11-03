@@ -1,0 +1,102 @@
+{
+  "updated_utc": "2026-10-04T11:56:02.049285+00:00",
+  "static_only": true,
+  "guest_executed": false,
+  "device_io": false,
+  "frozen_source_proof_or_canonical_modified": false,
+  "reviewed_runner": "scripts/probe_native_cold_fp_controller.py",
+  "reviewed_runner_sha256": "0c4f4bb7e0077da701da225c183c262fa14346685dd605994438bd3edac1be3c",
+  "source_sha256": {
+    "staging/native-player-cold-fp-controller/fp-static/review_final_cold_fp_runner.py": "ad031f3f68cd41f67178d2e84c153fbb16ca7afef5ae8b1c6321868e323e9b9a",
+    "scripts/probe_native_cold_fp_controller.py": "0c4f4bb7e0077da701da225c183c262fa14346685dd605994438bd3edac1be3c",
+    "staging/native-player-cold-fp-controller/fp-static/cold-fp-guard-copies-peer-review.json": "8da46e79c8c2e0f5d8f17fffbbd4bf78605bdac6cb964a12912f36159db77cae",
+    "staging/native-player-cold-fp-controller/fp-static/cold-fp-first-controller-boot-contract.json": "061c354dfc96d2a37983f37e36c8e1eb6e6ae3122e849e390559fde232b3f518",
+    "scripts/native_cold_fp_guard_copies.py": "b6849ca9dc226078ac83754ea9bb02acae60a8cae13a3f6da95f8c1ba278079b",
+    "staging/native-player-cold-fp-controller/guard-copy-provenance.json": "448ce2c02379b429928a55b5b6bd0e5b62a1b2c9d81e861cad6cd30e188fa8c6",
+    "scripts/probe_native_controller_gir_cache_declared.py": "3b190aa2cd832191863815c083572273fc4c99279ef019e0d5425df7e83d70b8",
+    "scripts/probe_native_controller_gir_component_contiguous.py": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+    "scripts/probe_native_controller_gir_component.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "scripts/probe_native_settings_lazy_vfp_v2.py": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "staging/native-player-cache-declared-followup/fp-static/native-multiowner-fp-input-and-journal-recipe.json": "87db585fdcdda4d7c84969a429c46d2c3efdd932428316757e25fd815c6803a3"
+  },
+  "previous_candidate": {
+    "sha256": "dc5af67bca0127705ab4bf7e6193ec43ca770a610925d43409d6d421ec0f2f4c",
+    "historical_short_review_delivered": true,
+    "runtime_not_executed_by_reviewer": true,
+    "exact_previous_file_not_saved_by_this_reviewer": true,
+    "issue": "Constructorfailure couldcause result.phase KeyError beforeterminaldump; finalcandidatepredeclaresconstructorphase.",
+    "guard_suggestions": "Coldnode16zero, pre/postbootTCB108+ownedhead0 andreleasedlist24 addedbeforefreeze."
+  },
+  "final_addition_check": {
+    "FPnode16_cold_zero": true,
+    "preboot_TCB108_snapshot_before_ctor": true,
+    "seal_TCB108_unchanged": true,
+    "seal_controller_ownedhead_zero": true,
+    "seal_releasedlist24": "[0,controller+32,0,0,3CC660,0]",
+    "constructor_phase_present_before_try": true,
+    "no_new_startup_blocker_identified": true
+  },
+  "MRO": {
+    "first": "ColdFPGuardMixin",
+    "next": "DeclaredCacheVM",
+    "copied_component_base_plus_Contiguous_cache_guards_preserved": true,
+    "firstsame_extra_guard_uses_Heap_base_without_frozen_controller_metadata_zero_constraint": true,
+    "inherited_LazyVFPState_still_rejects_crossowner_and20ECD8_20ED0C": true
+  },
+  "typed_slot_and_zone_check": {
+    "descriptor": "9400820 exact20B beforefirstbuilder; idle9400800 initializedseparately.",
+    "M_guard104": [
+      "0x94008e0",
+      "0x9400948"
+    ],
+    "name_guard81": [
+      "0x9400960",
+      "0x94009b1"
+    ],
+    "disjoint_M_name_Controller_pool_TCB_background_UND_zones": true,
+    "boot_wholecontroller_stack16384_separate_from_later_runtime_pool256": true,
+    "input_mapping_and_initial_zero_checks_execute_beforedeclared_input_write": true,
+    "metadata40_slot0_andname17_remain_guarded": true
+  },
+  "native_sequence_check": {
+    "first_controller_FF_capture_before_kernelactive": true,
+    "boot_after_nativecontroller_idle_Timer_construction": true,
+    "exitlistctor_once_before_FPboot_once_before_firstPOST": true,
+    "original_ARM20ED9C_actual_LR20EDA0_and_return0_witness": true,
+    "no_late_exitlist_ctor_or_live_TCB_patch": true,
+    "controller_initial_frame_is_consumed_running_stack_not_a_resident_background_frame": true
+  },
+  "journal_check": {
+    "boot_wholezone_replay_includes_CPUstores_and_declared_two_controller_ready_inputs": true,
+    "unjournaled_idle_and_global_initialready_inputs_remain_explicit_fixtures": true,
+    "nativecontroller_FF_fill_witness_before_TCB_placement": true,
+    "boot_store_decoder_accepts_original_ARM_STMDB_and_Thumbpush": true,
+    "later_extra_zones_captureverified_bootbytes_after_seal_andbeforeheap_settings": true,
+    "boot_decoder_is_original_MAIN_store_journal_not_per_PC_register_payload_validator": true,
+    "no_memory_hook_only_fullboundary_proof_claim": true
+  },
+  "full_endpoint_check": {
+    "settings_heap_native_pending_ALL_ready_TCB_frames_timednode_guards_preserved": true,
+    "original_heap_3listener_node_chain_and_original2registration_returns_guarded": true,
+    "controller_boundary_now_whole256FF_plus_native16384fill_witness": true,
+    "idle_Timer_twoGUI_original_boundaries_kept": true,
+    "fresh11helperreturns_result20_fullcomponent_GUI_F0_cache_SQL_font_guards_required": true,
+    "first_same_FP_endpoint_only": true,
+    "original_FPboot_is_declared_runtime_intention_not_this_static_result": true
+  },
+  "exact_reviewed_method_excerpts": {
+    "__init__": "def __init__(self, stock, build):\n        self.cold_zones = {}; self.cold_journal_active = False; self.cold_store_decode = {}\n        self.cold_fill = None; self.cold_fill_pending = False; self.cold_controller_building = False\n        self.FP_boot_registration = None; self.cold_boot_sealed = False; self.cold_typed_ranges = []\n        super().__init__(stock, build)\n        recipe = json.loads((ROOT/RECIPE).read_text())\n        self.cold_inputs = recipe['typed_cold_inputs']\n        for row in self.cold_inputs:\n            raw = (ROOT/row['path']).read_bytes(); address = int(row['address'], 16)\n            require(hashlib.sha256(raw).hexdigest() == row['sha256'] and len(raw) == row['bytes'], 'Cold typed input changed')\n            require(bytes(self.uc.mem_read(address, len(raw))) == bytes(len(raw)), 'Cold typed slot occupied')\n            self.uc.mem_write(address, raw)\n        self.metadata_before = bytes(self.uc.mem_read(M, 40))\n        for lo, hi in [(M-32, M+40+32), (NAME-32, NAME+17+32)]:\n            for address, length in [(lo,32),(hi-32,32)]:\n                require(bytes(self.uc.mem_read(address,length)) == bytes(length), 'Cold guard slot occupied')\n                self.uc.mem_write(address,b'\\xa5'*length)\n            self.cold_typed_ranges.append((lo,hi))\n        self.virtual_fp_inputs.update(original_FP_boot20ED68_not_executed=False,\n            original_FP_exit_listener_not_registered=False, original_FP_boot_execution_pending=True,\n            controller_metadata_is_explicit_cold_boot_input=True, controller_metadata=hex(M))\n        self.zones[CONTROLLER_STACK] = 256\n        self.zones[M-32] = 104; self.zones[NAME-32] = 81\n        for low, length in [(CONTROLLER_STACK, STACK_BYTES), (OWNER&~4095,4096), (EXIT_LIST,64),\n                            (M-32,104),(NAME-32,81)]:\n            self.uc.hook_add(unicorn.UC_HOOK_MEM_WRITE, self.journal_cold_write, begin=low, end=low+length-1)",
+    "configure_native_kernel_inventory": "def configure_native_kernel_inventory(self):\n        require(self.owner_thread is None and not any(self.mutexes.values()), 'Cold kernel configured with active locks')\n        self.uc.mem_write(DESCRIPTORS,struct.pack('<5I',CODE,0,IDLE_STACK+STACK_BYTES,240<<16,0))\n        require(bytes(self.uc.mem_read(DESCRIPTORS+32,20))==(ROOT/self.cold_inputs[0]['path']).read_bytes(), 'Typed cold descriptor differs')\n        self.start_cold_journals()\n        before={hex(a):self.word(a) for a in [0xf0908c,0xf09090,0xf09094,0xf090a0]}\n        self.idle=self.invoke(0x358bf9,(DESCRIPTORS,))\n        self.cold_controller_building=True\n        self.controller=self.invoke(0x358bf9,(DESCRIPTORS+32,))\n        self.cold_controller_building=False\n        require(self.controller==0x9503f90 and self.idle==0x9508f90 and self.cold_fill is not None,\n            'Native cold task placement/fill differs')\n        require(self.word(self.controller+28)==M and self.word(self.controller+72)==NAME and self.word(self.controller+96)==NAME,\n            'Original cold metadata/tag publication differs')\n        self.put(0xf09090,self.controller)\n        self.declare_ready_input(self.controller,struct.pack('<I',self.idle)); self.put(self.idle,0)\n        self.declare_ready_input(self.controller+22,b'\\x01'); self.uc.mem_write(self.idle+22,b'\\x01')\n        self.put(0xf09094,0); self.owner_thread=self.controller; self.kernel_active=True\n        self.initialize_native_timer_owner()\n        self.kernel_inventory=dict(original_global_words_before=before, original_TCB_builder='0x358bf8',\n            controller=hex(self.controller),idle=hex(self.idle),timer=hex(self.timer_task),\n            initial_controller_idle_ready_membership_is_fixture=True,original_all_task_list_preserved=True,\n            controller_metadata=M,controller_metadata_is_declared_cold_input=True,original_MAIN_instructions_patched=False,\n            real_boot_or_physical_task_inventory_verified=False)\n        return self.kernel_inventory",
+    "observe": "def observe(self, uc, address, size, data):\n        if self.cold_controller_building and address==0x3794f0 and (uc.reg_read(UC_ARM_REG_LR)&~1)==0xf6f48:\n            require([uc.reg_read(r) for r in REGS[:3]]==[CONTROLLER_STACK,STACK_BYTES,255] and not self.cold_fill_pending,\n                'Original controller fill arguments differ')\n            self.cold_fill_pending=True\n        if address==0xf6f48 and self.cold_fill_pending:\n            require(bytes(uc.mem_read(CONTROLLER_STACK,STACK_BYTES))==b'\\xff'*STACK_BYTES,'Whole original controller fill differs')\n            self.cold_fill=dict(original_entry='0x3794f0',actual_return='0xf6f48',whole16384_FF_checked=True,\n                whole_sha256=hashlib.sha256(bytes(uc.mem_read(CONTROLLER_STACK,STACK_BYTES))).hexdigest(),host_filled_stack=False)\n            self.cold_fill_pending=False\n        if self.phase=='cold_FP_boot' and address==0x3cc5c2:\n            require(uc.reg_read(UC_ARM_REG_LR)==0x20eda0 and not self.FP_boot_registration,\n                'Original ARM FP boot to Thumb listener call differs')\n            require([uc.reg_read(r) for r in REGS]==[EXIT_LIST,FP_NODE,0x7fffffff,0x20edb1] and self.word(uc.reg_read(UC_ARM_REG_SP))==0,\n                'Original FP listener arguments differ')\n            self.FP_boot_registration=dict(entry='0x3cc5c2',actual_LR='0x20eda0',returned=False)\n        if self.phase=='cold_FP_boot' and address==0x20eda0:\n            require(self.FP_boot_registration and uc.reg_read(REGS[0])==0 and not uc.reg_read(UC_ARM_REG_CPSR)&32,\n                'Original FP listener registration did not return0 in ARM')\n            self.FP_boot_registration.update(returned=True,result=0)\n        return super().observe(uc,address,size,data)",
+    "verify_cold_metadata": "def verify_cold_metadata(self):\n        require(bytes(self.uc.mem_read(M,40))==self.metadata_before and self.word(self.controller+28)==M and self.word(M+28)==0,\n            'First/same-owner metadata or empty saved-slot changed')\n        require(bytes(self.uc.mem_read(NAME,17))==(ROOT/self.cold_inputs[2]['path']).read_bytes(),'Declared native task name changed')\n        for lo,hi in self.cold_typed_ranges:\n            require(bytes(self.uc.mem_read(lo,32))==b'\\xa5'*32 and bytes(self.uc.mem_read(hi-32,32))==b'\\xa5'*32,'Cold metadata/name canary changed')\n        self.verify_cold_controller_or_idle_boundary(CONTROLLER_STACK)",
+    "verify_cold_controller_or_idle_boundary": "def verify_cold_controller_or_idle_boundary(self,bottom):\n        if bottom==CONTROLLER_STACK:\n            require(self.cold_fill and self.cold_fill['whole16384_FF_checked'] and\n                bytes(self.uc.mem_read(bottom,256))==b'\\xff'*256, 'Cold native-filled controller pool boundary changed')\n        else: require(bottom==IDLE_STACK and bytes(self.uc.mem_read(bottom,64))==b'\\xa5'*64,'Idle stack boundary changed')",
+    "seal_cold_boot": "def seal_cold_boot(self):\n        require(self.FP_boot_registration and self.FP_boot_registration['returned'] and self.word(OWNER)==0 and\n            self.uc.reg_read(UC_ARM_REG_FPSCR)==0x03000000 and self.uc.reg_read(UC_ARM_REG_FPEXC)==0x40000000,\n            'Original FP boot register result differs')\n        require(self.word(EXIT_LIST)==FP_NODE and list(struct.unpack('<4I',self.uc.mem_read(FP_NODE,16)))==[0,0x7fffffff,0x20edb1,0],\n            'Original cold FP listener chain differs')\n        require(bytes(self.uc.mem_read(self.controller,108))==self.pre_FP_boot_TCB108 and self.word(self.controller+32)==0,\n            'Cold FP boot changed whole original TCB108 or retained a mutex')\n        require(bytes(self.uc.mem_read(EXIT_LIST+4,24))==struct.pack('<6I',0,self.controller+32,0,0,0x3cc660,0),\n            'Cold released list backend differs from original stale-link recipe')\n        self.verify_cold_metadata()\n        for start,row in self.cold_zones.items():\n            expected=bytearray.fromhex(row['before_hex'])\n            for store in row['stores']:\n                offset=int(store['address'],16)-start;n=store['size']\n                require(expected[offset:offset+n].hex()==store['before_hex'],'Cold journal missed a host or native mutation')\n                expected[offset:offset+n]=store['value'].to_bytes(n,'little')\n            raw=bytes(self.uc.mem_read(start,row['bytes']))\n            require(raw==expected,'Whole cold boot zone differs from exact CPU/input history')\n            row.update(after_sha256=hashlib.sha256(raw).hexdigest(),whole_zone_replayed=True)\n        self.cold_journal_active=False;self.cold_boot_sealed=True\n        self.virtual_fp_inputs['original_FP_boot_execution_pending']=False\n        return dict(original_FP_boot_executed=True,original_listener_registered=True,FPSCR='0x03000000',FPowner=0,\n            cold_controller_fill=self.cold_fill,listener_registration=self.FP_boot_registration,whole_boot_zones=self.cold_zones,\n            declared_cold_metadata_inputs=self.cold_inputs,whole_TCB108_unchanged=True,released_list_backend24_checked=True,\n            multiowner_exchange_executed=False)",
+    "verify_extra_zones": "def verify_extra_zones(self):\n        rows=HeapSettingsVM.verify_extra_zones(self)\n        require(self.cold_boot_sealed and self.lazy.active is None and self.lazy.rows and all(\n            r['original_handler_entered'] and r['original_exception_return_seen'] and r['original_opcode_retry_reached'] and\n            not r['host_wrote_FP_enable_or_context'] for r in self.lazy.rows),'Cold lazy FP rows incomplete')\n        require(self.word(OWNER)==self.controller,'First/same native FP owner differs')\n        for lo in [TRAPSTACK,TRAPSTACK+TRAPBYTES-32]: require(bytes(self.uc.mem_read(lo,32))==b'\\xa5'*32,'Undefined stack canary changed')\n        self.verify_cold_metadata()\n        return rows"
+  },
+  "assertion_passed": true,
+  "limits": "Exactfinalhash AST/sourceinspection, not newguestexecution orruntimepass. Initialready/CPACR/startupFPEXC/undefinedentry/lowerheap/files/clockfixtures remain. No actualnextDispatcher/multiownerFP/IRQ/timer/physicalApp/directphoneaudio/package/safeunloadproof. Sourcewasnotchangedbyreviewer; afterrunstart failuresmustretainfrozencandidate."
+}

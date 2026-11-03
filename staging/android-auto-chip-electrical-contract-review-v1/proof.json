@@ -1,0 +1,59 @@
+{
+  "schema": "android-auto-chip-electrical-contract-review-v1",
+  "created_utc": "2026-10-08T01:52:23.295491+00:00",
+  "publisher": "STMicroelectronics",
+  "document": "STA2064 Doc ID16057 Rev3 October2009",
+  "evidence_class": "Manufacturer-authored chip data brief hosted by distributor; not exact Garmin board schematic",
+  "retrieval": {
+    "url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/581/STA2064.pdf",
+    "status": 200,
+    "final_url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/581/STA2064.pdf",
+    "bytes": 259429,
+    "sha256": "37051ec539632537e2314135e28e83d6152b8342e22c633c08f5c3e9b1ddc575"
+  },
+  "same_as_saved_pdf": true,
+  "duplicate_pdf_written": false,
+  "source_sha256": {
+    "sources/deep-research/STA2064.pdf": "37051ec539632537e2314135e28e83d6152b8342e22c633c08f5c3e9b1ddc575",
+    "sources/deep-research/STA2064.txt": "cf5505e71f414313bd0102b112c1e2732e777f599c16c13b4cc7fc2f9cfa0ad6"
+  },
+  "contracts": [
+    {
+      "id": "phy-supply-not-vbus",
+      "page": 16,
+      "chip_fact": "VUSB is a 3.3V USB pad supply",
+      "board_fact_verified": false,
+      "inference": "Chip VUSB or a diagnostic 3.3V ID reading does not establish a 5V USB host power-output circuit. Exact pin meaning and board power path remain unknown."
+    },
+    {
+      "id": "data-pin-mux",
+      "page": 8,
+      "chip_fact": "USB D+ and D- pins support UART transmit/receive muxing",
+      "board_fact_verified": false,
+      "inference": "A routed connector needs verified active pin mux and USB driver role, not merely a matching connector or chip OTG feature."
+    },
+    {
+      "id": "lcd-not-framebuffer-abi",
+      "page": 7,
+      "chip_fact": "CLCD documents 16bpp and18bpp panel formats",
+      "board_fact_verified": false,
+      "inference": "The tested RGB565 software surface is not proof of real framebuffer address, stride, cache policy or presentation ownership."
+    },
+    {
+      "id": "jpeg-not-h264-proof",
+      "page": 7,
+      "chip_fact": "Data brief explicitly documents Baseline DCT JPEG hardware decoding",
+      "board_fact_verified": false,
+      "inference": "The selected brief provides no H264 acceleration evidence; this does not prove no hardware decoder exists. Do not use the 3D/JPEG listing to waive an actual H264 throughput measurement."
+    }
+  ],
+  "real_Garmin_chip_identity_verified": false,
+  "exact_board_host_VBUS_AOA_verified": false,
+  "native_execution_or_framebuffer_verified": false,
+  "chip_feature_absence_proved": false,
+  "runtime_tests": 0,
+  "crosscompile": false,
+  "device_IO": false,
+  "install_candidate": false,
+  "current_h264112_proof_unchanged": true
+}

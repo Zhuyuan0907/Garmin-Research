@@ -1,0 +1,432 @@
+{
+  "schema": "bounded-original-sector-reader-AP-content-matrix-summary/v1",
+  "all_assigned_checks_passed": true,
+  "metadata_pins": [
+    {
+      "proof_path": "staging/navigation-country-native-candidate-v2/proof.json",
+      "proof_sha256": "5c87ea67ad127f981b24a1d6d2f9fb255814695421fa4f915a368157b576ecc3",
+      "seal_sha256": "659ae2d149b45098542fd90cd0a3000e74e3c9e2d76077f4d1ecdbbeec022766",
+      "IMG_SHA256_inherited_without_reread": "925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb",
+      "stat_preservation_dev_inode_size_mtime": true,
+      "ctime_and_linkcount_bound_fresh_at_this_read_phase": true
+    },
+    {
+      "proof_path": "staging/navigation-country-native-lane-candidate-v3/proof.json",
+      "proof_sha256": "b5baf538981a60aceb2b8cbb2c31ce3e8159363a719909791e31ef0ca0cb58d0",
+      "seal_sha256": "dfc47744887137f944d710dffeb5ea6f6821c24eb8abbeb522cb406576754335",
+      "IMG_SHA256_inherited_without_reread": "1f468eb78cc1268951873c82ffce4abe3292dcece69c0eee405c5d7aca3cc360",
+      "stat_preservation_dev_inode_size_mtime": true,
+      "ctime_and_linkcount_bound_fresh_at_this_read_phase": true
+    },
+    {
+      "proof_path": "staging/navigation-v3-expanded4k-offline-isolation-v1/proof.json",
+      "proof_sha256": "7b5315087aebfda01db11d72bc206aaba23780031d90b92edcfcee3c0188c41a",
+      "seal_sha256": "8cdbc17f8c8bf8f3210de5d08208c92148fdd23ece02d6cb5008d790c23ddf0d",
+      "IMG_SHA256_inherited_without_reread": "cc019c5f83c7fce442d0a6b64d8cc216dbc39e1cfa08dfe3f57c757f3bdfbfe9",
+      "stat_preservation_dev_inode_size_mtime": true,
+      "ctime_and_linkcount_bound_fresh_at_this_read_phase": true
+    }
+  ],
+  "matrix_proof_sha256": "4c48891cae05b5c1c89ee2030b6d57823ab8cc4c8788e32b7323726a908ff55f",
+  "new_MAIN_readbytes": 6472,
+  "new_MAIN_read_operations": 35,
+  "new_MAIN_max": 65536,
+  "MAIN_stat_stable": true,
+  "instruction_witnesses": [
+    {
+      "title": "Original mapped region chooses outer generic file handle",
+      "instructions": [
+        {
+          "address": "0x2d3394",
+          "bytes": "6878",
+          "mnemonic": "ldrb",
+          "operands": "r0, [r5, #1]"
+        },
+        {
+          "address": "0x2d33a8",
+          "bytes": "c300",
+          "mnemonic": "lsls",
+          "operands": "r3, r0, #3"
+        },
+        {
+          "address": "0x2d33aa",
+          "bytes": "1818",
+          "mnemonic": "adds",
+          "operands": "r0, r3, r0"
+        },
+        {
+          "address": "0x2d33ac",
+          "bytes": "8000",
+          "mnemonic": "lsls",
+          "operands": "r0, r0, #2"
+        },
+        {
+          "address": "0x2d33ae",
+          "bytes": "c019",
+          "mnemonic": "adds",
+          "operands": "r0, r0, r7"
+        },
+        {
+          "address": "0x2d33b0",
+          "bytes": "c069",
+          "mnemonic": "ldr",
+          "operands": "r0, [r0, #0x1c]"
+        },
+        {
+          "address": "0x2d33b6",
+          "bytes": "49f093ff",
+          "mnemonic": "bl",
+          "operands": "#0x31d2e0"
+        }
+      ],
+      "interpretation": "region table second byte selects36-byte device entry; entry+0x1C is outer file handle passed to31D2E0, not embedded83 descriptor"
+    },
+    {
+      "title": "Actual read callback selected through child/drive/operations",
+      "instructions": [
+        {
+          "address": "0x1fde78",
+          "bytes": "e068",
+          "mnemonic": "ldr",
+          "operands": "r0, [r4, #0xc]"
+        },
+        {
+          "address": "0x1fde7a",
+          "bytes": "e369",
+          "mnemonic": "ldr",
+          "operands": "r3, [r4, #0x1c]"
+        },
+        {
+          "address": "0x1fde7c",
+          "bytes": "c16a",
+          "mnemonic": "ldr",
+          "operands": "r1, [r0, #0x2c]"
+        },
+        {
+          "address": "0x1fde7e",
+          "bytes": "a269",
+          "mnemonic": "ldr",
+          "operands": "r2, [r4, #0x18]"
+        },
+        {
+          "address": "0x1fde80",
+          "bytes": "8969",
+          "mnemonic": "ldr",
+          "operands": "r1, [r1, #0x18]"
+        },
+        {
+          "address": "0x1fde82",
+          "bytes": "8d68",
+          "mnemonic": "ldr",
+          "operands": "r5, [r1, #8]"
+        },
+        {
+          "address": "0x1fde84",
+          "bytes": "0399",
+          "mnemonic": "ldr",
+          "operands": "r1, [sp, #0xc]"
+        },
+        {
+          "address": "0x1fde86",
+          "bytes": "a847",
+          "mnemonic": "blx",
+          "operands": "r5"
+        }
+      ],
+      "interpretation": "outer+0xC→child; child+0x2C→drive; drive+0x18→ops; ops+8→read; BLX r5. ABI child,destination,offset_low,offset_high,stack:count"
+    },
+    {
+      "title": "Original I/O count remains512 across block profiles",
+      "instructions": [
+        {
+          "address": "0x11d7b6",
+          "bytes": "0123",
+          "mnemonic": "movs",
+          "operands": "r3, #1"
+        },
+        {
+          "address": "0x11d7b8",
+          "bytes": "6269",
+          "mnemonic": "ldr",
+          "operands": "r2, [r4, #0x14]"
+        },
+        {
+          "address": "0x11d7ba",
+          "bytes": "0398",
+          "mnemonic": "ldr",
+          "operands": "r0, [sp, #0xc]"
+        },
+        {
+          "address": "0x11d7bc",
+          "bytes": "2900",
+          "mnemonic": "movs",
+          "operands": "r1, r5"
+        },
+        {
+          "address": "0x11d7be",
+          "bytes": "5b02",
+          "mnemonic": "lsls",
+          "operands": "r3, r3, #9"
+        },
+        {
+          "address": "0x11d7c0",
+          "bytes": "e1f7b9f9",
+          "mnemonic": "bl",
+          "operands": "#0xfeb36"
+        },
+        {
+          "address": "0xfeb40",
+          "bytes": "4f02",
+          "mnemonic": "lsls",
+          "operands": "r7, r1, #9"
+        },
+        {
+          "address": "0xfebbc",
+          "bytes": "d4f1e0fb",
+          "mnemonic": "bl",
+          "operands": "#0x2d3380"
+        }
+      ],
+      "interpretation": "11D678 asks512 bytes fromFEB36; FEB36 multiplies requested sector by512 before2D3380. No fixed4K data-block calculation in these instructions"
+    },
+    {
+      "title": "Original FAT mapping dynamically uses block delta",
+      "instructions": [
+        {
+          "address": "0x123940",
+          "bytes": "a878",
+          "mnemonic": "ldrb",
+          "operands": "r0, [r5, #2]"
+        },
+        {
+          "address": "0x123942",
+          "bytes": "8140",
+          "mnemonic": "lsls",
+          "operands": "r1, r0"
+        },
+        {
+          "address": "0x123974",
+          "bytes": "68f2f8eb",
+          "mnemonic": "blx",
+          "operands": "#0x38c168"
+        },
+        {
+          "address": "0x123984",
+          "bytes": "aa78",
+          "mnemonic": "ldrb",
+          "operands": "r2, [r5, #2]"
+        },
+        {
+          "address": "0x123988",
+          "bytes": "1141",
+          "mnemonic": "asrs",
+          "operands": "r1, r2"
+        },
+        {
+          "address": "0x123990",
+          "bytes": "68f2eaeb",
+          "mnemonic": "blx",
+          "operands": "#0x38c168"
+        },
+        {
+          "address": "0x123996",
+          "bytes": "3141",
+          "mnemonic": "asrs",
+          "operands": "r1, r6"
+        },
+        {
+          "address": "0x1239d0",
+          "bytes": "7000",
+          "mnemonic": "lsls",
+          "operands": "r0, r6, #1"
+        },
+        {
+          "address": "0x1239d6",
+          "bytes": "068c",
+          "mnemonic": "ldrh",
+          "operands": "r6, [r0, #0x20]"
+        },
+        {
+          "address": "0x123a44",
+          "bytes": "a878",
+          "mnemonic": "ldrb",
+          "operands": "r0, [r5, #2]"
+        },
+        {
+          "address": "0x123a46",
+          "bytes": "8640",
+          "mnemonic": "lsls",
+          "operands": "r6, r0"
+        },
+        {
+          "address": "0x123a48",
+          "bytes": "0198",
+          "mnemonic": "ldr",
+          "operands": "r0, [sp, #4]"
+        },
+        {
+          "address": "0x123a4a",
+          "bytes": "3118",
+          "mnemonic": "adds",
+          "operands": "r1, r6, r0"
+        }
+      ],
+      "interpretation": "volume+2 is3 or4; original divider uses240*8 or240*16 sectors per FAT continuation; blocklist index is within-part remainder>>delta; selected block<<delta plus withinblocksector. Fixture values are explicitly derived actualheader, not produced by originalmount parser"
+    },
+    {
+      "title": "Original FREAD uses512-byte logical sectors and rejects component EOF",
+      "instructions": [
+        {
+          "address": "0x3324f4",
+          "bytes": "f968",
+          "mnemonic": "ldr",
+          "operands": "r1, [r7, #0xc]"
+        },
+        {
+          "address": "0x3324f6",
+          "bytes": "3019",
+          "mnemonic": "adds",
+          "operands": "r0, r6, r4"
+        },
+        {
+          "address": "0x3324f8",
+          "bytes": "8842",
+          "mnemonic": "cmp",
+          "operands": "r0, r1"
+        },
+        {
+          "address": "0x3324fa",
+          "bytes": "24d9",
+          "mnemonic": "bls",
+          "operands": "#0x332546"
+        },
+        {
+          "address": "0x3324fc",
+          "bytes": "0120",
+          "mnemonic": "movs",
+          "operands": "r0, #1"
+        },
+        {
+          "address": "0x332510",
+          "bytes": "6112",
+          "mnemonic": "asrs",
+          "operands": "r1, r4, #9"
+        },
+        {
+          "address": "0x332514",
+          "bytes": "f1f504fa",
+          "mnemonic": "bl",
+          "operands": "#0x123920"
+        },
+        {
+          "address": "0x332520",
+          "bytes": "0121",
+          "mnemonic": "movs",
+          "operands": "r1, #1"
+        },
+        {
+          "address": "0x332522",
+          "bytes": "c00d",
+          "mnemonic": "lsrs",
+          "operands": "r0, r0, #0x17"
+        },
+        {
+          "address": "0x332524",
+          "bytes": "4902",
+          "mnemonic": "lsls",
+          "operands": "r1, r1, #9"
+        }
+      ],
+      "interpretation": "bytepos+count compared unsigned against componentlength; beyondlength returns0xFFFFFFFE beforeI/O. Sectorpos is signed ASR9; that raises an untested≥2GiB issue, not a128MiB branch. No such broader limit was tested"
+    }
+  ],
+  "geometry": [
+    {
+      "input": "country_v2_4K",
+      "delta": 3,
+      "sectorbytes": 512,
+      "sectorsperblock": 8,
+      "blockbytes": 4096,
+      "FATpart_sectorcoverage": 1920,
+      "declaredblockcount": 32768,
+      "declaredcapacitysentinel_sectors": 262144,
+      "actual_GMP_lowest_physical_offset": 124436480,
+      "actual_GMP_highest_physical_offset": 126402560,
+      "actual_GMP_backend_read_above128MiB": false,
+      "positive_backend_callbacks": 16,
+      "native_seek_calls": 16
+    },
+    {
+      "input": "lane_v3_8K",
+      "delta": 4,
+      "sectorbytes": 512,
+      "sectorsperblock": 16,
+      "blockbytes": 8192,
+      "FATpart_sectorcoverage": 3840,
+      "declaredblockcount": 32768,
+      "declaredcapacitysentinel_sectors": 524288,
+      "actual_GMP_lowest_physical_offset": 149413888,
+      "actual_GMP_highest_physical_offset": 151379968,
+      "actual_GMP_backend_read_above128MiB": true,
+      "positive_backend_callbacks": 15,
+      "native_seek_calls": 14
+    },
+    {
+      "input": "expanded_4K_disabled",
+      "delta": 3,
+      "sectorbytes": 512,
+      "sectorsperblock": 8,
+      "blockbytes": 4096,
+      "FATpart_sectorcoverage": 1920,
+      "declaredblockcount": 37436,
+      "declaredcapacitysentinel_sectors": 299488,
+      "actual_GMP_lowest_physical_offset": 149417984,
+      "actual_GMP_highest_physical_offset": 151384064,
+      "actual_GMP_backend_read_above128MiB": true,
+      "positive_backend_callbacks": 16,
+      "native_seek_calls": 16
+    }
+  ],
+  "read_guards": {
+    "original_componentEOF_rejected": true,
+    "original_shortread511_rejected": true
+  },
+  "errata": [
+    {
+      "issue": "Earliermessage region≥0x63 wording too broad",
+      "correction": "FEB36 only has special path region==0x67; allother values call2D3380, which checks actualregion activebyte. This matrix explicitly suppliesregion0x63."
+    },
+    {
+      "issue": "Linear disassembly may continueinto literaldata or nextfunction",
+      "correction": "Only exact selected reachable instructions above areclaimed; initialized_generic_file_global is8B data-only; region_write function actual stubFEB D2..D6 returns0 and isnevercalled in readonly matrix."
+    },
+    {
+      "issue": "2D3380 is generic mappedregion file reader",
+      "correction": "Neither this reader nor prior embeddedVPM DSKIMG parser establishes physicalAP mount/renderer linkage."
+    }
+  ],
+  "AP_physical_renderer_failure_reproduced": false,
+  "AP_admission_tested": false,
+  "live_boarddriver_operations_table_recovered": false,
+  "fixtures": {
+    "embedded83_file": true,
+    "actualheader_derived_volume": true,
+    "cache_frames": true,
+    "FATrowcache": true,
+    "outer72bytefile": true,
+    "child_drive_operations": true,
+    "task_mutex_IRQ": true,
+    "lowest_storagecallback": true
+  },
+  "remaining_blockers": [
+    "ExactAP physicalfilename opener and mountedvolume/frame inventory remainunbound",
+    "Real board storage readslot registration/function notidentified; ops+8 fixture suppliesactual readonly hostbytes",
+    "Map admission,CHS/checksum handling,render-layer selection andNT renderer notexecuted",
+    "Genericreader byte-equivalence doesnotestablish cause orfix forphysicalv3 road disappearance"
+  ],
+  "no_whole_IMG_or_MAIN_hash": true,
+  "no_sealed_input_changes": true,
+  "no_device_IO": true,
+  "installable_or_bugfix_claim": false,
+  "handles_closed": true
+}

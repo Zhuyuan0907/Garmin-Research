@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "/usr/bin/strace",
+    "-f",
+    "-qq",
+    "-yy",
+    "-s",
+    "0",
+    "-P",
+    "/root/garmin/sources/maps/taiwan-latest.osm.pbf",
+    "-e",
+    "trace=openat,read,pread64,lseek,mmap,close",
+    "-o",
+    "/root/garmin/staging/navigation-source172188-floor-node-provenance-v1/targeted-PBF-IO.trace",
+    "/usr/bin/osmium",
+    "getid",
+    "--no-progress",
+    "--verbose-ids",
+    "-f",
+    "osm",
+    "-i",
+    "/root/garmin/staging/navigation-source172188-floor-node-provenance-v1/node-ids.txt",
+    "/root/garmin/sources/maps/taiwan-latest.osm.pbf"
+  ],
+  "started_unix_ns": 1791354255709123624,
+  "single_extraction_authorization": true,
+  "source_stat_before": [
+    45826,
+    525565,
+    327206226,
+    1790965002879992320,
+    1790965002879992320
+  ],
+  "expected_ID_count": 21,
+  "source_budget_bytes": 327206226,
+  "output_budget_bytes": 65536
+}

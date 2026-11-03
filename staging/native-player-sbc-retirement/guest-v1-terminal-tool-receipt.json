@@ -1,0 +1,21 @@
+{
+  "terminal": true,
+  "started_session_id": 39096,
+  "actual_launch_result": {
+    "chunk_id": "3071bc",
+    "wall_time_seconds": 1.001138772,
+    "session_id": 39096,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "actual_terminal_result": {
+    "chunk_id": "c2ca1f",
+    "wall_time_seconds": 0.000025463,
+    "exit_code": 1,
+    "original_token_count": 685,
+    "output": "{\"case\": \"Stop_after_real_PCM_playback\", \"Stop_helpers\": 6, \"barrier_returns\": 1, \"deferred\": 0}\n{\"case\": \"Stop_with_full_PCM_and_pending_compressed\", \"Stop_helpers\": 6, \"barrier_returns\": 1, \"deferred\": 0}\n{\"case\": \"Stop_during_actual_Mixer_borrow_defers\", \"Stop_helpers\": 6, \"barrier_returns\": 1, \"deferred\": 4}\n{\"case\": \"Stop_before_first_packet_keeps_no_anchor\", \"Stop_helpers\": 0, \"barrier_returns\": 0, \"deferred\": 0}\nTraceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-retirement/emulate_retirement_v1.py\", line 204, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/emulate_retirement_v1.py\", line 188, in main\n    m=Retirement(stock,e,build,reference,index);records=run_case(m,name);row=m.result(name,records)\n                                                        ~~~~~~~~^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/emulate_retirement_v1.py\", line 167, in run_case\n    records.append(m.stop());positive_complete(m,records,0)\n                   ~~~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/emulate_retirement_v1.py\", line 103, in stop\n    require(self.invoke_kernel('mh_request_command',(5,),phase='controller requests actual Source Stop')==0,'Stop request failed')\n            ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/kernel_retirement_monitor_v1.py\", line 328, in invoke_kernel\n    self.uc.emu_start(entry, old.RETURN, count=1500000, timeout=15000000)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 769, in emu_start\n    raise self._hook_exception\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 363, in wrapper\n    return func(uc, *args, **kwargs)\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 1063, in __hook_code_cb\n    callback(uc, address, size, user_data)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/emulate_retirement_v1.py\", line 75, in code\n    require(self.pending_ns is None,'nested retirement source call')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/emulate_queue_call.py\", line 33, in require\n    if not x:raise ValueError(reason)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: nested retirement source call\n"
+  },
+  "failure_kind": "Four cases completed. Ordinary controller ns_retire_step returned at Unicorn end sentinel without CODE hook; harness retained pending_ns. Native Stop bodies were not the failed condition.",
+  "device_IO": false,
+  "guest_rerun": false
+}

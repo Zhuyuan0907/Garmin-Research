@@ -1,0 +1,15 @@
+{
+  "all_passed": true,
+  "all_88_complete_file_hashes_match": true,
+  "originals_still_retained": true,
+  "archive_sha256": "9ae7d5714fe045c467fc278247780943b32b4419629f132f722f19aacfb6fe33",
+  "archive_bytes": 591921152,
+  "mount": {
+    "target": "/root/garmin/archives/research-traces-v1",
+    "source": "/dev/loop2",
+    "fstype": "squashfs",
+    "options": "ro,nosuid,nodev,noexec,relatime,errors=continue"
+  },
+  "systemd_unit": "root-garmin-archives-research\\x2dtraces\\x2dv1.mount",
+  "unit_text": "[Unit]\nDescription=Garmin frozen research traces, lossless read-only compressed view\nAfter=local-fs.target\n\n[Mount]\nWhat=/root/garmin/archives/research-traces-v1.squashfs\nWhere=/root/garmin/archives/research-traces-v1\nType=squashfs\nOptions=loop,ro,nodev,nosuid,noexec\nTimeoutSec=30\n\n[Install]\nWantedBy=multi-user.target\n"
+}

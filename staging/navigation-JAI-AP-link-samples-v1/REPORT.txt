@@ -1,0 +1,37 @@
+六個民權路候選與AP packed-span數值對照
+
+來源是六筆已解碼並封存的原廠JAI/FTS候選；本輪只用mode=ro&immutable=1作60個精確小SQL，
+查各info／full-name FTS整數／family前後邊界，不重跑codec／22FTS檢查，不新讀AP bytes。
+三層城市／行政區／道路關係仍是host exactSQL結果，原native family consumer本輪未執行。
+
+行政區  info.id  道路logical record  道路low28ID
+北區    14743    0x30003952          14674
+西區    15718    0x30003D1D          15645
+大甲區  16320    0x30003F74          16244
+中區    16786    0x30004143          16707
+霧峰區  17591    0x30004462          17506
+神岡區  17740    0x300044F6          17654
+
+六個相同coded full-name均為tkfcgfotkfdkeftklcbga；已封codec將它解為民權路。
+本輪沒有重新執行codec。FTS record_info低byte49=0x31，bits4..7=level3，low4=1用途未確認。
+各record_info>>8精確匹配info.id；它是SQLite primary key空間，不能直接混作AP packed index。
+
+中區那筆的street family：[0x3000412F,0x30004156)，parent0x20000058，district PK16765；
+district family：[0x2000004A,0x20000067)，parent0x10000008，city PK12987，明文台中市。
+原始row、first-child是否有info、下一family原row、gap与LE scalar全部保留在JSON。
+
+六目錄scalar的size*8/scalar容量為22/343/47870/2133948/2341096/1973316；
+前三精確等於原JAI level1/2/3最大low28 ID22/343/47870，第三層另外有17個合法缺號。
+候選假設level→目錄ordinal(level-1)、lowID→index(ID-1)，中區道路算出index16706、
+bitoffset1854366、MDR byte92215511＋bit6，若讀完整候選record會覆蓋15bytes。
+此處沒有讀這15bytes；native selector／index原點／bit方向仍待確認，不是已找到街道payload。
+在此候選mapping下，直接lowID作zero-based索引會使每層最大ID超界，ID-1則可容納。
+若uniform使用infoPK，city12987與district16765都超22/343容量；只有street兩種數字都在範圍，
+因此單看street bounds不能區分兩種索引來源，需原nativecaller判定。
+
+另有純數值式：八個6bitwidths總和＋24*bit30＋19*bit31精確等於六個scalar。
+目前所有bit30都是1，因此「固定24」與「flag30條件增加24」在樣本裡不能區分，
+不能以此宣稱已驗證flag行為或將24/19命名為座標／標籤。
+
+全部是連結／範圍／數值一致性證據，没有命名packed欄位位置語義、沒有找出原生184號record，
+沒有AP/DB寫入、USB或canonical/report更動；不證明已可更新原廠圖資或實機路由通過。

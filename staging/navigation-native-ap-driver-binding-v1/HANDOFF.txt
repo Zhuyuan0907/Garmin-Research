@@ -1,0 +1,34 @@
+NEW bounded native AP driver binding scope 已停止；不改前sealed scope。
+
+真 component enum chain：1101EA→10F8D8→3324B8→123920，深度3。
+10FAD0 2948(LDR literalF004EC)、10FAD2 0068(deref)、10FAD4 0161(storefile+10)
+再10FADA22f2edfc(BL3324B8)讀512B。3324BA0700(r7=r0)、3325106112(pos>>9)、
+3325123800(r0=r7)、332514f1f504fa(BL123920)：同一個file descriptor。
+open2FBA70收到&file_pointer；fread3324B8收到file_pointer，兩者勿混為同一層handle ABI。
+
+file+0c length、+10 bytepos、+14 current cached logicalsector/sentinel、+18 initialsector、
++20 shared512Bbuffer、+26 volumeordinal；+1c含義仍held。volume=globalF7B3DC+1c所指陣列
++u16(file+26)*0x74，+2是sectors/block shift、+4e declaredblocks；真正activeRAM未讀。
+相同buffer會暫作FAT blocklist再供wrapper拷sectordata，不能永久稱FATbuffer。
+
+真文字：MPS10FB90、TRE10FB94、GMP10FB98、LBL10FFB4、RGN10FFB8、NET10FFBC、
+NOD10FFC0、MDR10FFC4、SRT10FFC8。GMP比較10FB58/5A；MDR比較10FC5A/5C。
+MPS→MDR口頭誤標與+14誤称已在proof保留更正，不以disasm假設名稱當原始證據。
+MDR分支還見ctx+4ee0+10 count<10、13byte entries/namecopy；不是全平台容量上限。
+
+短路徑110508→2FBA70→2FB988→122FBC是另一深度3：122FBC只解析numeric volume:
+8.3 filename，並非driver vtable。更長1102C0→10F8D8路徑不拿來偷算depth。
+只讀11328B原MAIN code/literals、<=64KiB，全部用sealed startupcopy metadata翻runtime。
+未抽全MAIN、重strings/fullhash、未讀IMG；literaldata的偽disasm/calls完全排除證據。
+
+原FE67E getter實際ARM1176/Thumb單fixturegroup四案通過（slot2→63、98→64、
+99/FFFFFFFF→FF；guard案table未mapped）。沒有return或指令語意hook；只read-only observer。
+這只驗bytegetter，不證明driver、8K/128MiB、AP admission、UI或畫圖。
+
+最小新scope入口：11D678（123A78f9f7fefd BL），原r0=file、r1=mappedsector、
+r2=readcontrol；另123F6C blocklist refresh及11D5D0 status。需沿device operations/vtable
+拿到真callback，才能在新授權scope把原4K/v3_8K/root expanded4K同logicaloffset、跨block
+實际metadata/GMP bytes送入原reader。當前沒有该callback/AP physicalinstance绑定，
+也未啟新IMG讀取。Root4K實驗6component相同僅引用4214B proof，不把其rendererunknown改成功。
+
+全handles已closed；不碰USB/裝置/ZIP/report/canonical/firmware。全台更新未完成。

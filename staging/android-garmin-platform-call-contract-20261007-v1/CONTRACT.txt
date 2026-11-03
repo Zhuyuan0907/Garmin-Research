@@ -1,0 +1,23 @@
+Platform Java 自管來電契約（2026-10-07；不使用 AndroidX／Core-Telecom）
+
+版本／註冊：self-managed 最低 API26；本原型可選 minSdk28、compileSdk≥34，Pixel版本尚未知。宣告 MANAGE_OWN_CALLS；ConnectionService exported=true、android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"，intent-filter action="android.telecom.ConnectionService"。後者保護服務供Telecom bind，不是App取得簽章權限。PhoneAccountHandle指向自己的ComponentName及固定非PII ID；TelecomManager.registerPhoneAccount(PhoneAccount.builder(handle,label).setCapabilities(PhoneAccount.CAPABILITY_SELF_MANAGED).build())。不混入SIM／CALL_PROVIDER capabilities；不需default dialer。[1,2]
+
+來電／狀態：使用者操作→isIncomingCallPermitted(handle)預檢→addNewIncomingCall(handle,Bundle)，EXTRA_INCOMING_CALL_ADDRESS可放本機非tel URI；不呼叫placeCall。預檢非原子，仍處理SecurityException及onCreateIncomingConnectionFailed(PhoneAccountHandle,ConnectionRequest)。onCreateIncomingConnection(...)建立Connection，setConnectionProperties(PROPERTY_SELF_MANAGED)、setAudioModeIsVoip(true)、setAddress(...,TelecomManager.PRESENTATION_ALLOWED)、setCallerDisplayName(...)、setRinging()後return；return前不可setActive()/setOnHold()。[1,2]
+
+通知／回呼：onShowIncomingCallUi()由App顯示自己的來電通知，Telecom不代貼／代播鈴。override onAnswer()及onAnswer(int)→共用冪等處理→setActive()；onReject()→setDisconnected(new DisconnectCause(REJECTED))→destroy()；onDisconnect()→停止release音訊→setDisconnected(new DisconnectCause(LOCAL))→destroy()。通知按鈕走同一處理。App取消／error亦清理；不宣告HOLD能力除非真的實作onHold()/onUnhold()。[1]
+
+路由（不可與AudioManager SCO控制混用）：API28–33由onCallAudioStateChanged(CallAudioState)取得getSupportedBluetoothDevices()，選中確定Garmin後requestBluetoothAudio(BluetoothDevice)；以後续getActiveBluetoothDevice()核對，請求可能改到其他裝置。API34+ override onAvailableCallEndpointsChanged(List<CallEndpoint>)及onCallEndpointChanged(CallEndpoint)，只使用列表給的實例→requestCallEndpointChange(endpoint,Executor,OutcomeReceiver<Void,CallEndpointException>)；處理onError，以實際端點回呼確認才播放。不自己new假端點。[3]
+
+背景／權限：播放工作Service若由startForegroundService启动，建立後5秒內startForeground(id,notification)；API29+可用三參數傳ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL。manifest對應phoneCall型別；API28+ FOREGROUND_SERVICE，target/API34+ FOREGROUND_SERVICE_PHONE_CALL及MANAGE_OWN_CALLS符合先決條件；target31+從可見Activity使用者操作啟動，不能假定任意背景允許。不是Core addCall的5秒規則。API26+先建NotificationChannel；API31+可用Notification.CallStyle.forIncomingCall/forOngoingCall，之前category CALL+actions。API33免POST_NOTIFICATIONS僅限MANAGE_OWN_CALLS＋ConnectionService＋registered PhoneAccount的CallStyle；一般準備通知仍另處理permission。无需full-screen intent；若另外采用则另核该权限／限制。[4–7]
+
+音訊／限制：API31+辨識Bluetooth裝置名字等需BLUETOOTH_CONNECT runtime授權；旧API按方法权限處理。addNewIncomingCall公開權限是MANAGE_OWN_CALLS，RECORD_AUDIO不列為此方法必需；本機播放設計不建AudioRecord/MediaRecorder，但免麥克風權限的整體Pixel實際行為仍未驗。MediaPlayer在prepare前设通話音訊屬性；Call已active及endpoint已變更不等於音檔已經HFP出聲。Bluetooth控制、endpoint選擇、實際播放是三個獨立驗證點。電信真電話、麥克風錄音、default-dialer、root均不在此方案操作；通話音質／DSP限制保留。[2,8]
+
+來源（官方，2026-10-07讀取；無原文段落引用）：
+[1] https://developer.android.com/reference/android/telecom/ConnectionService
+[2] https://developer.android.com/reference/android/telecom/TelecomManager
+[3] https://developer.android.com/reference/android/telecom/Connection
+[4] https://developer.android.com/develop/background-work/services/fgs/service-types#phone-call
+[5] https://developer.android.com/develop/background-work/services/fgs/launch
+[6] https://developer.android.com/about/versions/oreo/background.html
+[7] https://developer.android.com/develop/ui/compose/notifications/notification-permission#apps-configured-to-self-manage-phone-calls
+[8] https://developer.android.com/reference/android/media/MediaPlayer#setAudioAttributes(android.media.AudioAttributes)

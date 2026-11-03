@@ -1,0 +1,56 @@
+def execute(bundle, mode):
+    m, source, ranges, manifest_sha = load_manifest(bundle)
+    result = {'started_at': timestamp(), 'mode': mode, 'state': 'waiting_for_usb',
+              'manifest_sha256': manifest_sha, 'bundle_candidate_and_rollback_verified': True,
+              'physical_device_present': False, 'device_files_written': False, 'image_committed': False,
+              'device_search_verified': False, 'device_routing_verified': False,
+              'candidate_device_verified': False, 'device_path': TARGET, 'unmounted': True}
+    with operation_lock():
+        disk = select_disk(disk_records(), m['device'])
+        if disk is None:
+            result['completed_at'] = timestamp()
+            return result
+        need(os.geteuid() == 0, 'Root privileges are required for exact physical USB operations')
+        reconfirm_disk(disk, m['device'])
+        result['physical_device_present'] = True
+        mountpoint = Path(tempfile.mkdtemp(prefix='garmin-address-supplement-', dir='/run'))
+        mounted = False
+        try:
+            run_command(['mount', '-t', 'vfat', '-o', 'ro,nosuid,nodev,noexec', disk['path'], str(mountpoint)])
+            mounted, result['unmounted'] = True, False
+            xml, preflight = device_preflight(mountpoint, m, mode)
+            result['preflight'] = preflight
+            result['state'] = 'device_readonly_preflight_passed'
+            desired = 'original' if mode == 'rollback' else 'candidate'
+            if mode in ('install', 'rollback') and preflight['image_state'] == desired:
+                result['state'] = 'already_installed_verified' if mode == 'install' else 'already_original_verified'
+            elif mode in ('install', 'rollback'):
+                reconfirm_disk(disk, m['device'])
+                run_command(['mount', '-o', 'remount,rw,nosuid,nodev,noexec', str(mountpoint)])
+
+                def final_check():
+                    need(safe_path(mountpoint, 'Garmin/GarminDevice.xml').read_bytes() == xml, 'Garmin XML changed during operation')
+                    reconfirm_disk(disk, m['device'])
+
+                result['device_files_written'] = True
+                result['transaction'] = transaction(mountpoint, m, source, ranges, mode, final_check=final_check)
+                result['image_committed'] = result['transaction']['committed']
+                result['state'] = 'installed_readback_verified' if mode == 'install' else 'rolled_back_exact_original_verified'
+        except BaseException as error:
+            result.update(state='failed', error=str(error) if isinstance(error, Refusal) else type(error).__name__ + ': operation failed')
+            if isinstance(error, TransactionFailure):
+                result['image_committed'] = error.committed
+                result['recovery_required'] = error.committed or error.cleanup_failed
+        finally:
+            if mounted:
+                try:
+                    os.sync()
+                    run_command(['umount', str(mountpoint)])
+                    check_mountinfo(disk['identity']['major_minor'])
+                    mounted, result['unmounted'] = False, True
+                except BaseException:
+                    result.update(state='failed', unmounted=False, unmount_error='Unmount not confirmed; keep USB attached', recovery_mount=str(mountpoint))
+            if not mounted:
+                mountpoint.rmdir()
+            result['completed_at'] = timestamp()
+    return result

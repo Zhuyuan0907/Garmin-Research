@@ -1,0 +1,84 @@
+精確台灣 HWID 1352 / 軟體 8.00：地址搜尋 provider 與 JAI 相依性
+
+範圍與證據
+只讀取已備份 MAIN 與 TWNJAI.db，不接觸實機、不更動圖資、DB、韌體、封存的安裝包。
+完整逐指令證據：address-dispatch-evidence.json。
+MAIN SHA-256：10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8。
+MAIN、原 DB、既有圖層 catalog 的分析前後 SHA 完全相同。
+使用原始 startup copy 映射，以下高位址為 runtime 位址，不能直接減固定常數取檔案。
+0x04400000 區段為條件 copy；本輪未讀實機 startup flag 或 RAM。
+
+已確認：地址入口有条件選擇，不是一律走 JAI
+0x440DD1A 的 manager factory 呼叫 selector 0x44144C8。
+selector 第一組條件先呼叫 0x448F6E8（原 ARM veneer -> 0x3F01B7），
+然後在 0x44144D2 從 literal 0x4414760 取得數字 950（0x3B6），
+0x44144D4 呼叫 0x448E768（原 ARM veneer -> 0x32DEFD）。
+兩項皆成功才回傳 enum 0；後續另有 932、936、1252 的條件，皆失敗回傳 enum 4。
+上述數字與圖資的 code page 值相符，但地區 guard 的完整語意與 +0x28 欄位來源未完成追蹤。
+
+enum 0 時，factory 在 0x440DD3E..40 讀 RAM halfword 0x05431A94：
+值 1 -> 0x440DC68 建立 vtable 0x0470367C，RTTI 精確名稱 GUI::WeakPrefectureManager；
+值 2 -> 0x440DC4C 建立 vtable 0x047030C8，RTTI 精確名稱 GUI::PrefectureManagerTwn。
+不能把 Weak 的 RTTI 擅自改稱 PrefectureManagerJAI。
+enum 4 -> 0x440DD82..8A 建立 0x440DAE8；vtable 0x047021BC、RTTI GUI::PrefectureManager。
+這是實際條件 dispatch；尚未證明 base manager 的最終 provider 是 OSM MDR。
+TWN 自己的 0x440EFDE 也有兩條路徑：依 virtual +0x44，選 virtual +0x48 或 helper 0x440E844。
+間接 provider 與 helper 的最終索引後端仍未知，不以這個分支當成 MDR fallback 證據。
+
+已確認：950 條件會檢查可用 map record
+0x32DEFC 迭代圖資，要求 record+0x2C0 / +0x2B8 均非零。
+0x32DF7C..82 把 record+0x28 的 halfword 與提供的 950 等數字比較。
+0x32DF84..90 取得低 28 位 map ID、呼叫 0x32C940 並要求成功。
+0x32C940 的比對成功路徑 0x32C9AC..AE 取得該 map record 的 bit 31 作結果。
+尚未追出 bit 31 的 UI checkbox 寫入者；兩個非零欄位是否為 MDR 指標也未證明。
+因此不能把「新版 OSM 為 65001」直接換算成「關原廠圖一定進 base provider」。
+原廠 basemap 的公開 LBL 同樣為 950；其是否通過其他搜尋欄位條件仍需驗證。
+
+已確認：原廠 JAI 與 Address Point 相依
+TWNJAI.db 的 jai_map_id 唯一值為 5441050 / 0x0053061A。
+此 ID 精確匹配 gmapprom1.img 的 MPS hex_map_number 與 I053061A.GMP。
+主路網 gmapprom.img 為 5454428 / 0x00533A5C，是另一個相互補充的原廠圖層。
+兩項原廠圖原本同時勾選本身不是衝突證據。
+
+實際初始化鏈：0x4419374 -> 0x442614A -> 0x4425DC6。
+0x442614A 以 database class 0x12 枚舉資料庫，將 caller 的 map-ID array/count 交給 initializer。
+0x4425E2E 從 query table 0x0457D644 取 +4；0x4425E36 prepare：
+SELECT map_id FROM jai_map_id
+0x4425E74 讀 column 0，0x4425E80..92 與 caller map-ID array 逐項比對。
+乾淨 row 路徑遇第一個不在 caller array 的 DB map ID 即停止；matching row count 不等 requested count，
+0x4425EA6 設 status 3。Caller array 上游是否包含目前勾選項，仍未知。
+0x4422448..250A 的一個 caller 從 handle/record 讀取 4-byte map IDs，再呼叫上述 boolean wrapper；
+此處未看到直接讀 GUI checkbox，不能混為同一層過濾。
+
+已執行 5 個 untouched 指令 loop 的離線控制：
+DB AP / request AP：status 0；DB AP / request 另一 ID：status 3；
+DB AP / request AP+另一 ID：status 3；兩筆全部匹配：status 0；第一筆未匹配：status 3。
+只模擬 0x4425E4E 到 0x4425EAA/EC2，SQLite 三個 veneer 回傳合成 row，caller RAM 也為合成。
+停止於配置／metadata 之前，未模擬整個資料庫、UI、MDR 或實機搜尋。
+
+已確認：JAI 有真正的 FTS query path；tk 編碼仍未解
+TWNJAI metadata：006-D4161-23、class 18、version 1610、PrefectureAddressIndexing。
+地址 info 48,218 筆，22 個 FTS3 japan_addr_index_N partition。
+48,209 個 info index_record 符合重複 tk + 五個 a..p 字母，另 9 筆含其他 token；不能猜成 Unicode。
+0x442599A..B6 取 query table +8/+C/+10/+14，0x44259BC 呼叫 builder 0x4424A84。
+字串組合包含 SELECT index_record, record FROM japan_addr_info、japan_addr_index、
+WHERE index_record MATCH ?；0x4424C1C prepare，0x4424C36 bind text。
+這是實際 SQL 呼叫證據，不只是 grep 到字串；input -> tk transformation 尚未找到。
+沒有證據能把「民權路」變「民和路」定為已確認韌體缺陷，也沒有現場 timing 根因結論。
+
+現場 A/B 計畫（不部署 v1 封存包，本輪只準備對照）
+A：新版 OSM 開、原廠主圖與 Address Point 都關。完整關機重開後，地址入口指定台灣／台中市，
+   輸入完全相同的「民權路」，記錄第一個可見候選／選定結果／等待秒數；另測 POI 名稱入口。
+   此組測試新版圖實際能否走可用地址 provider，不能先宣稱一定使用 base/MDR。
+B：新版 OSM 關、原廠主圖與 Address Point 一起開。重開並用相同入口／城市／文字／時限。
+   原廠 pair 是一致的對照；同時保留 JAI map-ID 相依性。
+C（只有 A/B 結果需要進一步定位時）：只開原廠主圖、關 Address Point 與 OSM，再測同一地址。
+   用來看 AP/JAI 對 provider/結果的影響，不作最後日常推薦設定。
+每次至多等待 60 秒並記錄 timeout，避免再空等兩小時。Basemap/timezone 依原機正常處理。
+若 A 在 POI 可以精確找路、地址入口異常，優先追 native 地址 sorting/keyboard/provider 相容性；
+若 B 也重現錯字，則 query/鍵盤／既有 stock 路徑需另查。兩種都只是待驗證分流條件。
+
+界線
+未確認 checkbox 寫入者、live selector 值、GUI 地址 entry -> 最終 MDR 函式或 tk encoder。
+未讀 NT 受保護 payload，沒有改 DB、SIG、韌體、stock IMG，沒有重新封包或執行安裝器。
+尚未實機修復／驗證搜尋，不能把本輪靜態／fixture loop 通過寫成導航已修好。

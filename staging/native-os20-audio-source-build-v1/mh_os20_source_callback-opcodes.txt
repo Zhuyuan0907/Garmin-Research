@@ -1,0 +1,70 @@
+
+/root/garmin/staging/native-os20-audio-source-build-v1/warm-os20-source-EMULATION-ONLY.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+02f98a7c <mh_os20_source_callback>:
+ 2f98a7c:	e92d4070 	push	{r4, r5, r6, lr}
+ 2f98a80:	e59f30bc 	ldr	r3, [pc, #188]	@ 2f98b44 <mh_os20_source_callback+0xc8>
+ 2f98a84:	e1a04000 	mov	r4, r0
+ 2f98a88:	e12fff33 	blx	r3
+ 2f98a8c:	e59f30b4 	ldr	r3, [pc, #180]	@ 2f98b48 <mh_os20_source_callback+0xcc>
+ 2f98a90:	e1a05000 	mov	r5, r0
+ 2f98a94:	e12fff33 	blx	r3
+ 2f98a98:	e59f20ac 	ldr	r2, [pc, #172]	@ 2f98b4c <mh_os20_source_callback+0xd0>
+ 2f98a9c:	e1a01000 	mov	r1, r0
+ 2f98aa0:	e5923000 	ldr	r3, [r2]
+ 2f98aa4:	e59f00a4 	ldr	r0, [pc, #164]	@ 2f98b50 <mh_os20_source_callback+0xd4>
+ 2f98aa8:	e2833001 	add	r3, r3, #1
+ 2f98aac:	e5823000 	str	r3, [r2]
+ 2f98ab0:	e59f309c 	ldr	r3, [pc, #156]	@ 2f98b54 <mh_os20_source_callback+0xd8>
+ 2f98ab4:	e5834000 	str	r4, [r3]
+ 2f98ab8:	e5903000 	ldr	r3, [r0]
+ 2f98abc:	e2833001 	add	r3, r3, #1
+ 2f98ac0:	e5803000 	str	r3, [r0]
+ 2f98ac4:	e59f308c 	ldr	r3, [pc, #140]	@ 2f98b58 <mh_os20_source_callback+0xdc>
+ 2f98ac8:	e0544003 	subs	r4, r4, r3
+ 2f98acc:	13a04001 	movne	r4, #1
+ 2f98ad0:	e3550000 	cmp	r5, #0
+ 2f98ad4:	03844001 	orreq	r4, r4, #1
+ 2f98ad8:	e3540000 	cmp	r4, #0
+ 2f98adc:	1a000009 	bne	2f98b08 <mh_os20_source_callback+0x8c>
+ 2f98ae0:	e59f3074 	ldr	r3, [pc, #116]	@ 2f98b5c <mh_os20_source_callback+0xe0>
+ 2f98ae4:	e5930000 	ldr	r0, [r3]
+ 2f98ae8:	e3500000 	cmp	r0, #0
+ 2f98aec:	0a000002 	beq	2f98afc <mh_os20_source_callback+0x80>
+ 2f98af0:	e5930000 	ldr	r0, [r3]
+ 2f98af4:	e1500005 	cmp	r0, r5
+ 2f98af8:	1a000002 	bne	2f98b08 <mh_os20_source_callback+0x8c>
+ 2f98afc:	e5922000 	ldr	r2, [r2]
+ 2f98b00:	e3520001 	cmp	r2, #1
+ 2f98b04:	0a000007 	beq	2f98b28 <mh_os20_source_callback+0xac>
+ 2f98b08:	e59f0050 	ldr	r0, [pc, #80]	@ 2f98b60 <mh_os20_source_callback+0xe4>
+ 2f98b0c:	ebfffe3e 	bl	2f9840c <mh_os20_error>
+ 2f98b10:	e1a00001 	mov	r0, r1
+ 2f98b14:	e59f3048 	ldr	r3, [pc, #72]	@ 2f98b64 <mh_os20_source_callback+0xe8>
+ 2f98b18:	e12fff33 	blx	r3
+ 2f98b1c:	e59f4044 	ldr	r4, [pc, #68]	@ 2f98b68 <mh_os20_source_callback+0xec>
+ 2f98b20:	e12fff34 	blx	r4
+ 2f98b24:	eafffffd 	b	2f98b20 <mh_os20_source_callback+0xa4>
+ 2f98b28:	e59f203c 	ldr	r2, [pc, #60]	@ 2f98b6c <mh_os20_source_callback+0xf0>
+ 2f98b2c:	e1a00001 	mov	r0, r1
+ 2f98b30:	e5825000 	str	r5, [r2]
+ 2f98b34:	e5835000 	str	r5, [r3]
+ 2f98b38:	e59f3024 	ldr	r3, [pc, #36]	@ 2f98b64 <mh_os20_source_callback+0xe8>
+ 2f98b3c:	e12fff33 	blx	r3
+ 2f98b40:	ebfffe3a 	bl	2f98430 <mh_source_entry>
+ 2f98b44:	00358d25 	.word	0x00358d25
+ 2f98b48:	0021b6cc 	.word	0x0021b6cc
+ 2f98b4c:	02fbd04c 	.word	0x02fbd04c
+ 2f98b50:	02fbd034 	.word	0x02fbd034
+ 2f98b54:	02fbd048 	.word	0x02fbd048
+ 2f98b58:	02fab084 	.word	0x02fab084
+ 2f98b5c:	02fbd0d8 	.word	0x02fbd0d8
+ 2f98b60:	fffffe6c 	.word	0xfffffe6c
+ 2f98b64:	0021b6dc 	.word	0x0021b6dc
+ 2f98b68:	002fd035 	.word	0x002fd035
+ 2f98b6c:	02fbd044 	.word	0x02fbd044
+
+Disassembly of section .ali_clear_fixed:

@@ -1,0 +1,17 @@
+Prepared source-only rendering comparison for existing Taichung tile. No Java process or real tile compilation has been started. No device, reports, archives or frozen maps were modified.
+
+Only polygons differs between two16-file style trees. At the original building=* rule position, lite marks the feature suppressed and forces the unchanged finalize block. Four subsequent lower-priority rules are guarded so removing type0x13 does not reinterpret a building as tourism/man_made/island/islet. Earlier hospital/school/park/water/landuse rules remain untouched. All road/point/relation rules, includes, administrative address rules and level options retain exact original bytes.
+
+Exact official r4924 source archive was downloaded into memory, hash checked against frozen source receipt and only4 source files extracted(98,268 bytes). RuleSet.java:101-104 confirms explicit execute_finalize_rules=true runs finalizer for an otherwise unresolved/no-type feature. ActionRule+WatchableTypeResult confirm action-only rules change tags but emit no type. StyledConverter.java:551-552 then retains the unmatched way for house-number processing. This is source semantics; future actual parser/fixture tests remain required. Baseline already forces finalizers for addr:housenumber at polygons line11; deleting an output is not by itself proof of loss.
+
+Default script prints commands and performs file identity checks only:
+python3 -B staging/navigation-rendering-lite-preparation-v1/run_comparison.py --variant baseline
+python3 -B staging/navigation-rendering-lite-preparation-v1/run_comparison.py --variant lite
+
+After root confirms the one-pass source scan ended and RAM freed, add --execute. One job /768MiB heap, minimum available1536MiB, refuses active source ingestion. --fixture instead uses tiny8-feature synthetic OSM /96MiB heap with no bounds loading; fixture semantics/address tags still need inspecting. Each variant/mode is one-shot, retains start/log/actual terminal receipt; failures cannot be overwritten. Do not launch the actual tile during the large source scan.
+
+Source split file is70510020.osm.pbf, its controlled compiled v2 mapname70530020. Both comparisons deliberately use sameFID7053/mapname/source/sort/bounds/options and separate output directories. They must never be enabled together. A one-tile build is not an installable wholeTaiwan map. Root must separately prepare any all36 coverage candidate and reversible installer after reading actual validation evidence.
+
+Validation requires fewer actual0x13 polygons/vertices, preservation of other polygon semantics and exact address-tag results for tiny controls. Inspect NET/NOD hashes, then semantic road geometry/access/one-way/class/speed/restriction/tile connections and house/city data if offsets change. Same fixed6/150/184 position/route and physical redraw comparison remain necessary; route correctness is not rendering performance.
+
+Latest user reports actual movement, stock maps also slow/temporarily visually broken, and 簡略 slightly improves. These observations do not establish an OSM-only or AP-index cause; no CPU/RAM/I/O saturation trace exists. Lite remains an optional diagnostic/optimization candidate, not a proven repair.

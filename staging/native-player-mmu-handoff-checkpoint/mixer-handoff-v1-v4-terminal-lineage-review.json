@@ -1,0 +1,81 @@
+{
+  "all_passed": true,
+  "pure_frozen_file_review": true,
+  "source_sha256": {
+    "staging/native-player-mixer-handoff/guest-v1/terminal-failure.json": "f0c6613fcfa859a217927d01a39d80adaf800a75fd22d0b8cd0b4eb91b7d3d1e",
+    "staging/native-player-mixer-handoff/guest-v1/inputs-at-run.json": "f80729afb078de738ac02cd53398883103a4208246c5a84cbd646448a241afa1",
+    "staging/native-player-mixer-handoff/guest-v1/runner-at-run.py": "59097042325dc4c47821608e570109f4048ae85d1a48b133bfeb2cab898992c8",
+    "staging/native-player-mixer-handoff/guest-v1-terminal-tool-receipt.json": "4d3d725e2391aaf9b23b67ac8945cc89ff5eaeaafb56be8373812b4931b9f4da",
+    "staging/native-player-mixer-handoff/guest-v2/terminal-failure.json": "ed27b88b95909978ef6436bb883f8f8494391d2b05b527f3b6cefddc5fb1b921",
+    "staging/native-player-mixer-handoff/guest-v2/inputs-at-run.json": "90ca7dc6496e4b57f049d21d114becac929c0b1cea6bba2d021c398680052886",
+    "staging/native-player-mixer-handoff/guest-v2/runner-at-run.py": "7dd14287dd857350beaa6d0750549fc5e4121d29faadf94fd54ca82c692302dd",
+    "staging/native-player-mixer-handoff/guest-v2-terminal-tool-receipt.json": "2c7b953cc83054977504eb58e8f0fdeeba9d66d9d5cc77c713c44784f570be71",
+    "staging/native-player-mixer-handoff/guest-v3/terminal-failure.json": "883bb31b248e275d16b17a257e5d39e1c9b973e4fde7e2c55dd70609f67c3072",
+    "staging/native-player-mixer-handoff/guest-v3/inputs-at-run.json": "4bf1da2b8469415e3dfa11e7976ae57a60c2977221fd4a0db72155df9796e80a",
+    "staging/native-player-mixer-handoff/guest-v3/runner-at-run.py": "77b632c791b69b2273970717b72a818bab61a0bc82a261553d98f84e639d5364",
+    "staging/native-player-mixer-handoff/guest-v3-terminal-tool-receipt.json": "d24ca362690f622c65e886fe2fe981c2f6efd71d618b1c93557a8b24c5543e89",
+    "staging/native-player-mixer-handoff/guest-v4/terminal-failure.json": "a8e000adffa75b6272f5a48b4b8564a69b2d3f10558ed066971b9aac94c2d22a",
+    "staging/native-player-mixer-handoff/guest-v4/inputs-at-run.json": "8deae0d69da68c18f3dfafd6451311ce07b320f0001fa939f125651a5415bf1d",
+    "staging/native-player-mixer-handoff/guest-v4/runner-at-run.py": "8d1f0c8e61074c74467f319fcf880d1b125642d985cc58e0d3165e36a25fe32a",
+    "staging/native-player-mixer-handoff/guest-v4-terminal-tool-receipt.json": "109e4b806ff145fe2aaf64b4cc4940e7980c16de6f8f694cf1eba87e1ae7d2d8",
+    "staging/native-player-mixer-handoff/guest-v4/normal_reuse_reselection_reset.json": "b1182f6f6c3c2e76601edab3bffdb3eacefdb36b9855e5f0e88bc75dfe07d2bd",
+    "staging/native-player-mixer-handoff/guest-v4/Stop_revokes_new_original_pulls.json": "dbdf711919e3ca62ae53d479a70cc812605f5355e275586c43ba376c3b544e21"
+  },
+  "terminal_attempts": [
+    {
+      "version": 1,
+      "terminal_exit_code": 1,
+      "actual_terminal_chunk": "da7cf0",
+      "actual_error": "scheduled mixer PCM differs for command 1",
+      "completed_case_count": 0,
+      "completed_cases": [],
+      "whole_guest_all_passed": false
+    },
+    {
+      "version": 2,
+      "terminal_exit_code": 1,
+      "actual_terminal_chunk": "7c4293",
+      "actual_error": "unexpected original message queue target",
+      "completed_case_count": 0,
+      "completed_cases": [],
+      "whole_guest_all_passed": false
+    },
+    {
+      "version": 3,
+      "terminal_exit_code": 1,
+      "actual_terminal_chunk": "5a13e1",
+      "actual_error": "RX changed during guest",
+      "completed_case_count": 0,
+      "completed_cases": [],
+      "whole_guest_all_passed": false
+    },
+    {
+      "version": 4,
+      "terminal_exit_code": 1,
+      "actual_terminal_chunk": "37dd23",
+      "actual_error": "revoked/stopped source continued publishing PCM",
+      "completed_case_count": 2,
+      "completed_cases": [
+        {
+          "name": "normal_reuse_reselection_reset",
+          "path": "staging/native-player-mixer-handoff/guest-v4/normal_reuse_reselection_reset.json",
+          "sha256": "b1182f6f6c3c2e76601edab3bffdb3eacefdb36b9855e5f0e88bc75dfe07d2bd",
+          "passed": true
+        },
+        {
+          "name": "Stop_revokes_new_original_pulls",
+          "path": "staging/native-player-mixer-handoff/guest-v4/Stop_revokes_new_original_pulls.json",
+          "sha256": "dbdf711919e3ca62ae53d479a70cc812605f5355e275586c43ba376c3b544e21",
+          "passed": true
+        }
+      ],
+      "whole_guest_all_passed": false
+    }
+  ],
+  "preserved_build_v1_failure_receipt": "staging/native-player-mixer-handoff/build-v1-terminal-failure-receipt.json",
+  "prior_v4_two_completed_cases_are_observed_prefix_only": true,
+  "original_failed_guest_results_relabelled_success": false,
+  "guest_execution": false,
+  "canonical_write": false,
+  "device_io": false
+}

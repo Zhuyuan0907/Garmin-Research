@@ -1,0 +1,18 @@
+MAP-only recovery preparation completed; not an executable recovery packet.
+
+Exact order: coherent8K actual 9af1e68e -> certified factory stock 864d128f -> known-working country v2 925a515b. The old v2 installer accepts exact stock and rejects coherent8K. Existing v2 installer, support, compact restore helper, manifest and gzip recipe remain unchanged. The plan binds all 20 members of the original bundle, AP candidate 128356352 B and Search v2 road 131829760 B, with exact source paths and hashes.
+
+Portable CLI, from any cwd after later complete packaging:
+python3 -B <packet>/coherent8k/install_native_house_supplement.py --bundle <packet>/coherent8k --rollback
+python3 -B <packet>/working-v2/install_native_house_supplement.py --bundle <packet>/working-v2 --install
+Both use local same-directory Python imports. No invented mount/device/apply flags. The old installer changes AP only: Search v2 must already be present with hash664c46c9 and is verified/preserved. Providing its payload in the packet does not install it.
+
+Current coherent8K source is formally sealed dc59af5e, but its immutable manifest8b535865 explicitly integration_preparation_only=True; it refuses before candidate/device work. Do not flip that flag or alter closed sources. A NEW reviewed activated manifest/entrypoint, complete exact candidate and sidecars, and exact wrapper rebinding are required. The source-only wrapper has no production subprocess runner; public --execute always refuses before any installer or IMG access. The pure injected-runner API is for host spies. Synthetic successful replies for the preparation SHA cannot be produced by the real preparation-only installer.
+
+15 meaningful small host-spy controls passed (6999 B unique JSON replies, <=8192). Phase2 follows only verified final stock plus preserved files and safe unmount. Zero exit waiting_for_usb, wrong manifest/SHA roles, readback or unmount failure and postcommit recovery-required state do not advance. No actual installer was imported/called, orchestration executed or device accessed.
+
+External small reads2343938 B <=3MiB; gzip decoded0; decoded nonrecipe inputs <=584940 B. No IMG open/stat/read/link/chmod/write, ZIP decompression, sysfs/mount/BlueZ/native/firmware/audio/services/report mutation. Source SHA/stat fences preserved actual modes. Initial dc03e5 and f2a045 list/catalog host assertion errors are retained; they are not source corruption or a platform block and this is not a one-pass claim.
+
+Root actual coherent8K/stock fullhash proof e44ded43 is inherited, not recomputed here. The old installed_readback_verified comparison proof is directly small-file pinned; its UI/routing flags remain false. Later Minquan6/150/184 search, position and route confirmation is parent/user evidence, not repeated here. Working v2 plus Search v2 is healthy; all130637 houses are not physically verified. Old regressing v3 download remains410; coherent8K renderer/UI acceptance and full-country goal remain false.
+
+STOP: all own preparation/source reads and handles closed. Later packaging and device steps are deferred, with standing map authority; no physical/presence question is pending.

@@ -1,0 +1,19 @@
+{
+  "action": "FILE ONLY independent verifier, not guest",
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-native-allocation/audio-session-static/verify_audio_session_v2_files.py",
+  "source_sha256": {
+    "staging/native-player-native-allocation/audio-session-static/verify_audio_session_v2_files.py": "04737eeb0cb2d11d657c040b23883e726fc0a3142aa9be769896672582d53a7f"
+  },
+  "tool_result": {
+    "chunk_id": "c80048",
+    "exit_code": 1,
+    "wall_time_seconds": 3.2922
+  },
+  "observed_failure": {
+    "line": 234,
+    "assertion": "assert len(native_entries)==len(end_entries)==len(reader_groups)==len(fifo_groups)==2",
+    "exception": "AssertionError"
+  },
+  "cause": "Verifier incorrectly assumed reader and FIFO first store occurred at function entry. Frozen ELF instead has first PUSH at memory_output_read+4 and continuous_media_read+12. No guest rerun or runtime source edit.",
+  "receipt_limits": "Terminal fields retained from actual tool response; no second execution to reproduce traceback."
+}

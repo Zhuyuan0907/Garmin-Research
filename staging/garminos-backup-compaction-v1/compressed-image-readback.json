@@ -1,0 +1,11 @@
+{
+  "all_passed": true,
+  "full_image_sha256": "df393136d4d14dd31906c1f161fc354cb097c56e3bf8c2278433d01ca2f1c6e2",
+  "archive": "backups/20261002T154458Z/sda-backup-v1.squashfs",
+  "archive_sha256": "4492a1584adf109f3a2ff65c695f208fd750019098def735491cc22290bb751e",
+  "archive_bytes": 1337143296,
+  "original_raw_still_retained": true,
+  "archive_unit": "root-garmin-archives-original\\x2ddisk\\x2dv1.mount",
+  "archive_unit_text": "[Unit]\nDescription=Garmin sole original USB image, lossless compressed storage\nAfter=local-fs.target\n\n[Mount]\nWhat=/root/garmin/backups/20261002T154458Z/sda-backup-v1.squashfs\nWhere=/root/garmin/archives/original-disk-v1\nType=squashfs\nOptions=loop,ro,nodev,nosuid,noexec\nTimeoutSec=30\n\n[Install]\nWantedBy=multi-user.target\n",
+  "proposed_files_unit_text": "[Unit]\nDescription=Garmin sole original backup image, read-only research view\nAfter=local-fs.target root-garmin-archives-original\\x2ddisk\\x2dv1.mount\nRequiresMountsFor=/root/garmin/archives/original-disk-v1\n\n[Mount]\nWhat=/root/garmin/backups/20261002T154458Z/sda.img\nWhere=/root/garmin/backups/20261002T154458Z/files\nType=vfat\nOptions=loop,ro,nodev,nosuid,noexec,umask=0077\nTimeoutSec=30\n\n[Install]\nWantedBy=multi-user.target\n"
+}

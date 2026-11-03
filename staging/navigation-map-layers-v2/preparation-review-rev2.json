@@ -1,0 +1,45 @@
+{
+  "checked_at_local": "2026-10-05T23:11:25.677525+08:00",
+  "prepared": true,
+  "all_passed": true,
+  "receipt_revision": 2,
+  "supersedes_receipt": "preparation-review.json",
+  "initial_receipt_preserved": true,
+  "packaging_executed": false,
+  "live_build_IMG_read": false,
+  "device_IO": false,
+  "service_operation": false,
+  "changes_from_reviewed_source": [
+    "Bind sort allocation image_bytes/image_sha256 to final build",
+    "Use actual MDR reader source-revision3 proof by its v3 name; candidate remains map v2"
+  ],
+  "checks": {
+    "packager_python_AST_parses": true,
+    "nonterminal_build_rejected_before_IMG_reads": true,
+    "sort_allocation_gate_positive_and_negative_controls": 3,
+    "actual_terminal_sort_allocation_matches_build": true,
+    "actual_MDR_v3_proof_matches_final_build_digest": true,
+    "installer_frozen_6tests_inherited_not_rerun": true,
+    "v1_frozen19tests_not_rerun": true
+  },
+  "MDR_proof": {
+    "path": "staging/navigation-mdr-query-v2/candidate-mdr-query-proof-v3.json",
+    "sha256": "cbd3d61e90352f2c9570d6ce017afa73a916fe0cacc2e9ff17cb5c9bc0e4880a",
+    "all_passed": true,
+    "checks": 20,
+    "candidate_version": 2,
+    "source_revision": 3
+  },
+  "build_manifest_sha256": "55b3a4ce14f9292b6bc923fa2405ea6b68f04410ba1adf7eb90a67d6ff9ad42b",
+  "candidate_image_sha256_declared_only": "664c46c99697b61ba383b5571b0a49356336746c9bbf3f94403aae583787f117",
+  "expected_command": "python3 scripts/package_navigation_repair_v2.py --road-proof staging/navigation-road-regression-v2/road-city-regression-proof-v2.json",
+  "package_script_sha256": "8eaa94a5a7e3c3eb3b117ea7855412bcf39ecdc0b18b76c10a695ace4aba2ada",
+  "package_script_bytes": 22938,
+  "source_history": {
+    "gzip_snapshot": "staging/navigation-map-layers-v2/package-navigation-repair-v2-prebinding.py.gz",
+    "uncompressed_sha256": "513aedd26f5b7a548b0fb7f9a6c77071cd504e2ba96f27e326a16b4277179563",
+    "initial_receipt_sha256": "1fcc537eec54de7389a3c9841db23f0e08d6131286ff5d9479dec34505d74f37"
+  },
+  "canonical_or_v1_mutations": false,
+  "root_execution_pending": true
+}

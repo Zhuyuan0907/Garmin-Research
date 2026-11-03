@@ -1,0 +1,9 @@
+原廠 TRE 層級表迴圈：有限原指令驗證
+
+actual EXIT0/chunka954ff。只執行原Thumb指令2D08CC..2D09EA（676 instructions），以封存真TRE20bytes為輸入。原始指令確實寫出object+0x56=24、object+0x68=0；5個low7level的第二byte為0:24、1:23、2:21、3:19、4:18。
+
+Synthetic predecessor：object、SP、table buffer、count=5及指標；初始object40/42/44..55/68/69依先前原初始化片段明示設定，沒有聲稱完整TRE loader已執行。4bytes表尾padding分別0/A5兩案，輸出相同，canary/table不變；無registry/getter/result/policy hooks。
+
+既有原指令及原20-byte表從封存metadata證據直接取用；只新增讀取MAIN+2D09DA..2D09EA的16bytes。無新IMG讀取、整MAINhash或USB。
+
+這只是原表迴圈的實際stores，沒有完整mapregistry/metadata載入、metadata getter、地址reader縮放或UI查詢。native agent將另以已核實欄位繼續縮放片段，不能將此當作原生導航搜尋已修復。

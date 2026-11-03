@@ -1,0 +1,15 @@
+原廠 AP 索引位置縮放：真實來源標頭與靜態資料鏈
+
+範圍：唯讀原始備份 AP（gmapprom1.img），僅 MDR1 的4 bytes、GMP 的57-byte 公開標頭、TRE 的289-byte 公開標頭和20-byte層級表；合计370內容bytes。另讀892 bytes MAIN靜態片段，不重讀整圖/整韌體雜湊，不解鎖或解密NT，不做USB或資料修改。
+
+實際來源：MDR+772 的1a065300→5441050，與已封存MPS MapID及新讀TRE+116的低28位相同。GMP的TRE指標236；TRE+33的DWORD=525，TRE+37的DWORD=20。原始層級表（GMP+525）：8412010003130100021501000117100000183100。
+
+原程式資料鏈：2D057C開.TRE，讀GARMIN TRE標頭，再以header+33/+37取出表。2D093C將每筆記錄第二byte放到object+0x40+low7level+0x16；2D09AE將最小low7level放到object+0x68。真實表的low7level為4/3/2/1/0，第二byte為18/19/21/23/24。因此object+0x68=0，object+0x56=24。
+
+原地址reader的44B135C..1366取u8(object+u8(object+0x68)+0x56)，44B1374..1382對兩個已解出的24-bit值左移32−parameter。來源支持parameter=24，故原縮放片段應左移8。此結論由真實標頭加原指令資料流取得，未注入猜測的metadata回傳值。
+
+尚未驗證：完整mapregistry/metadata載入器沒有在此執行；動態copy是否在實機啟用亦未讀。JSON裡的左移及換算角度只是host純算術，不是原片段執行，也不是對外欄位語意/座標軸順序或UI查詢的正式命名。native agent將以本次真實來源繼續有限原指令驗證。此研究沒有地址搜尋/路由修復完成的宣稱。
+
+MDR1原1F7814使用one-based mapordinal−1、ctx+58起始/ctx+5C步長，讀4-byteMapID。359038串接1F7814→1EE156→1AF428，2D0EE0再載入TRE等metadata。原registry handle與完整open/cache生命週期仍待動態核實。
+
+來源讀回程序 actual EXIT0/chunk175e3b；詳見execution-receipt.json、source-file-seal.json。既有native packed-reader/schema檢查未重跑。

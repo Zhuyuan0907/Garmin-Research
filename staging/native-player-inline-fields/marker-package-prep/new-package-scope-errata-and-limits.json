@@ -1,0 +1,28 @@
+{
+  "draft_history_retained": true,
+  "no_existing_successful_source_or_proof_modified": true,
+  "entries": [
+    {
+      "topic": "Source comment no wait/wake",
+      "correction": "Candidate uses original nonblocking300934 acquisition. Original3008B0 release can legitimately wake a waiter that arrived; this event was not emulated. No lock return is faked."
+    },
+    {
+      "topic": "Enumeration metadata_open_attempts list alias",
+      "correction": "Original RegistryVM.enumerate returns its open_attempts list object without copying. In v2 saved enumeration object that list later contains the loader BIN open. original_functions_executed is a scalar snapshot before loading; full ordered actual opens are DLLINFO, IMGEND, DLLINFO, DLLIMG. v2 exact metadata entry/return and END/numeric-parser observations independently identify metadata-before-load."
+    },
+    {
+      "topic": "DLL checksum acceptance",
+      "correction": "Original275590/274ACC parses retained DLLINFO checksum0x0CA73F5A and verifies END. Actual changedBIN byte-sum0x0CA9DC39 differs. Passing this path is not proof of all native digest/signature gates or physical outerFAT acceptance."
+    },
+    {
+      "topic": "Pure-host first bundle mask failure",
+      "correction": "Failed draft41386/516547 retained original source/output. V2 changes only range-union bookkeeping and uses new output names; no guest success fabricated."
+    }
+  ],
+  "source_sha256": {
+    "staging/native-player-inline-fields/marker-package-prep/strict_cache_marker_entry.c": "48e8808a215d6ce97b68f2da603dcbced14294c5afd733e3a94be38cccf06a0e",
+    "staging/native-player-inline-fields/marker-package-prep/candidate-embedded-reader-metadata-control-v2.json": "fe6eba9335ba1a22ba3409df99d4249d85a966d03b641ea4ad81b1734ddf939a",
+    "staging/native-player-inline-fields/marker-package-prep/build_reversible_marker_bundle.py": "9698acdbcba043b1226d2d735e946f9e9f456b8ac5baebd3622f503426cc3354",
+    "staging/native-player-inline-fields/marker-package-prep/build_reversible_marker_bundle_v2.py": "d9d14cf8c63634e4e4672833daf32b48ee3f1bcdb31f270e3d53cf28bf731024"
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "updated_utc": "2026-10-04T12:38:46.756160+00:00",
+  "static_only": true,
+  "guest_executed_by_this_review": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "frozen_source_proof_or_canonical_modified": false,
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/probe_native_multiowner_vfp.py": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+    "scripts/verify_native_multiowner_vfp_micro.py": "9f83f16fc7ab6800a524d6a5a73949dfe439e903b23ce55ea9f71f9b530abf3e",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-dispatcher-fp/fp-static/native-multiowner-vfp-observer-contract.json": "142ee737b8f7dd75e24fc52e6f96d1a17aba40c5c20b932b38634ec574efb419",
+    "staging/native-player-dispatcher-fp/fp-static/native-vfp-retry-and-control-branch-clarification.json": "ed5ac88a1a7578829e961b6f9ef867a170b74d5788a1db6398277ff23c1984c8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "staging/native-player-dispatcher-fp/micro-vfp/source-at-run.py": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+    "staging/native-player-dispatcher-fp/micro-vfp/terminal-probe.json": "4643d6837a72a71100cda5967a16bf4f2555c2990405bbdedab43d668a91db9d",
+    "staging/native-player-dispatcher-fp/micro-vfp/inputs-before-run.json": "59cacf3bddad9bbec2c610d7e768e55f63e92e7ccf3729cd189084534a6cddc3",
+    "staging/native-player-dispatcher-fp/micro-vfp/terminal-metadata.json": "49708d1c387df7b3b8329203f8b57f9723299078728c2f8a8a785c6b50e02929",
+    "evidence/firmware-analysis/native-multiowner-vfp-fragment-controls.json": "6fde83340e8c5b082681c361b549365327aaa045c50f1dd9e3e5e8dbac376e60",
+    "staging/native-player-dispatcher-fp/fp-static/review_multiowner_vfp_helper_static.py": "449bdc3ea3f32bcef94aaa45692929ff69adca8aa05ba1e1761e02ad71ba08e0"
+  },
+  "reviewed_helper_sha256": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+  "reviewed_verifier_sha256": "9f83f16fc7ab6800a524d6a5a73949dfe439e903b23ce55ea9f71f9b530abf3e",
+  "review_result": "No concrete blocker found for the five declared original-fragment controls. Actual cold/task scheduling integration requires the separate gates below.",
+  "concrete_micro_blockers": [],
+  "method_source_inventory": {
+    "__init__": {
+      "line": 34,
+      "end_line": 54,
+      "source_sha256": "0281f77953618e9106f13ac0a0ff720d99bf5a21f05683b286708fe1406c0796"
+    },
+    "metadata": {
+      "line": 56,
+      "end_line": 70,
+      "source_sha256": "d7a6d2690e8cf38c23693f5ac772ab07ccaabc85605419341dfffcd5212d080a"
+    },
+    "enter": {
+      "line": 72,
+      "end_line": 101,
+      "source_sha256": "700199b9e64662e34d1a4de1180c4b856dada4a5b5d66736531bf124ce4d201f"
+    },
+    "decode": {
+      "line": 103,
+      "end_line": 112,
+      "source_sha256": "e2ba49cf4c8802833aa0067955b2d271488d997ebfc446e013c647719af613ac"
+    },
+    "journal": {
+      "line": 114,
+      "end_line": 149,
+      "source_sha256": "99a90ecb8f39c253db89142c1cf0d8d434becd5cbf1d96f6b6ebbad95951ec7f"
+    },
+    "finish_push": {
+      "line": 151,
+      "end_line": 157,
+      "source_sha256": "44bf9fc4805bc37757ee96ca26ab85de7c73e90b89a75b588c1b734fb3031520"
+    },
+    "observe": {
+      "line": 159,
+      "end_line": 259,
+      "source_sha256": "5bac266d611058e22345a85048f7398e51c47f851d2323393c96d21ff71589a0"
+    },
+    "verify": {
+      "line": 261,
+      "end_line": 282,
+      "source_sha256": "2574f82d6176af2a0d92d07179a14c92b6f623fa251d2c3860499ed8332530d7"
+    }
+  },
+  "original_instruction_sites": [
+    {
+      "PC": "0x20ebd4",
+      "mode": "ARM",
+      "opcode_hex": "0010a0e3",
+      "instruction": "mov r1, #0"
+    },
+    {
+      "PC": "0x20ebe0",
+      "mode": "ARM",
+      "opcode_hex": "1f102de9",
+      "instruction": "push {r0, r1, r2, r3, r4, ip}"
+    },
+    {
+      "PC": "0x20ec78",
+      "mode": "ARM",
+      "opcode_hex": "20402de9",
+      "instruction": "push {r5, lr}"
+    },
+    {
+      "PC": "0x20ec80",
+      "mode": "ARM",
+      "opcode_hex": "100ae8ee",
+      "instruction": "vmsr fpexc, r0"
+    },
+    {
+      "PC": "0x20ec90",
+      "mode": "ARM",
+      "opcode_hex": "040050e1",
+      "instruction": "cmp r0, r4"
+    },
+    {
+      "PC": "0x20ec94",
+      "mode": "ARM",
+      "opcode_hex": "2500000a",
+      "instruction": "beq #0x20ed30"
+    },
+    {
+      "PC": "0x20ec98",
+      "mode": "ARM",
+      "opcode_hex": "000081e5",
+      "instruction": "str r0, [r1]"
+    },
+    {
+      "PC": "0x20ecb4",
+      "mode": "ARM",
+      "opcode_hex": "0700001a",
+      "instruction": "bne #0x20ecd8"
+    },
+    {
+      "PC": "0x20ecd8",
+      "mode": "ARM",
+      "opcode_hex": "200b80ec",
+      "instruction": "vstmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}"
+    },
+    {
+      "PC": "0x20ece0",
+      "mode": "ARM",
+      "opcode_hex": "101af8ee",
+      "instruction": "vmrs r1, fpexc"
+    },
+    {
+      "PC": "0x20ece8",
+      "mode": "ARM",
+      "opcode_hex": "102af91e",
+      "instruction": "vmrsne r2, fpinst"
+    },
+    {
+      "PC": "0x20ecf0",
+      "mode": "ARM",
+      "opcode_hex": "103afa1e",
+      "instruction": "vmrsne r3, fpinst2"
+    },
+    {
+      "PC": "0x20ecf8",
+      "mode": "ARM",
+      "opcode_hex": "0e1080e8",
+      "instruction": "stm r0, {r1, r2, r3, ip}"
+    },
+    {
+      "PC": "0x20ed0c",
+      "mode": "ARM",
+      "opcode_hex": "200b90ec",
+      "instruction": "vldmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}"
+    },
+    {
+      "PC": "0x20ed24",
+      "mode": "ARM",
+      "opcode_hex": "01021113",
+      "instruction": "tstne r1, #0x10000000"
+    },
+    {
+      "PC": "0x20ed30",
+      "mode": "ARM",
+      "opcode_hex": "2040bde8",
+      "instruction": "pop {r5, lr}"
+    },
+    {
+      "PC": "0x20ed38",
+      "mode": "ARM",
+      "opcode_hex": "1f10bde8",
+      "instruction": "pop {r0, r1, r2, r3, r4, ip}"
+    },
+    {
+      "PC": "0x20ed3c",
+      "mode": "ARM",
+      "opcode_hex": "0ef0b0e1",
+      "instruction": "movs pc, lr"
+    },
+    {
+      "PC": "0x6e0830",
+      "mode": "ARM",
+      "opcode_hex": "10402de9",
+      "instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x6e0858",
+      "mode": "ARM",
+      "opcode_hex": "1c4080e5",
+      "instruction": "str r4, [r0, #0x1c]"
+    },
+    {
+      "PC": "0xf6e14",
+      "mode": "Thumb",
+      "opcode_hex": "70b5",
+      "instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0xf6e2e",
+      "mode": "Thumb",
+      "opcode_hex": "4ec0",
+      "instruction": "stm r0!, {r1, r2, r3, r6}"
+    },
+    {
+      "PC": "0xf6e32",
+      "mode": "Thumb",
+      "opcode_hex": "4ec0",
+      "instruction": "stm r0!, {r1, r2, r3, r6}"
+    },
+    {
+      "PC": "0xf6e36",
+      "mode": "Thumb",
+      "opcode_hex": "06c0",
+      "instruction": "stm r0!, {r1, r2}"
+    },
+    {
+      "PC": "0xf6e3c",
+      "mode": "Thumb",
+      "opcode_hex": "0171",
+      "instruction": "strb r1, [r0, #4]"
+    },
+    {
+      "PC": "0xf6e40",
+      "mode": "Thumb",
+      "opcode_hex": "e861",
+      "instruction": "str r0, [r5, #0x1c]"
+    },
+    {
+      "PC": "0xf6edc",
+      "mode": "Thumb",
+      "opcode_hex": "70b5",
+      "instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0xf6f02",
+      "mode": "Thumb",
+      "opcode_hex": "2160",
+      "instruction": "str r1, [r4]"
+    },
+    {
+      "PC": "0xf6f10",
+      "mode": "Thumb",
+      "opcode_hex": "6160",
+      "instruction": "str r1, [r4, #4]"
+    },
+    {
+      "PC": "0xf6f18",
+      "mode": "Thumb",
+      "opcode_hex": "6160",
+      "instruction": "str r1, [r4, #4]"
+    }
+  ],
+  "bounded_CFG_reused": true,
+  "new_CFG_nodes_explored": 0,
+  "observed_root_terminal": {
+    "metadata": "staging/native-player-dispatcher-fp/micro-vfp/terminal-metadata.json",
+    "exec_chunk_id": "17e393",
+    "exec_session_id": null,
+    "authoritative_exit_code": 0,
+    "proof": "evidence/firmware-analysis/native-multiowner-vfp-fragment-controls.json",
+    "case_count": 5,
+    "VSTM_callback_widths": [
+      8
+    ],
+    "whole_zones": 8,
+    "CPU_store_events": 145,
+    "independent_replay_published": true,
+    "terminal_execution_by_root": true,
+    "execution_repeated_by_this_review": false
+  },
+  "five_case_contract": [
+    {
+      "index": 0,
+      "name": "first_controller_owner",
+      "save": false,
+      "restore": false,
+      "retry_bank_source": "actual_fault_bank",
+      "actual_control_words": null,
+      "UND_pushes": 2
+    },
+    {
+      "index": 1,
+      "name": "first_C_to_D_save_C_without_D_restore",
+      "save": true,
+      "restore": false,
+      "retry_bank_source": "actual_fault_bank",
+      "actual_control_words": [
+        "0x40000000",
+        "0x9503f90",
+        "0x20ecc4",
+        "0x3000000"
+      ],
+      "UND_pushes": 4
+    },
+    {
+      "index": 2,
+      "name": "D_to_C_save_D_clone40_restore_C",
+      "save": true,
+      "restore": true,
+      "retry_bank_source": "new_owner_saved_context",
+      "actual_control_words": [
+        "0x40000000",
+        "0x0",
+        "0x0",
+        "0x3000000"
+      ],
+      "UND_pushes": 6
+    },
+    {
+      "index": 3,
+      "name": "C_to_D_reuse_C_context_restore_D",
+      "save": true,
+      "restore": true,
+      "retry_bank_source": "new_owner_saved_context",
+      "actual_control_words": [
+        "0x40000000",
+        "0xa00",
+        "0x12345003",
+        "0x3000000"
+      ],
+      "UND_pushes": 2
+    },
+    {
+      "index": 4,
+      "name": "same_D_owner_no_context_exchange",
+      "save": false,
+      "restore": false,
+      "retry_bank_source": "actual_fault_bank",
+      "actual_control_words": null,
+      "UND_pushes": 2
+    }
+  ],
+  "observed_push_frames_independently_compared": 16,
+  "ABI_review": {
+    "undefined_entry": "Explicit architectural UND entry, original mode SYS/USR ARM, original CP10/11 VFP opcode, FPEXC exactly0, CPACR access readback F00000; banked UND SP/LR and SPSR fixture only.",
+    "original_getter": "358D24 returns0 when F09094 is nonzero; otherwise dereferences F09090. Micro uses F09090 as declared selected task and mapped zero marker.",
+    "original_return": "20ED30 inner pop,20ED38 outer pop,20ED3C MOVS PC,LR restores original SPSR and retries same original fault opcode with exact GP15.",
+    "native_context": {
+      "request_bytes": 148,
+      "allocation_advance": 152,
+      "D16_bytes": 128,
+      "hole_offset": 128,
+      "hole_bytes": 4,
+      "controls_offset": 132,
+      "control_registers": [
+        "r1/FPEXC",
+        "r2/FPINST-or-actual-residual",
+        "r3/FPINST2-or-actual-residual",
+        "ip/FPSCR"
+      ],
+      "controls_bytes": 16,
+      "padding_offset": 148,
+      "padding_bytes": 4
+    },
+    "controls": "Native-enabled FPEXC40000000 has neither exceptional bit. +136/+140 preserve branch-dependent actual r2/r3: mutable first-save oldTCB/20ECC4, readonly clone oldM+36/oldM+24, existing-slot opcode&F00/faultGP3. Observer captures actual registers rather than assumes zero.",
+    "same_owner": "20EC94 directly selects20ED30; never VLDM even with a valid slot. Retry retains actual fault D16/FPSCR.",
+    "different_owner": "Save old owner when nonzero. New slot0 retains fault bank; valid new slot restores its saved D16/FPSCR and expected retry compares that saved bank.",
+    "allocator": "Original F6EDC rounds148 to152, clone40 to40; header magic FCE3E2CA, native cursor atpool+4, cold cursor align_up(pool+8,8). Native has no capacity check.",
+    "clone": "Original F6E2E/F6E32/F6E36 copies40 bytes, F6E3C sets writable byte4, F6E40 publishes only oldTCB+28,6E0858 publishes clonedmetadata+28=context. Original readonly40 preserved.",
+    "journal": "Original opcode and mode rechecked. Eight-byte VSTM callbacks tile exactly128 bytes without overlap and equal captured D16 bytes; exact four4-byte control stores equal captured r1/r2/r3/ip. Every pending push checks exact PC/SP/mode/address/payload and complete coverage. Whole-zone replay catches unjournaled changes.",
+    "pool_guard": "External256-byte capacity admission and320-byte typed pool journal; trailing64FF; cursor exactctx+152+(40 for readonly). This is observer capacity enforcement, not a recovered native limit."
+  },
+  "explicit_fixtures": {
+    "TCBs": "Two108-byte host-supplied5A TCBs, only metadata word28 typed. They are not cold-builder products.",
+    "selection": "Host task selection writesF09090 and sets ordinary caller SP/LR/r0 between cases; no native scheduler switch.",
+    "metadata": "Mutable C metadata and readonly D metadata/pools are declared inputs; D fixture word0=261E30 and word32=8805220 deliberately tests nonzero clone object32. Actual Dispatcher metadata word0=5D2544/word32=0 is a separate cold-builder inventory.",
+    "pools": "Host FF320 backing imitates native-filled cold pool shape; first256 budget plus trailing64 guard, no builder execution.",
+    "access_and_exception": "CPACR explicit declared virtual input and architectural UND entry fixture; no native FPboot20ED68, hardware vector or physical fault-entry proof.",
+    "original_executed": "Root executed unchanged original disable/handler/currentgetter/allocator/clone/IRQ helpers/conversion fragments; owner/context/FPEXC enable/bank exchange were produced by original guest instructions."
+  },
+  "next_integration_gates": [
+    {
+      "id": "actual-current-getter",
+      "blocking_for_micro": false,
+      "required_for_actual_integration": true,
+      "requirement": "Before any architectural UND entry require F09094==0 and original358D24/F09090 result equals the task from the actual native restore destination. Getter(current) must not silently substitute a ready-head task for the running task."
+    },
+    {
+      "id": "runtime-fault-mapping",
+      "blocking_for_micro": false,
+      "required_if_copied_code_faults": true,
+      "requirement": "enter uses stock.read(pc,4) with load-domain pc. Exact current MAIN3404DC is valid; copied440/540 fault sites require native runtime-to-load mapping and declared unchanged opcode before admission."
+    },
+    {
+      "id": "cold-native-inputs",
+      "blocking_for_micro": false,
+      "required_for_actual_integration": true,
+      "requirement": "Supply controller metadata by cold descriptor+16 before original358BF8 builder. Borrow actual Dispatcher readonlyM40 and preserve Thread object32 separately. No host write to live TCB+28, FPowner, context, bank or allocator headers."
+    },
+    {
+      "id": "full-guard-delta",
+      "blocking_for_micro": false,
+      "required_for_actual_integration": true,
+      "requirement": "Replace cold slot0/all256FF assertions only after observed native148/152 and optionalclone40 stores. Compare per-trapTCB108 with only original clone+28 publication allowed, replay cold-to-final metadata/pool whole zones, retain trailing64FF and actual stack/context-frame bounds."
+    },
+    {
+      "id": "live-actors-and-clock",
+      "blocking_for_micro": false,
+      "required_for_actual_integration": true,
+      "requirement": "Keep originalALL/ready/owned mutex chains, background resident frames, Thread timednode20 and clock invariants. Nonexclusive journal mode needs independent original-kernel/actor CPU histories outside activeUND; this micro does not supply them."
+    },
+    {
+      "id": "native-three-stage-exchange",
+      "blocking_for_micro": false,
+      "required_for_actual_integration": true,
+      "requirement": "Actual controller-to-Dispatcher firstslot0 savesC without restoringD; subsequent actualD-to-C must saveD/clone40 and restoreC; laterC-to-D must restore savedD. Do not report firstD fault/retry or metadata slot alone as complete multiowner scheduling."
+    }
+  ],
+  "nonblocking_review_limits": [
+    "Standalone constructor occurs before the case try; construction/hook failure journaling is not covered by terminal-probe generation in this source. Root terminal metadata remains necessary.",
+    "Observer admits reported VSTM widths1/2/4/8 but actual sealed run observed only8. Other Unicorn widths or exceptionalFPEXC paths require new controls.",
+    "Five controls omit owner0 plus already-valid-newslot and a third FP-owning task. This source requires exactly two admitted task inputs.",
+    "Static verifier relies on runtime pending-push value gates; this review additionally compares all observed push ABI/address/value records against the previously bounded native flow."
+  ],
+  "actual_cold_Dispatcher_body_verified": false,
+  "multiowner_native_scheduling_verified": false,
+  "physical_App_direct_phone_music_package_acceptance_verified": false,
+  "assertions_passed": true
+}

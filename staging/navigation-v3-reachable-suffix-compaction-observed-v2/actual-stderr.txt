@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-observed-v2/observed_analyzer.py", line 291, in <module>
+    main()
+    ~~~~^^
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-observed-v2/observed_analyzer.py", line 164, in main
+    OBS.snapshot('initial before any input parse or field array allocation',dict(host_platform=sys.platform,
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        fixed_field_array_bytes=sum((n+1)*8 for n in COUNTS.values() if n!=COUNTS[6]),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        original_attempt_not_replayed=True,RSS_cap_unchanged=True))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-observed-v2/observed_analyzer.py", line 83, in snapshot
+    raise OwnBudgetError('Own Python ru_maxrss budget exceeded: '+str(ru)+' KiB > '+str(RSS_CAP_KIB)+' KiB')
+OwnBudgetError: Own Python ru_maxrss budget exceeded: 424240 KiB > 393216 KiB

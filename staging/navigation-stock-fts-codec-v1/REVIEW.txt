@@ -1,0 +1,35 @@
+精確台灣 HWID1352／SW8.00：原廠 TWNJAI 名稱 token 小型 FILE-only 檢查
+
+本輪只讀原備份 TWNJAI.db（mode=ro&immutable=1）與少量 MAIN 原指令片段。
+沒有 VM／原指令執行、USB、地圖或資料庫寫入、canonical修改、整備份／整MAIN重hash。
+
+原 token 不是固定「tk＋五字母」tag。真正 wire layout 是一個長度字元
+（'q'+UTF-8 byte length），再每個加密 byte 以 a..p 高低 nibble 表示。
+三byte漢字是 t＋六nibbles，其中第一nibble常為k，故表面看成tk。
+原0x04425B40建立固定key排程；0x04425AE8與0x044242F4採三次XOR
+交換的RC4-style KSA／PRGA。主機模型保留equal-index行為；每token重新
+複製258-byte context，沒有假裝執行原函式。
+
+22個縣市小樣本皆嚴格解為UTF-8中文，並逐token反向完全還原。
+原info.id12987／record0x10000008是「台中市」（台U+53F0）。
+這與OSM node8528998711的「臺中市」不同，但沒有證明native query轉碼、
+normalization或address caller，不能單憑此差異判斷實機失敗原因。
+
+主機FTS8控制：台中市1、臺中市0、民權路6、民權17、民和路3、184號0。
+字數是matching FTS rows，不是實機候選数／門牌數。
+六民權路family區間分別為北區、西區、大甲區、中區、霧峰區、神岡區。
+中央候選是「台中市→中區→民權路」：info.id16786、record0x30004143，
+parent0x20000058（中區）再到city0x10000008；以原SQL predecessor規則
+與明確下一個first_record邊界核對。民和路二段另有清水區記錄；梧棲區
+有民和路一段及二段。台中市區層級共29個。
+
+record是u32 logical level-high-nibble＋low28-ID；little-endian hex只是
+scalar展示，不能當成AP資料offset或SQLite on-disk varint。
+FTS record_info>>8連到info.id；低4flag完整語義未知。
+family是區間候選關係，whole-stock原始gap合法，沒有強制填補或重建。
+
+尚未解碼184門牌AP payload／原NT，也沒有writer。名稱FTS的184號0筆
+不是地址不存在證據。使用者三層已查得正確184目的地及路線是另一路
+實機觀察，不能據本codec宣稱原廠資料已更新或2026地址完整可用。
+下一步應由原native manager/provider的確切caller串接stock record key、
+AP門牌及原生查詢ABI；不先假定CP950／完整UTF-8 query介面。

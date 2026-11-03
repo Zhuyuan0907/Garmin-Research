@@ -1,0 +1,67 @@
+{
+  "schema": "native-music-passive-lifetime-FILE-ledger/v1",
+  "updated_utc": "2026-10-07T11:41:52.150758+00:00",
+  "input_pins": {
+    "staging/native-player-loaded-single-image/resident_entry_v1.c": {
+      "bytes": 2609,
+      "sha256": "2fdc2a5899ba0f42485c13af80c09dee0eefc7fba32da6f2b60791b04bd19c3a"
+    },
+    "staging/native-player-loaded-single-image/build-v2/memory_output_loaded_owner_v1.c": {
+      "bytes": 3674,
+      "sha256": "068069947d5e8d02a9e54ce3717a7a34b48d2ba0067be666eda76ddab23bfffa"
+    },
+    "staging/native-player-loaded-single-image/build-v2/resident.ld": {
+      "bytes": 1342,
+      "sha256": "f7fce4ac5823d187a19a491514c573d74a19582e7c0ec849a6af2bf33180945a"
+    },
+    "staging/native-player-loaded-single-image/build-v3.json": {
+      "bytes": 77732,
+      "sha256": "9790e7d3951d9dd1210212fbb303c381eb8c9b6f64ebe7f80746ab074fe91677"
+    },
+    "staging/native-player-loaded-single-image/build-v3/memory_output_loaded_owner_v1.c": {
+      "bytes": 3674,
+      "sha256": "068069947d5e8d02a9e54ce3717a7a34b48d2ba0067be666eda76ddab23bfffa"
+    },
+    "staging/native-player-loaded-single-image/build-v3/resident.ld": {
+      "bytes": 1374,
+      "sha256": "f2ab505ef6216d96f730abcadefcd848b6e95385a32f54bdba8f4c5d67de3766"
+    }
+  },
+  "entry_calls_original_TTS_and_returns_original_status": true,
+  "entry_passive_ready_is_original_status_11_or_6": true,
+  "entry_passive_ready_means_Source_or_player_READY": false,
+  "custom_activation_functions_exist_only_in_export_table_at_this_entry": true,
+  "entry_calls_custom_boot_phone_publish_or_play": false,
+  "entry_phase_is_reloaded_initialized_data_not_external_lifetime_pin": true,
+  "explicit_BSS_reset_span_contains": [
+    ".bss",
+    ".pcm0",
+    ".pcm1",
+    ".pcm2",
+    ".pcm3",
+    ".mh_source_stack",
+    ".gather",
+    ".queue_payload"
+  ],
+  "conditional_voice_replacement_issue": "A new file load restores initialized phase; the entry then clears the declared state/PCM/Source stack span. The source explicitly disclaims replacement protection. No live reload or overwritten callback was reproduced.",
+  "real_loader_or_voice_replacement_experiment_run": false,
+  "no_outside_copy_or_module_pin_established_by_this_entry": true,
+  "guarded_reader_is_real_source_implementation": true,
+  "reader_guard_is_hardware_all_writer_ownership_proof": false,
+  "release_borrow_or_reader_in_flight_returns_PENDING": true,
+  "release_requires_matching_nonzero_selected_session_and_held_mutation_registration": true,
+  "release_forwards_to_frozen_original_owner_callee": true,
+  "frozen_callee_or_full_stop_return_executed": false,
+  "release_success_alone_proves_STOP_DONE_or_safe_unload": false,
+  "v3_selected_entry_and_owner_source_pins_match_current_selected_source": true,
+  "v3_owner_source_bytes_identical_to_v2": true,
+  "v3_linker_bytes_identical_to_v2": false,
+  "v2_v3_all_provider_or_lifecycle_semantics_equal_claimed": false,
+  "proof_scope": "Six fixed text/metadata inputs; source assertions, declared linker ordering and selected v3 source pins, not compiled code or runtime evidence.",
+  "native_import_compile_guest_firmware_binary_RAM": false,
+  "device_service_DBUS_BT_audio": false,
+  "native_GUI_phone_speaker_ownership_STOP_DONE_verified": false,
+  "native_install_ready": false,
+  "full_goal_complete": false,
+  "next_obligation": "Separate passive TTS-entry success from original Source READY and actual GUI activation; establish real resident storage and voice-replacement/callback lifetime before live music."
+}

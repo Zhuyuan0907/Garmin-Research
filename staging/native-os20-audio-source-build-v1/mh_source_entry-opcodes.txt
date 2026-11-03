@@ -1,0 +1,412 @@
+
+/root/garmin/staging/native-os20-audio-source-build-v1/warm-os20-source-EMULATION-ONLY.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+02f98430 <mh_source_entry>:
+ 2f98430:	e59f258c 	ldr	r2, [pc, #1420]	@ 2f989c4 <mh_source_entry+0x594>
+ 2f98434:	e92d4ff8 	push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 2f98438:	e5923000 	ldr	r3, [r2]
+ 2f9843c:	e59f6584 	ldr	r6, [pc, #1412]	@ 2f989c8 <mh_source_entry+0x598>
+ 2f98440:	e2833001 	add	r3, r3, #1
+ 2f98444:	e5823000 	str	r3, [r2]
+ 2f98448:	eb00275d 	bl	2fa21c4 <mw_attach_stage1>
+ 2f9844c:	e3a02001 	mov	r2, #1
+ 2f98450:	e59f3574 	ldr	r3, [pc, #1396]	@ 2f989cc <mh_source_entry+0x59c>
+ 2f98454:	e5860000 	str	r0, [r6]
+ 2f98458:	e5832000 	str	r2, [r3]
+ 2f9845c:	e59f356c 	ldr	r3, [pc, #1388]	@ 2f989d0 <mh_source_entry+0x5a0>
+ 2f98460:	e12fff33 	blx	r3
+ 2f98464:	e3500000 	cmp	r0, #0
+ 2f98468:	0a00000f 	beq	2f984ac <mh_source_entry+0x7c>
+ 2f9846c:	e59f3560 	ldr	r3, [pc, #1376]	@ 2f989d4 <mh_source_entry+0x5a4>
+ 2f98470:	e5933000 	ldr	r3, [r3]
+ 2f98474:	e1500003 	cmp	r0, r3
+ 2f98478:	1a00000b 	bne	2f984ac <mh_source_entry+0x7c>
+ 2f9847c:	e59f3554 	ldr	r3, [pc, #1364]	@ 2f989d8 <mh_source_entry+0x5a8>
+ 2f98480:	e5933000 	ldr	r3, [r3]
+ 2f98484:	e1500003 	cmp	r0, r3
+ 2f98488:	1a000007 	bne	2f984ac <mh_source_entry+0x7c>
+ 2f9848c:	e59f1548 	ldr	r1, [pc, #1352]	@ 2f989dc <mh_source_entry+0x5ac>
+ 2f98490:	e5913000 	ldr	r3, [r1]
+ 2f98494:	e3530000 	cmp	r3, #0
+ 2f98498:	0a000003 	beq	2f984ac <mh_source_entry+0x7c>
+ 2f9849c:	e59f353c 	ldr	r3, [pc, #1340]	@ 2f989e0 <mh_source_entry+0x5b0>
+ 2f984a0:	e5932000 	ldr	r2, [r3]
+ 2f984a4:	e3520000 	cmp	r2, #0
+ 2f984a8:	0a00002b 	beq	2f9855c <mh_source_entry+0x12c>
+ 2f984ac:	e59f0530 	ldr	r0, [pc, #1328]	@ 2f989e4 <mh_source_entry+0x5b4>
+ 2f984b0:	ebffffd5 	bl	2f9840c <mh_os20_error>
+ 2f984b4:	e59fa52c 	ldr	sl, [pc, #1324]	@ 2f989e8 <mh_source_entry+0x5b8>
+ 2f984b8:	e59f352c 	ldr	r3, [pc, #1324]	@ 2f989ec <mh_source_entry+0x5bc>
+ 2f984bc:	e12fff33 	blx	r3
+ 2f984c0:	e59f4528 	ldr	r4, [pc, #1320]	@ 2f989f0 <mh_source_entry+0x5c0>
+ 2f984c4:	e1a07000 	mov	r7, r0
+ 2f984c8:	e12fff34 	blx	r4
+ 2f984cc:	e3a02000 	mov	r2, #0
+ 2f984d0:	e59f351c 	ldr	r3, [pc, #1308]	@ 2f989f4 <mh_source_entry+0x5c4>
+ 2f984d4:	e59f851c 	ldr	r8, [pc, #1308]	@ 2f989f8 <mh_source_entry+0x5c8>
+ 2f984d8:	e5935000 	ldr	r5, [r3]
+ 2f984dc:	e5832000 	str	r2, [r3]
+ 2f984e0:	e59f3514 	ldr	r3, [pc, #1300]	@ 2f989fc <mh_source_entry+0x5cc>
+ 2f984e4:	e12fff33 	blx	r3
+ 2f984e8:	e3550000 	cmp	r5, #0
+ 2f984ec:	e59f950c 	ldr	r9, [pc, #1292]	@ 2f98a00 <mh_source_entry+0x5d0>
+ 2f984f0:	0a000051 	beq	2f9863c <mh_source_entry+0x20c>
+ 2f984f4:	e59f2508 	ldr	r2, [pc, #1288]	@ 2f98a04 <mh_source_entry+0x5d4>
+ 2f984f8:	e5923000 	ldr	r3, [r2]
+ 2f984fc:	e2833001 	add	r3, r3, #1
+ 2f98500:	e5823000 	str	r3, [r2]
+ 2f98504:	e2453008 	sub	r3, r5, #8
+ 2f98508:	e3530001 	cmp	r3, #1
+ 2f9850c:	8a000039 	bhi	2f985f8 <mh_source_entry+0x1c8>
+ 2f98510:	e12fff34 	blx	r4
+ 2f98514:	e59f34ec 	ldr	r3, [pc, #1260]	@ 2f98a08 <mh_source_entry+0x5d8>
+ 2f98518:	e5933010 	ldr	r3, [r3, #16]
+ 2f9851c:	e3530000 	cmp	r3, #0
+ 2f98520:	0a000009 	beq	2f9854c <mh_source_entry+0x11c>
+ 2f98524:	e59f34e0 	ldr	r3, [pc, #1248]	@ 2f98a0c <mh_source_entry+0x5dc>
+ 2f98528:	e5932000 	ldr	r2, [r3]
+ 2f9852c:	e3720001 	cmn	r2, #1
+ 2f98530:	0a000005 	beq	2f9854c <mh_source_entry+0x11c>
+ 2f98534:	e59f24d4 	ldr	r2, [pc, #1236]	@ 2f98a10 <mh_source_entry+0x5e0>
+ 2f98538:	e592208c 	ldr	r2, [r2, #140]	@ 0x8c
+ 2f9853c:	e5921160 	ldr	r1, [r2, #352]	@ 0x160
+ 2f98540:	e59f24cc 	ldr	r2, [pc, #1228]	@ 2f98a14 <mh_source_entry+0x5e4>
+ 2f98544:	e1510002 	cmp	r1, r2
+ 2f98548:	0a000012 	beq	2f98598 <mh_source_entry+0x168>
+ 2f9854c:	e59f34a8 	ldr	r3, [pc, #1192]	@ 2f989fc <mh_source_entry+0x5cc>
+ 2f98550:	e12fff33 	blx	r3
+ 2f98554:	e3e040c8 	mvn	r4, #200	@ 0xc8
+ 2f98558:	ea000033 	b	2f9862c <mh_source_entry+0x1fc>
+ 2f9855c:	e5960000 	ldr	r0, [r6]
+ 2f98560:	e59f24b0 	ldr	r2, [pc, #1200]	@ 2f98a18 <mh_source_entry+0x5e8>
+ 2f98564:	e5820000 	str	r0, [r2]
+ 2f98568:	e5932000 	ldr	r2, [r3]
+ 2f9856c:	e2822001 	add	r2, r2, #1
+ 2f98570:	e5832000 	str	r2, [r3]
+ 2f98574:	e5910000 	ldr	r0, [r1]
+ 2f98578:	e59f349c 	ldr	r3, [pc, #1180]	@ 2f98a1c <mh_source_entry+0x5ec>
+ 2f9857c:	e3a01b01 	mov	r1, #1024	@ 0x400
+ 2f98580:	e12fff33 	blx	r3
+ 2f98584:	e59f2494 	ldr	r2, [pc, #1172]	@ 2f98a20 <mh_source_entry+0x5f0>
+ 2f98588:	e5923000 	ldr	r3, [r2]
+ 2f9858c:	e2833001 	add	r3, r3, #1
+ 2f98590:	e5823000 	str	r3, [r2]
+ 2f98594:	eaffffc6 	b	2f984b4 <mh_source_entry+0x84>
+ 2f98598:	e3550008 	cmp	r5, #8
+ 2f9859c:	03a01001 	moveq	r1, #1
+ 2f985a0:	13a01000 	movne	r1, #0
+ 2f985a4:	e59f2478 	ldr	r2, [pc, #1144]	@ 2f98a24 <mh_source_entry+0x5f4>
+ 2f985a8:	e5821000 	str	r1, [r2]
+ 2f985ac:	e5932000 	ldr	r2, [r3]
+ 2f985b0:	e2822001 	add	r2, r2, #1
+ 2f985b4:	e5832000 	str	r2, [r3]
+ 2f985b8:	059f2468 	ldreq	r2, [pc, #1128]	@ 2f98a28 <mh_source_entry+0x5f8>
+ 2f985bc:	159f2468 	ldrne	r2, [pc, #1128]	@ 2f98a2c <mh_source_entry+0x5fc>
+ 2f985c0:	e5923000 	ldr	r3, [r2]
+ 2f985c4:	e2833001 	add	r3, r3, #1
+ 2f985c8:	e5823000 	str	r3, [r2]
+ 2f985cc:	e59f3428 	ldr	r3, [pc, #1064]	@ 2f989fc <mh_source_entry+0x5cc>
+ 2f985d0:	e12fff33 	blx	r3
+ 2f985d4:	e3550009 	cmp	r5, #9
+ 2f985d8:	1a000074 	bne	2f987b0 <mh_source_entry+0x380>
+ 2f985dc:	e59f344c 	ldr	r3, [pc, #1100]	@ 2f98a30 <mh_source_entry+0x600>
+ 2f985e0:	e5933000 	ldr	r3, [r3]
+ 2f985e4:	e3530000 	cmp	r3, #0
+ 2f985e8:	0a000070 	beq	2f987b0 <mh_source_entry+0x380>
+ 2f985ec:	e3a00012 	mov	r0, #18
+ 2f985f0:	eb0026d5 	bl	2fa214c <send_mixer.constprop.0>
+ 2f985f4:	ea00006d 	b	2f987b0 <mh_source_entry+0x380>
+ 2f985f8:	e3550005 	cmp	r5, #5
+ 2f985fc:	1a000055 	bne	2f98758 <mh_source_entry+0x328>
+ 2f98600:	eb00031c 	bl	2f99278 <aas_stop>
+ 2f98604:	e2403001 	sub	r3, r0, #1
+ 2f98608:	e3530001 	cmp	r3, #1
+ 2f9860c:	e1a04000 	mov	r4, r0
+ 2f98610:	8a000005 	bhi	2f9862c <mh_source_entry+0x1fc>
+ 2f98614:	ebfff8f7 	bl	2f969f8 <ns_retire_step>
+ 2f98618:	e2403001 	sub	r3, r0, #1
+ 2f9861c:	e16f3f13 	clz	r3, r3
+ 2f98620:	e1a04000 	mov	r4, r0
+ 2f98624:	e1a032a3 	lsr	r3, r3, #5
+ 2f98628:	e5883000 	str	r3, [r8]
+ 2f9862c:	e59f3400 	ldr	r3, [pc, #1024]	@ 2f98a34 <mh_source_entry+0x604>
+ 2f98630:	e5834000 	str	r4, [r3]
+ 2f98634:	e59f33fc 	ldr	r3, [pc, #1020]	@ 2f98a38 <mh_source_entry+0x608>
+ 2f98638:	e5835000 	str	r5, [r3]
+ 2f9863c:	e5993000 	ldr	r3, [r9]
+ 2f98640:	e3530000 	cmp	r3, #0
+ 2f98644:	0a000017 	beq	2f986a8 <mh_source_entry+0x278>
+ 2f98648:	e59f33c0 	ldr	r3, [pc, #960]	@ 2f98a10 <mh_source_entry+0x5e0>
+ 2f9864c:	e5933094 	ldr	r3, [r3, #148]	@ 0x94
+ 2f98650:	e3530000 	cmp	r3, #0
+ 2f98654:	0a000013 	beq	2f986a8 <mh_source_entry+0x278>
+ 2f98658:	e59f33a8 	ldr	r3, [pc, #936]	@ 2f98a08 <mh_source_entry+0x5d8>
+ 2f9865c:	e5933010 	ldr	r3, [r3, #16]
+ 2f98660:	e3530000 	cmp	r3, #0
+ 2f98664:	0a00000f 	beq	2f986a8 <mh_source_entry+0x278>
+ 2f98668:	e3a03000 	mov	r3, #0
+ 2f9866c:	e5893000 	str	r3, [r9]
+ 2f98670:	eb000300 	bl	2f99278 <aas_stop>
+ 2f98674:	e2403001 	sub	r3, r0, #1
+ 2f98678:	e3530001 	cmp	r3, #1
+ 2f9867c:	8a000004 	bhi	2f98694 <mh_source_entry+0x264>
+ 2f98680:	ebfff8dc 	bl	2f969f8 <ns_retire_step>
+ 2f98684:	e2403001 	sub	r3, r0, #1
+ 2f98688:	e16f3f13 	clz	r3, r3
+ 2f9868c:	e1a032a3 	lsr	r3, r3, #5
+ 2f98690:	e5883000 	str	r3, [r8]
+ 2f98694:	e3a02005 	mov	r2, #5
+ 2f98698:	e59f3394 	ldr	r3, [pc, #916]	@ 2f98a34 <mh_source_entry+0x604>
+ 2f9869c:	e5830000 	str	r0, [r3]
+ 2f986a0:	e59f3390 	ldr	r3, [pc, #912]	@ 2f98a38 <mh_source_entry+0x608>
+ 2f986a4:	e5832000 	str	r2, [r3]
+ 2f986a8:	e5983000 	ldr	r3, [r8]
+ 2f986ac:	e3530000 	cmp	r3, #0
+ 2f986b0:	0a000005 	beq	2f986cc <mh_source_entry+0x29c>
+ 2f986b4:	ebfff8cf 	bl	2f969f8 <ns_retire_step>
+ 2f986b8:	e3500001 	cmp	r0, #1
+ 2f986bc:	159f3370 	ldrne	r3, [pc, #880]	@ 2f98a34 <mh_source_entry+0x604>
+ 2f986c0:	15830000 	strne	r0, [r3]
+ 2f986c4:	13a03000 	movne	r3, #0
+ 2f986c8:	15883000 	strne	r3, [r8]
+ 2f986cc:	e1a079a7 	lsr	r7, r7, #19
+ 2f986d0:	e3550009 	cmp	r5, #9
+ 2f986d4:	03877001 	orreq	r7, r7, #1
+ 2f986d8:	e3170001 	tst	r7, #1
+ 2f986dc:	0affff75 	beq	2f984b8 <mh_source_entry+0x88>
+ 2f986e0:	e59f333c 	ldr	r3, [pc, #828]	@ 2f98a24 <mh_source_entry+0x5f4>
+ 2f986e4:	e5933000 	ldr	r3, [r3]
+ 2f986e8:	e3530000 	cmp	r3, #0
+ 2f986ec:	1affff71 	bne	2f984b8 <mh_source_entry+0x88>
+ 2f986f0:	e59f2344 	ldr	r2, [pc, #836]	@ 2f98a3c <mh_source_entry+0x60c>
+ 2f986f4:	e5923000 	ldr	r3, [r2]
+ 2f986f8:	e2833001 	add	r3, r3, #1
+ 2f986fc:	e5823000 	str	r3, [r2]
+ 2f98700:	e5963000 	ldr	r3, [r6]
+ 2f98704:	e3530000 	cmp	r3, #0
+ 2f98708:	1affff6a 	bne	2f984b8 <mh_source_entry+0x88>
+ 2f9870c:	e59f532c 	ldr	r5, [pc, #812]	@ 2f98a40 <mh_source_entry+0x610>
+ 2f98710:	e5953000 	ldr	r3, [r5]
+ 2f98714:	e3530000 	cmp	r3, #0
+ 2f98718:	1affff66 	bne	2f984b8 <mh_source_entry+0x88>
+ 2f9871c:	e59f92e4 	ldr	r9, [pc, #740]	@ 2f98a08 <mh_source_entry+0x5d8>
+ 2f98720:	e5993010 	ldr	r3, [r9, #16]
+ 2f98724:	e3530000 	cmp	r3, #0
+ 2f98728:	0affff62 	beq	2f984b8 <mh_source_entry+0x88>
+ 2f9872c:	e3a07004 	mov	r7, #4
+ 2f98730:	e59f82f8 	ldr	r8, [pc, #760]	@ 2f98a30 <mh_source_entry+0x600>
+ 2f98734:	e59fb308 	ldr	fp, [pc, #776]	@ 2f98a44 <mh_source_entry+0x614>
+ 2f98738:	e5993008 	ldr	r3, [r9, #8]
+ 2f9873c:	e3530000 	cmp	r3, #0
+ 2f98740:	1a000041 	bne	2f9884c <mh_source_entry+0x41c>
+ 2f98744:	e59f22fc 	ldr	r2, [pc, #764]	@ 2f98a48 <mh_source_entry+0x618>
+ 2f98748:	e5923000 	ldr	r3, [r2]
+ 2f9874c:	e2833001 	add	r3, r3, #1
+ 2f98750:	e5823000 	str	r3, [r2]
+ 2f98754:	eaffff57 	b	2f984b8 <mh_source_entry+0x88>
+ 2f98758:	e59f32ec 	ldr	r3, [pc, #748]	@ 2f98a4c <mh_source_entry+0x61c>
+ 2f9875c:	e5933034 	ldr	r3, [r3, #52]	@ 0x34
+ 2f98760:	e3530006 	cmp	r3, #6
+ 2f98764:	0affff7a 	beq	2f98554 <mh_source_entry+0x124>
+ 2f98768:	e59f32c0 	ldr	r3, [pc, #704]	@ 2f98a30 <mh_source_entry+0x600>
+ 2f9876c:	e5933000 	ldr	r3, [r3]
+ 2f98770:	e3530000 	cmp	r3, #0
+ 2f98774:	0affff76 	beq	2f98554 <mh_source_entry+0x124>
+ 2f98778:	e59f32c0 	ldr	r3, [pc, #704]	@ 2f98a40 <mh_source_entry+0x610>
+ 2f9877c:	e5933000 	ldr	r3, [r3]
+ 2f98780:	e3530000 	cmp	r3, #0
+ 2f98784:	1affff72 	bne	2f98554 <mh_source_entry+0x124>
+ 2f98788:	e59f22c0 	ldr	r2, [pc, #704]	@ 2f98a50 <mh_source_entry+0x620>
+ 2f9878c:	e2453001 	sub	r3, r5, #1
+ 2f98790:	e3530009 	cmp	r3, #9
+ 2f98794:	8affff6e 	bhi	2f98554 <mh_source_entry+0x124>
+ 2f98798:	e0833003 	add	r3, r3, r3
+ 2f9879c:	e19230f3 	ldrsh	r3, [r2, r3]
+ 2f987a0:	e08ff103 	add	pc, pc, r3, lsl #2
+ 2f987a4:	e320f000 	nop	{0}
+ 2f987a8:	e3a03001 	mov	r3, #1
+ 2f987ac:	e5893000 	str	r3, [r9]
+ 2f987b0:	e3a04000 	mov	r4, #0
+ 2f987b4:	eaffff9c 	b	2f9862c <mh_source_entry+0x1fc>
+ 2f987b8:	e3a00012 	mov	r0, #18
+ 2f987bc:	eb002662 	bl	2fa214c <send_mixer.constprop.0>
+ 2f987c0:	eaffff89 	b	2f985ec <mh_source_entry+0x1bc>
+ 2f987c4:	e3a0000d 	mov	r0, #13
+ 2f987c8:	eafffffb 	b	2f987bc <mh_source_entry+0x38c>
+ 2f987cc:	e3a00010 	mov	r0, #16
+ 2f987d0:	eb00265d 	bl	2fa214c <send_mixer.constprop.0>
+ 2f987d4:	e3a00011 	mov	r0, #17
+ 2f987d8:	eafffff7 	b	2f987bc <mh_source_entry+0x38c>
+ 2f987dc:	e3a02001 	mov	r2, #1
+ 2f987e0:	e3a00008 	mov	r0, #8
+ 2f987e4:	e1a01002 	mov	r1, r2
+ 2f987e8:	e59fb264 	ldr	fp, [pc, #612]	@ 2f98a54 <mh_source_entry+0x624>
+ 2f987ec:	e12fff3b 	blx	fp
+ 2f987f0:	e350000a 	cmp	r0, #10
+ 2f987f4:	e1a04000 	mov	r4, r0
+ 2f987f8:	0a000002 	beq	2f98808 <mh_source_entry+0x3d8>
+ 2f987fc:	e3500000 	cmp	r0, #0
+ 2f98800:	1affff89 	bne	2f9862c <mh_source_entry+0x1fc>
+ 2f98804:	eaffff52 	b	2f98554 <mh_source_entry+0x124>
+ 2f98808:	e3a02001 	mov	r2, #1
+ 2f9880c:	e3a01000 	mov	r1, #0
+ 2f98810:	e3a00008 	mov	r0, #8
+ 2f98814:	e12fff3b 	blx	fp
+ 2f98818:	e2504000 	subs	r4, r0, #0
+ 2f9881c:	1affff82 	bne	2f9862c <mh_source_entry+0x1fc>
+ 2f98820:	e3a00012 	mov	r0, #18
+ 2f98824:	eb002648 	bl	2fa214c <send_mixer.constprop.0>
+ 2f98828:	eaffff7f 	b	2f9862c <mh_source_entry+0x1fc>
+ 2f9882c:	e3a01000 	mov	r1, #0
+ 2f98830:	e3a00008 	mov	r0, #8
+ 2f98834:	e12fff3a 	blx	sl
+ 2f98838:	e2504000 	subs	r4, r0, #0
+ 2f9883c:	1affff7a 	bne	2f9862c <mh_source_entry+0x1fc>
+ 2f98840:	ebfffec3 	bl	2f98354 <ms_validate_completed_sync>
+ 2f98844:	e1a04000 	mov	r4, r0
+ 2f98848:	eaffff77 	b	2f9862c <mh_source_entry+0x1fc>
+ 2f9884c:	eb001a53 	bl	2f9f1a0 <owned_media_output_ready>
+ 2f98850:	e3500000 	cmp	r0, #0
+ 2f98854:	1a000001 	bne	2f98860 <mh_source_entry+0x430>
+ 2f98858:	e59f21f8 	ldr	r2, [pc, #504]	@ 2f98a58 <mh_source_entry+0x628>
+ 2f9885c:	eaffffb9 	b	2f98748 <mh_source_entry+0x318>
+ 2f98860:	eb0016d7 	bl	2f9e3c4 <media_queue_step>
+ 2f98864:	e2403001 	sub	r3, r0, #1
+ 2f98868:	e3530001 	cmp	r3, #1
+ 2f9886c:	9afffff9 	bls	2f98858 <mh_source_entry+0x428>
+ 2f98870:	e59f21e4 	ldr	r2, [pc, #484]	@ 2f98a5c <mh_source_entry+0x62c>
+ 2f98874:	e3500000 	cmp	r0, #0
+ 2f98878:	e5923000 	ldr	r3, [r2]
+ 2f9887c:	e2833001 	add	r3, r3, #1
+ 2f98880:	e5823000 	str	r3, [r2]
+ 2f98884:	e59f31d4 	ldr	r3, [pc, #468]	@ 2f98a60 <mh_source_entry+0x630>
+ 2f98888:	e5830000 	str	r0, [r3]
+ 2f9888c:	0a000006 	beq	2f988ac <mh_source_entry+0x47c>
+ 2f98890:	e59f21cc 	ldr	r2, [pc, #460]	@ 2f98a64 <mh_source_entry+0x634>
+ 2f98894:	e5923000 	ldr	r3, [r2]
+ 2f98898:	e2833001 	add	r3, r3, #1
+ 2f9889c:	e5823000 	str	r3, [r2]
+ 2f988a0:	e2577001 	subs	r7, r7, #1
+ 2f988a4:	1affffa3 	bne	2f98738 <mh_source_entry+0x308>
+ 2f988a8:	eaffff02 	b	2f984b8 <mh_source_entry+0x88>
+ 2f988ac:	eb0002be 	bl	2f993ac <aas_packet_ticket>
+ 2f988b0:	e2503000 	subs	r3, r0, #0
+ 2f988b4:	03a03001 	moveq	r3, #1
+ 2f988b8:	05853000 	streq	r3, [r5]
+ 2f988bc:	0afffefd 	beq	2f984b8 <mh_source_entry+0x88>
+ 2f988c0:	e59f21a0 	ldr	r2, [pc, #416]	@ 2f98a68 <mh_source_entry+0x638>
+ 2f988c4:	e5823000 	str	r3, [r2]
+ 2f988c8:	e59f219c 	ldr	r2, [pc, #412]	@ 2f98a6c <mh_source_entry+0x63c>
+ 2f988cc:	e5923000 	ldr	r3, [r2]
+ 2f988d0:	e2833001 	add	r3, r3, #1
+ 2f988d4:	e5823000 	str	r3, [r2]
+ 2f988d8:	e5983000 	ldr	r3, [r8]
+ 2f988dc:	e3530000 	cmp	r3, #0
+ 2f988e0:	1a00002a 	bne	2f98990 <mh_source_entry+0x560>
+ 2f988e4:	e5983000 	ldr	r3, [r8]
+ 2f988e8:	e59f4180 	ldr	r4, [pc, #384]	@ 2f98a70 <mh_source_entry+0x640>
+ 2f988ec:	e3530000 	cmp	r3, #0
+ 2f988f0:	1a000024 	bne	2f98988 <mh_source_entry+0x558>
+ 2f988f4:	e5953000 	ldr	r3, [r5]
+ 2f988f8:	e3530000 	cmp	r3, #0
+ 2f988fc:	1a000021 	bne	2f98988 <mh_source_entry+0x558>
+ 2f98900:	eb00025b 	bl	2f99274 <aas_register>
+ 2f98904:	e2501000 	subs	r1, r0, #0
+ 2f98908:	1a00001a 	bne	2f98978 <mh_source_entry+0x548>
+ 2f9890c:	ebfff797 	bl	2f96770 <ns_capture_registration>
+ 2f98910:	e2501000 	subs	r1, r0, #0
+ 2f98914:	1a000017 	bne	2f98978 <mh_source_entry+0x548>
+ 2f98918:	e59f0154 	ldr	r0, [pc, #340]	@ 2f98a74 <mh_source_entry+0x644>
+ 2f9891c:	e59f3154 	ldr	r3, [pc, #340]	@ 2f98a78 <mh_source_entry+0x648>
+ 2f98920:	e12fff33 	blx	r3
+ 2f98924:	e2501000 	subs	r1, r0, #0
+ 2f98928:	1a000012 	bne	2f98978 <mh_source_entry+0x548>
+ 2f9892c:	e3a00008 	mov	r0, #8
+ 2f98930:	e59f30b0 	ldr	r3, [pc, #176]	@ 2f989e8 <mh_source_entry+0x5b8>
+ 2f98934:	e12fff33 	blx	r3
+ 2f98938:	e2501000 	subs	r1, r0, #0
+ 2f9893c:	1a00000d 	bne	2f98978 <mh_source_entry+0x548>
+ 2f98940:	ebfffe83 	bl	2f98354 <ms_validate_completed_sync>
+ 2f98944:	e5840000 	str	r0, [r4]
+ 2f98948:	e5943000 	ldr	r3, [r4]
+ 2f9894c:	e3530000 	cmp	r3, #0
+ 2f98950:	1a000001 	bne	2f9895c <mh_source_entry+0x52c>
+ 2f98954:	ebfff7d4 	bl	2f968ac <ns_bind_selected>
+ 2f98958:	e5840000 	str	r0, [r4]
+ 2f9895c:	e5943000 	ldr	r3, [r4]
+ 2f98960:	e3530000 	cmp	r3, #0
+ 2f98964:	03a03001 	moveq	r3, #1
+ 2f98968:	05883000 	streq	r3, [r8]
+ 2f9896c:	e5941000 	ldr	r1, [r4]
+ 2f98970:	e3510000 	cmp	r1, #0
+ 2f98974:	0a000005 	beq	2f98990 <mh_source_entry+0x560>
+ 2f98978:	e3a03001 	mov	r3, #1
+ 2f9897c:	e5853000 	str	r3, [r5]
+ 2f98980:	e5841000 	str	r1, [r4]
+ 2f98984:	eafffecb 	b	2f984b8 <mh_source_entry+0x88>
+ 2f98988:	e3e010c8 	mvn	r1, #200	@ 0xc8
+ 2f9898c:	eafffff9 	b	2f98978 <mh_source_entry+0x548>
+ 2f98990:	e5db307c 	ldrb	r3, [fp, #124]	@ 0x7c
+ 2f98994:	e3530000 	cmp	r3, #0
+ 2f98998:	0affffc0 	beq	2f988a0 <mh_source_entry+0x470>
+ 2f9899c:	e3a00012 	mov	r0, #18
+ 2f989a0:	eb0025e9 	bl	2fa214c <send_mixer.constprop.0>
+ 2f989a4:	e3500000 	cmp	r0, #0
+ 2f989a8:	0affffbc 	beq	2f988a0 <mh_source_entry+0x470>
+ 2f989ac:	e3a03001 	mov	r3, #1
+ 2f989b0:	e3e020c8 	mvn	r2, #200	@ 0xc8
+ 2f989b4:	e5853000 	str	r3, [r5]
+ 2f989b8:	e59f3074 	ldr	r3, [pc, #116]	@ 2f98a34 <mh_source_entry+0x604>
+ 2f989bc:	e5832000 	str	r2, [r3]
+ 2f989c0:	eafffebc 	b	2f984b8 <mh_source_entry+0x88>
+ 2f989c4:	02fbd0d4 	.word	0x02fbd0d4
+ 2f989c8:	02fbd0a0 	.word	0x02fbd0a0
+ 2f989cc:	02fbd0d0 	.word	0x02fbd0d0
+ 2f989d0:	00358d25 	.word	0x00358d25
+ 2f989d4:	02fbd0d8 	.word	0x02fbd0d8
+ 2f989d8:	02fbd044 	.word	0x02fbd044
+ 2f989dc:	02fbd040 	.word	0x02fbd040
+ 2f989e0:	02fbd03c 	.word	0x02fbd03c
+ 2f989e4:	fffffe6d 	.word	0xfffffe6d
+ 2f989e8:	003b9b67 	.word	0x003b9b67
+ 2f989ec:	002fd035 	.word	0x002fd035
+ 2f989f0:	0021b6cc 	.word	0x0021b6cc
+ 2f989f4:	02fbd0c8 	.word	0x02fbd0c8
+ 2f989f8:	02fbd0f4 	.word	0x02fbd0f4
+ 2f989fc:	0021b6dc 	.word	0x0021b6dc
+ 2f98a00:	02fbd0f0 	.word	0x02fbd0f0
+ 2f98a04:	02fbd0cc 	.word	0x02fbd0cc
+ 2f98a08:	02fba290 	.word	0x02fba290
+ 2f98a0c:	02fbd070 	.word	0x02fbd070
+ 2f98a10:	02fb6008 	.word	0x02fb6008
+ 2f98a14:	02f9d3e4 	.word	0x02f9d3e4
+ 2f98a18:	02fbd028 	.word	0x02fbd028
+ 2f98a1c:	002fcf44 	.word	0x002fcf44
+ 2f98a20:	02fbd038 	.word	0x02fbd038
+ 2f98a24:	02fbd074 	.word	0x02fbd074
+ 2f98a28:	02fbd06c 	.word	0x02fbd06c
+ 2f98a2c:	02fbd068 	.word	0x02fbd068
+ 2f98a30:	02fbd0b4 	.word	0x02fbd0b4
+ 2f98a34:	02fbd0a4 	.word	0x02fbd0a4
+ 2f98a38:	02fbd0c4 	.word	0x02fbd0c4
+ 2f98a3c:	02fba2c4 	.word	0x02fba2c4
+ 2f98a40:	02fbd0b0 	.word	0x02fbd0b0
+ 2f98a44:	034e5d00 	.word	0x034e5d00
+ 2f98a48:	02fbd0ac 	.word	0x02fbd0ac
+ 2f98a4c:	02fb60ac 	.word	0x02fb60ac
+ 2f98a50:	02fab060 	.word	0x02fab060
+ 2f98a54:	00277d27 	.word	0x00277d27
+ 2f98a58:	02fbd0a8 	.word	0x02fbd0a8
+ 2f98a5c:	02fba2c0 	.word	0x02fba2c0
+ 2f98a60:	02fba2b4 	.word	0x02fba2b4
+ 2f98a64:	02fba2bc 	.word	0x02fba2bc
+ 2f98a68:	02fbd0bc 	.word	0x02fbd0bc
+ 2f98a6c:	02fbd0c0 	.word	0x02fbd0c0
+ 2f98a70:	02fbd09c 	.word	0x02fbd09c
+ 2f98a74:	034e80f0 	.word	0x034e80f0
+ 2f98a78:	00277537 	.word	0x00277537
+
+Disassembly of section .ali_clear_fixed:

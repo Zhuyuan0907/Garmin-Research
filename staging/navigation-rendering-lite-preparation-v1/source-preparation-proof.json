@@ -1,0 +1,162 @@
+{
+  "schema": "garmin-rendering-lite-source-preparation/v1",
+  "created_utc": "2026-10-06T17:25:33.310746+00:00",
+  "source_only": true,
+  "Java_launched": false,
+  "style_runtime_tested": false,
+  "real_tile_compiled": false,
+  "device_IO": false,
+  "candidate_installable": false,
+  "source_tile": "staging/maps/Taiwan_OSM_20261001_UTF8/tiles/70510020.osm.pbf",
+  "output_mapname": 70530020,
+  "note": "Input split names retain70510020, compiled v2 mapname is70530020; no source70530020.osm.pbf exists.",
+  "changes": [
+    "Only polygons source differs. At original0x13 match position, no polygon type is emitted; set execute_finalize_rules=true and private suppression marker.",
+    "Gate the four lower-priority polygon rules so features originally claimed by0x13 cannot silently become tourism/man_made/island/islet polygons.",
+    "All pre-building rules and exact entire finalize block retained, all lines/points/relations/options/includes identical."
+  ],
+  "address_processing_static_evidence": {
+    "official_archive_receipt": "staging/navigation-rendering-lite-preparation-v1/exact-source-receipt.json",
+    "exact_r4924_RuleSet": "reference/RuleSet.java:94-104 calls last rule finalizer when no type resolved and execute_finalize_rules=true.",
+    "exact_r4924_ActionRule": "reference/ActionRule.java:65-103 applies tag actions; type-null does not invoke its own type-finalizer; sends null type to watcher.",
+    "exact_r4924_WatchableTypeResult": "reference/WatchableTypeResult.java:34-38 ignores null type output and leaves found=false.",
+    "exact_r4924_StyledConverter": "reference/StyledConverter.java:551-552 retains unmatched ways in HousenumberGenerator after rules.resolveType returns; actual original polygon finalizer tags already applied at that point.",
+    "correction_of_prior_warning": "Baseline polygons already force finalize for addr:housenumber features at line11; their absence of a type is not by itself proof of lost address processing. Lite explicitly forces finalize for all original0x13 building matches, including housename-only cases.",
+    "runtime_scope": "Exact upstream source semantics, not a executed style/Java/IMG result."
+  },
+  "file_identity_controls": [
+    {
+      "path": "inc/access",
+      "source_sha256": "79df5697cd10b2fd355a0447881894cc1ca39304443a97ba90c161afa387ff4b",
+      "baseline_sha256": "79df5697cd10b2fd355a0447881894cc1ca39304443a97ba90c161afa387ff4b",
+      "lite_sha256": "79df5697cd10b2fd355a0447881894cc1ca39304443a97ba90c161afa387ff4b",
+      "unchanged": true
+    },
+    {
+      "path": "inc/access_country",
+      "source_sha256": "6b0aac1866e028e60c82d198210665b577dba4364d086580d574dbac1c003cbc",
+      "baseline_sha256": "6b0aac1866e028e60c82d198210665b577dba4364d086580d574dbac1c003cbc",
+      "lite_sha256": "6b0aac1866e028e60c82d198210665b577dba4364d086580d574dbac1c003cbc",
+      "unchanged": true
+    },
+    {
+      "path": "inc/address",
+      "source_sha256": "f58397ec9f0a542026e024101df4ba5f2e5688b7622960fba7df23e286658510",
+      "baseline_sha256": "f58397ec9f0a542026e024101df4ba5f2e5688b7622960fba7df23e286658510",
+      "lite_sha256": "f58397ec9f0a542026e024101df4ba5f2e5688b7622960fba7df23e286658510",
+      "unchanged": true
+    },
+    {
+      "path": "inc/compat_lines",
+      "source_sha256": "7f0383629eda7488a6e4ef20a83cf09ca0d8a9363eb7e60ad3cb8054ec032132",
+      "baseline_sha256": "7f0383629eda7488a6e4ef20a83cf09ca0d8a9363eb7e60ad3cb8054ec032132",
+      "lite_sha256": "7f0383629eda7488a6e4ef20a83cf09ca0d8a9363eb7e60ad3cb8054ec032132",
+      "unchanged": true
+    },
+    {
+      "path": "inc/compat_points",
+      "source_sha256": "deef41f853ea2b60d7f40d348bc292d82d6e1162cb19acef12e106af6fd0d0cd",
+      "baseline_sha256": "deef41f853ea2b60d7f40d348bc292d82d6e1162cb19acef12e106af6fd0d0cd",
+      "lite_sha256": "deef41f853ea2b60d7f40d348bc292d82d6e1162cb19acef12e106af6fd0d0cd",
+      "unchanged": true
+    },
+    {
+      "path": "inc/compat_polygons",
+      "source_sha256": "deef41f853ea2b60d7f40d348bc292d82d6e1162cb19acef12e106af6fd0d0cd",
+      "baseline_sha256": "deef41f853ea2b60d7f40d348bc292d82d6e1162cb19acef12e106af6fd0d0cd",
+      "lite_sha256": "deef41f853ea2b60d7f40d348bc292d82d6e1162cb19acef12e106af6fd0d0cd",
+      "unchanged": true
+    },
+    {
+      "path": "inc/contour_lines",
+      "source_sha256": "7cc0a8f9309630d220a421dac542ce038957c447d31ca2e7c52a7d281129f87f",
+      "baseline_sha256": "7cc0a8f9309630d220a421dac542ce038957c447d31ca2e7c52a7d281129f87f",
+      "lite_sha256": "7cc0a8f9309630d220a421dac542ce038957c447d31ca2e7c52a7d281129f87f",
+      "unchanged": true
+    },
+    {
+      "path": "inc/name",
+      "source_sha256": "52d9ee5d5803eebfe67d19ac8853601a404da15a837cb983b5ff69b0a0064bd0",
+      "baseline_sha256": "52d9ee5d5803eebfe67d19ac8853601a404da15a837cb983b5ff69b0a0064bd0",
+      "lite_sha256": "52d9ee5d5803eebfe67d19ac8853601a404da15a837cb983b5ff69b0a0064bd0",
+      "unchanged": true
+    },
+    {
+      "path": "inc/roadspeed",
+      "source_sha256": "997ff0b820acafd0f05bbc2760d2db9d6d9eb65b394913739d64bf0a4dcceab8",
+      "baseline_sha256": "997ff0b820acafd0f05bbc2760d2db9d6d9eb65b394913739d64bf0a4dcceab8",
+      "lite_sha256": "997ff0b820acafd0f05bbc2760d2db9d6d9eb65b394913739d64bf0a4dcceab8",
+      "unchanged": true
+    },
+    {
+      "path": "info",
+      "source_sha256": "807ef0184fc8786bcab027ba6f3ffafc6650551c81df0df93ab260b4c4cc9b2b",
+      "baseline_sha256": "807ef0184fc8786bcab027ba6f3ffafc6650551c81df0df93ab260b4c4cc9b2b",
+      "lite_sha256": "807ef0184fc8786bcab027ba6f3ffafc6650551c81df0df93ab260b4c4cc9b2b",
+      "unchanged": true
+    },
+    {
+      "path": "lines",
+      "source_sha256": "aef49ccfaf5827da06d11bd833e38759c245630b2fdc90cfdab3ee40f5b7d872",
+      "baseline_sha256": "aef49ccfaf5827da06d11bd833e38759c245630b2fdc90cfdab3ee40f5b7d872",
+      "lite_sha256": "aef49ccfaf5827da06d11bd833e38759c245630b2fdc90cfdab3ee40f5b7d872",
+      "unchanged": true
+    },
+    {
+      "path": "options",
+      "source_sha256": "019216b8b13ec8545b4539932297155f524100a4f0af3f07a68160683202e2b0",
+      "baseline_sha256": "019216b8b13ec8545b4539932297155f524100a4f0af3f07a68160683202e2b0",
+      "lite_sha256": "019216b8b13ec8545b4539932297155f524100a4f0af3f07a68160683202e2b0",
+      "unchanged": true
+    },
+    {
+      "path": "points",
+      "source_sha256": "f6986c8b2110adcac0f8862b51cb0b063262dc0630d49ad137bcd54e30f6286c",
+      "baseline_sha256": "f6986c8b2110adcac0f8862b51cb0b063262dc0630d49ad137bcd54e30f6286c",
+      "lite_sha256": "f6986c8b2110adcac0f8862b51cb0b063262dc0630d49ad137bcd54e30f6286c",
+      "unchanged": true
+    },
+    {
+      "path": "polygons",
+      "source_sha256": "de6a08c90d71639f96350e17a13989fc51764f9bbcb6f80b11b4cedc045d13cd",
+      "baseline_sha256": "de6a08c90d71639f96350e17a13989fc51764f9bbcb6f80b11b4cedc045d13cd",
+      "lite_sha256": "a587b9ae6223c611e358731acb1392197ab680c43f159f90172aa243272fc3b9",
+      "unchanged": false
+    },
+    {
+      "path": "relations",
+      "source_sha256": "6bba681e98fac78dac865dd6bcb01ad39602b353b024b5905dd247e2a4e80225",
+      "baseline_sha256": "6bba681e98fac78dac865dd6bcb01ad39602b353b024b5905dd247e2a4e80225",
+      "lite_sha256": "6bba681e98fac78dac865dd6bcb01ad39602b353b024b5905dd247e2a4e80225",
+      "unchanged": true
+    },
+    {
+      "path": "version",
+      "source_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "baseline_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "lite_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "unchanged": true
+    }
+  ],
+  "guarded_lower_priority_rule_count": 4,
+  "feature_controls_to_execute_later": [
+    "ordinary building with house6",
+    "building with housename only",
+    "building+tourism hotel (no replacement polygon)",
+    "building+man_made (no replacement polygon)",
+    "building+place islet (no replacement polygon)",
+    "hospital/school building matched earlier preserved",
+    "building=no with tourism preserved",
+    "nonbuilding water/park/landuse preserved"
+  ],
+  "compilation_plan": "run_comparison.py default outputs command only; --execute requires root confirmed resource availability. Separate baseline/lite output directories, same source/map IDs/config to isolate style. These two cannot be enabled together.",
+  "validation_required": [
+    "Actual style parse and8 semantic fixture controls plus address-tag capture; source-only proof cannot replace them.",
+    "Compile same tile twice. Read actual TRE/RGN counts and type distributions:0x13 eliminated/reduced; earlier type controls and all non0x13 output semantics preserved.",
+    "Compare bounded component inventory/digests for NET/NOD/LBL/SRT/TRE/RGN. Changed NET/NOD hashes are not route failure proof (label/subdivision offsets may change); equal hashes are strong unchanged-data evidence.",
+    "Compare semantic road identities/geometry/access/one-way/classes/speed/turn restriction/boundary connection graph and house/city associations if NET/NOD change; native AP search not rewritten.",
+    "Rebuild/futurewhole package retains original36 coverage and exact address/Bluetooth goal scopes; single tile alone is not allTaiwan replacement.",
+    "Physical6/150/184 destination+route calculation and same-scene redraw A/B remain required."
+  ],
+  "observed_physical_report": "User now says slow redraw/temporary visual damage occurs during actual movement and with stock maps too. Lite is optional reversible diagnostic/optimization, not demonstrated root cause or repair."
+}

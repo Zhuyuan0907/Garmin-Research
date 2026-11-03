@@ -1,0 +1,24 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v1.py",
+  "launch_tool_result": {
+    "chunk_id": "3eb51a",
+    "wall_time_seconds": 1.001201776,
+    "session_id": 95841,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "tool_result": {
+    "chunk_id": "384b07",
+    "wall_time_seconds": 0.000017667,
+    "exit_code": 1,
+    "original_token_count": 324,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v1.py\", line 628, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v1.py\", line 572, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v1.py\", line 285, in verify_case\n    require(len(rp.tcb_tags)==8 and Counter(r['PC'] for r in rp.tcb_tags)=={'0x358c48':4,'0x358ca0':4},'Four runningactors nativebuilder clear/retag; Timer analyzed separately')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v1.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Four runningactors nativebuilder clear/retag; Timer analyzed separately\n"
+  },
+  "terminal": true,
+  "guest_execution": false,
+  "canonical_write": false,
+  "source_sha256": {
+    "staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v1.py": "60f5ef3c6c922dcdb234c5804f0dc83317e572a6382d71f27c643cf2bbda44d2"
+  },
+  "failure_kind": "Independent FILE verifier inherited V5 assumption missed actual native priority-inheritance TCB tag writes; source remains frozen."
+}

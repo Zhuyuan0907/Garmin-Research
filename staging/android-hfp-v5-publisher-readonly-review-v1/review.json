@@ -1,0 +1,193 @@
+{
+  "schema": "android-hfp-v5-publisher-readonly-review-v1",
+  "review_only": true,
+  "runtime_tests": 0,
+  "device_IO": false,
+  "full_goal_complete": false,
+  "read_input_count": 2,
+  "actual_source_read_receipts": [
+    {
+      "chunk_id": "c87854",
+      "exit_code": 0,
+      "wall_time_seconds": 2.6093e-05
+    },
+    {
+      "chunk_id": "5cf881",
+      "exit_code": 0,
+      "wall_time_seconds": 2.5352e-05
+    }
+  ],
+  "scripts_executed": false,
+  "APK_or_device_or_canonical_opened_or_modified": false,
+  "imported_P_helper_reviewed": false,
+  "referenced_future_build_public_source_review_files_opened": false,
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "blocking",
+      "path": "scripts/build_android_hfp_prototype_v5.py",
+      "lines": [
+        58,
+        67,
+        141
+      ],
+      "finding": "The reviewed manifest writer sets versionCode to 4, while Gradle validation, final APK badging and proof require versionCode 5. An ordinary successful aapt2 build reaches a deterministic assertion failure at line141.",
+      "recommendation": "Set manifest versionCode5, then bind actual packaged badging and EXIT0 to the emitted build proof."
+    },
+    {
+      "id": "F2",
+      "severity": "high",
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        33,
+        34,
+        41,
+        169
+      ],
+      "finding": "The build terminal receipt is accepted solely for exit_code0; no terminal output or exact build proof digest is checked. A stale unrelated successful receipt can be paired with a separate assertion-bearing proof. The source/current-APK checks do not establish which successful job produced that proof.",
+      "recommendation": "Builder final stdout should include exact proof digest and existing APK identity/case counts; publisher should parse actual terminal output and compare proof digest, APK path/bytes/SHA and all three case counts. Hash/preserve the actual receipt in publication checkpoint/receipt."
+    },
+    {
+      "id": "F3",
+      "severity": "medium",
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        34,
+        40,
+        119
+      ],
+      "finding": "Publisher states min28/target35, three passing host groups and host-only runtime scope, but does not require build.min_API28/target_API35 or all_passed/Android_runtimefalse for all three host groups. HFP preflight case count is not constrained positive.",
+      "recommendation": "Add fixed metadata checks for min28/target35, each host group's all_passed and Android_runtimefalse, and the agreed HFP count/minimum. Keep these separate from future Android/device runtime evidence."
+    },
+    {
+      "id": "F4",
+      "severity": "medium",
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        175,
+        179
+      ],
+      "finding": "A read or replacement exception during the first rollback aborts the loop, leaving other written artifacts unrestored and masking the original publication exception.",
+      "recommendation": "Attempt each eligible reverse restoration in its own try, collect failures, preserve the original exception and write a bounded rollback failure journal. Continue respecting equality guards to avoid overwriting a concurrent editor."
+    },
+    {
+      "id": "F5",
+      "severity": "medium",
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        65,
+        145,
+        152,
+        178
+      ],
+      "finding": "Durable canonical-before snapshot excludes the old APK. Its bytes exist only in process memory for rollback. The six-artifact recovery record is incomplete if the publisher process terminates after replacing the APK.",
+      "recommendation": "Save the old APK privately with digest, or bind/verify a durable existing old checkpoint artifact path before mutation. Describe exception recovery separately from crash-atomic publication."
+    },
+    {
+      "id": "F6",
+      "severity": "low",
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        158,
+        164,
+        167
+      ],
+      "finding": "Same PID/start is verified before APK HTTP fetch and final artifact readback; final receipt nevertheless records the original server PID with service_not_restartedtrue. A server restart in that later interval is not rechecked.",
+      "recommendation": "Repeat P.live_server(web)==(pid,start) at the final verification boundary; do not restart the service."
+    },
+    {
+      "id": "F7",
+      "severity": "low",
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        62,
+        74,
+        138,
+        143
+      ],
+      "finding": "Explicit privacy regex covers HTML only. The inherited checkpoint/history is also serialized into public findings JSON without a corresponding privacy assertion. No actual private-data leak is established by this two-script source-only review.",
+      "recommendation": "Apply the existing narrow privacy predicate to the serialized public JSON plus HTML, keeping signing credentials/private command receipts out of public records."
+    }
+  ],
+  "preserved_contracts": [
+    {
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        28,
+        29,
+        57,
+        61
+      ],
+      "contract": "Requires active imported full objective, incomplete canonical goal, user-away/no audible tests and explicit builtin-WiFi false; no device action performed in this script."
+    },
+    {
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        91,
+        100,
+        110,
+        112,
+        139,
+        140
+      ],
+      "contract": "Preserves audio/navigation/microphone/connectivity objects and old Android history; engineering percentages and phases are checked unchanged. No percent rise or native music/AA completion claim."
+    },
+    {
+      "path": "scripts/publish_android_hfp_prototype_v5.py",
+      "lines": [
+        144,
+        164
+      ],
+      "contract": "Plans five canonical artifacts plus one APK; performs actual HTTP equality and file readback on publish path. Imported P helper implementation and crash-atomic behavior remain outside this two-file review."
+    },
+    {
+      "path": "scripts/build_android_hfp_prototype_v5.py",
+      "lines": [
+        50,
+        59,
+        80,
+        103,
+        146,
+        149,
+        162,
+        180
+      ],
+      "contract": "Records app Java and three host test pins plus manifest/Gradle/builder; rechecks Java/tests/manifest/Gradle after compilation and explicitly marks phone/native audio unverified."
+    },
+    {
+      "path": "scripts/build_android_hfp_prototype_v5.py",
+      "lines": [
+        119,
+        137
+      ],
+      "contract": "Password file and signing key stay under a private directory and credentials are passed via file arguments; no credential value is printed by these statements. Existing directory/tool contents were not opened in this review."
+    }
+  ],
+  "limitations": [
+    "No target scripts executed, imported or modified; no Java source/APK/tool manifests/helper code/device/native/canonical content read.",
+    "Referenced source-review/public-source-review proofs were still future inputs; their assertions were not treated as current runtime proof.",
+    "Source pins refer exactly to the two captured reads, even if root subsequently changes scripts in response to this review.",
+    "Findings concern finite build/publication provenance and rollback contracts; no new test suite or expanded target scope requested."
+  ],
+  "recorded_utc": "2026-10-08T02:21:50.607090+00:00",
+  "source_sha256": {
+    "scripts/build_android_hfp_prototype_v5.py": "fafd78221c5ca2caba23c259dae3fa737be04a3c3de42a94d8c7e7d0c158551e",
+    "scripts/publish_android_hfp_prototype_v5.py": "1b0688d6dbf6ca30be74f308d113feaf9ee96df58babbd525edbec74901f0465"
+  },
+  "source_bytes": {
+    "scripts/build_android_hfp_prototype_v5.py": 11756,
+    "scripts/publish_android_hfp_prototype_v5.py": 13786
+  },
+  "live_source_observation_at_review_finalization": {
+    "scripts/build_android_hfp_prototype_v5.py": {
+      "sha256": "2c760dc2b623c42193e4cde54cff5764fc3e59cc27ed3224a42c2c7702ff9060",
+      "bytes": 11942,
+      "matches_reviewed_snapshot": false
+    },
+    "scripts/publish_android_hfp_prototype_v5.py": {
+      "sha256": "f6c4f933be2dc812304858a2e0168caeafb5f85d86366002fe8eea4dcc867aa2",
+      "bytes": 16303,
+      "matches_reviewed_snapshot": false
+    }
+  }
+}

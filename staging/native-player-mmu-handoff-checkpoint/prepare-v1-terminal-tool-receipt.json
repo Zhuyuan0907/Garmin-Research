@@ -1,0 +1,18 @@
+{
+  "command": "python3 -B staging/native-player-mmu-handoff-checkpoint/prepare_publication_inputs_v1.py",
+  "observed_tool": "exec_command",
+  "tool_result": {
+    "chunk_id": "12841c",
+    "wall_time_seconds": 0.000025629,
+    "exit_code": 1,
+    "original_token_count": 123,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mmu-handoff-checkpoint/prepare_publication_inputs_v1.py\", line 321, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/staging/native-player-mmu-handoff-checkpoint/prepare_publication_inputs_v1.py\", line 79, in main\n    assert previous['current_state_sha256'] == sha('evidence/deep-research-state.json')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "source_sha256": {
+    "staging/native-player-mmu-handoff-checkpoint/prepare_publication_inputs_v1.py": "6290fbfb0f8a193c4b5fa2a8dbffa76f02cb6120eee6017aef3e2b028b5cf464"
+  },
+  "file_only": true,
+  "guest_execution": false,
+  "canonical_write": false,
+  "reason": "Pre-write refusal: frozen published audit current_state_sha256 differs from current canonical state; no snapshot or publication manifest written."
+}

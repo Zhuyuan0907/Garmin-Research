@@ -1,0 +1,125 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-source-worker/source_worker.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+ .text          0x00000000        0x0 /root/garmin/staging/native-source-worker/source_event_hooks.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-source-worker/source_event_hooks.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-source-worker/source_event_hooks.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-source-worker/source_event_hooks.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08b00144                        PROVIDE (media_coordinator_init = 0x8b00144)
+                0x08b004d4                        PROVIDE (media_coordinator_pump = 0x8b004d4)
+                0x08b00480                        PROVIDE (media_coordinator_cancel = 0x8b00480)
+                0x08b02000                        PROVIDE (coordinator_state = 0x8b02000)
+                0x088444c0                        PROVIDE (owned_media_control = 0x88444c0)
+                0x08844180                        PROVIDE (memory_output_control = 0x8844180)
+                0x08c00000                        . = 0x8c00000
+
+.text           0x08c00000      0x450
+ *(.source_worker_api)
+ .source_worker_api
+                0x08c00000       0x14 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c00000                source_worker_api
+ *(.text .text.*)
+ .text.lock     0x08c00014        0xc /root/garmin/staging/native-source-worker/source_worker.o
+ .text.unlock   0x08c00020        0xc /root/garmin/staging/native-source-worker/source_worker.o
+ .text.post     0x08c0002c       0x3c /root/garmin/staging/native-source-worker/source_worker.o
+ .text.source_worker_cancel
+                0x08c00068       0x58 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c00068                source_worker_cancel
+ .text.source_worker_shutdown
+                0x08c000c0       0x44 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c000c0                source_worker_shutdown
+ .text.source_worker_boot
+                0x08c00104       0x98 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c00104                source_worker_boot
+ .text.source_worker_entry
+                0x08c0019c      0x15c /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c0019c                source_worker_entry
+ .text.source_worker_published
+                0x08c002f8       0x68 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c002f8                source_worker_published
+ .text.source_worker_completed
+                0x08c00360       0x58 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c00360                source_worker_completed
+ .text.source_hooks
+                0x08c003b8       0x98 /root/garmin/staging/native-source-worker/source_event_hooks.o
+                0x08c003b8                source_publication_hook
+                0x08c003d4                source_publication_after_original
+                0x08c003ec                source_publication_original
+                0x08c003fc                source_completion_hook
+                0x08c0040c                source_completion_after_original
+                0x08c0042c                source_completion_original
+ *(.rodata .rodata.*)
+                0x08c00450                        __source_code_end = .
+                0x00000001                        ASSERT ((__source_code_end <= 0x8c02000), source code exceeds two pages)
+
+.glue_7         0x08c00450        0x0
+ .glue_7        0x08c00450        0x0 linker stubs
+
+.glue_7t        0x08c00450        0x0
+ .glue_7t       0x08c00450        0x0 linker stubs
+
+.vfp11_veneer   0x08c00450        0x0
+ .vfp11_veneer  0x08c00450        0x0 linker stubs
+
+.v4_bx          0x08c00450        0x0
+ .v4_bx         0x08c00450        0x0 linker stubs
+
+.iplt           0x08c00450        0x0
+ .iplt          0x08c00450        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+
+.igot.plt       0x08c00450        0x0
+ .igot.plt      0x08c00450        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+
+.rel.dyn        0x08c00450        0x0
+ .rel.iplt      0x08c00450        0x0 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c02000                        . = 0x8c02000
+                0x08c02000                        __source_state_start = .
+
+.bss            0x08c02000       0x48
+ *(.bss .bss.*)
+ .bss.descriptor
+                0x08c02000       0x14 /root/garmin/staging/native-source-worker/source_worker.o
+ .bss.source_worker_state
+                0x08c02014       0x34 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c02014                source_worker_state
+ *(COMMON)
+                0x08c02048                        __source_state_end = .
+                0x00000001                        ASSERT ((__source_state_end <= 0x8c02fc0), source state exceeds guarded page)
+                0x08c04000                        . = 0x8c04000
+                0x08c04000                        __source_stack_start = .
+
+.source_stack   0x08c04000     0x4000
+ *(.source_stack)
+ .source_stack  0x08c04000     0x4000 /root/garmin/staging/native-source-worker/source_worker.o
+                0x08c08000                        __source_stack_end = .
+                0x00000001                        ASSERT ((__source_stack_end == 0x8c08000), source stack extent differs)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+LOAD /root/garmin/staging/native-source-worker/source_worker.o
+LOAD /root/garmin/staging/native-source-worker/source_event_hooks.o
+OUTPUT(/root/garmin/staging/native-source-worker/source-worker-armv6.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2d
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-source-worker/source_worker.o
+ .ARM.attributes
+                0x0000002f       0x26 /root/garmin/staging/native-source-worker/source_event_hooks.o

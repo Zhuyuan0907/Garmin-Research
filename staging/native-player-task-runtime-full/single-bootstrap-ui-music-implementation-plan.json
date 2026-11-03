@@ -1,0 +1,910 @@
+{
+  "created_utc": "2026-10-04T07:11:33.258788+00:00",
+  "document_kind": "Read-only, source-backed proposed implementation plan; no candidate source built or executed",
+  "exact_target": {
+    "product": "Taiwan nuvi 2565RT",
+    "HWID": 1352,
+    "software": "8.00",
+    "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "foreign_1371_or_2585_substitution_allowed": false
+  },
+  "scope": {
+    "single_bootstrap_UI_native_music_plan": true,
+    "existing_sources_builds_manifests_proofs_report_state_modified": false,
+    "new_implementation_sources_written": false,
+    "compiler_invoked": false,
+    "guest_or_emulator_executed": false,
+    "device_or_service_IO": false,
+    "sounds_emitted": false,
+    "device_install_candidate": false,
+    "hardware_App_proof": false,
+    "goal_complete": false,
+    "GoogleMaps": "deferred",
+    "AndroidAuto": "after native audio and App",
+    "microphone": "canceled",
+    "fidelity_or_stereo_refinement": "deferred"
+  },
+  "main_findings": [
+    "Current GUI54976 and continuous64899 are separate immutable variants. Full GUI task/runtime proof does not demonstrate their combination.",
+    "Both current component entries call native_app_component_entry, which clears common extension BSS/workspaces and calls original TTS bootstrap. Composing both entries would reset live state and repeat original bootstrap.",
+    "Continuous code64899 occupies nearly the fixed64KiB region. Only637 bytes remain; new UI/control code needs a separately linked layout, new import addresses and new patch plan. Remaining3MiB reservation is not automatically executable or accepted package space.",
+    "Native source START is36B721; actual STOP is36AF75 and is asynchronous. STOP0 return ignores native message-send result and cannot acknowledge completed cleanup.",
+    "Current music_runtime_boot(channel8,36,source_priority) is an explicit guest call in the test fixture, not performed by the loader entry. New boot glue must make this call from guest context only after initialization prerequisites.",
+    "Existing source_worker is already the sole coordinator owner for channel8. Reuse its bounded pending/event loop to serialize new control commands; UI launch must return without waiting for native synchronous audio START or asynchronous STOP.",
+    "Current runtime_cancel does not add a local UI admission gate to the stream. A new gate must prevent configuration/START/event17/F1 from rearming audio after a local stop until a later explicit Start.",
+    "Original cleanup hook can observe full3B9DFC return, but source_worker_completed currently filters only its configured channel8. Source9 WAV needs an ownership/generation-specific completion branch and original native node cleanup before UI completion.",
+    "Source9/8 private actor identity does not reserve native queues against stock writers. Reject foreign occupancy; a physical exclusivity mechanism and navigation coexistence remain unresolved.",
+    "The completed full-scoped GUI background proof leaves foreground/touch/display/input queue callback and task/module cleanup unproven. Hardware App/direct-phone/acceptedVPM-SIG evidence is still absent."
+  ],
+  "frozen_evidence": {
+    "full_GUI_runtime": {
+      "path": "evidence/firmware-analysis/native-task-runtime-full-emulation.json",
+      "sha256": "0dff2284ec443a4135a030e6f778f8129bd9da3cbd73231937ed3687b2988e0d",
+      "dependencies_checked": 106,
+      "case_count": 3,
+      "all_passed": true,
+      "meaning": "Two native GUI worker TCBs, original event/mutex/condition paths, singleton controller return and full resident memory/task guards. No foreground/input callback, physical IRQ, sound or cleanup."
+    },
+    "source9_static_preflight": {
+      "path": "staging/native-player-task-runtime-full/source9-lifecycle-preflight.json",
+      "sha256": "30cdcfed2fa2bcef821a97669997f3049c42fed59eac1361a7e9e3a03784e5ca",
+      "dependencies_checked": 13,
+      "bounded_CFGs": 29,
+      "all_static_assertions_passed": true
+    },
+    "current_GUI_manifest": {
+      "path": "staging/native-player-resources/manifest.json",
+      "sha256": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+      "extension_bytes": 54976,
+      "MAIN_patch_bytes": 0,
+      "dependencies_checked": 52
+    },
+    "current_continuous_manifest": {
+      "path": "staging/native-music-continuous/manifest.json",
+      "sha256": "50a2dd7f312b2aa34ae9cd3283a20968840fa32edb7667bde0d62b1d73afaabe",
+      "extension_bytes": 64899,
+      "MAIN_patch_bytes": 64,
+      "patch_sites": 11,
+      "dependencies_checked": 67
+    },
+    "continuous_lifecycle": {
+      "path": "evidence/firmware-analysis/native-music-continuous-emulation.json",
+      "sha256": "5e9d508a54f03d3db36170b38dc19e414551365a0f2a75f32b7c4293fb4273ef"
+    },
+    "native_worker_readiness": {
+      "path": "evidence/firmware-analysis/native-music-ready-emulation.json",
+      "sha256": "e6152a13078ca703c4b7ef6b9b55564340e04b3dd18d19b4f8b8c2fc196523f7"
+    },
+    "public_STOP_lifecycle": {
+      "path": "evidence/firmware-analysis/native-output-stop-emulation.json",
+      "sha256": "3fd43effa47f4885b6cbc548968b2755f72a80cc9588ec0dee7df2ec5f62d323"
+    },
+    "native_synchronous_START": {
+      "path": "evidence/firmware-analysis/native-source-controller-emulation.json",
+      "sha256": "db2690e3c5bb9c46904cae7fc1e4fca4c5a91513859d5a93f3c3e463258a2ff7"
+    },
+    "native_heap_callback": {
+      "path": "evidence/firmware-analysis/native-heap-callback-emulation.json",
+      "sha256": "93c8f690ad65cacc7f48a658cdd07126ca73f460ad40f4228dc25f18ba8d5119"
+    },
+    "independent_previous_review": {
+      "path": "staging/native-player-task-mutex/direct-music-integration-review.json",
+      "sha256": "9b0d94f67a111be04b0c49ed73523ea320a0adc11efd82c647186ef8b7df43d0"
+    },
+    "manifest_artifacts_verified": [
+      {
+        "manifest": "staging/native-player-resources/manifest.json",
+        "path": "staging/native-player-resources/player-component-EMULATION-ONLY.elf",
+        "bytes": 119500,
+        "sha256": "64b120faf0209d21c552dd73c3977ffe76a301e433736e2614f403969b7e61fd",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-player-resources/manifest.json",
+        "path": "staging/native-player-resources/player-component-EMULATION-ONLY.bin",
+        "bytes": 54976,
+        "sha256": "9ba8682d38ec7822dca8060d8816fd656b250db9c60c1da30343e6f9338ba6d4",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-player-resources/manifest.json",
+        "path": "staging/native-player-resources/combined-voice-player-EMULATION-ONLY.bin",
+        "bytes": 2353996,
+        "sha256": "e5693728fe645a67a38d6f320d2e57cfa551a48cc632a8bc9cab23b7d624ea6a",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-player-resources/manifest.json",
+        "path": "staging/native-player-resources/player-menu-EMULATION-ONLY.vpm",
+        "bytes": 20192256,
+        "sha256": "f452d466bcbb700ede6bef166add99c7badc3a005857c296043e3526d25e71c7",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-music-continuous/manifest.json",
+        "path": "staging/native-music-continuous/music-component-EMULATION-ONLY.elf",
+        "bytes": 132364,
+        "sha256": "9a2463e46c4da6f9c46f528aeede24f9cc803bee6ad3b1e9cd1bb8da67093bc6",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-music-continuous/manifest.json",
+        "path": "staging/native-music-continuous/music-component-EMULATION-ONLY.bin",
+        "bytes": 64899,
+        "sha256": "964d6eaa00712527042f86282f9e35841813a801d4ddfd362eaea6c4cfd15d94",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-music-continuous/manifest.json",
+        "path": "staging/native-music-continuous/combined-voice-music-EMULATION-ONLY.bin",
+        "bytes": 2363919,
+        "sha256": "d3f9bd4cd4c8cd6b892aabd3f9ef9feddce0120af413d733cb0c46859153295d",
+        "matches_manifest": true
+      },
+      {
+        "manifest": "staging/native-music-continuous/manifest.json",
+        "path": "staging/native-music-continuous/music-app-EMULATION-ONLY.vpm",
+        "bytes": 20202496,
+        "sha256": "2b45d4897851f0dd1db5375cce6a3c9777f492fbed84a282e8c5b05934d42a96",
+        "matches_manifest": true
+      }
+    ],
+    "distinct_source_dependencies_verified": 135,
+    "source_dependency_mismatch_count": 0,
+    "source_sha256": {
+      "backups/20261002T154458Z/files/.System/SQLite/custom_mm_icons.db": "1ae4071e1d93496cac562edf74093f5054f3f72497f4a5c40405a52df2ba2e99",
+      "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+      "evidence/firmware-analysis/native-heap-callback-emulation.json": "93c8f690ad65cacc7f48a658cdd07126ca73f460ad40f4228dc25f18ba8d5119",
+      "evidence/firmware-analysis/native-music-continuous-emulation.json": "5e9d508a54f03d3db36170b38dc19e414551365a0f2a75f32b7c4293fb4273ef",
+      "evidence/firmware-analysis/native-output-stop-emulation.json": "3fd43effa47f4885b6cbc548968b2755f72a80cc9588ec0dee7df2ec5f62d323",
+      "evidence/firmware-analysis/native-source-controller-emulation.json": "db2690e3c5bb9c46904cae7fc1e4fca4c5a91513859d5a93f3c3e463258a2ff7",
+      "evidence/firmware-analysis/voice-modules/Chinese_Big5_MeiLing/DLLIMG.BIN": "a1e8f473c5cf87f5cdc364b402229f6222ce657fe779582dea62b8423cacec44",
+      "native/avdtp-gate/gate.c": "cfbed353aacf9b2a10c7b041676c5974c150f4194b05b782c3e58149c382acb3",
+      "native/avdtp-gate/gate.h": "65263fdfe7d29f32b328561b8c9d9ddc9dc4714d6e1f1dd10f7e65113ce70a64",
+      "native/avdtp-policy/policy.c": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+      "native/avdtp-policy/policy.h": "af10be84b279829bf3e95231a3f1f2bdbdf4a518cae294f9fc683f77a6a5d397",
+      "native/avdtp-reply/reply.c": "418b0cb8bbba16ba942a88e9aa999553dcf4707e6e0b2b673def679e2645a780",
+      "native/avdtp-reply/stock-relocated.S": "56e15f3039a358c210f6e51d6108e115782cb6eaf82e33215e6865eeb8b95581",
+      "native/music-app/entry.c": "63655cdef650dd5d945fa29557575f8fc0c4956c70cdc966983e5239c2ea03eb",
+      "native/music-continuous/entry.c": "4ed6b45b6c866f4d56ecfaf312fcedeec15c837fee1ba52e477dd3a5fa5104d7",
+      "native/music-continuous/media_coordinator.c": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+      "native/music-continuous/memory_output.c": "25337955cdf6b39bde6abb8a5cbcf84f8fb572a3d7b51336243a69f77988cd07",
+      "native/music-continuous/owned_media.c": "eb92262e4f50fc0e7e955417f925de830c5e6666abc15bcad6c48cee576444e1",
+      "native/music-continuous/runtime.c": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+      "native/music-continuous/runtime.h": "f55909698675f425df18515ecb6bf7f993a9a5de75188de1a908417f4f58dae7",
+      "native/music-continuous/stream.c": "fbd9f0e1e1be7fe9541574961d5354e20a42250c427791dbbecd50c6780757c9",
+      "native/music-continuous/stream.h": "70b1817f4faee68a92f1fc76d0443f962372908c6089ae7c79066338046e06ee",
+      "native/music-endpoint/endpoint.c": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+      "native/music-endpoint/endpoint.h": "c63c094c6a4182cbb354c5dd574840588d080c89bd1958fe11a1c167dc551195",
+      "native/player-menu-loaded/entry.c": "f821a782f281e1116356bba3a9ecf198e03c44df2a7b4cd08a09839d28445b75",
+      "native/player-resources/player_menu.c": "097dd7267b859bddc7e7114938727926bea52f0357335d769aca23116d309eae",
+      "native/sbc-prototype/app_component_entry.c": "e7e1605a21a862ee9b3de52499d5251530e1c4c8f1d0e214d890ad6466b08b1f",
+      "native/sbc-prototype/decoder.c": "b82ae30f71cd5c5a61120aff9435164bcc375397a90a775d2e0255db78e28661",
+      "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+      "native/sbc-prototype/media_coordinator.c": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+      "native/sbc-prototype/media_queue.c": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+      "native/sbc-prototype/media_queue.h": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+      "native/sbc-prototype/media_worker.c": "be69e2096232d93cf6517df72ac600657b161f62fb080ad209cc8bfff26acbad",
+      "native/sbc-prototype/media_worker.h": "f942220caf544fd6c4db4dbd2607c6c923772ca822e6436234a35112774353ab",
+      "native/sbc-prototype/memory_output.c": "0a20c1d7a9d4dca5147b49054542f5ed1c57701a3ed1b440c94ef086186cc770",
+      "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+      "native/sbc-prototype/owned_media.c": "d6e53fac4bb3f1d50c7712045a3b0d8592e1505b48f29e66fba3717a6961b4f1",
+      "native/sbc-prototype/pcm_converter.c": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+      "native/sbc-prototype/pcm_converter.h": "8f183e510d47f7b0ebb19d044c56c2933b29d8870ee0c5395f5de7fd1b84fa07",
+      "native/sbc-prototype/playback_control.c": "23e339fd62a6476aeaaa6eef26ce9464c5123319191000c8d255ca360739d0c1",
+      "native/sbc-prototype/playback_hook.S": "3a7602fdb6007c8c4ac86e7c5d16a61584cdcbddeaddc2c1480565b46c664197",
+      "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+      "native/sbc-prototype/source_event_hooks.S": "845730e6ecca4aa9941772d35a67979a2f0cd64b8c3d4b5b5e17ff9adef6ced2",
+      "native/sbc-prototype/source_worker.c": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+      "native/sbc-prototype/voice_media.c": "ec53e3eff695d26d9117dedadfcddfb88755a4de8f4cbc6b6a82c78f7f8868f0",
+      "scripts/analyze_native_loader.py": "4f83c8e1c9f1aa12e350db7238a78ee557259fbf1123662fb3e52a5496a072b1",
+      "scripts/analyze_native_player_resources.py": "0743f0a65bf09e7fa8b668af3f1d7f92908b2b5717ee970006cee243d81a2e2e",
+      "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+      "scripts/analyze_native_source9_lifecycle.py": "187cb440693dfad364fda016a948f35b651d69b03809bee33b98dda2b1df965e",
+      "scripts/analyze_native_usb_transition.py": "5deb660142324f8c07287055c02b748a97540330024600a2cf00d3041d878b3b",
+      "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+      "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+      "scripts/analyze_tts_vpm.py": "e8a0ec9640493af2f32a81891ee5cab38eb13cd7cd147ae21cd9546693c7fdc7",
+      "scripts/build_native_app_component.py": "f3c2ac1daa220b9a4d93c8a552bb5170e11efb1896078d37ae8fd532813539c6",
+      "scripts/build_native_media_coordinator.py": "f9d46fa6600886c1a093711930965270b8307cdfe01d06b1b58e0228b1ec37af",
+      "scripts/build_native_music_continuous.py": "5b5ae3951f31df296717c5f9b7a0a659c3a8a1d84d04b66407504c9cb18a8ca9",
+      "scripts/build_native_music_loaded.py": "dc9181ed6db9b74aaa348027c395e0b88907e39184f374343ccdf35a9b695826",
+      "scripts/build_native_owned_media.py": "3970b93ee5ee784ddbce0990f4e4cb4b804aa394307498f0e869de8eef64b8c4",
+      "scripts/build_native_playback_control.py": "89f93f3bf271827dfde86c40237fbeef7bf651cb7c037cbf9652ad260a4e644d",
+      "scripts/build_native_player_resources.py": "43adbdf3db6963c5e2501f72f66efc69198a2bc75f9f3775272bdb463895b2be",
+      "scripts/build_native_source_worker.py": "9de9fb2ec5dd530967ce2b715de7d8aefb4ac1d71065c3ff83dc9ea5987b7d5a",
+      "scripts/build_native_voice_package_fixture.py": "15cbac97e82aafeff6cb8709e6d43ca25380ee67dc572cd7191390ef7ba4aa57",
+      "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+      "scripts/emulate_native_kernel_context.py": "14071090f7d97794b2e174a773642bbcc38c3905177a29d50905d3fc33bba36d",
+      "scripts/emulate_native_loader.py": "88f02fc748aa5aa98926bc343ebf4633a22b708a7bd85a0bc1598891c055168d",
+      "scripts/emulate_native_mainmenu_constructor.py": "c79f097883f9c4c66b1f1344210d10f5ab0e6296a6d4dd2fcd7b4377cc8193a5",
+      "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+      "scripts/emulate_native_player_external_fonts.py": "1add15de2352b50e16f8aa41359e00c52071cef825473e3bc8249210201ce470",
+      "scripts/emulate_native_player_grid.py": "a0bbc29098fe048d42382e1914582f6f48c67c79bb75b1001dca9a069c5649f2",
+      "scripts/emulate_native_player_menu.py": "1cce0562d944a03cf39b1a38a4d671528db14f72c2b2810d94aac32a04aa3029",
+      "scripts/emulate_native_player_menu_loaded.py": "eb54cee452d9551aa84e6485524d01b6a04d7a4369ca1d2f3fc9bd4899f91ce8",
+      "scripts/emulate_native_player_menu_selection.py": "f5c7cfe4985db564717dc9655d42765a708eb2def59561e715ed47e00d027b16",
+      "scripts/emulate_native_player_page.py": "39e4550a50de13da4fc4d47e862808ec66e6d7b77972ec583d40bb78ca5b6a63",
+      "scripts/emulate_native_player_text.py": "97bdaa55db989bc30f2fda4bf3b959d6dbb1fdaf9d82e06ab43c8bf900d78f4d",
+      "scripts/emulate_native_player_widget.py": "c7375c9cc2d7298c6890cf4904fc9c88f5f2636de06ea1cfd572cd0ee0ffdd6a",
+      "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+      "scripts/emulate_native_sbc_component.py": "ab81b6471be88ffdf77537e8ceea1380f2906fb58bf1214e59feaea6a328707e",
+      "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+      "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+      "scripts/emulate_native_voice_metadata.py": "a20c99ee2cb81b3bb5974485f676cc1434abec76cd3ba154e588853be24ce810",
+      "scripts/emulate_native_voice_outer.py": "f6691a09db57998fbfd1cd53db7e107f5dd0cbb91270580163a2944b9ec650d1",
+      "scripts/emulate_native_voice_registry.py": "2d114b9befcf47e5e7a1cc9ec779bee56c6edc20d126c2c08e3b2e07d3c5c74b",
+      "scripts/emulate_native_voice_selection.py": "0c438f0deb96ba4675df5f88cd5152454b3f2143455609473739c460d6e1cc61",
+      "scripts/emulate_native_vpm_filesystem.py": "326855842ad9081b68f76b8d4cd7eb77340dd196976384140f3c3616f6c26da2",
+      "scripts/probe_native_condition_timer_owner.py": "a059681919d850ba5f1e56dd8243fa16dab20505b608070368536b1d01fd3c68",
+      "scripts/probe_native_dispatcher_condition.py": "7969f8609694ac0f062eab1a91f4024aeb4c298a1848ffdf629b8620a2c73c45",
+      "scripts/probe_native_dispatcher_kernel_context.py": "099e5bd7d08d4d33781d03ffd8bad6de739679f936027424e68238f1eff00e9c",
+      "scripts/probe_native_dispatcher_owner.py": "4faf2c65b75bfbb8cdbe73d1049a07111c977c796c7e0caf70f99bcd53ad252f",
+      "scripts/probe_native_dispatcher_reacquire.py": "9506aee35d51a0be8d8d94fa5bbafe686bd8c38e9f40bcf85899c34d41a6795d",
+      "scripts/probe_native_gui_runtime_bootstrap.py": "26d218c054b8249b0ee465a2dc166b84544d626fd9e30a37d6f05b203b3d5ff7",
+      "scripts/probe_native_heap_callback.py": "3894abe78bd40fc17500e3e9fc58b0189cacda7cd5b5e4711ed85577d01556a8",
+      "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+      "scripts/probe_native_mainmenu_context.py": "36e825681ca5978fe41e05e960b97128d69578bfb8fcde2e26ba911db1c17c5f",
+      "scripts/probe_native_mainmenu_controller.py": "d9f3c1ce76e362515a2a410dd39f01b5d87e8195b94f53bc304e820c34bd9d15",
+      "scripts/probe_native_mainmenu_metadata.py": "6a7478b8e44ca6d613187a040c4d2fd25d629ed407b1f5374f6cb6b088f6e909",
+      "scripts/probe_native_mutex_owner.py": "71a13cc2c8a1f3147dd31fa2c30a69c89845a9a3d4224d2d117b4d8a473f523a",
+      "scripts/probe_native_player_mainmenu.py": "e9fc9c84fa518e5cd2ead7eb6d6d0cc60a2af2e0cd3521e99c56f5c4459a5280",
+      "scripts/probe_native_player_rendering.py": "14577423e656847ec806f96261b51cee40af2f06c3f6025ce56406db29504c3f",
+      "scripts/probe_native_player_resource_cache.py": "d7e0c7833ade1580957d9b9f9a5f1e8509214150a55e4eebd1a730a70e721943",
+      "scripts/probe_native_player_resources.py": "08bf031c451a20dd0b7d935cac1835e608621023a93067c3367ade532fa2ec6b",
+      "scripts/probe_native_pool_clock.py": "35d29ecaab8a16bea38ddf6005529c0a72062c8613ae7293e8b079be0d5a8093",
+      "scripts/probe_native_settings_writer.py": "c317ac2e33ad36a1e25f2b59bfb0885c961a264fc7c1d4c3941ecef6246c981c",
+      "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+      "sources/deep-research/sbc-2.1/sbc/sbc.c": "42d16642f3eebf51f7f9e84a03f62a1d722c03414ed3265ba183bdaa0d9dccc4",
+      "staging/native-app-component-emulation/Chinese_Big5_MeiLing/app_component.ld": "b9825e1b659da432cd8e8e8d741203ac0bec7c221052e66aa6e8baaf56ce9dd1",
+      "staging/native-app-component-emulation/Chinese_Big5_MeiLing/manifest.json": "555055661866aa13d49746816405a47e26b3b416c2a54a4a8003271fb1ab7f26",
+      "staging/native-app-component-emulation/Chinese_Big5_MeiLing/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+      "staging/native-app-component-emulation/Chinese_Big5_MeiLing/source_worker_imports.h": "2147d9dc725638a4dda8861d8f390245d6ae08cabc3905f963064aa8d017bdf0",
+      "staging/native-media-coordinator/coordinator.ld": "32556c11456bfb65911e4e9658eea07a16519df1b192ec77efb406dc9cf25e61",
+      "staging/native-media-coordinator/manifest.json": "f8a8cf87e2e99fd6b95166a203b4969a8ac9cbf7ae5c37114a7facd0ddf4e97f",
+      "staging/native-music-continuous/music_component.ld": "e9f22f9dfa97a0fdab0b8a21b08b3df603af58f21d1014c0b4112d90ff1567b5",
+      "staging/native-music-continuous/music_patch_imports.h": "b1eb7c8faf9a6a7344b49c24959dc194b3823a221d1481be32e579ad56292188",
+      "staging/native-music-continuous/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+      "staging/native-music-continuous/source_worker_imports.h": "75cefba4d45ca51ac867e6027f67926085ebd77a64cb3ebb9ca668652519166f",
+      "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844",
+      "staging/native-owned-media/owned.ld": "4fb15e019df4048f9cc689aaf82a1a051837131c2a656d0a5a168f22d7efc542",
+      "staging/native-owned-media/owned_queue.c": "db1deed241cea130f66cfbf29e232a2131be71ebe8b6451313bff0eba970359e",
+      "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc",
+      "staging/native-pcm-converter/pcm_converter_tables.h": "9608e31285d91e7c0c96b11eb497effbde4ab8cd4bd27c580da4258c3140d488",
+      "staging/native-playback-control/manifest.json": "8e5cb718e3b6ca93706481333ed4f12418ca24be1db341614acf7830109affed",
+      "staging/native-playback-control/playback.ld": "fcae768fa1919150c3dff5ebc1eca7a4582c438953e668d707f716dff11bb840",
+      "staging/native-playback-control/playback_imports.h": "5dce5d671888faf35935a20cdc6ba9e5ea1595b4cd1945181f56d7315a675486",
+      "staging/native-player-heap-callback/heap-release-static-preflight.json": "a19fe9a31e0dbd0c8f68d53c2c8c2b56e929d0b0ba92c3e8dddcb65f34b8a0ae",
+      "staging/native-player-menu/build.json": "af29534c2fc3cbed20b0db0b4c092d61dc10e2f3d4a65be75bbd77aa1792bea4",
+      "staging/native-player-resources/combined-voice-player-EMULATION-ONLY.bin": "e5693728fe645a67a38d6f320d2e57cfa551a48cc632a8bc9cab23b7d624ea6a",
+      "staging/native-player-resources/manifest.json": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+      "staging/native-player-resources/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+      "staging/native-player-resources/player-component-EMULATION-ONLY.bin": "9ba8682d38ec7822dca8060d8816fd656b250db9c60c1da30343e6f9338ba6d4",
+      "staging/native-player-resources/player-component-EMULATION-ONLY.elf": "64b120faf0209d21c552dd73c3977ffe76a301e433736e2614f403969b7e61fd",
+      "staging/native-player-resources/player-menu-EMULATION-ONLY.vpm": "f452d466bcbb700ede6bef166add99c7badc3a005857c296043e3526d25e71c7",
+      "staging/native-player-resources/player_component.ld": "bcd0957f9dfbcbc8eee111abe25313d6077389160ea1ab1a1f61b704fb90f111",
+      "staging/native-player-resources/source_worker_imports.h": "69202bb97b0fcb2ee3c1e610c5bedd06738b01297ec24ae2f834c38d88ed2470",
+      "staging/native-source-worker/manifest.json": "402344f58453955af85e96b1c77ceaf226ad031af073dee46c770f85bd47f660",
+      "staging/native-source-worker/source_worker.ld": "1b3f445283cb33622580e1f7b9e803c3dee127df876ccaecdec79b26b7b0bdb6",
+      "staging/native-source-worker/source_worker_imports.h": "874b26207a99d2261356fbd47a3501b5de01c453cade84fccc0c80cb3a2bfb08"
+    }
+  },
+  "source_references": {
+    "common_entry": {
+      "path": "native/sbc-prototype/app_component_entry.c",
+      "sha256": "e7e1605a21a862ee9b3de52499d5251530e1c4c8f1d0e214d890ad6466b08b1f",
+      "functions": [
+        "native_app_component_entry"
+      ],
+      "lines": "12-22"
+    },
+    "gui_entry": {
+      "path": "native/player-menu-loaded/entry.c",
+      "sha256": "f821a782f281e1116356bba3a9ecf198e03c44df2a7b4cd08a09839d28445b75",
+      "functions": [
+        "native_player_component_entry"
+      ],
+      "lines": "21-37"
+    },
+    "gui_record": {
+      "path": "native/player-resources/player_menu.c",
+      "sha256": "097dd7267b859bddc7e7114938727926bea52f0357335d769aca23116d309eae",
+      "functions": [
+        "native_player_menu_install",
+        "native_player_menu_activate",
+        "native_player_menu_appearance"
+      ],
+      "lines": "17-31,64-94,102-155"
+    },
+    "music_entry": {
+      "path": "native/music-continuous/entry.c",
+      "sha256": "4ed6b45b6c866f4d56ecfaf312fcedeec15c837fee1ba52e477dd3a5fa5104d7",
+      "functions": [
+        "native_music_component_entry",
+        "native_music_start",
+        "dispatch_install",
+        "native_music_callback"
+      ],
+      "lines": "25-89"
+    },
+    "music_runtime": {
+      "path": "native/music-continuous/runtime.c",
+      "sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+      "functions": [
+        "music_runtime_boot",
+        "music_runtime_cancel",
+        "music_runtime_shutdown",
+        "music_runtime_status",
+        "music_runtime_start_gate",
+        "__wrap_media_coordinator_init"
+      ],
+      "lines": "47-142"
+    },
+    "runtime_header": {
+      "path": "native/music-continuous/runtime.h",
+      "sha256": "f55909698675f425df18515ecb6bf7f993a9a5de75188de1a908417f4f58dae7"
+    },
+    "music_stream": {
+      "path": "native/music-continuous/stream.c",
+      "sha256": "fbd9f0e1e1be7fe9541574961d5354e20a42250c427791dbbecd50c6780757c9",
+      "functions": [
+        "music_stream_output_prepare",
+        "music_stream_configuration_gate",
+        "music_stream_callback",
+        "music_stream_consume"
+      ],
+      "lines": "94-228"
+    },
+    "coordinator": {
+      "path": "native/music-continuous/media_coordinator.c",
+      "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+      "functions": [
+        "media_coordinator_init",
+        "cancel_step",
+        "remove_stopped",
+        "native_idle",
+        "media_coordinator_cancel",
+        "media_coordinator_pump"
+      ],
+      "lines": "32-136"
+    },
+    "native_output": {
+      "path": "native/music-continuous/memory_output.c",
+      "sha256": "25337955cdf6b39bde6abb8a5cbcf84f8fb572a3d7b51336243a69f77988cd07",
+      "functions": [
+        "memory_output_register",
+        "memory_output_after_selection",
+        "memory_output_read",
+        "memory_output_release"
+      ],
+      "lines": "132-243"
+    },
+    "continuous_fifo": {
+      "path": "native/music-continuous/owned_media.c",
+      "sha256": "eb92262e4f50fc0e7e955417f925de830c5e6666abc15bcad6c48cee576444e1",
+      "functions": [
+        "continuous_media_read",
+        "continuous_media_cancel_ready"
+      ],
+      "lines": "139-209"
+    },
+    "source_actor": {
+      "path": "native/sbc-prototype/source_worker.c",
+      "sha256": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+      "functions": [
+        "source_worker_entry",
+        "source_worker_boot",
+        "source_worker_completed",
+        "source_worker_cancel",
+        "source_worker_shutdown"
+      ],
+      "lines": "44-116"
+    },
+    "source_hooks": {
+      "path": "native/sbc-prototype/source_event_hooks.S",
+      "sha256": "845730e6ecca4aa9941772d35a67979a2f0cd64b8c3d4b5b5e17ff9adef6ced2",
+      "functions": [
+        "source_completion_hook",
+        "source_completion_after_original",
+        "source_completion_original"
+      ],
+      "lines": "37-64"
+    },
+    "queue": {
+      "path": "native/sbc-prototype/media_queue.c",
+      "sha256": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+      "functions": [
+        "media_queue_begin",
+        "media_queue_stop"
+      ],
+      "lines": "63-100"
+    },
+    "decoder_actor": {
+      "path": "native/sbc-prototype/media_worker.c",
+      "sha256": "be69e2096232d93cf6517df72ac600657b161f62fb080ad209cc8bfff26acbad",
+      "functions": [
+        "media_worker_boot",
+        "media_worker_notify_capacity",
+        "media_worker_shutdown"
+      ]
+    },
+    "continuous_builder": {
+      "path": "scripts/build_native_music_continuous.py",
+      "sha256": "5b5ae3951f31df296717c5f9b7a0a659c3a8a1d84d04b66407504c9cb18a8ca9",
+      "functions": [
+        "patches",
+        "imports",
+        "main"
+      ],
+      "lines": "24-46,49-127"
+    },
+    "gui_builder": {
+      "path": "scripts/build_native_player_resources.py",
+      "sha256": "43adbdf3db6963c5e2501f72f66efc69198a2bc75f9f3775272bdb463895b2be",
+      "functions": [
+        "main"
+      ],
+      "lines": "18-124"
+    },
+    "continuous_linker": {
+      "path": "staging/native-music-continuous/music_component.ld",
+      "sha256": "e9f22f9dfa97a0fdab0b8a21b08b3df603af58f21d1014c0b4112d90ff1567b5",
+      "lines": "5-29"
+    },
+    "gui_linker": {
+      "path": "staging/native-player-resources/player_component.ld",
+      "sha256": "bcd0957f9dfbcbc8eee111abe25313d6077389160ea1ab1a1f61b704fb90f111",
+      "lines": "5-29"
+    },
+    "music_boot_fixture": {
+      "path": "scripts/emulate_native_music_ready.py",
+      "sha256": "ab806043399970bb58ce1c52b854bd2ac0ec0dc475061e0e06a360481559cfcb",
+      "functions": [
+        "ReadyMusicVM.__init__"
+      ],
+      "lines": "112-127"
+    },
+    "continuous_stop_fixture": {
+      "path": "scripts/emulate_native_music_continuous.py",
+      "sha256": "2c666164179df3c6851cfa991c65ab097cc980bdd3ec920996bf672c459392c8",
+      "functions": [
+        "ContinuousMusicVM.cancel_and_retire"
+      ],
+      "lines": "93-107"
+    },
+    "exact_main": {
+      "path": "evidence/firmware-analysis/main_02bd.bin",
+      "sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+    },
+    "static_analyzer": {
+      "path": "scripts/analyze_native_source9_lifecycle.py",
+      "sha256": "187cb440693dfad364fda016a948f35b651d69b03809bee33b98dda2b1df965e"
+    }
+  },
+  "future_output_namespace": {
+    "status": "Proposed paths only; none created by this review",
+    "sources": "native/player-music-integration-v1/",
+    "builder": "scripts/build_native_player_music_integration_v1.py",
+    "test": "scripts/emulate_native_player_music_integration_v1.py",
+    "artifacts": "staging/native-player-music-integration-v1/",
+    "new_proof": "staging/native-player-music-integration-v1/integration-proof.json",
+    "rule": "Copy/hash immutable origins to new files when adaptation is required; explicit source-list substitution only. Do not rerun old builder output namespaces or rewrite any existing manifest/proof."
+  },
+  "implementation_placements": [
+    {
+      "order": 1,
+      "new_file": "native/player-music-integration-v1/entry.c",
+      "new_functions": [
+        "native_player_music_component_entry",
+        "player_music_deferred_init"
+      ],
+      "immutable_origins": [
+        "common_entry",
+        "gui_entry",
+        "music_entry"
+      ],
+      "implementation": "Link one sole loader ENTRY. Call native_app_component_entry exactly once before any new state/descriptor is live; preserve original result6/11 and40export registration. After common return set new resident bootstrap state. Register current one home icon through the characterized menu helper only in an explicitly characterized UI-owner fixture; request later init rather than invoking the music component entry. No old native_player_component_entry/native_music_component_entry is called.",
+      "deferred_order": [
+        "original TTS bootstrap completed",
+        "actual GUI registry/UI owner boundary established",
+        "original radio/SDP initialization completed and90007/count14 verified",
+        "source8/9 mapping and foreign occupancy checked",
+        "once-only guest music_runtime_boot(8,36,40)",
+        "source initializer fully returned with matching owner and result0; decoder/source actors entered",
+        "once-only native_music_start() installs11 exact sites/publishes valid SEP in a declared writable/cache/pinned fixture",
+        "Start control enables local admission; config/START/media then run original protocol paths"
+      ],
+      "ordering_caveat": "Existing proof installs/publishes before boot then gates START until readiness. The proposed boot-before-publication order is a new boundary and must be tested; neither loader-entry success nor SDP checks alone prove UI/radio/driver cold boot readiness.",
+      "failure_policy": "Retain module, any allocated TCB/stacks, patch ownership and private state on failure. Report ERROR_PINNED; never retry common bootstrap, hot reload, free stacks or treat failure as rollback."
+    },
+    {
+      "order": 2,
+      "new_file": "native/player-music-integration-v1/player_menu.c",
+      "new_functions": [
+        "native_player_music_menu_activate",
+        "native_player_music_menu_appearance",
+        "native_player_music_menu_install"
+      ],
+      "immutable_origins": [
+        "gui_record"
+      ],
+      "implementation": "Adapt frozen100-byte GridIconType: launch+84/context+88/appearance+96 remain exact. Preserve one proven home icon ID7f135201 and context13528000 to avoid inventing SQL selection support for new IDs. Launch validates context, snapshots control status and submits bounded START or STOP command. Do not call525F14/36B721 on every click.",
+      "minimal_UI_exposure": "One home icon is a state-driven Start/Stop toggle: IDLE/STOPPED submits Start; ARMED/ACTIVE submits Stop; BOOTING/STOPPING/ERROR_PINNED disables activation. Export separate start/stop command functions for testing and a later player page. GUI enable state0/disabled4 can use characterized appearance callback without replacing its stock-constructed output objects.",
+      "two_button_page_scope": "A page with separate Start and Stop buttons is deferred until original Page/widget/closure construction, parent ownership, event dispatch and return/destruction ABI are recovered. Do not claim settings action5193C8/36C00A is a generic App factory.",
+      "caption_scope": "Static caption change in new resident UTF16 storage is possible in the new menu record. Dynamic Start/Stop/status caption requires recovered safe NativeString assignment/copy ABI; do not re-run constructor on an already-live output or return borrowed stack strings.",
+      "thread_scope": "Use root foreground/legal native queue callback result when available. Direct host invocation of launch is only an ABI/control test, not touch proof. Keep callbacks, context, caption/icon resource and module resident even after audio Stop."
+    },
+    {
+      "order": 3,
+      "new_files": [
+        "native/player-music-integration-v1/player_control.c",
+        "native/player-music-integration-v1/player_control.h"
+      ],
+      "new_functions": [
+        "player_control_request_start",
+        "player_control_request_stop",
+        "player_control_status",
+        "player_control_take_request",
+        "player_control_publish_stop_complete"
+      ],
+      "immutable_origins": [
+        "source_actor",
+        "music_runtime",
+        "gui_record"
+      ],
+      "implementation": "Add a small resident control state with modePHONE8/WAV9, nonwrapping command_generation, active_generation, stop_requested_generation, stop_completed_generation, last_error, armed and one bounded durable pending command. Use original21B6CC/21B6DC for short metadata sections; never wait/allocate/post under exclusion. Post original2FCF44 to the existing source TCB only after durable pending publication and unlock.",
+      "command_priority": "STOP supersedes pending START of the same generation; repeated STOP is idempotent and returns the existing token. Reject repeated START while ARMING/ACTIVE/STOPPING, generation overflow and foreign mode/owner. Do not silently switch WAV9/PHONE8 while either route is active or canceling.",
+      "UI_return_contract": "Request return indicates private command accepted/rejected with token only. Status reports BOOTING, IDLE, ARMED, ACTIVE, STOPPING, STOPPED or ERROR_PINNED; ACTIVE denotes characterized native source activity, not audible sound. Stop completed generation is published by the owning guest actor after actual cleanup/removal/releases, never by the UI thread.",
+      "status_snapshot": "Snapshot private metadata and known in-flight counters coherently. Raw native state/driver/mixer checks require serialized actor/ownership boundaries; one IRQ section does not establish global exclusivity against another task or future callback.",
+      "default_mode": "PHONE8 for user music. WAV9 remains an optional narrow lifecycle test mode using the existing test.wav path, not a substitute for direct-phone completion."
+    },
+    {
+      "order": 4,
+      "new_file": "native/player-music-integration-v1/source_worker.c",
+      "new_functions": [
+        "player_control_service_in_source_actor",
+        "player_control_source_completed",
+        "player_control_after_cancel_return"
+      ],
+      "immutable_origins": [
+        "source_actor",
+        "source_hooks",
+        "coordinator"
+      ],
+      "implementation": "Copy frozen source_worker into the new namespace, preserving kernel builder358BF9, registry2FBBBF, original post/wait and persistent16KiB stack. Extend the bounded loop at original44-75 with control pending service; source TCB remains coordinator owner. PHONE8 Stop invokes runtime cancel outside GUI/AV locks; WAV9 request is serviced by this same actor only when channel8 is idle and locally disarmed. Do not create a second coordinator or move the audio synchronous start onto GUI stack.",
+      "completion_branch": "Current source_worker_completed100-105 accepts only record034E6F08+channel*520. Add a branch for source9 record034E8150 only when its private lease/generation is live; posts a durable completion bit after original cleanup return. Unowned/foreign records do not change the player generation.",
+      "completion_publication_point": "For PHONE8 call player_control_after_cancel_return only after media_coordinator_cancel/pump returned0, source cancel_requested cleared, coordinator cancel_pending/ticket/busy zero, original node removal returned, anchor released and FIFO discard returned. For WAV9 publish only after its native stop/cleanup and original public clear have fully returned and the lease consistency checks passed.",
+      "shutdown_scope": "Retain both persistent workers for ordinary Start/Stop. music_runtime_shutdown/source_worker_shutdown are destructive task-exit requests, not pause/resume; old boot rejects retained TCBs. No unload/restart/reclamation API is exposed."
+    },
+    {
+      "order": 5,
+      "new_files": [
+        "native/player-music-integration-v1/stream.c",
+        "native/player-music-integration-v1/runtime.c",
+        "native/player-music-integration-v1/runtime.h"
+      ],
+      "new_functions": [
+        "player_music_arm",
+        "player_music_disarm",
+        "player_music_stop_snapshot"
+      ],
+      "immutable_origins": [
+        "music_stream",
+        "music_runtime",
+        "queue"
+      ],
+      "implementation": "Adapt stream gate/callback/consumer in new copies. Under AV mutex5523DF/5523FD atF50098 set/clear local armed state coherently with session/queue epoch. Locally disarmed configuration and START reject before original acceptance; event17 may not restart private queue while disarmed; F1 enqueue and selected consumer recheck admission/session/epoch. Unlock AV mutex before cancel/post/wait. Leave exact original syntax/state validation and other endpoints intact.",
+      "Start_semantics": "Start arms the native receive route and awaits real phone AVDTP configuration/START/media. It does not emit phone audio, fake START callbacks or write SEP state. If a phone remains in actual streaming state after local Stop, a later local Start needs a characterized AV-locked resume operation: coherent bound session/state8, source cleanup complete, no busy lease, then media_queue_begin and new queue_epoch. Otherwise remain ARMED awaiting a real remote suspend/start or reconnection. This new live-session resume boundary is not proven by current tests.",
+      "Stop_semantics": "Disarm first, invalidate private queued epoch under established lock ordering, then cancel native source; retain protocol/configuration and module state as appropriate. Packet discard while phone still streams is a local stop, not AVRCP pause or successful remote suspend. Explicit remote pause control requires a separately recovered protocol API and is outside this minimal candidate.",
+      "not_sufficient": "music_runtime_status()==READY|ACTOR (5) alone excludes many private busy states but does not encode command generation, native stop enqueue acceptance, source9 ownership, all native idle fields or future callback exclusion. Add a stable completion token rather than reusing5 as UI stop acknowledgement."
+    },
+    {
+      "order": 6,
+      "new_files": [
+        "native/player-music-integration-v1/source9_control.c",
+        "native/player-music-integration-v1/source9_control.h"
+      ],
+      "new_functions": [
+        "source9_acquire_idle_lease",
+        "source9_start_owned_wav",
+        "source9_request_stop",
+        "source9_finish_stop"
+      ],
+      "immutable_origins": [
+        "static_analyzer",
+        "source_actor",
+        "source_hooks"
+      ],
+      "implementation": "Use source9 static preflight as exact ABI specification; commands execute in owning source actor. Require actual native mapping and mode/driver table, queue/node identity, idle provider/mixer/driver, no in-flight reader/callback and no PHONE8 anchor/FIFO work. Reject a preexisting node or independently active source, instead of clearing it as part of registration. Record the original-created queue node identity/generation after successful registration and verify it before cleanup.",
+      "mode_precondition": "Source9 mode byte isF2933F. Stock36AFB6(mode5) can issue asynchronous STOP and immediately rebuild queue driver through277D26; it is not a quiescence operation. First candidate requires already-characterized idle mode5/driver configuration, or a separate native mode-change/stop/reinit barrier proof before playback. Do not copy stock diagnostic immediate sequence and call it safe.",
+      "start_calls": [
+        {
+          "pointer": "0x525F0C",
+          "mode": "ARM veneer toThumb2709FF",
+          "args": [
+            9,
+            1,
+            0
+          ],
+          "meaning": "Queue-context+1A byte setter; not stop/free; exact semantic label unresolved"
+        },
+        {
+          "pointer": "0x525F14",
+          "mode": "ARM veneer toThumb27058B",
+          "args": [
+            9,
+            22,
+            11,
+            "resident UTF16 0:/Garmin/test.wav",
+            38,
+            0,
+            0
+          ],
+          "meaning": "Clear-then-register WAV source.22=kind,11=flags. Public wrapper does not check active quiescence."
+        },
+        {
+          "pointer": "0x36B721",
+          "mode": "Thumb",
+          "args": [
+            9,
+            0
+          ],
+          "meaning": "Original synchronous queue start/central request condition/ACK; may block owning worker, never GUI."
+        }
+      ],
+      "stop_call": {
+        "pointer": "0x36AF75",
+        "mode": "Thumb",
+        "args": [
+          9,
+          0
+        ],
+        "meaning": "Asynchronous central class2/opcode3. Return0 is not queue-send acceptance or completed stop."
+      },
+      "clear_call": {
+        "pointer": "0x270537",
+        "mode": "Thumb",
+        "args": [
+          9,
+          0
+        ],
+        "meaning": "Only after native stop/cleanup and proven owned queue state, calls original clear-all under native mutex. Entire2777B4→277720→277596→3887A2→388746→388676 chain must return before private lease is retired.",
+        "ABI": "r0=source/channelID; r1=bypass range check.270536 tests r1, otherwise calls36AF68 validity, then36AF4E record availability;9,0 is the checked public route."
+      },
+      "WAV_EOF": "Finite WAV can reach original completion before explicit Stop. Treat matching owned EOF as a cleanup request; do not re-register on a click while completed node is retained or native callbacks can still arrive.",
+      "release_limits": "388746 can unlock its heap mutex before callback while enclosing channel/list mutex remains held;388676 releases opaque allocation and clears caller handle only after callback returns. Flags(mask6)==6 invoke callback without NULL check. Do not call388676 directly or register NULL callback under flags6 as an unregister trick. Keep all module/UI resources resident; native queue clear is not UI/module free.",
+      "owned_node_identity": "Registration return is a status, not an invented source handle. Recover and retain identity only from the actual original queue publication/list node under native serialization; NULLmetadata does not grant ownership or Appnotification."
+    },
+    {
+      "order": 7,
+      "new_file": "scripts/build_native_player_music_integration_v1.py",
+      "immutable_origins": [
+        "continuous_builder",
+        "gui_builder",
+        "continuous_linker"
+      ],
+      "implementation": "Build a new candidate from one explicit source list; continuous substitutions for memory_output/owned_media/media_coordinator plus new entry/menu/control/runtime/stream/source worker copies. Keep original immutable common app/decoder/PCM-converter/queue/media-worker and original voice initializer where unmodified. Never link duplicate old/new entries or duplicate source workers/state definitions. New source9/completion adapter and control symbols have independent private API section.",
+      "layout_plan": {
+        "current_extension_base": "0x02F7D000",
+        "current_code_limit": "0x02F8D000",
+        "current_continuous_bytes": 64899,
+        "current_code_remaining": 637,
+        "proposed_new_code_budget_bytes": 131072,
+        "proposed_new_BSS_base": "0x02F9D000",
+        "proposed_shift_of_current_BSS_PCM_queue_audio_stacks": "0x10000",
+        "proposed_existing_tail_after_shift": "0x02FB5000",
+        "proposed_combined_RAM_before_extra_control_data": 2528396,
+        "remaining_original_reservation_before_extra_control_data": 617332,
+        "meaning": "A possible new layout only, not compiled placement or device MMU permission. Shift all current NOLOAD sections coherently and include any control stack/state inside the original3MiB reservation. Existing source actor reuse avoids another mandatory16KiB stack."
+      },
+      "must_recalculate": [
+        "__app_zero_start/end and every source/decoder/queue/PCM pointer",
+        "new ENTRY branch/header RAM/file sizes",
+        "12private API addresses andnew player API addresses",
+        "OWNED_CONSUME_RESUME and any assembly imports",
+        "11patch afterbytes and all expected original beforebytes",
+        "all ELF PHDR guards/codeRXdataRW/no unresolved symbols/no Linux dependencies",
+        "voice40exports/imports/trampolines and original header-after bytes",
+        "VPM extent geometry/checksum and unchangedSIG limitations",
+        "whole new memory/TCB/frame/output ownership guard ranges"
+      ],
+      "two_pass_contract": "Adapt existing two-pass resolution in new output namespace. Generate imports and patch table, relink and require identical final symbol addresses between passes. Current64-byte MAIN patch proof and GUI zero-patch scope do not carry over automatically."
+    }
+  ],
+  "stop_completion_contract": {
+    "request_vs_done": "A request token is acknowledged when private command is durably published. STOP_COMPLETE token is acknowledged only after the owning actor completes native and private cleanup. No native send/wait/post return or UI counter is a replacement.",
+    "PHONE8_required_evidence_in_order": [
+      "Local armed gate is closed before any post/cancel, and preselected decoder packet rechecks invalidated epoch before publication.",
+      "Matching native source state transitions through actual central/driver/frame stop; use original36AF75 class2/opcode3. If native message queue does not accept request, remainSTOPPING or ERROR_PINNED rather than reporting success.",
+      "Actual original source cleanup3B9DFC returns; source_completion_hook calls source_worker_completed only afterward. This hook alone is not node removal or future-callback exclusion.",
+      "Coordinator native_idle sees recordbyte2=0, mixerrecord+84=0, driver halfword=0, source-state1, all68method bytes clear, native_calls=0 and reader_in_flight=0 at the serialized owner boundary.",
+      "Owner verifies sole owned node and ticket; original277675 remove(record+1A8,0) fully returns and node count is zero.",
+      "memory_output_release returns0 after inactive provider-pool/anchor checks, and active_ticket/installed become0.",
+      "continuous_media_cancel_ready fully returns, count0, all owned slotsFREE/no in_flight, private queue no pending/copy/consumer busy, decoder no publication in progress.",
+      "media_coordinator_cancel/pump returns0, cancel_pending/ticket/busy0, source_worker.cancel_requested cleared; publish matching generation completed under private exclusion and notify UI through a characterized owner queue.",
+      "Persistent decoder/source TCBs, stacks, hook frames, menu resources and module remain resident. Stop does not imply task/module quiescence or permission to unmap code."
+    ],
+    "WAV9_required_evidence_in_order": [
+      "Reject foreign occupied node/driver/mode; source9 private lease and generation are valid andPHONE8 is locally stopped.",
+      "Request36AF75(9,0); observe actual native central/driver completion rather than36B69B false or return0.",
+      "Matching owned original cleanup return arrives via new source9 completion filter; check source-state1, cleared methods/provider, inactive mixer/driver and no in-flight callback/reader under serialized ownership.",
+      "Verify current queue still contains only the known original-created owned node; call original public clear270537 and let all list/heap callbacks/removal/free instructions finish.",
+      "Validate queue head/count0 and indicesFFFF; publishstop_completed_generation only afterward. Preserve module/callback/UI and unresolved future-callback exclusion as pinned residency."
+    ],
+    "generic_heap_callback_scope": "Original388746/388676 are allocation lifecycle, not audioSTOP. App callbacks may execute while outer mutex remains held; cross-owner reentry and delayed callbacks require controls. Never equate a zeroed handle, queue count or callback flag with global quiescence.",
+    "wait_failure_policy": "Do not spin or sleep GUI while awaitingStop. Finite test frame budget detects failure; UI remainsSTOPPING/ERROR_PINNED with resident resources. A physical timeout needs a recovered reliable clock/timer contract; it cannot be invented from host walltime."
+  },
+  "minimal_next_test_boundaries": [
+    {
+      "order": 1,
+      "name": "new_build_single_entry_integrity",
+      "requirements": [
+        "New source/binary/proof namespace only; frozen source hashes verified beforebuild",
+        "Exactly one common bootstrap executes; pre-polluted BSS clears at initial bootstrap and never again on launch/Start/Stop",
+        "Original40exports/imports/trampolines and12private APIs remain valid at recomputed addresses",
+        "Code/data/queue/PCM/stacks within reservation; two-passsymbols stable; declaredcodeRX/dataRW",
+        "Foreign retained/reload entry rejected or documented unsupported before clearing anyliveBSS"
+      ],
+      "scope": "Offline loader/guest ABI only; no hardware package acceptance."
+    },
+    {
+      "order": 2,
+      "name": "legal_GUI_foreground_launch_boundary",
+      "requirements": [
+        "Parent first extends frozen fullbackground proof with foreground/root input gates",
+        "Use original37BCE4 and actual8-byte/20-slot GUI queue/descriptor word1 bufferD+4B04; no raw caller argument substitution",
+        "Boot event16 alone is not callback; legal originalwriter/stateRAM14B2370/normalinput path reaches residentmenu launch",
+        "Launch submitscommand and returns to originalGUI actor; no audio wait underGUImutex",
+        "Appearance safelydisabled duringBOOTING/STOPPING; repeatedclick does not create duplicateaudio nodes"
+      ],
+      "scope": "A real original guest input path in declared fixtures, not touch/display hardware. Do not markApp when host directly invokeslaunch."
+    },
+    {
+      "order": 3,
+      "name": "minimal_source9_actor_start_async_stop_clear",
+      "requirements": [
+        "Characterizedidle source9 mode5/method table and native exclusivefixture;foreignnode or activeprovider rejects withoutclear",
+        "Sourceactor calls original525F0C/525F14/36B721 withexactargs andwaits originalsyncACK",
+        "Stoprequest0 showsSTOPPING beforeframes;originalcentral/drivercleanup must execute;matchingcleanupreturn tokenobserved",
+        "Originalqueueclear and388746callback/388676freefullyreturn beforeSTOPPEDgeneration",
+        "Start→Stop→Start producesoneownednodeeachgeneration;repeatStop/noactiveStop/earlyEOF/stalecompletion/reentrantcallback arecontrolled",
+        "No hostdirectSTOP15/CLEANUP19/remove/free writes or source-state repair"
+      ],
+      "scope": "Narrow source9 ownership/control evidence only; existing physicalWAV success is not rerun or promoted to directphone."
+    },
+    {
+      "order": 4,
+      "name": "guest_boot_channel8_and_local_arm_gate",
+      "requirements": [
+        "Guest entry/deferred init performsboot8,36,40 exactlyonce afternecessarynative boot; no Pythonexplicitmusic_runtime_boot replacement",
+        "Unentered/pausedinitializer/resultfailure/foreignoccupiedchannel8 rejectconfig andSTART",
+        "Actual sourceinitializer fullreturn+result0+ownerTCB and decoderentered publishreadiness",
+        "LocalStop blocksconfig/START/event17/F1; selectedpacket invalidated; originalpeer state notforged",
+        "Start initiallyARMed waitsrealwireconfigurationSTART; liveboundstreamresume onlyif newcoherentresume contractpasses"
+      ],
+      "scope": "Offline native task/protocol glue; no realphone link or clock."
+    },
+    {
+      "order": 5,
+      "name": "combined_GUI_music_same_VM_stop_completion",
+      "requirements": [
+        "Same newlyloadedcombinedpackage andsinglebootstrap hasoriginalGUIworkers plusdecoder/source/central/mixer/timerTCBs",
+        "LegalGUIlaunch Start/Stop posts tosourceactor; originalnativepost/wait/mutex/condition/contextpathsrun acrossowners",
+        "Use oneexisting frozenvalidstereo packet sequence only; no newSBC/fidelitymatrix",
+        "Stopwhilecopypending/decoderbusy/syncSTARTheld/readinflight andbeforecleanup returnsneverpublishescompletedtoken early",
+        "Nativepersistentanchor retiredonce, FIFOdiscarded, no newPCMafterstopgate, nextStartreusespersistentworkers",
+        "Wholecode/voice/privateAPI/UI/DB/allocator/storage/descriptor/stack/nativeALL-ready-owned lists/frames guardsadapted fornewlayout withouthostcountermutation orgenericcleanup"
+      ],
+      "scope": "Feasible integratedofflinecandidate. Under fixture exclusivechannel/peripheral inputs it can demonstratecontrol+audio ownership. It cannot prove physicalApp/display/acceptedSIG/phone/speaker."
+    },
+    {
+      "order": 6,
+      "name": "failure_and_residency_controls",
+      "requirements": [
+        "Native messagequeuesaturated/droppedSTOP: requestreturn0 cannot yieldSTOPPED; retainstateandresources",
+        "WAVregister/startfailure, decoder/sourceallocationfailure, endpointpublishafterpatchfailure =>ERROR_PINNED withoutreload",
+        "Foreignsource9/channel8 occupancy and independentwriter replacement reject ordetect beforedestruction",
+        "NULLcallbackwithflags6 explicitnegative and callbacksundertheouterlistmutex",
+        "Delayednot-yet-enteredreader/callback cannot accessreusedpayload; expose unresolvedfuturecallbackexclusion ifnotestablishable",
+        "Stopnevercallsruntime_shutdown or freesTCB/stack/UI/module"
+      ],
+      "scope": "Necessary limits/failurecontrols; no safeunload claim."
+    }
+  ],
+  "hardware_integration_preconditions_not_satisfied_by_plan": [
+    "Parent must first produce and validate a separately frozen combined candidate; present54976GUI and64899music packages remainEMULATION-ONLY/noninstallable.",
+    "Actual device loader directory/disc, voice reload/retention and acceptedVPM-SIG policy must be characterized; synthetic filesystem/zeroSIG controls do not prove modifiedpackage accepted onexactmachine.",
+    "Real executable RAM/MMU/cache/MAIN-write authority, native task/IRQ/clock/driver coldboot and modulepinning cannot be inferred from protectedemulator mappings.",
+    "Actual native source9/channel8 reservation against navigation/prompts/other callers and driver/pool ownership must be established before claiming reliable simultaneousnavigation.",
+    "Actual GUIforeground/touch/display/homeentry and safe return paths must reach integratedcontrols; hidden zero-frame constructor and two residentbackgroundworkers are insufficient.",
+    "An authorized phone must exercise realAVDTP Discover nonemptySinkSEP/capabilities/config/open/start, actualSBCmedia and native output lifecycle; SDP-onlypublication is insufficient.",
+    "Physicalspeaker/nativeaudio and user-observed Start/Stop/repeat behavior are separate futurefieldchecks. Existing PiA2DP→HFP and originaldiagnosticWAV evidence do not prove this route."
+  ],
+  "non_goals_for_minimal_candidate": [
+    "NewSBCcodec/fidelitystudy",
+    "microphone",
+    "GoogleMaps",
+    "AndroidAuto",
+    "GUIpagetemplate/widgetABI invention",
+    "SDP-onlysuccessclaim",
+    "AVRCP remotepausewithout recoveredAPI",
+    "safeunload/hotreload/freeTCBs",
+    "installing or transferring existingEMULATION-ONLYVPM"
+  ],
+  "review_conclusion": "The next concrete implementation is a new singlylinked bootstrap plus one existing home-icon toggle, bounded source-actor command path, source9 ownedWAV lifecycle test branch, and channel8 local admission/stop completion adapter. Start/Stop completion must be guest-driven and generation-backed. This is a feasible offline candidate design, not implemented code, physical App/music or goal completion.",
+  "exact_source9_native_function_ranges": {
+    "0x270536": {
+      "entry": "0x270536",
+      "bound_end": "0x27058a",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "5d5553ca77eaddf10c145a3f142d43a7475a08408a58e9a9ab7112c995c9d115",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x27058a": {
+      "entry": "0x27058a",
+      "bound_end": "0x27060a",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "46b15a4429c70ec8e514dbbed44c70389b99513db646cb0e86c0474797c7d011",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x36b720": {
+      "entry": "0x36b720",
+      "bound_end": "0x36b820",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "5bf9c98c6c8931001445fd600def95511a3fa502a289f77d85852f1b07a791a3",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x36af74": {
+      "entry": "0x36af74",
+      "bound_end": "0x36afb6",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "e1f049bc4aa3772f22386976d37c907c83e2aee393da40aeeec9d8aa917da4b0",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x36b69a": {
+      "entry": "0x36b69a",
+      "bound_end": "0x36b6d4",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "cf9febfd7818fd7396ff40b64d27f296a34acdecaf18948100a1df741208a2a8",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x2709fe": {
+      "entry": "0x2709fe",
+      "bound_end": "0x270a56",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "462f25d4e1dc3af49387561629e84e1f0e2b5581de638abb138c89ee2d1fd61c",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x36afb6": {
+      "entry": "0x36afb6",
+      "bound_end": "0x36affc",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "bd9c44c7e84cfcfb5f0982c6aa962b1ca69805ded205f3ad66f223757884cff6",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x388746": {
+      "entry": "0x388746",
+      "bound_end": "0x3887a2",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "60ce7b67dd16ad0cdb6ae301eafbdf977dcd2188f13f8e7a2c4403dff2d76f1a",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    },
+    "0x388676": {
+      "entry": "0x388676",
+      "bound_end": "0x388746",
+      "entry_mode": "Thumb",
+      "backed_instruction_bytes_sha256": "83433981194a10bad6ba3ff8bb3c9c9bb97c08d0c7a247b285c07a1fe5bd5e72",
+      "unresolved_exits": [],
+      "static_limit_reached": false
+    }
+  },
+  "new_build_gate": "No hardware transfer is proposed. The128KiB code plan is a candidate layout inside the documented3MiB DLL reservation only; actual executable memory permission and acceptedVPM-SIG remain independent unmet contracts."
+}

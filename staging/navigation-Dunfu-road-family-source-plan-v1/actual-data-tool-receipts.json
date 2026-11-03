@@ -1,0 +1,31 @@
+{
+  "schema": "actual ordinary data ingestion/review tool receipts/v1",
+  "cwd": "/root/garmin",
+  "tools": [
+    {
+      "command": "python3 staging/navigation-Dunfu-road-family-source-plan-v1/capture_prefix_v1.py",
+      "tool": "functions.exec / tools.exec_command",
+      "chunk_id": "4ca9d8",
+      "exit_code": 0,
+      "wall_time_seconds": 0.452144018,
+      "stdout": "{\"bounded_prefix_read_complete\": true, \"compressed_bytes_read\": 3145728, \"decompressed_bytes\": 25165824, \"complete_rows\": 46470, \"gzip_EOF\": false, \"Dunfu_family_prefix_counts\": {\"敦富六街\": 1}, \"new_examples\": [], \"official_name_verified\": false, \"native_CPU_execution\": false, \"device_IO\": false}\n",
+      "read_counters_and_parse_failure_details": "prefix-read-receipt.json"
+    },
+    {
+      "command": "python3 staging/navigation-Dunfu-road-family-source-plan-v1/review_v1.py",
+      "tool": "functions.exec / tools.exec_command",
+      "chunk_id": "cb89a5",
+      "exit_code": 0,
+      "wall_time_seconds": 0.000026629,
+      "stdout": "{\"ordinary_data_review_complete\": true, \"status\": \"held_no_additional_Dunfu_source_in_authorized_prefix\", \"new_source_examples\": 0, \"stock_family_rows\": 441, \"stock_Dunfu_prefix_names\": 0, \"new_source_and_raw24_tests\": 0, \"hypothetical_family_count_with_six_plus_two\": 444, \"numeric_10bit_child_count_headroom\": 579, \"official_other_names_verified\": false, \"IMG_JAI_bundle_created\": false, \"native_CPU_execution\": false, \"device_IO\": false}\n",
+      "large_groups_source_reopened": false,
+      "review_output": "proof.json"
+    }
+  ],
+  "ordinary_data_ingestion_only": true,
+  "native_CPU_or_firmware_work": false,
+  "device_IO": false,
+  "audio_execution": false,
+  "IMG_JAI_bundle_created": false,
+  "App_music_direct_phone_speaker_install_fullTaiwan_flags": false
+}

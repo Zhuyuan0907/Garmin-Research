@@ -1,0 +1,54 @@
+{
+  "checked_utc": "2026-10-05T15:25:33.622846+00:00",
+  "previous_goal_turn_classification": "no_progress",
+  "previous_progress_evidence": "staging/navigation-repair-checkpoint-v2/root-final-readback.json",
+  "current_goal_turn_classification": "no_progress",
+  "consecutive_physical_blocker_turns": 3,
+  "blocker_key": "garmin_usb_absent_and_physical_navigation_acceptance_pending",
+  "authoritative_observations": [
+    {
+      "argv": [
+        "lsblk",
+        "-J",
+        "-b",
+        "-o",
+        "NAME,TYPE,SIZE,TRAN,FSTYPE,MOUNTPOINTS"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n   \"blockdevices\": [\n      {\n         \"name\": \"loop0\",\n         \"type\": \"loop\",\n         \"size\": 2147483648,\n         \"tran\": null,\n         \"fstype\": \"swap\",\n         \"mountpoints\": []\n      },{\n         \"name\": \"loop1\",\n         \"type\": \"loop\",\n         \"size\": 1337143296,\n         \"tran\": null,\n         \"fstype\": \"squashfs\",\n         \"mountpoints\": [\n             \"/root/garmin/archives/original-disk-v1\"\n         ]\n      },{\n         \"name\": \"loop2\",\n         \"type\": \"loop\",\n         \"size\": 591921152,\n         \"tran\": null,\n         \"fstype\": \"squashfs\",\n         \"mountpoints\": [\n             \"/root/garmin/archives/research-traces-v1\"\n         ]\n      },{\n         \"name\": \"loop3\",\n         \"type\": \"loop\",\n         \"size\": 3879731200,\n         \"tran\": null,\n         \"fstype\": \"vfat\",\n         \"mountpoints\": [\n             \"/root/garmin/backups/20261002T154458Z/files\"\n         ]\n      },{\n         \"name\": \"loop4\",\n         \"type\": \"loop\",\n         \"size\": 706027520,\n         \"tran\": null,\n         \"fstype\": \"squashfs\",\n         \"mountpoints\": [\n             \"/root/garmin/archives/frozen-media-v1\"\n         ]\n      },{\n         \"name\": \"mmcblk0\",\n         \"type\": \"disk\",\n         \"size\": 30945574912,\n         \"tran\": \"mmc\",\n         \"fstype\": null,\n         \"mountpoints\": [],\n         \"children\": [\n            {\n               \"name\": \"mmcblk0p1\",\n               \"type\": \"part\",\n               \"size\": 536870912,\n               \"tran\": \"mmc\",\n               \"fstype\": \"vfat\",\n               \"mountpoints\": [\n                   \"/boot/firmware\"\n               ]\n            },{\n               \"name\": \"mmcblk0p2\",\n               \"type\": \"part\",\n               \"size\": 30400315392,\n               \"tran\": \"mmc\",\n               \"fstype\": \"ext4\",\n               \"mountpoints\": [\n                   \"/\"\n               ]\n            }\n         ]\n      },{\n         \"name\": \"zram0\",\n         \"type\": \"disk\",\n         \"size\": 2147483648,\n         \"tran\": null,\n         \"fstype\": \"swap\",\n         \"mountpoints\": [\n             \"[SWAP]\"\n         ]\n      }\n   ]\n}\n",
+      "USB_disks": []
+    },
+    {
+      "argv": [
+        "lsusb"
+      ],
+      "exit_code": 0,
+      "stdout": "Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\nBus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub\nBus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub\n",
+      "Garmin_USB_devices": []
+    }
+  ],
+  "active_build_or_test_handle_confirmed": false,
+  "verified_wait": false,
+  "completion_audit": {
+    "candidate_built_packaged_offline_checked": true,
+    "device_installation": "missing",
+    "physical_address_search_speed": "unverified",
+    "physical_Minquan_vs_Minhe_selection": "unverified",
+    "physical_new_map_routing": "unverified",
+    "music_research_resume_condition": "navigation verification pending"
+  },
+  "next_safe_action": "When the navigator is physically connected, verify its USB identity, install/read back v2, then request address and GPS route A/B results.",
+  "task_priority": "navigation_search_repair",
+  "goal_status": "active",
+  "goal_complete": false,
+  "device_IO": false,
+  "device_files_written": false,
+  "canonical_or_sealed_candidate_modified": false,
+  "blocking_threshold_met": true,
+  "meaningful_remaining_verification_requires_physical_navigator": true,
+  "previous_blocker_audit": "evidence/navigation-repair-physical-blocker-audit-v2.json",
+  "live_relevant_job_processes": [],
+  "live_subagents": "All three child agents reported completed in this turn.",
+  "goal_status_transition_pending": "blocked",
+  "impasse_reason": "The completed candidate requires actual Garmin installation/readback and user-observed address/routing acceptance. No Garmin USB device is connected and no relevant job is live."
+}

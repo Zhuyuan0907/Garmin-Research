@@ -1,0 +1,798 @@
+{
+  "updated_utc": "2026-10-04T13:59:44.825510+00:00",
+  "static_only": true,
+  "guest_execution": false,
+  "guest_VM_imported_or_instantiated": false,
+  "frozen_sources_or_canonical_modified": false,
+  "source_sha256": {
+    "staging/native-player-decoder-scope/gui-static/record_next_page_boundaries.py": "2404a98d9f79ef680bda661cec0c22b47cd54b089514a7ba0d6b96804ee563a5",
+    "scripts/probe_native_dispatcher_decoder.py": "a9deadbbeb89b8cf5ca3550164736f852abb16c522a953c6e6dc84009ddc644e",
+    "scripts/probe_native_dispatcher_body_fp.py": "a0315eadfe40ab66ea8e601c236d9c358731ed1513983a3a2e2bc88c9b05a4e0",
+    "staging/native-player-decoder-scope/gui-static/decoder_actor_observer_v2.py": "9ac6b6d8a1139e0ff41413b0bfe0ba715b69b290c60be360629216bd266fa9a1",
+    "staging/native-player-decoder-scope/gui-static/runner-wiring-review-a9deadbb.json": "95883964d745b1b207bf7b3e49d963aa7d17a2b360f9bcf3e2f51e8608b1256c",
+    "scripts/probe_native_controller_gir_component.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "scripts/probe_native_player_mainmenu.py": "e9fc9c84fa518e5cd2ead7eb6d6d0cc60a2af2e0cd3521e99c56f5c4459a5280",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "bounded_MAIN_ranges": 5,
+  "observed_runtime_boundary": false,
+  "ordered_possible_calls": [
+    "After original39720C result0, branch405396→4053A0",
+    "4053A0 original391270 and conditional4053A8 original389970 determine flagR5",
+    "4053B4 originalARM3954CC allocation",
+    "4053BE originalThumb40434C constructor",
+    "4053C8 originalcached393A2C getter",
+    "4053D2 original38E696 manager transition"
+  ],
+  "allocator": {
+    "original_call": "0x4053b4",
+    "entry": "0x3954cc",
+    "entry_Thumb": false,
+    "literal_address": "0x40545c",
+    "request": "0x3f04",
+    "request_bytes": 16132,
+    "LR": "0x4053b9",
+    "actual_continuation": "0x4053b8",
+    "SP": "captured callback E-40",
+    "next_register_binding": "4053B8 copies actual returnedr0 toR6; constructor receives actualr0. Require exact native/declared allocator backing and actual return rather than host object seed.",
+    "null_result": "No null check between4053B8 and40434C. Unknown/failing allocation stays boundary evidence; no firmware fault inference."
+  },
+  "page_constructor": {
+    "entry": "0x40434c",
+    "original_call": "0x4053be",
+    "LR": "0x4053c3",
+    "actual_continuation": "0x4053c2",
+    "entry_SP": "P=callback E-40",
+    "r0": "actual allocator returned pointer",
+    "r1": "actualR5 flag: initialized1 at405386, optionally0 at4053B0; capture branch result, do not force1",
+    "push_bytes": 28,
+    "signed_stack_literal": "0xfffff5b4 = -2636",
+    "literal_address": "0x40459c",
+    "body_SP": "P-2664 = callback E-2704; actual67576 E8804F78 would yield88044E8, derived only",
+    "first_base_call": {
+      "call": "0x404358",
+      "entry": "0x36ba5c",
+      "LR": "0x40435d",
+      "entry_SP": "P-2664"
+    },
+    "base_widget_call": {
+      "call": "0x36ba64",
+      "entry": "0x3404ec",
+      "LR": "0x36ba69",
+      "entry_SP": "P-2704 = callback E-2744"
+    },
+    "nested_initializer_call": {
+      "call": "0x3404ee",
+      "entry": "0x376464",
+      "LR": "0x3404f3",
+      "entry_SP": "P-2712 = callback E-2752",
+      "callee_body_outside_this_bounded_note": true
+    },
+    "next_embedded_widget_call": {
+      "call": "0x404366",
+      "entry": "0x3404ec",
+      "LR": "0x40436b",
+      "entry_SP": "P-2664",
+      "r0": "actual page+0x118 if preceding ctor preserves actual page identity"
+    },
+    "next_embedded_calls": [
+      "40437C original2E3860 with native register/stackarguments",
+      "Later page resource/font/GIR actors remain unadmitted if existing controller-only predicates reject currentDispatcher."
+    ]
+  },
+  "manager_transition": {
+    "entry": "0x38e696",
+    "call": "0x4053d2",
+    "LR": "0x4053d7",
+    "entry_SP": "callback E-40",
+    "r0": "actual393A2C cached manager result",
+    "r1": "actual40434C returned page pointerR6",
+    "r2": 0,
+    "r3": 0,
+    "stack_delta": 56,
+    "body_SP": "entrySP-56",
+    "r3_zero_path": "38E6AA skips38E284 branch; native38E6DC calls38E358 using original wrappers.",
+    "callback_return_or_root_registration_or390306_closure_verified": false
+  },
+  "inherited_resource_boundary": {
+    "source": "scripts/probe_native_controller_gir_component.py:186",
+    "original_GIR_raw_pairs": [
+      "3009A0→11C510",
+      "3008B0→41CCD2"
+    ],
+    "backend": "0x34f773c",
+    "tag": "0x41b544",
+    "current_candidate": "Decoder observer only adds decoder/slot scopes. Existing GIR guards require actual controller, so actualDispatcher resource entry must remain strict until separately observed actor-specific frames are admitted.",
+    "exact_first_reachable_GIR_call_or_hardware_driver_not_proven": true
+  },
+  "no_broad_admission": "This note authorizes no generic allocator/page/GIR writer relaxation; exact actual actor, containing-function SP, argument/caller/return and resource inventory are still required.",
+  "exact_original_instruction_evidence": [
+    {
+      "PC": "0x405386",
+      "opcode_hex": "0125",
+      "instruction": "movs r5, #1"
+    },
+    {
+      "PC": "0x405388",
+      "opcode_hex": "e4f790ea",
+      "instruction": "blx #0x3e98ac"
+    },
+    {
+      "PC": "0x40538c",
+      "opcode_hex": "0028",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "PC": "0x40538e",
+      "opcode_hex": "07d0",
+      "instruction": "beq #0x4053a0"
+    },
+    {
+      "PC": "0x405390",
+      "opcode_hex": "91f73cff",
+      "instruction": "bl #0x39720c"
+    },
+    {
+      "PC": "0x405394",
+      "opcode_hex": "0028",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "PC": "0x405396",
+      "opcode_hex": "03d0",
+      "instruction": "beq #0x4053a0"
+    },
+    {
+      "PC": "0x405398",
+      "opcode_hex": "0021",
+      "instruction": "movs r1, #0"
+    },
+    {
+      "PC": "0x40539a",
+      "opcode_hex": "5c20",
+      "instruction": "movs r0, #0x5c"
+    },
+    {
+      "PC": "0x40539c",
+      "opcode_hex": "0ff6abfb",
+      "instruction": "bl #0x214af6"
+    },
+    {
+      "PC": "0x4053a0",
+      "opcode_hex": "8bf766ef",
+      "instruction": "blx #0x391270"
+    },
+    {
+      "PC": "0x4053a4",
+      "opcode_hex": "0028",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "PC": "0x4053a6",
+      "opcode_hex": "04d0",
+      "instruction": "beq #0x4053b2"
+    },
+    {
+      "PC": "0x4053a8",
+      "opcode_hex": "84f7e2fa",
+      "instruction": "bl #0x389970"
+    },
+    {
+      "PC": "0x4053ac",
+      "opcode_hex": "0128",
+      "instruction": "cmp r0, #1"
+    },
+    {
+      "PC": "0x4053ae",
+      "opcode_hex": "00d1",
+      "instruction": "bne #0x4053b2"
+    },
+    {
+      "PC": "0x4053b0",
+      "opcode_hex": "0025",
+      "instruction": "movs r5, #0"
+    },
+    {
+      "PC": "0x4053b2",
+      "opcode_hex": "2a48",
+      "instruction": "ldr r0, [pc, #0xa8]"
+    },
+    {
+      "PC": "0x4053b4",
+      "opcode_hex": "90f78ae8",
+      "instruction": "blx #0x3954cc"
+    },
+    {
+      "PC": "0x4053b8",
+      "opcode_hex": "0600",
+      "instruction": "movs r6, r0"
+    },
+    {
+      "PC": "0x4053ba",
+      "opcode_hex": "0124",
+      "instruction": "movs r4, #1"
+    },
+    {
+      "PC": "0x4053bc",
+      "opcode_hex": "2900",
+      "instruction": "movs r1, r5"
+    },
+    {
+      "PC": "0x4053be",
+      "opcode_hex": "fef7c5ff",
+      "instruction": "bl #0x40434c"
+    },
+    {
+      "PC": "0x4053c2",
+      "opcode_hex": "0600",
+      "instruction": "movs r6, r0"
+    },
+    {
+      "PC": "0x4053c4",
+      "opcode_hex": "0024",
+      "instruction": "movs r4, #0"
+    },
+    {
+      "PC": "0x4053c6",
+      "opcode_hex": "2000",
+      "instruction": "movs r0, r4"
+    },
+    {
+      "PC": "0x4053c8",
+      "opcode_hex": "8ef730fb",
+      "instruction": "bl #0x393a2c"
+    },
+    {
+      "PC": "0x4053cc",
+      "opcode_hex": "0022",
+      "instruction": "movs r2, #0"
+    },
+    {
+      "PC": "0x4053ce",
+      "opcode_hex": "3100",
+      "instruction": "movs r1, r6"
+    },
+    {
+      "PC": "0x4053d0",
+      "opcode_hex": "1300",
+      "instruction": "movs r3, r2"
+    },
+    {
+      "PC": "0x4053d2",
+      "opcode_hex": "89f760f9",
+      "instruction": "bl #0x38e696"
+    },
+    {
+      "PC": "0x4053d6",
+      "opcode_hex": "0120",
+      "instruction": "movs r0, #1"
+    },
+    {
+      "PC": "0x4053d8",
+      "opcode_hex": "d5f661f9",
+      "instruction": "bl #0x2da69e"
+    },
+    {
+      "PC": "0x4053dc",
+      "opcode_hex": "01a8",
+      "instruction": "add r0, sp, #4"
+    },
+    {
+      "PC": "0x4053de",
+      "opcode_hex": "90f787f8",
+      "instruction": "bl #0x3954f0"
+    },
+    {
+      "PC": "0x4053e2",
+      "opcode_hex": "06b0",
+      "instruction": "add sp, #0x18"
+    },
+    {
+      "PC": "0x4053e4",
+      "opcode_hex": "70bd",
+      "instruction": "pop {r4, r5, r6, pc}"
+    },
+    {
+      "PC": "0x40434c",
+      "opcode_hex": "f3b5",
+      "instruction": "push {r0, r1, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x40434e",
+      "opcode_hex": "934b",
+      "instruction": "ldr r3, [pc, #0x24c]"
+    },
+    {
+      "PC": "0x404350",
+      "opcode_hex": "6327",
+      "instruction": "movs r7, #0x63"
+    },
+    {
+      "PC": "0x404352",
+      "opcode_hex": "ff00",
+      "instruction": "lsls r7, r7, #3"
+    },
+    {
+      "PC": "0x404354",
+      "opcode_hex": "0026",
+      "instruction": "movs r6, #0"
+    },
+    {
+      "PC": "0x404356",
+      "opcode_hex": "9d44",
+      "instruction": "add sp, r3"
+    },
+    {
+      "PC": "0x404358",
+      "opcode_hex": "67f780fb",
+      "instruction": "bl #0x36ba5c"
+    },
+    {
+      "PC": "0x40435c",
+      "opcode_hex": "9049",
+      "instruction": "ldr r1, [pc, #0x240]"
+    },
+    {
+      "PC": "0x40435e",
+      "opcode_hex": "0400",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "PC": "0x404360",
+      "opcode_hex": "0160",
+      "instruction": "str r1, [r0]"
+    },
+    {
+      "PC": "0x404362",
+      "opcode_hex": "ff30",
+      "instruction": "adds r0, #0xff"
+    },
+    {
+      "PC": "0x404364",
+      "opcode_hex": "1930",
+      "instruction": "adds r0, #0x19"
+    },
+    {
+      "PC": "0x404366",
+      "opcode_hex": "3cf7c1f8",
+      "instruction": "bl #0x3404ec"
+    },
+    {
+      "PC": "0x40436a",
+      "opcode_hex": "0400",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "PC": "0x40436c",
+      "opcode_hex": "0222",
+      "instruction": "movs r2, #2"
+    },
+    {
+      "PC": "0x40436e",
+      "opcode_hex": "ff3c",
+      "instruction": "subs r4, #0xff"
+    },
+    {
+      "PC": "0x404370",
+      "opcode_hex": "0092",
+      "instruction": "str r2, [sp]"
+    },
+    {
+      "PC": "0x404372",
+      "opcode_hex": "8c49",
+      "instruction": "ldr r1, [pc, #0x230]"
+    },
+    {
+      "PC": "0x404374",
+      "opcode_hex": "193c",
+      "instruction": "subs r4, #0x19"
+    },
+    {
+      "PC": "0x404376",
+      "opcode_hex": "0422",
+      "instruction": "movs r2, #4"
+    },
+    {
+      "PC": "0x404378",
+      "opcode_hex": "d030",
+      "instruction": "adds r0, #0xd0"
+    },
+    {
+      "PC": "0x40437a",
+      "opcode_hex": "0223",
+      "instruction": "movs r3, #2"
+    },
+    {
+      "PC": "0x40437c",
+      "opcode_hex": "dff670fa",
+      "instruction": "bl #0x2e3860"
+    },
+    {
+      "PC": "0x404380",
+      "opcode_hex": "0400",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "PC": "0x36ba5c",
+      "opcode_hex": "70b5",
+      "instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x36ba5e",
+      "opcode_hex": "0126",
+      "instruction": "movs r6, #1"
+    },
+    {
+      "PC": "0x36ba60",
+      "opcode_hex": "0025",
+      "instruction": "movs r5, #0"
+    },
+    {
+      "PC": "0x36ba62",
+      "opcode_hex": "86b0",
+      "instruction": "sub sp, #0x18"
+    },
+    {
+      "PC": "0x36ba64",
+      "opcode_hex": "d4f742fd",
+      "instruction": "bl #0x3404ec"
+    },
+    {
+      "PC": "0x36ba68",
+      "opcode_hex": "ff49",
+      "instruction": "ldr r1, [pc, #0x3fc]"
+    },
+    {
+      "PC": "0x36ba6a",
+      "opcode_hex": "0400",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "PC": "0x36ba6c",
+      "opcode_hex": "0160",
+      "instruction": "str r1, [r0]"
+    },
+    {
+      "PC": "0x36ba6e",
+      "opcode_hex": "0100",
+      "instruction": "movs r1, r0"
+    },
+    {
+      "PC": "0x36ba70",
+      "opcode_hex": "c031",
+      "instruction": "adds r1, #0xc0"
+    },
+    {
+      "PC": "0x36ba72",
+      "opcode_hex": "4e72",
+      "instruction": "strb r6, [r1, #9]"
+    },
+    {
+      "PC": "0x36ba74",
+      "opcode_hex": "ce72",
+      "instruction": "strb r6, [r1, #0xb]"
+    },
+    {
+      "PC": "0x36ba76",
+      "opcode_hex": "fd48",
+      "instruction": "ldr r0, [pc, #0x3f4]"
+    },
+    {
+      "PC": "0x36ba78",
+      "opcode_hex": "4d73",
+      "instruction": "strb r5, [r1, #0xd]"
+    },
+    {
+      "PC": "0x36ba7a",
+      "opcode_hex": "8d73",
+      "instruction": "strb r5, [r1, #0xe]"
+    },
+    {
+      "PC": "0x36ba7c",
+      "opcode_hex": "0078",
+      "instruction": "ldrb r0, [r0]"
+    },
+    {
+      "PC": "0x36ba7e",
+      "opcode_hex": "d422",
+      "instruction": "movs r2, #0xd4"
+    },
+    {
+      "PC": "0x36ba80",
+      "opcode_hex": "c873",
+      "instruction": "strb r0, [r1, #0xf]"
+    },
+    {
+      "PC": "0x36ba82",
+      "opcode_hex": "2000",
+      "instruction": "movs r0, r4"
+    },
+    {
+      "PC": "0x36ba84",
+      "opcode_hex": "d030",
+      "instruction": "adds r0, #0xd0"
+    },
+    {
+      "PC": "0x36ba86",
+      "opcode_hex": "0560",
+      "instruction": "str r5, [r0]"
+    },
+    {
+      "PC": "0x36ba88",
+      "opcode_hex": "1551",
+      "instruction": "str r5, [r2, r4]"
+    },
+    {
+      "PC": "0x36ba8a",
+      "opcode_hex": "0572",
+      "instruction": "strb r5, [r0, #8]"
+    },
+    {
+      "PC": "0x36ba8c",
+      "opcode_hex": "0d77",
+      "instruction": "strb r5, [r1, #0x1c]"
+    },
+    {
+      "PC": "0x36ba8e",
+      "opcode_hex": "6a1e",
+      "instruction": "subs r2, r5, #1"
+    },
+    {
+      "PC": "0x36ba90",
+      "opcode_hex": "f7a1",
+      "instruction": "adr r1, #0x3dc"
+    },
+    {
+      "PC": "0x36ba92",
+      "opcode_hex": "04a8",
+      "instruction": "add r0, sp, #0x10"
+    },
+    {
+      "PC": "0x36ba94",
+      "opcode_hex": "fbf778f9",
+      "instruction": "bl #0x366d88"
+    },
+    {
+      "PC": "0x36ba98",
+      "opcode_hex": "0100",
+      "instruction": "movs r1, r0"
+    },
+    {
+      "PC": "0x36ba9a",
+      "opcode_hex": "2000",
+      "instruction": "movs r0, r4"
+    },
+    {
+      "PC": "0x36ba9c",
+      "opcode_hex": "e030",
+      "instruction": "adds r0, #0xe0"
+    },
+    {
+      "PC": "0x36ba9e",
+      "opcode_hex": "26f05ffe",
+      "instruction": "bl #0x392760"
+    },
+    {
+      "PC": "0x3404ec",
+      "opcode_hex": "10b5",
+      "instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x3404ee",
+      "opcode_hex": "35f0b9ff",
+      "instruction": "bl #0x376464"
+    },
+    {
+      "PC": "0x3404f2",
+      "opcode_hex": "0749",
+      "instruction": "ldr r1, [pc, #0x1c]"
+    },
+    {
+      "PC": "0x3404f4",
+      "opcode_hex": "0160",
+      "instruction": "str r1, [r0]"
+    },
+    {
+      "PC": "0x3404f6",
+      "opcode_hex": "10bd",
+      "instruction": "pop {r4, pc}"
+    },
+    {
+      "PC": "0x38e696",
+      "opcode_hex": "f0b5",
+      "instruction": "push {r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x38e698",
+      "opcode_hex": "0400",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "PC": "0x38e69a",
+      "opcode_hex": "0020",
+      "instruction": "movs r0, #0"
+    },
+    {
+      "PC": "0x38e69c",
+      "opcode_hex": "1500",
+      "instruction": "movs r5, r2"
+    },
+    {
+      "PC": "0x38e69e",
+      "opcode_hex": "89b0",
+      "instruction": "sub sp, #0x24"
+    },
+    {
+      "PC": "0x38e6a0",
+      "opcode_hex": "0e00",
+      "instruction": "movs r6, r1"
+    },
+    {
+      "PC": "0x38e6a2",
+      "opcode_hex": "1a00",
+      "instruction": "movs r2, r3"
+    },
+    {
+      "PC": "0x38e6a4",
+      "opcode_hex": "002b",
+      "instruction": "cmp r3, #0"
+    },
+    {
+      "PC": "0x38e6a6",
+      "opcode_hex": "0390",
+      "instruction": "str r0, [sp, #0xc]"
+    },
+    {
+      "PC": "0x38e6a8",
+      "opcode_hex": "0490",
+      "instruction": "str r0, [sp, #0x10]"
+    },
+    {
+      "PC": "0x38e6aa",
+      "opcode_hex": "0ad0",
+      "instruction": "beq #0x38e6c2"
+    },
+    {
+      "PC": "0x38e6ac",
+      "opcode_hex": "2100",
+      "instruction": "movs r1, r4"
+    },
+    {
+      "PC": "0x38e6ae",
+      "opcode_hex": "01a8",
+      "instruction": "add r0, sp, #4"
+    },
+    {
+      "PC": "0x38e6b0",
+      "opcode_hex": "fff7e8fd",
+      "instruction": "bl #0x38e284"
+    },
+    {
+      "PC": "0x38e6b4",
+      "opcode_hex": "01a9",
+      "instruction": "add r1, sp, #4"
+    },
+    {
+      "PC": "0x38e6b6",
+      "opcode_hex": "03a8",
+      "instruction": "add r0, sp, #0xc"
+    },
+    {
+      "PC": "0x38e6b8",
+      "opcode_hex": "7df668fc",
+      "instruction": "bl #0x20bf8c"
+    },
+    {
+      "PC": "0x38e6bc",
+      "opcode_hex": "02a8",
+      "instruction": "add r0, sp, #8"
+    },
+    {
+      "PC": "0x38e6be",
+      "opcode_hex": "06f017ff",
+      "instruction": "bl #0x3954f0"
+    },
+    {
+      "PC": "0x38e6c2",
+      "opcode_hex": "03a9",
+      "instruction": "add r1, sp, #0xc"
+    },
+    {
+      "PC": "0x38e6c4",
+      "opcode_hex": "05a8",
+      "instruction": "add r0, sp, #0x14"
+    },
+    {
+      "PC": "0x38e6c6",
+      "opcode_hex": "83f66afd",
+      "instruction": "bl #0x21219e"
+    },
+    {
+      "PC": "0x38e6ca",
+      "opcode_hex": "0700",
+      "instruction": "movs r7, r0"
+    },
+    {
+      "PC": "0x38e6cc",
+      "opcode_hex": "3100",
+      "instruction": "movs r1, r6"
+    },
+    {
+      "PC": "0x38e6ce",
+      "opcode_hex": "07a8",
+      "instruction": "add r0, sp, #0x1c"
+    },
+    {
+      "PC": "0x38e6d0",
+      "opcode_hex": "7df636fc",
+      "instruction": "bl #0x20bf40"
+    },
+    {
+      "PC": "0x38e6d4",
+      "opcode_hex": "0100",
+      "instruction": "movs r1, r0"
+    },
+    {
+      "PC": "0x38e6d6",
+      "opcode_hex": "3b00",
+      "instruction": "movs r3, r7"
+    },
+    {
+      "PC": "0x38e6d8",
+      "opcode_hex": "2a00",
+      "instruction": "movs r2, r5"
+    },
+    {
+      "PC": "0x38e6da",
+      "opcode_hex": "2000",
+      "instruction": "movs r0, r4"
+    },
+    {
+      "PC": "0x38e6dc",
+      "opcode_hex": "fff73cfe",
+      "instruction": "bl #0x38e358"
+    },
+    {
+      "PC": "0x38e6e0",
+      "opcode_hex": "08a8",
+      "instruction": "add r0, sp, #0x20"
+    },
+    {
+      "PC": "0x38e6e2",
+      "opcode_hex": "06f005ff",
+      "instruction": "bl #0x3954f0"
+    },
+    {
+      "PC": "0x38e6e6",
+      "opcode_hex": "06a8",
+      "instruction": "add r0, sp, #0x18"
+    },
+    {
+      "PC": "0x38e6e8",
+      "opcode_hex": "06f002ff",
+      "instruction": "bl #0x3954f0"
+    },
+    {
+      "PC": "0x38e6ec",
+      "opcode_hex": "04a8",
+      "instruction": "add r0, sp, #0x10"
+    },
+    {
+      "PC": "0x38e6ee",
+      "opcode_hex": "06f0fffe",
+      "instruction": "bl #0x3954f0"
+    },
+    {
+      "PC": "0x38e6f2",
+      "opcode_hex": "09b0",
+      "instruction": "add sp, #0x24"
+    },
+    {
+      "PC": "0x38e6f4",
+      "opcode_hex": "f0bd",
+      "instruction": "pop {r4, r5, r6, r7, pc}"
+    }
+  ],
+  "foreground_or_complete_page_or_root_or_App_verified": false
+}

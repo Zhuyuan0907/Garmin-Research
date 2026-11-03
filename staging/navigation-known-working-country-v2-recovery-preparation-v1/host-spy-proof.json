@@ -1,0 +1,103 @@
+{
+  "schema": "working-v2-recovery-host-spies/v1",
+  "all_controls_passed": true,
+  "controls": [
+    {
+      "name": "verified rollback then unchanged v2 install",
+      "passed": true,
+      "installer_spy_calls": 2,
+      "success_reply": true
+    },
+    {
+      "name": "already stock then already working v2",
+      "passed": true,
+      "installer_spy_calls": 2,
+      "success_reply": true
+    },
+    {
+      "name": "zero exit waiting for USB is not rollback success",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "unmount failure blocks second installer",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "nonzero phase one blocks second installer",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "working-v2 manifest cannot stand in for stock rollback",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "wrong rollback image-size role blocks phase two",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "unverified stock readback blocks phase two",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "postcommit recovery requirement blocks phase two",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "protected roads verification missing blocks phase two",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "virtual old-v3 SHA cannot replace coherent actual input",
+      "passed": true,
+      "installer_spy_calls": 0,
+      "success_reply": false
+    },
+    {
+      "name": "stock and working-v2 SHA roles cannot be swapped",
+      "passed": true,
+      "installer_spy_calls": 0,
+      "success_reply": false
+    },
+    {
+      "name": "malformed JSON cannot advance",
+      "passed": true,
+      "installer_spy_calls": 1,
+      "success_reply": false
+    },
+    {
+      "name": "phase-two zero exit waiting does not claim restored",
+      "passed": true,
+      "installer_spy_calls": 2,
+      "success_reply": false
+    },
+    {
+      "name": "public execute remains refused before installers and IMG",
+      "passed": true,
+      "installer_spy_calls": 0
+    }
+  ],
+  "unique_encoded_synthetic_reply_bytes": 6999,
+  "synthetic_reply_cap": 8192,
+  "largest_synthetic_reply": 641,
+  "real_installer_imports_or_calls": 0,
+  "real_IMG_operations": 0,
+  "device_operations": 0,
+  "actual_orchestration_executed": false,
+  "preparation_success_replies_are_synthetic_and_cannot_be_emitted_by_current_phase_one": true
+}

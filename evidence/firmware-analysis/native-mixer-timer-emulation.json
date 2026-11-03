@@ -1,0 +1,176 @@
+{
+  "updated_utc": "2026-10-03T00:44:08.352537+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "script_sha256": "9e62c3857623353d8225f865b88ac89fe3dcf91684b5948f72c48e8049ce008b",
+  "dependency_sha256": {
+    "staging/native-media-consumer/manifest.json": "d8e9b16766423cb73062d5a9318d1b4b17c876b058ef473b43a5b8a564072919",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844",
+    "scripts/emulate_native_owned_media.py": "b2b137e4e5c06aeaa1cd6c56983efebf3220307fd44e859de03454615e594d8c",
+    "scripts/emulate_native_media_worker.py": "8abbd8c2144d455603d32ccdba4d5dfd8166e3924e324cf9da464a64bfab78fb",
+    "scripts/emulate_native_audio_messages.py": "443e3c25edaa8475adeb414cb0f99a141c3a83216c982ee094c2ec0dee3fe570",
+    "scripts/emulate_native_memory_output.py": "11fc53296aa7cd2c022aa692a7b7d385a7578b35e3ce8bd19a5c0b27e8d0e0a0",
+    "scripts/emulate_native_memory_completion.py": "52c48d03a8e231ea4b777327897b2ba1f84e37dd9218228bc772352087cdd60d",
+    "scripts/emulate_native_voice_convert.py": "55b78bf99209addb1eb466c7fd79120515454d9c4e4bfdbe9158c2f1b78c0d8b",
+    "scripts/emulate_native_voice_media.py": "6e910090a648d5003f9c76e100000a404e50448c0d6e5921b58ea8092808369d",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_memory_audio.py": "cdf1d1bbbaa675314d1cbedf5999e2c220f21cb43f2efe2877a09b346ff1f166",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_avdtp_media.py": "348c6f402acf89f362daebfffcc6accb6e37334f419a70f56a82226713ca6b18",
+    "scripts/emulate_native_memory_notice.py": "d7dd21c35133a531ee4063f659868639dc90a58899c40a8841ab73ce229807e0",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/emulate_native_owned_worker.py": "bd5ee2dab99e5ce08a64f849a53871df28fd00c2f2011b8a25698a7a89a422e9",
+    "scripts/emulate_native_mixer_worker.py": "0e8d2a10dccf33098baf66e03b2b9a075f3ab8c87ca54e018dad4598bcf67ddc",
+    "evidence/firmware-analysis/native-mixer-worker-emulation.json": "a871ca11d6682ea8df1102d48169edc012e7ad6a3ee1d19c12bf10ff44dcc18c",
+    "scripts/emulate_native_mixer_start.py": "9af27c6145c49bb88be3821c44fd34d73349d3e7dfbd272cf01278f2b896fe38",
+    "evidence/firmware-analysis/native-mixer-start-emulation.json": "9e8d596ed08afd3ca59cfa1bd6dceaeede76180ca303c9e77bbd8f8c79614ab2",
+    "scripts/emulate_native_mixer_capacity.py": "4a38b9bed55a40e8b61dd06c7d16dd0a1cec19b610b763f2fee0702eb5272431",
+    "evidence/firmware-analysis/native-mixer-capacity-emulation.json": "7d135edcaa31c5ba1e9f009e03010d0fa97ecbec907f34ee5faf1ec13c5e297a"
+  },
+  "owned_elf_sha256": "eb5f93ca2656c6b9130778d53ef960ef925d9e61e84177a6a5259feaa7cb8262",
+  "routes": [
+    {
+      "case": "original_timer_capacity_expiry_at_exact_deadline",
+      "frames": 15,
+      "pcm_bytes": 3840,
+      "pcm_sha256": "b661a5dfc6a365bdc980e3ed08fe38d45513e7ec1fab1b517fb4a5e9fa5153e6",
+      "initial_virtual_clock": 0,
+      "original_interval_ticks": 34,
+      "original_timer_initial_dispatches": 1,
+      "original_timer_wait_loop_visits": 4,
+      "original_timer_restore_contexts": [
+        {
+          "saved_pc": 3489145,
+          "clock": 0,
+          "context_format": 0
+        },
+        {
+          "saved_pc": 3133612,
+          "clock": 34,
+          "context_format": 0
+        },
+        {
+          "saved_pc": 3133612,
+          "clock": 68,
+          "context_format": 0
+        }
+      ],
+      "original_timer_priority": 1,
+      "original_timer_stack_end": 47327284,
+      "original_timer_tcb": 47327176,
+      "original_descriptor_initializer_and_kernel_builder_executed": true,
+      "ticks": [
+        {
+          "advance": 33,
+          "clock_before": 0,
+          "clock_after": 33,
+          "timer_expiries": 0,
+          "irq_safe_tick_posts": 0
+        },
+        {
+          "advance": 1,
+          "clock_before": 33,
+          "clock_after": 34,
+          "timer_expiries": 1,
+          "irq_safe_tick_posts": 1
+        },
+        {
+          "advance": 34,
+          "clock_before": 34,
+          "clock_after": 68,
+          "timer_expiries": 1,
+          "irq_safe_tick_posts": 1
+        }
+      ],
+      "one_shot_expiries": 2,
+      "original_timer_to_audio_capacity_posts": 2,
+      "controller_audio_capacity_or_read18_posts": 0,
+      "early_tick_keeps_timer_pending": true,
+      "no_space_expiry_reschedules_without_read": true,
+      "space_available_expiry_actor_self_posts_read18_and_probes_eof": true,
+      "epoch_wraparound_exercised": false,
+      "explicit_idle_dispatch_handoffs": 2,
+      "original_timer_stack_leading24_byte_canary_and_audio_decoder_guards_intact": true,
+      "virtual_tick_arrival_and_output_consumption_remain_fixtures": true,
+      "physical_irq_entry_exit_clock_dma_driver_drain_or_auto_source_transition_verified": false,
+      "tts_context_full_ring_unchanged": true,
+      "passed": true
+    },
+    {
+      "case": "original_timer_capacity_expiry_with_virtual_epoch_rollover",
+      "frames": 15,
+      "pcm_bytes": 3840,
+      "pcm_sha256": "b661a5dfc6a365bdc980e3ed08fe38d45513e7ec1fab1b517fb4a5e9fa5153e6",
+      "initial_virtual_clock": 4294967264,
+      "original_interval_ticks": 34,
+      "original_timer_initial_dispatches": 1,
+      "original_timer_wait_loop_visits": 4,
+      "original_timer_restore_contexts": [
+        {
+          "saved_pc": 3489145,
+          "clock": 0,
+          "context_format": 0
+        },
+        {
+          "saved_pc": 3133612,
+          "clock": 2,
+          "context_format": 0
+        },
+        {
+          "saved_pc": 3133612,
+          "clock": 36,
+          "context_format": 0
+        }
+      ],
+      "original_timer_priority": 1,
+      "original_timer_stack_end": 47327284,
+      "original_timer_tcb": 47327176,
+      "original_descriptor_initializer_and_kernel_builder_executed": true,
+      "ticks": [
+        {
+          "advance": 33,
+          "clock_before": 4294967264,
+          "clock_after": 1,
+          "timer_expiries": 0,
+          "irq_safe_tick_posts": 0
+        },
+        {
+          "advance": 1,
+          "clock_before": 1,
+          "clock_after": 2,
+          "timer_expiries": 1,
+          "irq_safe_tick_posts": 1
+        },
+        {
+          "advance": 34,
+          "clock_before": 2,
+          "clock_after": 36,
+          "timer_expiries": 1,
+          "irq_safe_tick_posts": 1
+        }
+      ],
+      "one_shot_expiries": 2,
+      "original_timer_to_audio_capacity_posts": 2,
+      "controller_audio_capacity_or_read18_posts": 0,
+      "early_tick_keeps_timer_pending": true,
+      "no_space_expiry_reschedules_without_read": true,
+      "space_available_expiry_actor_self_posts_read18_and_probes_eof": true,
+      "epoch_wraparound_exercised": true,
+      "explicit_idle_dispatch_handoffs": 2,
+      "original_timer_stack_leading24_byte_canary_and_audio_decoder_guards_intact": true,
+      "virtual_tick_arrival_and_output_consumption_remain_fixtures": true,
+      "physical_irq_entry_exit_clock_dma_driver_drain_or_auto_source_transition_verified": false,
+      "tts_context_full_ring_unchanged": true,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "compiled_components_changed": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "original_timer_descriptor_task_schedule_tick_expiry_and_audio_capacity_response_executed": true,
+  "physical_irq_or_clock_output_drain_or_complete_automatic_playback_verified": false,
+  "limitations": "Offline original timer descriptor initializer0xF6E48 and creator0x353D3C build priority1 task at original static stack ending0x02D22834. Original schedule0x353BD4/insert0x353E48, ARM tick0x353CE0 with IRQ-safe post0x2FCE38 and timer loop0x353D78/one-shot expiry run. Virtual ticks arrive while controller is parked and idle sentinel has no live continuation; an explicit original-context-restore handoff dispatches newly ready task, not actual IRQ entry/exit or Python CPU context restoration. Original timer posts0x204 to audio actor; controller sends neither audio0x200 nor read18. Before-deadline, no-space reschedule, available-space EOF and32bit virtual epoch rollover controls pass. Tick arrival and physical output consumption remain fixtures; no physical IRQ/clock/DMA/driver allocation/start/format/resampler/drain. Output ring/descriptor, heap/locks/generic mutex/priority/hardware hints and explicit source attach/stop/cleanup/remove/release remain inherited fixtures. Original static timer task remains blocked/pinned, audio allocations and decoder TCB/stack/module retained. No cross-channel pool/list ownership, future callback exclusion, native App/UI/SEP/phone/speaker/navigation coexistence/accepted package/safe unload or Google Maps. No device I/O."
+}

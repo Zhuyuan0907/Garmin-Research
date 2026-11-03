@@ -1,0 +1,405 @@
+{
+  "schema": "garmin-navigation-rendering-readonly-review/v1",
+  "created_utc": "2026-10-06T17:21:02.526451+00:00",
+  "observed_user_report": "AP supplement candidate + Search v2: Minquan 6,150,184 all found without timeout; navigation redraw slow and briefly visually damaged/missing as new map content appears; actual versus simulated movement and stock comparison pending.",
+  "scope": "Read-only local public IMG headers/OSM mkgmap host geometry reader, compiler/style/splitter metadata, exact-model manual, official mkgmap options. No Garmin I/O, firmware simulation, map compilation, installation, ZIP/canonical modifications.",
+  "causal_conclusion": "Root cause unconfirmed. Dense OSM near-zoom geometry is a specific testable contributor; there is no device CPU/RAM/flash/cache trace to distinguish rendering load, I/O, renderer compatibility, map-boundary behavior, or hardware limitation.",
+  "candidate_AP_change_scope": {
+    "proof": {
+      "path": "staging/navigation-native-address-supplement-v1/build-verification.json",
+      "bytes": 599,
+      "sha256": "83748682149b1197d6bf4cd479702bb6564ee5c281551abd85ea2e0ebc10a5d0"
+    },
+    "MDR_and_FAT_length_only": true,
+    "road_TRE_RGN_LBL_NET_NOD_changed_by_AP_supplement": false,
+    "causal_limit": "Unchanged rendered geometry means there is no new AP drawing geometry, but does not prove zero search/navigation interaction or rule out an index-related fault."
+  },
+  "compiled_OSM": {
+    "family_id": 7053,
+    "snapshot": "2026-10-01T20:22:06Z",
+    "image_bytes": 131829760,
+    "tiles": 36,
+    "min_tile_img_bytes": 2086912,
+    "max_tile_img_bytes": 5824512,
+    "style_levels": "0:24,1:22,2:20,3:18",
+    "actual_TRE_levels": [
+      24,
+      22,
+      20,
+      18,
+      17
+    ],
+    "level17": "inherited top-level placeholder; selected reader found no own geometry; not a proven device defect",
+    "source_nodes_per_split_min": 505724,
+    "source_nodes_per_split_max": 796555,
+    "component_bytes_total": {
+      "RGN": 51702908,
+      "TRE": 423272,
+      "LBL": 11747051,
+      "NET": 21445660,
+      "NOD": 38922671
+    },
+    "generated_DEM": false,
+    "generate_sea_requested": false,
+    "precomp_sea_requested": false,
+    "selected_tiles_sea_type_0x32_count_all_levels": 0,
+    "absence_limit": "No sea type 0x32 in these 3 tiles does not establish absence across Taiwan. No requested extra DEM in OSM does not disable stock base-map DEM rendering."
+  },
+  "selected_tile_stats": [
+    {
+      "map": 70530019,
+      "bbox_area_km2_spherical_approx": 1824.8310827936384,
+      "source_nodes": 714015,
+      "resolution24": {
+        "level": 0,
+        "resolution": 24,
+        "subdivisions": 315,
+        "points": 6578,
+        "line_records": 29227,
+        "line_vertices": 303884,
+        "polygon_records": 17343,
+        "polygon_vertices": 244147,
+        "building_type_0x13_records": 8521,
+        "building_type_0x13_vertices": 71518,
+        "sea_type_0x32_records": 0,
+        "sea_type_0x32_vertices": 0,
+        "background_type_0x4b_records": 1,
+        "background_type_0x4b_vertices": 5
+      },
+      "resolution22": {
+        "level": 1,
+        "resolution": 22,
+        "subdivisions": 211,
+        "points": 115,
+        "line_records": 23057,
+        "line_vertices": 117153,
+        "polygon_records": 5008,
+        "polygon_vertices": 77718,
+        "building_type_0x13_records": 0,
+        "building_type_0x13_vertices": 0,
+        "sea_type_0x32_records": 0,
+        "sea_type_0x32_vertices": 0,
+        "background_type_0x4b_records": 1,
+        "background_type_0x4b_vertices": 5
+      },
+      "building_polygon_record_fraction_res24": 0.49132214726402584,
+      "building_vertex_fraction_res24": 0.2929300790097769,
+      "polygon_records_per_bbox_km2_res24": 9.503893354035574,
+      "polygon_vertices_per_bbox_km2_res24": 133.7915614776984,
+      "limits": "Compiled records can include clipping/splitting/duplicated geometry and layers. These are whole-tile counts, not all simultaneously visible on screen or unique OSM objects. Bbox density includes unpopulated terrain and is not viewport density."
+    },
+    {
+      "map": 70530020,
+      "bbox_area_km2_spherical_approx": 196.02809216006705,
+      "source_nodes": 755036,
+      "resolution24": {
+        "level": 0,
+        "resolution": 24,
+        "subdivisions": 239,
+        "points": 8736,
+        "line_records": 18122,
+        "line_vertices": 175876,
+        "polygon_records": 16638,
+        "polygon_vertices": 187582,
+        "building_type_0x13_records": 11851,
+        "building_type_0x13_vertices": 127754,
+        "sea_type_0x32_records": 0,
+        "sea_type_0x32_vertices": 0,
+        "background_type_0x4b_records": 1,
+        "background_type_0x4b_vertices": 5
+      },
+      "resolution22": {
+        "level": 1,
+        "resolution": 22,
+        "subdivisions": 74,
+        "points": 119,
+        "line_records": 9424,
+        "line_vertices": 42933,
+        "polygon_records": 1971,
+        "polygon_vertices": 19448,
+        "building_type_0x13_records": 0,
+        "building_type_0x13_vertices": 0,
+        "sea_type_0x32_records": 0,
+        "sea_type_0x32_vertices": 0,
+        "background_type_0x4b_records": 1,
+        "background_type_0x4b_vertices": 5
+      },
+      "building_polygon_record_fraction_res24": 0.7122851304243298,
+      "building_vertex_fraction_res24": 0.6810568178183408,
+      "polygon_records_per_bbox_km2_res24": 84.87559010886162,
+      "polygon_vertices_per_bbox_km2_res24": 956.9138684818175,
+      "limits": "Compiled records can include clipping/splitting/duplicated geometry and layers. These are whole-tile counts, not all simultaneously visible on screen or unique OSM objects. Bbox density includes unpopulated terrain and is not viewport density."
+    },
+    {
+      "map": 70530021,
+      "bbox_area_km2_spherical_approx": 261.37078954675604,
+      "source_nodes": 762589,
+      "resolution24": {
+        "level": 0,
+        "resolution": 24,
+        "subdivisions": 207,
+        "points": 10671,
+        "line_records": 22010,
+        "line_vertices": 175192,
+        "polygon_records": 14922,
+        "polygon_vertices": 141596,
+        "building_type_0x13_records": 9330,
+        "building_type_0x13_vertices": 74530,
+        "sea_type_0x32_records": 0,
+        "sea_type_0x32_vertices": 0,
+        "background_type_0x4b_records": 1,
+        "background_type_0x4b_vertices": 5
+      },
+      "resolution22": {
+        "level": 1,
+        "resolution": 22,
+        "subdivisions": 95,
+        "points": 147,
+        "line_records": 13907,
+        "line_vertices": 53552,
+        "polygon_records": 3112,
+        "polygon_vertices": 32463,
+        "building_type_0x13_records": 0,
+        "building_type_0x13_vertices": 0,
+        "sea_type_0x32_records": 0,
+        "sea_type_0x32_vertices": 0,
+        "background_type_0x4b_records": 1,
+        "background_type_0x4b_vertices": 5
+      },
+      "building_polygon_record_fraction_res24": 0.6252513067953357,
+      "building_vertex_fraction_res24": 0.5263566767422808,
+      "polygon_records_per_bbox_km2_res24": 57.09130705032605,
+      "polygon_vertices_per_bbox_km2_res24": 541.7437818722669,
+      "limits": "Compiled records can include clipping/splitting/duplicated geometry and layers. These are whole-tile counts, not all simultaneously visible on screen or unique OSM objects. Bbox density includes unpopulated terrain and is not viewport density."
+    }
+  ],
+  "stock_comparison_limits": {
+    "main_TRE_lock_flag": 128,
+    "main_level_table_bytes": 28,
+    "main_geometry_object_density_compared": false,
+    "reason": "Stock NT TRE is protected; no protected level/geometry decoding or quantitative renderer comparison attempted. IMG file sizes or GMP size are not equivalent rendering-cost measurements.",
+    "stock_AP_levels": [
+      {
+        "level": 4,
+        "inherited_bit": true,
+        "resolution": 18,
+        "subdivisions": 1
+      },
+      {
+        "level": 3,
+        "inherited_bit": false,
+        "resolution": 19,
+        "subdivisions": 1
+      },
+      {
+        "level": 2,
+        "inherited_bit": false,
+        "resolution": 21,
+        "subdivisions": 1
+      },
+      {
+        "level": 1,
+        "inherited_bit": false,
+        "resolution": 23,
+        "subdivisions": 16
+      },
+      {
+        "level": 0,
+        "inherited_bit": false,
+        "resolution": 24,
+        "subdivisions": 49
+      }
+    ],
+    "stock_AP_TRE_subdivision_bytes": 994,
+    "header_raw_field_warning": "The generic 188-byte mkgmap TRE layout labels display_priority u24. Do not interpret stock NT 289-byte raw u24=273502 as a real draw priority; vendor field semantics not validated. Global base-map longitude sentinel wrapping is not normalized; no base-area density calculated."
+  },
+  "exact_unit_manual": {
+    "path": "sources/nuvi2555_2565T_2565RT-manual.txt",
+    "official_pdf_URL": "http://download.garmin.com/tw/download/manuals/nuvi2555_2565T_2565RT_TW_0B.pdf",
+    "local_lines": [
+      1582,
+      1620
+    ],
+    "printed_pages": [
+      93,
+      94
+    ],
+    "detail_options": [
+      "詳細",
+      "適中",
+      "簡略"
+    ],
+    "manual_detail_behavior": "Controls road/lane display timing at 500m/300m/120m. Does not prove res24 buildings are removed at the same very close zoom.",
+    "view_options": [
+      "車行方向向上",
+      "北方向上",
+      "3D顯示"
+    ],
+    "web_fetch_status": "HTTPS PDF web open inaccessible; exact official local manual text retained as source."
+  },
+  "minimal_physical_AB": [
+    {
+      "order": 1,
+      "action": "Record whether symptom is actual road movement, simulated navigation, or manual pan, the displayed zoom scale, map view, detail, location and approximate seconds to complete redraw. Confirm positions/routes for 6 and150 separately from search.",
+      "purpose": "Avoid conflating address-query acceptance with redraw or route/position acceptance."
+    },
+    {
+      "order": 2,
+      "action": "At a stationary location pan the same short scene near the same address/zoom/view/detail; compare AP supplement + Search v2 with AP supplement + stock CN road (Search v2 off). Reboot between combinations, keep AP enabled. Time first cold pan then repeat the same pan after tiles are warm.",
+      "purpose": "Change only road source; both groups use same new AP. Cold/warm difference can suggest loading/cache contribution but is not direct storage-performance proof.",
+      "interpretation": "OSM-only slow suggests map/style or OSM compatibility contribution. Both slow suggests common device/settings/base behavior. Neither case alone proves CPU insufficient."
+    },
+    {
+      "order": 3,
+      "action": "Restore AP + Search v2, same scene and zoom. Change only 地圖詳細度 to 簡略, then restore original setting.",
+      "purpose": "Reversible lower-detail A/B supported by exact manual; no guaranteed reduction at very close res24."
+    },
+    {
+      "order": 4,
+      "action": "If still slow, keep original detail and change only 地圖畫面 to 北方向上 (2D), then restore original. Optionally disable only 興趣點圖示 in a separate comparison.",
+      "purpose": "Separate rotation/perspective and visible POI burden; no observed speed benefit claimed."
+    }
+  ],
+  "low_detail_candidate_plan_not_built": {
+    "first_scope": "Visual polygon reduction at most-detailed level, reuse existing 36 split PBFs, bounds, SRT shadow classes, admin rules and source snapshot; retain all routing road rules, index/route/housenumbers, protected stock CN and AP candidate. New independent FID/map IDs and one reversible enabled road choice.",
+    "visual_edit": "In a copied style, reduce or omit default building=* & building!=no -> type0x13 resolution24 rendering. Preserve earlier amenity/hospital/school/water/major landuse rules and default routable line rules. Do not remove source ways or address tags.",
+    "address_preservation_caution": "Current polygon finalize include inc/address executes only on matched outputs; unmatched ways are still handed to HousenumberGenerator in exact pinned StyledConverter.java:551. Add the address tag rules to the polygon pre-output action stage or otherwise prove unchanged city/house tagging for suppressed building polygons; removing the one output rule without this check is insufficient.",
+    "optional_second_profile": "Only after first narrow visual A/B, tune lower-resolution polygon-size-limits toward documented 8..15 and simplify-polygons for lower layers. The size filter is not applied at resolution24, so --min-size-polygon=15 alone cannot remove the near-zoom building burden.",
+    "not_first_choice": "Do not resplit all Taiwan or change levels/routing simplification first; source max-nodes controls partition input, not necessarily per-frame rendering. Existing detail tiles are2.09..5.82MB, so no evidence proves whole-tile size is the bottleneck.",
+    "validation": [
+      "Style compilation/check passes, actual near-zoom polygon and vertex counts decrease in selected Taiwan tiles; source/admin attribution retained.",
+      "Semantic road-city/geometry/access/route-connection regressions remain valid; retain finite SRT checks and Address Point/JAI mapping.",
+      "Readback identity/hash/space/preserved files, reversible map enable swap and rollback; do not overwrite frozen v2 road/ZIP.",
+      "Physical UI 6,150,184 positions and route calculation, same-scene redraw A/B with scale/view/detail recorded. New visual candidate becomes accepted only after real device result."
+    ],
+    "performance_verified": false,
+    "candidate_built": false,
+    "device_installed": false
+  },
+  "sources": [
+    {
+      "url": "https://www.mkgmap.org.uk/doc/options",
+      "claims": "Polygon size filtering/simplification and merge-lines controls; polygon size filter excluded at resolution24; default draw priority/transparent semantics. Official primary source.",
+      "retrieved_utc": "2026-10-06T17:21:02.527931+00:00"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openstreetmap/mkgmap/master/src/uk/me/parabola/imgfmt/app/map/MapReader.java",
+      "claims": "Host reader aggregates subdivisions by compiled zoom level, bool true includes extended types. Current upstream explanatory source; actual executable is pinned local r4924 JAR."
+    }
+  ],
+  "actual_execution_receipts": {
+    "selected_reader": {
+      "utc": "2026-10-06T17:16:43.481424+00:00",
+      "command": [
+        "nice",
+        "-n",
+        "10",
+        "java",
+        "-Xmx512m",
+        "--class-path",
+        "sources/maps/mkgmap-r4924/mkgmap.jar:sources/maps/mkgmap-r4924/lib/*",
+        "staging/navigation-rendering-review-v1/ReadRenderingStats.java",
+        "staging/navigation-repair-v2/compiled/70530019.img",
+        "staging/navigation-repair-v2/compiled/70530020.img",
+        "staging/navigation-repair-v2/compiled/70530021.img"
+      ],
+      "actual_returncode": 0,
+      "scope": "mkgmap host reader counts for 3 existing OSM IMG tiles/all compiled levels; no firmware emulation, no device I/O"
+    },
+    "selected_reader_tool_terminal": {
+      "session_id": 80774,
+      "actual_exit_code": 0,
+      "terminal_chunk_id": "6d026b"
+    },
+    "headers_tool_terminal": {
+      "actual_exit_code": 0,
+      "terminal_chunk_id": "7f8c57",
+      "bounded_bytes_read": 414934
+    }
+  },
+  "full_goal_achieved": false,
+  "address_full_Taiwan_updated": false,
+  "rendering_fixed": false,
+  "dependencies": [
+    {
+      "path": "scripts/build_navigation_repair_v2.py",
+      "bytes": 6784,
+      "sha256": "7706a57ada79bd94ef933e355075cfd278ff2af70ad5e58da2be1d399856527a"
+    },
+    {
+      "path": "staging/navigation-repair-v2/build-manifest-terminal-original.json",
+      "bytes": 5389,
+      "sha256": "4d953a10b3b5142a9d0292957cd50484f1b5d330dc6549e3e8f581997de7785e"
+    },
+    {
+      "path": "staging/navigation-repair-v2/mkgmap-build.log",
+      "bytes": 207,
+      "sha256": "fc10382ec36f26672f56ad360e252d60c0b67a5bf85a65f6710503edc3bd4c19"
+    },
+    {
+      "path": "staging/navigation-repair-v1/style/options",
+      "bytes": 300,
+      "sha256": "019216b8b13ec8545b4539932297155f524100a4f0af3f07a68160683202e2b0"
+    },
+    {
+      "path": "staging/navigation-repair-v1/style/polygons",
+      "bytes": 5877,
+      "sha256": "de6a08c90d71639f96350e17a13989fc51764f9bbcb6f80b11b4cedc045d13cd"
+    },
+    {
+      "path": "staging/navigation-repair-v1/style/inc/address",
+      "bytes": 10765,
+      "sha256": "f58397ec9f0a542026e024101df4ba5f2e5688b7622960fba7df23e286658510"
+    },
+    {
+      "path": "staging/navigation-house184-query-v1/reference/StyledConverter.java",
+      "bytes": 80798,
+      "sha256": "4a82193caa40b2b38960a5ce8c69bcd6a9e9154c3ecf0c11517dfbbd3d5a0701"
+    },
+    {
+      "path": "sources/maps/mkgmap-r4924/doc/options.txt",
+      "bytes": 54734,
+      "sha256": "b52fef584603c6c4ae636d4262a38b0dbe0c531eef113825e30ef516a2dcddd3"
+    },
+    {
+      "path": "sources/nuvi2555_2565T_2565RT-manual.txt",
+      "bytes": 110441,
+      "sha256": "49d98929185d01cb20ae8f166c726b54191b25a69a4b136558a2563f1c507938"
+    },
+    {
+      "path": "staging/maps/Taiwan_OSM_20261001_UTF8/splitter.log",
+      "bytes": 22177,
+      "sha256": "7a480ec5bbff691388b2132bacc276b29c0cbb42dfafff893943dc16fce179e0"
+    },
+    {
+      "path": "staging/maps/Taiwan_OSM_20261001_UTF8/tiles/areas.list",
+      "bytes": 3693,
+      "sha256": "ae4bb8086260ba8888d3708635c88df61eacfceebb8ff6f97e59764b9819a919"
+    },
+    {
+      "path": "staging/navigation-rendering-review-v1/ReadRenderingStats.java",
+      "bytes": 1882,
+      "sha256": "9f2d0d91ff9a3d8f6d7dae1d8b0cb20f2b72266486837f4150d8b6de8c46e675"
+    },
+    {
+      "path": "staging/navigation-rendering-review-v1/selected-tile-rendering-stats.json",
+      "bytes": 8647,
+      "sha256": "aef94403b39f79230d76bc61939c3c94c3d35286bf6c57e61d3ff2c75eb51f66"
+    },
+    {
+      "path": "staging/navigation-rendering-review-v1/selected-tile-reader-receipt.json",
+      "bytes": 620,
+      "sha256": "d96311269ae7a0872c47b8a0d5d6f08bf1190786eaedf82e11d342aee694bc9d"
+    },
+    {
+      "path": "staging/navigation-rendering-review-v1/inspect_headers.py",
+      "bytes": 4434,
+      "sha256": "cbbf2c1bfd255084cfca73ae6f546e55fb3f1cc6a0d13714a8e577b289fa1fb3"
+    },
+    {
+      "path": "staging/navigation-rendering-review-v1/header-inventory.json",
+      "bytes": 82394,
+      "sha256": "6e3d0275b14baa86adc987a8291c02211c0f705952903e24901d9da69bfc41ff"
+    }
+  ]
+}

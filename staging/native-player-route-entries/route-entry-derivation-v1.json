@@ -1,0 +1,56 @@
+{
+  "all_passed": true,
+  "source_sha256": {
+    "staging/native-player-route-entries/prepare_route_entries_v1.py": "febef80da4b75a609c6d8238dd43854ece5bd943456b21c2b69a847243adc733",
+    "staging/native-player-warm-entry/mixer_source_warm_v1.c": "22467d384f59a4d6da0a6f49e3808555fcb93b1e5190dc46affc4d7dcdaacbcc",
+    "staging/native-player-route-entries/mixer_source_route_v1.c": "b48273ca090347122fa112649cf129b9dcc9d3c6e4be15ed7b4f39266dc64274",
+    "staging/native-player-route-entries/route_original_entries_v1.S": "f57b2f6745ce44e363bd54b667f6360f02cceff5012ae20c909da7dd0e8a8e22",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "patches": [
+    {
+      "name": "profile",
+      "address": 2587942,
+      "patch_bytes": 10,
+      "before_hex": "f7b500200f0084b0002a",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "queue",
+      "address": 2587754,
+      "patch_bytes": 10,
+      "before_hex": "ffb50500002083b00190",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "selector",
+      "address": 3120942,
+      "patch_bytes": 10,
+      "before_hex": "f3b595b015980d008301",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "prepare",
+      "address": 4422100,
+      "patch_bytes": 16,
+      "before_hex": "ffb505001900f43081b0fff7c1fe2c00",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "allocate",
+      "address": 4779624,
+      "patch_bytes": 12,
+      "before_hex": "30b404003248314a0021cb00",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    }
+  ],
+  "VM_only": true,
+  "device_IO": false,
+  "durable_ownership": false
+}

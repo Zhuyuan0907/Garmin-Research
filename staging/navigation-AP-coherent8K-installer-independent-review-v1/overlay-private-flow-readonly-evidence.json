@@ -1,0 +1,42 @@
+{
+  "prior_raw_input_bytes": 463927,
+  "actual_new_owned_reads": [
+    {
+      "path": "staging/navigation-AP-coherent8K-installer-independent-review-v1/actual-cached-source-inspection-receipts.json",
+      "bytes": 1992,
+      "SHA256": "4215e54d3fbf44f3a3bfb6016d9464d8d874e24b322635899d0bb6259c58109a"
+    },
+    {
+      "path": "staging/navigation-AP-coherent8K-installer-independent-review-v1/small-input-source-capture.json.gz",
+      "range": "bounded prefix sufficient to recover complete previously SHA-pinned overlay source string",
+      "bytes": 16384,
+      "previous_actual_full_read_SHA256": "dc1659ee7fe1bbfd00f4bbae0d232cc936efab11fc60b5e05d6cf07fdda6bd61",
+      "stat_before_after": [
+        45826,
+        540158,
+        54126,
+        1791364087846721620,
+        1791364087846721620
+      ],
+      "handle_closed": true,
+      "new_full_gzip_read_or_hash": false
+    }
+  ],
+  "actual_raw_input_bytes": 482303,
+  "raw_cap": 524288,
+  "source_fragment_parent_full_SHA256": "284b164a568edaca06707b572f0dd1f4bd2d96b913546adb56e7a99979480dbc",
+  "source_fragments": [
+    {
+      "name": "_InverseHeaderView",
+      "line": 148,
+      "source": "class _InverseHeaderView:\n    \"\"\"Borrowed descriptor: read/seek/tell/fileno only; never closes or writes it.\"\"\"\n    mode='rb'\n    def __init__(self,stream,spec,before,receipt):\n        self._stream=stream;self._spec=spec;self._before=before;self.receipt=receipt\n    def _stable(self):require(_identity(self._stream)==self._before,'Source changed after full verification')\n    def fileno(self):self._stable();return self._stream.fileno()\n    def tell(self):self._stable();return self._stream.tell()\n    def seek(self,offset,whence=0):\n        self._stable();require(type(offset) is int and whence in (0,1,2),'Bounded seek arguments')\n        target=(0 if whence==0 else self._stream.tell() if whence==1 else self._spec.size)+offset\n        require(0<=target<=self._spec.size,'Seek outside verified file');return self._stream.seek(target)\n    def read(self,count):\n        self._stable();require(type(count) is int and 0<=count<=CHUNK,'Only explicit bounded read lengths supported')\n        at=self._stream.tell();raw=self._stream.read(count);self._stable()\n        if at<512:\n            length=min(len(raw),512-at);raw=self._spec.original_header[at:at+length]+raw[length:]\n        self.receipt['inverse_view_bytes_returned']+=len(raw)\n        return raw"
+    },
+    {
+      "name": "_verify_inverse_overlay",
+      "line": 169,
+      "source": "def _verify_inverse_overlay(stream,spec):\n    \"\"\"Private fixture engine; production wrapper always supplies fixed spec.\"\"\"\n    require(type(spec) is _OverlaySpec and spec.size>=512 and len(spec.original_header)==len(spec.corrected_header)==512,\n            'Exact bounded overlay spec')\n    require([i for i,(a,b) in enumerate(zip(spec.corrected_header,spec.original_header)) if a!=b]==[452]\n            and spec.corrected_header[452]==224 and spec.original_header[452]==208,'Only exact declared byte452 inverse')\n    before=_identity(stream);require(before[2]==spec.size,'Exact coherent candidate fullsize')\n    stream.seek(0);header=stream.read(512);require(header==spec.corrected_header,'Actual corrected first512 header mismatch')\n    actual=hashlib.sha256(header);inverse=hashlib.sha256(spec.original_header);count=512\n    while True:\n        b=stream.read(min(CHUNK,spec.size-count+1))\n        if not b:break\n        count+=len(b);require(count<=spec.size,'Candidate longer than exact pinned bytes');actual.update(b);inverse.update(b)\n    require(count==spec.size and actual.hexdigest()==spec.corrected_full_sha,'Actual coherent fullSHA/EOF mismatch')\n    require(inverse.hexdigest()==spec.inverse_full_sha,'Computed inverse old-v3 fullSHA mismatch')\n    require(_identity(stream)==before,'Candidate changed during verification')\n    receipt={'actual_corrected_full_sha256':actual.hexdigest(),'computed_inverse_full_sha256':inverse.hexdigest(),\n             'candidate_bytes_read':count,'source_stat_before':before,'source_stat_after_full_verify':_identity(stream),\n             'inverse_view_bytes_returned':0,'overlay_bytes':512,'changed_offsets':[452],\n             'physical_source_write_bytes':0,'borrowed_handle_owned_by_caller':True,'stock_hash_verified':False}\n    stream.seek(0)\n    return _InverseHeaderView(stream,spec,before,receipt)"
+    }
+  ],
+  "reviewed_code_executed": false,
+  "IMG_ZIP_recipe_open_or_stat": false
+}

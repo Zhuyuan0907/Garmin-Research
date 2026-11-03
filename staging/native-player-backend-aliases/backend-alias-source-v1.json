@@ -1,0 +1,236 @@
+{
+  "all_passed": true,
+  "source_sha256": {
+    "staging/native-player-provider-entries/provider_entries_v2.c": "3873b0850a09e03ace87db3cde7ab8cfc59becf1b1dd1d8c0117e7ae7f447d8a",
+    "staging/native-player-backend-aliases/provider_entries_backend_v1.c": "5a5d93ac0412525a418a4b6b973d0b6b8b17fa16709f321973ce39ceb9ea6970",
+    "staging/native-player-backend-aliases/backend_alias_entries_v1.c": "0e1b12e383f0f4023c442bf1a7c35fa237a3ef886f7464452bb6ce2a6075a20f",
+    "staging/native-player-backend-aliases/backend_original_entries_v1.S": "e41c50de1204a910a0cb0b185f19a603d776f980de0ec09a21d40d0ef9704539",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "five_selected_backend_patches": [
+    {
+      "name": "config",
+      "address": 5025304,
+      "patch_bytes": 12,
+      "before_hex": "70b51500c41d0022ff34d243",
+      "register_arguments": 3,
+      "original_instructions": [
+        {
+          "address": 5025304,
+          "bytes": "70b5",
+          "mnemonic": "push",
+          "operands": "{r4, r5, r6, lr}"
+        },
+        {
+          "address": 5025306,
+          "bytes": "1500",
+          "mnemonic": "movs",
+          "operands": "r5, r2"
+        },
+        {
+          "address": 5025308,
+          "bytes": "c41d",
+          "mnemonic": "adds",
+          "operands": "r4, r0, #7"
+        },
+        {
+          "address": 5025310,
+          "bytes": "0022",
+          "mnemonic": "movs",
+          "operands": "r2, #0"
+        },
+        {
+          "address": 5025312,
+          "bytes": "ff34",
+          "mnemonic": "adds",
+          "operands": "r4, #0xff"
+        },
+        {
+          "address": 5025314,
+          "bytes": "d243",
+          "mnemonic": "mvns",
+          "operands": "r2, r2"
+        }
+      ],
+      "full_clear_leaf_relocated": false,
+      "clear_overlapping_literal_and_instruction": false
+    },
+    {
+      "name": "stop",
+      "address": 5025348,
+      "patch_bytes": 12,
+      "before_hex": "0022d24310b500280cd0c41d",
+      "register_arguments": 1,
+      "original_instructions": [
+        {
+          "address": 5025348,
+          "bytes": "0022",
+          "mnemonic": "movs",
+          "operands": "r2, #0"
+        },
+        {
+          "address": 5025350,
+          "bytes": "d243",
+          "mnemonic": "mvns",
+          "operands": "r2, r2"
+        },
+        {
+          "address": 5025352,
+          "bytes": "10b5",
+          "mnemonic": "push",
+          "operands": "{r4, lr}"
+        },
+        {
+          "address": 5025354,
+          "bytes": "0028",
+          "mnemonic": "cmp",
+          "operands": "r0, #0"
+        },
+        {
+          "address": 5025356,
+          "bytes": "0cd0",
+          "mnemonic": "beq",
+          "operands": "#0x4cae68"
+        },
+        {
+          "address": 5025358,
+          "bytes": "c41d",
+          "mnemonic": "adds",
+          "operands": "r4, r0, #7"
+        }
+      ],
+      "full_clear_leaf_relocated": false,
+      "clear_overlapping_literal_and_instruction": false
+    },
+    {
+      "name": "start",
+      "address": 5025388,
+      "patch_bytes": 12,
+      "before_hex": "70b50025002808d04324e400",
+      "register_arguments": 4,
+      "original_instructions": [
+        {
+          "address": 5025388,
+          "bytes": "70b5",
+          "mnemonic": "push",
+          "operands": "{r4, r5, r6, lr}"
+        },
+        {
+          "address": 5025390,
+          "bytes": "0025",
+          "mnemonic": "movs",
+          "operands": "r5, #0"
+        },
+        {
+          "address": 5025392,
+          "bytes": "0028",
+          "mnemonic": "cmp",
+          "operands": "r0, #0"
+        },
+        {
+          "address": 5025394,
+          "bytes": "08d0",
+          "mnemonic": "beq",
+          "operands": "#0x4cae86"
+        },
+        {
+          "address": 5025396,
+          "bytes": "4324",
+          "mnemonic": "movs",
+          "operands": "r4, #0x43"
+        },
+        {
+          "address": 5025398,
+          "bytes": "e400",
+          "mnemonic": "lsls",
+          "operands": "r4, r4, #3"
+        }
+      ],
+      "full_clear_leaf_relocated": false,
+      "clear_overlapping_literal_and_instruction": false
+    },
+    {
+      "name": "seek",
+      "address": 5025582,
+      "patch_bytes": 10,
+      "before_hex": "002801d1401e704730b5",
+      "register_arguments": 2,
+      "original_instructions": [
+        {
+          "address": 5025582,
+          "bytes": "0028",
+          "mnemonic": "cmp",
+          "operands": "r0, #0"
+        },
+        {
+          "address": 5025584,
+          "bytes": "01d1",
+          "mnemonic": "bne",
+          "operands": "#0x4caf36"
+        },
+        {
+          "address": 5025586,
+          "bytes": "401e",
+          "mnemonic": "subs",
+          "operands": "r0, r0, #1"
+        },
+        {
+          "address": 5025588,
+          "bytes": "7047",
+          "mnemonic": "bx",
+          "operands": "lr"
+        },
+        {
+          "address": 5025590,
+          "bytes": "30b5",
+          "mnemonic": "push",
+          "operands": "{r4, r5, lr}"
+        }
+      ],
+      "full_clear_leaf_relocated": false,
+      "clear_overlapping_literal_and_instruction": false
+    },
+    {
+      "name": "clear",
+      "address": 6190514,
+      "patch_bytes": 8,
+      "before_hex": "0021017308007047",
+      "register_arguments": 1,
+      "original_instructions": [
+        {
+          "address": 6190514,
+          "bytes": "0021",
+          "mnemonic": "movs",
+          "operands": "r1, #0"
+        },
+        {
+          "address": 6190516,
+          "bytes": "0173",
+          "mnemonic": "strb",
+          "operands": "r1, [r0, #0xc]"
+        },
+        {
+          "address": 6190518,
+          "bytes": "0800",
+          "mnemonic": "movs",
+          "operands": "r0, r1"
+        },
+        {
+          "address": 6190520,
+          "bytes": "7047",
+          "mnemonic": "bx",
+          "operands": "lr"
+        }
+      ],
+      "full_clear_leaf_relocated": true,
+      "clear_overlapping_literal_and_instruction": true
+    }
+  ],
+  "fixed_clear_ARM_entry": 50022168,
+  "clear_entry_low16_equals_Thumb_BX_r3": 18200,
+  "clear_leaf_original_eight_bytes": "0021017308007047",
+  "adjacent_function_prologue_not_overwritten": "70b5",
+  "all_native_writers_physical_install_or_ownership_verified": false,
+  "device_IO": false
+}

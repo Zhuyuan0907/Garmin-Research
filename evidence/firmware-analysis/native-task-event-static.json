@@ -1,0 +1,948 @@
+{
+  "updated_utc": "2026-10-02T22:04:28.369408+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": "12ad13b688a5d046c52e9fabb6cb4ef611b35125ecf21721312c17e69b185edd",
+  "event_post": "0x2fcf44",
+  "event_post_entry_mode": "ARM",
+  "event_wait": "0x2fd034",
+  "event_wait_entry_mode": "Thumb",
+  "current_ready_list": "0xf09090",
+  "interrupt_context_marker": "0xf09094",
+  "interrupt_marker_post": "0x2fce38",
+  "interrupt_marker_post_mode": "ARM",
+  "observations": [
+    "Normal-context post uses r0=TCB, r1=event bits, merges TCB+4, removes bit0x8 from stored mailbox and can insert a blocked task into the priority-ordered ready list.",
+    "Wait reads the current task mailbox. An empty mailbox removes the current ready head and saves context before restore0x358ec4. A nonempty mailbox returns its bits.",
+    "TCB+8 affects acknowledgement: a nonzero value preserves mailbox bit0x2. Descriptor word1 is copied to TCB+8 by the builder; it must not be assumed to be a normal entry argument.",
+    "The stock PCM worker0x33f94a loops through this event wait and branches on bits0x1/0x4.",
+    "A nonzero marker0xf09094 selects the all-ARM post0x2fce38 branch. It merges mailbox bits, inserts a woken task by priority, saves/restores CPSR and SB, and returns without the normal post context-save/restore sequence. True IRQ exit scheduling is outside this branch."
+  ],
+  "instructions": {
+    "post_interrupt_marker_arm": [
+      {
+        "address": "0x2fce38",
+        "instruction": "sub sp, sp, #8"
+      },
+      {
+        "address": "0x2fce3c",
+        "instruction": "mrs r2, apsr"
+      },
+      {
+        "address": "0x2fce40",
+        "instruction": "orr r3, r2, #0x80"
+      },
+      {
+        "address": "0x2fce44",
+        "instruction": "msr cpsr_c, r3"
+      },
+      {
+        "address": "0x2fce48",
+        "instruction": "str r2, [sp]"
+      },
+      {
+        "address": "0x2fce4c",
+        "instruction": "str sb, [sp, #4]"
+      },
+      {
+        "address": "0x2fce50",
+        "instruction": "ldr r2, [r0, #4]"
+      },
+      {
+        "address": "0x2fce54",
+        "instruction": "orr r1, r1, r2"
+      },
+      {
+        "address": "0x2fce58",
+        "instruction": "bic r3, r1, #8"
+      },
+      {
+        "address": "0x2fce5c",
+        "instruction": "str r3, [r0, #4]"
+      },
+      {
+        "address": "0x2fce60",
+        "instruction": "ldrb r2, [r0, #0x16]"
+      },
+      {
+        "address": "0x2fce64",
+        "instruction": "ands r3, r2, #0x81"
+      },
+      {
+        "address": "0x2fce68",
+        "instruction": "bne #0x2fcedc"
+      },
+      {
+        "address": "0x2fce6c",
+        "instruction": "ands r3, r1, #8"
+      },
+      {
+        "address": "0x2fce70",
+        "instruction": "bne #0x2fcea4"
+      },
+      {
+        "address": "0x2fce74",
+        "instruction": "ands r3, r2, #2"
+      },
+      {
+        "address": "0x2fce78",
+        "instruction": "beq #0x2fce8c"
+      },
+      {
+        "address": "0x2fce7c",
+        "instruction": "ldr r3, [r0]"
+      },
+      {
+        "address": "0x2fce80",
+        "instruction": "ands r3, r3, r1"
+      },
+      {
+        "address": "0x2fce84",
+        "instruction": "bne #0x2fcea4"
+      },
+      {
+        "address": "0x2fce88",
+        "instruction": "b #0x2fcedc"
+      },
+      {
+        "address": "0x2fce8c",
+        "instruction": "ands r3, r2, #8"
+      },
+      {
+        "address": "0x2fce90",
+        "instruction": "beq #0x2fcedc"
+      },
+      {
+        "address": "0x2fce94",
+        "instruction": "ldr r3, [r0]"
+      },
+      {
+        "address": "0x2fce98",
+        "instruction": "and r1, r3, r1"
+      },
+      {
+        "address": "0x2fce9c",
+        "instruction": "cmp r3, r1"
+      },
+      {
+        "address": "0x2fcea0",
+        "instruction": "bne #0x2fcedc"
+      },
+      {
+        "address": "0x2fcea4",
+        "instruction": "ldr r2, [pc, #0x44]"
+      },
+      {
+        "address": "0x2fcea8",
+        "instruction": "ldrb r1, [r0, #0x11]"
+      },
+      {
+        "address": "0x2fceac",
+        "instruction": "mov ip, r1"
+      },
+      {
+        "address": "0x2fceb0",
+        "instruction": "mov r1, r2"
+      },
+      {
+        "address": "0x2fceb4",
+        "instruction": "ldr r2, [r1]"
+      },
+      {
+        "address": "0x2fceb8",
+        "instruction": "cmp r2, #0"
+      },
+      {
+        "address": "0x2fcebc",
+        "instruction": "beq #0x2fcecc"
+      },
+      {
+        "address": "0x2fcec0",
+        "instruction": "ldrb r3, [r2, #0x11]"
+      },
+      {
+        "address": "0x2fcec4",
+        "instruction": "cmp r3, ip"
+      },
+      {
+        "address": "0x2fcec8",
+        "instruction": "bls #0x2fceb0"
+      },
+      {
+        "address": "0x2fcecc",
+        "instruction": "str r2, [r0]"
+      },
+      {
+        "address": "0x2fced0",
+        "instruction": "str r0, [r1]"
+      },
+      {
+        "address": "0x2fced4",
+        "instruction": "mov r1, #1"
+      },
+      {
+        "address": "0x2fced8",
+        "instruction": "strb r1, [r0, #0x16]"
+      },
+      {
+        "address": "0x2fcedc",
+        "instruction": "ldr sb, [sp, #4]"
+      },
+      {
+        "address": "0x2fcee0",
+        "instruction": "ldr r3, [sp]"
+      },
+      {
+        "address": "0x2fcee4",
+        "instruction": "msr cpsr_fsxc, r3"
+      },
+      {
+        "address": "0x2fcee8",
+        "instruction": "add sp, sp, #8"
+      },
+      {
+        "address": "0x2fceec",
+        "instruction": "bx lr"
+      }
+    ],
+    "post_arm_entry": [
+      {
+        "address": "0x2fcf44",
+        "instruction": "ldr r2, [pc, #0xe0]"
+      },
+      {
+        "address": "0x2fcf48",
+        "instruction": "ldr r2, [r2]"
+      },
+      {
+        "address": "0x2fcf4c",
+        "instruction": "cmp r2, #0"
+      },
+      {
+        "address": "0x2fcf50",
+        "instruction": "bne #0x2fce38"
+      },
+      {
+        "address": "0x2fcf54",
+        "instruction": "sub sp, sp, #8"
+      },
+      {
+        "address": "0x2fcf58",
+        "instruction": "mrs r2, apsr"
+      },
+      {
+        "address": "0x2fcf5c",
+        "instruction": "orr r3, r2, #0x80"
+      },
+      {
+        "address": "0x2fcf60",
+        "instruction": "msr cpsr_c, r3"
+      },
+      {
+        "address": "0x2fcf64",
+        "instruction": "add r3, pc, #1"
+      },
+      {
+        "address": "0x2fcf68",
+        "instruction": "bx r3"
+      }
+    ],
+    "post_preemption_context_save": [
+      {
+        "address": "0x2fcfb0",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x2fcfb4",
+        "instruction": "push {r3, lr}"
+      },
+      {
+        "address": "0x2fcfb8",
+        "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+      },
+      {
+        "address": "0x2fcfbc",
+        "instruction": "add r3, pc, #0x52"
+      },
+      {
+        "address": "0x2fcfc0",
+        "instruction": "stmdb sp!, {r3}"
+      },
+      {
+        "address": "0x2fcfc4",
+        "instruction": "mrs r3, apsr"
+      },
+      {
+        "address": "0x2fcfc8",
+        "instruction": "orr r3, r3, #0x20"
+      },
+      {
+        "address": "0x2fcfcc",
+        "instruction": "stmdb sp!, {r3}"
+      },
+      {
+        "address": "0x2fcfd0",
+        "instruction": "str sp, [r2, #0xc]"
+      },
+      {
+        "address": "0x2fcfd4",
+        "instruction": "mov r3, #0"
+      },
+      {
+        "address": "0x2fcfd8",
+        "instruction": "strb r3, [r2, #0x17]"
+      },
+      {
+        "address": "0x2fcfdc",
+        "instruction": "lsr r3, sp, #3"
+      },
+      {
+        "address": "0x2fcfe0",
+        "instruction": "lsl sp, r3, #3"
+      },
+      {
+        "address": "0x2fcfe4",
+        "instruction": "add r3, pc, #1"
+      },
+      {
+        "address": "0x2fcfe8",
+        "instruction": "bx r3"
+      }
+    ],
+    "wait_arm_entry": [
+      {
+        "address": "0x2fd03c",
+        "instruction": "mrs r2, apsr"
+      },
+      {
+        "address": "0x2fd040",
+        "instruction": "orr r3, r2, #0x80"
+      },
+      {
+        "address": "0x2fd044",
+        "instruction": "msr cpsr_c, r3"
+      },
+      {
+        "address": "0x2fd048",
+        "instruction": "add r3, pc, #1"
+      },
+      {
+        "address": "0x2fd04c",
+        "instruction": "bx r3"
+      }
+    ],
+    "wait_empty_context_save": [
+      {
+        "address": "0x2fd06c",
+        "instruction": "mov r0, sp"
+      },
+      {
+        "address": "0x2fd070",
+        "instruction": "push {r0, lr}"
+      },
+      {
+        "address": "0x2fd074",
+        "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+      },
+      {
+        "address": "0x2fd078",
+        "instruction": "add r0, pc, #0x2c"
+      },
+      {
+        "address": "0x2fd07c",
+        "instruction": "stmdb sp!, {r0}"
+      },
+      {
+        "address": "0x2fd080",
+        "instruction": "mrs r0, apsr"
+      },
+      {
+        "address": "0x2fd084",
+        "instruction": "orr r0, r0, #0x20"
+      },
+      {
+        "address": "0x2fd088",
+        "instruction": "stmdb sp!, {r0}"
+      },
+      {
+        "address": "0x2fd08c",
+        "instruction": "str sp, [r2, #0xc]"
+      },
+      {
+        "address": "0x2fd090",
+        "instruction": "mov r0, #0"
+      },
+      {
+        "address": "0x2fd094",
+        "instruction": "strb r0, [r2, #0x17]"
+      },
+      {
+        "address": "0x2fd098",
+        "instruction": "lsr r0, sp, #3"
+      },
+      {
+        "address": "0x2fd09c",
+        "instruction": "lsl sp, r0, #3"
+      },
+      {
+        "address": "0x2fd0a0",
+        "instruction": "add r0, pc, #1"
+      },
+      {
+        "address": "0x2fd0a4",
+        "instruction": "bx r0"
+      }
+    ],
+    "wait_return_arm": [
+      {
+        "address": "0x2fd0c4",
+        "instruction": "msr cpsr_fsxc, r3"
+      },
+      {
+        "address": "0x2fd0c8",
+        "instruction": "add r2, pc, #1"
+      },
+      {
+        "address": "0x2fd0cc",
+        "instruction": "bx r2"
+      }
+    ],
+    "post_return_arm": [
+      {
+        "address": "0x2fd01c",
+        "instruction": "msr cpsr_fsxc, r3"
+      },
+      {
+        "address": "0x2fd020",
+        "instruction": "add r2, pc, #1"
+      },
+      {
+        "address": "0x2fd024",
+        "instruction": "bx r2"
+      }
+    ],
+    "post_thumb_paths": {
+      "instructions": [
+        {
+          "address": "0x2fcf6c",
+          "instruction": "str r2, [sp, #4]"
+        },
+        {
+          "address": "0x2fcf6e",
+          "instruction": "ldr r2, [r0, #4]"
+        },
+        {
+          "address": "0x2fcf70",
+          "instruction": "orrs r1, r2"
+        },
+        {
+          "address": "0x2fcf72",
+          "instruction": "adds r3, r1, #0"
+        },
+        {
+          "address": "0x2fcf74",
+          "instruction": "movs r2, #8"
+        },
+        {
+          "address": "0x2fcf76",
+          "instruction": "bics r3, r2"
+        },
+        {
+          "address": "0x2fcf78",
+          "instruction": "str r3, [r0, #4]"
+        },
+        {
+          "address": "0x2fcf7a",
+          "instruction": "ldrb r2, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fcf7c",
+          "instruction": "movs r3, #0x81"
+        },
+        {
+          "address": "0x2fcf7e",
+          "instruction": "ands r3, r2"
+        },
+        {
+          "address": "0x2fcf80",
+          "instruction": "bne #0x2fd016"
+        },
+        {
+          "address": "0x2fcf82",
+          "instruction": "lsrs r3, r1, #4"
+        },
+        {
+          "address": "0x2fcf84",
+          "instruction": "bhs #0x2fcf9e"
+        },
+        {
+          "address": "0x2fcf86",
+          "instruction": "lsrs r3, r2, #2"
+        },
+        {
+          "address": "0x2fcf88",
+          "instruction": "blo #0x2fcf92"
+        },
+        {
+          "address": "0x2fcf8a",
+          "instruction": "ldr r3, [r0]"
+        },
+        {
+          "address": "0x2fcf8c",
+          "instruction": "ands r3, r1"
+        },
+        {
+          "address": "0x2fcf8e",
+          "instruction": "bne #0x2fcf9e"
+        },
+        {
+          "address": "0x2fcf90",
+          "instruction": "b #0x2fd016"
+        },
+        {
+          "address": "0x2fcf92",
+          "instruction": "lsrs r3, r2, #4"
+        },
+        {
+          "address": "0x2fcf94",
+          "instruction": "blo #0x2fd016"
+        },
+        {
+          "address": "0x2fcf96",
+          "instruction": "ldr r3, [r0]"
+        },
+        {
+          "address": "0x2fcf98",
+          "instruction": "ands r1, r3"
+        },
+        {
+          "address": "0x2fcf9a",
+          "instruction": "cmp r3, r1"
+        },
+        {
+          "address": "0x2fcf9c",
+          "instruction": "bne #0x2fd016"
+        },
+        {
+          "address": "0x2fcf9e",
+          "instruction": "ldrb r1, [r0, #0x11]"
+        },
+        {
+          "address": "0x2fcfa0",
+          "instruction": "ldr r2, [pc, #0x8c]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcfa2",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "address": "0x2fcfa4",
+          "instruction": "ldrb r3, [r2, #0x11]"
+        },
+        {
+          "address": "0x2fcfa6",
+          "instruction": "cmp r1, r3"
+        },
+        {
+          "address": "0x2fcfa8",
+          "instruction": "bhs #0x2fcffa"
+        },
+        {
+          "address": "0x2fcfaa",
+          "instruction": "adr r3, #4",
+          "address_value": "0x2fcfb0"
+        },
+        {
+          "address": "0x2fcfac",
+          "instruction": "bx r3"
+        },
+        {
+          "address": "0x2fcffa",
+          "instruction": "ldr r2, [pc, #0x34]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcffc",
+          "instruction": "ldrb r1, [r0, #0x11]"
+        },
+        {
+          "address": "0x2fcffe",
+          "instruction": "mov ip, r1"
+        },
+        {
+          "address": "0x2fd000",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "address": "0x2fd002",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd004",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x2fd006",
+          "instruction": "beq #0x2fd00e"
+        },
+        {
+          "address": "0x2fd008",
+          "instruction": "ldrb r3, [r2, #0x11]"
+        },
+        {
+          "address": "0x2fd00a",
+          "instruction": "cmp r3, ip"
+        },
+        {
+          "address": "0x2fd00c",
+          "instruction": "bls #0x2fd000"
+        },
+        {
+          "address": "0x2fd00e",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": "0x2fd010",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x2fd012",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x2fd014",
+          "instruction": "strb r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fd016",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x2fd018",
+          "instruction": "adr r2, #0",
+          "address_value": "0x2fd01c"
+        },
+        {
+          "address": "0x2fd01a",
+          "instruction": "bx r2"
+        }
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false
+    },
+    "post_preemption_thumb_tail": {
+      "instructions": [
+        {
+          "address": "0x2fcfec",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": "0x2fcfee",
+          "instruction": "ldr r2, [pc, #0x40]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcff0",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "address": "0x2fcff2",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x2fcff4",
+          "instruction": "strb r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fcff6",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4"
+        },
+        {
+          "address": "0x2fcffa",
+          "instruction": "ldr r2, [pc, #0x34]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcffc",
+          "instruction": "ldrb r1, [r0, #0x11]"
+        },
+        {
+          "address": "0x2fcffe",
+          "instruction": "mov ip, r1"
+        },
+        {
+          "address": "0x2fd000",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "address": "0x2fd002",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd004",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x2fd006",
+          "instruction": "beq #0x2fd00e"
+        },
+        {
+          "address": "0x2fd008",
+          "instruction": "ldrb r3, [r2, #0x11]"
+        },
+        {
+          "address": "0x2fd00a",
+          "instruction": "cmp r3, ip"
+        },
+        {
+          "address": "0x2fd00c",
+          "instruction": "bls #0x2fd000"
+        },
+        {
+          "address": "0x2fd00e",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": "0x2fd010",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x2fd012",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x2fd014",
+          "instruction": "strb r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fd016",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x2fd018",
+          "instruction": "adr r2, #0",
+          "address_value": "0x2fd01c"
+        },
+        {
+          "address": "0x2fd01a",
+          "instruction": "bx r2"
+        }
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false
+    },
+    "wait_thumb_paths": {
+      "instructions": [
+        {
+          "address": "0x2fd050",
+          "instruction": "str r2, [sp, #4]"
+        },
+        {
+          "address": "0x2fd052",
+          "instruction": "ldr r1, [pc, #0x80]",
+          "literal_address": "0x2fd0d4",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fd054",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd056",
+          "instruction": "ldr r0, [r2, #4]"
+        },
+        {
+          "address": "0x2fd058",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x2fd05a",
+          "instruction": "bne #0x2fd0b2"
+        },
+        {
+          "address": "0x2fd05c",
+          "instruction": "ldr r0, [r2]"
+        },
+        {
+          "address": "0x2fd05e",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x2fd060",
+          "instruction": "movs r0, #2"
+        },
+        {
+          "address": "0x2fd062",
+          "instruction": "strb r0, [r2, #0x16]"
+        },
+        {
+          "address": "0x2fd064",
+          "instruction": "ldr r0, [pc, #0x70]",
+          "literal_address": "0x2fd0d8",
+          "literal_value": "0xffffffff"
+        },
+        {
+          "address": "0x2fd066",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "address": "0x2fd068",
+          "instruction": "adr r0, #0",
+          "address_value": "0x2fd06c",
+          "string": "\r"
+        },
+        {
+          "address": "0x2fd06a",
+          "instruction": "bx r0"
+        },
+        {
+          "address": "0x2fd0b2",
+          "instruction": "ldr r3, [r2, #8]"
+        },
+        {
+          "address": "0x2fd0b4",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "address": "0x2fd0b6",
+          "instruction": "beq #0x2fd0bc"
+        },
+        {
+          "address": "0x2fd0b8",
+          "instruction": "movs r3, #2"
+        },
+        {
+          "address": "0x2fd0ba",
+          "instruction": "ands r3, r0"
+        },
+        {
+          "address": "0x2fd0bc",
+          "instruction": "str r3, [r2, #4]"
+        },
+        {
+          "address": "0x2fd0be",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x2fd0c0",
+          "instruction": "adr r2, #0",
+          "address_value": "0x2fd0c4"
+        },
+        {
+          "address": "0x2fd0c2",
+          "instruction": "bx r2"
+        }
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false
+    },
+    "wait_empty_thumb_tail": {
+      "instructions": [
+        {
+          "address": "0x2fd0a8",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4"
+        },
+        {
+          "address": "0x2fd0ac",
+          "instruction": "ldr r1, [pc, #0x24]",
+          "literal_address": "0x2fd0d4",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fd0ae",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd0b0",
+          "instruction": "ldr r0, [r2, #4]"
+        },
+        {
+          "address": "0x2fd0b2",
+          "instruction": "ldr r3, [r2, #8]"
+        },
+        {
+          "address": "0x2fd0b4",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "address": "0x2fd0b6",
+          "instruction": "beq #0x2fd0bc"
+        },
+        {
+          "address": "0x2fd0b8",
+          "instruction": "movs r3, #2"
+        },
+        {
+          "address": "0x2fd0ba",
+          "instruction": "ands r3, r0"
+        },
+        {
+          "address": "0x2fd0bc",
+          "instruction": "str r3, [r2, #4]"
+        },
+        {
+          "address": "0x2fd0be",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x2fd0c0",
+          "instruction": "adr r2, #0",
+          "address_value": "0x2fd0c4"
+        },
+        {
+          "address": "0x2fd0c2",
+          "instruction": "bx r2"
+        }
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false
+    },
+    "wait_return_thumb": {
+      "instructions": [
+        {
+          "address": "0x2fd0d0",
+          "instruction": "add sp, #8"
+        },
+        {
+          "address": "0x2fd0d2",
+          "instruction": "bx lr"
+        }
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false
+    },
+    "post_return_thumb": {
+      "instructions": [
+        {
+          "address": "0x2fd028",
+          "instruction": "add sp, #8"
+        },
+        {
+          "address": "0x2fd02a",
+          "instruction": "bx lr"
+        }
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false
+    }
+  },
+  "arm_range_hashes": {
+    "post_interrupt_marker_arm": "70bd1b81518f82de9ff59914da28d3bd9a8d1670e92cab0bf377d163131c5c7d",
+    "post_arm_entry": "40f2f04d254cf6fc1859a2c1a70653d4e223f645092dc2653f91a5c49e51a30f",
+    "post_preemption_context_save": "7782f7a32c343b962736bc13e367c2ffc5cd87c3f1cbd7a7782bf4baa348706e",
+    "wait_arm_entry": "757b56137d5bad443902d12a7c558c4885aab899868ddd7af05d661f26a187f2",
+    "wait_empty_context_save": "8724a98ccbf90bcd04a3814783c4bb7fe8091f4263fb30637cbe75951be7f6b3",
+    "wait_return_arm": "5d84695a842b1d787bad8262563cce71921511bca741a368f9ebae7d366af689",
+    "post_return_arm": "5d84695a842b1d787bad8262563cce71921511bca741a368f9ebae7d366af689"
+  },
+  "runtime_event_operations_emulated": false,
+  "live_event_delivery_or_scheduling_verified": false,
+  "device_io": false,
+  "limitations": "Exact-firmware static instruction analysis only. Known ARM/Thumb transitions and the all-ARM interrupt-marker post branch are recorded separately; the Thumb trace helper does not traverse those transitions or callees. This artifact itself does not execute event operations, true IRQ entry/exit or scheduling. Runtime evidence belongs to the separate media-worker/media-consumer emulation artifacts; this static analysis alone does not establish a working on-device worker."
+}

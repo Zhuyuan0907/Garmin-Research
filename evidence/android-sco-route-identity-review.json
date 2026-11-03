@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "review": "public SCO route identity for the existing self-managed local-call MediaPlayer prototype",
+  "created_utc": "2026-10-07T15:01:51.032558+00:00",
+  "status": "bounded review complete; actual Pixel SCO address exposure remains unknown; no identity fallback authorized",
+  "scope": {
+    "fixed_aosp_tag": "android-15.0.0_r1",
+    "official_source_file_count": 3,
+    "decoded_source_bytes": 178169,
+    "decoded_source_limit_bytes": 262144,
+    "source_retrieval": "Gitiles base64 TEXT streamed and decoded only through retained prefixes for two large files; whole ServiceUtilities source. Two prefixes are not complete files and their hashes do not identify full blobs.",
+    "search_scope": "Official developer API method documentation plus googlesource search metadata/snippets. Historical patches and master/main search hits were discovery hints only, not Android 15 or Pixel evidence.",
+    "full_call_graph": false,
+    "not_read": [
+      "AudioManager.java getDeviceForPortId/getDevices cache and mapping implementation",
+      "AudioDeviceInfo.java/AudioDevicePort.java address accessor implementation",
+      "AudioSystem JNI/AudioSystem binder client",
+      "audio policy manager/device descriptor and SCO registration",
+      "BtHelper/AudioDeviceInventory SCO address registration",
+      "OEM/Pixel platform source and actual installed OS"
+    ],
+    "failed_metadata_lookup": "Gitiles file history +log returned HTTP 401; not retried or bypassed",
+    "tag_revision_is_not_pixel_fact": true
+  },
+  "sources": [
+    {
+      "repository": "platform/frameworks/base",
+      "commit": "4e43ad12e1b211f15152e9c5b16b0fe88e6b93f3",
+      "path": "media/java/android/media/MediaPlayer.java",
+      "extent": "unmodified decoded byte prefix; not full source",
+      "complete": false,
+      "inspected_line_ranges": [
+        [
+          654,
+          715
+        ],
+        [
+          1501,
+          1572
+        ],
+        [
+          1673,
+          1676
+        ]
+      ],
+      "decoded_bytes": 76800,
+      "decoded_snapshot_sha256": "fac92a12266ee47eb47272c11e12043081d43d28027cf007b7a777afe29b8f96",
+      "snapshot_path": "staging/android-sco-route-identity/android-15.0.0_r1/MediaPlayer.java.prefix",
+      "retained_line_extent": [
+        1,
+        1712
+      ],
+      "last_line_may_be_partial": true,
+      "url": "https://android.googlesource.com/platform/frameworks/base/+/4e43ad12e1b211f15152e9c5b16b0fe88e6b93f3/media/java/android/media/MediaPlayer.java",
+      "tag_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/media/java/android/media/MediaPlayer.java"
+    },
+    {
+      "repository": "platform/frameworks/av",
+      "commit": "1863cb0ea5a9e1340f11a435618ff863e017da29",
+      "path": "media/utils/ServiceUtilities.cpp",
+      "extent": "full unmodified decoded source",
+      "complete": true,
+      "inspected_line_ranges": [
+        [
+          46,
+          115
+        ],
+        [
+          345,
+          364
+        ]
+      ],
+      "searched_full_file_for": [
+        "mustAnonymizeBluetoothAddress",
+        "anonymizeBluetoothAddress",
+        "BLUETOOTH_CONNECT"
+      ],
+      "decoded_bytes": 27641,
+      "decoded_snapshot_sha256": "cc6234ef5c482427aab804385c70892ce782a8c9a0abf77fca0a91432c044fa4",
+      "snapshot_path": "staging/android-sco-route-identity/android-15.0.0_r1/ServiceUtilities.cpp",
+      "retained_line_extent": [
+        1,
+        602
+      ],
+      "last_line_may_be_partial": false,
+      "url": "https://android.googlesource.com/platform/frameworks/av/+/1863cb0ea5a9e1340f11a435618ff863e017da29/media/utils/ServiceUtilities.cpp",
+      "tag_url": "https://android.googlesource.com/platform/frameworks/av/+/refs/tags/android-15.0.0_r1/media/utils/ServiceUtilities.cpp"
+    },
+    {
+      "repository": "platform/frameworks/av",
+      "commit": "1863cb0ea5a9e1340f11a435618ff863e017da29",
+      "path": "services/audiopolicy/service/AudioPolicyInterfaceImpl.cpp",
+      "extent": "unmodified decoded byte prefix; not full source",
+      "complete": false,
+      "inspected_line_ranges": [
+        [
+          1580,
+          1635
+        ]
+      ],
+      "searched_prefix_for": [
+        "mustAnonymizeBluetoothAddress",
+        "anonymizePortBluetoothAddress",
+        "BLUETOOTH_CONNECT"
+      ],
+      "decoded_bytes": 73728,
+      "decoded_snapshot_sha256": "07748dc189fec1c2ca6134bd5a831dea8692bad43bdf2d98b69f168e31f5681f",
+      "snapshot_path": "staging/android-sco-route-identity/android-15.0.0_r1/AudioPolicyInterfaceImpl.cpp.prefix",
+      "retained_line_extent": [
+        1,
+        1700
+      ],
+      "last_line_may_be_partial": true,
+      "url": "https://android.googlesource.com/platform/frameworks/av/+/1863cb0ea5a9e1340f11a435618ff863e017da29/services/audiopolicy/service/AudioPolicyInterfaceImpl.cpp",
+      "tag_url": "https://android.googlesource.com/platform/frameworks/av/+/refs/tags/android-15.0.0_r1/services/audiopolicy/service/AudioPolicyInterfaceImpl.cpp"
+    }
+  ],
+  "official_api_documents": [
+    {
+      "url": "https://developer.android.com/reference/android/media/MediaPlayer#getRoutedDevice()",
+      "api_added": 28,
+      "paraphrase": "The route query is valid only while playing; inactive values may be null or stale. Current documentation also notes simultaneous output on multiple devices and recommends the API 36 plural route query."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/media/MediaPlayer#MediaPlayer(android.content.Context)",
+      "api_added": 34,
+      "paraphrase": "The context supplies attribution and device-specific session information for the player; the player does not retain the context."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/media/AudioDeviceInfo#getAddress()",
+      "api_added": 28,
+      "paraphrase": "A non-null device-specific address string is returned. Public documentation does not promise a nonempty SCO MAC or prescribe its exact format."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/media/AudioDeviceInfo#getId()",
+      "api_added": 23,
+      "paraphrase": "Returns an internal device ID; this documentation does not promise a persistent Bluetooth identity across removal or reconnect."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/media/AudioManager#getDevices(int)",
+      "api_added": 23,
+      "paraphrase": "Returns matching currently connected audio devices, possibly an empty array; this alone does not identify an active player route."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_CONNECT",
+      "api_added": 31,
+      "paraphrase": "A dangerous permission required to connect to paired Bluetooth devices; its public contract does not guarantee that every SCO AudioDeviceInfo exposes a complete MAC."
+    }
+  ],
+  "findings": [
+    {
+      "id": "playing-required",
+      "strength": "official API contract and fixed-tag implementation",
+      "evidence": [
+        "MediaPlayer.java:1540-1553"
+      ],
+      "result": "The existing muted media.start() followed by actual-route inspection follows the required order. A preferred device or a route queried before playback cannot authorize unmute."
+    },
+    {
+      "id": "route-is-port-id-lookup",
+      "strength": "fixed-tag source",
+      "evidence": [
+        "MediaPlayer.java:1547-1552"
+      ],
+      "result": "getRoutedDevice retrieves one native route port ID, returns null for zero, and maps that ID through AudioManager.getDeviceForPortId(GET_DEVICES_OUTPUTS). It does not return the selected bonded BluetoothDevice and does not pass a context/player attribution argument to this mapping call."
+    },
+    {
+      "id": "attribution-constructor",
+      "strength": "fixed-tag source and public API contract",
+      "evidence": [
+        "MediaPlayer.java:663-712"
+      ],
+      "result": "The no-arg constructor uses AttributionSource.myAttributionSource(); API34 context constructor uses context.getAttributionSource(), then native_setup receives it. Changing only the constructor is not demonstrated to repair route-address exposure."
+    },
+    {
+      "id": "address-not-guaranteed-mac",
+      "strength": "official API contract; lower pipeline unresolved",
+      "result": "The API does not guarantee a nonempty SCO MAC. This review did not establish that SCO addresses are generally empty, nor establish that they are generally complete MACs."
+    },
+    {
+      "id": "android15-r1-old-redaction-absent-here",
+      "strength": "bounded fixed-tag source observation",
+      "evidence": [
+        "AudioPolicyInterfaceImpl.cpp:1580-1635",
+        "ServiceUtilities.cpp full-file searches"
+      ],
+      "result": "The retained complete listAudioPorts/getAudioPort method bodies directly obtain/convert ports and do not contain the historical mustAnonymizeBluetoothAddress branch. That helper and BLUETOOTH_CONNECT literal are absent from the full ServiceUtilities source. This does not rule out redaction or permission checking elsewhere in the uninspected pipeline."
+    },
+    {
+      "id": "permission-and-attribution-gap",
+      "strength": "unknown within three-file scope",
+      "result": "Actual Android15 route address redaction, BLUETOOTH_CONNECT/AppOps effect, cache invalidation after grant/revoke, and which caller attribution reaches every lower layer remain unresolved. Historical 2023 anonymization patch search hits are not substituted for the selected 15 r1 implementation."
+    },
+    {
+      "id": "singular-route-not-exclusive-proof",
+      "strength": "official current API documentation plus fixed API35 source",
+      "evidence": [
+        "MediaPlayer.java:1547-1552"
+      ],
+      "result": "API35 returns one routed device. Current documentation explicitly allows simultaneous devices and introduces getRoutedDevices at API36. Matching the single reported SCO device is not proof that no other output receives audio."
+    },
+    {
+      "id": "exact-preflight-may-refuse-before-start",
+      "strength": "local production source read only",
+      "evidence": [
+        "TestSession.java:331-335",
+        "TestSession.java:368-382",
+        "AsyncPlayer.java:175-178"
+      ],
+      "result": "The current prototype requires a unique selected-address SCO AudioDeviceInfo before load, as well as the routed SCO/address match before unmute. If all enumerated SCO addresses are empty or redacted, Play will be refused at preflight; no muted player will start."
+    }
+  ],
+  "next_step_changes": [
+    "Keep selected-MAC plus TYPE_BLUETOOTH_SCO and explicit Play requirements. Do not accept type-only, name-only, suffix-only, or a stale internal port ID as selected Garmin identity.",
+    "When future authorized instrumentation is considered, separate: selected bonded identity permission state; enumerated unique exact SCO result; route absent; wrong type; address empty; address apparently masked; complete-address mismatch; exact match. Log only categories/booleans, not device MACs or names.",
+    "Check exact-SCO preflight failure before attempting to diagnose MediaPlayer routing: an empty or redacted enumeration can prevent player creation entirely.",
+    "If a future public API observation provides a fresh unambiguous full-MAC audio port, routed port ID can be cross-checked against that fresh mapping as an additional consistency check. This is conditional, not an approved fallback for a port whose identity cannot be established.",
+    "A separate bounded source review would need the omitted AudioManager/AudioSystem/BtHelper path to explain actual SCO address contents or permission redaction. This review deliberately does not read a fourth source file.",
+    "Document that API35 single route reporting and asynchronous reroute callbacks do not establish exclusive routing or zero-gap leakage."
+  ],
+  "public_alternative_if_all_sco_addresses_empty": {
+    "verified_equivalent_identity_solution": false,
+    "result": "No verified public replacement was established within this scope. Remain muted/refuse. A connection endpoint name or only one SCO entry does not recover a selected MAC identity. Another audio implementation such as AudioTrack still uses AudioDeviceInfo and is not shown to supply a missing MAC."
+  },
+  "local_source_observation": {
+    "comparison_read_only": true,
+    "files": [
+      "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/AsyncPlayer.java",
+      "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/TestSession.java",
+      "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/MainActivity.java"
+    ],
+    "root_may_be_editing_provider_query_independently": true
+  },
+  "activity_flags": {
+    "android_source_modified": false,
+    "native_source_modified": false,
+    "apk_modified": false,
+    "host_tests_rerun": false,
+    "native_execution_or_compilation": false,
+    "native_guest_retry_or_bypass": false,
+    "live_device_bluetooth_dbus_phone_queries": false,
+    "pairing_or_calls_or_audio": false,
+    "new_evidence_and_source_snapshots_only": true
+  },
+  "limits": {
+    "android_runtime_verified": false,
+    "pixel_os_version_verified": false,
+    "garmin_speaker_verified": false,
+    "native_garmin_a2dp_goal_achieved": false
+  }
+}

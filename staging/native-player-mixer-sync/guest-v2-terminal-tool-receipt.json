@@ -1,0 +1,21 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-sync/emulate_mixer_sync_v2.py",
+  "launch_tool_result": {
+    "chunk_id": "fa8d2a",
+    "wall_time_seconds": 1.001539614,
+    "session_id": 17184,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "actual_terminal_result": {
+    "chunk_id": "d946b9",
+    "wall_time_seconds": 0.000018444,
+    "exit_code": 1,
+    "original_token_count": 310,
+    "output": "{\"case\": \"normal_reuse_reselection_reset\", \"full_returns\": 32, \"bytes\": 7168}\nTraceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-sync/emulate_mixer_sync_v2.py\", line 536, in <module>\n    if __name__ == '__main__': main()\n                               ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/emulate_mixer_sync_v2.py\", line 502, in main\n    m = Handoff(stock, elf, build); m.boot(existing_control=name=='Stop_revokes_new_original_pulls')\n                                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/emulate_mixer_sync_v2.py\", line 376, in boot\n    require(self.invoke_kernel('mh_request_command',(7,),phase='existing native mixer initializer request')==0,\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            'existing source request rejected')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/emulate_queue_call.py\", line 33, in require\n    if not x:raise ValueError(reason)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: existing source request rejected\n"
+  },
+  "started_session_id": 17184,
+  "terminal": true,
+  "retry_or_rerun_forbidden": true,
+  "scope": "Actual ROOT guest EXIT1; first normal-sync/fullpull case completed, second case command7 rejected by compiled request1..6 range. No claim of complete suite pass; no device actions."
+}

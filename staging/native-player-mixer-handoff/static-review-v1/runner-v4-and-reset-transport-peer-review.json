@@ -1,0 +1,258 @@
+{
+  "all_passed": true,
+  "pure_FILE_ONLY_static_review": true,
+  "source_sha256": {
+    "staging/native-player-mixer-handoff/emulate_mixer_handoff_v4.py": "8d1f0c8e61074c74467f319fcf880d1b125642d985cc58e0d3165e36a25fe32a",
+    "staging/native-player-mixer-handoff/guest-v4/runner-at-run.py": "8d1f0c8e61074c74467f319fcf880d1b125642d985cc58e0d3165e36a25fe32a",
+    "staging/native-player-mixer-handoff/guest-v4/inputs-at-run.json": "8deae0d69da68c18f3dfafd6451311ce07b320f0001fa939f125651a5415bf1d",
+    "staging/native-player-mixer-handoff/guest-v4-terminal-tool-receipt.json": "109e4b806ff145fe2aaf64b4cc4940e7980c16de6f8f694cf1eba87e1ae7d2d8",
+    "staging/native-player-mixer-handoff/guest-v4/terminal-failure.json": "a8e000adffa75b6272f5a48b4b8564a69b2d3f10558ed066971b9aac94c2d22a",
+    "staging/native-player-mixer-handoff/guest-v4/normal_reuse_reselection_reset.json": "b1182f6f6c3c2e76601edab3bffdb3eacefdb36b9855e5f0e88bc75dfe07d2bd",
+    "staging/native-player-mixer-handoff/guest-v4/Stop_revokes_new_original_pulls.json": "dbdf711919e3ca62ae53d479a70cc812605f5355e275586c43ba376c3b544e21",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "staging/native-player-session-native-call/emulate_queue_call.py": "ae3485d4ce381172035abe56a61a890fbba8078e051e02b3feef8a088c1bae3c",
+    "staging/native-player-mixer-handoff/build-v4.json": "77172b5b8cd5e2772c06bb0496f0af6180e37f8aa4a5e6a17a86b977e2dc24fa",
+    "staging/native-player-mixer-handoff/static-review-v1/mixer-handoff-build-v4-static-review-seal.json": "e2b7f08c19302c1e6b6337d3e387973b725bcf6e15cc385ad0d12ac8e5c617f1"
+  },
+  "exact_runner_sha256": "8d1f0c8e61074c74467f319fcf880d1b125642d985cc58e0d3165e36a25fe32a",
+  "original_opcode_rows": [
+    {
+      "PC": "0x46cd78",
+      "Thumb": true,
+      "opcode_hex": "00b5",
+      "instruction": "push {lr}"
+    },
+    {
+      "PC": "0x46cd80",
+      "Thumb": true,
+      "opcode_hex": "1872",
+      "instruction": "strb r0, [r3, #8]"
+    },
+    {
+      "PC": "0x46cd88",
+      "Thumb": true,
+      "opcode_hex": "fff754ff",
+      "instruction": "bl #0x46cc34"
+    },
+    {
+      "PC": "0x46cd90",
+      "Thumb": true,
+      "opcode_hex": "6bf566ff",
+      "instruction": "bl #0x1d8c60"
+    },
+    {
+      "PC": "0x46cc34",
+      "Thumb": true,
+      "opcode_hex": "7047",
+      "instruction": "bx lr"
+    },
+    {
+      "PC": "0x1d8c78",
+      "Thumb": true,
+      "opcode_hex": "9880",
+      "instruction": "strh r0, [r3, #4]"
+    },
+    {
+      "PC": "0x1d8c7a",
+      "Thumb": true,
+      "opcode_hex": "3422",
+      "instruction": "movs r2, #0x34"
+    },
+    {
+      "PC": "0x1d8c7e",
+      "Thumb": true,
+      "opcode_hex": "b8f10eeb",
+      "instruction": "blx #0x39129c"
+    },
+    {
+      "PC": "0x1d8c88",
+      "Thumb": true,
+      "opcode_hex": "a3f12cf8",
+      "instruction": "bl #0x37bce4"
+    },
+    {
+      "PC": "0x1d8c8c",
+      "Thumb": true,
+      "opcode_hex": "0020",
+      "instruction": "movs r0, #0"
+    },
+    {
+      "PC": "0x277d76",
+      "Thumb": true,
+      "opcode_hex": "49d0",
+      "instruction": "beq #0x277e0c"
+    },
+    {
+      "PC": "0x277dfc",
+      "Thumb": true,
+      "opcode_hex": "0a20",
+      "instruction": "movs r0, #0xa"
+    }
+  ],
+  "reset_transport_contract": {
+    "original_mixer_request_wrapper": "46CD78",
+    "wrapper_frame_bytes": 64,
+    "channel_store_PC": "46CD80",
+    "channel_payload_offset": 0,
+    "diagnostic46CC34_original_BX_LR": true,
+    "wrapper_request_call_PC": "46CD90",
+    "request_entry": "1D8C60",
+    "r0_kind": 2,
+    "r1_payload": "caller SP+8",
+    "request_frame_bytes": 64,
+    "kind_store_PC": "1D8C78",
+    "kind_halfword_packet_offset": 0,
+    "untouched_stack_residue_offsets": [
+      2,
+      3
+    ],
+    "payload_copy_PC": "1D8C7E",
+    "original_memcpy_entry": "39129C",
+    "payload_copy_bytes": 52,
+    "packet_bytes": 56,
+    "backend_TCB_storage": "F29320",
+    "backend_pointer_literal_PC": "1D8F78",
+    "send_caller_PC": "1D8C88",
+    "send_LR": "1D8C8D",
+    "send_ABI": [
+      "r0 = dereference F29320",
+      "r1 = request SP+4"
+    ],
+    "original_function_R0_after_send": 0,
+    "original_send_result_ignored": true,
+    "observed_declared_fixture_request": {
+      "name": "explicit hardware reset request transport; backend queue uninitialized; no driver/ack",
+      "before": {
+        "GP16": [
+          0,
+          157294244,
+          4294967284,
+          0,
+          55467384,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          157294240,
+          1936525,
+          3652836
+        ],
+        "CPSR": 1610612799,
+        "current_TCB": 157294480,
+        "ordinal": 20277,
+        "phase": "original controller wait schedules ready actors"
+      },
+      "args": [
+        0,
+        157294244,
+        4294967284,
+        0
+      ],
+      "after": {
+        "GP16": [
+          0,
+          157294244,
+          4294967284,
+          0,
+          55467384,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          157294240,
+          1936525,
+          1936524
+        ],
+        "CPSR": 1610612799,
+        "current_TCB": 157294480,
+        "ordinal": 20277,
+        "phase": "original controller wait schedules ready actors"
+      },
+      "original_request_hex": "02000007081f600901000000010000000100000001000000bf000020acd02f0008000000785d4e0308804e03000000000000000000000000"
+    }
+  },
+  "integration_review": {
+    "source_priority": 12,
+    "mixer_priority": 23,
+    "source_preempts_controller16": true,
+    "mixer_cannot_preempt_source12_by_priorityalone": true,
+    "sync46CC7A_full_original_body_skipped_by_explicit_service_fixture": true,
+    "sync46CC7A_name_timing_hint_understates_original_wait_ack_scope": true,
+    "normal_current_getter_F09094_zero_required": true,
+    "original_POST_WAIT_restore_bodies_admitted": true,
+    "host_running_task_substitution": false,
+    "ordinary_controller_idle_call_entry_SP_LR_host_inputs": true,
+    "three_guest_BL_and_three_veneer_patches_declared": true,
+    "original_MAIN_file_unchanged": true,
+    "whole_RX_guard_includes_guest_declared_patches": true,
+    "controller_idle_descriptor_RW_input_addresses": [
+      "09401800",
+      "09401820"
+    ],
+    "four_stack_leading_A5_canaries": true,
+    "opaque_allocation_query_release_generic_mutex_bookkeeping_priority_hardware_output_consumer_fixtures": true,
+    "reset_complete_message17_is_explicit_source_command_input": true,
+    "original_queue_FIFO_send_get_bodies_admitted": true,
+    "selector_fullpull_body_admitted": true,
+    "original_reader_slot_guarded_by_native_actor_and_lease": true
+  },
+  "v4_actual_terminal": {
+    "exit_code": 1,
+    "chunk_id": "37dd23",
+    "two_saved_case_names": [
+      "normal_reuse_reselection_reset",
+      "Stop_revokes_new_original_pulls"
+    ],
+    "saved_normal_full_returns": 32,
+    "saved_Stop_full_returns": 8,
+    "saved_cases_independent_whole_replay_not_performed_by_this_static_note": true,
+    "failed_case": "original_profile_rewrite_revokes_mixer",
+    "failure_reason": "sameprofile0 hits original277D76 equality earlyexit; callback remainsinstalled, silencepublishing is consistent with current compiledsource"
+  },
+  "profile_next_source_contract": {
+    "old_compiled_sameprofile_request": [
+      8,
+      0,
+      1
+    ],
+    "sameprofile_branch_PC": "277D76",
+    "sameprofile_target_PC": "277E0C",
+    "proposed_first_request": [
+      8,
+      1,
+      1
+    ],
+    "first_original_expected_R0": 10,
+    "nonzero_return_PC": "277DFC",
+    "proposed_second_request": [
+      8,
+      0,
+      1
+    ],
+    "second_original_expected_R0": 0,
+    "original_callback_rewrite_and_queue_clear_required": true,
+    "host_callback_seed_allowed": false
+  },
+  "remaining_limits": [
+    "This is a pure static/runtime-file peer review, not independent whole replay or nativeguest execution. Root V4 terminal remainsEXIT1; two validsavedcasesdo not turn the three-case suite into success.",
+    "46CC7A is a full original lock/message20/waitbit8/ack synchronization tail. Explicit service return0 bypasses this tail before capability publication; no native synchronization claim.",
+    "Hardware reset request capture replaces uninitialized backendtransport only. Request padding and many payload bytes are actual stack residue; originalkind/channel/copybytes are verified. Nativehardware actor/driver/reset ack unknown.",
+    "Normal taskcurrent is derived from F09090 and originalgetter inF09094=0 scope; no physicalIRQ or complete ownedmutex/threadlifetime audit. Genericmutex fixture returns are not original mutexownership evidence.",
+    "RawPCM is deterministic compiledinput; output activation/buffer/capacity/scratch and consumeindex updates are explicit fixtures. NoDAC/mixer hardware/exclusiveownership/STOP_DONE/completeApp/phone/sound/installation proof.",
+    "Root file verifier must classify exact patchedRXbaseline separately from unmodified MAIN. Originalreaders both callerLRS2FA53B/2FA577 require actual fullSPreturns/leases/nativeactor and byte replay, not booleanclaims."
+  ],
+  "VM_import_or_instantiation": false,
+  "guest_execution": false,
+  "device_io": false,
+  "canonical_write": false,
+  "complete_player_or_hardware_or_original_sync_verified": false
+}

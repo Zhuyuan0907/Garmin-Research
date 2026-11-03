@@ -1,0 +1,30 @@
+本範圍已停止：真 AP 繪圖／admission reader 尚未識別。
+
+交付五條原 MAIN 位址與 bytes：
+1. 167282 63a2 ADR →167410 UTF16 gmapprom1.img；167290 fff71eff BL1670d0。
+   該 callee 是 formatting/property-style 呼叫形狀，無繪圖／容器 admission 綁定。
+2. 1e7e54 16f76ffe BLfeb36，讀22B；1e7e64 61f158fa BL349318 比較 DSKIMG。
+3. fea9e e9f016fe BL1e86ce；1e899c fff753fb BL1e8046，僅共用 cache/mount/parser。
+4. 1e82da 9040、1e82fc 8840 執行兩個動態 LSL；1e8316 7352 存 u16 blockcount。
+   本104B片段沒有 delta==3 比較，不能據此推論真 AP 支援8K。
+5. 1e83c4 00d0 BEQ1e83c8；1e83c6 71e7 B1e82ac。比較的是 sectorbytes512，
+   不區分9+3與9+4，但也不證明下游接受8192B block。
+
+8K 或128MiB硬限制：均未證明。v3道路消失原因未定位，未猜 checksum／priority。
+既有 VPM 綁定不轉稱 AP renderer；未跑1E8046 CPU或舊23筆 suite。
+最小下一個可分開授權的新scope：沿1101ea map enumeration及2cabbc/2ca82c metadata
+找交給真正繪圖/component reader的 map record/driver descriptor；目前只有候選入口。
+
+710B/15次是最後正式小片段 capture，不是全scope總讀量。此前有唯讀 mmap exact字串、
+direct-call scan和有限局部 disasm；physicalIO未量測，actual-tool-receipts.json如實分開。
+初次capture讀682B後因UTF16含NUL需28B卻只取26B，assert拒絕；保存失敗source/receipt。
+更正後原 bytes/指令guard、三次saved-run MAIN前後stat都通過。
+
+未開原IMG/候選IMG、USB／車機；未改sealed來源、v2/v3、report、ZIP或安裝器。
+僅自己的source/proof/receipts；所有 MAIN handles 關閉。不是新候選或可安裝修改。
+v3實機接受仍false；全台新地址更新未完成，車機依root最後資訊維持v2。
+
+最後 pointer-origin audit 另讀68B/2次，確認SP+a8=header61、SP+94=header60；
+此前84B小片段核對亦載finalization-receipt，無再跑capture或CPU。
+五條witness不變，原命名shared_header_pointer_origins實為partition-offset
+計算片段；supplemental-pointer-origin-proof補齊真指標建構 bytes。

@@ -1,0 +1,46 @@
+{
+  "parent": "scripts/probe_native_dispatcher_decoder.py",
+  "parent_sha256": "a9deadbbeb89b8cf5ca3550164736f852abb16c522a953c6e6dc84009ddc644e",
+  "new": "scripts/probe_native_dispatcher_settings.py",
+  "new_sha256": "cbd72f3786b058d38894ae1339d47fd49f1367c4850c208a8dfd40aeebd32312",
+  "guest_executed": false,
+  "changes": [
+    {
+      "before": "BASE='staging/native-player-decoder-scope/'",
+      "after": "BASE='staging/native-player-settings-scope/'"
+    },
+    {
+      "before": "GUI_SOURCE=BASE+'gui-static/decoder_actor_observer_v2.py'",
+      "after": "GUI_SOURCE=BASE+'gui-static/settings_actor_observer.py'"
+    },
+    {
+      "before": "ActorMixin=_module.DecoderDispatcherActorObserverMixin",
+      "after": "ActorMixin=_module.SettingsDispatcherActorObserverMixin"
+    },
+    {
+      "before": "for page in [0x34f9000,0x3aae000,0x2d16000,0x2d1f000]:",
+      "after": "for page in [0x34f9000,0x3aae000,0x2d16000,0x2d1f000,0x3aaf000]:"
+    },
+    {
+      "before": "(0x2d16000,4096),(0x2d1f000,4096)]:",
+      "after": "(0x2d16000,4096),(0x2d1f000,4096),(0x3aaf000,4096)]:"
+    },
+    {
+      "before": "BASE+'gui-static/decoder-actor-observer-contract-v2.json'",
+      "after": "BASE+'gui-static/settings-actor-observer-contract.json','scripts/seal_native_settings_attempt.py'"
+    },
+    {
+      "before": "result['decoder_inputs_after_cold_prefix']=vm.capture_decoder_inputs()",
+      "after": "result['decoder_inputs_after_cold_prefix']=vm.capture_decoder_inputs()\n        result['settings_inputs_after_cold_prefix']=vm.capture_dispatcher_settings_inputs()"
+    },
+    {
+      "before": "result['initialized_data_journal']=vm.verify_mutable_scope();result['extra_zones']=vm.verify_extra_zones()",
+      "after": "result['initialized_data_journal']=vm.verify_mutable_scope();result['extra_zones']=vm.verify_extra_zones()\n        result['initialized_data_journal']['before_hex']=vm.mutable_bank_before.hex()"
+    },
+    {
+      "before": "result.update(component_calls=vm.component_calls,cold_boot_zones=vm.cold_zones,cold_fill=vm.cold_fill,",
+      "after": "result.update(mutable_bank_initial_before_hex=vm.mutable_bank_before.hex() if vm.mutable_bank_before is not None else None,\n            component_calls=vm.component_calls,cold_boot_zones=vm.cold_zones,cold_fill=vm.cold_fill,"
+    }
+  ],
+  "new_3AAF_page_provisional_requires_bounded_helper_contract": true
+}

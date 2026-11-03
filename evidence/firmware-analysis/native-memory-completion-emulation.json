@@ -1,0 +1,662 @@
+{
+  "updated_utc": "2026-10-02T23:06:41.802482+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "script_sha256": "52c48d03a8e231ea4b777327897b2ba1f84e37dd9218228bc772352087cdd60d",
+  "dependency_sha256": {
+    "scripts/emulate_native_memory_audio.py": "cdf1d1bbbaa675314d1cbedf5999e2c220f21cb43f2efe2877a09b346ff1f166",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/emulate_native_audio_messages.py": "443e3c25edaa8475adeb414cb0f99a141c3a83216c982ee094c2ec0dee3fe570",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+    "staging/native-media-consumer/manifest.json": "d8e9b16766423cb73062d5a9318d1b4b17c876b058ef473b43a5b8a564072919"
+  },
+  "consumer_companion_elf_sha256": "5fd98a0abb449a8c8bb510e5c76cee4f874ccc4489b55ef7a89f85e1f0a44b07",
+  "routes": [
+    {
+      "name": "six_source_nodes_serialized_through_original_actor",
+      "queued_blocks": 6,
+      "pcm_bytes": 3482,
+      "pcm_sha256": "8e40070207965b7f53ae6b87129ad4c73543d2fcc75e9a2a74876717247c5498",
+      "reference_byte_identical": true,
+      "source_instances": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "provider_slots_not_consumed_at_enqueue": true,
+      "eof_leaves_source_and_queue_live": true,
+      "actor_stop15_cleanup19_then_original_remove": true,
+      "cleanup_notice_sequences": [
+        [
+          26,
+          25,
+          22,
+          23
+        ],
+        [
+          26,
+          25,
+          22,
+          23
+        ],
+        [
+          26,
+          25,
+          22,
+          23
+        ],
+        [
+          26,
+          25,
+          22,
+          23
+        ],
+        [
+          26,
+          25,
+          22,
+          23
+        ],
+        [
+          26,
+          25,
+          22,
+          23
+        ]
+      ],
+      "translated_flags_each": [
+        64,
+        32,
+        2,
+        8
+      ],
+      "notice_translation_original_up_to_controlled_main_dispatch": true,
+      "all_source_nodes_released_at_end": true,
+      "tts_context_and_ring_unchanged": true,
+      "original_paths_visited": [
+        "0x1fa4a6",
+        "0x277596",
+        "0x277674",
+        "0x2f9f1c",
+        "0x2fa0dc",
+        "0x2fa294",
+        "0x2fa316",
+        "0x2fa572",
+        "0x330b48",
+        "0x36b22e",
+        "0x36b24e",
+        "0x36b28a",
+        "0x36b29a",
+        "0x437a90",
+        "0x455b64",
+        "0x455c86",
+        "0x455d1e"
+      ],
+      "passed": true
+    }
+  ],
+  "controls": [
+    {
+      "name": "delete_notice23_does_not_imply_reader_cleanup",
+      "source_node_freed_before_cleanup": true,
+      "prepared_reader_and_pool_slot_remain_live": true,
+      "original_reader_still_returns_borrowed_pcm": true,
+      "translated_flag8_not_a_standalone_recycle_signal": true,
+      "passed": true
+    },
+    {
+      "name": "delayed_notices_use_different_owner_fields",
+      "notice_packet_owner": 43521,
+      "new_current_channel_owner": 43522,
+      "source_events": [
+        26,
+        25,
+        22,
+        23
+      ],
+      "translated_flags": [
+        64,
+        32,
+        2,
+        8
+      ],
+      "translated_owners": [
+        43521,
+        43521,
+        43522,
+        43522
+      ],
+      "events22_23_reload_current_channel_metadata": true,
+      "events25_26_use_notice_packet_owner": true,
+      "per_block_generation_cannot_be_assumed_from_translated_owner": true,
+      "transport_delay_is_test_control_not_actual_scheduling": true,
+      "passed": true
+    },
+    {
+      "name": "notice_mask_filters_without_blocking_source_cleanup",
+      "original_reporting_calls_each": [
+        26,
+        25,
+        22,
+        23
+      ],
+      "cases": [
+        {
+          "report_mask": 0,
+          "queued_events": [],
+          "translated_flags": []
+        },
+        {
+          "report_mask": 6,
+          "queued_events": [
+            22,
+            23
+          ],
+          "translated_flags": [
+            2,
+            8
+          ]
+        }
+      ],
+      "source_cleaned_and_node_deleted_each": true,
+      "source_report_mask6_selects_events22_23": true,
+      "source_report_bits_differ_from_main_translated_flags": true,
+      "passed": true
+    },
+    {
+      "name": "notice23_precedes_node_release_and_queue_count_update",
+      "paused_original_caller": "0x2775e6",
+      "notice_delivered_while_remove_call_still_in_flight": true,
+      "node_still_locked_not_freed_and_count1_at_delivery": true,
+      "original_remove_resumed_and_released_node": true,
+      "python_context_restore_and_separate_stack_control": true,
+      "actual_os_preemption_or_callback_quiescence_verified": false,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "original_mixer_messages": {
+    "select": 13,
+    "read": 18,
+    "stop": 15,
+    "cleanup": 19
+  },
+  "source_remove": "0x277674",
+  "source_notice_report": "0x455c86",
+  "source_notice_dispatch": "0x455b64",
+  "main_capture_boundary": "0x330b48",
+  "main_audio_notification_event": 582,
+  "notice_flags": {
+    "21": 1,
+    "22": 2,
+    "23": 8,
+    "24": 16,
+    "25": 32,
+    "26": 64,
+    "27": 64
+  },
+  "source_report_mask_for_cleanup22_and_deletion23": 6,
+  "original_lifecycle_and_notice_translation_executed_offline": true,
+  "notice23_alone_does_not_establish_pcm_recycle_safety": true,
+  "events22_23_translated_owner_reloaded_from_current_channel": true,
+  "production_pinning_source_reservation_callback_lifetime_adapter_implemented": false,
+  "native_app_listener_or_main_dispatch_implemented": false,
+  "real_hardware_message14_or_drain_trigger_verified": false,
+  "actual_os_irq_preemption_or_navigation_coexistence_verified": false,
+  "compiled_sbc_queue_worker_consumer_called_or_changed": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "stock_notice_dispatch_trace": {
+    "instructions": [
+      {
+        "address": "0x455b64",
+        "instruction": "push {r4, lr}"
+      },
+      {
+        "address": "0x455b66",
+        "instruction": "ldrb r1, [r0, #1]"
+      },
+      {
+        "address": "0x455b68",
+        "instruction": "movs r4, #0"
+      },
+      {
+        "address": "0x455b6a",
+        "instruction": "subs r1, #0x15"
+      },
+      {
+        "address": "0x455b6c",
+        "instruction": "cmp r1, #0xd"
+      },
+      {
+        "address": "0x455b6e",
+        "instruction": "bhs #0x455c3c"
+      },
+      {
+        "address": "0x455b70",
+        "instruction": "adr r3, #4",
+        "address_value": "0x455b78"
+      },
+      {
+        "address": "0x455b72",
+        "instruction": "ldrb r3, [r3, r1]"
+      },
+      {
+        "address": "0x455b74",
+        "instruction": "adds r3, r3, r3"
+      },
+      {
+        "address": "0x455b76",
+        "instruction": "add pc, r3"
+      },
+      {
+        "address": "0x455c3c",
+        "instruction": "ldr r4, [pc, #0xf8]",
+        "literal_address": "0x455d38",
+        "literal_value": "0xffff"
+      },
+      {
+        "address": "0x455c3e",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x455c40",
+        "instruction": "pop {r4, pc}"
+      }
+    ],
+    "unresolved_exits": [
+      {
+        "address": "0x455b76",
+        "reason": "Computed PC; needs switch analysis"
+      }
+    ],
+    "instruction_limit_reached": false
+  },
+  "stock_source_remove_trace": {
+    "instructions": [
+      {
+        "address": "0x277674",
+        "instruction": "push {r4, r5, r6, lr}"
+      },
+      {
+        "address": "0x277676",
+        "instruction": "movs r4, r0"
+      },
+      {
+        "address": "0x277678",
+        "instruction": "adds r0, #0x38"
+      },
+      {
+        "address": "0x27767a",
+        "instruction": "movs r5, r1"
+      },
+      {
+        "address": "0x27767c",
+        "instruction": "movs r6, r0"
+      },
+      {
+        "address": "0x27767e",
+        "instruction": "bl #0x3009a0",
+        "direct_call": "0x3009a0"
+      },
+      {
+        "address": "0x277682",
+        "instruction": "movs r1, r5"
+      },
+      {
+        "address": "0x277684",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x277686",
+        "instruction": "bl #0x277596",
+        "direct_call": "0x277596"
+      },
+      {
+        "address": "0x27768a",
+        "instruction": "movs r4, r0"
+      },
+      {
+        "address": "0x27768c",
+        "instruction": "movs r0, r6"
+      },
+      {
+        "address": "0x27768e",
+        "instruction": "bl #0x3008b0",
+        "direct_call": "0x3008b0"
+      },
+      {
+        "address": "0x277692",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x277694",
+        "instruction": "pop {r4, r5, r6, pc}"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "stock_cleanup19_trace": {
+    "instructions": [
+      {
+        "address": "0x2fa2e8",
+        "instruction": "lsls r1, r4, #6"
+      },
+      {
+        "address": "0x2fa2ea",
+        "instruction": "ldr r0, [pc, #0x2d0]",
+        "literal_address": "0x2fa5bc",
+        "literal_value": "0x34e6f08"
+      },
+      {
+        "address": "0x2fa2ec",
+        "instruction": "adds r1, r1, r4"
+      },
+      {
+        "address": "0x2fa2ee",
+        "instruction": "lsls r1, r1, #3"
+      },
+      {
+        "address": "0x2fa2f0",
+        "instruction": "adds r6, r1, r0"
+      },
+      {
+        "address": "0x2fa2f2",
+        "instruction": "movs r0, #0xf0"
+      },
+      {
+        "address": "0x2fa2f4",
+        "instruction": "movs r1, #0xff"
+      },
+      {
+        "address": "0x2fa2f6",
+        "instruction": "ldr r2, [r0, r6]"
+      },
+      {
+        "address": "0x2fa2f8",
+        "instruction": "adds r1, #0x31"
+      },
+      {
+        "address": "0x2fa2fa",
+        "instruction": "muls r1, r4, r1"
+      },
+      {
+        "address": "0x2fa2fc",
+        "instruction": "ldr r0, [pc, #0x2c0]",
+        "literal_address": "0x2fa5c0",
+        "literal_value": "0x34e5378"
+      },
+      {
+        "address": "0x2fa2fe",
+        "instruction": "str r2, [sp]"
+      },
+      {
+        "address": "0x2fa300",
+        "instruction": "adds r7, r1, r0"
+      },
+      {
+        "address": "0x2fa302",
+        "instruction": "movs r0, r7"
+      },
+      {
+        "address": "0x2fa304",
+        "instruction": "adds r0, #0x80"
+      },
+      {
+        "address": "0x2fa306",
+        "instruction": "str r0, [sp, #0x3c]"
+      },
+      {
+        "address": "0x2fa308",
+        "instruction": "ldrb r2, [r0, #4]"
+      },
+      {
+        "address": "0x2fa30a",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x2fa30c",
+        "instruction": "movs r3, #0"
+      },
+      {
+        "address": "0x2fa30e",
+        "instruction": "adr r1, #0x2dc",
+        "address_value": "0x2fa5ec",
+        "string": "R CDC_CLOSE"
+      },
+      {
+        "address": "0x2fa310",
+        "instruction": "bl #0x2f9954",
+        "direct_call": "0x2f9954"
+      },
+      {
+        "address": "0x2fa314",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x2fa316",
+        "instruction": "bl #0x2f9f1c",
+        "direct_call": "0x2f9f1c"
+      },
+      {
+        "address": "0x2fa31a",
+        "instruction": "movs r5, r6"
+      },
+      {
+        "address": "0x2fa31c",
+        "instruction": "adds r5, #0xff"
+      },
+      {
+        "address": "0x2fa31e",
+        "instruction": "adds r5, #0x81"
+      },
+      {
+        "address": "0x2fa320",
+        "instruction": "ldr r0, [r5, #0x30]"
+      },
+      {
+        "address": "0x2fa322",
+        "instruction": "adds r6, #0xa0"
+      },
+      {
+        "address": "0x2fa324",
+        "instruction": "str r0, [sp, #8]"
+      },
+      {
+        "address": "0x2fa326",
+        "instruction": "ldrb r0, [r6, #5]"
+      },
+      {
+        "address": "0x2fa328",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x2fa32a",
+        "instruction": "beq #0x2fa33a"
+      },
+      {
+        "address": "0x2fa32c",
+        "instruction": "ldr r1, [r5, #0x34]"
+      },
+      {
+        "address": "0x2fa32e",
+        "instruction": "movs r2, #0x15"
+      },
+      {
+        "address": "0x2fa330",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x2fa332",
+        "instruction": "add r3, sp, #8"
+      },
+      {
+        "address": "0x2fa334",
+        "instruction": "bl #0x455c86",
+        "direct_call": "0x455c86"
+      },
+      {
+        "address": "0x2fa338",
+        "instruction": "b #0x2fa35e"
+      },
+      {
+        "address": "0x2fa33a",
+        "instruction": "adds r7, #0xc0"
+      },
+      {
+        "address": "0x2fa33c",
+        "instruction": "ldr r0, [r7]"
+      },
+      {
+        "address": "0x2fa33e",
+        "instruction": "movs r2, #0x1a"
+      },
+      {
+        "address": "0x2fa340",
+        "instruction": "str r0, [sp, #0xc]"
+      },
+      {
+        "address": "0x2fa342",
+        "instruction": "ldr r0, [sp, #0x3c]"
+      },
+      {
+        "address": "0x2fa344",
+        "instruction": "add r3, sp, #8"
+      },
+      {
+        "address": "0x2fa346",
+        "instruction": "ldr r0, [r0, #0x3c]"
+      },
+      {
+        "address": "0x2fa348",
+        "instruction": "str r0, [sp, #0x10]"
+      },
+      {
+        "address": "0x2fa34a",
+        "instruction": "ldr r1, [r5, #0x34]"
+      },
+      {
+        "address": "0x2fa34c",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x2fa34e",
+        "instruction": "bl #0x455c86",
+        "direct_call": "0x455c86"
+      },
+      {
+        "address": "0x2fa352",
+        "instruction": "ldr r1, [r5, #0x34]"
+      },
+      {
+        "address": "0x2fa354",
+        "instruction": "movs r2, #0x19"
+      },
+      {
+        "address": "0x2fa356",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x2fa358",
+        "instruction": "add r3, sp, #8"
+      },
+      {
+        "address": "0x2fa35a",
+        "instruction": "bl #0x455c86",
+        "direct_call": "0x455c86"
+      },
+      {
+        "address": "0x2fa35e",
+        "instruction": "ldr r1, [r5, #0x34]"
+      },
+      {
+        "address": "0x2fa360",
+        "instruction": "movs r2, #0x16"
+      },
+      {
+        "address": "0x2fa362",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x2fa364",
+        "instruction": "add r3, sp, #8"
+      },
+      {
+        "address": "0x2fa366",
+        "instruction": "bl #0x455c86",
+        "direct_call": "0x455c86"
+      },
+      {
+        "address": "0x2fa36a",
+        "instruction": "b #0x2fa588"
+      },
+      {
+        "address": "0x2fa588",
+        "instruction": "add r0, sp, #0x18"
+      },
+      {
+        "address": "0x2fa58a",
+        "instruction": "bl #0x37bc00",
+        "direct_call": "0x37bc00"
+      },
+      {
+        "address": "0x2fa58e",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x2fa590",
+        "instruction": "beq #0x2fa594"
+      },
+      {
+        "address": "0x2fa592",
+        "instruction": "b #0x2fa1dc"
+      },
+      {
+        "address": "0x2fa594",
+        "instruction": "ldr r0, [sp, #0x24]"
+      },
+      {
+        "address": "0x2fa596",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x2fa598",
+        "instruction": "bne #0x2fa59c"
+      },
+      {
+        "address": "0x2fa59a",
+        "instruction": "b #0x2fa0e4"
+      },
+      {
+        "address": "0x2fa59c",
+        "instruction": "add sp, #0x44"
+      },
+      {
+        "address": "0x2fa59e",
+        "instruction": "pop {r4, r5, r6, r7, pc}"
+      }
+    ],
+    "unresolved_exits": [
+      {
+        "address": "0x2fa592",
+        "target": "0x2fa1dc",
+        "reason": "External branch"
+      },
+      {
+        "address": "0x2fa59a",
+        "target": "0x2fa0e4",
+        "reason": "External branch"
+      }
+    ],
+    "instruction_limit_reached": false
+  },
+  "limitations": "Offline original finite PCM source FIFO/selection/reader through mixer actor, message15 stop, message19 provider cleanup, source-list removal and notice reporting/translation. Inherited handles/mutexes/priority/message transport/start/busy controls and bounded channel/profile init remain. Small scratch/mixer ring and hardware activation are synthetic; message14 allocation/configuration and real hardware drain/end triggers are not executed. Tests explicitly send13/18/15/19 and remove nodes; no production auto-advance adapter. Actor uses synthetic wait/get and Python CPU-context restoration. Notice transport is captured and original dispatcher invoked explicitly, up to a stub main event hub0x330b48; no actual App handler/listener or main subsystem routing. Notice23 occurs before node release/count updates; early-delivery control pauses original caller and runs original translation on a separate stack then restores Python context, not actual OS preemption/quiescence. Delayed notices22/23 reload current channel owner while25/26 use packet owner: artificial distinct per-block owners expose field semantics, not proven real-world misrouting. No production pinning/reservation/callback lifetime, decoder output integration, actual navigation concurrency/resampling/DAC/speaker, registered SEP/UI/phone traffic, accepted package loading or Google Maps. Existing compiled companion/artifacts unchanged and not called. No device I/O or install candidate."
+}

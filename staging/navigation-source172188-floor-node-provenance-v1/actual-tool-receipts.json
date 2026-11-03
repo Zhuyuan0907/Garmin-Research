@@ -1,0 +1,126 @@
+{
+  "schema": "targeted-source-provenance-actual-tool-receipts/v1",
+  "namespace": "staging/navigation-source172188-floor-node-provenance-v1",
+  "current_tool_help_before_extraction": [
+    {
+      "chunk_id": "ecd9ec",
+      "exit_code": 0,
+      "command": "osmium getid --help"
+    },
+    {
+      "chunk_id": "d3d510",
+      "exit_code": 0,
+      "command": "osmium --version"
+    }
+  ],
+  "preparatory_host_inspections": [
+    {
+      "chunk_id": "72166e",
+      "exit_code": 0,
+      "operation": "rg existing small captured group metadata"
+    },
+    {
+      "chunk_id": "3bb710",
+      "exit_code": 0,
+      "operation": "rg file inventory only; broad listing/truncated, no PBF content"
+    },
+    {
+      "chunk_id": "cff2be",
+      "exit_code": 0,
+      "operation": "Read18KB corrected capture and small proof/seal; select exact group172188, EOF102 capture rows"
+    },
+    {
+      "chunk_id": "dec373",
+      "exit_code": 0,
+      "operation": "Read prior branch sidecar design only"
+    },
+    {
+      "chunk_id": "4e17d8",
+      "exit_code": 0,
+      "operation": "Read smallsourcepins and stat PBF, no PBF content"
+    },
+    {
+      "chunk_id": "c9af86",
+      "exit_code": 2,
+      "operation": "Stale prepare_native_address glob failed; broad static output truncated, no accepted result from this search"
+    },
+    {
+      "chunk_id": "1b913a",
+      "exit_code": 0,
+      "operation": "Read prior source metadata and counters; no actual ledger read"
+    },
+    {
+      "chunk_id": "bdc6ae",
+      "exit_code": 0,
+      "operation": "Locate exact floor-count fields in26KB ingestion source"
+    },
+    {
+      "chunk_id": "75800a",
+      "exit_code": 0,
+      "operation": "Read original map327MBsource metadata manifest only"
+    },
+    {
+      "chunk_id": "f4549c",
+      "exit_code": 0,
+      "operation": "Read ingestion floor-policy source block only; no execute"
+    },
+    {
+      "chunk_id": "8e7096",
+      "exit_code": 1,
+      "operation": "No earlier requested PBFinode pin found in bounded metadata paths; not treated as source invalidity"
+    }
+  ],
+  "namespace_creation": {
+    "chunk_id": "ac2805",
+    "exit_code": 0,
+    "directory_mode": "0700"
+  },
+  "single_extraction": {
+    "command": "python3 staging/navigation-source172188-floor-node-provenance-v1/extract_once.py",
+    "initial_chunk_id": "eb67f2",
+    "session_id": 14461,
+    "terminal_chunk_id": "8680a7",
+    "exit_code": 0,
+    "actual_getid_invocations": 1,
+    "actual_source_reads_bytes": 327206226,
+    "requested_nodes": 21,
+    "actual_nodes": 21,
+    "rawextract_bytes": 13468,
+    "full_PBF_hash_recomputed": false,
+    "exact_argv_and_stat_receipt": "extraction-process.json",
+    "per_read_actual_file_byte_ranges": "PBF-read-receipt.json",
+    "before_current_help_and_version_saved_by_actual_script": true
+  },
+  "small_private_XML_inspection": {
+    "chunk_id": "1b1d2d",
+    "exit_code": 0,
+    "operation": "Print only nodeID,floor/unit/coords/version/timestamp and related key names; no accounts/unrelatedvalues"
+  },
+  "provenance_analysis": {
+    "command": "python3 staging/navigation-source172188-floor-node-provenance-v1/analyze_nodes.py",
+    "chunk_id": "8978b1",
+    "exit_code": 0,
+    "source_PBF_reads": 0,
+    "base_ID": 8535365806,
+    "floor_unit_nodes": 20,
+    "originalgroup_held": true
+  },
+  "output_inspection": {
+    "chunk_id": "d5f7ca",
+    "exit_code": 0,
+    "operation": "Read derived metadata only, base relatedtag values only"
+  },
+  "independent_output_audit": {
+    "command": "python3 staging/navigation-source172188-floor-node-provenance-v1/audit_outputs.py",
+    "chunk_id": "e6abcc",
+    "exit_code": 0,
+    "private_XML_bytes_read": 13468,
+    "source_PBF_reads": 0,
+    "proof_sha256": "9cce85f5f9569b7a303c3fa27cd30e9313cf29af8846b4281f3a7961ef12e54f"
+  },
+  "no_second_extraction_or_full_sourcehash": true,
+  "static_failures_preserved_not_hidden": true,
+  "native_firmware_audio_device_IMG_DB_installer_or_sharedseal_mutations": false,
+  "all_source_handles_closed": true,
+  "final_sealer_actual_receipt": "sealer-receipt.json plus separate actual terminal"
+}

@@ -1,0 +1,382 @@
+{
+  "updated_utc": "2026-10-04T10:14:33.526448+00:00",
+  "static_only": true,
+  "new_emulation_executed": false,
+  "device_io": false,
+  "frozen_source_modified": false,
+  "reviewed_runner": "scripts/probe_native_controller_gir_component.py",
+  "runner_sha256": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+  "source_at_run": "staging/native-player-controller-gir-integration/runtime/runner-at-run.py",
+  "source_at_run_sha256": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+  "live_session_reported_by_root": 38139,
+  "live_run_result_not_observed_or_assumed": true,
+  "method_evidence": {
+    "__init__": {
+      "path": "scripts/probe_native_controller_gir_component.py",
+      "first_line": 37,
+      "last_line": 78,
+      "source": "    def __init__(self,stock,build):\n        self.component_active=False;self.component_calls=[];self.component_nested_calls=[];self.component_input_stores=[]\n        self.font_raw_input_ledger=[];self.font_raw_pending=None\n        self.font_stream_owners=[];self.font_stream_wrapper_observations=[]\n        self.gui_store_rows=[];self.component_ranges=[]\n        super().__init__(stock,build)\n        manifest=json.loads((ROOT/COMPONENT).read_text())\n        for path,digest in manifest['source_sha256'].items():require(sha(path)==digest,'Companion dependency changed '+path)\n        require(sha(manifest['flat_binary'])==manifest['flat_binary_sha256'],'Companion flat bytes differ')\n        self.comp_bytes=(ROOT/manifest['flat_binary']).read_bytes()\n        require(len(self.comp_bytes)==2412 and manifest['symbols']['cg_controller_prepare']['address']==COMP_BASE+0x4c,'Exact companion entry differs')\n        require(bytes(self.uc.mem_read(COMP_BASE,8192))==b'\\0'*8192 and\n                all(not (p<=COMP_BASE+8191 and COMP_BASE<=p+entry['length']-1) for p,entry in self.raw_allocations.items()),\n                'Companion reservation overlaps occupied transition input storage')\n        self.uc.mem_write(COMP_BASE,b'\\xcc'*4096);self.uc.mem_write(COMP_BASE,self.comp_bytes)\n        self.uc.mem_write(COMP_BSS,b'\\xa5'*4096);self.uc.mem_write(COMP_BSS,b'\\0'*4)\n        self.uc.mem_protect(COMP_BASE,4096,unicorn.UC_PROT_READ|unicorn.UC_PROT_EXEC)\n        require(not any(lo<=ARGS+4095 and ARGS<=hi for lo,hi,_ in self.uc.mem_regions()),'Companion arguments overlap prior mapping')\n        self.uc.mem_map(ARGS,4096,unicorn.UC_PROT_READ|unicorn.UC_PROT_WRITE)\n        self.uc.mem_write(ARGS,b'\\xa5'*4096);self.uc.mem_write(OUTPUT,b'\\xcc'*80)\n        config=[0x13520800,76,15,0x9503f90,0x9500040,0x9503f90,GIR,len(self.resource_bytes),\n                self.resource_directory_bytes,GIR,GIR+len(self.resource_bytes),0x08800000,0x08c00000,\n                0x18001000,0x18009000,0x084c0000,0x7f135201,12,0]\n        self.config_bytes=struct.pack('<19I',*config)\n        self.uc.mem_write(CONFIG,self.config_bytes)\n        self.component_ranges=[(CONFIG,CONFIG+76),(OUTPUT,OUTPUT+80),(COMP_BSS,COMP_BSS+4)]\n        self.zones[ARGS]=4096;self.zones[COMP_BSS]=4096;self.zones[0x34f7000]=4096\n        self.uc.hook_add(unicorn.UC_HOOK_MEM_WRITE,self.observe_SQL_provider_store)\n        self.RAW_CALLS[0x3009a0,0x11c510]=dict(pointer=0x34f773c,tag=0x41b544,\n            reviewed_original_GIR_outer_raw_guard=True)\n        self.RAW_CALLS[0x3008b0,0x41ccd2]=dict(pointer=0x34f773c,tag=0x41b544,\n            reviewed_original_GIR_outer_raw_guard=True)\n        self.gui_bank_base=0x05400000\n        self.gui_bank_before=bytes(self.initial_regions[self.gui_bank_base])\n        self.uc.hook_add(unicorn.UC_HOOK_MEM_WRITE,self.journal_gui_write,begin=self.gui_bank_base,\n            end=self.gui_bank_base+len(self.gui_bank_before)-1)\n        self.external_IO_active=True\n        self.component_manifest=manifest\n        self.helper_entries=[0x2ca82c,0x2cabbc,0x395980,0x2db540,0x25dc80,0x41cc46,\n            0x41b15a,0x4df248,0x4de236,0x4a388a,0x316276]\n        self.helper_return_pairs=dict(zip(self.helper_entries,[0xea10264,0xea102dc,0xea10380,0xea103dc,\n            0xea10438,0xea104bc,0xea10534,0xea10654,0xea106b4,0xea10724,0xea107e8]))\n"
+    },
+    "journal_zone_write": {
+      "path": "scripts/probe_native_controller_gir_component.py",
+      "first_line": 122,
+      "last_line": 137,
+      "source": "    def journal_zone_write(self,uc,access,address,size,value,data):\n        pc=uc.reg_read(UC_ARM_REG_PC)\n        if not self.zone_active or not (COMP_BASE<=pc<COMP_BASE+len(getattr(self,'comp_bytes',b''))):\n            return super().journal_zone_write(uc,access,address,size,value,data)\n        require(not uc.reg_read(UC_ARM_REG_CPSR)&32 and self.running_task==self.controller and size in [1,4],\n                'Companion store actor/ARM mode/size differs')\n        offset=pc-COMP_BASE;opcode=self.comp_bytes[offset:offset+4]\n        require(bytes(uc.mem_read(pc,4))==opcode,'Companion writer opcode changed')\n        ins=list(self.store_disassemblers[False].disasm(opcode,pc,count=1))[0]\n        require(ins.mnemonic.startswith('str') and\n                ((OUTPUT<=address and address+size<=OUTPUT+80) or (address==COMP_BSS and size==4 and value==1)),\n                'Companion writes outside exact result or first-start BSS')\n        zone=next(row for start,row in self.zone_rows.items() if start<=address and address+size<=start+row['bytes'])\n        zone['stores'].append(dict(PC=hex(pc),address=hex(address),size=size,value=value,\n            before_hex=bytes(uc.mem_read(address,size)).hex(),phase=self.phase,running_task=hex(self.running_task),Thumb=False,\n            original_instruction=ins.mnemonic+' '+ins.op_str,opcode_hex=opcode.hex(),writer_kind='frozen_ARM_companion'))\n"
+    },
+    "observe": {
+      "path": "scripts/probe_native_controller_gir_component.py",
+      "first_line": 160,
+      "last_line": 227,
+      "source": "    def observe(self,uc,address,size,data):\n        caller=uc.reg_read(UC_ARM_REG_LR)&~1\n        if self.component_active:\n            if address in self.helper_entries:\n                row=dict(entry=hex(address),caller=hex(caller),SP=hex(uc.reg_read(UC_ARM_REG_SP)),\n                    arguments=[hex(uc.reg_read(r)) for r in REGS],returned=False)\n                if caller==self.helper_return_pairs[address]:\n                    require(self.running_task==self.controller==self.word(0xf09090),'Companion helper entered on wrong task')\n                    self.component_calls.append(row)\n                    print(json.dumps(dict(phase='component_original_helper',**row)),flush=True)\n                else:self.component_nested_calls.append(row)\n            for row in reversed(self.component_calls):\n                if not row['returned'] and address==int(row['caller'],16):\n                    row.update(returned=True,result=hex(uc.reg_read(REGS[0])),return_SP=hex(uc.reg_read(UC_ARM_REG_SP)))\n                    break\n            if address==0x265526:\n                parser,context=uc.reg_read(UC_ARM_REG_R4),uc.reg_read(UC_ARM_REG_R5)\n                handle=self.word(parser+8)\n                require(handle in self.external_files and not self.external_files[handle]['closed'] and\n                        self.declared_storage(parser,0x98),'Original parser stream store lacks live backing')\n                require(bytes(uc.mem_read(0x265524,2))==self.stock.read(0x265524,2),'Original parser store opcode differs')\n                self.font_stream_owners.append(dict(context=hex(context),parser=hex(parser),stream=hex(handle),\n                    original_store='0x265524',original_store_observed_after_execution=True))\n            if address==0x14f084:\n                context,handle=[uc.reg_read(r)for r in REGS[:2]]\n                self.font_stream_wrapper_observations.append(dict(context=hex(context),stream=hex(handle),caller=hex(caller)))\n            if address in [0x3009a0,0x3008b0] and caller in [0x11c510,0x41ccd2]:\n                p=self.controller-40\n                require(self.word(p-24)==0x34f773c and\n                        uc.reg_read(UC_ARM_REG_SP)==p-(56 if address==0x3009a0 else 48),\n                        'GIR RAII/raw semaphore stack differs from actual component frame')\n            if address==0x2dc954 and caller==0x6f8364:\n                args=[uc.reg_read(r)for r in REGS]\n                require(0<args[0]<=0x100000 and args[1:3]==[1,8],'Unexpected transition allocation')\n                pointer=self.next_transition_buffer\n                if pointer-32<COMP_BSS+4096 and COMP_BASE<pointer+args[0]+32:\n                    pointer=COMP_BSS+4096+32\n                self.next_transition_buffer=pointer+((args[0]+127)&~63)\n                require(self.next_transition_buffer<0x0f000000,'Transition fixture exhausted excluding companion')\n                uc.mem_write(pointer-32,b'\\xa5'*(args[0]+64))\n                self.raw_allocations[pointer]=dict(length=args[0],freed=False,service=hex(address))\n                self.transition_heap_requests.append(dict(native_allocator=hex(address),caller=hex(caller),\n                    pointer=hex(pointer),requested_bytes=args[0],companion_reservation_excluded=True))\n                self.visits[address]+=1;self.ret(pointer);return\n            if address in [0xea108b0,0xea108b8]:\n                target,value=uc.reg_read(REGS[0]),uc.reg_read(REGS[1]);n=1 if address==0xea108b8 else 4\n                expected=[(0xea108b0,self.menu_pointer()+24,4,0x84c0000),\n                          (0xea108b8,self.menu_pointer()+28,1,1),(0xea108b0,0x84c0000,4,0)]\n                i=len(self.component_input_stores)\n                require(i<3 and (address,target,n,value)==expected[i],'Exact companion SQL provider input order differs')\n                self.component_input_stores.append(dict(PC=hex(address),address=hex(target),size=n,value=value,\n                    before_hex=bytes(uc.mem_read(target,n)).hex(),writer_kind='frozen_companion_lower_SQL_provider_input'))\n            if FONT_IO.get(address)=='read' and uc.reg_read(REGS[0]) in self.external_files:\n                handle,destination,count=[uc.reg_read(r)for r in REGS[:3]];entry=self.external_files[handle]\n                require(not entry['closed'] and 0<count<=0x100000,'Invalid font stream read')\n                raw=self.raw_font_sources[entry['path']];available=min(count,len(raw)-entry['position'])\n                require(available>0,'Unexpected EOF font read must be separately admitted')\n                self.map_verified_file_destination(destination,available)\n                payload=raw[entry['position']:entry['position']+available]\n                item=dict(handle=hex(handle),path=entry['path'],offset=entry['position'],destination=hex(destination),bytes=available,\n                    whole_span_provenance=self.font_destination_provenance,raw_input_sha256=hashlib.sha256(payload).hexdigest(),\n                    before_sha256=hashlib.sha256(bytes(uc.mem_read(destination,available))).hexdigest(),host_raw_file_input=True,\n                    decoded_font_bytes_supplied=False)\n                value=super().observe(uc,address,size,data)\n                require(bytes(uc.mem_read(destination,available))==payload,'Raw font callback payload differs from backup')\n                self.font_raw_input_ledger.append(item)\n                return value\n        return super().observe(uc,address,size,data)\n"
+    },
+    "verify_component_memory": {
+      "path": "scripts/probe_native_controller_gir_component.py",
+      "first_line": 229,
+      "last_line": 287,
+      "source": "    def verify_component_memory(self,voice,exports,dbsha):\n        require(not self.invalid_accesses and not self.native_fatal_entries and not self.audio,'Component fault or unexpected audio')\n        oldram=struct.unpack_from('<I',(ROOT/self.build['original_binary']).read_bytes(),4)[0]\n        require(bytes(self.uc.mem_read(IMAGE+12,oldram-12))==voice and bytes(self.uc.mem_read(STUBS,480))==exports,'Voice/code imports changed')\n        for table,names in [('app_component_api',self.build['private_api']),('player_component_api',self.build['player_api'])]:\n            require(list(struct.unpack('<'+str(len(names))+'I',self.uc.mem_read(self.symbol(table),4*len(names))))==[self.symbol(n)for n in names],'Private/player API changed')\n        require(bytes(self.uc.mem_read(self.build['extension_base'],0x10000))==self.extension_code,'Old RX extension changed')\n        expected=bytearray(self.gui_bank_before)\n        for row in self.gui_store_rows:\n            offset=int(row['address'],16)-self.gui_bank_base\n            require(expected[offset:offset+row['size']].hex()==row['before_hex'],'GUI journal missed mutation')\n            expected[offset:offset+row['size']]=int(row['value']).to_bytes(row['size'],'little')\n        for address,raw in self.initial_regions.items():\n            require(bytes(self.uc.mem_read(address,len(raw)))==(bytes(expected) if address==self.gui_bank_base else raw),'Original initialized region changed outside native history')\n        require(len(self.gui_store_rows)==len(self.conditional_region_writes),'GUI history missing event')\n        for address,raw in self.code_images:require(bytes(self.uc.mem_read(address,len(raw)))==raw,'Original code image changed')\n        require(bytes(self.uc.mem_read(COMP_BASE,4096))==self.comp_bytes+b'\\xcc'*(4096-len(self.comp_bytes)),'New RX companion changed')\n        require(bytes(self.uc.mem_read(CONFIG,76))==self.config_bytes,'Companion readonly arguments changed')\n        require(bytes(self.uc.mem_read(GIR,len(self.resource_bytes)))==self.resource_bytes,'Readonly stock GIR changed')\n        for pointer,entry in self.raw_allocations.items():self.verify_guard(pointer,entry)\n        for entry in self.handles.values():\n            p,n=entry['pointer'],entry['length']\n            require(bytes(self.uc.mem_read(p-32,32))==b'\\xa5'*32 and bytes(self.uc.mem_read(p+n,32))==b'\\xa5'*32,'Opaque allocation canary changed')\n        self.verify_storage_guards();self.verify_descriptor_guards();self.verify_closed_files()\n        for bottom in [CONTROLLER_STACK,IDLE_STACK]:require(bytes(self.uc.mem_read(bottom,64))==b'\\xa5'*64,'Native controller/idle stack guard changed')\n        require(bytes(self.uc.mem_read(0x2d226f4,24))==b'\\xa5'*24,'Timer stack guard changed')\n        for row in self.GUI_stack_canaries:\n            require(bytes(self.uc.mem_read(int(row['bottom'],16),64)).hex()==row['leading64_after_native_fill_hex'],'Original GUI stack guard changed')\n        require(bytes(self.uc.mem_read(CODE,8))==struct.pack('<2I',0xeafffffe,0xe12fff1e),'Sentinel code changed')\n        rows=list(self.db.execute('SELECT id,icon,size FROM custom_table ORDER BY id'))\n        expected_rows=[(id,0x7f135201,0) if id==12 else (id,icon,size) for id,icon,size in self.database_before]\n        require(rows==expected_rows and sha(DATABASE)==dbsha and self.statements and all(row['closed'] for row in self.statements.values()),\n                'SQL selected endpoint or original finalizers differ')\n        require(len(self.component_input_stores)==3 and all(row.get('actual_CPU_store_observed') for row in self.component_input_stores),\n                'Companion SQL provider inputs incomplete')\n        catalog=0x34f7730;begin,end,cap=struct.unpack('<3I',self.uc.mem_read(catalog,12))\n        require(end-begin==24 and cap>=end and any(not row['freed'] and p<=begin and cap<=p+row['length'] for p,row in self.raw_allocations.items()),\n                'Native GIR catalog lacks live actual allocation')\n        self.font_inventory=self.fonts()\n        require(len(self.font_inventory)==13,'Font inventory count differs')\n        for handle in self.font_handles:\n            entry=self.handles[handle];p,n=entry['pointer'],entry['length']\n            require(entry['locks']==0,'Font lower handle pinning changed')\n            if entry['freed']:require(any(int(row['handle'],16)==handle for row in self.font_release_records),'Missing original font free')\n            else:require(self.word(p)==handle and 0<self.word(p+4)<=n-8 and any(int(row['handle'],16)==handle for row in self.font_pointer_queries),'Resident font prefix/query differs')\n        live=[dict(handle=hex(h),**entry) for h,entry in self.external_files.items() if not entry['closed']]\n        require(len(live)==8 and {entry['path'] for entry in live}==set(self.raw_font_sources),'Resident font stream ownership inventory differs')\n        for entry in live:\n            owners=[row for row in self.font_stream_owners if row['stream']==entry['handle']]\n            require(len(owners)==1 and any(row['context']==owners[0]['context'] and\n                row['source_metadata']==row['metadata'] for row in self.font_inventory),\n                'Resident stream lacks exact original parser/font context ownership')\n            require(any(row['stream']==entry['handle'] and row['context']==owners[0]['context']\n                        for row in self.font_stream_wrapper_observations),'Original context/stream wrapper not observed')\n        return dict(all_scoped_memory_guards_passed=True,selected_SQL_rows=rows,all_SQL_statements_closed=True,\n            actual_font_inventory=self.font_inventory,resident_font_streams=live,raw_font_input_ledger=self.font_raw_input_ledger,\n            original_parser_stream_owners=self.font_stream_owners,\n            GUI_original_write_history=self.gui_store_rows,whole_GUI_region_replayed=True,baseline_not_reset=True,\n            readonly_resources_and_code_unchanged=True,hardware_IRQ_or_fullboot_or_App_or_unload_verified=False)\n"
+    }
+  },
+  "exact_original_parser_instruction_evidence": [
+    {
+      "PC": "0x2654e4",
+      "bytes_hex": "ffb5",
+      "instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x2654e6",
+      "bytes_hex": "0500",
+      "instruction": "movs r5, r0"
+    },
+    {
+      "PC": "0x2654e8",
+      "bytes_hex": "9820",
+      "instruction": "movs r0, #0x98"
+    },
+    {
+      "PC": "0x2654ea",
+      "bytes_hex": "0e00",
+      "instruction": "movs r6, r1"
+    },
+    {
+      "PC": "0x2654ec",
+      "bytes_hex": "85b0",
+      "instruction": "sub sp, #0x14"
+    },
+    {
+      "PC": "0x2654ee",
+      "bytes_hex": "0100",
+      "instruction": "movs r1, r0"
+    },
+    {
+      "PC": "0x2654f0",
+      "bytes_hex": "0290",
+      "instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x2654f2",
+      "bytes_hex": "1700",
+      "instruction": "movs r7, r2"
+    },
+    {
+      "PC": "0x2654f4",
+      "bytes_hex": "2800",
+      "instruction": "movs r0, r5"
+    },
+    {
+      "PC": "0x2654f6",
+      "bytes_hex": "fff766f8",
+      "instruction": "bl #0x2645c6"
+    },
+    {
+      "PC": "0x2654fa",
+      "bytes_hex": "0400",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "PC": "0x2654fc",
+      "bytes_hex": "7dd0",
+      "instruction": "beq #0x2655fa"
+    },
+    {
+      "PC": "0x2654fe",
+      "bytes_hex": "2000",
+      "instruction": "movs r0, r4"
+    },
+    {
+      "PC": "0x265500",
+      "bytes_hex": "0e99",
+      "instruction": "ldr r1, [sp, #0x38]"
+    },
+    {
+      "PC": "0x265502",
+      "bytes_hex": "8030",
+      "instruction": "adds r0, #0x80"
+    },
+    {
+      "PC": "0x265504",
+      "bytes_hex": "0490",
+      "instruction": "str r0, [sp, #0x10]"
+    },
+    {
+      "PC": "0x265506",
+      "bytes_hex": "8160",
+      "instruction": "str r1, [r0, #8]"
+    },
+    {
+      "PC": "0x265508",
+      "bytes_hex": "0f99",
+      "instruction": "ldr r1, [sp, #0x3c]"
+    },
+    {
+      "PC": "0x26550a",
+      "bytes_hex": "002f",
+      "instruction": "cmp r7, #0"
+    },
+    {
+      "PC": "0x26550c",
+      "bytes_hex": "c160",
+      "instruction": "str r1, [r0, #0xc]"
+    },
+    {
+      "PC": "0x26550e",
+      "bytes_hex": "01d0",
+      "instruction": "beq #0x265514"
+    },
+    {
+      "PC": "0x265510",
+      "bytes_hex": "6760",
+      "instruction": "str r7, [r4, #4]"
+    },
+    {
+      "PC": "0x265512",
+      "bytes_hex": "09e0",
+      "instruction": "b #0x265528"
+    },
+    {
+      "PC": "0x265514",
+      "bytes_hex": "002e",
+      "instruction": "cmp r6, #0"
+    },
+    {
+      "PC": "0x265516",
+      "bytes_hex": "07d0",
+      "instruction": "beq #0x265528"
+    },
+    {
+      "PC": "0x265518",
+      "bytes_hex": "3100",
+      "instruction": "movs r1, r6"
+    },
+    {
+      "PC": "0x26551a",
+      "bytes_hex": "2800",
+      "instruction": "movs r0, r5"
+    },
+    {
+      "PC": "0x26551c",
+      "bytes_hex": "2660",
+      "instruction": "str r6, [r4]"
+    },
+    {
+      "PC": "0x26551e",
+      "bytes_hex": "e9f689fd",
+      "instruction": "bl #0x14f034"
+    },
+    {
+      "PC": "0x265522",
+      "bytes_hex": "0028",
+      "instruction": "cmp r0, #0"
+    },
+    {
+      "PC": "0x265524",
+      "bytes_hex": "a060",
+      "instruction": "str r0, [r4, #8]"
+    },
+    {
+      "PC": "0x265526",
+      "bytes_hex": "65d0",
+      "instruction": "beq #0x2655f4"
+    },
+    {
+      "PC": "0x265528",
+      "bytes_hex": "2100",
+      "instruction": "movs r1, r4"
+    }
+  ],
+  "review_scope": [
+    "constructor/inputmapping",
+    "entry/config76/result80",
+    "rawGIRpairs/SPformula",
+    "top-level11helperobserver",
+    "nativeCPUjournals",
+    "fontprovider/parserstreamlifetime"
+  ],
+  "findings": [
+    {
+      "id": "TOP_HELPER_COUNT_FIXED",
+      "status": "verified source fix",
+      "method": "observe",
+      "line": 164,
+      "finding": "Exact helper_return_pairs filters compiled direct calls; nested41B15A/41CC70 cannot inflate strict11top-level predicate. Preserve nested journal. No new native success claimed."
+    },
+    {
+      "id": "COMP_MAPPING_DECLARED",
+      "status": "source admission fits inherited map",
+      "method": "__init__",
+      "line": 45,
+      "finding": "ExistingEA10000..EA11FFF RWtransition input required allzero/noexistingrawallocation; text2412 exact+CCpadding RX; BSS4 declaredzero/A5tail; config/output18320000page fresh. Component transitionreservation observed only whileactive; future Dispatcher transitionallocator must retain reservation scope."
+    },
+    {
+      "id": "RAW_GIR_FIXED",
+      "status": "verified exact source pair",
+      "method": "__init__",
+      "line": 65,
+      "finding": "Instance2pairs3009A0/11C510 and3008B0/41CCD2 pointer34F773C/tag41B544 installed. observe keepsEcontroller, P=E-40, guardP-24, rawlockP-56/unlockP-48. Earlier old journal defaults bypassed by these exact matches."
+    },
+    {
+      "id": "STRD_HOOK_WIDTH",
+      "status": "possible actual first new boundary; no emulator executed",
+      "method": "journal_zone_write",
+      "line": 126,
+      "finding": "Permitted hook sizes1/4 only. FrozencomponentEA10174=e1c400f0 STRD r0,r1,[r4] result bytes80/phase1 can produce8-bytehook. If root receives8, stop/preservecurrent source and only newsource precisely admitPC/target/value and width8 or split4+4 with fullreplay. EA10064 stackSTRD separately not inoutputzone."
+    },
+    {
+      "id": "F0_MAPPED_PC_LIMIT",
+      "status": "bounded unsupported path retained",
+      "method": "inherited JournalSettingsVM.journal_mutable_write",
+      "path": "scripts/probe_mainmenu_native_settings_journal.py",
+      "line": 49,
+      "finding": "Neworiginal_store translates044/054 foroptionalGUIjournal, but inheritedF0bankjournal stillstock.read(pc,4). OriginalmappedruntimePCstoringF0 canstop; none newly shown here as definite encountered path. Do not claim mappedwritercoverage if itstops."
+    },
+    {
+      "id": "FONT_STREAM_LIFETIME_ERRATUM",
+      "status": "correction of frozen priorstatic wording",
+      "finding": "Earliercontract all external_files closed was too strict. Frozenoriginalfontproof16handles=8probingclosed+8residentparserstreams open. Newrunner checks8live presentpaths with265524store/postPC265526 parser+8 stream, contextR5/parserR4 and14F084 wrapper observation; thissource contract fits original instructions. Keep VPM fourFILEclosed separately; no forcedfontclose."
+    },
+    {
+      "id": "FONT_INPUT_NET_JOURNAL",
+      "status": "coverage limitation",
+      "finding": "Rawreadonlyprovider ledger hashes immediatelycopiedbytes/provenance outsideCPUjournal. If destinationsintersectanexisting wholezone, hostinput events must be replayed in thatzone in actual temporal order; currentzoneCPUonly replay wouldreject differinginput. Native inputdestinationwholeguards/headercanaries remain required. No runtimeinputspanintersection observed yet."
+    },
+    {
+      "id": "NO_COMPLETE_RUNTIME_CLAIM",
+      "status": "required qualifier",
+      "finding": "Source has static guards but fresh runcompleteendpoint not observed. Return1 is v2 DB-observation-needed; do not infer actual elevenhelper completion/UI/deviceproof. Currentcomponent final SQL/GIR/font/native task/fullregion guards must actually pass."
+    }
+  ],
+  "font_lifetime_evidence": {
+    "path": "staging/native-player-external-fonts/development-probe.json",
+    "sha256": "0c3536b26d3e1f2353d3d45459d2682bf2ad7b55ad95404e00deea1e6f19845b",
+    "closed_probing": [
+      {
+        "handle": "152109056",
+        "path": "0:/.System/ExtData/006-D0952-05.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109184",
+        "path": "0:/.System/ExtData/006-D0952-06.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109312",
+        "path": "0:/.System/ExtData/006-D0952-01.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109440",
+        "path": "0:/.System/ExtData/006-D0952-07.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109568",
+        "path": "0:/.System/ExtData/006-D0952-08.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109696",
+        "path": "0:/.System/ExtData/006-D0952-02.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109824",
+        "path": "0:/.System/ExtData/006-D0952-03.bin",
+        "position": 3,
+        "closed": true
+      },
+      {
+        "handle": "152109952",
+        "path": "0:/.System/ExtData/006-D0952-04.bin",
+        "position": 3,
+        "closed": true
+      }
+    ],
+    "resident_parsers": [
+      {
+        "handle": "152109120",
+        "path": "0:/.System/ExtData/006-D0952-05.bin",
+        "position": 208288,
+        "closed": false
+      },
+      {
+        "handle": "152109248",
+        "path": "0:/.System/ExtData/006-D0952-06.bin",
+        "position": 209882,
+        "closed": false
+      },
+      {
+        "handle": "152109376",
+        "path": "0:/.System/ExtData/006-D0952-01.bin",
+        "position": 7891361,
+        "closed": false
+      },
+      {
+        "handle": "152109504",
+        "path": "0:/.System/ExtData/006-D0952-07.bin",
+        "position": 35476,
+        "closed": false
+      },
+      {
+        "handle": "152109632",
+        "path": "0:/.System/ExtData/006-D0952-08.bin",
+        "position": 35342,
+        "closed": false
+      },
+      {
+        "handle": "152109760",
+        "path": "0:/.System/ExtData/006-D0952-02.bin",
+        "position": 1941669,
+        "closed": false
+      },
+      {
+        "handle": "152109888",
+        "path": "0:/.System/ExtData/006-D0952-03.bin",
+        "position": 2350420,
+        "closed": false
+      },
+      {
+        "handle": "152110016",
+        "path": "0:/.System/ExtData/006-D0952-04.bin",
+        "position": 41590,
+        "closed": false
+      }
+    ],
+    "this_new_controller_run_not_proven": true
+  },
+  "source_sha256": {
+    "scripts/probe_native_controller_gir_component.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "staging/native-player-controller-gir-integration/runtime/runner-at-run.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "staging/native-player-external-fonts/development-probe.json": "0c3536b26d3e1f2353d3d45459d2682bf2ad7b55ad95404e00deea1e6f19845b",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/controller-gir-prep-stock-v2/verification.json": "952d0dd5c26c66cade123e61cbc84fdb87e8420f6faaa98896c1f9427a7cd785",
+    "staging/native-player-settings-vfp-context/gui-static/controller-gir-native-integration-contract.json": "f6dd8714b30b27f0ce498480267225d518f922e590beec27432368709698c1de",
+    "staging/native-player-controller-gir-integration/gui-static/observer-scopes-and-runnable-input-plan.json": "d92eb7782ab3d7be4969133befe18eabd69737716ae2d41724c2171aa9705e11"
+  },
+  "guard_assessment": "No further definite sourceblockingfault identified aftertop-levelhelperfix. STRDhookwidth and newlyencountered mappedwriter/inputzone/provider/rawcaller scopes remain explicit runtimeadmissions, not verifiedsuccess."
+}

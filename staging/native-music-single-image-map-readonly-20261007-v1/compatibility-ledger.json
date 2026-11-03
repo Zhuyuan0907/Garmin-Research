@@ -1,0 +1,440 @@
+{
+  "schema": "native-music-single-image-map-readonly-v1",
+  "scope": "native-music-single-image-map-readonly-20261007-v1",
+  "conclusion": "The fixed adapter map exactly matches its pinned older continuous artifact; it is conditionally compatible with that artifact. The reviewed adapter ARM recipe supplies neither the controller core table nor the GUI/ownership/session integration. Later loaded-v2 controller co-linking does not establish compatibility with these older absolute addresses.",
+  "review_only": true,
+  "target_execution": false,
+  "arbitrary_relocation_applied": false,
+  "artifact_identity": {
+    "continuous_manifest": {
+      "path": "staging/native-music-continuous/manifest.json",
+      "sha256": "50a2dd7f312b2aa34ae9cd3283a20968840fa32edb7667bde0d62b1d73afaabe"
+    },
+    "declared_component_elf": {
+      "path": "staging/native-music-continuous/music-component-EMULATION-ONLY.elf",
+      "sha256": "9a2463e46c4da6f9c46f528aeede24f9cc803bee6ad3b1e9cd1bb8da67093bc6",
+      "file_type": "EXEC",
+      "entry": "0x02f7d000",
+      "fresh_binary_read": false
+    },
+    "declared_flat": {
+      "path": "staging/native-music-continuous/music-component-EMULATION-ONLY.bin",
+      "sha256": "964d6eaa00712527042f86282f9e35841813a801d4ddfd362eaea6c4cfd15d94",
+      "fresh_binary_read": false
+    },
+    "adapter_recipe": {
+      "path": "native/ui-music-native-adapter/build_and_verify.py",
+      "sha256": "0916615f6a1d38388500437afcf76955d0f763a29071f076873ef5987a130cfd",
+      "line": 97,
+      "function": "main",
+      "output": "staging/ui-music-native-adapter/native-adapter-armv6-relocatable.elf",
+      "link_type": "REL (-r)",
+      "arm_object_count": 3,
+      "arm_inputs": [
+        "native_adapter.c",
+        "original_imports.c",
+        "cleanup_bridge.S"
+      ],
+      "current_adapter_verification_body_read": false,
+      "reason": "77,792-byte adapter verification exceeds 64 KiB per-file limit; source recipe is not fresh binary validation."
+    },
+    "controller_verification": {
+      "path": "staging/ui-music-control-prototype/verification.json",
+      "sha256": "261e23dfbd6be6a18945c1b634f477add767f18be3ba98e3e01e5b80c6dc4986",
+      "type": "REL",
+      "executable_loader_image": false,
+      "declared_elf_sha256": "8183d0b6ffc659b83c90e17376ca5259d3424878862267bfa41edc62b7d2f55a",
+      "binary_read": false,
+      "producer_imported_or_executed": false
+    }
+  },
+  "exact_map_comparison": [
+    {
+      "macro": "UMCN_RUNTIME_CANCEL",
+      "symbol": "music_runtime_cancel",
+      "header_line": 5,
+      "address": "0x02f83318",
+      "manifest_address": "0x02f83318",
+      "manifest_symbol_type": "T",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": null,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_SOURCE_COMPLETED",
+      "symbol": "source_worker_completed",
+      "header_line": 6,
+      "address": "0x02f821e4",
+      "manifest_address": "0x02f821e4",
+      "manifest_symbol_type": "T",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": null,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_RUNTIME_STATE",
+      "symbol": "music_runtime_state",
+      "header_line": 7,
+      "address": "0x02f916ec",
+      "manifest_address": "0x02f916ec",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 40,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_SOURCE_STATE",
+      "symbol": "source_worker_state",
+      "header_line": 8,
+      "address": "0x02f9163c",
+      "manifest_address": "0x02f9163c",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 52,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_COORDINATOR_STATE",
+      "symbol": "coordinator_state",
+      "header_line": 9,
+      "address": "0x02f915ec",
+      "manifest_address": "0x02f915ec",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 60,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_OUTPUT_STATE",
+      "symbol": "memory_output_control",
+      "header_line": 10,
+      "address": "0x02f91188",
+      "manifest_address": "0x02f91188",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 48,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_OWNED_STATE",
+      "symbol": "owned_media_control",
+      "header_line": 11,
+      "address": "0x02f914e8",
+      "manifest_address": "0x02f914e8",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 52,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_QUEUE_STATE",
+      "symbol": "media_queue_control",
+      "header_line": 12,
+      "address": "0x02f91550",
+      "manifest_address": "0x02f91550",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 36,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_DECODER_STATE",
+      "symbol": "media_worker_state",
+      "header_line": 13,
+      "address": "0x02f91588",
+      "manifest_address": "0x02f91588",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 32,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_OUTPUT_SLOTS",
+      "symbol": "memory_output_slots",
+      "header_line": 14,
+      "address": "0x02f91128",
+      "manifest_address": "0x02f91128",
+      "manifest_symbol_type": "B",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 96,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    },
+    {
+      "macro": "UMCN_ANCHOR_ZERO",
+      "symbol": "anchor_zero",
+      "header_line": 15,
+      "address": "0x02f91124",
+      "manifest_address": "0x02f91124",
+      "manifest_symbol_type": "b",
+      "equal": true,
+      "declared_region_check": true,
+      "extent_bytes": 4,
+      "scope": "Source/manifest comparison only; binary bytes, live mapping and code residency not read or verified."
+    }
+  ],
+  "selected_source_registry_matches": [
+    {
+      "path": "native/music-continuous/runtime.c",
+      "observed_sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+      "continuous_manifest_source_sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+      "controller_verification_frozen_sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+      "equal": true
+    },
+    {
+      "path": "native/music-continuous/runtime.h",
+      "observed_sha256": "f55909698675f425df18515ecb6bf7f993a9a5de75188de1a908417f4f58dae7",
+      "continuous_manifest_source_sha256": "f55909698675f425df18515ecb6bf7f993a9a5de75188de1a908417f4f58dae7",
+      "controller_verification_frozen_sha256": "f55909698675f425df18515ecb6bf7f993a9a5de75188de1a908417f4f58dae7",
+      "equal": true
+    },
+    {
+      "path": "staging/native-music-continuous/music_component.ld",
+      "observed_sha256": "e9f22f9dfa97a0fdab0b8a21b08b3df603af58f21d1014c0b4112d90ff1567b5",
+      "continuous_manifest_source_sha256": "e9f22f9dfa97a0fdab0b8a21b08b3df603af58f21d1014c0b4112d90ff1567b5",
+      "controller_verification_frozen_sha256": "e9f22f9dfa97a0fdab0b8a21b08b3df603af58f21d1014c0b4112d90ff1567b5",
+      "equal": true
+    },
+    {
+      "path": "staging/native-music-continuous/music_patch_imports.h",
+      "observed_sha256": "b1eb7c8faf9a6a7344b49c24959dc194b3823a221d1481be32e579ad56292188",
+      "continuous_manifest_source_sha256": "b1eb7c8faf9a6a7344b49c24959dc194b3823a221d1481be32e579ad56292188",
+      "controller_verification_frozen_sha256": "b1eb7c8faf9a6a7344b49c24959dc194b3823a221d1481be32e579ad56292188",
+      "equal": true
+    },
+    {
+      "path": "staging/native-music-continuous/source_worker_imports.h",
+      "observed_sha256": "75cefba4d45ca51ac867e6027f67926085ebd77a64cb3ebb9ca668652519166f",
+      "continuous_manifest_source_sha256": "75cefba4d45ca51ac867e6027f67926085ebd77a64cb3ebb9ca668652519166f",
+      "controller_verification_frozen_sha256": "75cefba4d45ca51ac867e6027f67926085ebd77a64cb3ebb9ca668652519166f",
+      "equal": true
+    }
+  ],
+  "compatibility_findings": [
+    {
+      "id": "core-table-provider",
+      "status": "native provider unbound in reviewed adapter recipe",
+      "evidence": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "line": 97,
+          "function": "umcn_control_functions"
+        },
+        {
+          "path": "native/ui-music-native-adapter/host_controls.c",
+          "sha256": "4956f3633d8cac0dd2892043919912017bf0fe4ee831034e43456c3f61640e6e",
+          "line": 66,
+          "function": "core"
+        },
+        {
+          "path": "native/ui-music-native-adapter/build_and_verify.py",
+          "sha256": "0916615f6a1d38388500437afcf76955d0f763a29071f076873ef5987a130cfd",
+          "line": 100,
+          "function": "main"
+        }
+      ],
+      "required_functions": [
+        "umc_init",
+        "umc_runtime_ready",
+        "umc_service",
+        "umc_status_read",
+        "umc_admission",
+        "umc_source_started",
+        "umc_cleanup_returned",
+        "umc_callback_acquire",
+        "umc_callback_release",
+        "umc_kick"
+      ],
+      "proved": "All ten names are declared exports of the separate controller REL artifact. The only concrete table initializer in this selected source set is the host fixture, linked with ui_music_control.c for host execution.",
+      "unproved": "A production initializer wiring those ten entries, a controller instance, integration context, and these adapter objects into a single resident image.",
+      "next_evidence": "A small final link/export/table provider manifest for the selected production image; final symbols and state bindings from that exact image."
+    },
+    {
+      "id": "fixed-runtime-state-abi",
+      "status": "runtime and Source view layouts agree at source level; remaining layouts partly unchecked",
+      "evidence": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "line": 18,
+          "function": "umcn_source_view / umcn_runtime_view"
+        },
+        {
+          "path": "native/music-continuous/runtime.c",
+          "sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+          "line": 11,
+          "function": "source_state / runtime_state"
+        },
+        {
+          "path": "native/music-continuous/runtime.c",
+          "sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+          "line": 47,
+          "function": "__wrap_media_coordinator_init"
+        }
+      ],
+      "proved": "Runtime ten 32-bit fields (40 bytes) and Source thirteen 32-bit fields (52 bytes) have equal order, widths and signed result positions. Adapter assertions agree. The initializer-completion flag is written after the wrapped initializer returns.",
+      "unproved": "Actual ARM object layout/readiness/initializer execution in this review; full coordinator/output/owned/queue/decoder definitions and live state provenance were not read or run.",
+      "next_evidence": "Exact same-image provider definitions and final layout/offset metadata for all views; do not infer live readiness from a static address or zero value."
+    },
+    {
+      "id": "native-global-domains",
+      "status": "explicit original-runtime constants, not component relocations",
+      "evidence": [
+        {
+          "path": "native/ui-music-native-adapter/exact_continuous_bindings.h",
+          "sha256": "7eee86e141ea6b3a895299683b959a3008ae438ead3039fa81284d1e87f56b9d",
+          "line": 16,
+          "function": "UMCN_SOURCE_RECORD and native records"
+        },
+        {
+          "path": "native/ui-music-native-adapter/original_imports.c",
+          "sha256": "919a1978df7010fa606a3fa1dd6bee33749a4727662d9ac28e2a7ba23bfbed2c",
+          "line": 39,
+          "function": "umcn_fill_exact_continuous_bindings"
+        }
+      ],
+      "bindings": [
+        {
+          "macro": "UMCN_SOURCE_RECORD",
+          "address": "0x034e7f48",
+          "bytes": 520
+        },
+        {
+          "macro": "UMCN_MIXER_RECORD",
+          "address": "0x034e5cf8",
+          "bytes": 304
+        },
+        {
+          "macro": "UMCN_DRIVER_RECORD",
+          "address": "0x034e355c",
+          "bytes": 84
+        },
+        {
+          "macro": "UMCN_NATIVE_SOURCE_STATE",
+          "address": "0x034e93a0",
+          "bytes": 1
+        },
+        {
+          "macro": "UMCN_PROVIDER_POOL",
+          "address": "0x034e3cf4",
+          "bytes": 2880
+        }
+      ],
+      "proved": "Source expressions explicitly select channel 8. These original runtime arrays are separate from the linked 0x02f... component domain.",
+      "unproved": "Fresh MAIN/global-array ABI, live channel ownership, live Source TCB/record identity or provider reservation.",
+      "next_evidence": "Keep original-array provenance separate from final component linker addresses; verify each concrete provider without applying one global address delta."
+    },
+    {
+      "id": "missing-noncore-providers",
+      "status": "intentionally incomplete binding helper",
+      "evidence": [
+        {
+          "path": "native/ui-music-native-adapter/original_imports.c",
+          "sha256": "919a1978df7010fa606a3fa1dd6bee33749a4727662d9ac28e2a7ba23bfbed2c",
+          "line": 25,
+          "function": "umcn_fill_exact_continuous_bindings"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "line": 67,
+          "function": "umcn_bindings"
+        },
+        {
+          "path": "native/ui-music-native-adapter/host_controls.c",
+          "sha256": "4956f3633d8cac0dd2892043919912017bf0fe4ee831034e43456c3f61640e6e",
+          "line": 31,
+          "function": "witness"
+        },
+        {
+          "path": "native/ui-music-native-adapter/host_controls.c",
+          "sha256": "4956f3633d8cac0dd2892043919912017bf0fe4ee831034e43456c3f61640e6e",
+          "line": 40,
+          "function": "session"
+        },
+        {
+          "path": "native/ui-music-native-adapter/host_controls.c",
+          "sha256": "4956f3633d8cac0dd2892043919912017bf0fe4ee831034e43456c3f61640e6e",
+          "line": 70,
+          "function": "bindings"
+        }
+      ],
+      "proved": "The helper fills fixed imports/state addresses and always returns UMCN_BINDING_MISSING. It does not initialize the controller, integration_context, ownership_snapshot, prepare_session or resident_storage_confirmed; it does not clear pre-existing values in those caller fields.",
+      "unproved": "Native ownership epoch/source token/all-writer/future-callback witness, coherent session provider, pinned residency and cleanup/call-site integration. Host fixture sets these values and mock returns; no native acceptance follows.",
+      "next_evidence": "Concrete fail-closed providers and a final binding/table initializer with ownership/session/record/TCB/generation/anchor provenance."
+    },
+    {
+      "id": "older-image-link-membership",
+      "status": "UI integration absent from this older image",
+      "evidence": [
+        {
+          "path": "staging/native-music-continuous/manifest.json",
+          "sha256": "50a2dd7f312b2aa34ae9cd3283a20968840fa32edb7667bde0d62b1d73afaabe",
+          "line": null,
+          "function": "source_sha256 / symbols / commands"
+        },
+        {
+          "path": "staging/native-music-continuous/music_component.ld",
+          "sha256": "e9f22f9dfa97a0fdab0b8a21b08b3df603af58f21d1014c0b4112d90ff1567b5",
+          "line": 5,
+          "function": "fixed component layout"
+        },
+        {
+          "path": "native/ui-music-native-adapter/build_and_verify.py",
+          "sha256": "0916615f6a1d38388500437afcf76955d0f763a29071f076873ef5987a130cfd",
+          "line": 105,
+          "function": "ARM link / host link"
+        }
+      ],
+      "counts": {
+        "continuous_source_registry_entries": 67,
+        "continuous_symbols": 219,
+        "ui_sources_found": 0,
+        "ui_symbols_found": 0
+      },
+      "proved": "The older continuous source registry, final link command and exports contain neither controller/adapter/UI-menu units nor umc_/umcn_/native_player_ symbols. The adapter recipe links three separate REL objects, with controller source only in the host command.",
+      "unproved": "A GUI callback routing native Start/Stop to this core/adapter and same-image resident runtime.",
+      "next_evidence": "One final target linker input list and exact exports/address/header map including GUI, controller, adapter, continuous state, session and ownership providers."
+    },
+    {
+      "id": "later-loaded-image-boundary",
+      "status": "later controller co-linking acknowledged; not this map's artifact",
+      "evidence_source": "Parent supplied fresh ordinary FILE metadata audit 5c7f2e EXIT0; not read by this reviewer",
+      "external_manifest": {
+        "path": "staging/native-player-loaded-single-image/build-v2.json",
+        "bytes": 75903,
+        "sha256_prefix": "ee7d464e",
+        "sha256_suffix": "6b76f75",
+        "full_sha256_not_supplied_in_review": true
+      },
+      "parent_fact": "Later loaded-v2 has ui_music_control.c and 18-ui_music_control.o plus umc_* exports in one image, resident_music_entry. Parent found no native_adapter.c/original_imports.c/resource menu/umcn_/native_player_ membership. Guest/device/modified-VPM/install false.",
+      "proved_here": "No comparison to the later image's final symbols/state table was performed; no claim that the whole project lacks single-image/controller work.",
+      "unproved": "This older adapter's absolute map validity in the later image and GUI/adapter/provider integration there.",
+      "next_evidence": "Use the later image's actual complete final pins and recompute each binding; fixed-address differences do not justify arbitrary relocation."
+    }
+  ],
+  "limits": [
+    "No ELF/flat/firmware/RAM content or stats were requested in this scope.",
+    "Small manifests inherit compiler/ELF evidence; reviewed source recipes were not imported, executed or compiled.",
+    "Static address/source consistency does not prove loaded residency, real ownership, full return barrier, STOP_DONE, GUI activation, direct phone A2DP or speaker playback.",
+    "Root's resource-membership and later loaded-image audits remain separate evidence; this review does not claim fresh verification of their omitted files."
+  ],
+  "acceptance_flags": {
+    "native_owner": false,
+    "STOP_DONE": false,
+    "native_App": false,
+    "direct_phone_A2DP": false,
+    "speaker": false,
+    "installable": false
+  }
+}

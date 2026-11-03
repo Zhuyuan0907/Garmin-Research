@@ -1,0 +1,398 @@
+{
+  "schema": "garmin-native-loaded-pause-session-file-review/v1",
+  "target": {
+    "HWID": 1352,
+    "software": "8.00"
+  },
+  "records": [
+    {
+      "topic": "configuration_identity_epoch",
+      "fresh_source_behavior": {
+        "accepted_tuple": [
+          "nsg_native_callback identity",
+          "local/remoteSEID",
+          "context",
+          "peer6",
+          "codec",
+          "localMTU"
+        ],
+        "guard": "native configured state2 and no pendingOpen, matching command reply witness and original full return0",
+        "epoch": "nsg.epoch increments at configuration acceptance, rejects UINT32_MAX and alreadyaccepted/retired/inflight; no newconfiguration afteraccepted",
+        "caller_body_precondition": "nr_configuration_gate validates pointer/length/bounds before nsg_config_begin reads body0"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 33,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 82
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "line": 59,
+          "sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "through_line": 83
+        },
+        {
+          "path": "native/avdtp-policy/policy.h",
+          "line": 5,
+          "sha256": "af10be84b279829bf3e95231a3f1f2bdbdf4a518cae294f9fc683f77a6a5d397",
+          "through_line": 24
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Native AV lock ownership and actual coherent SEP/context/channel RAM are caller/runtime inputs.",
+        "music_validate_configuration/guard implementation is a dependency; policy header and configuration gate are read, policy C was not re-read.",
+        "No peer bytes or runtime RAM captured."
+      ]
+    },
+    {
+      "topic": "command_reply_scope_vs_stream_epoch",
+      "fresh_source_behavior": {
+        "scope": "nr_scope.generation increments for nested channel/tx/signal scope, neverwrap; notremote stream/sessionepoch",
+        "selected_acceptance": "original send5A7795 must return0 and written2 before reply witness",
+        "signals": [
+          3,
+          7,
+          9
+        ],
+        "witness_state": "nsg_reply_witness records configuration3/start7; signal9 has no separate suspendwitness field"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "line": 14,
+          "sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "through_line": 43
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "line": 54,
+          "sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "through_line": 69
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 64,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 68
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Queued reply is not proof the phone received/accepted it. Original L2CAP allocation/transport and native dispatch remain existing fixtures/unboundhardware.",
+        "A helper return0 alone is insufficient; supplied original runtime paths must honor mutex/reply/fullreturn ABI."
+      ]
+    },
+    {
+      "topic": "Start_and_resume_admission",
+      "fresh_source_behavior": {
+        "preaccept": "ownedsingleSEID, reservedbits clear, native state4 forStart/state8 forSuspend, no pendingOpen, matching context; gate calls nsg_start_begin",
+        "postStart": "original command fullreturn and matching Start reply witness plus native view/policy must succeed before admitting1",
+        "event17": "notification only; does not open Source or admission",
+        "same_config": "Start whilephonepaused preserves acceptedconfigepoch; does notnewConfigure"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "line": 85,
+          "sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "through_line": 122
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 84,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 101
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 144,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 150
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Original handler/callback paths are notexecutedhere.",
+        "Admission is phone-side; durable Source ownership/provider readiness remains external."
+      ]
+    },
+    {
+      "topic": "Suspend_is_pause_not_retire",
+      "fresh_source_behavior": {
+        "trigger": "event19 invokes pause_remote",
+        "condition": "accepted and notretired and notinflight",
+        "state": "admitting0/paused1/start_witness0 underAVmutex; accepted config/phoneepoch retained",
+        "Source_request": "command8 afterunlock; stored last_playback",
+        "reply_failure": "No distinct acceptedSuspend witness is checked in pause_remote; it responds to callbackevent19."
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 136,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 149
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "line": 29,
+          "sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "through_line": 42
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Event19 callback has no status check in this source. Valid native event/ordering is a required originaldispatcher contract, not an independent acceptedSuspend proof.",
+        "Ifinflight, pause_remote does notissue8; currentcode does not itself establish concurrentcallback quiescence.",
+        "Command8 request success does not show Source hasalreadypaused."
+      ]
+    },
+    {
+      "topic": "first_valid_F1_resumes_Source",
+      "fresh_source_behavior": {
+        "F1_validation": [
+          "status0",
+          "admitting/notretired/notinflight",
+          "matchingnativeview/channel/LCID",
+          "definedhandlebytes4..11 match identity",
+          "matchingpolicy/MTU",
+          "completeunfragmentedRTP/SBC framing"
+        ],
+        "resume": "ifphonepaused, request9 beforeingress; return0 clearsphonepaused; nonzero leavespaused1 and skipsingress",
+        "then": "typed5arg aas_media_ingress; reacquireAVmutex, clearinflight and recordresult",
+        "epoch": "phoneepoch unchanged throughresume"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 105,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 124
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 144,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 177
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/source_imports_v1.h",
+          "line": 1,
+          "sha256": "68b1cc523c4310a583c8b91886a9be5f820cba0efb72b88d86efd76e454bdb76",
+          "through_line": 5
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Clearphonepaused meansrequest9accepted, notSourceprocesscompleted. InheritedSourcecommand-first/data-next rules must hold.",
+        "No epoch/ownership token is passed as anexplicit sixth ingress argument or secondcommandargument.",
+        "Streamgeneration, localSourceguardgeneration, queueepoch and Sourcepauseepoch must be coherentlyrelated byactualprovider; matchingnumericvalues alone do notbindthem."
+      ]
+    },
+    {
+      "topic": "Source_queue_command_mapping",
+      "fresh_source_behavior": {
+        "pause": 8,
+        "resume": 9,
+        "retire_Stop": 5,
+        "inherited_coordinator": {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "read_by_THIS_scope": false,
+          "source": "Existing continuous agent fresh FILE capture message, matches Source manifest source_sha256.",
+          "rules": [
+            {
+              "lines": "153-165",
+              "rule": "IRQ exclusion rejects nonempty command mailbox, missingTCB, notinitialized, initfailure, invalidcommand.8/9 additionally require queue.running and source_record+160==mcs_queue_bridge; no coalescence. Passing stores mh_command, exitsIRQ, POST, returns0 requestaccepted."
+            },
+            {
+              "lines": "128-140",
+              "rule": "Source WAIT returns, takes and clears mailbox134-136;138 process_command then mh_command_completed/mh_last_result. Commands precede data."
+            },
+            {
+              "lines": "96-105",
+              "rule": "process8/9 rechecks queue.running, pause_epoch notUINT32_MAX, callback bridge underIRQ.101 sets paused=(command==8), increments pauseepoch;102 pause/resume requestcounter.9 plus started sends mixer18; process return0 is completion of this source function, nothardwareACK."
+            },
+            {
+              "lines": "92-127",
+              "rule": "command5 aas_stop→mixer16/17/18 is localpending; noSTOP_DONE."
+            }
+          ],
+          "fresh_runtime_execution_by_either_review": false
+        },
+        "queue_behavior": "nonemptymailbox reject, no coalesce; Sourceprocess8/9 increments separatemh_remote_pause_epoch"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/source_imports_v1.h",
+          "line": 2,
+          "sha256": "68b1cc523c4310a583c8b91886a9be5f820cba0efb72b88d86efd76e454bdb76",
+          "through_line": 5
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 126,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 142
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 164,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 169
+        },
+        {
+          "path": "staging/native-player-remote-pause/source-build-v2.json",
+          "line": 4,
+          "sha256": "46d626517c1477125c1a56eaf25165a5a80661d99d5251392a2af8a83a051e17"
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Coordinator body deliberatelynotread bythisscope toavoidduplicateSource/corework. FreshagentFILEmessage isexplicitinherited evidence and itsSHA matchescapturedmanifest.",
+        "A request0 cannotserveashardwareStopDONE/readiness/completecallbackquiescence.",
+        "Thisreviewdoesnotexecutecommandtiming orrealmutex/IRQ/scheduler."
+      ]
+    },
+    {
+      "topic": "disconnect_retirement_and_newsession_limits",
+      "fresh_source_behavior": {
+        "trigger": "eventF2 retire",
+        "state": "admitting0/retired1; activephonepolicyunbind; Sourcecommand5afterAVunlock",
+        "lifetime": "residentcode; Config beginrejectsretired oraccepted; no reconnect/newconfig path is implemented by thisreviewedbody",
+        "support": "sameacceptedconfig multipleSuspend/Resume isimplemented; notblanketnoresume"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 55,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 62
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 126,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 135
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 144,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 149
+        },
+        {
+          "path": "staging/native-player-remote-pause/ROOT-pause-lifecycle-conclusion-v1.json",
+          "line": 93,
+          "sha256": "8d663cd4bb85fc7902d813114aa85455c75813d166cfe81e4ce78e59b255a44b",
+          "through_line": 97
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Iflockacquirefails retire returnswithoutmutation; realnative lockhealth isunproven.",
+        "SourceStoprequest/reply doesnotyieldSTOP_DONE/unload/warmexclusiveowner.",
+        "No on-devicephone/speaker/App readiness claim."
+      ]
+    },
+    {
+      "topic": "generated_v2_source_and_image_provenance",
+      "fresh_source_behavior": {
+        "generatedsource": "remote/reply currentC exactoriginalpauseC exceptinclude-pathrewrite",
+        "header": "samecontracthash; symbols&aas_media_ingress/&mh_request_command ratherthanVMabsoluteimports",
+        "pause_Source_metadata_sha": "d35551d7079f15a7f9c7dbd0c44404ca2dac22c94d7784016e9ea4d6766c0a37",
+        "remote_pin_exact_source_match": true,
+        "loaded_manifest": "Parent independentlycaptured75903B SHAee7d464e806cfc2d2f506989ffc7b2d7b30c6ce5e2d5f068b95f303cc6b76f75; thisscope notread",
+        "buildv3": "Parentreportedmetadata baseline separate; no v3sourcebodysemantics adopted"
+      },
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "line": 1,
+          "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "through_line": 13
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "line": 1,
+          "sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "through_line": 12
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_binding_v1.h",
+          "line": 4,
+          "sha256": "47cabb1bbd60298e2dd11c67ba2af46915ca92e50d6b2cd727bcad5f15c73389",
+          "through_line": 9
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/source_imports_v1.h",
+          "line": 1,
+          "sha256": "68b1cc523c4310a583c8b91886a9be5f820cba0efb72b88d86efd76e454bdb76",
+          "through_line": 5
+        },
+        {
+          "path": "staging/native-player-remote-pause/remote-build-v1.json",
+          "line": 1,
+          "sha256": "00120c2037ab975776394b12824120f01000ccd711ddb496dc2cbb7495ca175e"
+        },
+        {
+          "path": "staging/native-player-remote-pause/source-build-v2.json",
+          "line": 56,
+          "sha256": "46d626517c1477125c1a56eaf25165a5a80661d99d5251392a2af8a83a051e17",
+          "through_line": 58
+        }
+      ],
+      "unknown_or_external_contract": [
+        "No binary, relocation, compilerorproducerimport; actualmachinecodehash inheritsotherclosure.",
+        "Onlyactualv2source reviewed; notallversionsemanticsequivalence.",
+        "Parent/otheragentownresidententry/outputowner/audio core contracts; notreadorreviewedhere."
+      ]
+    },
+    {
+      "topic": "existing_six_scope_correction",
+      "fresh_source_behavior": {
+        "inheritedcase_count": 6,
+        "same_config_resume": true,
+        "priorcase_names": [
+          "two_Suspend_resume_cycles_keep_same_anchor",
+          "failed_resume_Start_keeps_FIFO_until_retry",
+          "pause_before_first_input_then_resume",
+          "Pause_full_FIFO_keeps_pending_compressed_then_capacity_resumes",
+          "profile_rewrite_while_paused_rejects_resume_data",
+          "Disconnect_while_paused_retires_and_rejects_Start"
+        ],
+        "correction": "FILE-v3 result retained old combined one_stream_per_boot_resume_restart_STOP_DONE_unload_unimplemented flag from pre-Pause code. The six verified case snapshots prove same-configuration Suspend resume. Reconnect/new configuration/STOP_DONE/unload/warm ownership remain unimplemented. Preserve original proof and use these separated conclusions.",
+        "not_rerun": true
+      },
+      "references": [
+        {
+          "path": "staging/native-player-remote-pause/ROOT-pause-lifecycle-conclusion-v1.json",
+          "line": 12,
+          "sha256": "8d663cd4bb85fc7902d813114aa85455c75813d166cfe81e4ce78e59b255a44b"
+        },
+        {
+          "path": "staging/native-player-remote-pause/ROOT-pause-lifecycle-conclusion-v1.json",
+          "line": 93,
+          "sha256": "8d663cd4bb85fc7902d813114aa85455c75813d166cfe81e4ce78e59b255a44b",
+          "through_line": 97
+        }
+      ],
+      "unknown_or_external_contract": [
+        "Theclosedproof isreadasinheritedartifact, notnewguestvalidation.",
+        "Sixsnapshots do notgivefulltransitiveABI/realphone/radio/heap/ownership/speaker orlongstability."
+      ]
+    }
+  ],
+  "source_scope": {
+    "files": 12,
+    "content_bytes": 104472,
+    "max_file_bytes": 57231,
+    "name_index_IO": "Metadata/filenameindex separatelyunmeasured, notcontentcapture count."
+  },
+  "separated_epochs": [
+    "nr_scope.generation commandassociation",
+    "nsg.epoch acceptedphoneconfiguration",
+    "Sourceg.generation/controller/queueepoch inheritedAPI",
+    "mh_remote_pause_epoch actualSourcepause/resumetoggle"
+  ],
+  "fresh_vs_inherited": "Generated and original phone C, headers, gate and pause manifests were freshly captured as small files. The Source coordinator body was reviewed by the other agent; its inherited SHA matches this captured manifest. Root loaded-image metadata and six prior closed cases are inherited; no binaries or guest were read or executed.",
+  "current_result": "The reviewed pause-v2 source supports Suspend and Resume within the same accepted configuration. Six prior closed offline cases support this distinction. Reconnect, new configuration, STOP_DONE, unload, warm ownership and live phone/App/speaker remain unproven.",
+  "ordinary_host_review_executed": true,
+  "target_execution": 0,
+  "no_systemrisk_guest_retry": true
+}

@@ -1,0 +1,198 @@
+{
+  "schema": "garmin-SBC-FILE-contract-checks/v1",
+  "count": 38,
+  "checks": [
+    {
+      "name": "capture_pin:native/music-endpoint/endpoint.c",
+      "passed": true,
+      "evidence": "private-captures/native__music-endpoint__endpoint.c.gz"
+    },
+    {
+      "name": "source_stat_stable:native/music-endpoint/endpoint.c",
+      "passed": true,
+      "evidence": "native/music-endpoint/endpoint.c"
+    },
+    {
+      "name": "capture_pin:native/music-endpoint/endpoint.h",
+      "passed": true,
+      "evidence": "private-captures/native__music-endpoint__endpoint.h.gz"
+    },
+    {
+      "name": "source_stat_stable:native/music-endpoint/endpoint.h",
+      "passed": true,
+      "evidence": "native/music-endpoint/endpoint.h"
+    },
+    {
+      "name": "capture_pin:staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+      "passed": true,
+      "evidence": "private-captures/staging__native-player-loaded-single-image__build-v2__remote_pause_binding_v1.c.gz"
+    },
+    {
+      "name": "source_stat_stable:staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+      "passed": true,
+      "evidence": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c"
+    },
+    {
+      "name": "capture_pin:native/avdtp-policy/policy.c",
+      "passed": true,
+      "evidence": "private-captures/native__avdtp-policy__policy.c.gz"
+    },
+    {
+      "name": "source_stat_stable:native/avdtp-policy/policy.c",
+      "passed": true,
+      "evidence": "native/avdtp-policy/policy.c"
+    },
+    {
+      "name": "capture_pin:native/avdtp-policy/policy.h",
+      "passed": true,
+      "evidence": "private-captures/native__avdtp-policy__policy.h.gz"
+    },
+    {
+      "name": "source_stat_stable:native/avdtp-policy/policy.h",
+      "passed": true,
+      "evidence": "native/avdtp-policy/policy.h"
+    },
+    {
+      "name": "capture_pin:staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+      "passed": true,
+      "evidence": "private-captures/staging__native-player-loaded-single-image__build-v2__owned_media_loaded_v1.c.gz"
+    },
+    {
+      "name": "source_stat_stable:staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+      "passed": true,
+      "evidence": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c"
+    },
+    {
+      "name": "capture_pin:staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c",
+      "passed": true,
+      "evidence": "private-captures/staging__native-player-loaded-single-image__build-v2__sbc_fifo_loaded_v1.c.gz"
+    },
+    {
+      "name": "source_stat_stable:staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c",
+      "passed": true,
+      "evidence": "staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c"
+    },
+    {
+      "name": "capture_pin:native/sbc-prototype/pcm_converter.c",
+      "passed": true,
+      "evidence": "private-captures/native__sbc-prototype__pcm_converter.c.gz"
+    },
+    {
+      "name": "source_stat_stable:native/sbc-prototype/pcm_converter.c",
+      "passed": true,
+      "evidence": "native/sbc-prototype/pcm_converter.c"
+    },
+    {
+      "name": "capture_budget",
+      "passed": true,
+      "evidence": "8 files /43671 B of122880 B; subsequent content reads only own captures"
+    },
+    {
+      "name": "capability_bytes",
+      "passed": true,
+      "evidence": "endpoint.c13"
+    },
+    {
+      "name": "validator_frequency_subset",
+      "passed": true,
+      "evidence": "policy.c25-29"
+    },
+    {
+      "name": "one_selected_format_each_field",
+      "passed": true,
+      "evidence": "policy.c26-27"
+    },
+    {
+      "name": "bitpool_same_range",
+      "passed": true,
+      "evidence": "policy.c27"
+    },
+    {
+      "name": "numeric_mode_mapping",
+      "passed": true,
+      "evidence": "policy.c30-31"
+    },
+    {
+      "name": "blocks_bands_allocation_mapping",
+      "passed": true,
+      "evidence": "policy.c31-33"
+    },
+    {
+      "name": "only_transport_and_SBC_services",
+      "passed": true,
+      "evidence": "policy.c49-67"
+    },
+    {
+      "name": "validator_own_pointer_and_length_precondition",
+      "passed": true,
+      "evidence": "policy.c42-48"
+    },
+    {
+      "name": "wrapper_reads_body_before_validator",
+      "passed": true,
+      "evidence": "remote.c55-62; helper precondition, not proof caller permits NULL"
+    },
+    {
+      "name": "accepted_requires_reply_and_native_identity",
+      "passed": true,
+      "evidence": "remote.c69-82"
+    },
+    {
+      "name": "RTP_and_nofragment_packet_contract",
+      "passed": true,
+      "evidence": "remote.c105-124"
+    },
+    {
+      "name": "each_frame_matches_selected_codec",
+      "passed": true,
+      "evidence": "policy.c106-122"
+    },
+    {
+      "name": "packet_matches_codec_and_local_MTU",
+      "passed": true,
+      "evidence": "policy.c93-104"
+    },
+    {
+      "name": "converter_broader_rate_and_channel_set",
+      "passed": true,
+      "evidence": "pcm_converter.c20-35"
+    },
+    {
+      "name": "converter_frame_capacity_and_stereo_average",
+      "passed": true,
+      "evidence": "pcm_converter.c55-87"
+    },
+    {
+      "name": "loaded_decode_convert_and_output_format",
+      "passed": true,
+      "evidence": "owned.c52-72"
+    },
+    {
+      "name": "loaded_buffers",
+      "passed": true,
+      "evidence": "owned.c22-23"
+    },
+    {
+      "name": "owned_packet_failure_not_commit_and_resets",
+      "passed": true,
+      "evidence": "owned.c74-122; parser/decoder callees unreviewed"
+    },
+    {
+      "name": "copied_ingress_is_queued_not_inline_decode",
+      "passed": true,
+      "evidence": "fifo.c24-51; media_queue_callback callee unreviewed"
+    },
+    {
+      "name": "signal_ids_not_confused",
+      "passed": true,
+      "evidence": "endpoint.c73,91,96: 2 GetCapabilities; 4 GetConfiguration per parent correction; no claim on actual signal12 dispatch"
+    },
+    {
+      "name": "conservative_buffer_arithmetic",
+      "passed": true,
+      "evidence": "observed block/subband/frame maxima and C arrays, scalar analysis only"
+    }
+  ],
+  "not_native_or_C_tests": true,
+  "target_executed": false
+}

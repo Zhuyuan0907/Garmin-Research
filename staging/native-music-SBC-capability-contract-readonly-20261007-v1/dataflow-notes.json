@@ -1,0 +1,75 @@
+{
+  "schema": "garmin-SBC-static-dataflow-notes/v1",
+  "target_execution": false,
+  "codec_word": {
+    "byte_order": "byte0|(byte1<<8)|(minimum<<16)|(maximum<<24)",
+    "references": [
+      {
+        "path": "native/avdtp-policy/policy.c",
+        "lines": [
+          24,
+          33
+        ],
+        "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4"
+      },
+      {
+        "path": "native/avdtp-policy/policy.c",
+        "lines": [
+          57,
+          61
+        ],
+        "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4"
+      }
+    ],
+    "illustrative_selected_values": [
+      {
+        "rate": 44100,
+        "mode": 3,
+        "channels": 2,
+        "blocks": 16,
+        "subbands": 8,
+        "allocation": 0,
+        "min_bitpool": 2,
+        "max_bitpool": 53,
+        "bytes_hex": "21150235",
+        "codec_word_hex": "35021521",
+        "frame_header_byte1_hex": "bd"
+      },
+      {
+        "rate": 48000,
+        "mode": 0,
+        "channels": 1,
+        "blocks": 16,
+        "subbands": 8,
+        "allocation": 0,
+        "min_bitpool": 2,
+        "max_bitpool": 53,
+        "bytes_hex": "18150235",
+        "codec_word_hex": "35021518",
+        "frame_header_byte1_hex": "f1"
+      }
+    ],
+    "illustrations_not_compiled_or_runtime_configuration": true
+  },
+  "configuration_return_distinction": {
+    "reference": {
+      "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+      "lines": [
+        55,
+        82
+      ],
+      "whole_sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405"
+    },
+    "helper_zero": "nsg_config_begin returns0 even when validator reports invalid configuration, leaving staged_valid0. A zero helper return is not configured/accepted.",
+    "app_acceptance": "nsg_config_end only marks accepted after staged_valid, matching reply witness, full result0, native SEP/context/callback/codec identity and successful music_guard_bind.",
+    "native_caller_policy": "Actual nsg_config_begin caller/body not captured in these8 files; cannot infer invalid/null body reaches helper or native configuration is accepted."
+  },
+  "unread_downstream_contracts": [
+    "garmin_sbc_decode_frame body/CRC",
+    "owned_packet_parse body",
+    "media_queue_callback body",
+    "coefficient tables",
+    "actual signaling dispatcher forGetAllCapabilities12"
+  ],
+  "unread_is_not_absence": true
+}

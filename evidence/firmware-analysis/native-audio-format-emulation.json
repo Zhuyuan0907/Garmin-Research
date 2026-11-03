@@ -1,0 +1,530 @@
+{
+  "updated_utc": "2026-10-02T20:34:26.425922+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "unicorn_version": "2.1.0",
+  "cpu_model": "ARM1176",
+  "factory": "0x437764",
+  "audio_kind": 17,
+  "factory_method_read_offset": 20,
+  "factory_method_format_offset": 24,
+  "tts_reader": "0x484c05",
+  "format_getter": "0x484c49",
+  "logical_pcm_format": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "bits": 16,
+    "block_align": 2
+  },
+  "stock_start_routine": "0x33f474",
+  "start_registers_audio_kind": 17,
+  "start_request_callback": "0x270458",
+  "cases": [
+    {
+      "kind": 17,
+      "factory_return": 0,
+      "method_pointer_words": [
+        "0x484c27",
+        "0x484c31",
+        "0x0",
+        "0x484c69",
+        "0x484c71",
+        "0x484c05",
+        "0x484c49",
+        "0x0",
+        "0x0",
+        "0x484c95",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x484c87",
+        "0x484c01",
+        "0x0",
+        "0x0"
+      ],
+      "read_method": "0x484c05",
+      "format": {
+        "getter": "0x484c49",
+        "status": 0,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "bytes_per_sample_frame": 2,
+        "sample_rate": 16000
+      },
+      "tts_switch_path_executed": true,
+      "hooks": [
+        "factory_memset_hook"
+      ],
+      "passed": true
+    },
+    {
+      "kind": 1,
+      "factory_return": 0,
+      "method_pointer_words": [
+        "0x48f0a1",
+        "0x0",
+        "0x0",
+        "0x48f0c5",
+        "0x48f0cb",
+        "0x48f091",
+        "0x48f0a5",
+        "0x0",
+        "0x0",
+        "0x48f0d3",
+        "0x48f0bb",
+        "0x48f0b9",
+        "0x0",
+        "0x48f0cf",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "read_method": "0x48f091",
+      "format": {
+        "getter": "0x48f0a5",
+        "status": 0,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "bytes_per_sample_frame": 2,
+        "sample_rate": 44100
+      },
+      "tts_switch_path_executed": false,
+      "hooks": [
+        "factory_memset_hook"
+      ],
+      "passed": true
+    },
+    {
+      "kind": 23,
+      "factory_return": 4,
+      "method_pointer_words": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ],
+      "read_method": "0x0",
+      "format": null,
+      "tts_switch_path_executed": false,
+      "hooks": [
+        "factory_memset_hook"
+      ],
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "getter_code_sha256": "ad0dd893b9f475165f095b1e33ce04314a302223d436708905bfeab8b69257ad",
+  "getter_instructions": {
+    "instructions": [
+      {
+        "address": "0x484c48",
+        "instruction": "movs r2, #0x10"
+      },
+      {
+        "address": "0x484c4a",
+        "instruction": "strh r2, [r1, #2]"
+      },
+      {
+        "address": "0x484c4c",
+        "instruction": "movs r2, #2"
+      },
+      {
+        "address": "0x484c4e",
+        "instruction": "str r2, [r1, #4]"
+      },
+      {
+        "address": "0x484c50",
+        "instruction": "movs r2, #1"
+      },
+      {
+        "address": "0x484c52",
+        "instruction": "strh r2, [r1]"
+      },
+      {
+        "address": "0x484c54",
+        "instruction": "movs r0, #0"
+      },
+      {
+        "address": "0x484c56",
+        "instruction": "movs r2, #0x7d"
+      },
+      {
+        "address": "0x484c58",
+        "instruction": "lsls r2, r2, #7"
+      },
+      {
+        "address": "0x484c5a",
+        "instruction": "str r2, [r1, #8]"
+      },
+      {
+        "address": "0x484c5c",
+        "instruction": "bx lr"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "start_instructions": {
+    "instructions": [
+      {
+        "address": "0x33f474",
+        "instruction": "push {r4, r5, r6, lr}"
+      },
+      {
+        "address": "0x33f476",
+        "instruction": "movs r4, #5"
+      },
+      {
+        "address": "0x33f478",
+        "instruction": "sub sp, #0x20"
+      },
+      {
+        "address": "0x33f47a",
+        "instruction": "bl #0x2554ca",
+        "direct_call": "0x2554ca"
+      },
+      {
+        "address": "0x33f47e",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x33f480",
+        "instruction": "bne #0x33f484"
+      },
+      {
+        "address": "0x33f482",
+        "instruction": "movs r4, #8"
+      },
+      {
+        "address": "0x33f484",
+        "instruction": "lsls r0, r4, #0x18"
+      },
+      {
+        "address": "0x33f486",
+        "instruction": "asrs r0, r0, #0x18"
+      },
+      {
+        "address": "0x33f488",
+        "instruction": "movs r1, #0"
+      },
+      {
+        "address": "0x33f48a",
+        "instruction": "movs r4, r0"
+      },
+      {
+        "address": "0x33f48c",
+        "instruction": "bl #0x36b69a",
+        "direct_call": "0x36b69a"
+      },
+      {
+        "address": "0x33f490",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x33f492",
+        "instruction": "beq #0x33f496"
+      },
+      {
+        "address": "0x33f494",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x33f496",
+        "instruction": "ldr r1, [pc, #0x278]",
+        "literal_address": "0x33f710",
+        "literal_value": "0xf095ad"
+      },
+      {
+        "address": "0x33f498",
+        "instruction": "ldr r2, [pc, #0x278]",
+        "literal_address": "0x33f714",
+        "literal_value": "0x5a5ffff"
+      },
+      {
+        "address": "0x33f49a",
+        "instruction": "ldrb r3, [r1]"
+      },
+      {
+        "address": "0x33f49c",
+        "instruction": "movs r5, #0"
+      },
+      {
+        "address": "0x33f49e",
+        "instruction": "str r2, [sp, #0x10]"
+      },
+      {
+        "address": "0x33f4a0",
+        "instruction": "cmp r3, #0"
+      },
+      {
+        "address": "0x33f4a2",
+        "instruction": "beq #0x33f4ac"
+      },
+      {
+        "address": "0x33f4a4",
+        "instruction": "movs r2, #4"
+      },
+      {
+        "address": "0x33f4a6",
+        "instruction": "str r2, [sp, #0x14]"
+      },
+      {
+        "address": "0x33f4a8",
+        "instruction": "strb r5, [r1]"
+      },
+      {
+        "address": "0x33f4aa",
+        "instruction": "b #0x33f4ae"
+      },
+      {
+        "address": "0x33f4ac",
+        "instruction": "str r5, [sp, #0x14]"
+      },
+      {
+        "address": "0x33f4ae",
+        "instruction": "ldr r6, [pc, #0x250]",
+        "literal_address": "0x33f700",
+        "literal_value": "0xf09294"
+      },
+      {
+        "address": "0x33f4b0",
+        "instruction": "ldrb r1, [r6, #6]"
+      },
+      {
+        "address": "0x33f4b2",
+        "instruction": "cmp r1, #0"
+      },
+      {
+        "address": "0x33f4b4",
+        "instruction": "beq #0x33f4f6"
+      },
+      {
+        "address": "0x33f4b6",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x33f4b8",
+        "instruction": "bne #0x33f4f6"
+      },
+      {
+        "address": "0x33f4ba",
+        "instruction": "ldr r0, [pc, #0x25c]",
+        "literal_address": "0x33f718",
+        "literal_value": "0x981ba8"
+      },
+      {
+        "address": "0x33f4bc",
+        "instruction": "movs r2, #0"
+      },
+      {
+        "address": "0x33f4be",
+        "instruction": "ldr r0, [r0]"
+      },
+      {
+        "address": "0x33f4c0",
+        "instruction": "movs r1, #0x16"
+      },
+      {
+        "address": "0x33f4c2",
+        "instruction": "str r0, [sp, #0x18]"
+      },
+      {
+        "address": "0x33f4c4",
+        "instruction": "ldr r0, [pc, #0x254]",
+        "literal_address": "0x33f71c",
+        "literal_value": "0x981ba4"
+      },
+      {
+        "address": "0x33f4c6",
+        "instruction": "add r3, sp, #0x18"
+      },
+      {
+        "address": "0x33f4c8",
+        "instruction": "ldr r0, [r0]"
+      },
+      {
+        "address": "0x33f4ca",
+        "instruction": "str r2, [sp, #4]"
+      },
+      {
+        "address": "0x33f4cc",
+        "instruction": "str r0, [sp, #0x1c]"
+      },
+      {
+        "address": "0x33f4ce",
+        "instruction": "movs r0, #9"
+      },
+      {
+        "address": "0x33f4d0",
+        "instruction": "str r2, [sp, #8]"
+      },
+      {
+        "address": "0x33f4d2",
+        "instruction": "str r0, [sp]"
+      },
+      {
+        "address": "0x33f4d4",
+        "instruction": "movs r2, #0xc"
+      },
+      {
+        "address": "0x33f4d6",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x33f4d8",
+        "instruction": "bl #0x27058a",
+        "direct_call": "0x27058a"
+      },
+      {
+        "address": "0x33f4dc",
+        "instruction": "movs r2, #0"
+      },
+      {
+        "address": "0x33f4de",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x33f4e0",
+        "instruction": "add r1, sp, #0xc"
+      },
+      {
+        "address": "0x33f4e2",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x33f4e4",
+        "instruction": "stm r3!, {r0, r1, r2}"
+      },
+      {
+        "address": "0x33f4e6",
+        "instruction": "ldr r3, [pc, #0x238]",
+        "literal_address": "0x33f720",
+        "literal_value": "0xf09298"
+      },
+      {
+        "address": "0x33f4e8",
+        "instruction": "movs r2, #6"
+      },
+      {
+        "address": "0x33f4ea",
+        "instruction": "movs r1, #0x11"
+      },
+      {
+        "address": "0x33f4ec",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x33f4ee",
+        "instruction": "bl #0x270458",
+        "direct_call": "0x270458"
+      },
+      {
+        "address": "0x33f4f2",
+        "instruction": "strb r5, [r6, #6]"
+      },
+      {
+        "address": "0x33f4f4",
+        "instruction": "b #0x33f50c"
+      },
+      {
+        "address": "0x33f4f6",
+        "instruction": "movs r2, #0"
+      },
+      {
+        "address": "0x33f4f8",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x33f4fa",
+        "instruction": "add r1, sp, #0xc"
+      },
+      {
+        "address": "0x33f4fc",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x33f4fe",
+        "instruction": "stm r3!, {r0, r1, r2}"
+      },
+      {
+        "address": "0x33f500",
+        "instruction": "ldr r3, [pc, #0x21c]",
+        "literal_address": "0x33f720",
+        "literal_value": "0xf09298"
+      },
+      {
+        "address": "0x33f502",
+        "instruction": "movs r2, #6"
+      },
+      {
+        "address": "0x33f504",
+        "instruction": "movs r1, #0x11"
+      },
+      {
+        "address": "0x33f506",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x33f508",
+        "instruction": "bl #0x270458",
+        "direct_call": "0x270458"
+      },
+      {
+        "address": "0x33f50c",
+        "instruction": "movs r1, #0"
+      },
+      {
+        "address": "0x33f50e",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x33f510",
+        "instruction": "bl #0x36b720",
+        "direct_call": "0x36b720"
+      },
+      {
+        "address": "0x33f514",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x33f516",
+        "instruction": "bne #0x33f51c"
+      },
+      {
+        "address": "0x33f518",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x33f51a",
+        "instruction": "strb r0, [r6, #4]"
+      },
+      {
+        "address": "0x33f51c",
+        "instruction": "add sp, #0x20"
+      },
+      {
+        "address": "0x33f51e",
+        "instruction": "pop {r4, r5, r6, pc}"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "switch_table_hex": "f34d4dd8f34dbef3f3f392a8f3f2f3f37e634d4d24380c",
+  "device_io": false,
+  "physical_sample_clock_verified": false,
+  "actual_dac_or_speaker_verified": false,
+  "limitations": "Original factory and getters prove logical TTS source format and reader selection offline. Factory memset is hooked; descriptors/stack are synthetic. The start request uses type17 but scheduler/priority, actual device mixer format conversion, physical DAC sample clock and audible playback remain unverified. Other factory kinds were not all characterized."
+}

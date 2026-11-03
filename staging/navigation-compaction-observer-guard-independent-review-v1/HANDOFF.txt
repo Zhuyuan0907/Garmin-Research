@@ -1,0 +1,58 @@
+Independent observer-guard source review: passed, scanner unexecuted
+
+Prepared v4 source SHA:
+ad46dda03730cab4a73e39346fd597b13bc91604a811147840499a123baa3e04
+Prepared-files SHA:
+c280de5f6888ea334a4527d5e03613dd86898db2752eb9ed80f220b0d72e94ef
+Compared exact pinned v3, external RAM algorithm and mapper source as ordinary
+DATA files. Nothing was imported/executed from those four sources.
+
+Independent AST assertions passed (actual review tool a5d8b7 EXIT0):
+11 unrelated function/classes, imports and all module assignments are identical.
+Main and exception handler are identical after removing only explicit schema
+and measurement-report fields. Observer.__init__/close are unchanged. The same
+eight original RAM helpers are selected; neither historical main is selected.
+The allocation-observation transform, arrays, counts/strides, 160000000-byte
+IMG read cap and mapper Image/NAMES are unchanged. All four file SHA pins pass.
+
+Enforcement is explicitly max(current-mm VmRSS,VmHWM), still393216KiB/384MiB.
+Historical ru_maxrss is retained as diagnostic, including diagnostic errors;
+it neither accepts nor rejects a valid current-mm sample. Required missing
+RSS/HWM, invalid numeric/unit fields, duplicates and proc I/O exceptions produce
+proc_errors, then durable row write/flush/fsync precedes OwnBudgetError. Either
+RSS/HWM over cap also raises. No fallback, counter reset, cap increase or extra
+context retry was introduced. All normal snapshot calls enforce by default.
+The single enforce=False occurs in the already-failed exception receipt path;
+the outer handler finishes with bare raise and cannot resume a successful scan.
+At exactly393216KiB the comparison accepts, as the previous numeric cap did.
+
+Original root v3 failure was read/pinned as evidence, not rerun: historical
+ru424240KiB versus VmRSS/VmHWM17824KiB; actualIMG reads/ops0. This was an own host
+guard failure, not a platform rejection or map-data corruption.
+
+The pinned preparation's primary notes identify local man versions/hashes and
+Linux v6.18 task_mem/exec_mmap source links. This review read those notes, not
+the full man pages, remote kernel files, running-kernel implementation or proc
+samples. Their stated approximation limits remain explicit. The current-mm
+sample guard is neither a byte-exact allocator budget nor a kernel-enforced
+hard cap/physical RAM guarantee. No runtime guard fixture was executed here.
+
+Bounded external capture total126054B<131072B, ten distinct files, no repeated
+external content read. Initial partial de698d EXIT1 had read only4825B prepared
+seal, then stopped on equal permission values written as '0444' versus '0o444'.
+Exact initial sources/failure are preserved. This format assertion was fixed by
+octal integer comparison; corrected continuation d8edef EXIT0 read remaining
+121229B. No source/stat/mode was changed and no map/scanner was opened. Own
+captured copies were used for all subsequent AST work. Both external and own
+read handles are closed; source mode pins are preserved, never chmodded.
+
+Algorithm qualification stays held: force_all/anomalies can conservatively
+retain all suffix records while earlier range census is incomplete; standalone
+alias_complete is not proof of tree closure. External lower-ID refs remain
+unknown. Future arithmetic fitting4K does not prove compaction safety, original
+query/render/UI/route behavior or install readiness.
+
+Root's separately authorized unique v4 actual run must establish actual scan,
+memory peak and capacity results. This static scope establishes none of them.
+IMG/MAIN/PBF/CPU/guest/phone/audio/device0; canonical/report/sharedseals unchanged.
+Earlier independent review remains closed. Stop after own final seal.

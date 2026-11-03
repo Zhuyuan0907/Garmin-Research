@@ -1,0 +1,697 @@
+{
+  "schema": "bounded-static-AP-path-producer-witnesses/v1",
+  "witnesses": [
+    {
+      "number": 1,
+      "finding": "A real generic direct filename-mapping caller exists:1D8528 ->2D3166.",
+      "exact_instructions": [
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8514",
+            "bytes": "2a22",
+            "mnemonic": "movs",
+            "operands": "r2, #0x2a"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8518",
+            "bytes": "4a43",
+            "mnemonic": "muls",
+            "operands": "r2, r1, r2"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d851a",
+            "bytes": "f549",
+            "mnemonic": "ldr",
+            "operands": "r1, [pc, #0x3d4]",
+            "literal_address": "0x1d88f0",
+            "literal_value": "0xf09638"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d851e",
+            "bytes": "5418",
+            "mnemonic": "adds",
+            "operands": "r4, r2, r1"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8520",
+            "bytes": "2034",
+            "mnemonic": "adds",
+            "operands": "r4, #0x20"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8522",
+            "bytes": "0200",
+            "mnemonic": "movs",
+            "operands": "r2, r0"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8524",
+            "bytes": "217a",
+            "mnemonic": "ldrb",
+            "operands": "r1, [r4, #8]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8526",
+            "bytes": "0020",
+            "mnemonic": "movs",
+            "operands": "r0, #0"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-directproducer.json",
+          "original_instruction": {
+            "address": "0x1d8528",
+            "bytes": "faf01dfe",
+            "mnemonic": "bl",
+            "operands": "#0x2d3166"
+          }
+        }
+      ],
+      "ABI": "incoming r0 filename ->r2; incoming r1 index ->F09638+index*42+0x28 selector ->r1; flags r0=0",
+      "limit": "No actual AP index/live selector4D setup in this caller is established. Startup candidate byte0=13 is not AP. This is not a physical AP witness by itself."
+    },
+    {
+      "number": 2,
+      "finding": "A true selector4D branch supplies the original AP basename and system-directory text to3A5F3E.",
+      "exact_instructions": [
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7436",
+            "bytes": "4d20",
+            "mnemonic": "movs",
+            "operands": "r0, #0x4d"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7438",
+            "bytes": "08aa",
+            "mnemonic": "add",
+            "operands": "r2, sp, #0x20"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a743a",
+            "bytes": "01a9",
+            "mnemonic": "add",
+            "operands": "r1, sp, #4"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a743e",
+            "bytes": "fff758ff",
+            "mnemonic": "bl",
+            "operands": "#0x3a72f2"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7442",
+            "bytes": "0028",
+            "mnemonic": "cmp",
+            "operands": "r0, #0"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7444",
+            "bytes": "09d0",
+            "mnemonic": "beq",
+            "operands": "#0x3a745a"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7446",
+            "bytes": "eaa2",
+            "mnemonic": "adr",
+            "operands": "r2, #0x3a8"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7448",
+            "bytes": "e14f",
+            "mnemonic": "ldr",
+            "operands": "r7, [pc, #0x384]",
+            "literal_address": "0x3a77d0",
+            "literal_value": "0x3a671c"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a744a",
+            "bytes": "6b46",
+            "mnemonic": "mov",
+            "operands": "r3, sp"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a744c",
+            "bytes": "0092",
+            "mnemonic": "str",
+            "operands": "r2, [sp]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a744e",
+            "bytes": "1a8c",
+            "mnemonic": "ldrh",
+            "operands": "r2, [r3, #0x20]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7450",
+            "bytes": "2800",
+            "mnemonic": "movs",
+            "operands": "r0, r5"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7452",
+            "bytes": "3b00",
+            "mnemonic": "movs",
+            "operands": "r3, r7"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7454",
+            "bytes": "01a9",
+            "mnemonic": "add",
+            "operands": "r1, sp, #4"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "original_instruction": {
+            "address": "0x3a7456",
+            "bytes": "fef772fd",
+            "mnemonic": "bl",
+            "operands": "#0x3a5f3e"
+          }
+        }
+      ],
+      "general_path_data": [
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APliteral.json",
+          "runtime": "0x3a77f0",
+          "bytes": "67006d0061007000700072006f006d0031002e0069006d0067000000",
+          "interpret_as": "DATA"
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "runtime": "0x3a671c",
+          "bytes": "2f002e00530079007300740065006d002f000000",
+          "interpret_as": "DATA"
+        }
+      ],
+      "limit": "3A743E metadata helper is a stop boundary. Its authorization-related internals are not analyzed or executed. This actual branch does not call2D3166 or open a FILE."
+    },
+    {
+      "number": 3,
+      "finding": "3A5F3E emits base-text and AP basename separately through1D5248; it does not assemble a mounted AP FILE.",
+      "exact_instructions": [
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f3e",
+            "bytes": "ffb5",
+            "mnemonic": "push",
+            "operands": "{r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f42",
+            "bytes": "93b0",
+            "mnemonic": "sub",
+            "operands": "sp, #0x4c"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f44",
+            "bytes": "1c9f",
+            "mnemonic": "ldr",
+            "operands": "r7, [sp, #0x70]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f48",
+            "bytes": "1c00",
+            "mnemonic": "movs",
+            "operands": "r4, r3"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f5c",
+            "bytes": "2000",
+            "mnemonic": "movs",
+            "operands": "r0, r4"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f5e",
+            "bytes": "b3f74afc",
+            "mnemonic": "bl",
+            "operands": "#0x3597f6"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f74",
+            "bytes": "2100",
+            "mnemonic": "movs",
+            "operands": "r1, r4"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5f78",
+            "bytes": "b3f769fc",
+            "mnemonic": "bl",
+            "operands": "#0x35984e"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5fea",
+            "bytes": "0398",
+            "mnemonic": "ldr",
+            "operands": "r0, [sp, #0xc]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5fee",
+            "bytes": "fff784ff",
+            "mnemonic": "bl",
+            "operands": "#0x3a5efa"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5ff2",
+            "bytes": "0090",
+            "mnemonic": "str",
+            "operands": "r0, [sp]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5ff4",
+            "bytes": "1398",
+            "mnemonic": "ldr",
+            "operands": "r0, [sp, #0x4c]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5ff6",
+            "bytes": "0022",
+            "mnemonic": "movs",
+            "operands": "r2, #0"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5ff8",
+            "bytes": "0921",
+            "mnemonic": "movs",
+            "operands": "r1, #9"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5ffa",
+            "bytes": "92a3",
+            "mnemonic": "adr",
+            "operands": "r3, #0x248"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APobject.json",
+          "original_instruction": {
+            "address": "0x3a5ffc",
+            "bytes": "2ff624f9",
+            "mnemonic": "bl",
+            "operands": "#0x1d5248"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a6004",
+            "bytes": "1398",
+            "mnemonic": "ldr",
+            "operands": "r0, [sp, #0x4c]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a6006",
+            "bytes": "0022",
+            "mnemonic": "movs",
+            "operands": "r2, #0"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a6008",
+            "bytes": "0b21",
+            "mnemonic": "movs",
+            "operands": "r1, #0xb"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a600a",
+            "bytes": "8ea3",
+            "mnemonic": "adr",
+            "operands": "r3, #0x238"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a600c",
+            "bytes": "0097",
+            "mnemonic": "str",
+            "operands": "r7, [sp]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a600e",
+            "bytes": "2ff61bf9",
+            "mnemonic": "bl",
+            "operands": "#0x1d5248"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a6018",
+            "bytes": "1621",
+            "mnemonic": "movs",
+            "operands": "r1, #0x16"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-APpathtail.json",
+          "original_instruction": {
+            "address": "0x3a601a",
+            "bytes": "2ff650f9",
+            "mnemonic": "bl",
+            "operands": "#0x1d52be"
+          }
+        }
+      ],
+      "string_format": {
+        "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+        "runtime": "0x3a6244",
+        "bytes": "250073000000",
+        "interpret_as": "DATA"
+      },
+      "named_field_codes": {
+        "base_text": "0x09",
+        "basename": "0x0b"
+      },
+      "limit": "Base text passes through3A5EFA before field09. Do not claim full drive-prefixed path or a particular XML schema/key name from numerical field codes.3A671C is text data, not a callback."
+    },
+    {
+      "number": 4,
+      "finding": "The common field emitter1D5248 selects the field and formats supplied text into its context buffer.",
+      "exact_instructions": [
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5248",
+            "bytes": "0fb4",
+            "mnemonic": "push",
+            "operands": "{r0, r1, r2, r3}"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d524a",
+            "bytes": "70b5",
+            "mnemonic": "push",
+            "operands": "{r4, r5, r6, lr}"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d524e",
+            "bytes": "4068",
+            "mnemonic": "ldr",
+            "operands": "r0, [r0, #4]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5250",
+            "bytes": "0e00",
+            "mnemonic": "movs",
+            "operands": "r6, r1"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5256",
+            "bytes": "2069",
+            "mnemonic": "ldr",
+            "operands": "r0, [r4, #0x10]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5266",
+            "bytes": "0798",
+            "mnemonic": "ldr",
+            "operands": "r0, [sp, #0x1c]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5272",
+            "bytes": "3100",
+            "mnemonic": "movs",
+            "operands": "r1, r6"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5274",
+            "bytes": "2000",
+            "mnemonic": "movs",
+            "operands": "r0, r4"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5276",
+            "bytes": "fff796ff",
+            "mnemonic": "bl",
+            "operands": "#0x1d51a6"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d527e",
+            "bytes": "a18b",
+            "mnemonic": "ldrh",
+            "operands": "r1, [r4, #0x1c]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5280",
+            "bytes": "a068",
+            "mnemonic": "ldr",
+            "operands": "r0, [r4, #8]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5282",
+            "bytes": "079a",
+            "mnemonic": "ldr",
+            "operands": "r2, [sp, #0x1c]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5284",
+            "bytes": "08ab",
+            "mnemonic": "add",
+            "operands": "r3, sp, #0x20"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d5286",
+            "bytes": "b1f1c7ff",
+            "mnemonic": "bl",
+            "operands": "#0x387218"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d528a",
+            "bytes": "e168",
+            "mnemonic": "ldr",
+            "operands": "r1, [r4, #0xc]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d528c",
+            "bytes": "a068",
+            "mnemonic": "ldr",
+            "operands": "r0, [r4, #8]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-AP-path-producer-v1/windows-namedfields.json",
+          "original_instruction": {
+            "address": "0x1d528e",
+            "bytes": "fff760fe",
+            "mnemonic": "bl",
+            "operands": "#0x1d4f52"
+          }
+        }
+      ],
+      "limit": "Static1D51A6/387218/1D4F52 boundaries identify field/format/buffer path only. No2D3166/31D09A mapping operation is in this selected fragment. Downstream consumer and whole object format remain unbound."
+    },
+    {
+      "number": 5,
+      "finding": "Real mapped-file setter passes incoming filename to31D09A output inventory+1C, unlike named-field emission.",
+      "inherited_exact_instructions": [
+        {
+          "source_path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-physicalbind.json",
+          "source_window": "mapped_file_registry_index_loader",
+          "instruction": {
+            "address": "0x2d31d2",
+            "bytes": "0498",
+            "mnemonic": "ldr",
+            "operands": "r0, [sp, #0x10]"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-physicalbind.json",
+          "source_window": "mapped_file_registry_index_loader",
+          "instruction": {
+            "address": "0x2d31d4",
+            "bytes": "1c32",
+            "mnemonic": "adds",
+            "operands": "r2, #0x1c"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-physicalbind.json",
+          "source_window": "mapped_file_registry_index_loader",
+          "instruction": {
+            "address": "0x2d31d6",
+            "bytes": "2321",
+            "mnemonic": "movs",
+            "operands": "r1, #0x23"
+          }
+        },
+        {
+          "source_path": "staging/navigation-native-ap-map-registry-consumer-v1/windows-physicalbind.json",
+          "source_window": "mapped_file_registry_index_loader",
+          "instruction": {
+            "address": "0x2d31d8",
+            "bytes": "49f05fff",
+            "mnemonic": "bl",
+            "operands": "#0x31d09a"
+          }
+        }
+      ],
+      "source_path": "staging/navigation-native-AP-opener-drive-lineage-v1/five-exact-witnesses.json",
+      "limit": "The actual generic1D8528 caller connects here. The actual AP basename/base-text metadata branch still has no recovered caller edge here. Slot2 is not drive/partition ordinal."
+    }
+  ],
+  "CPU_not_executed": true,
+  "private_or_license_values_not_used": true
+}

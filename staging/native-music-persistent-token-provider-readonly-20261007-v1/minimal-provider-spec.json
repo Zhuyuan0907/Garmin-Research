@@ -1,0 +1,78 @@
+{
+ "schema": "minimal-unfinished-persistent-token-provider-spec-v1",
+ "scope": "native-music-persistent-token-provider-readonly-20261007-v1",
+ "status": "specification only; no code or replacement stub; no install/live-test authorization",
+ "existing_typed_consumers": [
+  {
+   "symbol": "umc_source_started",
+   "signature": "int(controller*, uint32_t route, uint32_t generation, uint32_t ownership_cookie, uint32_t source_token)",
+   "source": "native/ui-music-control-prototype/ui_music_control.c",
+   "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+   "line": 313
+  },
+  {
+   "symbol": "umc_cleanup_returned",
+   "signature": "int(controller*, uint32_t route, uint32_t generation, uint32_t ownership_cookie, uint32_t source_token)",
+   "source": "native/ui-music-control-prototype/ui_music_control.c",
+   "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+   "line": 334
+  }
+ ],
+ "token_scope": {
+  "current_candidate": "registration_ticket is a stable software registration label within this held guard/BSS lifetime; guard epoch and controller generation supply distinct cycle checks.",
+  "alternative_candidate": "guard epoch can label the software scoped session; it is not a recovered native allocation ID. Do not map either scalar automatically or replace both identity domains with one.",
+  "required_identity": [
+   "exact pinned image/context lifetime",
+   "controller generation",
+   "guard session epoch",
+   "route",
+   "Source actor and actual actor provenance",
+   "ownership cookie issuer/provenance",
+   "registration seed",
+   "native source record/list identity",
+   "actual retained anchor identity",
+   "selection instance/binding when available",
+   "native ownership witness epoch and exclusions when established"
+  ],
+  "no_native_scalar_provider_currently_proved": true,
+  "no_arbitrary_constant_cookie": true,
+  "across_reload": "No counter/image instance provenance is demonstrated across BSS reset/module reload. Keep receipt/module storage pinned or reject; do not silently reuse a same address/number.",
+  "counter_wrap": "Use existing fail-closed ticket/controller/guard overflow behavior; no invented wrap/restart reset."
+ },
+ "publication_requirements": [
+  "First close the exact transitive memory_output_owner.c inclusion/source hash and final owning image identity; current base source and loaded wrapper are not an independently proved identical implementation.",
+  "Record actual original queue registration publication and complete original return under Source owner provenance, consumed permit, matching active seed/generation/session, real retained anchor/list state, and explicit failure/uncertain-publication distinction.",
+  "Publish the immutable receipt before any native START/POST can allow consumption or cleanup. A Stop racing before selector must retain published-but-not-selected state; do not incorrectly select the never-published stop barrier.",
+  "Selection adds verified pool instance/provider/anchor binding only after the original selector/factory fully returns. Re-selection/reprofile must validate or revoke receipt; record/pool address equality alone does not exclude ABA.",
+  "Invoke typed started with the chosen opaque receipt label and same route/generation/cookie. This does not certify ownership or prove audible playback."
+ ],
+ "cleanup_requirements": [
+  "At real original cleanup entry, capture the exact publication receipt and record identity before mutable selection/registration fields are cleared; hold callback/native lifetime lease.",
+  "Retain that frozen identity across complete original cleanup and original completion/filter/POST, including preemption. Notify only after the genuine full return; helper invocation or a zero command status is not return provenance.",
+  "Invoke typed cleanup_returned with the same route/generation/cookie/token. Preserve foreign original completion callbacks. A native callback(context,record) is not the five-argument core notification ABI.",
+  "Keep frozen token/epoch alive through actual native stop/list-remove/anchor-release full returns; clear reusable fields only after these receipts and outstanding callbacks/future borrowing exclusion are established.",
+  "STOP_DONE additionally requires cancel owner iteration, observe_stop evidence, native quiet state and all relevant leases gone. Cleanup notification alone cannot complete Stop.",
+  "Published-but-not-selected is distinct from never-published. Current scoped release requires selected_session; specify and prove actual retirement for a queue publication racing Stop before selector without fabricating selection."
+ ],
+ "ownership_barrier": {
+  "existing_interface": "ownership_snapshot(context, controller_generation, source_token, struct umcn_ownership_witness*)",
+  "source": "native/ui-music-native-adapter/native_adapter.h",
+  "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+  "line": 78,
+  "required": "Proven issuer, matching Source TCB/generation/cookie/channel/token, nonzero native ownership epoch, all relevant native writers and future borrowing callbacks excluded. Scalar token matching is only one predicate.",
+  "current": "mcs_native_ownership_snapshot returns MCS_UNCERTIFIED without populating witness. Fixed cookie0x1352 and mixer capability do not satisfy this.",
+  "source_current": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+  "current_sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+  "current_line": 356
+ },
+ "remaining_binding_gates": [
+  "Exact owning TU dependency and getter origin",
+  "Native publication timing and race-safe persistent receipt capture",
+  "Generation-safe full cleanup notification caller/whole return provenance",
+  "All-writer/future-callback ownership and native node/record ABA protection",
+  "Source owner cancel/observe provider and wake-to-controller service completion",
+  "Context/module/PCM/stack lifetime across reload and restart",
+  "Actual linked symbol/caller/map verification; none run this scope"
+ ],
+ "safety": "All items remain unmet or conditional. No native implementation, cast, relocation assumption, fixture ownership certificate, producer import or live test was created."
+}

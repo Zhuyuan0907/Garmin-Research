@@ -1,0 +1,51 @@
+{
+  "updated_utc": "2026-10-03T12:51:05.202677+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "case_count": 2,
+  "all_passed": true,
+  "cases": [
+    {
+      "name": "rejected_sparse_fixture",
+      "passed": true,
+      "package": "staging/native-voice-package-fixture/sparse-allocation-READ-MISMATCH.vpm",
+      "package_sha256": "dba9b4393a02dfce2ce8c7c053a2228e4b34bf37e1fbd89891a8dec9906b6c83",
+      "native_read_bytes": 2353068,
+      "native_read_sha256": "6019d3fc75d5881bca7622154a11b88784d02ea80733702adb4e1051b0c21843",
+      "independent_module_sha256": "2c331f7b450c68918f2c6439ee1bd6671775ad5dd34e829ea5d75d8a8578f9f5",
+      "native_matches_independent_extraction": false,
+      "first_difference_offset": 2295808,
+      "first_difference_native_hex": "8846040011020006050251a31577000a",
+      "first_difference_expected_hex": "00000000000000000000000000000000",
+      "closed_file_and_read_output_guards_intact": true,
+      "modified_module_not_executed": true,
+      "lower_region_byte_IO_kernel_inventory_are_fixtures": true
+    },
+    {
+      "name": "corrected_contiguous_fixture",
+      "passed": true,
+      "package": "staging/native-voice-package-fixture/preserving-app-EMULATION-ONLY.vpm",
+      "package_sha256": "12abf2be21257dd624c6ab738435eebead416c83a8dc6a50630b63403422d0b0",
+      "native_read_bytes": 2353068,
+      "native_read_sha256": "2c331f7b450c68918f2c6439ee1bd6671775ad5dd34e829ea5d75d8a8578f9f5",
+      "independent_module_sha256": "2c331f7b450c68918f2c6439ee1bd6671775ad5dd34e829ea5d75d8a8578f9f5",
+      "native_matches_independent_extraction": true,
+      "first_difference_offset": null,
+      "first_difference_native_hex": null,
+      "first_difference_expected_hex": null,
+      "closed_file_and_read_output_guards_intact": true,
+      "modified_module_not_executed": true,
+      "lower_region_byte_IO_kernel_inventory_are_fixtures": true
+    }
+  ],
+  "source_sha256": {
+    "scripts/emulate_native_voice_package_reads.py": "bf4dab4ca6d1d608f622114ba99406d7c3444acb73a7cefd7c2b63057251a0b4",
+    "scripts/emulate_native_vpm_filesystem.py": "326855842ad9081b68f76b8d4cd7eb77340dd196976384140f3c3616f6c26da2",
+    "scripts/analyze_tts_vpm.py": "e8a0ec9640493af2f32a81891ee5cab38eb13cd7cd147ae21cd9546693c7fdc7",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04"
+  },
+  "device_io": false,
+  "modified_module_instructions_executed": false,
+  "device_install_candidate": false,
+  "scope": "Original embedded parser/open/read/seek/tell compares full DLL bytes. Independent parser passes both fixtures; native readback rejects sparse DLL extension and matches corrected contiguous allocation. Compact-header/full-format semantics and real outer mounting remain unverified; no global device filesystem defect or installation claim."
+}

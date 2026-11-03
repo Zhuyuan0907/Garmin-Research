@@ -1,0 +1,126 @@
+{
+  "updated_utc": "2026-10-03T12:19:53.271640+00:00",
+  "base": 144703488,
+  "synthetic_link_address_not_device_allocation": true,
+  "flat": "staging/native-music-reply/reply.bin",
+  "flat_sha256": "27d5bdeaf69ab45cb1afa82d939e54c273827918a6bbb4adf6e94de04d022dcf",
+  "flat_bytes": 208,
+  "elf": "staging/native-music-reply/reply.elf",
+  "elf_sha256": "6bfcd5ba7cfae7c92d4df47e3372b1065f2dee28f7c396b66cffa2a7f54b5d55",
+  "symbols": {
+    "music_reply_dispatch": 144703488,
+    "stock_reply_relocated": 144703644,
+    "__stock_reply_relocated_from_arm": 144703680,
+    "__code_end": 144703696
+  },
+  "source_sha256": {
+    "scripts/build_native_music_reply.py": "df6c3f072095ef684ee589a523e51e83a86ad51f1e974a4c56d701edbbbf7fb4",
+    "scripts/build_native_music_gate.py": "dd6c3c90d45fb73c8b864e4106e7a46c708273bb5a2d627447385b218e6dbcb8",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "staging/native-music-reply/reply.ld": "976c5ae693e22d928536003e0d1ae1f1b84b6269bb5558d04504031f5fa6e09c",
+    "native/avdtp-reply/reply.c": "418b0cb8bbba16ba942a88e9aa999553dcf4707e6e0b2b673def679e2645a780",
+    "native/avdtp-reply/stock-relocated.S": "56e15f3039a358c210f6e51d6108e115782cb6eaf82e33215e6865eeb8b95581"
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "/root/garmin/native/avdtp-reply/reply.c",
+      "-o",
+      "/root/garmin/staging/native-music-reply/reply.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "/root/garmin/native/avdtp-reply/stock-relocated.S",
+      "-o",
+      "/root/garmin/staging/native-music-reply/stock-relocated.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--build-id=none,-Map=/root/garmin/staging/native-music-reply/reply.map",
+      "-Wl,-T,/root/garmin/staging/native-music-reply/reply.ld",
+      "/root/garmin/staging/native-music-reply/reply.o",
+      "/root/garmin/staging/native-music-reply/stock-relocated.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-music-reply/reply.elf"
+    ],
+    [
+      "arm-linux-gnueabi-objcopy",
+      "-O",
+      "binary",
+      "/root/garmin/staging/native-music-reply/reply.elf",
+      "/root/garmin/staging/native-music-reply/reply.bin"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8a00000\nThere is 1 program header, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08a00000 0x08a00000 0x000d0 0x000d0 R E 0x10000\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text \n",
+  "BSS_bytes": 0,
+  "unresolved_symbols": [],
+  "Linux_runtime_dependencies": false,
+  "additional_patches": [
+    {
+      "address": "0x524914",
+      "original": "0020",
+      "replacement": "a07c",
+      "purpose": "preserve_original_unknown_signal_with_ldrb_r0_from_context_before_existing_strb",
+      "first_instructions": [
+        "ldrb r0, [r4, #0x12]"
+      ]
+    },
+    {
+      "address": "0x5756ac",
+      "original": "30b583b0069c1d000223002c00d00323",
+      "replacement": "08b4024b9c4608bc6047c0460000a008",
+      "purpose": "Thumb_push_r3_ldr_mov_IP_pop_r3_BX_IP_literal_preserves_four_args_and_SP_with_exact16byte_prologue_relocated",
+      "first_instructions": [
+        "push {r3}",
+        "ldr r3, [pc, #8]",
+        "mov ip, r3",
+        "pop {r3}",
+        "bx ip"
+      ]
+    }
+  ],
+  "additional_patch_fields_bytes": 18,
+  "device_io": false,
+  "firmware_modified": false,
+  "device_install_candidate": false,
+  "scope": "VM-only GeneralReject experiment preserves unknown signal, wraps reply helper with all four register arguments/SP intact, delegates known signals through exact relocated16-byte prologue. Unknown error1 returns type1 with original signal/no error body through native L2CAP send. Full deployment/actual RAM allocation/pinned code/loader/phone acceptance remain unverified."
+}

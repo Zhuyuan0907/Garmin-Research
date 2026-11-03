@@ -1,0 +1,77 @@
+{
+  "all_passed": true,
+  "source_sha256": {
+    "scripts/probe_os20_scheduled_decoder_v1.py": "41d80b3db6acf424951b6058f5db80a342e6e9f8e5077f4bd931e9d40c65a2ca",
+    "staging/native-os20-allocator-v1/native_OS20_two_allocation_prefix.json.gz": "22a35d4cf2a451981215453aca7057a773ba414cfd4ae09ffd0cd162aaae137e",
+    "staging/native-os20-scheduled-decoder-build-v1/manifest.json": "1349cd00ddf408a0e0c09b80b7532a17a27107a7e0eee03ed82bf77125945762",
+    "staging/native-os20-scheduled-decoder-build-v1/scheduled-decoder-v1.elf": "9e611e4d41790f0f2109baed246823279239267fcb27ae338e1541ef32936a8e",
+    "staging/native-sbc/decoder-armv6.elf": "2682ec7fa0868af3ccb795eede209923747ca0772f4209da8c3aaf72f36bc06a",
+    "scripts/probe_os20_allocator_v1.py": "53e9ce6a8d60b07857bc79675e52a5bd9dca887e1a77602eb9a508e94427e6eb",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "native/os20-task-bridge/scheduled_decoder_v1.c": "4f053de1f7a505d2c6b0061744e4811265f23b75c2d4c0a093c0fd61c459431e",
+    "native/os20-task-bridge/scheduled_decoder_v1.ld": "78bbf442dd34c2ae9ffcf1fa2921bcc996c5587b824a463179b566538a69472f",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "staging/native-sbc/manifest.json": "bd338047a161bbf43eb03835c08098077abc2922942acabf5ef460d063be5754",
+    "scripts/build_os20_scheduled_decoder_v1.py": "cc8e0768a6b6815f28ad8714ea0ed9d9419d3c23c7055d796c7fc01ddf481e2f",
+    "staging/native-os20-scheduled-decoder-v1/decoder-notification.json.gz": "eb0f62c2016717ef07f0ea484dba99811efc2c08368e5e3f369e0894565dfcb0",
+    "staging/native-os20-scheduled-decoder-v1/callback-root-return.json.gz": "ca81d17e30820f0e6975138345967da13520b429c0bc26f700b247bab4cc04c2",
+    "staging/native-os20-scheduled-decoder-v1/self-exit-idle.json.gz": "bd705e55026fd2b97a5dcbc0f57f9974784ecae81d10ea18ee4cbe618c96c4b8",
+    "scripts/verify_os20_scheduled_decoder_files_v2.py": "274f69c23da9c69f8b9b6debd6a7c715d26b78383e6f02835377111071e73970",
+    "scripts/verify_os20_scheduled_decoder_files_v1.py": "8a963e8d778c009e9f95ffe0c123c29da5e0489b304c58686f0629f8df9df5c8",
+    "staging/native-os20-scheduled-decoder-file-v1/terminal-tool-receipt.json": "c66534d1b4941e63256332d6c63d87891195c6636ea50fca170b940691cb2acb",
+    "staging/native-os20-scheduled-decoder-file-v1/terminal-failure.json": "f6546669e3aec1954d388dede2235ed2df2eead448b8f1315a9c92da9efa4392",
+    "staging/native-os20-scheduled-decoder-v1/guest-proof.json": "6d27f3d621ca1a5feef340797cd4e468f2630f4e3712669454c9d99fdaf5a873",
+    "staging/native-os20-scheduled-decoder-v1/terminal-tool-receipt.json": "b7c86b97c9c76120bc724b001e24b2d4cd175ddc096b88dccbf364ab17bfd7a3",
+    "staging/native-os20-scheduled-decoder-v1/reference.pcm": "77bfb20ca9959672914a2008b5c0f6893ab627c06cc42024cc275a12e4cd9d19",
+    "staging/native-os20-scheduled-decoder-v1/frame.sbc": "33b18dd87eb87ae6611ae98b13a1326b3c568efe26718432b518d452bceff14a"
+  },
+  "completed_store_scope_in_failed_v1_preserved": true,
+  "completed_prefixes": [
+    {
+      "path": "staging/native-os20-scheduled-decoder-v1/decoder-notification.json.gz",
+      "trace_prefix_exact": true,
+      "CPU_store_prefix_exact": true,
+      "whole_zones_replayed": true
+    },
+    {
+      "path": "staging/native-os20-scheduled-decoder-v1/callback-root-return.json.gz",
+      "trace_prefix_exact": true,
+      "CPU_store_prefix_exact": true,
+      "whole_zones_replayed": true
+    }
+  ],
+  "v1_failure_route": "missing stopped host-return endpoint at ABI check",
+  "totals": {
+    "CPU_stores": 12085,
+    "store_effective_addresses": 12085,
+    "whole_zones": 18,
+    "instructions": 89710,
+    "native_full_returns": 23,
+    "native_TCBs": 3,
+    "context_destinations": 4,
+    "reference_PCM_bytes": 256
+  },
+  "v2_verified_scopes": [
+    "task-specific instruction and host-sentinel ABI returns",
+    "native root/decoder job argument",
+    "PCM reference equality and whole output/input guards",
+    "native exit removes worker from all-task list",
+    "remaining OS20 adapter and descriptor registry entries",
+    "controller second WAIT still pending"
+  ],
+  "compact_and_full_restore_frames_checked_by_completed_v1": true,
+  "original_root_and_compiled_SBC_callback_executed": true,
+  "original_task_specific_POST_WAIT_ABIs_verified": true,
+  "original_kernel_self_exit_unlinked_worker": true,
+  "kernel_removed_TCB_but_OS20_adapter_and_descriptor_still_present": true,
+  "original_controller_second_WAIT_still_pending": true,
+  "store_replay_or_completed_prefix_checks_repeated_in_v2": false,
+  "guest_rerun": false,
+  "initial_ready_membership_fixture_not_real_boot": true,
+  "full_nonstore_interpreter": false,
+  "new_independent_agent_review": false,
+  "physical_heap_MMU_DAC_App_or_direct_A2DP_verified": false,
+  "device_IO": false,
+  "updated_utc": "2026-10-05T12:00:18.732383+00:00"
+}

@@ -1,0 +1,13 @@
+本輪在新的離線模型中，把原OS20入口接到實際編譯的SBC解碼工作。它是播放器入口與排程整合研究，沒有安裝到導航機，也沒有處理現場藍牙或播放聲音。
+
+沿用已完成的100-byte descriptor／4248-byte workspace配置終點，沒有重跑配置器。明示的新caller輸入是已編譯回呼、job指標、priority索引7與名稱Garmin Music；原create的後續指令建立工作，將回呼及參數寫入適配record。另由原358BF8建立controller與idle，三個TCB都由原核心建立。原caller stack也作為controller stack，避免只替換current指標卻沒有合法保存區。
+
+初始controller／idle ready狀態與鏈結仍是明示bootstrap fixture，尚未恢復完整開機流程。heap資料、ELF位置及MMU table storage也是模型輸入，MMU關閉；不能將本輪結果当作實機RAM、CPU或安裝可用證明。
+
+原controller WAIT確實切換至工作；原restore恢復初始compact frame，进入521E44 root，再從同一適配record讀取編譯回呼和job。回呼使用未修改的既有ARMv6 SBC解碼ELF，把72-byte、16kHz單聲道SBC音框解碼成256-byte PCM；結果逐byte符合上游libsbc 2.1參考解碼器。回呼由原POST通知controller，原context save／restore使controller WAIT返回0x400。controller再次WAIT後，解碼回呼恢復並完整返回，原root也完整返回原退出shim。
+
+原退出程式執行完後，工作已從核心all-task list移除，原restore进入idle工作。OS20適配槽+48、descriptor registry和heap配置仍留在此模型中，controller第二次WAIT也仍未返回；沒有把它們當作已釋放或可重新使用。這個發現影響多次啟動和停止設計：後續優先研究常駐worker的mailbox／等待循環與正式清理界限。
+
+原指令和已編譯指令共89710條、12085個CPU store，18個whole-zone快照、四個compact／extended context目的地，以及23次原核心／編譯回呼／解碼器完整ABI返回。FILEv1已完成store地址、值、preimage與兩個先前終點的prefix核對，接著因未納入host停止sentinel而在ABI檢查失敗。FILEv2只完成未驗證的ABI／結果／生命週期部分；沒有重跑guest或已完成的store/prefix範圍。這是同一研究者的檔案核對，不是新獨立agent或所有非store指令的語意重播。
+
+下一步接常駐播放器的多音框／取消流程，核對OS20適配槽與native descriptor的生命週期，再接既有音訊與GUI所有權。真實時鐘、現場A2DP、導航與音樂共存、實機App和Android Auto／原機Google Maps均尚未完成。

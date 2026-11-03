@@ -1,0 +1,28 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-marm",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pie",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I",
+    "/root/garmin/staging/native-player-inline-fields/music-session",
+    "-c",
+    "/root/garmin/staging/native-player-session-native-call/queue_call_driver.c",
+    "-o",
+    "/root/garmin/staging/native-player-session-native-call/build-v1/queue_call_driver.o"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "/root/garmin/staging/native-player-session-native-call/queue_call_driver.c: In function \u2018memcpy\u2019:\n/root/garmin/staging/native-player-session-native-call/queue_call_driver.c:62:3: error: this \u2018for\u2019 clause does not guard... [-Werror=misleading-indentation]\n   62 |   for(unsigned i=0;i<n;i++)d[i]=s[i];return destination; }\n      |   ^~~\n/root/garmin/staging/native-player-session-native-call/queue_call_driver.c:62:38: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the \u2018for\u2019\n   62 |   for(unsigned i=0;i<n;i++)d[i]=s[i];return destination; }\n      |                                      ^~~~~~\ncc1: all warnings being treated as errors\n"
+}

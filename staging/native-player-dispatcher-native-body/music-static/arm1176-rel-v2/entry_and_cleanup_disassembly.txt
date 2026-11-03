@@ -1,0 +1,471 @@
+
+/root/garmin/staging/native-player-dispatcher-native-body/music-static/arm1176-rel-v2/2-ui_music_single.o:     file format elf32-littlearm
+
+
+Disassembly of section .text.native_ui_music_attach_channel8:
+
+00000000 <native_ui_music_attach_channel8>:
+   0:	e59f3130 	ldr	r3, [pc, #304]	@ 138 <native_ui_music_attach_channel8+0x138>
+   4:	e92d40f7 	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+   8:	e1a07002 	mov	r7, r2
+   c:	e5932000 	ldr	r2, [r3]
+  10:	e59f3124 	ldr	r3, [pc, #292]	@ 13c <native_ui_music_attach_channel8+0x13c>
+  14:	e1520003 	cmp	r2, r3
+  18:	1a000042 	bne	128 <native_ui_music_attach_channel8+0x128>
+  1c:	e59f411c 	ldr	r4, [pc, #284]	@ 140 <native_ui_music_attach_channel8+0x140>
+  20:	e5943138 	ldr	r3, [r4, #312]	@ 0x138
+  24:	e3530000 	cmp	r3, #0
+  28:	0a00003e 	beq	128 <native_ui_music_attach_channel8+0x128>
+  2c:	e5942140 	ldr	r2, [r4, #320]	@ 0x140
+  30:	e594313c 	ldr	r3, [r4, #316]	@ 0x13c
+  34:	e1833002 	orr	r3, r3, r2
+  38:	e5942078 	ldr	r2, [r4, #120]	@ 0x78
+  3c:	e1833002 	orr	r3, r3, r2
+  40:	e5942000 	ldr	r2, [r4]
+  44:	e1933002 	orrs	r3, r3, r2
+  48:	13e00067 	mvnne	r0, #103	@ 0x67
+  4c:	1a00002a 	bne	fc <native_ui_music_attach_channel8+0xfc>
+  50:	e3570000 	cmp	r7, #0
+  54:	13510000 	cmpne	r1, #0
+  58:	03a03001 	moveq	r3, #1
+  5c:	13a03000 	movne	r3, #0
+  60:	e3500000 	cmp	r0, #0
+  64:	03833001 	orreq	r3, r3, #1
+  68:	e3530000 	cmp	r3, #0
+  6c:	e1a05000 	mov	r5, r0
+  70:	e1a06001 	mov	r6, r1
+  74:	1a00002d 	bne	130 <native_ui_music_attach_channel8+0x130>
+  78:	e590305c 	ldr	r3, [r0, #92]	@ 0x5c
+  7c:	e3530008 	cmp	r3, #8
+  80:	13e00068 	mvnne	r0, #104	@ 0x68
+  84:	1a00001c 	bne	fc <native_ui_music_attach_channel8+0xfc>
+  88:	e595300c 	ldr	r3, [r5, #12]
+  8c:	e3530000 	cmp	r3, #0
+  90:	0a000026 	beq	130 <native_ui_music_attach_channel8+0x130>
+  94:	e5952028 	ldr	r2, [r5, #40]	@ 0x28
+  98:	e3520000 	cmp	r2, #0
+  9c:	0a000023 	beq	130 <native_ui_music_attach_channel8+0x130>
+  a0:	e5922000 	ldr	r2, [r2]
+  a4:	e3520000 	cmp	r2, #0
+  a8:	0a000020 	beq	130 <native_ui_music_attach_channel8+0x130>
+  ac:	e5950000 	ldr	r0, [r5]
+  b0:	e12fff33 	blx	r3
+  b4:	e5953028 	ldr	r3, [r5, #40]	@ 0x28
+  b8:	e5933000 	ldr	r3, [r3]
+  bc:	e1500003 	cmp	r0, r3
+  c0:	13e00064 	mvnne	r0, #100	@ 0x64
+  c4:	1a00000c 	bne	fc <native_ui_music_attach_channel8+0xfc>
+  c8:	e1a02005 	mov	r2, r5
+  cc:	e1a01004 	mov	r1, r4
+  d0:	e59f306c 	ldr	r3, [pc, #108]	@ 144 <native_ui_music_attach_channel8+0x144>
+  d4:	e58d7000 	str	r7, [sp]
+  d8:	e2840078 	add	r0, r4, #120	@ 0x78
+  dc:	ebfffffe 	bl	0 <umcn_init>
+			dc: R_ARM_CALL	umcn_init
+  e0:	e3500000 	cmp	r0, #0
+  e4:	0a000006 	beq	104 <native_ui_music_attach_channel8+0x104>
+  e8:	e5943078 	ldr	r3, [r4, #120]	@ 0x78
+  ec:	e5942000 	ldr	r2, [r4]
+  f0:	e1933002 	orrs	r3, r3, r2
+  f4:	13a03001 	movne	r3, #1
+  f8:	1a000008 	bne	120 <native_ui_music_attach_channel8+0x120>
+  fc:	e28dd00c 	add	sp, sp, #12
+ 100:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}
+ 104:	e59f003c 	ldr	r0, [pc, #60]	@ 148 <native_ui_music_attach_channel8+0x148>
+ 108:	ebfffffe 	bl	0 <umcn_set_cleanup_bridge>
+			108: R_ARM_CALL	umcn_set_cleanup_bridge
+ 10c:	e3a03001 	mov	r3, #1
+ 110:	e3500000 	cmp	r0, #0
+ 114:	05846144 	streq	r6, [r4, #324]	@ 0x144
+ 118:	0584313c 	streq	r3, [r4, #316]	@ 0x13c
+ 11c:	0afffff6 	beq	fc <native_ui_music_attach_channel8+0xfc>
+ 120:	e5843140 	str	r3, [r4, #320]	@ 0x140
+ 124:	eafffff4 	b	fc <native_ui_music_attach_channel8+0xfc>
+ 128:	e3e00001 	mvn	r0, #1
+ 12c:	eafffff2 	b	fc <native_ui_music_attach_channel8+0xfc>
+ 130:	e3e00063 	mvn	r0, #99	@ 0x63
+ 134:	eafffff0 	b	fc <native_ui_music_attach_channel8+0xfc>
+ 138:	00000000 	.word	0x00000000
+			138: R_ARM_ABS32	native_ui_music_entry_phase
+ 13c:	55495333 	.word	0x55495333
+	...
+			140: R_ARM_ABS32	native_ui_music_resident
+			144: R_ARM_ABS32	.rodata.core
+ 148:	00000078 	.word	0x00000078
+			148: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_status:
+
+00000000 <native_ui_music_status>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e59f0014 	ldr	r0, [pc, #20]	@ 20 <native_ui_music_status+0x20>
+   8:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   c:	e3530000 	cmp	r3, #0
+  10:	0a000000 	beq	18 <native_ui_music_status+0x18>
+  14:	eafffffe 	b	0 <umc_status_read>
+			14: R_ARM_JUMP24	umc_status_read
+  18:	e3e00001 	mvn	r0, #1
+  1c:	e12fff1e 	bx	lr
+  20:	00000000 	.word	0x00000000
+			20: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_owner_ready:
+
+00000000 <native_ui_music_owner_ready>:
+   0:	e59f0018 	ldr	r0, [pc, #24]	@ 20 <native_ui_music_owner_ready+0x20>
+   4:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   8:	e3530000 	cmp	r3, #0
+   c:	0a000001 	beq	18 <native_ui_music_owner_ready+0x18>
+  10:	e2800078 	add	r0, r0, #120	@ 0x78
+  14:	eafffffe 	b	0 <umcn_owner_ready>
+			14: R_ARM_JUMP24	umcn_owner_ready
+  18:	e3e00001 	mvn	r0, #1
+  1c:	e12fff1e 	bx	lr
+  20:	00000000 	.word	0x00000000
+			20: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_service_owner:
+
+00000000 <native_ui_music_service_owner>:
+   0:	e59f0018 	ldr	r0, [pc, #24]	@ 20 <native_ui_music_service_owner+0x20>
+   4:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   8:	e3530000 	cmp	r3, #0
+   c:	0a000001 	beq	18 <native_ui_music_service_owner+0x18>
+  10:	e2800078 	add	r0, r0, #120	@ 0x78
+  14:	eafffffe 	b	0 <umcn_service_owner>
+			14: R_ARM_JUMP24	umcn_service_owner
+  18:	e3e00001 	mvn	r0, #1
+  1c:	e12fff1e 	bx	lr
+  20:	00000000 	.word	0x00000000
+			20: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_note_publication:
+
+00000000 <native_ui_music_note_publication>:
+   0:	e59f0018 	ldr	r0, [pc, #24]	@ 20 <native_ui_music_note_publication+0x20>
+   4:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   8:	e3530000 	cmp	r3, #0
+   c:	0a000001 	beq	18 <native_ui_music_note_publication+0x18>
+  10:	e2800078 	add	r0, r0, #120	@ 0x78
+  14:	eafffffe 	b	0 <umcn_note_owned_publication>
+			14: R_ARM_JUMP24	umcn_note_owned_publication
+  18:	e3e00001 	mvn	r0, #1
+  1c:	e12fff1e 	bx	lr
+  20:	00000000 	.word	0x00000000
+			20: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_after_iteration:
+
+00000000 <native_ui_music_after_iteration>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e59f0018 	ldr	r0, [pc, #24]	@ 24 <native_ui_music_after_iteration+0x24>
+   8:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   c:	e3530000 	cmp	r3, #0
+  10:	0a000001 	beq	1c <native_ui_music_after_iteration+0x1c>
+  14:	e2800078 	add	r0, r0, #120	@ 0x78
+  18:	eafffffe 	b	0 <umcn_after_native_iteration>
+			18: R_ARM_JUMP24	umcn_after_native_iteration
+  1c:	e3e00001 	mvn	r0, #1
+  20:	e12fff1e 	bx	lr
+  24:	00000000 	.word	0x00000000
+			24: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_media_begin:
+
+00000000 <native_ui_music_media_begin>:
+   0:	e1a03000 	mov	r3, r0
+   4:	e59f001c 	ldr	r0, [pc, #28]	@ 28 <native_ui_music_media_begin+0x28>
+   8:	e1a02001 	mov	r2, r1
+   c:	e590113c 	ldr	r1, [r0, #316]	@ 0x13c
+  10:	e3510000 	cmp	r1, #0
+  14:	0a000001 	beq	20 <native_ui_music_media_begin+0x20>
+  18:	e1a01003 	mov	r1, r3
+  1c:	eafffffe 	b	0 <umc_media_acquire>
+			1c: R_ARM_JUMP24	umc_media_acquire
+  20:	e3e00001 	mvn	r0, #1
+  24:	e12fff1e 	bx	lr
+  28:	00000000 	.word	0x00000000
+			28: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_media_end:
+
+00000000 <native_ui_music_media_end>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e59f0014 	ldr	r0, [pc, #20]	@ 20 <native_ui_music_media_end+0x20>
+   8:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   c:	e3530000 	cmp	r3, #0
+  10:	0a000000 	beq	18 <native_ui_music_media_end+0x18>
+  14:	eafffffe 	b	0 <umc_media_release>
+			14: R_ARM_JUMP24	umc_media_release
+  18:	e3e00001 	mvn	r0, #1
+  1c:	e12fff1e 	bx	lr
+  20:	00000000 	.word	0x00000000
+			20: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_admission:
+
+00000000 <native_ui_music_admission>:
+   0:	e59fc01c 	ldr	ip, [pc, #28]	@ 24 <native_ui_music_admission+0x24>
+   4:	e1a03000 	mov	r3, r0
+   8:	e59c013c 	ldr	r0, [ip, #316]	@ 0x13c
+   c:	e1a02001 	mov	r2, r1
+  10:	e3500000 	cmp	r0, #0
+  14:	012fff1e 	bxeq	lr
+  18:	e1a01003 	mov	r1, r3
+  1c:	e28c0078 	add	r0, ip, #120	@ 0x78
+  20:	eafffffe 	b	0 <umcn_admission>
+			20: R_ARM_JUMP24	umcn_admission
+  24:	00000000 	.word	0x00000000
+			24: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_media_current:
+
+00000000 <native_ui_music_media_current>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e59f0014 	ldr	r0, [pc, #20]	@ 20 <native_ui_music_media_current+0x20>
+   8:	e590313c 	ldr	r3, [r0, #316]	@ 0x13c
+   c:	e3530000 	cmp	r3, #0
+  10:	0a000000 	beq	18 <native_ui_music_media_current+0x18>
+  14:	eafffffe 	b	0 <umc_media_current>
+			14: R_ARM_JUMP24	umc_media_current
+  18:	e1a00003 	mov	r0, r3
+  1c:	e12fff1e 	bx	lr
+  20:	00000000 	.word	0x00000000
+			20: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_single_entry:
+
+00000000 <native_ui_music_single_entry>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e59f4050 	ldr	r4, [pc, #80]	@ 5c <native_ui_music_single_entry+0x5c>
+   8:	e59f3050 	ldr	r3, [pc, #80]	@ 60 <native_ui_music_single_entry+0x60>
+   c:	e5942000 	ldr	r2, [r4]
+  10:	e1520003 	cmp	r2, r3
+  14:	1a00000e 	bne	54 <native_ui_music_single_entry+0x54>
+  18:	e2833001 	add	r3, r3, #1
+  1c:	e5843000 	str	r3, [r4]
+  20:	ebfffffe 	bl	0 <native_app_component_entry>
+			20: R_ARM_CALL	native_app_component_entry
+  24:	e3a02001 	mov	r2, #1
+  28:	e350000b 	cmp	r0, #11
+  2c:	13500006 	cmpne	r0, #6
+  30:	e59f302c 	ldr	r3, [pc, #44]	@ 64 <native_ui_music_single_entry+0x64>
+  34:	e5832138 	str	r2, [r3, #312]	@ 0x138
+  38:	03a02001 	moveq	r2, #1
+  3c:	13a02000 	movne	r2, #0
+  40:	e5830148 	str	r0, [r3, #328]	@ 0x148
+  44:	e59f301c 	ldr	r3, [pc, #28]	@ 68 <native_ui_music_single_entry+0x68>
+  48:	e0433002 	sub	r3, r3, r2
+  4c:	e5843000 	str	r3, [r4]
+  50:	e8bd8010 	pop	{r4, pc}
+  54:	e3e00067 	mvn	r0, #103	@ 0x67
+  58:	e8bd8010 	pop	{r4, pc}
+  5c:	00000000 	.word	0x00000000
+			5c: R_ARM_ABS32	native_ui_music_entry_phase
+  60:	55495331 	.word	0x55495331
+  64:	00000000 	.word	0x00000000
+			64: R_ARM_ABS32	native_ui_music_resident
+  68:	55495334 	.word	0x55495334
+
+Disassembly of section .text.native_ui_music_gui_owner:
+
+00000000 <native_ui_music_gui_owner>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e59f4034 	ldr	r4, [pc, #52]	@ 40 <native_ui_music_gui_owner+0x40>
+   8:	e594013c 	ldr	r0, [r4, #316]	@ 0x13c
+   c:	e3500000 	cmp	r0, #0
+  10:	08bd8010 	popeq	{r4, pc}
+  14:	e5940144 	ldr	r0, [r4, #324]	@ 0x144
+  18:	e3500000 	cmp	r0, #0
+  1c:	08bd8010 	popeq	{r4, pc}
+  20:	e5943090 	ldr	r3, [r4, #144]	@ 0x90
+  24:	e5940084 	ldr	r0, [r4, #132]	@ 0x84
+  28:	e12fff33 	blx	r3
+  2c:	e5943144 	ldr	r3, [r4, #324]	@ 0x144
+  30:	e0430000 	sub	r0, r3, r0
+  34:	e16f0f10 	clz	r0, r0
+  38:	e1a002a0 	lsr	r0, r0, #5
+  3c:	e8bd8010 	pop	{r4, pc}
+  40:	00000000 	.word	0x00000000
+			40: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.request:
+
+00000000 <request>:
+   0:	e3a03000 	mov	r3, #0
+   4:	e92d4073 	push	{r0, r1, r4, r5, r6, lr}
+   8:	e1a04000 	mov	r4, r0
+   c:	e1a06001 	mov	r6, r1
+  10:	e58d3004 	str	r3, [sp, #4]
+  14:	ebfffffe 	bl	0 <request>
+			14: R_ARM_CALL	native_ui_music_gui_owner
+  18:	e3500000 	cmp	r0, #0
+  1c:	03e05004 	mvneq	r5, #4
+  20:	0a00001a 	beq	90 <request+0x90>
+  24:	e3540000 	cmp	r4, #0
+  28:	e59f0074 	ldr	r0, [pc, #116]	@ a4 <request+0xa4>
+  2c:	e28d1004 	add	r1, sp, #4
+  30:	0a000019 	beq	9c <request+0x9c>
+  34:	ebfffffe 	bl	0 <umc_request_start>
+			34: R_ARM_CALL	umc_request_start
+  38:	e1a05000 	mov	r5, r0
+  3c:	e59f4060 	ldr	r4, [pc, #96]	@ a4 <request+0xa4>
+  40:	e5943088 	ldr	r3, [r4, #136]	@ 0x88
+  44:	e5940084 	ldr	r0, [r4, #132]	@ 0x84
+  48:	e12fff33 	blx	r3
+  4c:	e5943154 	ldr	r3, [r4, #340]	@ 0x154
+  50:	e3550000 	cmp	r5, #0
+  54:	e2833001 	add	r3, r3, #1
+  58:	e5843154 	str	r3, [r4, #340]	@ 0x154
+  5c:	b5943158 	ldrlt	r3, [r4, #344]	@ 0x158
+  60:	e1a01000 	mov	r1, r0
+  64:	b2833001 	addlt	r3, r3, #1
+  68:	b5843158 	strlt	r3, [r4, #344]	@ 0x158
+  6c:	e59d3004 	ldr	r3, [sp, #4]
+  70:	e5940084 	ldr	r0, [r4, #132]	@ 0x84
+  74:	e5843150 	str	r3, [r4, #336]	@ 0x150
+  78:	e584514c 	str	r5, [r4, #332]	@ 0x14c
+  7c:	e594308c 	ldr	r3, [r4, #140]	@ 0x8c
+  80:	e12fff33 	blx	r3
+  84:	e3560000 	cmp	r6, #0
+  88:	159d3004 	ldrne	r3, [sp, #4]
+  8c:	15863000 	strne	r3, [r6]
+  90:	e1a00005 	mov	r0, r5
+  94:	e28dd008 	add	sp, sp, #8
+  98:	e8bd8070 	pop	{r4, r5, r6, pc}
+  9c:	ebfffffe 	bl	0 <umc_request_stop>
+			9c: R_ARM_CALL	umc_request_stop
+  a0:	eaffffe4 	b	38 <request+0x38>
+  a4:	00000000 	.word	0x00000000
+			a4: R_ARM_ABS32	native_ui_music_resident
+
+Disassembly of section .text.native_ui_music_request_start:
+
+00000000 <native_ui_music_request_start>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e3a00001 	mov	r0, #1
+   8:	eafffffe 	b	0 <native_ui_music_request_start>
+			8: R_ARM_JUMP24	request
+
+Disassembly of section .text.native_ui_music_request_stop:
+
+00000000 <native_ui_music_request_stop>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e3a00000 	mov	r0, #0
+   8:	eafffffe 	b	0 <native_ui_music_request_stop>
+			8: R_ARM_JUMP24	request
+
+Disassembly of section .text.native_ui_music_menu_activate:
+
+00000000 <native_ui_music_menu_activate>:
+   0:	e59f3058 	ldr	r3, [pc, #88]	@ 60 <native_ui_music_menu_activate+0x60>
+   4:	e1500003 	cmp	r0, r3
+   8:	112fff1e 	bxne	lr
+   c:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+  10:	e24dd044 	sub	sp, sp, #68	@ 0x44
+  14:	ebfffffe 	bl	0 <native_ui_music_menu_activate>
+			14: R_ARM_CALL	native_ui_music_gui_owner
+  18:	e3500000 	cmp	r0, #0
+  1c:	0a000008 	beq	44 <native_ui_music_menu_activate+0x44>
+  20:	e1a0000d 	mov	r0, sp
+  24:	ebfffffe 	bl	0 <native_ui_music_menu_activate>
+			24: R_ARM_CALL	native_ui_music_status
+  28:	e3500000 	cmp	r0, #0
+  2c:	1a000004 	bne	44 <native_ui_music_menu_activate+0x44>
+  30:	e59d3000 	ldr	r3, [sp]
+  34:	e3530007 	cmp	r3, #7
+  38:	13530001 	cmpne	r3, #1
+  3c:	1a000002 	bne	4c <native_ui_music_menu_activate+0x4c>
+  40:	ebfffffe 	bl	0 <native_ui_music_menu_activate>
+			40: R_ARM_CALL	native_ui_music_request_start
+  44:	e28dd044 	add	sp, sp, #68	@ 0x44
+  48:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+  4c:	e2433002 	sub	r3, r3, #2
+  50:	e3530003 	cmp	r3, #3
+  54:	8afffffa 	bhi	44 <native_ui_music_menu_activate+0x44>
+  58:	ebfffffe 	bl	0 <native_ui_music_menu_activate>
+			58: R_ARM_CALL	native_ui_music_request_stop
+  5c:	eafffff8 	b	44 <native_ui_music_menu_activate+0x44>
+  60:	13528000 	.word	0x13528000
+
+Disassembly of section .text.native_ui_music_menu_appearance:
+
+00000000 <native_ui_music_menu_appearance>:
+   0:	e59f3060 	ldr	r3, [pc, #96]	@ 68 <native_ui_music_menu_appearance+0x68>
+   4:	e1500003 	cmp	r0, r3
+   8:	0a000004 	beq	20 <native_ui_music_menu_appearance+0x20>
+   c:	e3a00004 	mov	r0, #4
+  10:	e12fff1e 	bx	lr
+  14:	e3a00004 	mov	r0, #4
+  18:	e28dd044 	add	sp, sp, #68	@ 0x44
+  1c:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+  20:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+  24:	e24dd044 	sub	sp, sp, #68	@ 0x44
+  28:	ebfffffe 	bl	0 <native_ui_music_menu_appearance>
+			28: R_ARM_CALL	native_ui_music_gui_owner
+  2c:	e3500000 	cmp	r0, #0
+  30:	0afffff7 	beq	14 <native_ui_music_menu_appearance+0x14>
+  34:	e1a0000d 	mov	r0, sp
+  38:	ebfffffe 	bl	0 <native_ui_music_menu_appearance>
+			38: R_ARM_CALL	native_ui_music_status
+  3c:	e3500000 	cmp	r0, #0
+  40:	1afffff3 	bne	14 <native_ui_music_menu_appearance+0x14>
+  44:	e59d0000 	ldr	r0, [sp]
+  48:	e3500005 	cmp	r0, #5
+  4c:	916f0f10 	clzls	r0, r0
+  50:	91a002a0 	lsrls	r0, r0, #5
+  54:	9a000001 	bls	60 <native_ui_music_menu_appearance+0x60>
+  58:	e2500007 	subs	r0, r0, #7
+  5c:	13a00001 	movne	r0, #1
+  60:	e1a00100 	lsl	r0, r0, #2
+  64:	eaffffeb 	b	18 <native_ui_music_menu_appearance+0x18>
+  68:	13528000 	.word	0x13528000
+
+/root/garmin/staging/native-player-dispatcher-native-body/music-static/arm1176-rel-v2/cleanup-bridge.o:     file format elf32-littlearm
+
+
+Disassembly of section .text.umcn_cleanup_bridge:
+
+00000000 <umcn_cleanup_bridge>:
+   0:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+   4:	e1a0400d 	mov	r4, sp
+   8:	e1a06000 	mov	r6, r0
+   c:	e1a0800e 	mov	r8, lr
+  10:	e24dd040 	sub	sp, sp, #64	@ 0x40
+  14:	e3cdd007 	bic	sp, sp, #7
+  18:	e59f0060 	ldr	r0, [pc, #96]	@ 80 <umcn_original_cleanup_continuation+0x1c>
+  1c:	e5900000 	ldr	r0, [r0]
+  20:	e1a01006 	mov	r1, r6
+  24:	e1a0200d 	mov	r2, sp
+  28:	e1a03008 	mov	r3, r8
+  2c:	ebfffffe 	bl	0 <umcn_cleanup_begin>
+			2c: R_ARM_CALL	umcn_cleanup_begin
+  30:	e1a00006 	mov	r0, r6
+  34:	ebfffffe 	bl	64 <umcn_original_cleanup_continuation>
+			34: R_ARM_CALL	umcn_original_cleanup_continuation
+
+00000038 <umcn_cleanup_original_full_return>:
+  38:	e1a07000 	mov	r7, r0
+  3c:	e59f003c 	ldr	r0, [pc, #60]	@ 80 <umcn_original_cleanup_continuation+0x1c>
+  40:	e5900000 	ldr	r0, [r0]
+  44:	e1a0100d 	mov	r1, sp
+  48:	e1a02006 	mov	r2, r6
+  4c:	e1a03007 	mov	r3, r7
+  50:	ebfffffe 	bl	0 <umcn_cleanup_after_original>
+			50: R_ARM_CALL	umcn_cleanup_after_original
+  54:	e1a00007 	mov	r0, r7
+  58:	e1a0d004 	mov	sp, r4
+  5c:	e8bd41f0 	pop	{r4, r5, r6, r7, r8, lr}
+  60:	e12fff1e 	bx	lr
+
+00000064 <umcn_original_cleanup_continuation>:
+  64:	e92d40f0 	push	{r4, r5, r6, r7, lr}
+  68:	e1b05000 	movs	r5, r0
+  6c:	e3b00000 	movs	r0, #0
+  70:	e1b06005 	movs	r6, r5
+  74:	e24dd01c 	sub	sp, sp, #28
+  78:	e59fc004 	ldr	ip, [pc, #4]	@ 84 <umcn_original_cleanup_continuation+0x20>
+  7c:	e12fff1c 	bx	ip
+  80:	00000000 	.word	0x00000000
+			80: R_ARM_ABS32	umcn_cleanup_bridge_context
+  84:	003b9e07 	.word	0x003b9e07

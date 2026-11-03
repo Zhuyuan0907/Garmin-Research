@@ -1,0 +1,102 @@
+{
+  "updated_utc": "2026-10-03T19:05:16.004157+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "target": "Taiwan nuvi2565RT HWID1352 SW8.00",
+  "compiler": "arm-linux-gnueabi-gcc (Debian 14.2.0-19) 14.2.0",
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-marm",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-stack-protector",
+    "-fno-pie",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--build-id=none,-Map=/root/garmin/staging/native-player-menu/player-menu.map",
+    "-Wl,-T,/root/garmin/native/player-menu/emulation.ld",
+    "/root/garmin/native/player-menu/player_menu.c",
+    "-lgcc",
+    "-o",
+    "/root/garmin/staging/native-player-menu/player-menu-armv6.elf"
+  ],
+  "source_sha256": {
+    "native/player-menu/player_menu.c": "1d00e3e2cb11c13af386db4766c8b3f259a515e8cff4ba26c0d410fc2ce1bfb8",
+    "native/player-menu/emulation.ld": "b162bf6c8ad14eddab0381cf53ec6c697fdf38863f0cd4a2914569861e821e91",
+    "scripts/build_native_player_menu.py": "fa4159c9f803d9bc66fd74c4bfd2c14368e77005fb82c9a1cf7d8ce78b6d6b15",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f"
+  },
+  "elf": "staging/native-player-menu/player-menu-armv6.elf",
+  "elf_sha256": "d74658efc26ba9f56a704516a2b1aab9233d1fc06e4d47ab7a943464cc0f29fb",
+  "flat_binary": "staging/native-player-menu/player-menu-armv6.bin",
+  "flat_binary_sha256": "f9eea08c2811b7c95686c5d8ad7d1ff9389e2f6e884d458a1a27ef0f22e85ed0",
+  "flat_binary_bytes": 1236,
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x908008c\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x09080000 0x09080000 0x004d4 0x004d4 R E 0x10000\n  LOAD           0x001000 0x09081000 0x09081000 0x00000 0x00018 RW  0x10000\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text \n   01     .bss \n",
+  "symbols": {
+    "shift": {
+      "address": 0,
+      "type": "a"
+    },
+    "native_player_menu_activate": {
+      "address": 151519232,
+      "type": "T"
+    },
+    "__aeabi_idiv0": {
+      "address": 151519364,
+      "type": "T"
+    },
+    "__aeabi_ldiv0": {
+      "address": 151519368,
+      "type": "T"
+    },
+    "native_player_menu_install": {
+      "address": 151519372,
+      "type": "T"
+    },
+    ".udivsi3_skip_div0_test": {
+      "address": 151519904,
+      "type": "t"
+    },
+    "__aeabi_uidiv": {
+      "address": 151519904,
+      "type": "T"
+    },
+    "__udivsi3": {
+      "address": 151519904,
+      "type": "T"
+    },
+    "__aeabi_uidivmod": {
+      "address": 151520396,
+      "type": "T"
+    },
+    "empty_visual": {
+      "address": 151520428,
+      "type": "t"
+    },
+    "wav_path": {
+      "address": 151520430,
+      "type": "t"
+    },
+    "native_player_menu_state": {
+      "address": 151523328,
+      "type": "B"
+    }
+  },
+  "undefined_symbols": [],
+  "synthetic_link_base": "0x09080000",
+  "device_io": false,
+  "device_files_modified": false,
+  "native_App_on_device": false,
+  "limitations": "Exact private HWID1352 SW8.00 ABI experiment, not a Garmin SDK. Synthetic address is not known free device RAM. No package, accepted loading, rendered icon, UI lifecycle or direct Bluetooth audio is established."
+}

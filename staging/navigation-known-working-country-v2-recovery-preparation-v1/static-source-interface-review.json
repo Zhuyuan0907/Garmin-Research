@@ -1,0 +1,200 @@
+{
+  "schema": "recovery-static-interface-review/v1",
+  "sources": [
+    {
+      "path": "staging/navigation-country-address-package-v2/install_native_house_supplement.py",
+      "imports": [
+        "argparse",
+        "gzip",
+        "hashlib",
+        "io",
+        "json",
+        "os",
+        "signal",
+        "sys",
+        "tempfile",
+        "device_support",
+        "native_address_layout_restore_v1",
+        "pathlib",
+        "device_support"
+      ],
+      "workspace_ROOT_assignment": false,
+      "main_source": "def main():\n    os.umask(0o077)\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--bundle', type=Path, default=Path(__file__).resolve().parent)\n    modes = parser.add_mutually_exclusive_group()\n    modes.add_argument('--install', action='store_true', help='Install this larger country house supplement candidate from a pinned accepted AP state')\n    modes.add_argument('--rollback', action='store_true', help='Restore exact smaller stock AP using one compact recipe')\n    args = parser.parse_args()\n    mode = 'install' if args.install else 'rollback' if args.rollback else 'preflight'\n    signal.signal(signal.SIGTERM, interrupt); signal.signal(signal.SIGINT, interrupt)\n    try:\n        result = execute(args.bundle, mode)\n    except BaseException as error:\n        result = {'started_at': timestamp(), 'completed_at': timestamp(), 'mode': mode, 'state': 'failed',\n                  'error': str(error) if isinstance(error, Refusal) else type(error).__name__ + ': operation failed',\n                  'physical_device_present': False, 'device_files_written': False,\n                  'device_search_verified': False, 'device_routing_verified': False, 'candidate_device_verified': False}\n    print(json.dumps(result, ensure_ascii=False))\n    return 1 if result['state'] == 'failed' else 0",
+      "function_lines": {
+        "load_manifest": [
+          110,
+          152
+        ],
+        "image_state": [
+          155,
+          167
+        ],
+        "device_preflight": [
+          170,
+          184
+        ],
+        "transaction": [
+          196,
+          289
+        ],
+        "execute": [
+          292,
+          347
+        ],
+        "main": [
+          350,
+          368
+        ]
+      },
+      "load_manifest_first_statements": [
+        "bundle = Path(bundle).resolve()",
+        "manifest_path = safe_path(bundle, 'manifest.json')",
+        "verify_file(manifest_path, MANIFEST_BYTES, MANIFEST_SHA, 'Sealed country house supplement manifest')",
+        "m = read_json(manifest_path, 1024 * 1024)",
+        "need(m.get('schema') == SCHEMA, 'Unsupported country house supplement manifest schema')",
+        "t, d, rb = (m.get('target', {}), m.get('device', {}), m.get('rollback', {}))",
+        "need(t.get('device_path') == TARGET and t.get('bundle_path') == CANDIDATE and (t.get('bytes') == CANDIDATE_BYTES) and (t.get('candidate_sha256') == CANDIDATE_SHA) and (t.get('original_bytes') == ORIGINAL_BYTES) and (t.get('original_sha256') == ORIGINAL_SHA) and (t.get('accepted_predecessors') == EXPECTED_PREDECESSORS), 'Unexpected country house supplement target/predecessor identity')",
+        "need(d.get('part_number') == '006-B1352-00' and str(d.get('software_version')) == '800' and (d.get('disk_bytes') == support.DISK_BYTES) and (d.get('unit_id_sha256') == support.UNIT_ID_SHA), 'Unexpected authorized model/software/unit/disk')",
+        "usb = d.get('usb', {})"
+      ]
+    },
+    {
+      "path": "staging/navigation-country-address-package-v2/device_support.py",
+      "imports": [
+        "argparse",
+        "contextlib",
+        "datetime",
+        "errno",
+        "fcntl",
+        "gzip",
+        "hashlib",
+        "json",
+        "os",
+        "re",
+        "signal",
+        "stat",
+        "subprocess",
+        "tempfile",
+        "xml.etree.ElementTree",
+        "pathlib"
+      ],
+      "workspace_ROOT_assignment": false,
+      "main_source": "def main():\n    os.umask(0o077)\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--bundle', type=Path, default=Path(__file__).resolve().parent, help='Directory containing manifest.json, candidate/ and rollback.json.gz')\n    modes = parser.add_mutually_exclusive_group()\n    modes.add_argument('--install', action='store_true', help='Atomically replace only the exact original Address Point IMG')\n    modes.add_argument('--rollback', action='store_true', help='Restore the exact original hash using the packaged sparse ranges')\n    args = parser.parse_args()\n    mode = 'install' if args.install else 'rollback' if args.rollback else 'preflight'\n    signal.signal(signal.SIGTERM, interrupt)\n    signal.signal(signal.SIGINT, interrupt)\n    try:\n        result = execute(args.bundle, mode)\n    except BaseException as error:\n        result = {'started_at': timestamp(), 'completed_at': timestamp(), 'mode': mode, 'state': 'failed',\n                  'error': str(error) if isinstance(error, Refusal) else type(error).__name__ + ': operation failed',\n                  'physical_device_present': False, 'device_files_written': False,\n                  'device_search_verified': False, 'device_routing_verified': False, 'candidate_device_verified': False}\n    print(json.dumps(result, ensure_ascii=False))\n    return 1 if result['state'] == 'failed' else 0",
+      "function_lines": {
+        "load_manifest": [
+          195,
+          245
+        ],
+        "image_state": [
+          266,
+          276
+        ],
+        "device_preflight": [
+          279,
+          291
+        ],
+        "transaction": [
+          318,
+          407
+        ],
+        "execute": [
+          500,
+          555
+        ],
+        "main": [
+          562,
+          581
+        ]
+      },
+      "load_manifest_first_statements": [
+        "bundle = Path(bundle).resolve()",
+        "manifest_path = safe_path(bundle, 'manifest.json')",
+        "m = read_json(manifest_path, 1024 * 1024)",
+        "need(m.get('schema') == SCHEMA, 'Unsupported candidate manifest schema')",
+        "target, device, rb = (m.get('target', {}), m.get('device', {}), m.get('rollback', {}))",
+        "need(target.get('device_path') == TARGET and target.get('bundle_path') == CANDIDATE, 'Only the original Address Point image is an allowed target')",
+        "need(target.get('bytes') == IMAGE_BYTES and target.get('original_sha256') == ORIGINAL_SHA and (target.get('candidate_sha256') == CANDIDATE_SHA), 'Unexpected address candidate identity')",
+        "need(device.get('part_number') == '006-B1352-00' and str(device.get('software_version')) == '800', 'Unsupported Garmin model/software')",
+        "need(device.get('disk_bytes') == DISK_BYTES and device.get('unit_id_sha256') == UNIT_ID_SHA, 'Unexpected disk/unit identity')"
+      ]
+    },
+    {
+      "path": "staging/navigation-country-address-package-v2/native_address_layout_restore_v1.py",
+      "imports": [
+        "gzip",
+        "hashlib",
+        "json",
+        "struct"
+      ],
+      "workspace_ROOT_assignment": false,
+      "main_source": null,
+      "function_lines": {},
+      "load_manifest_first_statements": []
+    },
+    {
+      "path": "staging/navigation-AP-coherent8K-installer-integration-preparation-v1/install_native_house_supplement.py",
+      "imports": [
+        "argparse",
+        "gzip",
+        "hashlib",
+        "io",
+        "json",
+        "os",
+        "signal",
+        "sys",
+        "tempfile",
+        "device_support",
+        "native_8k_stock_restore",
+        "native_coherent8k_rollback",
+        "coherent_header_overlay",
+        "pathlib",
+        "device_support"
+      ],
+      "workspace_ROOT_assignment": false,
+      "main_source": "def main():\n    os.umask(0o077)\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--bundle', type=Path, default=Path(__file__).resolve().parent)\n    modes = parser.add_mutually_exclusive_group()\n    modes.add_argument('--install', action='store_true', help='Install this larger country house supplement candidate from a pinned accepted AP state')\n    modes.add_argument('--rollback', action='store_true', help='Restore exact smaller stock AP using one compact recipe')\n    args = parser.parse_args()\n    mode = 'install' if args.install else 'rollback' if args.rollback else 'preflight'\n    signal.signal(signal.SIGTERM, interrupt); signal.signal(signal.SIGINT, interrupt)\n    try:\n        result = execute(args.bundle, mode)\n    except BaseException as error:\n        result = {'started_at': timestamp(), 'completed_at': timestamp(), 'mode': mode, 'state': 'failed',\n                  'error': str(error) if isinstance(error, Refusal) else type(error).__name__ + ': operation failed',\n                  'physical_device_present': False, 'device_files_written': False,\n                  'device_search_verified': False, 'device_routing_verified': False, 'candidate_device_verified': False}\n    print(json.dumps(result, ensure_ascii=False))\n    return 1 if result['state'] == 'failed' else 0",
+      "function_lines": {
+        "load_manifest": [
+          89,
+          153
+        ],
+        "image_state": [
+          156,
+          168
+        ],
+        "device_preflight": [
+          171,
+          185
+        ],
+        "transaction": [
+          198,
+          291
+        ],
+        "execute": [
+          294,
+          349
+        ],
+        "main": [
+          352,
+          370
+        ]
+      },
+      "load_manifest_first_statements": [
+        "bundle = Path(bundle).resolve()",
+        "manifest_path = safe_path(bundle, 'manifest.json')",
+        "verify_file(manifest_path, MANIFEST_BYTES, MANIFEST_SHA, 'Sealed country house supplement manifest')",
+        "m = read_json(manifest_path, 1024 * 1024)",
+        "need(m.get('schema') == SCHEMA, 'Unsupported country house supplement manifest schema')",
+        "t, d, rb = (m.get('target', {}), m.get('device', {}), m.get('rollback', {}))",
+        "need(m.get('integration_preparation_only') is False and m.get('integration_status') == 'independently_reviewed_test_control', 'Preparation-only coherent control; candidate/device work is disabled')",
+        "need(t.get('device_path') == TARGET and t.get('bundle_path') == CANDIDATE and (t.get('bytes') == CANDIDATE_BYTES) and (t.get('candidate_sha256') == CANDIDATE_SHA) and (t.get('original_bytes') == ORIGINAL_BYTES) and (t.get('original_sha256') == ORIGINAL_SHA) and (t.get('accepted_predecessors') == EXPECTED_PREDECESSORS), 'Unexpected country house supplement target/predecessor identity')",
+        "need(d.get('part_number') == '006-B1352-00' and str(d.get('software_version')) == '800' and (d.get('disk_bytes') == support.DISK_BYTES) and (d.get('unit_id_sha256') == support.UNIT_ID_SHA), 'Unexpected authorized model/software/unit/disk')"
+      ]
+    }
+  ],
+  "old_runtime_checked_against_exact_bundle_catalog": true,
+  "new_sources_checked_against_final_owner_seal": true,
+  "new_integration_preparation_only": true,
+  "old_stock_predecessor_present": true,
+  "old_candidate_not_coherent8K": true,
+  "no_producer_import_or_execution": true
+}

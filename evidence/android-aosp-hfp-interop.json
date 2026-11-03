@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "scope": "Static AOSP Android 15 HFP interop, not Pixel/OEM or hardware verification",
+  "fixed_tag": "android-15.0.0_r1",
+  "aosp_files": 3,
+  "unique_decoded_source_bytes": 245654,
+  "cumulative_decoded_source_bytes_including_manifest_selection": 253154,
+  "decoded_source_limit_bytes": 262144,
+  "sources": [
+    {
+      "repository": "platform/packages/modules/Bluetooth",
+      "resolved_tag_commit": "84f57cd7ec507a5daeaf65a692435680037987c9",
+      "source_path": "android/app/src/com/android/bluetooth/telephony/BluetoothInCallService.java",
+      "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/tags/android-15.0.0_r1/android/app/src/com/android/bluetooth/telephony/BluetoothInCallService.java",
+      "commit_url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/84f57cd7ec507a5daeaf65a692435680037987c9/android/app/src/com/android/bluetooth/telephony/BluetoothInCallService.java",
+      "archived_path": "staging/android-aosp-hfp/android-15.0.0_r1/BluetoothInCallService.java",
+      "decoded_bytes": 77804,
+      "sha256": "e544f15a0c65352b47a8a8560edc71d7e29e313c8e62aa97117db07206b48957",
+      "selected_lines": [
+        365,
+        379,
+        594,
+        984,
+        1178,
+        1293,
+        1320,
+        1357
+      ]
+    },
+    {
+      "repository": "platform/packages/services/Telecomm",
+      "resolved_tag_commit": "ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2",
+      "source_path": "src/com/android/server/telecom/InCallController.java",
+      "url": "https://android.googlesource.com/platform/packages/services/Telecomm/+/refs/tags/android-15.0.0_r1/src/com/android/server/telecom/InCallController.java",
+      "commit_url": "https://android.googlesource.com/platform/packages/services/Telecomm/+/ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2/src/com/android/server/telecom/InCallController.java",
+      "archived_path": "staging/android-aosp-hfp/android-15.0.0_r1/InCallController.java",
+      "decoded_bytes": 150708,
+      "sha256": "4b07afb089b9759e29963ad7cef6f0dc297ad43ff48f9aa2283207bad99c133e",
+      "selected_lines": [
+        343,
+        1469,
+        2148,
+        2308,
+        2373,
+        2402,
+        2440,
+        2496,
+        2604,
+        2932
+      ]
+    },
+    {
+      "repository": "platform/packages/modules/Bluetooth",
+      "resolved_tag_commit": "84f57cd7ec507a5daeaf65a692435680037987c9",
+      "source_path": "android/app/AndroidManifest.xml",
+      "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/tags/android-15.0.0_r1/android/app/AndroidManifest.xml",
+      "commit_url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/84f57cd7ec507a5daeaf65a692435680037987c9/android/app/AndroidManifest.xml",
+      "archived_path": "staging/android-aosp-hfp/android-15.0.0_r1/AndroidManifest.xml",
+      "decoded_bytes": 17142,
+      "sha256": "72e3ab5970c2f7d4d5b0a04b3ca80713419f294e12c9658163f54d59b15746df",
+      "selected_lines": [
+        34,
+        48,
+        143,
+        148
+      ]
+    }
+  ],
+  "findings": {
+    "receiver_self_managed_opt_in": {
+      "value": true,
+      "source": "AndroidManifest.xml:148"
+    },
+    "receiver_enabled_state": {
+      "manifest_default": false,
+      "runtime": null,
+      "source": "AndroidManifest.xml:146;InCallController.java:2402"
+    },
+    "initial_self_managed_send_requires": [
+      "recipient supports self-managed calls",
+      "call.visibleToInCallService()"
+    ],
+    "self_managed_call_still_binds_non_ui_if_ui_declines": {
+      "value": true,
+      "source": "InCallController.java:2148"
+    },
+    "bluetooth_onCallAdded_direct_rejection": "external call; no self-managed or URI-scheme rejection in inspected handler",
+    "basic_answer_and_hangup_capability_gate": "none in inspected answerCall/hangupCall; privileged Bluetooth-side MODIFY_PHONE_STATE remains required",
+    "silent_ringing_blocks_incoming_HFP_state_and_ringing_CLCC": "BluetoothInCallService.java:1320,1359",
+    "incoming_number_java_path": {
+      "operation": "Uri.getSchemeSpecificPart, then toaFromString, then phoneStateChanged",
+      "source": "BluetoothInCallService.java:1178,1293"
+    },
+    "clcc_number_java_path": {
+      "operation": "getSchemeSpecificPart, then PhoneNumberUtils.stripSeparators and toaFromString, then clccResponse",
+      "source": "BluetoothInCallService.java:984,1020"
+    },
+    "current_local_uri": {
+      "uri": "garminmusic://local/test",
+      "scheme_specific_part_inference": "//local/test",
+      "normalization_paths_differ": true,
+      "Android_runtime_executed": false
+    },
+    "candidate_local_uri": {
+      "uri": "garminmusic:0000",
+      "scheme_specific_part_inference": "0000",
+      "purpose": "remove authority/slash/letter address shape from both Java HFP reporting inputs",
+      "code_changed": false
+    },
+    "EXTRA_ADD_SELF_MANAGED_CALLS_TO_INCALLSERVICE": {
+      "account_setting_entry": "unknown within the three read sources",
+      "default": "unknown within the three read sources",
+      "literal_present_in_read_sources": false,
+      "observed_effective_gate": "call.visibleToInCallService()"
+    },
+    "app_comparison": {
+      "PROPERTY_SELF_MANAGED": true,
+      "PROPERTY_IS_EXTERNAL_CALL": false,
+      "connection_capabilities": 0,
+      "address_presentation": "PRESENTATION_ALLOWED",
+      "ConnectionService_protected_by": "BIND_TELECOM_CONNECTION_SERVICE",
+      "receiver_metadata_belongs_to": "system Bluetooth InCallService, not this app ConnectionService"
+    }
+  },
+  "unknown": [
+    "Pixel actual Android/OEM Bluetooth package and feature flags",
+    "effective call visibility/account-extra policy",
+    "runtime enabled Bluetooth InCallService and successful binding/profile proxy",
+    "PhoneNumberUtils implementation output/TOA and actual native CLIP/CLCC bytes",
+    "Garmin interpretation of caller identity and HFP interop",
+    "hardware SCO routing and audible playback"
+  ],
+  "next_test_order": [
+    "local incoming state and Garmin incoming UI/answer/hangup callbacks",
+    "exact selected call endpoint and actual SCO output",
+    "explicit manual bounded HFP audio playback; no A2DP claim"
+  ],
+  "candidate_uri_change_does_not_fix": [
+    "call visibility",
+    "Bluetooth ICS runtime enable/bind",
+    "silent-ringing policy",
+    "HFP/SCO connection or route",
+    "MediaPlayer audio routing",
+    "Garmin-native A2DP or app loading"
+  ],
+  "activity": {
+    "application_source_modified": false,
+    "APK_modified": false,
+    "host_cases_rerun": false,
+    "phone_or_Bluetooth_or_device_IO": false,
+    "audio_playback": false,
+    "native_execution_or_compile": false
+  }
+}

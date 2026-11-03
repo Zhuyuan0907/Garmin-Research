@@ -1,0 +1,1498 @@
+{
+  "updated_utc": "2026-10-04T05:44:11.450126+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/analyze_native_kernel_context.py": "62325fba9af6338f5289af927faf81b723a04d3a0a89d6d4cba8a8a28dd4aab2",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "complete_bounded_normal_context_CFG_count": 5,
+  "functions": {
+    "0x2fcf44": {
+      "entry": "0x2fcf44",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x2fcf44",
+          "mode": "ARM",
+          "instruction": "ldr r2, [pc, #0xe0]",
+          "literal_address": "0x2fd02c",
+          "literal_value": "0xf09094"
+        },
+        {
+          "address": "0x2fcf48",
+          "mode": "ARM",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "address": "0x2fcf4c",
+          "mode": "ARM",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x2fcf50",
+          "mode": "ARM",
+          "instruction": "bne #0x2fce38",
+          "known_external_tail": "original interrupt-marker post, separately scoped; current runtime fixture marker is zero"
+        },
+        {
+          "address": "0x2fcf54",
+          "mode": "ARM",
+          "instruction": "sub sp, sp, #8"
+        },
+        {
+          "address": "0x2fcf58",
+          "mode": "ARM",
+          "instruction": "mrs r2, apsr"
+        },
+        {
+          "address": "0x2fcf5c",
+          "mode": "ARM",
+          "instruction": "orr r3, r2, #0x80"
+        },
+        {
+          "address": "0x2fcf60",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "address": "0x2fcf64",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "address": "0x2fcf68",
+          "mode": "ARM",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x2fcf6c",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x2fcf64"
+        },
+        {
+          "address": "0x2fcf6c",
+          "mode": "Thumb",
+          "instruction": "str r2, [sp, #4]"
+        },
+        {
+          "address": "0x2fcf6e",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r0, #4]"
+        },
+        {
+          "address": "0x2fcf70",
+          "mode": "Thumb",
+          "instruction": "orrs r1, r2"
+        },
+        {
+          "address": "0x2fcf72",
+          "mode": "Thumb",
+          "instruction": "adds r3, r1, #0"
+        },
+        {
+          "address": "0x2fcf74",
+          "mode": "Thumb",
+          "instruction": "movs r2, #8"
+        },
+        {
+          "address": "0x2fcf76",
+          "mode": "Thumb",
+          "instruction": "bics r3, r2"
+        },
+        {
+          "address": "0x2fcf78",
+          "mode": "Thumb",
+          "instruction": "str r3, [r0, #4]"
+        },
+        {
+          "address": "0x2fcf7a",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fcf7c",
+          "mode": "Thumb",
+          "instruction": "movs r3, #0x81"
+        },
+        {
+          "address": "0x2fcf7e",
+          "mode": "Thumb",
+          "instruction": "ands r3, r2"
+        },
+        {
+          "address": "0x2fcf80",
+          "mode": "Thumb",
+          "instruction": "bne #0x2fd016"
+        },
+        {
+          "address": "0x2fcf82",
+          "mode": "Thumb",
+          "instruction": "lsrs r3, r1, #4"
+        },
+        {
+          "address": "0x2fcf84",
+          "mode": "Thumb",
+          "instruction": "bhs #0x2fcf9e"
+        },
+        {
+          "address": "0x2fcf86",
+          "mode": "Thumb",
+          "instruction": "lsrs r3, r2, #2"
+        },
+        {
+          "address": "0x2fcf88",
+          "mode": "Thumb",
+          "instruction": "blo #0x2fcf92"
+        },
+        {
+          "address": "0x2fcf8a",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r0]"
+        },
+        {
+          "address": "0x2fcf8c",
+          "mode": "Thumb",
+          "instruction": "ands r3, r1"
+        },
+        {
+          "address": "0x2fcf8e",
+          "mode": "Thumb",
+          "instruction": "bne #0x2fcf9e"
+        },
+        {
+          "address": "0x2fcf90",
+          "mode": "Thumb",
+          "instruction": "b #0x2fd016"
+        },
+        {
+          "address": "0x2fcf92",
+          "mode": "Thumb",
+          "instruction": "lsrs r3, r2, #4"
+        },
+        {
+          "address": "0x2fcf94",
+          "mode": "Thumb",
+          "instruction": "blo #0x2fd016"
+        },
+        {
+          "address": "0x2fcf96",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r0]"
+        },
+        {
+          "address": "0x2fcf98",
+          "mode": "Thumb",
+          "instruction": "ands r1, r3"
+        },
+        {
+          "address": "0x2fcf9a",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r1"
+        },
+        {
+          "address": "0x2fcf9c",
+          "mode": "Thumb",
+          "instruction": "bne #0x2fd016"
+        },
+        {
+          "address": "0x2fcf9e",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x11]"
+        },
+        {
+          "address": "0x2fcfa0",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x8c]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcfa2",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "address": "0x2fcfa4",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r2, #0x11]"
+        },
+        {
+          "address": "0x2fcfa6",
+          "mode": "Thumb",
+          "instruction": "cmp r1, r3"
+        },
+        {
+          "address": "0x2fcfa8",
+          "mode": "Thumb",
+          "instruction": "bhs #0x2fcffa"
+        },
+        {
+          "address": "0x2fcfaa",
+          "mode": "Thumb",
+          "instruction": "adr r3, #4"
+        },
+        {
+          "address": "0x2fcfac",
+          "mode": "Thumb",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x2fcfb0",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x2fcfaa"
+        },
+        {
+          "address": "0x2fcfb0",
+          "mode": "ARM",
+          "instruction": "mov r3, sp"
+        },
+        {
+          "address": "0x2fcfb4",
+          "mode": "ARM",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "address": "0x2fcfb8",
+          "mode": "ARM",
+          "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+        },
+        {
+          "address": "0x2fcfbc",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #0x52"
+        },
+        {
+          "address": "0x2fcfc0",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r3}"
+        },
+        {
+          "address": "0x2fcfc4",
+          "mode": "ARM",
+          "instruction": "mrs r3, apsr"
+        },
+        {
+          "address": "0x2fcfc8",
+          "mode": "ARM",
+          "instruction": "orr r3, r3, #0x20"
+        },
+        {
+          "address": "0x2fcfcc",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r3}"
+        },
+        {
+          "address": "0x2fcfd0",
+          "mode": "ARM",
+          "instruction": "str sp, [r2, #0xc]"
+        },
+        {
+          "address": "0x2fcfd4",
+          "mode": "ARM",
+          "instruction": "mov r3, #0"
+        },
+        {
+          "address": "0x2fcfd8",
+          "mode": "ARM",
+          "instruction": "strb r3, [r2, #0x17]"
+        },
+        {
+          "address": "0x2fcfdc",
+          "mode": "ARM",
+          "instruction": "lsr r3, sp, #3"
+        },
+        {
+          "address": "0x2fcfe0",
+          "mode": "ARM",
+          "instruction": "lsl sp, r3, #3"
+        },
+        {
+          "address": "0x2fcfe4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "address": "0x2fcfe8",
+          "mode": "ARM",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x2fcfec",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x2fcfe4"
+        },
+        {
+          "address": "0x2fcfec",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": "0x2fcfee",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x40]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcff0",
+          "mode": "Thumb",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "address": "0x2fcff2",
+          "mode": "Thumb",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x2fcff4",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fcff6",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4"
+        },
+        {
+          "address": "0x2fcffa",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x34]",
+          "literal_address": "0x2fd030",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fcffc",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x11]"
+        },
+        {
+          "address": "0x2fcffe",
+          "mode": "Thumb",
+          "instruction": "mov ip, r1"
+        },
+        {
+          "address": "0x2fd000",
+          "mode": "Thumb",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "address": "0x2fd002",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd004",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x2fd006",
+          "mode": "Thumb",
+          "instruction": "beq #0x2fd00e"
+        },
+        {
+          "address": "0x2fd008",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r2, #0x11]"
+        },
+        {
+          "address": "0x2fd00a",
+          "mode": "Thumb",
+          "instruction": "cmp r3, ip"
+        },
+        {
+          "address": "0x2fd00c",
+          "mode": "Thumb",
+          "instruction": "bls #0x2fd000"
+        },
+        {
+          "address": "0x2fd00e",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": "0x2fd010",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x2fd012",
+          "mode": "Thumb",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x2fd014",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x2fd016",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x2fd018",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "address": "0x2fd01a",
+          "mode": "Thumb",
+          "instruction": "bx r2",
+          "explicit_interworking_target": "0x2fd01c",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x2fd018"
+        },
+        {
+          "address": "0x2fd01c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "address": "0x2fd020",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "address": "0x2fd024",
+          "mode": "ARM",
+          "instruction": "bx r2",
+          "explicit_interworking_target": "0x2fd028",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x2fd020"
+        },
+        {
+          "address": "0x2fd028",
+          "mode": "Thumb",
+          "instruction": "add sp, #8"
+        },
+        {
+          "address": "0x2fd02a",
+          "mode": "Thumb",
+          "instruction": "bx lr",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_native_context_dispatch": [
+        "0x2fd02a"
+      ],
+      "known_external_tails": [
+        "0x2fce38"
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "callees_not_recursively_executed": true
+    },
+    "0x2fd034": {
+      "entry": "0x2fd034",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x2fd034",
+          "mode": "Thumb",
+          "instruction": "sub sp, #8"
+        },
+        {
+          "address": "0x2fd036",
+          "mode": "Thumb",
+          "instruction": "adr r3, #4"
+        },
+        {
+          "address": "0x2fd038",
+          "mode": "Thumb",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x2fd03c",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x2fd036"
+        },
+        {
+          "address": "0x2fd03c",
+          "mode": "ARM",
+          "instruction": "mrs r2, apsr"
+        },
+        {
+          "address": "0x2fd040",
+          "mode": "ARM",
+          "instruction": "orr r3, r2, #0x80"
+        },
+        {
+          "address": "0x2fd044",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "address": "0x2fd048",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "address": "0x2fd04c",
+          "mode": "ARM",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x2fd050",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x2fd048"
+        },
+        {
+          "address": "0x2fd050",
+          "mode": "Thumb",
+          "instruction": "str r2, [sp, #4]"
+        },
+        {
+          "address": "0x2fd052",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x80]",
+          "literal_address": "0x2fd0d4",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fd054",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd056",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r2, #4]"
+        },
+        {
+          "address": "0x2fd058",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x2fd05a",
+          "mode": "Thumb",
+          "instruction": "bne #0x2fd0b2"
+        },
+        {
+          "address": "0x2fd05c",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r2]"
+        },
+        {
+          "address": "0x2fd05e",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x2fd060",
+          "mode": "Thumb",
+          "instruction": "movs r0, #2"
+        },
+        {
+          "address": "0x2fd062",
+          "mode": "Thumb",
+          "instruction": "strb r0, [r2, #0x16]"
+        },
+        {
+          "address": "0x2fd064",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x70]",
+          "literal_address": "0x2fd0d8",
+          "literal_value": "0xffffffff"
+        },
+        {
+          "address": "0x2fd066",
+          "mode": "Thumb",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "address": "0x2fd068",
+          "mode": "Thumb",
+          "instruction": "adr r0, #0"
+        },
+        {
+          "address": "0x2fd06a",
+          "mode": "Thumb",
+          "instruction": "bx r0",
+          "explicit_interworking_target": "0x2fd06c",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x2fd068"
+        },
+        {
+          "address": "0x2fd06c",
+          "mode": "ARM",
+          "instruction": "mov r0, sp"
+        },
+        {
+          "address": "0x2fd070",
+          "mode": "ARM",
+          "instruction": "push {r0, lr}"
+        },
+        {
+          "address": "0x2fd074",
+          "mode": "ARM",
+          "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+        },
+        {
+          "address": "0x2fd078",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #0x2c"
+        },
+        {
+          "address": "0x2fd07c",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x2fd080",
+          "mode": "ARM",
+          "instruction": "mrs r0, apsr"
+        },
+        {
+          "address": "0x2fd084",
+          "mode": "ARM",
+          "instruction": "orr r0, r0, #0x20"
+        },
+        {
+          "address": "0x2fd088",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x2fd08c",
+          "mode": "ARM",
+          "instruction": "str sp, [r2, #0xc]"
+        },
+        {
+          "address": "0x2fd090",
+          "mode": "ARM",
+          "instruction": "mov r0, #0"
+        },
+        {
+          "address": "0x2fd094",
+          "mode": "ARM",
+          "instruction": "strb r0, [r2, #0x17]"
+        },
+        {
+          "address": "0x2fd098",
+          "mode": "ARM",
+          "instruction": "lsr r0, sp, #3"
+        },
+        {
+          "address": "0x2fd09c",
+          "mode": "ARM",
+          "instruction": "lsl sp, r0, #3"
+        },
+        {
+          "address": "0x2fd0a0",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #1"
+        },
+        {
+          "address": "0x2fd0a4",
+          "mode": "ARM",
+          "instruction": "bx r0",
+          "explicit_interworking_target": "0x2fd0a8",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x2fd0a0"
+        },
+        {
+          "address": "0x2fd0a8",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4"
+        },
+        {
+          "address": "0x2fd0ac",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x24]",
+          "literal_address": "0x2fd0d4",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x2fd0ae",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x2fd0b0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r2, #4]"
+        },
+        {
+          "address": "0x2fd0b2",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r2, #8]"
+        },
+        {
+          "address": "0x2fd0b4",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "address": "0x2fd0b6",
+          "mode": "Thumb",
+          "instruction": "beq #0x2fd0bc"
+        },
+        {
+          "address": "0x2fd0b8",
+          "mode": "Thumb",
+          "instruction": "movs r3, #2"
+        },
+        {
+          "address": "0x2fd0ba",
+          "mode": "Thumb",
+          "instruction": "ands r3, r0"
+        },
+        {
+          "address": "0x2fd0bc",
+          "mode": "Thumb",
+          "instruction": "str r3, [r2, #4]"
+        },
+        {
+          "address": "0x2fd0be",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "address": "0x2fd0c0",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "address": "0x2fd0c2",
+          "mode": "Thumb",
+          "instruction": "bx r2",
+          "explicit_interworking_target": "0x2fd0c4",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x2fd0c0"
+        },
+        {
+          "address": "0x2fd0c4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "address": "0x2fd0c8",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "address": "0x2fd0cc",
+          "mode": "ARM",
+          "instruction": "bx r2",
+          "explicit_interworking_target": "0x2fd0d0",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x2fd0c8"
+        },
+        {
+          "address": "0x2fd0d0",
+          "mode": "Thumb",
+          "instruction": "add sp, #8"
+        },
+        {
+          "address": "0x2fd0d2",
+          "mode": "Thumb",
+          "instruction": "bx lr",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_native_context_dispatch": [
+        "0x2fd0d2"
+      ],
+      "known_external_tails": [],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "callees_not_recursively_executed": true
+    },
+    "0x358ec4": {
+      "entry": "0x358ec4",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "address": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip",
+          "explicit_interworking_target": "0x358ecc",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x358ec4"
+        },
+        {
+          "address": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce",
+          "direct_call": "0x20b8ce"
+        },
+        {
+          "address": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]",
+          "literal_address": "0x358f10",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "address": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "address": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "address": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "address": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "address": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc",
+          "explicit_interworking_target": "0x358ee0",
+          "target_mode": "ARM",
+          "verified_target_producer": "architectural Thumb PC"
+        },
+        {
+          "address": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4",
+          "direct_call": "0x20ebd4"
+        },
+        {
+          "address": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "address": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "address": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "address": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "address": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "address": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "address": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "address": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "address": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "address": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr",
+          "resolved_terminal": "saved_native_task_context_dispatch"
+        }
+      ],
+      "returns_or_native_context_dispatch": [
+        "0x358f08"
+      ],
+      "known_external_tails": [],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "callees_not_recursively_executed": true
+    },
+    "0x358e70": {
+      "entry": "0x358e70",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x358e70",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x4c]",
+          "literal_address": "0x358ec0",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x358e72",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x358e74",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r0"
+        },
+        {
+          "address": "0x358e76",
+          "mode": "Thumb",
+          "instruction": "beq #0x358ebc"
+        },
+        {
+          "address": "0x358e78",
+          "mode": "Thumb",
+          "instruction": "adr r1, #0"
+        },
+        {
+          "address": "0x358e7a",
+          "mode": "Thumb",
+          "instruction": "bx r1",
+          "explicit_interworking_target": "0x358e7c",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x358e78"
+        },
+        {
+          "address": "0x358e7c",
+          "mode": "ARM",
+          "instruction": "mov r1, sp"
+        },
+        {
+          "address": "0x358e80",
+          "mode": "ARM",
+          "instruction": "push {r1, lr}"
+        },
+        {
+          "address": "0x358e84",
+          "mode": "ARM",
+          "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+        },
+        {
+          "address": "0x358e88",
+          "mode": "ARM",
+          "instruction": "add r1, pc, #0x2c"
+        },
+        {
+          "address": "0x358e8c",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r1}"
+        },
+        {
+          "address": "0x358e90",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "address": "0x358e94",
+          "mode": "ARM",
+          "instruction": "orr r1, r1, #0x20"
+        },
+        {
+          "address": "0x358e98",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r1}"
+        },
+        {
+          "address": "0x358e9c",
+          "mode": "ARM",
+          "instruction": "str sp, [r0, #0xc]"
+        },
+        {
+          "address": "0x358ea0",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "address": "0x358ea4",
+          "mode": "ARM",
+          "instruction": "strb r1, [r0, #0x17]"
+        },
+        {
+          "address": "0x358ea8",
+          "mode": "ARM",
+          "instruction": "lsr r1, sp, #3"
+        },
+        {
+          "address": "0x358eac",
+          "mode": "ARM",
+          "instruction": "lsl sp, r1, #3"
+        },
+        {
+          "address": "0x358eb0",
+          "mode": "ARM",
+          "instruction": "add r1, pc, #1"
+        },
+        {
+          "address": "0x358eb4",
+          "mode": "ARM",
+          "instruction": "bx r1",
+          "explicit_interworking_target": "0x358eb8",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x358eb0"
+        },
+        {
+          "address": "0x358eb8",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4"
+        },
+        {
+          "address": "0x358ebc",
+          "mode": "Thumb",
+          "instruction": "bx lr",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_native_context_dispatch": [
+        "0x358ebc"
+      ],
+      "known_external_tails": [],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "callees_not_recursively_executed": true
+    },
+    "0x300d08": {
+      "entry": "0x300d08",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x300d08",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, r7, lr}"
+        },
+        {
+          "address": "0x300d0a",
+          "mode": "Thumb",
+          "instruction": "sub sp, #0xc"
+        },
+        {
+          "address": "0x300d0c",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #8]"
+        },
+        {
+          "address": "0x300d0e",
+          "mode": "Thumb",
+          "instruction": "add r7, sp, #0"
+        },
+        {
+          "address": "0x300d10",
+          "mode": "Thumb",
+          "instruction": "str r1, [r7, #8]"
+        },
+        {
+          "address": "0x300d12",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xbc]",
+          "literal_address": "0x300dd0",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x300d14",
+          "mode": "Thumb",
+          "instruction": "ldr r6, [r1]"
+        },
+        {
+          "address": "0x300d16",
+          "mode": "Thumb",
+          "instruction": "str r6, [r7, #4]"
+        },
+        {
+          "address": "0x300d18",
+          "mode": "Thumb",
+          "instruction": "adds r5, r0, #0"
+        },
+        {
+          "address": "0x300d1a",
+          "mode": "Thumb",
+          "instruction": "adds r0, #0xc"
+        },
+        {
+          "address": "0x300d1c",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r6, #0x11]"
+        },
+        {
+          "address": "0x300d1e",
+          "mode": "Thumb",
+          "instruction": "mov ip, r2"
+        },
+        {
+          "address": "0x300d20",
+          "mode": "Thumb",
+          "instruction": "adds r2, r0, #0"
+        },
+        {
+          "address": "0x300d22",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r2]"
+        },
+        {
+          "address": "0x300d24",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x300d26",
+          "mode": "Thumb",
+          "instruction": "beq #0x300d30"
+        },
+        {
+          "address": "0x300d28",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r0, #4]"
+        },
+        {
+          "address": "0x300d2a",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r3, #0x11]"
+        },
+        {
+          "address": "0x300d2c",
+          "mode": "Thumb",
+          "instruction": "cmp ip, r3"
+        },
+        {
+          "address": "0x300d2e",
+          "mode": "Thumb",
+          "instruction": "bhs #0x300d20"
+        },
+        {
+          "address": "0x300d30",
+          "mode": "Thumb",
+          "instruction": "str r0, [r7]"
+        },
+        {
+          "address": "0x300d32",
+          "mode": "Thumb",
+          "instruction": "str r7, [r2]"
+        },
+        {
+          "address": "0x300d34",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r6]"
+        },
+        {
+          "address": "0x300d36",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1]"
+        },
+        {
+          "address": "0x300d38",
+          "mode": "Thumb",
+          "instruction": "str r5, [r6]"
+        },
+        {
+          "address": "0x300d3a",
+          "mode": "Thumb",
+          "instruction": "movs r2, #4"
+        },
+        {
+          "address": "0x300d3c",
+          "mode": "Thumb",
+          "instruction": "strb r2, [r6, #0x16]"
+        },
+        {
+          "address": "0x300d3e",
+          "mode": "Thumb",
+          "instruction": "adr r0, #4"
+        },
+        {
+          "address": "0x300d40",
+          "mode": "Thumb",
+          "instruction": "bx r0",
+          "explicit_interworking_target": "0x300d44",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x300d3e"
+        },
+        {
+          "address": "0x300d44",
+          "mode": "ARM",
+          "instruction": "mov r0, sp"
+        },
+        {
+          "address": "0x300d48",
+          "mode": "ARM",
+          "instruction": "push {r0, lr}"
+        },
+        {
+          "address": "0x300d4c",
+          "mode": "ARM",
+          "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+        },
+        {
+          "address": "0x300d50",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #0x40"
+        },
+        {
+          "address": "0x300d54",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x300d58",
+          "mode": "ARM",
+          "instruction": "mrs r0, apsr"
+        },
+        {
+          "address": "0x300d5c",
+          "mode": "ARM",
+          "instruction": "orr r0, r0, #0x20"
+        },
+        {
+          "address": "0x300d60",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x300d64",
+          "mode": "ARM",
+          "instruction": "str sp, [r6, #0xc]"
+        },
+        {
+          "address": "0x300d68",
+          "mode": "ARM",
+          "instruction": "mov r0, #0"
+        },
+        {
+          "address": "0x300d6c",
+          "mode": "ARM",
+          "instruction": "strb r0, [r6, #0x17]"
+        },
+        {
+          "address": "0x300d70",
+          "mode": "ARM",
+          "instruction": "lsr r0, sp, #3"
+        },
+        {
+          "address": "0x300d74",
+          "mode": "ARM",
+          "instruction": "lsl sp, r0, #3"
+        },
+        {
+          "address": "0x300d78",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #1"
+        },
+        {
+          "address": "0x300d7c",
+          "mode": "ARM",
+          "instruction": "bx r0",
+          "explicit_interworking_target": "0x300d80",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x300d78"
+        },
+        {
+          "address": "0x300d80",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x18]"
+        },
+        {
+          "address": "0x300d82",
+          "mode": "Thumb",
+          "instruction": "lsrs r0, r0, #0x1d"
+        },
+        {
+          "address": "0x300d84",
+          "mode": "Thumb",
+          "instruction": "blo #0x300d94"
+        },
+        {
+          "address": "0x300d86",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r4, #0x11]"
+        },
+        {
+          "address": "0x300d88",
+          "mode": "Thumb",
+          "instruction": "cmp ip, r3"
+        },
+        {
+          "address": "0x300d8a",
+          "mode": "Thumb",
+          "instruction": "bhs #0x300d94"
+        },
+        {
+          "address": "0x300d8c",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "address": "0x300d8e",
+          "mode": "Thumb",
+          "instruction": "mov r1, ip"
+        },
+        {
+          "address": "0x300d90",
+          "mode": "Thumb",
+          "instruction": "bl #0x358f14",
+          "direct_call": "0x358f14"
+        },
+        {
+          "address": "0x300d94",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4"
+        },
+        {
+          "address": "0x300d98",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r7, #4]"
+        },
+        {
+          "address": "0x300d9a",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x300d9c",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "address": "0x300d9e",
+          "mode": "Thumb",
+          "instruction": "beq #0x300dc6"
+        },
+        {
+          "address": "0x300da0",
+          "mode": "Thumb",
+          "instruction": "adds r1, r5, #0"
+        },
+        {
+          "address": "0x300da2",
+          "mode": "Thumb",
+          "instruction": "adds r1, #0xc"
+        },
+        {
+          "address": "0x300da4",
+          "mode": "Thumb",
+          "instruction": "adds r0, r1, #0"
+        },
+        {
+          "address": "0x300da6",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0]"
+        },
+        {
+          "address": "0x300da8",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1, #4]"
+        },
+        {
+          "address": "0x300daa",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r6"
+        },
+        {
+          "address": "0x300dac",
+          "mode": "Thumb",
+          "instruction": "bne #0x300da4"
+        },
+        {
+          "address": "0x300dae",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": "0x300db0",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": "0x300db2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x18]"
+        },
+        {
+          "address": "0x300db4",
+          "mode": "Thumb",
+          "instruction": "lsrs r0, r0, #0x1d"
+        },
+        {
+          "address": "0x300db6",
+          "mode": "Thumb",
+          "instruction": "blo #0x300dc4"
+        },
+        {
+          "address": "0x300db8",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "address": "0x300dba",
+          "mode": "Thumb",
+          "instruction": "bl #0x358f74",
+          "direct_call": "0x358f74"
+        },
+        {
+          "address": "0x300dbe",
+          "mode": "Thumb",
+          "instruction": "adds r0, r6, #0"
+        },
+        {
+          "address": "0x300dc0",
+          "mode": "Thumb",
+          "instruction": "bl #0x358e70",
+          "direct_call": "0x358e70"
+        },
+        {
+          "address": "0x300dc4",
+          "mode": "Thumb",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "address": "0x300dc6",
+          "mode": "Thumb",
+          "instruction": "add sp, #0xc"
+        },
+        {
+          "address": "0x300dc8",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6, r7}"
+        },
+        {
+          "address": "0x300dca",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0x300dcc",
+          "mode": "Thumb",
+          "instruction": "bx r3",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_native_context_dispatch": [
+        "0x300dcc"
+      ],
+      "known_external_tails": [],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "callees_not_recursively_executed": true
+    }
+  },
+  "verified_interworking_transitions": 17,
+  "original_normal_post": "0x2fcf44",
+  "original_wait": "0x2fd034",
+  "original_context_restore": "0x358ec4",
+  "original_contention": "0x300d08",
+  "native_saved_context_TCB_offset": 12,
+  "restore_dispatches_original_saved_PC_and_CPSR_with_banked_SP_LR": true,
+  "initial_CPU_mode_must_be_declared_input": true,
+  "actual_IRQ_exit_or_full_dispatcher_App_runtime_verified": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "limits": "Five bounded mixed ARM/Thumb normal-context function CFGs with explicit PC arithmetic and original native frame stores/restore verified. Normal post alternate marker tail2FCE38 is a known external tail, not unresolved or recursively recovered IRQ exit. Native restore terminal dispatches saved task PC/CPSR through banked registers rather than returning to its caller. Full boot/task inputs, actual timer/dispatcher events, priority propagation callees and device behavior require separate runtime evidence."
+}

@@ -1,0 +1,229 @@
+{
+  "updated_utc": "2026-10-03T02:12:06.375600+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "load_base": 146800640,
+  "elf": "staging/native-source-worker/source-worker-armv6.elf",
+  "elf_sha256": "b1c12263bc048df4e00d38140aafd628bb8998dba004fb9c5732154486305a2c",
+  "flat_binary": "staging/native-source-worker/source-worker-armv6.bin",
+  "flat_binary_sha256": "5830c6b5fe3eb0172780247ec1e26f58b69af5232045492e8ae9fc15d207bb94",
+  "flat_binary_bytes": 1104,
+  "symbols": {
+    "memory_output_control": {
+      "address": 142885248,
+      "type": "A"
+    },
+    "owned_media_control": {
+      "address": 142886080,
+      "type": "A"
+    },
+    "media_coordinator_init": {
+      "address": 145752388,
+      "type": "A"
+    },
+    "media_coordinator_cancel": {
+      "address": 145753216,
+      "type": "A"
+    },
+    "media_coordinator_pump": {
+      "address": 145753300,
+      "type": "A"
+    },
+    "coordinator_state": {
+      "address": 145760256,
+      "type": "A"
+    },
+    "source_worker_api": {
+      "address": 146800640,
+      "type": "T"
+    },
+    "lock": {
+      "address": 146800660,
+      "type": "t"
+    },
+    "unlock": {
+      "address": 146800672,
+      "type": "t"
+    },
+    "post": {
+      "address": 146800684,
+      "type": "t"
+    },
+    "source_worker_cancel": {
+      "address": 146800744,
+      "type": "T"
+    },
+    "source_worker_shutdown": {
+      "address": 146800832,
+      "type": "T"
+    },
+    "source_worker_boot": {
+      "address": 146800900,
+      "type": "T"
+    },
+    "source_worker_entry": {
+      "address": 146801052,
+      "type": "T"
+    },
+    "source_worker_published": {
+      "address": 146801400,
+      "type": "T"
+    },
+    "source_worker_completed": {
+      "address": 146801504,
+      "type": "T"
+    },
+    "source_publication_hook": {
+      "address": 146801592,
+      "type": "T"
+    },
+    "source_publication_after_original": {
+      "address": 146801620,
+      "type": "T"
+    },
+    "source_publication_original": {
+      "address": 146801644,
+      "type": "T"
+    },
+    "source_completion_hook": {
+      "address": 146801660,
+      "type": "T"
+    },
+    "source_completion_after_original": {
+      "address": 146801676,
+      "type": "T"
+    },
+    "source_completion_original": {
+      "address": 146801708,
+      "type": "T"
+    },
+    "__source_code_end": {
+      "address": 146801744,
+      "type": "T"
+    },
+    "__source_state_start": {
+      "address": 146808832,
+      "type": "B"
+    },
+    "descriptor": {
+      "address": 146808832,
+      "type": "b"
+    },
+    "source_worker_state": {
+      "address": 146808852,
+      "type": "B"
+    },
+    "__source_state_end": {
+      "address": 146808904,
+      "type": "B"
+    },
+    "__source_stack_start": {
+      "address": 146817024,
+      "type": "B"
+    },
+    "source_stack": {
+      "address": 146817024,
+      "type": "b"
+    },
+    "__source_stack_end": {
+      "address": 146833408,
+      "type": "B"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/root/garmin/native/sbc-prototype",
+      "-I/root/garmin/staging/native-source-worker",
+      "-c",
+      "/root/garmin/native/sbc-prototype/source_worker.c",
+      "-o",
+      "/root/garmin/staging/native-source-worker/source_worker.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/root/garmin/native/sbc-prototype",
+      "-I/root/garmin/staging/native-source-worker",
+      "-c",
+      "/root/garmin/native/sbc-prototype/source_event_hooks.S",
+      "-o",
+      "/root/garmin/staging/native-source-worker/source_event_hooks.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-source-worker/source_worker.map",
+      "-Wl,-T,/root/garmin/staging/native-source-worker/source_worker.ld",
+      "/root/garmin/staging/native-source-worker/source_worker.o",
+      "/root/garmin/staging/native-source-worker/source_event_hooks.o",
+      "-o",
+      "/root/garmin/staging/native-source-worker/source-worker-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8c00104\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08c00000 0x08c00000 0x00450 0x08000 RWE 0x10000\n  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .bss .source_stack \n   01     \n",
+  "absolute_private_imports": {
+    "media_coordinator_init": 145752388,
+    "media_coordinator_pump": 145753300,
+    "media_coordinator_cancel": 145753216,
+    "coordinator_state": 145760256,
+    "owned_media_control": 142886080,
+    "memory_output_control": 142885248
+  },
+  "owned_elf_sha256_required": "eb5f93ca2656c6b9130778d53ef960ef925d9e61e84177a6a5259feaa7cb8262",
+  "coordinator_elf_sha256_required": "0f78fc5338c1b653ba94af1987201a8af411d29cfcc45f2f2cd9e511e456e91f",
+  "publication_entry": 142619596,
+  "publication_displaced_hex": "f3472de90050a0e1",
+  "publication_resume": 142619604,
+  "completion_entry": 3907068,
+  "completion_displaced_hex": "f0b5050000202e0087b0",
+  "completion_resume": 3907079,
+  "preallocated_stack_bytes": 16384,
+  "source_sha256": {
+    "native/sbc-prototype/source_worker.c": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+    "native/sbc-prototype/source_event_hooks.S": "845730e6ecca4aa9941772d35a67979a2f0cd64b8c3d4b5b5e17ff9adef6ced2",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "staging/native-source-worker/source_worker_imports.h": "874b26207a99d2261356fbd47a3501b5de01c453cade84fccc0c80cb3a2bfb08",
+    "staging/native-source-worker/source_worker.ld": "1b3f445283cb33622580e1f7b9e803c3dee127df876ccaecdec79b26b7b0bdb6",
+    "scripts/build_native_source_worker.py": "9de9fb2ec5dd530967ce2b715de7d8aefb4ac1d71065c3ff83dc9ea5987b7d5a",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844",
+    "staging/native-media-coordinator/manifest.json": "f8a8cf87e2e99fd6b95166a203b4969a8ac9cbf7ae5c37114a7facd0ddf4e97f"
+  },
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Offline virtual private imports with emulator-only entry patches. Original kernel task/event integration; whole-packet after-return publication and full source-completion after-return notifications; fifth argument/result preserved. Durable private pending events persist through synchronous native calls. Modules/stack pinned; no accepted package/native UI/actual SEP/phone/speaker/IRQ/DAC/navigation/Android Auto/Google Maps or safe unload. Inherited arbitration/power/heap/physical inventory/peripheral frame fixtures remain; not seamless/realtime infinite playback."
+}

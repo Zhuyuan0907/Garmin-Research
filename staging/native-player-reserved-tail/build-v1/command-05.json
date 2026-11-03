@@ -1,0 +1,11 @@
+{
+  "command": [
+    "arm-linux-gnueabi-objdump",
+    "-d",
+    "--disassemble=resident_loader_read_gate",
+    "/root/garmin/staging/native-player-reserved-tail/build-v1/reserved-tail-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "\n/root/garmin/staging/native-player-reserved-tail/build-v1/reserved-tail-EMULATION-ONLY.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n02f96098 <resident_loader_read_gate>:\n 2f96098:\te3510000 \tcmp\tr1, #0\n 2f9609c:\t13500000 \tcmpne\tr0, #0\n 2f960a0:\t0a00000a \tbeq\t2f960d0 <resident_loader_read_gate+0x38>\n 2f960a4:\te590c018 \tldr\tip, [r0, #24]\n 2f960a8:\te59f2028 \tldr\tr2, [pc, #40]\t@ 2f960d8 <resident_loader_read_gate+0x40>\n 2f960ac:\te15c0002 \tcmp\tip, r2\n 2f960b0:\t1a000006 \tbne\t2f960d0 <resident_loader_read_gate+0x38>\n 2f960b4:\te590201c \tldr\tr2, [r0, #28]\n 2f960b8:\te3520603 \tcmp\tr2, #3145728\t@ 0x300000\n 2f960bc:\t1a000003 \tbne\t2f960d0 <resident_loader_read_gate+0x38>\n 2f960c0:\te59f2014 \tldr\tr2, [pc, #20]\t@ 2f960dc <resident_loader_read_gate+0x44>\n 2f960c4:\te042200c \tsub\tr2, r2, ip\n 2f960c8:\te580201c \tstr\tr2, [r0, #28]\n 2f960cc:\tea0027d1 \tb\t2fa0018 <__stock_reader_tail_relocated_from_arm>\n 2f960d0:\te3a00004 \tmov\tr0, #4\n 2f960d4:\te12fff1e \tbx\tlr\n 2f960d8:\t02d4bb74 \t.word\t0x02d4bb74\n 2f960dc:\t02f96000 \t.word\t0x02f96000\n",
+  "stderr": ""
+}

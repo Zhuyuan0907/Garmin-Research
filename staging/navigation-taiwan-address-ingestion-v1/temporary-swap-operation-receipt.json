@@ -1,0 +1,29 @@
+{
+  "scope": "Temporary memory support for one Taiwan address-node extraction; no USB/device/map/daemon/fstab edits",
+  "created_commands": [
+    "fallocate -l 2G staging/navigation-taiwan-address-ingestion-v1/temporary-ingestion.swap",
+    "chmod 600 staging/navigation-taiwan-address-ingestion-v1/temporary-ingestion.swap",
+    "mkswap staging/navigation-taiwan-address-ingestion-v1/temporary-ingestion.swap",
+    "swapon staging/navigation-taiwan-address-ingestion-v1/temporary-ingestion.swap"
+  ],
+  "create_tool_terminal_chunk": "55de26",
+  "create_exit_code": 0,
+  "allocated_bytes": 2147483648,
+  "cleanup_started_utc": "2026-10-06T17:37:04.822327+00:00",
+  "cleanup_finished_utc": "2026-10-06T17:37:12.172942+00:00",
+  "swapoff_command": [
+    "swapoff",
+    "/root/garmin/staging/navigation-taiwan-address-ingestion-v1/temporary-ingestion.swap"
+  ],
+  "swapoff_exit_code": 0,
+  "swapoff_stderr": "",
+  "proc_swaps_before_cleanup": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority\n/dev/zram0                              partition\t2097136\t\t1855872\t\t100\n/root/garmin/staging/navigation-taiwan-address-ingestion-v1/temporary-ingestion.swap file\t\t2097136\t\t423792\t\t-2\n",
+  "proc_swaps_after_cleanup": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority\n/dev/zram0                              partition\t2097136\t\t1855360\t\t100\n",
+  "temporary_swap_disabled": true,
+  "temporary_file_removed": true,
+  "fstab_unchanged_during_cleanup": true,
+  "no_fstab_edit_command_run": true,
+  "source_extraction_terminal_exit": 0,
+  "source_tool_session": 66003,
+  "source_terminal_chunk": "4afb5c"
+}

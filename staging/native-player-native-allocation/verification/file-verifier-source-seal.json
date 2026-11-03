@@ -1,0 +1,19 @@
+{
+  "static_preparation_only": true,
+  "guest_execution": false,
+  "VM_import_or_instantiation": false,
+  "sources": {
+    "staging/native-player-native-allocation/verification/file_verifier_common.py": "01b0305cd39fe2514cab7f28d3adae00b9784f471f78572e17314884f86e63cc",
+    "staging/native-player-native-allocation/verification/run_public_heap_v1_file_verifications.py": "045eea894ecf01ffdf11c52908c303e64c6d16d83760e7b271e6c6126237ddee",
+    "staging/native-player-native-allocation/verification/verify_heap_constructor_observed_prefix.py": "716f6310d0bf1337751d104002b7a3b6086876b24f099ca23f44b1d1644e2980",
+    "staging/native-player-native-allocation/verification/verify_public_heap_cold_prefix.py": "913110f4b3fcce0f44fea1d6b25f6191f581f10c6fdec623c2eeb263ed5ceb2c",
+    "staging/native-player-native-allocation/verification/verify_public_heap_partial_journals.py": "308416f0ea27003294a483d8824889377a36e316f5aae9358d81c4fb9f947753"
+  },
+  "command": "staging/unicorn-stream-venv/bin/python staging/native-player-native-allocation/verification/run_public_heap_v1_file_verifications.py",
+  "output_paths": [
+    "staging/native-player-native-allocation/verification/native-heap-constructor-observed-prefix.json",
+    "staging/native-player-native-allocation/verification/native-public-heap-cold-prefix.json",
+    "staging/native-player-native-allocation/verification/native-public-heap-partial-journals.json"
+  ],
+  "scope": "original V1 session87914 only; preserve failed/missing inherited terminal actual-after scope and nonnative allocator return"
+}

@@ -1,0 +1,546 @@
+{
+  "updated_utc": "2026-10-04T16:01:21.138264+00:00",
+  "source_sha256": {
+    "staging/native-player-global-subobject/gui-static/next-sfs-inline-setter/record_next_sfs_inline_setter_contract.py": "0d74783721d0839d5b01be826e3b1a70a961779ab863a911389730671e2dad72",
+    "staging/native-player-global-subobject/runtime-v2/terminal-probe.json": "e81bbb4e03c85ab080810706021a2875dcd794e369a051cec62f6270e0b1e75d",
+    "staging/native-player-global-subobject/runtime-v2/terminal-tool-receipt.json": "53ac204438080f10be0b2bccf5635d66b6dc4872226ce4b837cfb64a9753f611",
+    "staging/native-player-global-subobject/runtime-v2/runner-at-run.py": "7e21ac4a6e6e94b810051b1f1f801179f96110e152f6caedfea501d58c788727",
+    "staging/native-player-global-subobject/runtime-v2/inputs-before-run.json": "90e7ceb4d50ae21d905697557ab1fb8acc0370f6523697bc6a6f40b745167412",
+    "staging/native-player-global-subobject/gui-static/global_subobject_observer_v2.py": "e1a25494f632d73b5154d0be6546fc1d8eed5fcee4f57fc1b7c6c20976205dd3",
+    "staging/native-player-global-subobject/gui-static/global-subobject-observer-v2-contract.json": "9d2b9613037778c3d8e2989a6ee9ca7647036164e26e07a4ae76023294f78898",
+    "staging/native-player-settings-scope/gui-static/settings_actor_observer.py": "009cee2eee03684a2a95a70d92cada3e9dba94795bfc4a0270dc74262bd32513",
+    "scripts/probe_native_dispatcher_global_subobject_v2.py": "7e21ac4a6e6e94b810051b1f1f801179f96110e152f6caedfea501d58c788727",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-global-subobject/runtime-v2/terminal-metadata.json": "14bf6e0adfaad1e073fa2154d1732c976fc68ee7e7b0f993cd47154245f8922e"
+  },
+  "exact_target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "analysis": "complete bounded original inline9-byte initializer and two exact SFS caller shapes",
+  "guest_execution": false,
+  "VM_import_or_instantiation": false,
+  "device_io": false,
+  "new_helper_generated": false,
+  "actual_terminal": {
+    "session_id": 30399,
+    "exit_code": 1,
+    "chunk": "6ed1b9",
+    "registers": {
+      "r0": "0x3aaf81c",
+      "r1": "0xb14",
+      "r2": "0x0",
+      "r3": "0x3",
+      "lr": "0x26dd05",
+      "pc": "0x44f76d0",
+      "sp": "0x8804048"
+    },
+    "original_store_seen": {
+      "PC": "0x44f76d0",
+      "load_PC": "0xe1b29c",
+      "Thumb": true,
+      "address": "0x3aaf81c",
+      "size": 4,
+      "value": 0,
+      "before_hex": "00000000",
+      "opcode_hex": "0260",
+      "original_instruction": "str r2, [r0]",
+      "running_task": "0x8804fb8",
+      "processor_mode": 31
+    },
+    "actual_page_before_and_three_store_history_replay_SHA": "50480f2a2036a95a7888b04b034a5b7d50a92b08dc112184bc138b75caa6d86b",
+    "whole_page_observer_scope_gap": true,
+    "firmware_fault_proven": false
+  },
+  "runtime_qualification": {
+    "original_caller_stack_v2_passed": true,
+    "first_global_vtable_store_passed": true,
+    "outer_and_inner_once_returned": true,
+    "global_stores_completed": 1,
+    "total_expected_global_stores": 3,
+    "base_returned": false,
+    "SFS_returned": false,
+    "first_inline_initializer_return_observed": false,
+    "second_inline_initializer_entered": false,
+    "settings_raw_executed": false,
+    "settings_default_executed": false,
+    "native_memzero_executed": false,
+    "fullbody": false,
+    "foreground": false,
+    "physicalApp": false
+  },
+  "original_copy_provenance": {
+    "copy": {
+      "call": 966050,
+      "runtime_start": 71303168,
+      "runtime_end": 74501656,
+      "size": 3198488,
+      "conditional": true,
+      "load_start": 13777868,
+      "load_end": 16976356,
+      "relocation_delta": 57525300
+    },
+    "startup_conditional": true,
+    "physical_startup_flag_proven": false,
+    "runtime_leaf_start": "0x44f76ce",
+    "runtime_leaf_end_exclusive": "0x44f76d8",
+    "load_start": "0xe1b29a",
+    "load_end_exclusive": "0xe1b2a4",
+    "exact10byte_leaf_SHA": "2e868fcd021818c664a012dcff060d00d143856059127f14e90cedc5f31228c9",
+    "runtime_actual_store_bytes_match_original": true
+  },
+  "complete_leaf_CFG": {
+    "entry": "0x44f76ce",
+    "Thumb": true,
+    "all5_instructions": [
+      {
+        "PC": "0x44f76ce",
+        "load_PC": "0xe1b29a",
+        "opcode_hex": "0022",
+        "instruction": "movs r2, #0",
+        "size": 2,
+        "successors": [
+          "0x44f76d0"
+        ],
+        "returns_to": null
+      },
+      {
+        "PC": "0x44f76d0",
+        "load_PC": "0xe1b29c",
+        "opcode_hex": "0260",
+        "instruction": "str r2, [r0]",
+        "size": 2,
+        "successors": [
+          "0x44f76d2"
+        ],
+        "returns_to": null
+      },
+      {
+        "PC": "0x44f76d2",
+        "load_PC": "0xe1b29e",
+        "opcode_hex": "4260",
+        "instruction": "str r2, [r0, #4]",
+        "size": 2,
+        "successors": [
+          "0x44f76d4"
+        ],
+        "returns_to": null
+      },
+      {
+        "PC": "0x44f76d4",
+        "load_PC": "0xe1b2a0",
+        "opcode_hex": "0272",
+        "instruction": "strb r2, [r0, #8]",
+        "size": 2,
+        "successors": [
+          "0x44f76d6"
+        ],
+        "returns_to": null
+      },
+      {
+        "PC": "0x44f76d6",
+        "load_PC": "0xe1b2a2",
+        "opcode_hex": "7047",
+        "instruction": "bx lr",
+        "size": 2,
+        "successors": [],
+        "returns_to": "actual LR"
+      }
+    ],
+    "direct_or_indirect_callees": [],
+    "stack_delta": 0,
+    "return_behavior": "BX LR, r0/r1/r3/LR/SP unchanged; r2=0, MOVS updates native flags",
+    "original_ARM_veneer": {
+      "entry": "0x462fa4",
+      "opcode_hex": "04f01fe5",
+      "instruction": "ldr pc, [pc, #-4]",
+      "literal": "0x462fa8",
+      "literal_value": "0x44f76cf",
+      "mode_change": "Thumb BLX to ARM veneer, LDR-PC bit1 re-enters Thumb leaf, BXLR returns original Thumb caller"
+    }
+  },
+  "exact_source_dataflow": {
+    "captured_containing_function": {
+      "entry": "0x26dce8",
+      "SP": 142622864,
+      "LR": 2547293,
+      "arguments": [
+        "0x3aaed08",
+        "0x1",
+        "0x8824320",
+        "0x3"
+      ],
+      "original_call": {
+        "call": "0x26de58",
+        "opcode_hex": "fff746ff",
+        "instruction": "bl #0x26dce8",
+        "caller_Thumb": true,
+        "target_register": null
+      },
+      "returned": false
+    },
+    "native_object_base": "0x3aaed08",
+    "prologue_R4_literal": {
+      "PC": "0x26dcee",
+      "literal": "0x26e0b8",
+      "value": "0xfffff4ec",
+      "signed_value": -2836
+    },
+    "first_call": "26DCFA RSBS R1,R4,#0 givesB14;26DCFE ADD R0,R0,R1 givesBASE+B14; actual26DD00 BLX",
+    "after_first_return": "26DD04 ADD R4,R0,R4 recoversBASE because leaf preservesR0",
+    "second_call": "26DCF8 R5=59;26DCFC LSL5 producesB20;26DD06 R0=R4+R5 yieldsBASE+B20; actual26DD08 BLX",
+    "after_second_return": "26DD0C R1=R5=B20;26DD0E R4=R0-R1 recoversBASE;26DD10 R5=BASE+B20",
+    "original_callsite_instructions": [
+      {
+        "PC": "0x26dce8",
+        "opcode_hex": "f0b5",
+        "instruction": "push {r4, r5, r6, r7, lr}"
+      },
+      {
+        "PC": "0x26dcea",
+        "opcode_hex": "0b27",
+        "instruction": "movs r7, #0xb"
+      },
+      {
+        "PC": "0x26dcec",
+        "opcode_hex": "3f02",
+        "instruction": "lsls r7, r7, #8"
+      },
+      {
+        "PC": "0x26dcee",
+        "opcode_hex": "f24c",
+        "instruction": "ldr r4, [pc, #0x3c8]"
+      },
+      {
+        "PC": "0x26dcf0",
+        "opcode_hex": "0026",
+        "instruction": "movs r6, #0"
+      },
+      {
+        "PC": "0x26dcf2",
+        "opcode_hex": "c119",
+        "instruction": "adds r1, r0, r7"
+      },
+      {
+        "PC": "0x26dcf4",
+        "opcode_hex": "8db0",
+        "instruction": "sub sp, #0x34"
+      },
+      {
+        "PC": "0x26dcf6",
+        "opcode_hex": "0e74",
+        "instruction": "strb r6, [r1, #0x10]"
+      },
+      {
+        "PC": "0x26dcf8",
+        "opcode_hex": "5925",
+        "instruction": "movs r5, #0x59"
+      },
+      {
+        "PC": "0x26dcfa",
+        "opcode_hex": "6142",
+        "instruction": "rsbs r1, r4, #0"
+      },
+      {
+        "PC": "0x26dcfc",
+        "opcode_hex": "6d01",
+        "instruction": "lsls r5, r5, #5"
+      },
+      {
+        "PC": "0x26dcfe",
+        "opcode_hex": "4018",
+        "instruction": "adds r0, r0, r1"
+      },
+      {
+        "PC": "0x26dd00",
+        "opcode_hex": "f5f150e9",
+        "instruction": "blx #0x462fa4"
+      },
+      {
+        "PC": "0x26dd04",
+        "opcode_hex": "0419",
+        "instruction": "adds r4, r0, r4"
+      },
+      {
+        "PC": "0x26dd06",
+        "opcode_hex": "6019",
+        "instruction": "adds r0, r4, r5"
+      },
+      {
+        "PC": "0x26dd08",
+        "opcode_hex": "f5f14ce9",
+        "instruction": "blx #0x462fa4"
+      },
+      {
+        "PC": "0x26dd0c",
+        "opcode_hex": "2900",
+        "instruction": "movs r1, r5"
+      },
+      {
+        "PC": "0x26dd0e",
+        "opcode_hex": "441a",
+        "instruction": "subs r4, r0, r1"
+      },
+      {
+        "PC": "0x26dd10",
+        "opcode_hex": "6518",
+        "instruction": "adds r5, r4, r1"
+      },
+      {
+        "PC": "0x26dd12",
+        "opcode_hex": "e719",
+        "instruction": "adds r7, r4, r7"
+      },
+      {
+        "PC": "0x26dd14",
+        "opcode_hex": "2e73",
+        "instruction": "strb r6, [r5, #0xc]"
+      },
+      {
+        "PC": "0x26dd16",
+        "opcode_hex": "7e63",
+        "instruction": "str r6, [r7, #0x34]"
+      },
+      {
+        "PC": "0x26dd18",
+        "opcode_hex": "b121",
+        "instruction": "movs r1, #0xb1"
+      },
+      {
+        "PC": "0x26dd1a",
+        "opcode_hex": "2e76",
+        "instruction": "strb r6, [r5, #0x18]"
+      },
+      {
+        "PC": "0x26dd1c",
+        "opcode_hex": "0901",
+        "instruction": "lsls r1, r1, #4"
+      },
+      {
+        "PC": "0x26dd1e",
+        "opcode_hex": "2000",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "PC": "0x26dd20",
+        "opcode_hex": "6e76",
+        "instruction": "strb r6, [r5, #0x19]"
+      },
+      {
+        "PC": "0x26dd22",
+        "opcode_hex": "edf0e8eb",
+        "instruction": "blx #0x35b4f4"
+      }
+    ]
+  },
+  "minimal_next_scope": {
+    "actor": "Only actualD8804FB8/currentF09090/captured native26DCE8→26DE58 frame and its declared live native stack",
+    "input": "Capture real wholepage/each9-byte beforebytes; preserve original mapped bytes and native object/literal provenance; no reset or scalar seed",
+    "calls": [
+      {
+        "original_call": "0x26dd00",
+        "call_opcode_hex": "f5f150e9",
+        "veneer": "0x462fa4",
+        "ARM_literal": "0x462fa8",
+        "leaf_Thumb_entry": "0x44f76ce",
+        "LR": "0x26dd05",
+        "continuation": "0x26dd04",
+        "entry_SP": "captured26DCE8entrySP-72",
+        "actual30399_SP": "0x8804048",
+        "native_entry_r0": "0x3aaf81c",
+        "native_entry_r1": "0xb14",
+        "stores": [
+          {
+            "PC": "0x44f76d0",
+            "load_PC": "0xe1b29c",
+            "address": "0x3aaf81c",
+            "size": 4,
+            "value": 0,
+            "source_register": "r2",
+            "opcode_hex": "0260"
+          },
+          {
+            "PC": "0x44f76d2",
+            "load_PC": "0xe1b29e",
+            "address": "0x3aaf820",
+            "size": 4,
+            "value": 0,
+            "source_register": "r2",
+            "opcode_hex": "4260"
+          },
+          {
+            "PC": "0x44f76d4",
+            "load_PC": "0xe1b2a0",
+            "address": "0x3aaf824",
+            "size": 1,
+            "value": 0,
+            "source_register": "r2",
+            "opcode_hex": "0272"
+          }
+        ],
+        "leaf_callees": [],
+        "leaf_stack_bytes": 0,
+        "actual_return_required": {
+          "R0": "0x3aaf81c",
+          "R1": "0xb14",
+          "R2": 0,
+          "SP": "same native entrySP",
+          "mode": "Thumb"
+        },
+        "runtime_completion_observed": false
+      },
+      {
+        "original_call": "0x26dd08",
+        "call_opcode_hex": "f5f14ce9",
+        "veneer": "0x462fa4",
+        "ARM_literal": "0x462fa8",
+        "leaf_Thumb_entry": "0x44f76ce",
+        "LR": "0x26dd0d",
+        "continuation": "0x26dd0c",
+        "entry_SP": "captured26DCE8entrySP-72",
+        "actual30399_SP": "0x8804048",
+        "native_entry_r0": "0x3aaf828",
+        "native_entry_r1": "0xb20",
+        "stores": [
+          {
+            "PC": "0x44f76d0",
+            "load_PC": "0xe1b29c",
+            "address": "0x3aaf828",
+            "size": 4,
+            "value": 0,
+            "source_register": "r2",
+            "opcode_hex": "0260"
+          },
+          {
+            "PC": "0x44f76d2",
+            "load_PC": "0xe1b29e",
+            "address": "0x3aaf82c",
+            "size": 4,
+            "value": 0,
+            "source_register": "r2",
+            "opcode_hex": "4260"
+          },
+          {
+            "PC": "0x44f76d4",
+            "load_PC": "0xe1b2a0",
+            "address": "0x3aaf830",
+            "size": 1,
+            "value": 0,
+            "source_register": "r2",
+            "opcode_hex": "0272"
+          }
+        ],
+        "leaf_callees": [],
+        "leaf_stack_bytes": 0,
+        "actual_return_required": {
+          "R0": "0x3aaf828",
+          "R1": "0xb20",
+          "R2": 0,
+          "SP": "same native entrySP",
+          "mode": "Thumb"
+        },
+        "runtime_completion_observed": false
+      }
+    ],
+    "exact_total_original_stores": 6,
+    "pending_ledger": "Capture native26DD00/26DD08 call→actualARMveneer→actualThumbleaf; only own three store events in PC/addr/size/value order, then exact actual caller continuation/SP/R0 before any next call",
+    "mode_guard": "ActualCPSR at veneer must ARM; at leaf/store/return must Thumb; never assume inherited default mode",
+    "unchanged_parent_guards": "Delegate every other wholepage write, native settings/raw300A0A/30092A epilogue, FP/GIR/font/cache and global-object observers",
+    "forbidden": "No generic zero-store or arbitrary9-byte setter allowance, host invoke, seeded state, stub return, guest register/context writes",
+    "fields_order": [
+      {
+        "offset": "B10",
+        "address": "0x3aaf818",
+        "size": 1,
+        "writer": "0x26dcf6",
+        "status": "already original parent direct-store observed"
+      },
+      {
+        "offset": "B14",
+        "address": "0x3aaf81c",
+        "size": 4,
+        "writer": "0x44f76d0",
+        "status": "first call first store observed"
+      },
+      {
+        "offset": "B18",
+        "address": "0x3aaf820",
+        "size": 4,
+        "writer": "0x44f76d2",
+        "status": "prospective"
+      },
+      {
+        "offset": "B1C",
+        "address": "0x3aaf824",
+        "size": 1,
+        "writer": "0x44f76d4",
+        "status": "prospective, byte only"
+      },
+      {
+        "offset": "B20",
+        "address": "0x3aaf828",
+        "size": 4,
+        "writer": "0x44f76d0",
+        "status": "second call prospective"
+      },
+      {
+        "offset": "B24",
+        "address": "0x3aaf82c",
+        "size": 4,
+        "writer": "0x44f76d2",
+        "status": "second call prospective"
+      },
+      {
+        "offset": "B28",
+        "address": "0x3aaf830",
+        "size": 1,
+        "writer": "0x44f76d4",
+        "status": "second call prospective, byte only"
+      }
+    ],
+    "padding_excluded": [
+      "B11..B13",
+      "B1D..B1F",
+      "B29..B2B"
+    ],
+    "subsequent_native_parent_sequence": "Original26DD14 byteB2C,26DD16 wordB34,26DD1A byteB38,26DD20 byteB39, then originalARM35B4F4 clearsBASE..BASE+B10 exclusive; inherited frozen parent scope stays unchanged"
+  },
+  "pure_host_static_controls": [
+    {
+      "kind": "static9byte_shape",
+      "target": "0x3aaf81c",
+      "before_hex": "000000000000000000",
+      "after_hex": "000000000000000000",
+      "neighboring_padding_admitted": false,
+      "guest_execution": false
+    },
+    {
+      "kind": "static9byte_shape",
+      "target": "0x3aaf81c",
+      "before_hex": "112233445566778899",
+      "after_hex": "000000000000000000",
+      "neighboring_padding_admitted": false,
+      "guest_execution": false
+    },
+    {
+      "kind": "static9byte_shape",
+      "target": "0x3aaf828",
+      "before_hex": "000000000000000000",
+      "after_hex": "000000000000000000",
+      "neighboring_padding_admitted": false,
+      "guest_execution": false
+    },
+    {
+      "kind": "static9byte_shape",
+      "target": "0x3aaf828",
+      "before_hex": "112233445566778899",
+      "after_hex": "000000000000000000",
+      "neighboring_padding_admitted": false,
+      "guest_execution": false
+    }
+  ],
+  "all_static_shape_controls_passed": true,
+  "no_existing_frozen_sources_or_canonical_modified": true
+}

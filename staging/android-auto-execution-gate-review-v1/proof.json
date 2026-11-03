@@ -1,0 +1,307 @@
+{
+  "schema": "android-auto-execution-gate-review-v1",
+  "recorded_utc": "2026-10-08T01:50:24.039771+00:00",
+  "scope": "Finite cross-record dependency review of eight existing text/JSON metadata files; no replay of historical instruction execution.",
+  "review_completed": true,
+  "review_checks": 9,
+  "source_file_count": 8,
+  "source_content_bytes": 145297,
+  "per_file_limit": 1048576,
+  "source_sha256": {
+    "evidence/native-marker-physical-original-control-20261005T044607Z.json": "8406d05e5383ffcc0b56d1229f3c8a61ca5afbfbfdc1a691d1eca1c3a9e08ea8",
+    "evidence/native-marker-physical-positive-20261005.json": "4db25ef5492ac960f2ed3106a32717e98709381b45e4187f709ef2f4103e84f7",
+    "evidence/native-marker-original-voice-restore-20261005.json": "cce8f3b7b99abe4d15044b4cb77bae12b0f3cdefa724fb486196a97faad10177",
+    "evidence/firmware-analysis/native-component-loader.json": "a170122ffc1b7c1233c0d3df27c383fe8d3086c98f7836b99cc7475af2481f94",
+    "evidence/firmware-analysis/original-tts-module-emulation.json": "81cb6c0fc9a14d328b41e39e949852b36938a48c0276fe4da409cdc8af4ea2a9",
+    "staging/native-player-menu-loaded/manifest.json": "a2f2d7791f6c69f5545cd31b7eb15e832b6953014cc739e47a0c9f5fb3f4eeca",
+    "staging/native-music-loaded-controller-lifecycle-readonly-20261007-v1/proof.json": "451d9217e8d6faa832fb6cff574ba165db52e853f9297da3008c5d2a3cbc7271",
+    "staging/native-player-inline-fields/gui-static/inline-fields-observer-contract.json": "40dbc448fcc5eba142a0e9c128aac35cbfa2cd290a00bca7de7fa571fa0f6c02"
+  },
+  "source_bytes": {
+    "evidence/native-marker-physical-original-control-20261005T044607Z.json": 825,
+    "evidence/native-marker-physical-positive-20261005.json": 1081,
+    "evidence/native-marker-original-voice-restore-20261005.json": 2957,
+    "evidence/firmware-analysis/native-component-loader.json": 46548,
+    "evidence/firmware-analysis/original-tts-module-emulation.json": 27349,
+    "staging/native-player-menu-loaded/manifest.json": 40320,
+    "staging/native-music-loaded-controller-lifecycle-readonly-20261007-v1/proof.json": 3980,
+    "staging/native-player-inline-fields/gui-static/inline-fields-observer-contract.json": 22237
+  },
+  "reviewed_metadata_instruction_annotations_not_used_as_new_code_analysis": true,
+  "runtime_tests_run": false,
+  "original_code_files_opened": false,
+  "original_instruction_disassembly_or_execution_performed": false,
+  "native_guest_executed": false,
+  "ARM_crosscompile": false,
+  "device_IO": false,
+  "audio_IO": false,
+  "public_port_112_modified_or_rerun": false,
+  "provenance_gap": {
+    "selected_old_positive_path": "evidence/native-marker-physical-positive-20261005.json",
+    "selected_old_positive_marker": "M7Q9",
+    "selected_eight_file_chain_does_not_independently_represent_latest_WFFF_chain": true,
+    "latest_WFFF_chain_independently_fresh_verified_by_root": true,
+    "no_global_missing_WFFF_evidence_claim": true,
+    "root_supplied_capture": {
+      "receipt_claim_source": "Parent message reporting its own fresh tool result; this reviewer did not open these additional files or possess that full tool-result object.",
+      "chunk_id": "508e12",
+      "exit_code": 0,
+      "positive_path_as_supplied": "evidence/native-warm-probe-physical-positive-20261005T045004Z.json",
+      "positive_bytes": 2117,
+      "positive_user_answer_verbatim": "WFFF",
+      "physical_modified_diagnostic_code_execution_observed": true,
+      "final_control_name_as_supplied": "final-control-20261005T045419Z.json",
+      "final_control_bytes": 969,
+      "final_control_user_answer_verbatim": "已回到 2.10",
+      "physical_A_B_A_sequence_complete": true,
+      "final_control_links_same_positive_and_restore": true,
+      "original_restore_name_as_supplied": "Original-restore-20261005T045115Z.json",
+      "original_restore_hash_readback_verified": true,
+      "independent_content_read_by_this_reviewer": false
+    },
+    "effect_on_execution_gate_conclusion": "Latest WFFF A-B-A physical code-execution evidence is established by root; it does not establish persistent receiver lifecycle, heap/display/IO ownership or an installable AA package."
+  },
+  "new_cross_record_dependencies": [
+    "The 3 MiB TTS image reservation and its 682868-byte fixture remainder must be separated from allocator-owned runtime heap/workspaces.",
+    "Transient diagnostic/TTS invocation, GUI registration ownership, persistent receiver service pumping and callback/module quiescence require separate leases; none can substitute for another.",
+    "Physical marker acceptance is package-specific and does not promote the separately prepared EMULATION-ONLY menu package into an install candidate."
+  ],
+  "contracts": [
+    {
+      "id": "diagnostic-reachability",
+      "supported_fact": "The eight selected files record an earlier attended M7Q9 diagnostic marker and original 2.10 control. Root additionally fresh-verified the exact later WFFF positive and restored-2.10 final control, including physical A-B-A completion (508e12 EXIT0, parent-supplied capture). These are distinct chronological physical code-execution chains.",
+      "sources": [
+        {
+          "path": "evidence/native-marker-physical-positive-20261005.json",
+          "fields": [
+            "displayed_marker",
+            "positive_physical_modified_code_observation"
+          ]
+        },
+        {
+          "path": "evidence/native-marker-original-voice-restore-20261005.json",
+          "fields": [
+            "readback_verified",
+            "safely_unmounted",
+            "exact_original_sha256"
+          ]
+        },
+        {
+          "path": "evidence/native-marker-physical-original-control-20261005T044607Z.json",
+          "fields": [
+            "user_answer_verbatim",
+            "physical_original_Aud_Ver_2_10_confirmed"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "foreground menu activation",
+        "continuous receiver event loop",
+        "current original-module residency",
+        "AA transport or installation acceptance for a larger receiver"
+      ],
+      "necessary_next_action": "Tie a future execution probe to an exact package SHA, chosen callable entry and invocation context; do not replace its transient version-query behavior with a persistent receiver worker."
+    },
+    {
+      "id": "tts-api-is-not-general-platform-api",
+      "supported_fact": "The loader uses a version word, export table and export count; three historical original-module emulations registered 40 exports. Descriptor metadata also identifies a 99-entry host interface. Full signatures/roles are not established by these records.",
+      "sources": [
+        {
+          "path": "evidence/firmware-analysis/native-component-loader.json",
+          "fields": [
+            "descriptor_fields.40",
+            "export_registration.module_descriptor_fields",
+            "export_registration.accepted_version_high_words",
+            "export_registration.export_role_names_identified"
+          ]
+        },
+        {
+          "path": "evidence/firmware-analysis/original-tts-module-emulation.json",
+          "fields": [
+            "cases[].module_export_registration[].count",
+            "signature_validation_emulated",
+            "limitations"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "40 arbitrary AA functions can replace TTS exports",
+        "all 99 host callbacks are typed portable services",
+        "speech synthesis/navigation coexistence"
+      ],
+      "necessary_next_action": "Define a complete typed import/export ABI and preserve original TTS behavior; map each new platform operation to a reviewed owner/provider rather than an address or ordinal alone."
+    },
+    {
+      "id": "image-reservation-versus-heap",
+      "supported_fact": "The historical combined menu/voice fixture accounts for 2,462,860 RAM bytes inside a 3,145,728-byte reservation, leaving 682,868 bytes. These are fixture image/BSS accounting fields, not a measurement of physical free heap.",
+      "sources": [
+        {
+          "path": "evidence/firmware-analysis/native-component-loader.json",
+          "fields": [
+            "descriptor_fields.28",
+            "limitations"
+          ]
+        },
+        {
+          "path": "staging/native-player-menu-loaded/manifest.json",
+          "fields": [
+            "combined_ram_bytes",
+            "remaining_reservation_bytes",
+            "reservation_start",
+            "reservation_end",
+            "BSS_bytes"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "available codec heap",
+        "safe independent workspace region",
+        "native maximum heap or stack",
+        "32-bit port suitability or performance"
+      ],
+      "necessary_next_action": "Create separate budgets for module image/BSS, persistent caller workspace and allocator-owned codec heap, each with a residency lease and release owner. The existing image tail cannot authorize a Linux-host codec heap on Garmin."
+    },
+    {
+      "id": "gui-owner-and-cache-provenance",
+      "supported_fact": "The historical menu entry attempts icon registration after TTS initialization; the separate cached inline-field contract is explicitly unexecuted and rejects foreground/full-body/physical-App qualification. Its referenced registry check is not a full producer rescan.",
+      "sources": [
+        {
+          "path": "staging/native-player-menu-loaded/manifest.json",
+          "fields": [
+            "limits",
+            "device_install_candidate",
+            "real_package_acceptance_verified"
+          ]
+        },
+        {
+          "path": "staging/native-player-inline-fields/gui-static/inline-fields-observer-contract.json",
+          "fields": [
+            "status",
+            "qualification",
+            "registry.complete3_879GB_rescan_by_this_producer",
+            "admission.actor",
+            "admission.unchanged_scopes"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "UI actor/thread ownership",
+        "screen framebuffer ownership or flip/stride ABI",
+        "touch delivery",
+        "callback backing lifetime"
+      ],
+      "necessary_next_action": "Bind registration and rendering to a verified UI-owner context, then specify resource pinning and unregister/quiescence rules. A source-cache manifest or matching hash cannot substitute for that invocation path."
+    },
+    {
+      "id": "persistent-pump-and-stop-closure",
+      "supported_fact": "The selected loaded-v2 source review found real controller/glue implementations, while subsequent Source wake-to-service and publication/cleanup-to-controller callers were not established; cancel and observe_stop returned unsupported -200.",
+      "sources": [
+        {
+          "path": "staging/native-music-loaded-controller-lifecycle-readonly-20261007-v1/proof.json",
+          "fields": [
+            "conclusion",
+            "checks.source_loop_no_service",
+            "checks.selected_publication_and_cleanup_callers",
+            "checks.cancel_is_minus200",
+            "limitations"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "global absence of all possible callers",
+        "complete STOP_DONE",
+        "safe unload/reload",
+        "physical OS scheduling"
+      ],
+      "necessary_next_action": "Require a reachable serialized receiver pump and a complete shutdown path: disable admission, cancel transport/callbacks, finish or discard pending media by policy, unregister GUI/audio providers, observe all callbacks/tasks quiescent, then release resources/module. Do not equate a local stop predicate or version function return with this closure."
+    },
+    {
+      "id": "device-io-and-output-ownership",
+      "supported_fact": "The inspected menu fixture has no Audio Sink publication or music-worker startup and its manifest excludes physical package acceptance and playback ownership. The metadata also lacks proven AA USB input and hardware output providers.",
+      "sources": [
+        {
+          "path": "staging/native-player-menu-loaded/manifest.json",
+          "fields": [
+            "limits",
+            "patch_plan",
+            "VM_MAIN_patch_bytes",
+            "device_install_candidate"
+          ]
+        },
+        {
+          "path": "staging/native-music-loaded-controller-lifecycle-readonly-20261007-v1/proof.json",
+          "fields": [
+            "target_acceptance.native_owner",
+            "target_acceptance.speaker",
+            "target_acceptance.installable"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "USB host/VBUS/AOA input",
+        "native heap/display/audio/touch ownership",
+        "phone session negotiation",
+        "Google Maps or direct-phone A2DP"
+      ],
+      "necessary_next_action": "Make transport, clock/entropy, heap, display/touch and audio ownership separate admission gates. A decoder with caller hooks remains host-only until those exact device providers and stop semantics are validated."
+    },
+    {
+      "id": "package-specific-acceptance",
+      "supported_fact": "Old loader metadata said modified-container acceptance was unverified. Later attended M7Q9, and the exact WFFF A-B-A chain independently fresh-verified by root, demonstrate execution/rollback for their specific marker candidates. The separately prepared larger historical menu package changed DLLIMG.BIN/DLLINFO.TXT and remains explicitly noninstallable.",
+      "sources": [
+        {
+          "path": "evidence/native-marker-physical-positive-20261005.json",
+          "fields": [
+            "candidate_exact_SHA256",
+            "positive_physical_modified_code_observation"
+          ]
+        },
+        {
+          "path": "evidence/firmware-analysis/native-component-loader.json",
+          "fields": [
+            "component_location.modified_container_acceptance_verified",
+            "component_location.signature_algorithm_or_enforcement_verified"
+          ]
+        },
+        {
+          "path": "staging/native-player-menu-loaded/manifest.json",
+          "fields": [
+            "package_sha256",
+            "package_checks.changed_members",
+            "package_checks.signature_algorithm_or_enforcement_verified",
+            "real_package_acceptance_verified"
+          ]
+        }
+      ],
+      "does_not_prove": [
+        "general signature algorithm bypass",
+        "arbitrary larger package acceptance",
+        "safe receiver installation",
+        "original navigation/TTS regression freedom"
+      ],
+      "necessary_next_action": "Keep acceptance scoped to the exact attended marker package; prepare any future larger candidate only after ABI, ownership and quiescence gates pass, with original-file preservation/readback/rollback evidence."
+    }
+  ],
+  "gate_order": [
+    "typed ABI and exact invocation context",
+    "module residency and independent memory-owner budgets",
+    "UI/display/touch and transport provider ownership",
+    "reachable serialized receiver pump",
+    "stop/quiescence and release closure",
+    "package-specific attended acceptance and functional checks"
+  ],
+  "target_acceptance": {
+    "installable_AA_receiver": false,
+    "Garmin_AA": false,
+    "Google_Maps": false,
+    "native_music_App": false,
+    "direct_phone_A2DP": false
+  },
+  "limitations": [
+    "Only selected metadata conclusions were reconciled; referenced original binaries/instructions, registry members and source bodies were not reopened.",
+    "Historical emulation success is inherited evidence, not runtime tests performed by this review.",
+    "This review cannot discover live platform ownership, new physical evidence, complete program call graphs or global absence from cached records.",
+    "No active device/presence queries, pairing, calls, playback, compilation, guest, call-site edits or canonical/report changes.",
+    "Later WFFF facts come from root-supplied fresh metadata capture; the eight locally reviewed source hashes intentionally remain limited to the earlier selected set."
+  ]
+}

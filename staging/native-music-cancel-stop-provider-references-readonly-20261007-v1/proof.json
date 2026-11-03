@@ -1,0 +1,41 @@
+{
+  "schema": "garmin-native-cancel-stop-file-review-proof/v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "source_content": {
+    "fresh_files": 10,
+    "bytes": 105421,
+    "budget_bytes": 122880,
+    "largest_bytes": 55116,
+    "additional_fresh_source_reads_after_capture": 0
+  },
+  "checks_passed": 47,
+  "ledger": {
+    "path": "staging/native-music-cancel-stop-provider-references-readonly-20261007-v1/provider-return-ledger.json",
+    "bytes": 14468,
+    "sha256": "01d887c3834ac065c96fd05b94acd12c6c362ceb92fdc28cbe638a0750c64305"
+  },
+  "reviewer": {
+    "path": "staging/native-music-cancel-stop-provider-references-readonly-20261007-v1/review_saved_captures.py",
+    "bytes": 17797,
+    "sha256": "ff7418b5356f09c98652aa984533748ccb6521c64445c780c576a912fed99f79"
+  },
+  "actual_scope": "Saved C/H/JSON captures and current source stat identity only; no source content rescanning, binary hash or target execution. Name-index I/O is separate and not byte-instrumented.",
+  "findings": [
+    "Cancellation C request and Source actor/coordinator full-return ordering exist. Request return0 is not completed stop.",
+    "Completion C receiver and old manifest assembly symbols exist; production callback installation and full-return glue are unreviewed.",
+    "Old adapter conditional generation/epoch/counter observations do not provide newer shared-core cancel/observe_stop implementation."
+  ],
+  "unproven": [
+    "live hardware or phone playback",
+    "original scheduler and stop acknowledgement",
+    "native ownership/session/epoch provider",
+    "installed original cleanup/full-return hooks",
+    "compatible newer generated-image cancel/observer binding"
+  ],
+  "target_execution": 0,
+  "ASM_instruction_reads": 0,
+  "MAIN_binary_RAM_reads": 0,
+  "device_DBUS_BT_audio_operations": 0,
+  "system_risk_guest_retries": 0
+}

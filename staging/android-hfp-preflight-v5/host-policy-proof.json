@@ -1,0 +1,87 @@
+{
+  "created_utc": "2026-10-08T02:19:34.880991+00:00",
+  "all_host_policy_tests_passed": true,
+  "total_host_cases": 40,
+  "tests": {
+    "PlaybackGateTest": {
+      "all_passed": true,
+      "host_cases": 18,
+      "cases": [
+        "play-before-answer-denied",
+        "answered-without-selected-call-route-denied",
+        "unrelated-initial-call-route-not-authority",
+        "actual-player-route-required-before-unmute",
+        "actual-player-mismatch-terminal",
+        "call-route-loss-stops-audible-playback",
+        "player-route-loss-stops-audible-playback",
+        "sixty-second-unanswered-deadline-inclusive",
+        "twenty-second-route-deadline-inclusive",
+        "answered-but-never-played-call-expires",
+        "media-prepare-timeout",
+        "muted-route-verification-two-second-bound",
+        "ten-second-limit-does-not-slide-on-route-callbacks",
+        "explicit-stop-idempotent-and-late-prepare-denied",
+        "stale-session-events-cannot-alter-new-call",
+        "stopped-token-cannot-be-reused",
+        "second-play-button-cannot-start-another-player",
+        "hold-or-error-stop-cannot-be-undone-by-route-update"
+      ],
+      "Android_runtime": false,
+      "device_IO": false
+    },
+    "PlayerLoadLeaseTest": {
+      "all_passed": true,
+      "host_cases": 12,
+      "cases": [
+        "empty-session-id-rejected",
+        "one-outstanding-load-only",
+        "session-and-player-identity-both-required",
+        "loading-deadline-inclusive",
+        "cancel-denies-all-later-load-and-player-results",
+        "cancel-keeps-slot-busy-until-real-cleanup",
+        "stale-cleanup-cannot-free-new-owner",
+        "foreign-cleanup-cannot-cancel-another-lease",
+        "concurrent-acquisition-has-one-winner",
+        "stop-remains-processable-while-controlled-provider-is-blocked",
+        "prepare-timeout-cancels-pending-load-before-late-result",
+        "new-session-gate-is-unchanged-by-old-ticket-result"
+      ],
+      "Android_runtime": false,
+      "device_IO": false
+    },
+    "HfpPreflightLeaseTest": {
+      "all_passed": true,
+      "host_cases": 10,
+      "cases": [
+        "selected-connected-snapshot-is-one-shot",
+        "never-callback-timeout-retains-one-request-owner",
+        "cancel-then-late-close-allows-new-session-without-old-call",
+        "token-device-and-ticket-identities-all-required",
+        "bonded-or-other-connected-device-is-insufficient",
+        "permission-denial-never-admits-or-frees-a-proxy",
+        "snapshot-age-future-time-and-request-deadline-are-separate",
+        "cancel-while-controlled-profile-query-waits-denies-late-admission",
+        "failed-close-keeps-process-busy-even-after-a-late-extra-proxy",
+        "unexpected-extra-proxy-before-first-cleanup-completes-revokes-admission"
+      ],
+      "Android_runtime": false,
+      "device_IO": false
+    }
+  },
+  "source_pins": {
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlaybackGate.java": "77ee66c8c36b3feeab131ffdb6d80f3f34e07d4078c9372ee27280ac4b9d5c58",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlayerLoadLease.java": "1cbdd5d5e723a16958a0e15405c30a9704bc3015d8dea105df2dff5db28d98f8",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflightLease.java": "0d981c88806009eb005de49ad8e4d311c38003b58bf6181cabea3e0c287b5547",
+    "android/garmin-hfp-player/host-tests/PlaybackGateTest.java": "a30349bb3019b0826b58b32ed3892fad28b23a5d45c9a461a44604cbf8704eec",
+    "android/garmin-hfp-player/host-tests/PlayerLoadLeaseTest.java": "f5e1b237e7b2ad60ad67a499ed4c43d5f3b6aa84ba8abed6499057b574ca6f54",
+    "android/garmin-hfp-player/host-tests/HfpPreflightLeaseTest.java": "709ba4e38533c43931cff9af1ae36b563ac2af0edb2b7fee38125e599f3c464d"
+  },
+  "Android_runtime": false,
+  "Bluetooth_proxy_callbacks_or_Binder_or_phone_tested": false,
+  "device_IO": false,
+  "APK_built_by_this_agent": false,
+  "source_policy_is_used_by_production_preflight": true,
+  "concurrency_controls_are_controlled_host_threads_not_platform_cancellation": true,
+  "extra_distinct_proxy_immediately_revokes_admission_and_locks_process_retry_in_source": true,
+  "future_platform_callback_quiescence_proven": false
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "android-auto-exact-board-next-review-v1",
+  "created_utc": "2026-10-08T01:51:51.513547+00:00",
+  "scope": "Public primary-source documentary acquisition only; exact Taiwan Garmin nuvi2565RT GPN010-01008-01 / user-reported HWID1352 / PCB105-01927-00 / FML006-J0162-A0.",
+  "result": "未找到可取得的精確資料",
+  "meaningful_new_board_feasibility_fact": false,
+  "new_usb_host_or_vbus_or_execution_gate_closed": false,
+  "exact_schematic_found": false,
+  "exact_regulatory_label_or_board_photos_found": false,
+  "absence_proved": false,
+  "impossibility_proved": false,
+  "other_model_or_hwid1371_substitution": false,
+  "facts": [
+    {
+      "source_url": "https://nccmember.ncc.gov.tw/",
+      "basis": "Official-domain search result, not retrieved approval record",
+      "fact": "Official portal advertises type-approval queries among operations usable without login.",
+      "limit": "Read-only direct GET returned HTTP403 here; web open yielded zero parsed lines. No equipment record, certification number or PCB mapping obtained."
+    },
+    {
+      "source_url": "https://download.garmin.com/tw/download/manuals/nuvi2555_2565T_2565RT_TW_0B.pdf",
+      "basis": "Previously verified official manual; read cached extraction only, no repeat PDF download",
+      "pdf_pages_1_based": [
+        2,
+        3
+      ],
+      "fact": "Manual specifically names the TWN Traditional Chinese 2565T/2565RT and states NCC low-power-radio compliance. Its model/power section lists 2565RT/2565T/2555 and Li-ion3.7V or5V1A maximum.",
+      "limit": "These are product/compliance and power-input statements. They do not expose a certification number, schematic, board USB role, VBUS output circuit, host current limit or charging-in-host-mode behavior."
+    },
+    {
+      "source_url": "https://download.garmin.com/tw/download/manuals/nuvi2555_2565T_2565RT_TW_0B.pdf",
+      "basis": "Same cached official manual extraction",
+      "pdf_pages_1_based": [
+        4
+      ],
+      "fact": "Manual states FCCPart15 ClassB digital-device compliance for this model family.",
+      "limit": "This is not an FCCradio equipment ID or evidence that a foreign nuvi/2585 regulatory filing matches Taiwan HWID1352."
+    },
+    {
+      "source_url": "https://www.garmin.com.tw/_js/api_products-gpn/010-01008-01",
+      "basis": "Fresh bounded actual primary GET",
+      "fact": "Previously saved exact-GPN API URL now returned HTTP200 with final URL at the discontinued nuvi2565RT product HTML, not JSON.",
+      "limit": "Response exceeded this fetch cap of65536bytes, so reading stopped; no complete raw document or complete-document SHA is claimed. This adds no new board feasibility evidence."
+    }
+  ],
+  "known_context_not_retested": "Official manual previously establishes computer-facing storage device mode, mount power input and dedicated GDR10 port; no claim that these prove generic USBhost/AOA.",
+  "necessary_next_documentary_input": [
+    "Exact unit exterior regulatory approval code or an official record linking that code to Taiwan GPN010-01008-01 and this PCB; Unit ESN/HWID/FML are not assumed to be regulatory approval identifiers.",
+    "Exact official schematic/service data or regulatory internal photos with legible PCB identity and connector power/data routing; an exact model marketing page is insufficient.",
+    "A documented, reachable original-device execution/loading path remains a separate gate. No public App SDK or install interface was established in this bounded review."
+  ],
+  "no_current_device_request": true,
+  "runtime_tests": 0,
+  "device_IO": false,
+  "Bluetooth_or_audio_queries": false,
+  "USB_queries": false,
+  "original_Garmin_binary_reads": false,
+  "original_Garmin_instruction_execution": false,
+  "native_guest": false,
+  "compilation": false,
+  "native_source_edits": false,
+  "canonical_edits": false,
+  "actual_readonly_tool_completions": [
+    {
+      "chunk_id": "e4c5d7",
+      "exit_code": 0,
+      "scope": "Search cached public manual text for certification references."
+    },
+    {
+      "chunk_id": "847b03",
+      "exit_code": 0,
+      "scope": "Actual bounded official NCC GET attempts; HTTP403 recorded."
+    },
+    {
+      "chunk_id": "31d724",
+      "exit_code": 0,
+      "scope": "Actual bounded exact GarminGPN URL GET; HTTP200 redirect and size-cap result recorded."
+    },
+    {
+      "chunk_id": "b489e6",
+      "exit_code": 0,
+      "scope": "Read cached public manual pages1-5; no binary or device access."
+    }
+  ],
+  "source_sha256": {
+    "staging/android-auto-exact-board-next-review-v1/search-receipts.json": "19393150a8f1d58bd5779d669a67d58513a94200e4596fa31e0fffb0b6e7e9a3",
+    "staging/android-auto-exact-board-next-review-v1/primary-fetch-receipts.json": "f21a8871d750e0b2cd28379ca62b075e968f6302708ef60ddb31cba90467f50c",
+    "sources/nuvi2555_2565T_2565RT-manual.txt": "49d98929185d01cb20ae8f166c726b54191b25a69a4b136558a2563f1c507938",
+    "sources/nuvi2555_2565T_2565RT_TW_0B.pdf": "b48f6b5d3a22d0fa376d00623f4985164eb29235a31da27e788ef762e0fc4912",
+    "evidence/android-auto-usb-board-primary-review-v1.json": "ce9a9e9fbcf5dbe6b8fac3e0942ebb858140acfd316bc265c148aab6d8d3b853"
+  }
+}

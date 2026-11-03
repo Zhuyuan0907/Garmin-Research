@@ -1,0 +1,238 @@
+{
+  "schema": "route-allocator-internal-loop-patch-erratum-v1",
+  "failed_guest": "staging/native-player-route-entries/guest-v4/terminal-failure.json",
+  "error": "other provider allocation blocked or reused private slot",
+  "original_opcodes": [
+    {
+      "address": 4779624,
+      "mnemonic": "push",
+      "op_str": "{r4, r5}",
+      "bytes": "30b4"
+    },
+    {
+      "address": 4779626,
+      "mnemonic": "movs",
+      "op_str": "r4, r0",
+      "bytes": "0400"
+    },
+    {
+      "address": 4779628,
+      "mnemonic": "ldr",
+      "op_str": "r0, [pc, #0xc8]",
+      "bytes": "3248"
+    },
+    {
+      "address": 4779630,
+      "mnemonic": "ldr",
+      "op_str": "r2, [pc, #0xc4]",
+      "bytes": "314a"
+    },
+    {
+      "address": 4779632,
+      "mnemonic": "movs",
+      "op_str": "r1, #0",
+      "bytes": "0021"
+    },
+    {
+      "address": 4779634,
+      "mnemonic": "lsls",
+      "op_str": "r3, r1, #3",
+      "bytes": "cb00"
+    },
+    {
+      "address": 4779636,
+      "mnemonic": "adds",
+      "op_str": "r3, r3, r1",
+      "bytes": "5b18"
+    },
+    {
+      "address": 4779638,
+      "mnemonic": "lsls",
+      "op_str": "r3, r3, #6",
+      "bytes": "9b01"
+    },
+    {
+      "address": 4779640,
+      "mnemonic": "adds",
+      "op_str": "r3, r3, r2",
+      "bytes": "9b18"
+    },
+    {
+      "address": 4779642,
+      "mnemonic": "ldrb",
+      "op_str": "r3, [r3, #0xc]",
+      "bytes": "1b7b"
+    },
+    {
+      "address": 4779644,
+      "mnemonic": "cmp",
+      "op_str": "r3, #0",
+      "bytes": "002b"
+    },
+    {
+      "address": 4779646,
+      "mnemonic": "bne",
+      "op_str": "#0x48ee94",
+      "bytes": "09d1"
+    },
+    {
+      "address": 4779648,
+      "mnemonic": "lsls",
+      "op_str": "r3, r1, #3",
+      "bytes": "cb00"
+    },
+    {
+      "address": 4779650,
+      "mnemonic": "adds",
+      "op_str": "r3, r3, r1",
+      "bytes": "5b18"
+    },
+    {
+      "address": 4779652,
+      "mnemonic": "movs",
+      "op_str": "r0, #0",
+      "bytes": "0020"
+    },
+    {
+      "address": 4779654,
+      "mnemonic": "movs",
+      "op_str": "r5, #1",
+      "bytes": "0125"
+    },
+    {
+      "address": 4779656,
+      "mnemonic": "lsls",
+      "op_str": "r3, r3, #6",
+      "bytes": "9b01"
+    },
+    {
+      "address": 4779658,
+      "mnemonic": "adds",
+      "op_str": "r2, r3, r2",
+      "bytes": "9a18"
+    },
+    {
+      "address": 4779660,
+      "mnemonic": "strb",
+      "op_str": "r5, [r2, #0xc]",
+      "bytes": "1573"
+    },
+    {
+      "address": 4779662,
+      "mnemonic": "str",
+      "op_str": "r1, [r4]",
+      "bytes": "2160"
+    },
+    {
+      "address": 4779664,
+      "mnemonic": "pop",
+      "op_str": "{r4, r5}",
+      "bytes": "30bc"
+    },
+    {
+      "address": 4779666,
+      "mnemonic": "bx",
+      "op_str": "lr",
+      "bytes": "7047"
+    },
+    {
+      "address": 4779668,
+      "mnemonic": "adds",
+      "op_str": "r1, r1, #1",
+      "bytes": "491c"
+    },
+    {
+      "address": 4779670,
+      "mnemonic": "cmp",
+      "op_str": "r1, #5",
+      "bytes": "0529"
+    },
+    {
+      "address": 4779672,
+      "mnemonic": "blt",
+      "op_str": "#0x48ee72",
+      "bytes": "ebdb"
+    }
+  ],
+  "old_patch": {
+    "name": "allocate",
+    "address": 4779624,
+    "patch_bytes": 12,
+    "before_hex": "30b404003248314a0021cb00",
+    "restore_r3_and_SP_in_ARM_shim": true,
+    "original_native_body_return_preserved": true
+  },
+  "internal_loop_target": 4779634,
+  "old_patch_overwrites_internal_loop_target": true,
+  "private_slot_was_already_busy_before_other_caller": true,
+  "actual_other_allocator_stores": [
+    {
+      "PC": "0x48ee8c",
+      "Thumb": true,
+      "opcode_hex": "1573",
+      "address": "0x34e3d00",
+      "size": 1,
+      "value": 1,
+      "before_hex": "01",
+      "phase": "unclaimed output original provider allocator forwarding",
+      "GP16": [
+        0,
+        0,
+        55459060,
+        0,
+        146801184,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4779637,
+        156254072,
+        49898908,
+        4779660
+      ],
+      "CPSR": 191,
+      "current_TCB": 156254096,
+      "ordinal": 142315,
+      "event_type": "actual_CPU_store"
+    },
+    {
+      "PC": "0x48ee8e",
+      "Thumb": true,
+      "opcode_hex": "2160",
+      "address": "0x8c00220",
+      "size": 4,
+      "value": 0,
+      "before_hex": "01efcdab",
+      "phase": "unclaimed output original provider allocator forwarding",
+      "GP16": [
+        0,
+        0,
+        55459060,
+        0,
+        146801184,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4779637,
+        156254072,
+        49898908,
+        4779662
+      ],
+      "CPSR": 191,
+      "current_TCB": 156254096,
+      "ordinal": 142316,
+      "event_type": "actual_CPU_store"
+    }
+  ],
+  "real_patch_bug_not_test_precondition": true,
+  "old_build_not_validated_or_installable": true,
+  "proposed_eight_byte_patch_preserves_loop_header_and_back_edge": true,
+  "device_IO": false
+}

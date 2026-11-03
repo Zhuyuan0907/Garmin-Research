@@ -1,0 +1,94 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-playback-control/playback_control.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+ .text          0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_hook.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_hook.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_hook.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-playback-control/playback_hook.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08844180                        PROVIDE (memory_output_control = 0x8844180)
+                0x08844120                        PROVIDE (memory_output_slots = 0x8844120)
+                0x08802cfc                        PROVIDE (memory_output_after_selection = 0x8802cfc)
+                0x08a00000                        . = 0x8a00000
+
+.text           0x08a00000      0x344
+ *(.playback_api)
+ .playback_api  0x08a00000        0x8 /root/garmin/staging/native-playback-control/playback_control.o
+                0x08a00000                playback_api
+ *(.text .text.*)
+ .text.playback_rearm
+                0x08a00008      0x230 /root/garmin/staging/native-playback-control/playback_control.o
+                0x08a00008                playback_rearm
+ .text.playback_before_start
+                0x08a00238       0xa4 /root/garmin/staging/native-playback-control/playback_control.o
+                0x08a00238                playback_before_start
+ .text.playback_hook
+                0x08a002dc       0x58 /root/garmin/staging/native-playback-control/playback_hook.o
+                0x08a002dc                playback_callback_hook
+                0x08a00314                playback_callback_original
+ *(.rodata .rodata.*)
+ .rodata.playback_pcm_pages
+                0x08a00334       0x10 /root/garmin/staging/native-playback-control/playback_control.o
+                0x08a00344                        __playback_code_end = .
+                0x00000001                        ASSERT ((__playback_code_end <= 0x8a02000), playback code exceeds two pages)
+
+.glue_7         0x08a00344        0x0
+ .glue_7        0x08a00344        0x0 linker stubs
+
+.glue_7t        0x08a00344        0x0
+ .glue_7t       0x08a00344        0x0 linker stubs
+
+.vfp11_veneer   0x08a00344        0x0
+ .vfp11_veneer  0x08a00344        0x0 linker stubs
+
+.v4_bx          0x08a00344        0x0
+ .v4_bx         0x08a00344        0x0 linker stubs
+
+.iplt           0x08a00344        0x0
+ .iplt          0x08a00344        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+
+.igot.plt       0x08a00344        0x0
+ .igot.plt      0x08a00344        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+
+.rel.dyn        0x08a00344        0x0
+ .rel.iplt      0x08a00344        0x0 /root/garmin/staging/native-playback-control/playback_control.o
+                0x08a02000                        . = 0x8a02000
+                0x08a02000                        __playback_state_start = .
+
+.bss            0x08a02000       0x20
+ *(.bss .bss.*)
+ .bss.playback_state
+                0x08a02000       0x20 /root/garmin/staging/native-playback-control/playback_control.o
+                0x08a02000                playback_state
+ *(COMMON)
+                0x08a02020                        __playback_state_end = .
+                0x00000001                        ASSERT ((__playback_state_end <= 0x8a02fc0), playback state exceeds guarded page)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+LOAD /root/garmin/staging/native-playback-control/playback_control.o
+LOAD /root/garmin/staging/native-playback-control/playback_hook.o
+OUTPUT(/root/garmin/staging/native-playback-control/playback-armv6.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2d
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-playback-control/playback_control.o
+ .ARM.attributes
+                0x0000002f       0x26 /root/garmin/staging/native-playback-control/playback_hook.o

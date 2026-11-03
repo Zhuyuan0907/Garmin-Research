@@ -1,0 +1,16 @@
+{
+  "updated_utc": "2026-10-03T22:43:40.585033+00:00",
+  "session": 48645,
+  "exit_code": 1,
+  "complete_case_groups_before_failure": 4,
+  "full_pass": false,
+  "error": "Persistent font handle lock count changed",
+  "source": "staging/native-player-text/integration-source-at-pointer-query-guard-failure.py",
+  "source_sha256": "cfda82f1506d506581554bba08aaf983f4bec765a5591882e4e1035d26cf0ab8",
+  "VM_source": "staging/native-player-text/vm-source-at-pointer-query-guard-failure.py",
+  "VM_source_sha256": "749303be1eab88e49b9f2f0626da3d45bee3a55fd6c0815b08188d2f0cebe466",
+  "inventory": "staging/native-player-text/font-handle-inventory-before-pointer-query-guard-fix.json",
+  "inventory_sha256": "b8b8ecc4149d860ef1da8ccc8b40e4e2d47e4df8e9c5f022f25da98fe7df353e",
+  "cause": "Inherited VoiceMetadata executes original388804 pointer-query and388B22 BX LR bodies; these do not increment native pin counts. All observed19 font allocations were live with fixture locks0. Earlier lock1 hypothesis was false; do not invent lock/unlock state.",
+  "device_io": false
+}

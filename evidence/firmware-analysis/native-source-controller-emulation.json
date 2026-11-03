@@ -1,0 +1,450 @@
+{
+  "updated_utc": "2026-10-03T01:05:08.354622+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "script_sha256": "d2a5d27df03571289d32e1d0aa74fe644e378d44fcca224a74af9172590a7171",
+  "dependency_sha256": {
+    "staging/native-media-consumer/manifest.json": "d8e9b16766423cb73062d5a9318d1b4b17c876b058ef473b43a5b8a564072919",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844",
+    "scripts/emulate_native_owned_media.py": "b2b137e4e5c06aeaa1cd6c56983efebf3220307fd44e859de03454615e594d8c",
+    "scripts/emulate_native_media_worker.py": "8abbd8c2144d455603d32ccdba4d5dfd8166e3924e324cf9da464a64bfab78fb",
+    "scripts/emulate_native_audio_messages.py": "443e3c25edaa8475adeb414cb0f99a141c3a83216c982ee094c2ec0dee3fe570",
+    "scripts/emulate_native_memory_output.py": "11fc53296aa7cd2c022aa692a7b7d385a7578b35e3ce8bd19a5c0b27e8d0e0a0",
+    "scripts/emulate_native_memory_completion.py": "52c48d03a8e231ea4b777327897b2ba1f84e37dd9218228bc772352087cdd60d",
+    "scripts/emulate_native_voice_convert.py": "55b78bf99209addb1eb466c7fd79120515454d9c4e4bfdbe9158c2f1b78c0d8b",
+    "scripts/emulate_native_voice_media.py": "6e910090a648d5003f9c76e100000a404e50448c0d6e5921b58ea8092808369d",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_memory_audio.py": "cdf1d1bbbaa675314d1cbedf5999e2c220f21cb43f2efe2877a09b346ff1f166",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_avdtp_media.py": "348c6f402acf89f362daebfffcc6accb6e37334f419a70f56a82226713ca6b18",
+    "scripts/emulate_native_memory_notice.py": "d7dd21c35133a531ee4063f659868639dc90a58899c40a8841ab73ce229807e0",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/emulate_native_owned_worker.py": "bd5ee2dab99e5ce08a64f849a53871df28fd00c2f2011b8a25698a7a89a422e9",
+    "scripts/emulate_native_mixer_worker.py": "0e8d2a10dccf33098baf66e03b2b9a075f3ab8c87ca54e018dad4598bcf67ddc",
+    "evidence/firmware-analysis/native-mixer-worker-emulation.json": "a871ca11d6682ea8df1102d48169edc012e7ad6a3ee1d19c12bf10ff44dcc18c",
+    "scripts/emulate_native_mixer_start.py": "9af27c6145c49bb88be3821c44fd34d73349d3e7dfbd272cf01278f2b896fe38",
+    "evidence/firmware-analysis/native-mixer-start-emulation.json": "9e8d596ed08afd3ca59cfa1bd6dceaeede76180ca303c9e77bbd8f8c79614ab2",
+    "scripts/emulate_native_mixer_capacity.py": "4a38b9bed55a40e8b61dd06c7d16dd0a1cec19b610b763f2fee0702eb5272431",
+    "evidence/firmware-analysis/native-mixer-capacity-emulation.json": "7d135edcaa31c5ba1e9f009e03010d0fa97ecbec907f34ee5faf1ec13c5e297a",
+    "scripts/emulate_native_mixer_timer.py": "9e62c3857623353d8225f865b88ac89fe3dcf91684b5948f72c48e8049ce008b",
+    "evidence/firmware-analysis/native-mixer-timer-emulation.json": "cda00ada48766a3e3b54fc97bce353e398613ba0d358152ac43cc3b8b813c8db"
+  },
+  "owned_elf_sha256": "eb5f93ca2656c6b9130778d53ef960ef925d9e61e84177a6a5259feaa7cb8262",
+  "routes": [
+    {
+      "rate": 16000,
+      "channels": 1,
+      "frames": 15,
+      "pcm_bytes": 3840,
+      "pcm_sha256": "b661a5dfc6a365bdc980e3ed08fe38d45513e7ec1fab1b517fb4a5e9fa5153e6",
+      "tasks": {
+        "central": {
+          "tcb": "0x34eb3c0",
+          "priority": 92,
+          "entries": 1,
+          "message_bytes": 12,
+          "message_slots": 15,
+          "messages": [
+            "0b083e001200000000000000",
+            "0c083e001200000000000000",
+            "0108000000000000583f5009"
+          ]
+        },
+        "notice": {
+          "tcb": "0x34ebc70",
+          "priority": 93,
+          "entries": 1,
+          "message_bytes": 20,
+          "message_slots": 30,
+          "messages": []
+        }
+      },
+      "driver_requests": [
+        {
+          "opcode": 1,
+          "parameters_hex": "0808000080804e03010000000000000000000000000000000000000020804e03000000001e00000034b34e03487f4e0308000000",
+          "current_task": 55489472
+        },
+        {
+          "opcode": 0,
+          "parameters_hex": "0800000080804e03080000005d9b3b0000000000000000005c5d4e030800000000000000487f4e0328814e030000000008000000",
+          "current_task": 55489472
+        },
+        {
+          "opcode": 4,
+          "parameters_hex": "0800000080804e03080000005d9b3b0000000000000000005c5d4e030800000000000000487f4e0328814e030000000008000000",
+          "current_task": 55489472
+        }
+      ],
+      "sync_events": [
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 11,
+          "r2": 0,
+          "sp": 55489408
+        },
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 12,
+          "r2": 0,
+          "sp": 55489408
+        },
+        {
+          "address": 3206654,
+          "current_task": 156254096,
+          "r0": 2,
+          "r1": 1,
+          "r2": 0,
+          "sp": 156254072
+        },
+        {
+          "address": 4114082,
+          "current_task": 156254096,
+          "r0": 55476076,
+          "r1": 55476052,
+          "r2": 134217727,
+          "sp": 156254000
+        },
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 1,
+          "r2": 156254040,
+          "sp": 55489408
+        },
+        {
+          "address": 4113560,
+          "current_task": 55489472,
+          "r0": 55476076,
+          "r1": 2,
+          "r2": 3148293,
+          "sp": 55489392
+        }
+      ],
+      "driver_callbacks": [
+        {
+          "current_task": 156254096,
+          "descriptor": 159383584
+        }
+      ],
+      "native_mutex_and_condition_body_visits": [
+        "0x3008cc",
+        "0x3009bc",
+        "0x300a14",
+        "0x300bb8"
+      ],
+      "power_boundary_fixtures": [
+        {
+          "boundary": "power_state_query",
+          "args": [
+            8,
+            55471880,
+            3148069,
+            512
+          ],
+          "current_task": 156254096
+        },
+        {
+          "boundary": "physical_power",
+          "args": [
+            1,
+            55471880,
+            3148069,
+            512
+          ],
+          "current_task": 156254096
+        }
+      ],
+      "public_start_original_queue_selection_and_synchronous_condition_ack": true,
+      "actual_driver_outcomes11_and12_consumed_without_source_start": true,
+      "original_driver_callback_publishes_descriptor_and_posts_start14": true,
+      "controller_explicit_queue_start_mixer_init_select_or_post14": false,
+      "all_pcm_upstream_reference_identical": true,
+      "passed": true
+    },
+    {
+      "rate": 44100,
+      "channels": 2,
+      "frames": 2,
+      "pcm_bytes": 186,
+      "pcm_sha256": "b0478a03a1f2bbeff601e41b9300372237618f456d7cc5f313788fdf3975e179",
+      "tasks": {
+        "central": {
+          "tcb": "0x34eb3c0",
+          "priority": 92,
+          "entries": 1,
+          "message_bytes": 12,
+          "message_slots": 15,
+          "messages": [
+            "0b083e001200000000000000",
+            "0c083e001200000000000000",
+            "0108000000000000583f5009"
+          ]
+        },
+        "notice": {
+          "tcb": "0x34ebc70",
+          "priority": 93,
+          "entries": 1,
+          "message_bytes": 20,
+          "message_slots": 30,
+          "messages": []
+        }
+      },
+      "driver_requests": [
+        {
+          "opcode": 1,
+          "parameters_hex": "0808000080804e03010000000000000000000000000000000000000020804e03000000001e00000034b34e03487f4e0308000000",
+          "current_task": 55489472
+        },
+        {
+          "opcode": 0,
+          "parameters_hex": "0800000080804e03080000005d9b3b0000000000000000005c5d4e030800000000000000487f4e0328814e030000000008000000",
+          "current_task": 55489472
+        },
+        {
+          "opcode": 4,
+          "parameters_hex": "0800000080804e03080000005d9b3b0000000000000000005c5d4e030800000000000000487f4e0328814e030000000008000000",
+          "current_task": 55489472
+        }
+      ],
+      "sync_events": [
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 11,
+          "r2": 0,
+          "sp": 55489408
+        },
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 12,
+          "r2": 0,
+          "sp": 55489408
+        },
+        {
+          "address": 3206654,
+          "current_task": 156254096,
+          "r0": 2,
+          "r1": 1,
+          "r2": 0,
+          "sp": 156254072
+        },
+        {
+          "address": 4114082,
+          "current_task": 156254096,
+          "r0": 55476076,
+          "r1": 55476052,
+          "r2": 134217727,
+          "sp": 156254000
+        },
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 1,
+          "r2": 156254040,
+          "sp": 55489408
+        },
+        {
+          "address": 4113560,
+          "current_task": 55489472,
+          "r0": 55476076,
+          "r1": 2,
+          "r2": 3148293,
+          "sp": 55489392
+        }
+      ],
+      "driver_callbacks": [
+        {
+          "current_task": 156254096,
+          "descriptor": 159383584
+        }
+      ],
+      "native_mutex_and_condition_body_visits": [
+        "0x3008cc",
+        "0x3009bc",
+        "0x300a14",
+        "0x300bb8"
+      ],
+      "power_boundary_fixtures": [
+        {
+          "boundary": "power_state_query",
+          "args": [
+            8,
+            55471880,
+            3148069,
+            512
+          ],
+          "current_task": 156254096
+        },
+        {
+          "boundary": "physical_power",
+          "args": [
+            1,
+            55471880,
+            3148069,
+            512
+          ],
+          "current_task": 156254096
+        }
+      ],
+      "public_start_original_queue_selection_and_synchronous_condition_ack": true,
+      "actual_driver_outcomes11_and12_consumed_without_source_start": true,
+      "original_driver_callback_publishes_descriptor_and_posts_start14": true,
+      "controller_explicit_queue_start_mixer_init_select_or_post14": false,
+      "all_pcm_upstream_reference_identical": true,
+      "passed": true
+    },
+    {
+      "rate": 48000,
+      "channels": 2,
+      "frames": 2,
+      "pcm_bytes": 172,
+      "pcm_sha256": "33334ba1f2108b71555d6ac31ce406d618b57c2d0cf3eabd65a7cf9fd249ade0",
+      "tasks": {
+        "central": {
+          "tcb": "0x34eb3c0",
+          "priority": 92,
+          "entries": 1,
+          "message_bytes": 12,
+          "message_slots": 15,
+          "messages": [
+            "0b083e001200000000000000",
+            "0c083e001200000000000000",
+            "0108000000000000583f5009"
+          ]
+        },
+        "notice": {
+          "tcb": "0x34ebc70",
+          "priority": 93,
+          "entries": 1,
+          "message_bytes": 20,
+          "message_slots": 30,
+          "messages": []
+        }
+      },
+      "driver_requests": [
+        {
+          "opcode": 1,
+          "parameters_hex": "0808000080804e03010000000000000000000000000000000000000020804e03000000001e00000034b34e03487f4e0308000000",
+          "current_task": 55489472
+        },
+        {
+          "opcode": 0,
+          "parameters_hex": "0800000080804e03080000005d9b3b0000000000000000005c5d4e030800000000000000487f4e0328814e030000000008000000",
+          "current_task": 55489472
+        },
+        {
+          "opcode": 4,
+          "parameters_hex": "0800000080804e03080000005d9b3b0000000000000000005c5d4e030800000000000000487f4e0328814e030000000008000000",
+          "current_task": 55489472
+        }
+      ],
+      "sync_events": [
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 11,
+          "r2": 0,
+          "sp": 55489408
+        },
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 12,
+          "r2": 0,
+          "sp": 55489408
+        },
+        {
+          "address": 3206654,
+          "current_task": 156254096,
+          "r0": 2,
+          "r1": 1,
+          "r2": 0,
+          "sp": 156254072
+        },
+        {
+          "address": 4114082,
+          "current_task": 156254096,
+          "r0": 55476076,
+          "r1": 55476052,
+          "r2": 134217727,
+          "sp": 156254000
+        },
+        {
+          "address": 3905208,
+          "current_task": 55489472,
+          "r0": 55476040,
+          "r1": 1,
+          "r2": 156254040,
+          "sp": 55489408
+        },
+        {
+          "address": 4113560,
+          "current_task": 55489472,
+          "r0": 55476076,
+          "r1": 2,
+          "r2": 3148293,
+          "sp": 55489392
+        }
+      ],
+      "driver_callbacks": [
+        {
+          "current_task": 156254096,
+          "descriptor": 159383584
+        }
+      ],
+      "native_mutex_and_condition_body_visits": [
+        "0x3008cc",
+        "0x3009bc",
+        "0x300a14",
+        "0x300bb8"
+      ],
+      "power_boundary_fixtures": [
+        {
+          "boundary": "power_state_query",
+          "args": [
+            8,
+            55471880,
+            3148069,
+            512
+          ],
+          "current_task": 156254096
+        },
+        {
+          "boundary": "physical_power",
+          "args": [
+            1,
+            55471880,
+            3148069,
+            512
+          ],
+          "current_task": 156254096
+        }
+      ],
+      "public_start_original_queue_selection_and_synchronous_condition_ack": true,
+      "actual_driver_outcomes11_and12_consumed_without_source_start": true,
+      "original_driver_callback_publishes_descriptor_and_posts_start14": true,
+      "controller_explicit_queue_start_mixer_init_select_or_post14": false,
+      "all_pcm_upstream_reference_identical": true,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "compiled_components_changed": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Offline exact stock central/notifier/kernel tasks and public source start with native condition request/wait/ack. After inherited cold initialization, generic kernel mutex lock/unlock bodies are restored and executed; translation caches invalidated, condition blocking/internal drop-owner bodies observed. Native source queue start, mixer init/wake/select/factory/prepare and driver state/create/start wrappers execute; physical output request1D8C60, arbitration4C2800, power query276148 and power3E0088 are explicit fixtures. Driver outcome11/12 wrappers and actual central dispatch execute without starting a source. Driver allocation completion invocation and matching16k output descriptor/ring/consumption are synthetic, though original callback2F998E publishes descriptor and posts START14. Initial source state1 and condition init are explicit cold inputs, stack lower guard is a test boundary not a recovered allocation extent. Mono route has15 frames;44.1/48k stereo controls have2 frames each, not maximum stereo packets or realtime throughput. Heap services, Bluetooth mutex, source priority/hardware hints still controlled. Notifier task boots/waits but receives no notification packets because registered owned sources use NULL metadata; no App listener/main UI proven. Reader attachment, STOP15/CLEANUP19/remove/release remain controller arranged; no actual DAC/resampler/DMA/IRQ/end/drain or automatic next-source lifecycle, cross-channel pool/list reservation/future callback exclusion, accepted module/UI/SEP/phone/speaker/navigation/Google Maps or safe unload. Task/module memory pinned, no device I/O."
+}

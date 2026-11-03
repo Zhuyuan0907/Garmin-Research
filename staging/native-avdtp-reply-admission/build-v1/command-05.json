@@ -1,0 +1,23 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mfloat-abi=soft",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--no-undefined,--build-id=none,-Map=/root/garmin/staging/native-avdtp-reply-admission/build-v1/reply-admission.map",
+    "-Wl,-T,/root/garmin/staging/native-avdtp-reply-admission/build-v1/reply-admission.ld",
+    "/root/garmin/staging/native-avdtp-reply-admission/build-v1/00-endpoint.o",
+    "/root/garmin/staging/native-avdtp-reply-admission/build-v1/01-gate.o",
+    "/root/garmin/staging/native-avdtp-reply-admission/build-v1/02-policy.o",
+    "/root/garmin/staging/native-avdtp-reply-admission/build-v1/03-reply_admission_v1.o",
+    "/root/garmin/staging/native-avdtp-reply-admission/build-v1/04-stock-relocated.o",
+    "-lgcc",
+    "-o",
+    "/root/garmin/staging/native-avdtp-reply-admission/build-v1/reply-admission-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

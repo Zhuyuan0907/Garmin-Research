@@ -1,0 +1,152 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-memory-output/memory_output.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+ .text          0x00000000        0x0 /root/garmin/staging/native-memory-output/runtime.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-memory-output/runtime.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-memory-output/runtime.o
+ .text.prototype_arena_reset
+                0x00000000       0x14 /root/garmin/staging/native-memory-output/runtime.o
+ .text.prototype_arena_used
+                0x00000000       0x10 /root/garmin/staging/native-memory-output/runtime.o
+ .text.malloc   0x00000000       0x48 /root/garmin/staging/native-memory-output/runtime.o
+ .text.free     0x00000000        0x4 /root/garmin/staging/native-memory-output/runtime.o
+ .text.unlikely.__aeabi_idiv0
+                0x00000000        0x4 /root/garmin/staging/native-memory-output/runtime.o
+ .text.unlikely.__aeabi_ldiv0
+                0x00000000        0x4 /root/garmin/staging/native-memory-output/runtime.o
+ .bss.used      0x00000000        0x4 /root/garmin/staging/native-memory-output/runtime.o
+ .bss.arena     0x00000000     0x4000 /root/garmin/staging/native-memory-output/runtime.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-memory-output/runtime.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-memory-output/runtime.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08600000                        . = 0x8600000
+
+.text           0x08600000      0x988
+ *(.output_api)
+ .output_api    0x08600000       0x20 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08600000                memory_output_api
+ *(.text .text.*)
+ .text.lock     0x08600020       0x14 /root/garmin/staging/native-memory-output/memory_output.o
+ .text.unlock   0x08600034        0xc /root/garmin/staging/native-memory-output/memory_output.o
+ .text.record   0x08600040       0x20 /root/garmin/staging/native-memory-output/memory_output.o
+ .text.find     0x08600060       0x48 /root/garmin/staging/native-memory-output/memory_output.o
+ .text.methods_clear
+                0x086000a8       0x38 /root/garmin/staging/native-memory-output/memory_output.o
+ .text.memory_output_configure
+                0x086000e0       0x94 /root/garmin/staging/native-memory-output/memory_output.o
+                0x086000e0                memory_output_configure
+ .text.memory_output_discard
+                0x08600174       0x48 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08600174                memory_output_discard
+ .text.memory_output_selection_guard
+                0x086001bc       0xa4 /root/garmin/staging/native-memory-output/memory_output.o
+                0x086001bc                memory_output_selection_guard
+ .text.memory_output_read
+                0x08600260       0xe8 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08600260                memory_output_read
+ .text.memory_output_after_selection
+                0x08600348      0x184 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08600348                memory_output_after_selection
+ .text.memory_output_submit
+                0x086004cc      0x16c /root/garmin/staging/native-memory-output/memory_output.o
+                0x086004cc                memory_output_submit
+ .text.memory_output_register
+                0x08600638      0x1b8 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08600638                memory_output_register
+ .text.memory_output_release
+                0x086007f0      0x154 /root/garmin/staging/native-memory-output/memory_output.o
+                0x086007f0                memory_output_release
+ .text.memset   0x08600944       0x18 /root/garmin/staging/native-memory-output/runtime.o
+                0x08600944                memset
+ .text.memcpy   0x0860095c       0x1c /root/garmin/staging/native-memory-output/runtime.o
+                0x0860095c                memcpy
+ *(.rodata .rodata.*)
+ .rodata.buffers
+                0x08600978       0x10 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08600988                        __output_code_end = .
+                0x00000001                        ASSERT ((__output_code_end <= 0x8602000), output code exceeds two pages)
+
+.glue_7         0x08600988        0x0
+ .glue_7        0x08600988        0x0 linker stubs
+
+.glue_7t        0x08600988        0x0
+ .glue_7t       0x08600988        0x0 linker stubs
+
+.vfp11_veneer   0x08600988        0x0
+ .vfp11_veneer  0x08600988        0x0 linker stubs
+
+.v4_bx          0x08600988        0x0
+ .v4_bx         0x08600988        0x0 linker stubs
+
+.iplt           0x08600988        0x0
+ .iplt          0x08600988        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+
+.igot.plt       0x08600988        0x0
+ .igot.plt      0x08600988        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+
+.rel.dyn        0x08600988        0x0
+ .rel.iplt      0x08600988        0x0 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08602000                        . = 0x8602000
+                0x08602000                        __output_state_start = .
+
+.bss            0x08602000       0x90
+ *(.bss .bss.*)
+ .bss.memory_output_slots
+                0x08602000       0x60 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08602000                memory_output_slots
+ .bss.memory_output_control
+                0x08602060       0x30 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08602060                memory_output_control
+ *(COMMON)
+                0x08602090                        __output_state_end = .
+                0x00000001                        ASSERT ((__output_state_end <= 0x8602fc0), output state exceeds guarded page)
+                0x08604000                        . = 0x8604000
+
+.pcm0           0x08604000     0x1000
+ *(.pcm0)
+ .pcm0          0x08604000     0x1000 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08606000                        . = 0x8606000
+
+.pcm1           0x08606000     0x1000
+ *(.pcm1)
+ .pcm1          0x08606000     0x1000 /root/garmin/staging/native-memory-output/memory_output.o
+                0x08608000                        . = 0x8608000
+
+.pcm2           0x08608000     0x1000
+ *(.pcm2)
+ .pcm2          0x08608000     0x1000 /root/garmin/staging/native-memory-output/memory_output.o
+                0x0860a000                        . = 0x860a000
+
+.pcm3           0x0860a000     0x1000
+ *(.pcm3)
+ .pcm3          0x0860a000     0x1000 /root/garmin/staging/native-memory-output/memory_output.o
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+LOAD /root/garmin/staging/native-memory-output/memory_output.o
+LOAD /root/garmin/staging/native-memory-output/runtime.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-memory-output/output-armv6.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-memory-output/memory_output.o
+ .ARM.attributes
+                0x0000002f       0x2f /root/garmin/staging/native-memory-output/runtime.o

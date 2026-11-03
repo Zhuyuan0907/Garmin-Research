@@ -1,0 +1,61 @@
+READ-ONLY CANDIDATE PLAN -- NOT COMPILED OR INSTALLED
+
+The old build uses default style, --index, --housenumbers,
+--location-autofill=is_in,nearest, --country-abbr=TWN, and no --bounds.
+It contains the correct road names, but nearest inference adds hamlet keys
+and splits 台中市 / 臺中市. This does not prove the cause of a 2-hour hang.
+
+Candidate after global encoding/index repair is separately evaluated:
+
+1. Preprocess administrative boundaries from this SAME local PBF. Supply
+   --bounds=<generated directory> at road compilation, not only repackaging.
+2. Copy the default style to a NEW directory and put Taiwan-specific rules
+   before the generic inc/address rules. Municipality/county selection needs
+   an explicit decision and real-device test. For the reported 台中 query,
+   keep 臺中市 as a city key; do not silently replace it with 西區.
+
+   mkgmap:country=TWN & mkgmap:admin_level4=* {
+     set mkgmap:region='${mkgmap:admin_level4}'
+   }
+   mkgmap:country=TWN & mkgmap:admin_level4~'.*市$' {
+     set mkgmap:city='${mkgmap:admin_level4}'
+   }
+   mkgmap:country=TWN & mkgmap:city!=* & mkgmap:admin_level7=* {
+     set mkgmap:city='${mkgmap:admin_level7}'
+   }
+
+   These rules are a proposed scope, not an already verified national style.
+   Ensure --bounds supplies mkgmap:country, or set country TWN explicitly for
+   this Taiwan-only extract before these rules. Verify boundary island and
+   non-Taichung municipality/county examples, and retain user-visible aliases.
+
+3. Normalize addr:city=台中市 to 臺中市 in local compiler inputs only, without
+   changing the OSM source PBF. Preserve a search alias/POI for 台中市 if useful.
+4. Do not rename 民權路 to 民和路. Both real roads exist with distinct geometry.
+5. Keep house numbers: actual r4924 parseHousenumber accepts the first integer
+   from all 2,635 central 民權路 address records (367 distinct integers).
+   Suffix 號 alone is not a reason to remove those records. Duplicate unit
+   addresses and suffix loss still limit detailed apartment/之號 searches.
+
+MINIMUM REVERSIBLE PHYSICAL TEST
+
+navigation-road-anchors-test.gpx contains 5 waypoints at actual source road
+nodes: 民權路 south/middle/north and 民和路一/二段 control points. It is not
+installed. A later USB transaction may add it using a NEW Garmin/GPX filename,
+preserve original Current.gpx, read back, and safely unmount. Use 收藏/我的最愛
+to navigate to these points. This can distinguish coordinate routing/display
+from the address-search index but does not fix every street or the 2-hour hang.
+The exact device's GPX ingestion and favorite menu still require a real test.
+
+CORE EVIDENCE
+
+road-coverage-proof.json -- source road/name/admin, address proximity, original
+compiled NET/LBL name-city links, actual mkgmap house-number parser checks.
+compiled-roads-v2.json -- exact old tile road name-city readback (128 entries).
+ReadRoadIndexV2.java -- mkgmap MapReader reader, point-reference city resolution.
+ReadRoadIndex.java and compiled-roads.json are the first limited reader:
+hasHouseNumbers=false there must NOT be used to assert absent house numbers;
+NETFileReader skips number data without populating RoadDef.number lists.
+HousenumberGenerator.javap.txt -- binary-exact parser bytecode from local jar.
+XML and large JSON forensic intermediates are losslessly gzip compressed.
+No USB, Bluetooth, firmware patch, map compile, or full map download occurred.

@@ -1,0 +1,40 @@
+{
+  "fixture_bytes": 12288,
+  "fixture_SHA256": "8a5f2508138a918b1caf1c2bab641269f1f111acf4efe2aaf369d7e39165797b",
+  "checks": [
+    {
+      "case": "unaligned three-block non-monotonic physical mapping",
+      "bytes_read": 8192,
+      "passed": true
+    },
+    {
+      "case": "outside logical end",
+      "bytes_read": 0,
+      "passed": true
+    },
+    {
+      "case": "bounded logical length",
+      "bytes_read": 0,
+      "passed": true
+    },
+    {
+      "case": "negative logical offset",
+      "bytes_read": 0,
+      "passed": true
+    },
+    {
+      "case": "fresh complete helper hash and immutable fstat",
+      "bytes_read": 12288,
+      "passed": true
+    },
+    {
+      "case": "wrong complete helper SHA rejected",
+      "bytes_read": 12288,
+      "passed": true
+    }
+  ],
+  "actual_fixture_bytes_read": 32768,
+  "fixture_handle_closed": true,
+  "complete_supported_IMG_fixture": false,
+  "production_restore_generator_run": false
+}

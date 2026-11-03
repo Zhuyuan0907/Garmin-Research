@@ -1,0 +1,57 @@
+{
+  "schema": "android-auto-platform-gate-review-v1",
+  "updated_utc": "2026-10-08T01:21:48.914690+00:00",
+  "updated_Taiwan": "2026-10-08T09:21:48+08:00",
+  "goal_status": "active",
+  "full_goal_complete": false,
+  "goal_receipt": {
+    "path": "staging/android-auto-platform-gates-review-v1/goal-active-receipt.json",
+    "sha256": "508ff0612721f70b74ee4db372e5a4cad21e6f6a2bf7a242bf93b64fdc078cb8"
+  },
+  "evidence": {
+    "usb_board": {
+      "path": "evidence/android-auto-usb-board-primary-review-v1.json",
+      "sha256": "ce9a9e9fbcf5dbe6b8fac3e0942ebb858140acfd316bc265c148aab6d8d3b853"
+    },
+    "host_artifacts": {
+      "path": "evidence/android-auto-host-portability-v1.json",
+      "sha256": "2839110643a4ddb69df760fe4f628d6d48e48fc97faaf4e488a9724e09963895"
+    },
+    "port_contracts": {
+      "path": "evidence/android-auto-native-port-contract-review-v1.json",
+      "sha256": "62cbdefa02dc48e86b067b546019ea6284c00a6b1d26da7b5268669ba1f8826d"
+    },
+    "official_sdk_list": {
+      "path": "staging/android-auto-platform-gates-review-v1/official-connect-iq-retrieval.json",
+      "sha256": "d763c815f359c40dc134b1df82ffc058478d195e4a9f5d0f3971de6239db86f2"
+    }
+  },
+  "historical_diagnostic_execution": {
+    "modified_diagnostic": {
+      "path": "evidence/native-warm-probe-physical-positive-20261005T045004Z.json",
+      "sha256": "66d56b203a54916c517e6448b55b8e9da396167ff4c23346fed0ee8f552afd38",
+      "historical_not_rerun": true
+    },
+    "diagnostic_restore": {
+      "path": "evidence/native-warm-probe-physical-final-control-20261005T045419Z.json",
+      "sha256": "a4f1958506b62d8b461518d6ef0e677bee0eaa9b5206265ae5757a094bef8b64",
+      "historical_not_rerun": true
+    }
+  },
+  "static_artifact_count": 6,
+  "public_codec_source_files_verified": 21,
+  "runtime_tests": 0,
+  "device_IO": false,
+  "native_guest_execution": false,
+  "crosscompile": false,
+  "native_port_implemented": false,
+  "exact_board_host_VBUS_AOA_verified": false,
+  "device_install_candidate": false,
+  "current_phone_or_hardware_or_Maps_verified": false,
+  "prior_pipeline_and_percent_preserved": true,
+  "next_actions": [
+    "取得精確原機USB host／VBUS／AOA與可用程式載入／平台API證據；公開資料與host測試尚未補齊這兩個條件。等使用者主動通知可實測，不詢問在場或要求配對。",
+    "平台入口成立後才驗證受限單執行緒H264與32位ABI／配置／時鐘／CRT／清理合約，並接真正顯示／觸控／音訊所有權與current phone。原受中斷native分支不重試／繞過。",
+    "原機Android Auto／Google Maps、直接A2DP與菜單播放器仍未完成；Pi音樂轉送保留為另一條已實機成功的路徑。導航／麥克風研究停止。"
+  ]
+}

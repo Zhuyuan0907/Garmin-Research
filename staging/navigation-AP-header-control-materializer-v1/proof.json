@@ -1,0 +1,103 @@
+{
+  "schema": "AP-header-control-materializer-preparation/v1",
+  "all_assigned_checks_passed": true,
+  "scope": "fixed two-control catalog, local writer guards and synthetic saved-file integrity; preparation only",
+  "source": {
+    "path": "scripts/materialize_ap_header_control_v1.py",
+    "bytes": 18683,
+    "sha256": "dfbf182f4d1b40fc4315c5568a7e92c521c35d1c764bc1946e53269f7f958142",
+    "production_ast_assert_nodes": [],
+    "fixed_catalog_only": true,
+    "CHUNK_BYTES": 1048576
+  },
+  "tests": {
+    "path": "staging/navigation-AP-header-control-materializer-v1/test_materializer.py",
+    "bytes": 15936,
+    "sha256": "7732a4747825466986d424dc227d3ee9522ffc1ae7d614e421d34cace92d8089",
+    "proof_sha256": "889f44a9345edd3af61834d99148682bf1b10c40217e837241b890f8c5b8288a",
+    "actual_tool_chunk_id": "396f0a",
+    "actual_exit_code": 0,
+    "methods": 17,
+    "receipt_cases": 24,
+    "canonical_fixture_bytes": 4096,
+    "actual_max_synthetic_source_file_bytes": 4097,
+    "fixture_size_erratum": "The first test proof fixture_max_bytes=4096 names the base fixture; test17 extra-length refusal wrote4097 bytes. Both are below8192.",
+    "aggregate_synthetic_engine_counters": {
+      "source_bytes_read": 49664,
+      "generated_bytes_written": 45568,
+      "saved_output_bytes_read": 28672
+    },
+    "full_source_hash_computed_virtual_hash_and_actual_saved_readback_separate": true,
+    "corrupt_owned_partial_rejected_without_publish": true,
+    "post_link_fsync_error_retains_verified_published_final": true,
+    "optimized_python_explicit_guard_refusal": true
+  },
+  "closed_real_input_catalog": {
+    "prepared-control-plan.json": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+    "proof.json": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+    "sealed-files.json": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da"
+  },
+  "closed_root_virtual_fullhash_receipt_inherited_only": {
+    "tool_chunk_id": "9b63ea",
+    "actual_exit_code": 0,
+    "reexecuted_this_scope": false
+  },
+  "budgets": {
+    "artifact_output_limit_bytes": 131072,
+    "existing_small_artifact_input_limit_bytes": 262144,
+    "known_initial_catalog_capture_bytes": 10193,
+    "test_actual_small_catalog_reads_bytes": 33651,
+    "closure_generated_source_or_output_reads_bytes": 102772,
+    "real_IMG_bytes_read": 0,
+    "real_IMG_bytes_written": 0,
+    "synthetic_max_source_bytes": 4097
+  },
+  "metadata_cli_default_and_list_source_IMG_open_or_stat": false,
+  "source_IMG_current_stats_refreshed": false,
+  "production_source_stats_policy": "Exact inherited dev/inode/size/mtime_ns/ctime_ns pins are checked only in future explicit materialization; metadata listing does not refresh them.",
+  "fixed_catalog_sources": [
+    {
+      "name": "eightK_end_mirror",
+      "path": "staging/navigation-country-native-lane-candidate-v3/gmapprom1.img",
+      "bytes": 153346048,
+      "source_sha256": "1f468eb78cc1268951873c82ffce4abe3292dcece69c0eee405c5d7aca3cc360",
+      "expected_virtual_sha256": "9af1e68e1308bf28deeb7f7d4c7cfab88efd0063c38f4f2df77fcde352990dd3",
+      "stat_pin": [
+        45826,
+        538039,
+        153346048,
+        1791317242895661512,
+        1791318525389002569
+      ]
+    },
+    {
+      "name": "expanded_fourK_geometry",
+      "path": "staging/navigation-v3-expanded4k-offline-isolation-v1/v3-content-expanded4k-experiment.img.disabled",
+      "bytes": 153337856,
+      "source_sha256": "cc019c5f83c7fce442d0a6b64d8cc216dbc39e1cfa08dfe3f57c757f3bdfbfe9",
+      "expected_virtual_sha256": "8749b2614f0ef4cfb3ac631dd316b35dd3551e3ab97d2ac058f13a89052f50f6",
+      "stat_pin": [
+        45826,
+        538397,
+        153337856,
+        1791347653105259871,
+        1791347659645611251
+      ]
+    }
+  ],
+  "real_materialization_executed": false,
+  "real_candidate_generated": false,
+  "device_IO": false,
+  "installable": false,
+  "native_UI_or_renderer_rootcause_verified": false,
+  "checksum_policy_verified": false,
+  "all_synthetic_engine_handles_closed": true,
+  "limits": [
+    "Synthetic bodies do not prove real map materialization or acceptance.",
+    "Closed virtual hashes are inherited; no production full-image hash was repeated.",
+    "Opaque header checksum byte15 remains unchanged; admission/checksum/rendering policy remains unknown.",
+    "A CLI error after atomic publication may leave a verified final; published=true reports it. The writer does not delete that final.",
+    "Disabled output suffix is a local safeguard, not an installation or rollback adapter."
+  ],
+  "seal_source_handles_closed": true
+}

@@ -1,0 +1,91 @@
+
+Discarded input sections
+
+ .comment       0x00000000       0x20 /root/garmin/staging/native-aoa-config/usb_config.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08700000                        . = 0x8700000
+
+.text           0x08700000      0x888
+ *(.text .text.*)
+ .text          0x08700000        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+ .text.memset   0x08700000       0x1c /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700000                memset
+ .text.aoa_usb_parse
+                0x0870001c      0x548 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x0870001c                aoa_usb_parse
+ .text.aoa_usb_init
+                0x08700564       0xe0 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700564                aoa_usb_init
+ .text.aoa_usb_next
+                0x08700644       0xfc /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700644                aoa_usb_next
+ .text.aoa_usb_complete
+                0x08700740       0xb4 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700740                aoa_usb_complete
+ .text.aoa_usb_cancel
+                0x087007f4       0x30 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x087007f4                aoa_usb_cancel
+ .text.aoa_usb_cancel_ack
+                0x08700824       0x54 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700824                aoa_usb_cancel_ack
+ .text.aoa_usb_context_bytes
+                0x08700878        0x8 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700878                aoa_usb_context_bytes
+ .text.aoa_usb_plan_bytes
+                0x08700880        0x8 /root/garmin/staging/native-aoa-config/usb_config.o
+                0x08700880                aoa_usb_plan_bytes
+ *(.rodata .rodata.*)
+                0x08700888                        __code_end = .
+
+.data           0x08700888        0x0
+ .data          0x08700888        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+
+.igot.plt       0x08700888        0x0
+ .igot.plt      0x08700888        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+
+.glue_7         0x08700888        0x0
+ .glue_7        0x08700888        0x0 linker stubs
+
+.glue_7t        0x08700888        0x0
+ .glue_7t       0x08700888        0x0 linker stubs
+
+.vfp11_veneer   0x08700888        0x0
+ .vfp11_veneer  0x08700888        0x0 linker stubs
+
+.v4_bx          0x08700888        0x0
+ .v4_bx         0x08700888        0x0 linker stubs
+
+.iplt           0x08700888        0x0
+ .iplt          0x08700888        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+
+.rel.dyn        0x08700888        0x0
+ .rel.iplt      0x08700888        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+
+.bss            0x08700888        0x0
+ *(.bss .bss.*)
+ .bss           0x08700888        0x0 /root/garmin/staging/native-aoa-config/usb_config.o
+ *(COMMON)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /root/garmin/staging/native-aoa-config/usb_config.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-aoa-config/usb_config.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-aoa-config/usb_config.o

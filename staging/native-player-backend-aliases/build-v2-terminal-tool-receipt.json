@@ -1,0 +1,11 @@
+{
+  "terminal": true,
+  "actual_terminal": {
+    "chunk_id": "6323c3",
+    "wall_time_seconds": 0.532853633,
+    "exit_code": 1,
+    "original_token_count": 302,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-backend-aliases/build_backend_image_v2.py\", line 100, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-backend-aliases/build_backend_image_v2.py\", line 45, in main\n    run(['arm-linux-gnueabi-gcc','-mcpu=arm1176jzf-s','-mfloat-abi=soft','-nostdlib','-static','-no-pie','-Wl,--no-undefined,--gc-sections,--build-id=none,-Map='+str(out/'warm.map'),'-Wl,-T,'+str(ld),*map(str,objects),'-lgcc','-o',str(elf)])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-backend-aliases/build_backend_image_v2.py\", line 38, in run\n    assert r.returncode==0,r.stderr[-3500:]\n           ^^^^^^^^^^^^^^^\nAssertionError: /usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld:/root/garmin/staging/native-player-backend-aliases/build-v2/warm-resident.ld:11: syntax error\ncollect2: error: ld returned 1 exit status\n\n"
+  },
+  "guest_executed": false
+}

@@ -1,0 +1,32 @@
+有限韌體排序分析與候選編譯器原型（2026-10-05；不含實機搜尋）
+
+結果
+- 精確 HWID 1352 / SW 8.00 MAIN SHA256 10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8。
+- 原 1AC008 對 4E00..9FBB、3400..4DBF、20000..2A6D6 直接 flag=1 返回，未讀 descriptor / SRT page。因此 v1 補頁本身不改常用中文原生權重。
+- 原 1AC3DC 產生兩個 primary units：Unified base FB40、Ext-A/B base FB80，lead=base+(cp>>15)、trail=8000+(cp&7FFF)；secondary每unit32、tertiary每unit2。
+- 23CE92 接受匹配ID1與大於等於最低ID2的真SRT；新19/7052在合成file-kind2記憶體reader可讀。這不是實機IMG發現／選擇證明。
+- Map SRT／embedded Unicode descriptor 都有路徑；builtin指標878EF4時字串為UTF16LE，map descriptor為UTF8。本輪未接完整 keyboard→MDR→地址UI caller。
+- r4924 Unicode SRT flags6F02使原1ABD44讀16/10/6，而原writer以16/8/8寫。因此第一Han-only shadow proof故意封存為false；不能使用它宣稱相容。
+
+通過的 successor
+- packed-shadow-src-v2保留原Sort tables、maxPrimary10690、maxExp8；僅在keys及Collator iterator先處理精確Han範圍，ExtB合併UTF16 surrogate pair。
+- writer沿用v1的缺BMP頁材料化，正常record及expansion改為LE primary16 + (secondary | tertiary<<10)16。hard guard primary0..65535、secondary0..1023、tertiary0..63；headerflags不改。
+- 官方resource實測最大值 defined secondary255/tertiary20，expansion secondary8/tertiary8。
+- packed-shadow-alignment-proof-v2 all_passed：48短label×3級真1AC3DC units；23對×3級真1AC788 signs，含8個真candidate MDR地名對、Latin/Han、A/a、accent、Æ/Œ/ß、希臘／俄文／阿拉伯文。
+- 20非Han control hostkey全bytes與原Jar相同。
+- 18175原defined BMP及2610expansion數值逐筆不變；45312原缺BMP項材料化與hostfallback相同。
+- 民／㐀／𠀀各1024 codepoints：key buffer三例通過，未跑native長文字。
+- 此namespace未全國編圖、未改原Jar/resource、MAIN、USB或canonical；root自行編獨立v2圖資。
+
+限制
+- 尚未驗證Garmin實機搜尋、圖資發現／選擇、keyboard轉碼、真正MDR query caller、routing或導航UI；不能宣稱兩小時搜尋／民權誤選民和已修復。
+- ExtB僅支持本機native分類20000..2A6D6；其他nonBMP／其他新CJK擴展、emoji、invalid surrogate 未聲稱支持。
+- 缺BMP頁材料化保留host fallback以便後續驗證；同一現有頁內的zero holes若非native Han仍保留原語義，沒有擴大修正全部Unicode。
+- 原 comparator存在forward／reverse／prefix模式；本輪驗forward有限pairs及三strength，不是所有模式或全地圖資料證明。
+- 原始指令於Unicorn設定ARM1176執行；不是整個GarminOS模擬或硬體性能測試。
+
+精確使用
+java com.sun.tools.javac.Main -cp /root/garmin/sources/maps/mkgmap-r4924/mkgmap.jar -d packed-shadow-classes-v2 packed-shadow-src-v2/uk/me/parabola/imgfmt/app/srt/Sort.java packed-shadow-src-v2/uk/me/parabola/imgfmt/app/srt/SRTFile.java
+運行classpath first: /root/garmin/staging/navigation-firmware-sort-v1/packed-shadow-classes-v2:<新一致sort-ID resource>:/root/garmin/sources/maps/mkgmap-r4924/mkgmap.jar
+main: uk.me.parabola.mkgmap.main.Main （不用 -jar）；不要混入v1 writer classes。
+父agent全國build進行後本原型source/classes/proof封存，不再修改。

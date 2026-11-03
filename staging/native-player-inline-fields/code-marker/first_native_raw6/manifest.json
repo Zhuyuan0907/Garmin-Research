@@ -1,0 +1,66 @@
+{
+  "control": 1,
+  "name": "first_native_raw6",
+  "symbols": {
+    "__combined_ram_bytes": 2297268,
+    "original_tts_entry": 47556920,
+    "cache_marker_entry": 49792564,
+    "identity": 49793192,
+    "_GLOBAL_OFFSET_TABLE_": 49793256,
+    "__marker_bss_start": 49793280,
+    "marker_state": 49793280,
+    "__marker_bss_end": 49793320
+  },
+  "combined_file": "staging/native-player-inline-fields/code-marker/first_native_raw6/combined-emulation-only.bin",
+  "combined_ram": 2297268,
+  "original_ram": 2296496,
+  "original_entry": 47556920,
+  "original_binary": "evidence/firmware-analysis/voice-modules/Chinese_Big5_MeiLing/DLLIMG.BIN",
+  "original_sha256": "a1e8f473c5cf87f5cdc364b402229f6222ce657fe779582dea62b8423cacec44",
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-Os",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-DCONTROL=1",
+      "-Wl,-T,/root/garmin/staging/native-player-inline-fields/code-marker/first_native_raw6/entry.ld",
+      "-Wl,--build-id=none,-Map=/root/garmin/staging/native-player-inline-fields/code-marker/first_native_raw6/entry.map",
+      "/root/garmin/staging/native-player-inline-fields/code-marker/cache_marker_entry.c",
+      "-o",
+      "/root/garmin/staging/native-player-inline-fields/code-marker/first_native_raw6/marker-emulation.elf"
+    ],
+    [
+      "arm-linux-gnueabi-objcopy",
+      "-O",
+      "binary",
+      "/root/garmin/staging/native-player-inline-fields/code-marker/first_native_raw6/marker-emulation.elf",
+      "/root/garmin/staging/native-player-inline-fields/code-marker/first_native_raw6/marker-emulation.bin"
+    ]
+  ],
+  "header_only_original_mutations": [
+    0,
+    4,
+    8
+  ],
+  "original_postheader_file_unchanged": true,
+  "source_sha256": {
+    "staging/native-player-inline-fields/code-marker/cache_marker_entry.c": "364c91a7bd24533ac1f08c6ef8b4a428fbffc1356140e4a7756b1ea961c7fb01",
+    "staging/native-player-inline-fields/code-marker/build_cache_marker_prototype.py": "d05ea685fd255637b5d9396c89d57a5a19d529d7c54779c7a42ede866994106d",
+    "staging/native-player-inline-fields/code-marker/first_native_raw6/entry.ld": "ca92cf30225f4326ee4f79adec7022dd643bc3fc6a8681e5ad8343457c1d3a84"
+  },
+  "binary_sha256": "58566ba6a41b5f10c8a87caf7799fa9a7f37784ebf0444c908943499d0d34a43",
+  "elf_sha256": "bc0b0b9d4af2e942e5344d60dc15aee1037c7340b7fd416951a21d6622889a14",
+  "emulation_only": true,
+  "device_install_candidate": false,
+  "VPM_or_SIG_generated": false
+}

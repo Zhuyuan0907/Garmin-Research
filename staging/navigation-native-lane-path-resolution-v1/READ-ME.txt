@@ -1,0 +1,44 @@
+有限巷／弄原圖路徑解析原型
+
+成功執行 EXIT 0 / exec_command chunk 2a506e。20 筆真正來源例子取自
+sealed country join 的 pending_name_examples，完整來源 ledger/PBF 未開啟。
+compact native roster 讀一次；原 AP 圖只讀 235,484 bytes，34 個完整直接
+子群、3,885 筆子紀錄。原 AP 前後 stat 相同；沒有產生或修改 IMG/DB。
+
+14 筆精確找到門牌父群：11 個 L4 巷節點接 L5，3 個 L5 弄節點接 L6。
+11 筆來源門牌已在該群中；3 筆精確缺少：
+  新竹縣新埔鎮 關埔路雲東段1102巷9號
+  桃園市桃園區 中正路115巷107號
+  苗栗縣苗栗市 玉清路380巷382號
+10 筆來源座標狀態由前證據標記可供 parent-group review，另 4 筆有來源
+座標衝突。這輪沒有讀座標值或取得完整來源 IDs，不是地址寫入候選。
+
+草屯文化街68巷11號的原父紀錄為 L4/1179202，rawflags=5，L5
+first=1323637/count=11；長安街36巷9弄1號的父紀錄為 L5/1696701，
+rawflags=6，L6 first=1474654/count=33。完整路徑與來源 provenance
+在 resolved-parent-plans.json 和 proof.json。
+
+6 筆 held：埔里民生路445巷缺精確445巷子標籤；後港一路56巷14弄
+缺精確14弄子標籤；重複行政區字串及「台北巿」沒有精確 native 前綴；
+台北市來源行政區未驗證；壽豐中山路101巷 rawflags=13，其唯一 L5
+子節點是「+ 交叉路口 +」而非直接數字門牌。沒有跳過此節點或把13改5。
+
+resolver API：exact_prefix / suffix_tokens / exact_token_child 為純函式；
+ActualTree.children 完整讀取實際 DIR-derived direct range；resolve
+接受單筆已準備 source example、proof bucket、同 city/district roster
+和 ActualTree。異常重複、無 children、無支援數字 leaf、unsupported
+suffix 均 held。全文 child labels 精確比較；沒有猜 alias 或平面 L3 替代。
+原圖讀取 primitive 只 AST 擷取 sealed reader 的指定定義，舊 main/cases
+未執行。15 項純 token/prefix/uniqueness controls 通過。
+
+Stock JAI CREATE TABLE japan_addr_family (parent_record INTEGER UNIQUE,
+the_first_record INTEGER PRIMARY KEY)；後續需依實際唯一 parent 分組，
+不能追加多個互不相連的同 parent family。這輪沒有變更 JAI。
+
+第一次 metadata-only attempt 在錯誤的 LBL offset 解讀被 guard 拒絕；
+failed source 和 receipt 另存。修正後從真 GMP pointer 找 LBL header，
+使用其 +21 儲存的 GMP-logical pool offset；未將 LBL offset 重加。
+
+這是有限 host 解碼/規劃，沒有 original CPU query、UI、route、實機、
+新增街道/JAI或整張候選驗證。rawflags8/13 語義仍未知。有限20筆結果
+不外推全國覆盖，也不表示台灣2026原生地址更新完成。

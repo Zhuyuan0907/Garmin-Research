@@ -1,0 +1,35 @@
+[
+  {
+    "name": "v2",
+    "cmd": "python3 scripts/check_native_music_control_metadata.py --manifest staging/native-music-named-symbol-binding-readonly-20261007-v1/v2-metadata.json.gz --contract staging/native-music-symbol-provenance-readonly-20261007-v1/controller-contract.json --output staging/native-music-symbol-provenance-readonly-20261007-v1/v2-contract-check.json",
+    "result": {
+      "chunk_id": "83e681",
+      "wall_time_seconds": 0.000020741,
+      "exit_code": 1,
+      "original_token_count": 65,
+      "output": "{\"metadata_contract_satisfied\": false, \"missing_entries\": [\"umc_status_read\", \"umc_source_started\", \"umc_cleanup_returned\", \"umc_kick\", \"ui_music_control_api\"], \"output\": \"staging/native-music-symbol-provenance-readonly-20261007-v1/v2-contract-check.json\"}\n"
+    }
+  },
+  {
+    "name": "v3",
+    "cmd": "python3 scripts/check_native_music_control_metadata.py --manifest staging/native-music-named-symbol-binding-readonly-20261007-v1/v3-metadata.json.gz --contract staging/native-music-symbol-provenance-readonly-20261007-v1/controller-contract.json --output staging/native-music-symbol-provenance-readonly-20261007-v1/v3-contract-check.json",
+    "result": {
+      "chunk_id": "83a955",
+      "wall_time_seconds": 0.000026,
+      "exit_code": 1,
+      "original_token_count": 65,
+      "output": "{\"metadata_contract_satisfied\": false, \"missing_entries\": [\"umc_status_read\", \"umc_source_started\", \"umc_cleanup_returned\", \"umc_kick\", \"ui_music_control_api\"], \"output\": \"staging/native-music-symbol-provenance-readonly-20261007-v1/v3-contract-check.json\"}\n"
+    }
+  },
+  {
+    "name": "host_controls",
+    "cmd": "python3 scripts/test_native_music_control_metadata.py --contract staging/native-music-symbol-provenance-readonly-20261007-v1/controller-contract.json --historical staging/native-music-named-symbol-binding-readonly-20261007-v1/v3-metadata.json.gz --output staging/native-music-symbol-provenance-readonly-20261007-v1/host-controls.json",
+    "result": {
+      "chunk_id": "23a718",
+      "wall_time_seconds": 0.000019592,
+      "exit_code": 0,
+      "original_token_count": 203,
+      "output": "{\"host_controls_passed\": 16, \"cases\": [\"complete synthetic metadata passes declarations only\", \"historical all_passed does not mask five missing declarations\", \"table is an object, not a getter function\", \"old 40-byte table shape refused\", \"undefined function refused\", \"stale source hash refused\", \"different hardware refused\", \"address outside declared image refused\", \"boolean is not a numeric address\", \"wrong dictionary-name identity refused\", \"unaligned public table refused\", \"relocated declarations do not require stale absolute addresses\", \"contract cannot silently omit required controls\", \"duplicate metadata keys refused\", \"compressed expansion remains bounded\", \"binary paths refused before opening\"], \"positive_case_is_synthetic_metadata_only\": true, \"native_execution\": false, \"device_IO\": false}\n"
+    }
+  }
+]

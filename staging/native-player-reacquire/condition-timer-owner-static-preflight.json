@@ -1,0 +1,498 @@
+{
+  "updated_utc": "2026-10-04T05:16:05.681615+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "evidence/firmware-analysis/native-mixer-capacity-emulation.json": "7d135edcaa31c5ba1e9f009e03010d0fa97ecbec907f34ee5faf1ec13c5e297a",
+    "evidence/firmware-analysis/native-mixer-start-emulation.json": "9e8d596ed08afd3ca59cfa1bd6dceaeede76180ca303c9e77bbd8f8c79614ab2",
+    "evidence/firmware-analysis/native-mixer-timer-emulation.json": "cda00ada48766a3e3b54fc97bce353e398613ba0d358152ac43cc3b8b813c8db",
+    "evidence/firmware-analysis/native-mixer-worker-emulation.json": "a871ca11d6682ea8df1102d48169edc012e7ad6a3ee1d19c12bf10ff44dcc18c",
+    "scripts/analyze_native_condition_timer_owner.py": "4fdd87e8cd64b0080c6d89bf9ee0034c312d99d3100de8a1e0005d2340f3e0e1",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_usb_transition.py": "5deb660142324f8c07287055c02b748a97540330024600a2cf00d3041d878b3b",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/emulate_avdtp_media.py": "348c6f402acf89f362daebfffcc6accb6e37334f419a70f56a82226713ca6b18",
+    "scripts/emulate_native_audio_messages.py": "443e3c25edaa8475adeb414cb0f99a141c3a83216c982ee094c2ec0dee3fe570",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_native_media_worker.py": "8abbd8c2144d455603d32ccdba4d5dfd8166e3924e324cf9da464a64bfab78fb",
+    "scripts/emulate_native_memory_audio.py": "cdf1d1bbbaa675314d1cbedf5999e2c220f21cb43f2efe2877a09b346ff1f166",
+    "scripts/emulate_native_memory_completion.py": "52c48d03a8e231ea4b777327897b2ba1f84e37dd9218228bc772352087cdd60d",
+    "scripts/emulate_native_memory_notice.py": "d7dd21c35133a531ee4063f659868639dc90a58899c40a8841ab73ce229807e0",
+    "scripts/emulate_native_memory_output.py": "11fc53296aa7cd2c022aa692a7b7d385a7578b35e3ce8bd19a5c0b27e8d0e0a0",
+    "scripts/emulate_native_mixer_capacity.py": "4a38b9bed55a40e8b61dd06c7d16dd0a1cec19b610b763f2fee0702eb5272431",
+    "scripts/emulate_native_mixer_start.py": "9af27c6145c49bb88be3821c44fd34d73349d3e7dfbd272cf01278f2b896fe38",
+    "scripts/emulate_native_mixer_timer.py": "9e62c3857623353d8225f865b88ac89fe3dcf91684b5948f72c48e8049ce008b",
+    "scripts/emulate_native_mixer_worker.py": "0e8d2a10dccf33098baf66e03b2b9a075f3ab8c87ca54e018dad4598bcf67ddc",
+    "scripts/emulate_native_owned_media.py": "b2b137e4e5c06aeaa1cd6c56983efebf3220307fd44e859de03454615e594d8c",
+    "scripts/emulate_native_owned_worker.py": "bd5ee2dab99e5ce08a64f849a53871df28fd00c2f2011b8a25698a7a89a422e9",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_voice_convert.py": "55b78bf99209addb1eb466c7fd79120515454d9c4e4bfdbe9158c2f1b78c0d8b",
+    "scripts/emulate_native_voice_media.py": "6e910090a648d5003f9c76e100000a404e50448c0d6e5921b58ea8092808369d",
+    "staging/native-media-consumer/manifest.json": "d8e9b16766423cb73062d5a9318d1b4b17c876b058ef473b43a5b8a564072919",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844"
+  },
+  "complete_bounded_CFG_count": 5,
+  "functions": {
+    "0xf6e48": {
+      "entry": "0xf6e48",
+      "bound_end": "0xf6e68",
+      "instructions": [
+        {
+          "address": "0xf6e48",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0xf6e4a",
+          "instruction": "ldr r0, [pc, #0x70]",
+          "literal_address": "0xf6ebc",
+          "literal_value": "0x2d226e0"
+        },
+        {
+          "address": "0xf6e4c",
+          "instruction": "movs r2, r1"
+        },
+        {
+          "address": "0xf6e4e",
+          "instruction": "movs r3, r1"
+        },
+        {
+          "address": "0xf6e50",
+          "instruction": "stm r0!, {r1, r2, r3}"
+        },
+        {
+          "address": "0xf6e52",
+          "instruction": "stm r0!, {r1, r2}"
+        },
+        {
+          "address": "0xf6e54",
+          "instruction": "ldr r1, [pc, #0x68]",
+          "literal_address": "0xf6ec0",
+          "literal_value": "0x353d79"
+        },
+        {
+          "address": "0xf6e56",
+          "instruction": "subs r0, #0x14"
+        },
+        {
+          "address": "0xf6e58",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "address": "0xf6e5a",
+          "instruction": "ldr r1, [pc, #0x68]",
+          "literal_address": "0xf6ec4",
+          "literal_value": "0x2d22834"
+        },
+        {
+          "address": "0xf6e5c",
+          "instruction": "str r1, [r0, #8]"
+        },
+        {
+          "address": "0xf6e5e",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0xf6e60",
+          "instruction": "strb r1, [r0, #0xe]"
+        },
+        {
+          "address": "0xf6e62",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0xf6e64",
+          "instruction": "strb r1, [r0, #0xf]"
+        },
+        {
+          "address": "0xf6e66",
+          "instruction": "bx lr"
+        }
+      ],
+      "returns": [
+        "0xf6e66"
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "indirect_calls_and_callees_not_recursively_executed": true
+    },
+    "0x353d3c": {
+      "entry": "0x353d3c",
+      "bound_end": "0x353d58",
+      "instructions": [
+        {
+          "address": "0x353d3c",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x353d3e",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x353d40",
+          "instruction": "ldr r1, [pc, #0x14]",
+          "literal_address": "0x353d58",
+          "literal_value": "0xf09098"
+        },
+        {
+          "address": "0x353d42",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x353d44",
+          "instruction": "ldr r1, [pc, #0x14]",
+          "literal_address": "0x353d5c",
+          "literal_value": "0xf0909c"
+        },
+        {
+          "address": "0x353d46",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x353d48",
+          "instruction": "ldr r0, [pc, #0x14]",
+          "literal_address": "0x353d60",
+          "literal_value": "0x2d226e0"
+        },
+        {
+          "address": "0x353d4a",
+          "instruction": "bl #0x358bf8",
+          "direct_call": "0x358bf8"
+        },
+        {
+          "address": "0x353d4e",
+          "instruction": "ldr r1, [pc, #0x14]",
+          "literal_address": "0x353d64",
+          "literal_value": "0xf090a0"
+        },
+        {
+          "address": "0x353d50",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x353d52",
+          "instruction": "pop {r4}"
+        },
+        {
+          "address": "0x353d54",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0x353d56",
+          "instruction": "bx r3"
+        }
+      ],
+      "returns": [
+        "0x353d56"
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "indirect_calls_and_callees_not_recursively_executed": true,
+      "balanced_original_LR_epilogue_verified": true
+    },
+    "0x353ab0": {
+      "entry": "0x353ab0",
+      "bound_end": "0x353ab6",
+      "instructions": [
+        {
+          "address": "0x353ab0",
+          "instruction": "ldr r0, [pc, #4]",
+          "literal_address": "0x353ab8",
+          "literal_value": "0xf090a0"
+        },
+        {
+          "address": "0x353ab2",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "address": "0x353ab4",
+          "instruction": "bx lr"
+        }
+      ],
+      "returns": [
+        "0x353ab4"
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "indirect_calls_and_callees_not_recursively_executed": true
+    },
+    "0x353abc": {
+      "entry": "0x353abc",
+      "bound_end": "0x353ac2",
+      "instructions": [
+        {
+          "address": "0x353abc",
+          "instruction": "ldr r0, [pc, #4]",
+          "literal_address": "0x353ac4",
+          "literal_value": "0x2d226f4"
+        },
+        {
+          "address": "0x353abe",
+          "instruction": "movs r1, #0x50"
+        },
+        {
+          "address": "0x353ac0",
+          "instruction": "bx lr"
+        }
+      ],
+      "returns": [
+        "0x353ac0"
+      ],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "indirect_calls_and_callees_not_recursively_executed": true
+    },
+    "0x353d78": {
+      "entry": "0x353d78",
+      "bound_end": "0x353e08",
+      "instructions": [
+        {
+          "address": "0x353d78",
+          "instruction": "bl #0x2fd034",
+          "direct_call": "0x2fd034"
+        },
+        {
+          "address": "0x353d7c",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x353d7e",
+          "instruction": "tst r0, r1"
+        },
+        {
+          "address": "0x353d80",
+          "instruction": "beq #0x353d78"
+        },
+        {
+          "address": "0x353d82",
+          "instruction": "ldr r4, [pc, #0x64]",
+          "literal_address": "0x353de8",
+          "literal_value": "0xf09098"
+        },
+        {
+          "address": "0x353d84",
+          "instruction": "ldr r4, [r4]"
+        },
+        {
+          "address": "0x353d86",
+          "instruction": "ldr r5, [pc, #0x64]",
+          "literal_address": "0x353dec",
+          "literal_value": "0xf0909c"
+        },
+        {
+          "address": "0x353d88",
+          "instruction": "ldr r1, [pc, #0x64]",
+          "literal_address": "0x353df0",
+          "literal_value": "0x927c0"
+        },
+        {
+          "address": "0x353d8a",
+          "instruction": "mov r8, r1"
+        },
+        {
+          "address": "0x353d8c",
+          "instruction": "ldr r6, [r5]"
+        },
+        {
+          "address": "0x353d8e",
+          "instruction": "cmp r6, #0"
+        },
+        {
+          "address": "0x353d90",
+          "instruction": "beq #0x353d78"
+        },
+        {
+          "address": "0x353d92",
+          "instruction": "ldr r2, [r6, #8]"
+        },
+        {
+          "address": "0x353d94",
+          "instruction": "subs r1, r4, r2"
+        },
+        {
+          "address": "0x353d96",
+          "instruction": "cmp r1, r8"
+        },
+        {
+          "address": "0x353d98",
+          "instruction": "bhs #0x353d78"
+        },
+        {
+          "address": "0x353d9a",
+          "instruction": "ldr r1, [r6]"
+        },
+        {
+          "address": "0x353d9c",
+          "instruction": "str r1, [r5]"
+        },
+        {
+          "address": "0x353d9e",
+          "instruction": "ldr r7, [r6, #4]"
+        },
+        {
+          "address": "0x353da0",
+          "instruction": "ldrb r1, [r6, #0xc]"
+        },
+        {
+          "address": "0x353da2",
+          "instruction": "cmp r1, #2"
+        },
+        {
+          "address": "0x353da4",
+          "instruction": "beq #0x353dd8"
+        },
+        {
+          "address": "0x353da6",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "address": "0x353da8",
+          "instruction": "beq #0x353dc6"
+        },
+        {
+          "address": "0x353daa",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x353dac",
+          "instruction": "bne #0x353d8c"
+        },
+        {
+          "address": "0x353dae",
+          "instruction": "ldr r3, [r6, #0x10]"
+        },
+        {
+          "address": "0x353db0",
+          "instruction": "adds r2, r2, r3"
+        },
+        {
+          "address": "0x353db2",
+          "instruction": "str r2, [r6, #8]"
+        },
+        {
+          "address": "0x353db4",
+          "instruction": "adds r0, r6, #0"
+        },
+        {
+          "address": "0x353db6",
+          "instruction": "adds r1, r5, #0"
+        },
+        {
+          "address": "0x353db8",
+          "instruction": "bl #0x353e14",
+          "direct_call": "0x353e14"
+        },
+        {
+          "address": "0x353dbc",
+          "instruction": "adds r0, r7, #0"
+        },
+        {
+          "address": "0x353dbe",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x353dc0",
+          "instruction": "blx #0x2fcf44",
+          "direct_call": "0x2fcf44"
+        },
+        {
+          "address": "0x353dc4",
+          "instruction": "b #0x353d8c"
+        },
+        {
+          "address": "0x353dc6",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x353dc8",
+          "instruction": "str r1, [r6, #4]"
+        },
+        {
+          "address": "0x353dca",
+          "instruction": "adds r0, r7, #0"
+        },
+        {
+          "address": "0x353dcc",
+          "instruction": "ldr r1, [r6, #0x10]"
+        },
+        {
+          "address": "0x353dce",
+          "instruction": "movs r2, #4"
+        },
+        {
+          "address": "0x353dd0",
+          "instruction": "orrs r1, r2"
+        },
+        {
+          "address": "0x353dd2",
+          "instruction": "blx #0x2fcf44",
+          "direct_call": "0x2fcf44"
+        },
+        {
+          "address": "0x353dd6",
+          "instruction": "b #0x353d8c"
+        },
+        {
+          "address": "0x353dd8",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x353dda",
+          "instruction": "str r1, [r6, #4]"
+        },
+        {
+          "address": "0x353ddc",
+          "instruction": "adds r0, r7, #0"
+        },
+        {
+          "address": "0x353dde",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x353de0",
+          "instruction": "blx #0x2fcf44",
+          "direct_call": "0x2fcf44"
+        },
+        {
+          "address": "0x353de4",
+          "instruction": "b #0x353d8c"
+        }
+      ],
+      "returns": [],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "indirect_calls_and_callees_not_recursively_executed": true
+    }
+  },
+  "timer_descriptor_initializer": "0xf6e48",
+  "timer_descriptor": "0x2d226e0",
+  "exact_original_descriptor_words": [
+    "0x353d79",
+    "0x0",
+    "0x2d22834",
+    "0x10000",
+    "0x0"
+  ],
+  "timer_TCB_producer": "0x353d3c ->0x358bf8 ->original store353D50",
+  "timer_TCB_global": "0xf090a0",
+  "expected_native_timer_TCB": "0x2d227c8",
+  "timer_task_entry": "0x353d78",
+  "timer_event_wait": "0x2fd034",
+  "timer_event_post": "0x2fcf44",
+  "original_condition_constructor_loads_same_timer_TCB_global": "0x3ec572 ->literal3EC6C0 ->F090A0",
+  "condition_owner_distinct_from_current_thread_required_to_test_contention": true,
+  "workspace_getter": "0x353abc",
+  "workspace_return_pointer": "0x2d226f4",
+  "workspace_return_length": 80,
+  "workspace_getter_semantic_role_not_inferred_from_length_alone": true,
+  "reused_matching_native_timer_evidence": "evidence/firmware-analysis/native-mixer-timer-emulation.json",
+  "reused_native_timer_source_dependencies_verified": 25,
+  "reused_prior_timer_route_count": 2,
+  "prior_timer_harness_bookkeeping_code_patch_not_copied_into_current_MAIN": true,
+  "native_current_idle_ready_task_context_and_actual_Gui_dispatcher_events_still_unverified": true,
+  "device_io": false,
+  "sounds_emitted": false,
+  "limits": "Five bounded exact original CFGs connect condition owner F090A0 to original timer task producer/descriptor/event wait/post. Two earlier timer routes25 dependencies freshly verified and reused as scoped evidence, not rerun or proof of current GUI scheduling. Earlier timer harness patches construction bookkeeping; current whole-MAIN guarded VM must not copy that patch. Equal fictional current/constructor owner in complete6649 memory controls produces native recursive immediate return, not blocking/event delivery. Native timer ownership and real task/idle/ready/context/event integration still require new runtime evidence."
+}

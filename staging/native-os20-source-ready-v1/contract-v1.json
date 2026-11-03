@@ -1,0 +1,429 @@
+{
+  "all_passed": true,
+  "scope": "actual original OS20 Source callback -> warm initializer -> existing typed FIFO init -> native ready event",
+  "prefix": "staging/native-os20-audio-prefix-v1/journal-reconstructed-prefix.json.gz",
+  "prefix_SHA256": "1c8b95edd410c7e903fa1a16fc47a970bffc9e7eaae3c49aab9adb9a7d17596e",
+  "prefix_or_old_guest_instructions_rerun": false,
+  "inherited_prefix_is_journal_reconstructed_not_whole_instruction_semantics": true,
+  "source_backed_flash_page": {
+    "start": 13103104,
+    "size": 4096,
+    "permissions": 1,
+    "source": "unchanged MAIN flash bytes",
+    "SHA256": "6e2c79a521e00146ded1e8ea34a0f3727c4651e329661f6057343e1ab8e14079",
+    "table": 13105660
+  },
+  "original_bitscan_LDRB_executed": true,
+  "Source": {
+    "mh_os20_adapter": 60928660,
+    "mh_source_tcb": 405880992,
+    "mh_os20_self_tcb": 405880992,
+    "mh_os20_create_returns": 1,
+    "mh_os20_callback_argument": 49983620,
+    "mh_os20_worker_entries": 1,
+    "mh_os20_publication_checks": 2,
+    "mh_os20_publication_errors": 0,
+    "mh_initialized": 1,
+    "mh_initialize_result": 0,
+    "mh_os20_ready_posts": 1,
+    "mh_os20_ready_post_returns": 1,
+    "mh_os20_ready_status": 0,
+    "mw_attempts": 1,
+    "mw_attaches": 1,
+    "mw_denials": 0
+  },
+  "controller": {
+    "controller": 156254096,
+    "created_tcb": 405880992,
+    "entered": 1,
+    "creator_return_count": 1,
+    "adapter": 60928660,
+    "adapter_tcb": 405880992,
+    "ready_before_wait": 0,
+    "post_returns_before_wait": 0,
+    "wrong_actor_bind": 4294966895,
+    "event": 1024,
+    "controller_after_wait": 156254096,
+    "initialized": 1,
+    "initializer_status": 0,
+    "ready_posts_at_wake": 1,
+    "ready_post_returns_at_wake": 0,
+    "source_self": 405880992,
+    "callback_argument": 49983620,
+    "callback_entries": 1,
+    "publication_checks": 2,
+    "publication_errors": 0,
+    "output_initialized": 1,
+    "queue_running": 1,
+    "queue_epoch": 1,
+    "queue_count": 0,
+    "observed_ready": 1,
+    "fail_reason": 0
+  },
+  "CPU_store_observer_count": 11440,
+  "instruction_count": 33288,
+  "instruction_sources": {
+    "frozen_warm_guest_mapping": 33110,
+    "NEW_C_controller": 178
+  },
+  "whole_instruction_trace_emitted": false,
+  "worker_TCB": 405880992,
+  "adapter": 60928660,
+  "workspace": 405864568,
+  "workspace_bytes": 16536,
+  "source_stack_low": 405880624,
+  "Source_stack_minimum_scope": "actual compiled warm Source C instruction frames; excludes scheduler banked-SP transient",
+  "initializer_required_full_returns": [
+    "memory_output_configure",
+    "owned_media_init",
+    "media_queue_begin",
+    "aas_pcm_initialize",
+    "aas_initialize",
+    "mw_attach_stage1"
+  ],
+  "actual_Source_and_guest_C_controller_Original_CURRENT_POST_WAIT": true,
+  "ready_POST_return_counter_separate_from_controller_wake": true,
+  "TTS_prefix_and_40_original_MAIN_jump_entries_unchanged": true,
+  "inherited_guest_patches": [
+    {
+      "address": 3121812,
+      "before_hex": "fff74bfe",
+      "after_hex": "edf3b4fe",
+      "reason": "guest call-site BL",
+      "original_return_LR": 3121817,
+      "target_symbol": "mh_selector_bridge",
+      "target_address": 49909548
+    },
+    {
+      "address": 7241728,
+      "before_hex": "d40a00ebf000d4e1",
+      "after_hex": "004b18472c8ff902",
+      "reason": "guest Thumb LDR/BX to ARM veneer",
+      "original_return_LR": 3121817,
+      "target_symbol": "mh_selector_bridge",
+      "target_address": 49909548
+    },
+    {
+      "address": 3122486,
+      "before_hex": "fff7c8fb",
+      "after_hex": "edf36bfd",
+      "reason": "guest call-site BL",
+      "original_return_LR": 3122491,
+      "target_symbol": "mcs_pull_bridge",
+      "target_address": 49930232
+    },
+    {
+      "address": 7241744,
+      "before_hex": "1080bde810402de9",
+      "after_hex": "004b1847f8dff902",
+      "reason": "guest Thumb LDR/BX to ARM veneer",
+      "original_return_LR": 3122491,
+      "target_symbol": "mcs_pull_bridge",
+      "target_address": 49930232
+    },
+    {
+      "address": 3122546,
+      "before_hex": "fff7aafb",
+      "after_hex": "edf355fd",
+      "reason": "guest call-site BL",
+      "original_return_LR": 3122551,
+      "target_symbol": "mcs_pull_bridge",
+      "target_address": 49930232
+    },
+    {
+      "address": 7241760,
+      "before_hex": "0410a0e1b50a00eb",
+      "after_hex": "004b1847f8dff902",
+      "reason": "guest Thumb LDR/BX to ARM veneer",
+      "original_return_LR": 3122551,
+      "target_symbol": "mcs_pull_bridge",
+      "target_address": 49930232
+    },
+    {
+      "address": 3906644,
+      "before_hex": "b3f011f8",
+      "after_hex": "2ef3ecf9",
+      "reason": "guest call-site BL",
+      "original_return_LR": 3906649,
+      "target_symbol": "ms_initializer_sync_bridge",
+      "target_address": 49906672
+    },
+    {
+      "address": 7241776,
+      "before_hex": "b000c4e11080bde8",
+      "after_hex": "004b1847f083f902",
+      "reason": "guest Thumb LDR/BX to ARM veneer",
+      "original_return_LR": 3906649,
+      "target_symbol": "ms_initializer_sync_bridge",
+      "target_address": 49906672
+    },
+    {
+      "address": 12218224,
+      "before_hex": "e5485700",
+      "after_hex": "c099f902",
+      "reason": "VM-only loaded single-image signal binding"
+    },
+    {
+      "address": 12218228,
+      "before_hex": "cd4a5700",
+      "after_hex": "ac13fa02",
+      "reason": "VM-only loaded single-image signal binding"
+    },
+    {
+      "address": 12218232,
+      "before_hex": "e5485700",
+      "after_hex": "c099f902",
+      "reason": "VM-only loaded single-image signal binding"
+    },
+    {
+      "address": 12218236,
+      "before_hex": "cd4a5700",
+      "after_hex": "ac13fa02",
+      "reason": "VM-only loaded single-image signal binding"
+    },
+    {
+      "address": 12218244,
+      "before_hex": "cd525700",
+      "after_hex": "e814fa02",
+      "reason": "VM-only loaded single-image signal binding"
+    },
+    {
+      "address": 12218252,
+      "before_hex": "cd525700",
+      "after_hex": "e814fa02",
+      "reason": "VM-only loaded single-image signal binding"
+    },
+    {
+      "address": 5392888,
+      "before_hex": "0206120e",
+      "after_hex": "0200c046",
+      "reason": "VM-only full signal body length"
+    },
+    {
+      "address": 5392636,
+      "before_hex": "0b28",
+      "after_hex": "0a28",
+      "reason": "VM-only ten-signal table bound"
+    },
+    {
+      "address": 5723820,
+      "before_hex": "30b583b0069c1d000223002c00d00323",
+      "after_hex": "08b4024b9c4608bc6047c0467012fa02",
+      "reason": "VM-only loaded reply relocation"
+    },
+    {
+      "address": 3879572,
+      "before_hex": "f0b50c004a680500",
+      "after_hex": "004b1847e47ef902",
+      "reason": "VM-only post-load reader protection; physical installer unimplemented"
+    },
+    {
+      "address": 2587942,
+      "before_hex": "f7b500200f0084b0002a",
+      "after_hex": "08b4004b1847bc66f902",
+      "reason": "VM-only original entry barrier profile"
+    },
+    {
+      "address": 2587754,
+      "before_hex": "ffb50500002083b00190",
+      "after_hex": "08b4004b1847dc66f902",
+      "reason": "VM-only original entry barrier queue"
+    },
+    {
+      "address": 3120942,
+      "before_hex": "f3b595b015980d008301",
+      "after_hex": "08b4004b1847fc66f902",
+      "reason": "VM-only original entry barrier selector"
+    },
+    {
+      "address": 4422100,
+      "before_hex": "ffb505001900f43081b0fff7c1fe2c00",
+      "after_hex": "08b4014b1847c0461c67f902c046c046",
+      "reason": "VM-only original entry barrier prepare"
+    },
+    {
+      "address": 4779624,
+      "before_hex": "30b404003248314a",
+      "after_hex": "004b18471465f902",
+      "reason": "VM-only original entry barrier allocate"
+    },
+    {
+      "address": 4779512,
+      "before_hex": "c30018184d4b8001",
+      "after_hex": "004b18474072f902",
+      "reason": "VM-only provider entry start"
+    },
+    {
+      "address": 4779538,
+      "before_hex": "c30047491818800110b5",
+      "after_hex": "014b1847c0468072f902",
+      "reason": "VM-only provider entry stop"
+    },
+    {
+      "address": 4779608,
+      "before_hex": "c300364a18180021",
+      "after_hex": "004b1847b072f902",
+      "reason": "VM-only provider entry free"
+    },
+    {
+      "address": 4779684,
+      "before_hex": "70b5c3001818224b",
+      "after_hex": "004b1847d872f902",
+      "reason": "VM-only provider entry config"
+    },
+    {
+      "address": 4779728,
+      "before_hex": "184a00200100c300",
+      "after_hex": "004b18471873f902",
+      "reason": "VM-only provider entry reset"
+    },
+    {
+      "address": 4779752,
+      "before_hex": "c300124a18188001",
+      "after_hex": "004b18475c73f902",
+      "reason": "VM-only provider entry seek"
+    },
+    {
+      "address": 5025304,
+      "before_hex": "70b51500c41d0022ff34d243",
+      "after_hex": "08b4014b1847c0467c78f902",
+      "reason": "VM-only backend alias config"
+    },
+    {
+      "address": 5025348,
+      "before_hex": "0022d24310b500280cd0c41d",
+      "after_hex": "08b4014b1847c0468478f902",
+      "reason": "VM-only backend alias stop"
+    },
+    {
+      "address": 5025388,
+      "before_hex": "70b50025002808d04324e400",
+      "after_hex": "08b4014b1847c0468c78f902",
+      "reason": "VM-only backend alias start"
+    },
+    {
+      "address": 5025582,
+      "before_hex": "002801d1401e704730b5",
+      "after_hex": "08b4004b18479478f902",
+      "reason": "VM-only backend alias seek"
+    },
+    {
+      "address": 6190514,
+      "before_hex": "0021017308007047",
+      "after_hex": "004b1847fb02c046",
+      "reason": "VM-only backend alias clear"
+    },
+    {
+      "address": 5025418,
+      "before_hex": "70b50025002808d08724a400",
+      "after_hex": "08b4004b1847d87df902c046",
+      "reason": "VM-only selected memory writer write_alias"
+    },
+    {
+      "address": 5025448,
+      "before_hex": "70b50025ed4300280ad0c31d",
+      "after_hex": "08b4014b1847c046e07df902",
+      "reason": "VM-only selected memory writer seek_alias"
+    },
+    {
+      "address": 6190494,
+      "before_hex": "0a680260496841600121",
+      "after_hex": "08b4004b1847e87df902",
+      "reason": "VM-only selected memory writer setup"
+    },
+    {
+      "address": 6190522,
+      "before_hex": "70b504000800217b0025",
+      "after_hex": "08b4004b1847f07df902",
+      "reason": "VM-only selected memory writer read"
+    },
+    {
+      "address": 6190576,
+      "before_hex": "70b50400007b0025002810d0",
+      "after_hex": "08b4014b1847c046f87df902",
+      "reason": "VM-only selected memory writer write"
+    },
+    {
+      "address": 6190626,
+      "before_hex": "0023db43002a0bd0012a",
+      "after_hex": "08b4004b1847007ef902",
+      "reason": "VM-only selected memory writer seek"
+    }
+  ],
+  "new_guest_original_instruction_patches": 0,
+  "old_global_VM_monkeypatch_imported": false,
+  "callback_initializer_or_native_return_hooked": false,
+  "synthetic_driver_ready_claim": false,
+  "synthetic_bootstrap_heap_tables_Timer_preexisting_channels_inherited": true,
+  "no_media_packets_or_factory_mixer_pulls_in_this_ready_case": true,
+  "initializer_return_is_logical_warm_Source_ready_not_audio_hardware": true,
+  "native_channel_all_writers_anchor_ownership": false,
+  "exclusive_native_witness": -200,
+  "native_STOP_DONE": false,
+  "stack_adapter_module_pinned": true,
+  "physical_install_or_App_phone_A2DP_speaker": false,
+  "device_IO": false,
+  "target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "model": "Taiwan nuvi 2565RT"
+  },
+  "old_static_contract": "native/os20-audio-source-v1/contract-v1.json",
+  "old_static_contract_unchanged": true,
+  "runtime_guest_executed_in_this_new_ready_scope": true,
+  "original_37_other_object_inputs_reused_without_relink": true,
+  "original_40_TTS_exports_preserved_from_inherited_actual_loader_prefix": true,
+  "typed_FIFO_bridge": "Actual Source initializer mw_attach_stage1 -> aas_initialize -> aas_pcm_initialize -> memory_output_configure/owned_media_init/media_queue_begin complete returns; no packet or mixer read manufactured",
+  "actual_guest_terminal": {
+    "initial_chunk": "8d3850",
+    "session_id": 63853,
+    "terminal_chunk": "a2fb93",
+    "exit_code": 0
+  },
+  "actual_FILE_terminal": {
+    "initial_chunk": "723983",
+    "session_id": 24914,
+    "terminal_chunk": "f7a4c3",
+    "exit_code": 0
+  },
+  "compressed_proof_bytes": 102020,
+  "full_helper_returns": 96,
+  "actual_original_restore_destinations": [
+    "0x183140a0",
+    "0x9503f90",
+    "0x183140a0",
+    "0x9508f90"
+  ],
+  "wrong_actor_ready_bind_result": -401,
+  "Source_ready_status": 0,
+  "controller_wake_POST_return_count": 0,
+  "Source_idle_POST_return_count": 1,
+  "FILE_CPU_store_preimage_replay": 11440,
+  "FILE_full_ABI_returns": 96,
+  "FILE_initializer_full_returns": 6,
+  "independent_whole_instruction_or_effective_address_replay": false,
+  "complete_memory_access_boundary_claim": false,
+  "new_flash_page_discovery": "Original Thumb 0x2120F0 bit-scan LDRB at0x212104 reads64-byte flash lookup at0xC7F9FC. Old warm VM mapped only through0xC00000; new read-only0xC7F000 page uses unchanged original MAIN source bytes.",
+  "instruction_limits": {
+    "creator_continuation": 80000,
+    "guest_C_ready_controller": 80000,
+    "total_observer": 160000
+  },
+  "physical_install_candidate": false,
+  "future_goal": "Next deliver one copied RTP/SBC packet to this true OS20 Source and observe typed FIFO producer plus original factory/selector/reader scheduling. Preserve all-writer ownership and full audio Stop/quiescence barriers before package or physical acceptance. Native App/menu/direct authorized Android phone A2DP remain required; AA/Google Maps deferred, microphone cancelled.",
+  "artifacts_sha256": {
+    "staging/native-os20-source-ready-v1/build/manifest.json": "f18dc8424d496cc4d3299584fd12958cfb8c758a40d4824d9c039639d6b0ee1a",
+    "staging/native-os20-source-ready-v1/build/controller-EMULATION-ONLY.elf": "b9ca849913e259d56a2d253f0fb4016660088c0d86f27311ff40de2325a894b2",
+    "staging/native-os20-source-ready-v1/build/terminal-tool-receipt.json": "65f5ec61be6426e8df4d01c6ab3dbba9864c777d8768a712c4b7100b435ad4b2",
+    "staging/native-os20-source-ready-v1/controller_v1.c": "79d80988559a49c71eca4ca8b56cf54e1dbd9aa8fbe347613dd998aa010e3bd7",
+    "staging/native-os20-source-ready-v1/controller_v1.ld": "326296c7271c9a42e1cb5d21601cb386cc358d753a1031849843883fe9433a3c",
+    "staging/native-os20-source-ready-v1/probe_v3.py": "e113999a91bd9a17c3a51e7e92b5cf94efa04dfef1f91cdd5b271804e613cb0d",
+    "staging/native-os20-source-ready-v1/guest-v3/inputs-at-run.json": "60df900896b0b74b631b27f5dbde5d8b77e74ae998df3152f5eb5466b4e0fbca",
+    "staging/native-os20-source-ready-v1/guest-v3/guest-proof.json": "0676638192b57af7d06c86cbd5431620f83a7c300e1a0d3a7e21923170de9faf",
+    "staging/native-os20-source-ready-v1/guest-v3/ready-proof.json.gz": "048cdbd42a7fea3741797d7d4524c7b12c92d239fb3aee15629ce989ad8b3d07",
+    "staging/native-os20-source-ready-v1/guest-v3/terminal-tool-receipt.json": "bd78332659839567338ac03f22daaf6031eae11afb5c8edf569bdb5465e54576",
+    "staging/native-os20-source-ready-v1/verify_files_v1.py": "e94373ba331f850e79ac92a715bdf55ba9321db356607d943e05edccffba6963",
+    "staging/native-os20-source-ready-v1/file-v1/FILE-proof.json": "49e6bd35cd511ad0a231e28627ec9e1d03a73cb18ea6310bfe8484f0d9011814",
+    "staging/native-os20-source-ready-v1/file-v1/terminal-tool-receipt.json": "0d84e135c1822259e52407ddef0e401d97b326f8b926ad612168b4f93742d88e"
+  }
+}

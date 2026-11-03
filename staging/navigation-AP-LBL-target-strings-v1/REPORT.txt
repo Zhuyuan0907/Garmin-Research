@@ -1,0 +1,9 @@
+原廠AP三個native引用→LBL原始中文標籤來源
+
+actual EXIT0/chunkcb8215。原native CP950選出的ref12/14/206，依原LBL正數引用規則mask22bits後左移標頭shift3，再加labelStart6566：GMP6662/6678/8214。只讀80 unique內容bytes（city/district48bytes聯集，street32bytes），三32-byte視窗完整hex及FAT映射見JSON。
+
+Host strict CP950顯示（首個零byte前）：ref12「台中市」、ref14「中區」、ref206「民權路」。這串原始來源與先前JAI/FTS邏輯路徑相符，沒有把206當作檔案裸偏移。
+
+證據界線：native選擇引用與pregetter ABI已由原referenceconsumer執行；LBL parser/地址計算與DBCS程序在checkpoint agent的另外有限CPU scope，尚未由本source腳本執行。JSON reference_mapping_contract.original_instruction_ABI_executed_in_separate_peer_scope 僅指封存的「pregetter選擇引用ABI」，不代表整個parser/address/getter已成功。原getter完整registry或UI地址查詢未執行。
+
+No stock/DB writes、NT解鎖/解密、整圖digest、USB、完整MAP payload解碼或導航修復成功宣稱。使用者實機完整地址/路由驗收仍由ROOT另記。

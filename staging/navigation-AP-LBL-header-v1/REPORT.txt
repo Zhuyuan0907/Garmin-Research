@@ -1,0 +1,7 @@
+原廠AP公開LBL標頭：唯讀來源
+
+actual EXIT0/chunk7c5675。本次只讀GMP+874的661-byte GARMIN LBL標頭，不讀任何指向的文字內容。+21 DWORD=6566，+25 DWORD=3805432，+29 byte=3，+30 byte=10，+170 halfword=950，+172=21，+174=32770。
+
+本JSON只保留原始標頭/FAT mapping/數值投影。原LBL parser及DBCS有限CPU由checkpoint agent另行負責；沒有預先把206當作裸檔案偏移，没有查詢結果或loader回傳hook。
+
+source IMG stat未改，不做整圖hash、解鎖/解密、USB或DB寫入；下一namespace會按原程式reference左移規則讀三個小視窗並保留原始bytes。

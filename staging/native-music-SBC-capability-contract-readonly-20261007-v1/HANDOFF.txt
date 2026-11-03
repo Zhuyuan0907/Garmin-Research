@@ -1,0 +1,42 @@
+CLOSED / STOP — SBC format contract FILE-only review.
+
+8 fixed C/H files, 43671 B (limit122880 B), largest12303 B; one capture each.
+38 saved FILE/numeric checks and9 field rows. All source before/after/final stats
+and saved-capture pins match. No C/target invocation, compile, tests, guest,
+producer import, ASM/MAIN/ELF/RAM, phone settings, Bluetooth/D-Bus/audio/device.
+Filename/stat index I/O is separate and not byte-instrumented. Build JSON reads0;
+older build-v2 identity and source comparison are explicitly inherited from root.
+
+Fresh contract result:
+- Custom capability bytes3f ff 02 35 and policy selections agree:44.1/48k,
+  4 numeric modes->1/2 channels,4/8/12/16 blocks,4/8 subbands,2 allocation methods,
+  bitpool2..53. Capability masks are sets; configuration requires one selector
+  per field. Converter also supports16/32k, which are NOT advertised here.
+- Each outer accepted frame must match selected codec_word, with bitpool within
+  configured range. RTPv2 CSRC/extension/padding are bounded; no SBC fragment bits,
+  1..15 frames, exact final payload length,<=4096 and local receive MTU.
+- SBC maximum128 samples/channel fits512B stereo-source and256B converted buffers.
+  Conservative15frame mono-S16 output bound3840B fits4096B gather. Scalar source
+  arithmetic only; not independent decoder/converter runtime acceptance.
+- Loaded decoder->converter output is logically mono16k; real sample clock,
+  actual speaker, phone negotiation and same-image endpoint binding remain unknown.
+
+Precise gaps:
+- DecoderCRC, inner owned_packet_parse/media_queue_callback bodies and coefficient
+  tables are unreviewed. No global full-parser equivalence claimed.
+- nsg_config_begin readsbody[0] before calling validator. Caller body is not in
+  selected8files; record only caller nonNULL/readable precondition, not reachable
+  null-input bug. Helper returns0 on validator failure with staged_valid0, so
+  helper0 is NOT acceptance; app accepted requires reply/fullresult/native identity.
+- Initial progress incorrectly named signal4 GetAllCapabilities; corrected before
+  sealing.4 is GetConfiguration;12 is GetAllCapabilities. Exact helper source accepts
+  only2/4, delegates4 tostock, and uses custom0x11 flags for2. Actual signal12 dispatch
+  is not captured; no capability-response mismatch inferred from this delegation.
+
+Pixel conditions are conditional: it must choose the advertised configuration
+subset, supply complete unfragmented packets matching codec/localMTU, and the
+native accepted-reply/Start/identity plus resident Source ingress guards must bind.
+No actual Pixel codec/private setting was read or phone media tested. Custom endpoint
+is not a recovered original API. No system-risk native guest retry or alternative.
+All handles closed; no owned session running; no shared/canonical/report mutation.
+Hash seal records actual modes rather than assumingreadonly. Scope STOP.

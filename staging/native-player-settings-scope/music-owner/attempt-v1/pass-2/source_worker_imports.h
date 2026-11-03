@@ -1,0 +1,1 @@
+#define OWNED_CONSUME_RESUME 0x2f82e48

@@ -1,0 +1,72 @@
+{
+  "schema": "independent-coherent8K-installer-readonly-source-review/v1",
+  "scope": "navigation-AP-coherent8K-installer-independent-review-v1",
+  "finite_source_review_complete": true,
+  "independent_review_not_tool_authorship": true,
+  "decision": "Static role/binding/refusal/CLI flow is consistent; no blocking defect found within the finite read scope. Production package load, physical transaction and known-working v2 recovery remain pending.",
+  "source_pins": {
+    "install_native_house_supplement.py": "8bd1a7046b3b91ffd5cde58bb8ea84cc118dce3b6c414a532dcd505e25edeec4",
+    "native_coherent8k_rollback.py": "662b4aa570ca67d3cb0a1520dc1228730326fee9f6aea7c6912422a72c7b24df",
+    "coherent_header_overlay.py": "284b164a568edaca06707b572f0dd1f4bd2d96b913546adb56e7a99979480dbc",
+    "native_8k_stock_restore.py": "43e041518baa72bfbdbc26c627d435749c4bf85adf7882e47ffcfb655c46fe5f",
+    "device_support.py": "8c3a74b620ad75a452421777b53c60285510c409df66cd10602648bf3604f411",
+    "manifest.json": "8b5358655c79a9261af1ce69ade78c3a5c47d304a032f49452095768ab4e392a",
+    "coherent-control-restore-binding.json": "f475233c965eec527ea333ddfac46b281f493d1467a87645f455f8218261d481",
+    "test_integration.py": "f029be68536674341de73704eaf91e6c2b6b0d405e1f38dc059c0402d6471f6b"
+  },
+  "actual_virtual_stock_roles": {
+    "actual_coherent": {"bytes": 153346048, "SHA256": "9af1e68e1308bf28deeb7f7d4c7cfab88efd0063c38f4f2df77fcde352990dd3"},
+    "inverse_virtual_old_v3": {"bytes": 153346048, "SHA256": "1f468eb78cc1268951873c82ffce4abe3292dcece69c0eee405c5d7aca3cc360", "binding_SHA256": "0884c9d705c40d84a84512c691ba124cef419e2cee6d432155e45cee6ed1dd89"},
+    "stock": {"bytes": 96739328, "SHA256": "864d128f8d4660570d443b2e14772c9c5356ebdf0bbb6a5891f3318b836053c2", "recipe_SHA256": "6e1381006e3f56a466c8cdd93134f418eab18ee592cbfd5e57f1a55c2950c0a7"},
+    "corrected_header512_SHA256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+    "inverse_header512_SHA256": "e3b9dad35486683869b4bfc811e591a2af020c5764b12cfb4d9cf31a441e0ca3",
+    "only_inverse_difference": {"offset": 452, "actual": 224, "inverse": 208},
+    "old_binding_not_relabelled_actual_coherent": true
+  },
+  "checklist": [
+    {"item": "Fresh actual/inverse hash admission", "satisfied": true, "evidence": "overlay._verify_inverse_overlay checks fixed size/corrected512, actual9af full SHA/EOF and inverse1f full SHA before returning view; no physical source write."},
+    {"item": "Fresh witness stat through borrowed view", "satisfied": true, "evidence": "_InverseHeaderView._stable compares initial full-verification fstat before/after read and before seek/tell/fileno; adapter calls view._stable after stock EOF."},
+    {"item": "Strict original helper unchanged", "satisfied": true, "evidence": "43e041 helper byte pin matches independently read sealed source; exact original8K header/FAT/profile remains enforced on declared virtual view, stock generator checks EOF/hash."},
+    {"item": "Same-directory portable binding", "satisfied": true, "evidence": "load_manifest pins whole manifest, safe same-bundle paths and helper __file__.resolve; pins helper/recipe/virtual binding/control/proof. Adapter builds FixedInputs from provided objects and never calls workspace prepare_fixed_inputs."},
+    {"item": "Preparation hard refusal", "satisfied": true, "evidence": "Current pinned manifest has integration_preparation_only=true and pending status. load_manifest immediately requires false plus independently_reviewed_test_control after small manifest verification, before helper sidecars/candidate/device. Changing flag alone breaks whole manifest SHA."},
+    {"item": "CLI bundle and rollback", "satisfied": true, "evidence": "main line352 declares --bundle PATH and mutually exclusive --install/--rollback. Default is preflight. execute line294 calls load_manifest(bundle) before lock/discovery/mount. Current gate therefore also refuses rollback."},
+    {"item": "Partial/commit failure propagation", "satisfied": true, "evidence": "transaction line198 uses exclusive owned partial inode, full desired size/hash readback before replace, repeats target/protection/XML checks, and distinguishes committed failure. Rollback generator exception reaches transaction; no completed stock result before EOF."},
+    {"item": "Receipt sink", "satisfied": true, "evidence": "ReceiptSink implements append and extend, bounded100000 rows and rolling digest/counts without retaining per-block list. Host control exercises both; prior missing-extend failure remains recorded."}
+  ],
+  "control_evidence_scope": {
+    "recorded_source_preparation": "91afdc EXIT0",
+    "recorded_host_tests": "91afe5 EXIT0, 9 methods / 11 named case records",
+    "synthetic_transport": "4096B source and 2048B stock payload; test-only patched bridge, no actual old-stock generator or atomic transaction",
+    "recorded_actual_stock_verification": "835864 EXIT0; small6062B/e44ded... copied proof read and hashed",
+    "actual_stock_proof_SHA256": "e44ded4324705fc9482b60898edda790e6155a646a5d9e5f41aa8e",
+    "whole_hash_evidence": "Inherited recorded actual249424497B root read with9af/inverse1f/stock864d; this review did not recompute any IMG hash",
+    "first_root_failure": "ea061f missing ReceiptSink.extend, preserved; not map rejection and not a single-attempt pipeline",
+    "source_AST_inheritance": "Current source/control/proof checked; original v3 installer baseline was not separately opened, so exact historical AST-equality claim is inherited rather than independently rediffed"
+  },
+  "stock_vs_working_v2_recovery": {
+    "working_v2_bytes": 128356352,
+    "working_v2_SHA256": "925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb",
+    "factory_rollback_preserves_v2_supplements": false,
+    "v2_supplement_houses_removed": 130637,
+    "steps_for_working_v2": ["Certified stock864d rollback", "Separate verified v2 payload/installer recovery"],
+    "second_step_provided_or_verified_by_this_preparation": false,
+    "Search_v2_road_map": "Required/protected separately; factory AP rollback does not constitute restoration of AP v2"
+  },
+  "limits": [
+    "No producer source, installer, adapter, tests, device or guest was executed/imported by this review.",
+    "No true IMG, ZIP or recipe body was opened or statted. Sidecar/payload presence and full production same-bundle load remain inherited/pending, not freshly inventoried.",
+    "Python helpers are imported before their later __file__/byte checks; this is a trusted sealed Python bundle review, not a sandbox against malicious module execution.",
+    "Adapter restore/binding lookup is workspace-free. Unchanged device_support.operation_lock optionally checks /root/garmin/evidence lock path with /run fallback; entire installer is not claimed to perform zero workspace lookups.",
+    "Atomic device transaction, v2 recovery, physical8K/checksum admission, renderer/UI/route/root cause and installability remain unproved."
+  ],
+  "own_read_failures_and_budgets": {
+    "first_capture": "31bb86 EXIT1: own base64-gzip snapshot size guard after196827B source read; no capture/hash journal saved",
+    "explicit_second_source_pass": "309e8d EXIT0: another196827B, UTF8 cache54126B; not single-pass",
+    "actual_total_raw_input_before_seal": 482303,
+    "input_raw_cap": 524288,
+    "output_cap": 131072,
+    "owned_full_cache_read": "de3a74 EXIT0 with full gzip/decoded SHA verification",
+    "owned_bounded_prefix_read": "8208d6 EXIT0:16384B for complete private overlay source; prior full SHA/stat inherited, no new EOF claim"
+  },
+  "falseflags": {"IMGread": false, "IMGstat": false, "ZIPread": false, "recipe_body_read": false, "installer_run": false, "producer_import": false, "guest": false, "nativeCPU": false, "device": false, "audio": false, "service": false, "package": false, "install": false, "rendererfix": false, "UIroute": false, "App": false, "fullgoal": false}
+}

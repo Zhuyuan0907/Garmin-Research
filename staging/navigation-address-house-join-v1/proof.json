@@ -1,0 +1,2249 @@
+{
+  "schema": "prepared-taiwan-address-house-ref-join/v1",
+  "started_utc": "2026-10-06T17:49:37.127799+00:00",
+  "finished_utc": "2026-10-06T17:51:54.763956+00:00",
+  "all_assigned_checks_passed": true,
+  "script_sha256": "7e6f35123868be7338d7c636f2bf459787682c92037eaa3276a77fb36b85cf13",
+  "inputs": [
+    {
+      "path": "staging/navigation-native-house-label-index-v1/proof.json",
+      "bytes": 38822,
+      "sha256": "793ad2853b07ee3940d0e4f44b39809c612b4ed2de5632387b3a7c36123ed3b4",
+      "stat_before": [
+        45826,
+        537374,
+        38822,
+        1791308017274283795,
+        1791308017275763355
+      ],
+      "stat_after": [
+        45826,
+        537374,
+        38822,
+        1791308017274283795,
+        1791308017275763355
+      ],
+      "stat_unchanged": true,
+      "source_content_read_passes": 1
+    },
+    {
+      "path": "staging/navigation-native-Minquan-append-plan-v1/Minquan-append-only-record-plan-v1.json",
+      "bytes": 52090,
+      "sha256": "2d0349565641dcb5e4c48fd2f7c52f5e5e4e74f137b1566ec601d6bff6f7273f",
+      "stat_before": [
+        45826,
+        535403,
+        52090,
+        1791227391734655617,
+        1791227391734655617
+      ],
+      "stat_after": [
+        45826,
+        535403,
+        52090,
+        1791227391734655617,
+        1791227391734655617
+      ],
+      "stat_unchanged": true,
+      "source_content_read_passes": 1
+    },
+    {
+      "path": "staging/navigation-native-address-supplement-v1/manifest.json",
+      "bytes": 38109,
+      "sha256": "042c8a94b9b50b2ea58881016e5196455269934bf4da5f6bd7ade0692e7d80c5",
+      "stat_before": [
+        45826,
+        526524,
+        38109,
+        1791305351551845951,
+        1791305351552585601
+      ],
+      "stat_after": [
+        45826,
+        526524,
+        38109,
+        1791305351551845951,
+        1791305351552585601
+      ],
+      "stat_unchanged": true,
+      "source_content_read_passes": 1
+    },
+    {
+      "path": "staging/navigation-native-house-label-index-v1/house-labels.jsonl.gz",
+      "bytes": 268730,
+      "sha256": "67077786cabe162d7e8adf45ec9d26f086be325e11a33f0edde11cd81a15b6cb",
+      "json_rows": 50567,
+      "gzip_validated_EOF": true,
+      "stat_before": [
+        45826,
+        537373,
+        268730,
+        1791308017251175678,
+        1791308017263763323
+      ],
+      "stat_after": [
+        45826,
+        537373,
+        268730,
+        1791308017251175678,
+        1791308017263763323
+      ],
+      "stat_unchanged": true,
+      "source_content_read_passes": 1
+    },
+    {
+      "path": "staging/navigation-taiwan-address-ingestion-v1/native-hierarchy.jsonl.gz",
+      "bytes": 1210093,
+      "sha256": "45333390cec4996db40b4a4a987eb421641fec352203bb318aedfd6a6fce2776",
+      "json_rows": 48218,
+      "gzip_validated_EOF": true,
+      "stat_before": [
+        45826,
+        537256,
+        1210093,
+        1791306524903793153,
+        1791306524903793153
+      ],
+      "stat_after": [
+        45826,
+        537256,
+        1210093,
+        1791306524903793153,
+        1791306524903793153
+      ],
+      "stat_unchanged": true,
+      "source_content_read_passes": 1
+    },
+    {
+      "path": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz",
+      "bytes": 137633122,
+      "sha256": "0cf58f5536812c1dbb2246559f9ef021e59fa0cc1967bb0a924456aa5ff1587b",
+      "json_rows": 4630959,
+      "gzip_validated_EOF": true,
+      "stat_before": [
+        45826,
+        537338,
+        137633122,
+        1791307942199563346,
+        1791307942199563346
+      ],
+      "stat_after": [
+        45826,
+        537338,
+        137633122,
+        1791307942199563346,
+        1791307942199563346
+      ],
+      "stat_unchanged": true,
+      "source_content_read_passes": 1
+    }
+  ],
+  "input_passes": "Exactly one content pass per complete groups/roster/house-index file; no PBF/node-ledger/leaf/map read.",
+  "source_group_total": 4630959,
+  "source_nodes_represented_by_groups": 9074510,
+  "source_stat_immutable_all": true,
+  "matching_policy": "Host NFKC/outer-whitespace/臺→台 only. Recompute city/district/street exact keys. Four direct-city layouts match city+street with district explicitly unverified. No Chinese road/admin aliases or new streets silently substituted.",
+  "house_policy": "Positive ASCII integer or 之positive-subnumber＋號 planning keys only. Existing lowest text ref is not evidence this street already has the address. Ambiguous hyphens are not guessed.",
+  "coordinate_policy": "Finite lat/lon within global WGS84 bounds, consistent ready/different-coordinate metadata. No Taiwan polygon inference. Conflicting target or source groups have no selected coordinate in output.",
+  "floor_unit_scope": "Separate floor/unit/door/level group metadata aggregates source nodes. Embedded-floor flag reflects the first group source only; no node ledger reopened to expand it.",
+  "source_raw_city_group_counts": {
+    "桃園市": 520904,
+    "花蓮縣": 101632,
+    "臺東縣": 620,
+    "臺北市": 245300,
+    "高雄市": 739771,
+    "臺南市": 493272,
+    "新北市": 439506,
+    "臺中市": 721044,
+    "台北市": 4941,
+    "台中市": 1482,
+    "新竹縣": 132593,
+    "苗栗縣": 99205,
+    "台南市": 699,
+    "基隆市": 98154,
+    "雲林縣": 161370,
+    "屏東縣": 257415,
+    "台東縣": 60696,
+    "彰化縣": 384094,
+    "新竹市": 99594,
+    "南投縣": 1182,
+    "宜蘭縣": 646,
+    "金門縣": 8013,
+    "嘉義縣": 49541,
+    "嘉義市": 683,
+    "澎湖縣": 8588,
+    "連江縣": 10,
+    "台北巿": 1,
+    "嘉義巿": 1,
+    "屏東市": 1,
+    "彰化市": 1
+  },
+  "whole_country_group_metrics": {
+    "all_groups": 4630959,
+    "matched_native_street_exact_unique": 2181532,
+    "existing_numeric_label_ref": 4628506,
+    "source_coordinate_conflict": 89272,
+    "multi_source_node_group": 637021,
+    "matched_unique_next4": 1794100,
+    "exact_unique_next4_existing_ref_before_coordinate_review": 1635905,
+    "group_with_separate_floor_unit_door_level_tags": 611485,
+    "coordinate_ready_global_bounds": 4541687,
+    "exact_unique_next4_existing_ref_coordinate_ready": 1591192,
+    "matched_unique_next5": 541855,
+    "missing_native_street": 1996063,
+    "missing_native_district": 4688,
+    "matched_unique_next6": 16735,
+    "numeric_label_ref_absent": 2453,
+    "first_group_source_has_embedded_floor_unit": 31,
+    "matched_direct_city_street_unique_district_unverified": 171158,
+    "missing_native_street_in_direct_city_district_unverified": 277514,
+    "missing_native_city": 4
+  },
+  "whole_country_city_group_and_street_metrics": {
+    "南投縣": {
+      "all_groups": {
+        "groups": 1182,
+        "unique_source_city_district_street_keys": 276,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 1146,
+        "unique_source_city_district_street_keys": 272,
+        "unique_matched_native_street_records": 233
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 825,
+        "unique_source_city_district_street_keys": 141,
+        "unique_matched_native_street_records": 141
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 798,
+        "unique_source_city_district_street_keys": 139,
+        "unique_matched_native_street_records": 139
+      },
+      "existing_numeric_label_ref": {
+        "groups": 1182,
+        "unique_source_city_district_street_keys": 276,
+        "unique_matched_native_street_records": 236
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 47,
+        "unique_source_city_district_street_keys": 29,
+        "unique_matched_native_street_records": 26
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 1125,
+        "unique_source_city_district_street_keys": 236,
+        "unique_matched_native_street_records": 236
+      },
+      "matched_unique_next4": {
+        "groups": 825,
+        "unique_source_city_district_street_keys": 141,
+        "unique_matched_native_street_records": 141
+      },
+      "matched_unique_next5": {
+        "groups": 296,
+        "unique_source_city_district_street_keys": 93,
+        "unique_matched_native_street_records": 93
+      },
+      "matched_unique_next6": {
+        "groups": 4,
+        "unique_source_city_district_street_keys": 2,
+        "unique_matched_native_street_records": 2
+      },
+      "missing_native_district": {
+        "groups": 4,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 53,
+        "unique_source_city_district_street_keys": 39,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 37,
+        "unique_source_city_district_street_keys": 29,
+        "unique_matched_native_street_records": 26
+      },
+      "source_coordinate_conflict": {
+        "groups": 36,
+        "unique_source_city_district_street_keys": 28,
+        "unique_matched_native_street_records": 25
+      }
+    },
+    "台中市": {
+      "all_groups": {
+        "groups": 722526,
+        "unique_source_city_district_street_keys": 26358,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 710006,
+        "unique_source_city_district_street_keys": 26325,
+        "unique_matched_native_street_records": 4603
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 290995,
+        "unique_source_city_district_street_keys": 2451,
+        "unique_matched_native_street_records": 2451
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 282574,
+        "unique_source_city_district_street_keys": 2451,
+        "unique_matched_native_street_records": 2451
+      },
+      "existing_numeric_label_ref": {
+        "groups": 722011,
+        "unique_source_city_district_street_keys": 26357,
+        "unique_matched_native_street_records": 4604
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 36964,
+        "unique_source_city_district_street_keys": 5470,
+        "unique_matched_native_street_records": 2423
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 382651,
+        "unique_source_city_district_street_keys": 4605,
+        "unique_matched_native_street_records": 4605
+      },
+      "matched_unique_next4": {
+        "groups": 291460,
+        "unique_source_city_district_street_keys": 2452,
+        "unique_matched_native_street_records": 2452
+      },
+      "matched_unique_next5": {
+        "groups": 89425,
+        "unique_source_city_district_street_keys": 2041,
+        "unique_matched_native_street_records": 2041
+      },
+      "matched_unique_next6": {
+        "groups": 1766,
+        "unique_source_city_district_street_keys": 112,
+        "unique_matched_native_street_records": 112
+      },
+      "missing_native_district": {
+        "groups": 3,
+        "unique_source_city_district_street_keys": 3,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 339872,
+        "unique_source_city_district_street_keys": 21750,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 42544,
+        "unique_source_city_district_street_keys": 5798,
+        "unique_matched_native_street_records": 2607
+      },
+      "numeric_label_ref_absent": {
+        "groups": 515,
+        "unique_source_city_district_street_keys": 61,
+        "unique_matched_native_street_records": 59
+      },
+      "source_coordinate_conflict": {
+        "groups": 12520,
+        "unique_source_city_district_street_keys": 2751,
+        "unique_matched_native_street_records": 1682
+      }
+    },
+    "台北巿": {
+      "all_groups": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "existing_numeric_label_ref": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_city": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      }
+    },
+    "台北市": {
+      "all_groups": {
+        "groups": 250241,
+        "unique_source_city_district_street_keys": 12070,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 236668,
+        "unique_source_city_district_street_keys": 12020,
+        "unique_matched_native_street_records": 831
+      },
+      "existing_numeric_label_ref": {
+        "groups": 250231,
+        "unique_source_city_district_street_keys": 12070,
+        "unique_matched_native_street_records": 833
+      },
+      "first_group_source_has_embedded_floor_unit": {
+        "groups": 7,
+        "unique_source_city_district_street_keys": 7,
+        "unique_matched_native_street_records": 3
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 146040,
+        "unique_source_city_district_street_keys": 9592,
+        "unique_matched_native_street_records": 778
+      },
+      "matched_direct_city_street_unique_district_unverified": {
+        "groups": 90934,
+        "unique_source_city_district_street_keys": 925,
+        "unique_matched_native_street_records": 833
+      },
+      "matched_unique_next4": {
+        "groups": 86734,
+        "unique_source_city_district_street_keys": 789,
+        "unique_matched_native_street_records": 701
+      },
+      "matched_unique_next5": {
+        "groups": 4193,
+        "unique_source_city_district_street_keys": 134,
+        "unique_matched_native_street_records": 130
+      },
+      "matched_unique_next6": {
+        "groups": 7,
+        "unique_source_city_district_street_keys": 2,
+        "unique_matched_native_street_records": 2
+      },
+      "missing_native_street_in_direct_city_district_unverified": {
+        "groups": 159307,
+        "unique_source_city_district_street_keys": 11145,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 148957,
+        "unique_source_city_district_street_keys": 9608,
+        "unique_matched_native_street_records": 785
+      },
+      "numeric_label_ref_absent": {
+        "groups": 10,
+        "unique_source_city_district_street_keys": 5,
+        "unique_matched_native_street_records": 5
+      },
+      "source_coordinate_conflict": {
+        "groups": 13573,
+        "unique_source_city_district_street_keys": 2231,
+        "unique_matched_native_street_records": 616
+      }
+    },
+    "台南市": {
+      "all_groups": {
+        "groups": 493971,
+        "unique_source_city_district_street_keys": 19340,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 488659,
+        "unique_source_city_district_street_keys": 19327,
+        "unique_matched_native_street_records": 2550
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 180304,
+        "unique_source_city_district_street_keys": 1673,
+        "unique_matched_native_street_records": 1673
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 176855,
+        "unique_source_city_district_street_keys": 1673,
+        "unique_matched_native_street_records": 1673
+      },
+      "existing_numeric_label_ref": {
+        "groups": 493856,
+        "unique_source_city_district_street_keys": 19340,
+        "unique_matched_native_street_records": 2551
+      },
+      "first_group_source_has_embedded_floor_unit": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 1
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 11231,
+        "unique_source_city_district_street_keys": 2260,
+        "unique_matched_native_street_records": 921
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 210571,
+        "unique_source_city_district_street_keys": 2551,
+        "unique_matched_native_street_records": 2551
+      },
+      "matched_unique_next4": {
+        "groups": 180407,
+        "unique_source_city_district_street_keys": 1673,
+        "unique_matched_native_street_records": 1673
+      },
+      "matched_unique_next5": {
+        "groups": 29647,
+        "unique_source_city_district_street_keys": 850,
+        "unique_matched_native_street_records": 850
+      },
+      "matched_unique_next6": {
+        "groups": 517,
+        "unique_source_city_district_street_keys": 28,
+        "unique_matched_native_street_records": 28
+      },
+      "missing_native_district": {
+        "groups": 7,
+        "unique_source_city_district_street_keys": 7,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 283393,
+        "unique_source_city_district_street_keys": 16782,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 13256,
+        "unique_source_city_district_street_keys": 2594,
+        "unique_matched_native_street_records": 1100
+      },
+      "numeric_label_ref_absent": {
+        "groups": 115,
+        "unique_source_city_district_street_keys": 30,
+        "unique_matched_native_street_records": 24
+      },
+      "source_coordinate_conflict": {
+        "groups": 5312,
+        "unique_source_city_district_street_keys": 1414,
+        "unique_matched_native_street_records": 774
+      }
+    },
+    "台東縣": {
+      "all_groups": {
+        "groups": 61316,
+        "unique_source_city_district_street_keys": 3553,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 60278,
+        "unique_source_city_district_street_keys": 3549,
+        "unique_matched_native_street_records": 491
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 22107,
+        "unique_source_city_district_street_keys": 276,
+        "unique_matched_native_street_records": 276
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 21547,
+        "unique_source_city_district_street_keys": 276,
+        "unique_matched_native_street_records": 276
+      },
+      "existing_numeric_label_ref": {
+        "groups": 61313,
+        "unique_source_city_district_street_keys": 3553,
+        "unique_matched_native_street_records": 492
+      },
+      "first_group_source_has_embedded_floor_unit": {
+        "groups": 17,
+        "unique_source_city_district_street_keys": 13,
+        "unique_matched_native_street_records": 3
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 1050,
+        "unique_source_city_district_street_keys": 232,
+        "unique_matched_native_street_records": 109
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 32510,
+        "unique_source_city_district_street_keys": 492,
+        "unique_matched_native_street_records": 492
+      },
+      "matched_unique_next4": {
+        "groups": 22109,
+        "unique_source_city_district_street_keys": 276,
+        "unique_matched_native_street_records": 276
+      },
+      "matched_unique_next5": {
+        "groups": 9341,
+        "unique_source_city_district_street_keys": 187,
+        "unique_matched_native_street_records": 187
+      },
+      "matched_unique_next6": {
+        "groups": 1060,
+        "unique_source_city_district_street_keys": 29,
+        "unique_matched_native_street_records": 29
+      },
+      "missing_native_district": {
+        "groups": 4598,
+        "unique_source_city_district_street_keys": 313,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 24208,
+        "unique_source_city_district_street_keys": 2748,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 2077,
+        "unique_source_city_district_street_keys": 409,
+        "unique_matched_native_street_records": 214
+      },
+      "numeric_label_ref_absent": {
+        "groups": 3,
+        "unique_source_city_district_street_keys": 3,
+        "unique_matched_native_street_records": 3
+      },
+      "source_coordinate_conflict": {
+        "groups": 1038,
+        "unique_source_city_district_street_keys": 251,
+        "unique_matched_native_street_records": 175
+      }
+    },
+    "嘉義巿": {
+      "all_groups": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "existing_numeric_label_ref": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_city": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      }
+    },
+    "嘉義市": {
+      "all_groups": {
+        "groups": 683,
+        "unique_source_city_district_street_keys": 149,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 667,
+        "unique_source_city_district_street_keys": 146,
+        "unique_matched_native_street_records": 109
+      },
+      "existing_numeric_label_ref": {
+        "groups": 682,
+        "unique_source_city_district_street_keys": 149,
+        "unique_matched_native_street_records": 111
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 76,
+        "unique_source_city_district_street_keys": 46,
+        "unique_matched_native_street_records": 37
+      },
+      "matched_direct_city_street_unique_district_unverified": {
+        "groups": 644,
+        "unique_source_city_district_street_keys": 125,
+        "unique_matched_native_street_records": 111
+      },
+      "matched_unique_next4": {
+        "groups": 618,
+        "unique_source_city_district_street_keys": 113,
+        "unique_matched_native_street_records": 99
+      },
+      "matched_unique_next5": {
+        "groups": 26,
+        "unique_source_city_district_street_keys": 12,
+        "unique_matched_native_street_records": 12
+      },
+      "missing_native_street_in_direct_city_district_unverified": {
+        "groups": 39,
+        "unique_source_city_district_street_keys": 24,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 17,
+        "unique_source_city_district_street_keys": 16,
+        "unique_matched_native_street_records": 15
+      },
+      "numeric_label_ref_absent": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 1
+      },
+      "source_coordinate_conflict": {
+        "groups": 16,
+        "unique_source_city_district_street_keys": 15,
+        "unique_matched_native_street_records": 14
+      }
+    },
+    "嘉義縣": {
+      "all_groups": {
+        "groups": 49541,
+        "unique_source_city_district_street_keys": 1895,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 47352,
+        "unique_source_city_district_street_keys": 1888,
+        "unique_matched_native_street_records": 516
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 19311,
+        "unique_source_city_district_street_keys": 211,
+        "unique_matched_native_street_records": 211
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 18032,
+        "unique_source_city_district_street_keys": 211,
+        "unique_matched_native_street_records": 211
+      },
+      "existing_numeric_label_ref": {
+        "groups": 49280,
+        "unique_source_city_district_street_keys": 1895,
+        "unique_matched_native_street_records": 516
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 2663,
+        "unique_source_city_district_street_keys": 528,
+        "unique_matched_native_street_records": 301
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 30401,
+        "unique_source_city_district_street_keys": 516,
+        "unique_matched_native_street_records": 516
+      },
+      "matched_unique_next4": {
+        "groups": 19558,
+        "unique_source_city_district_street_keys": 211,
+        "unique_matched_native_street_records": 211
+      },
+      "matched_unique_next5": {
+        "groups": 9843,
+        "unique_source_city_district_street_keys": 288,
+        "unique_matched_native_street_records": 288
+      },
+      "matched_unique_next6": {
+        "groups": 1000,
+        "unique_source_city_district_street_keys": 17,
+        "unique_matched_native_street_records": 17
+      },
+      "missing_native_district": {
+        "groups": 2,
+        "unique_source_city_district_street_keys": 2,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 19138,
+        "unique_source_city_district_street_keys": 1377,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 2763,
+        "unique_source_city_district_street_keys": 518,
+        "unique_matched_native_street_records": 300
+      },
+      "numeric_label_ref_absent": {
+        "groups": 261,
+        "unique_source_city_district_street_keys": 15,
+        "unique_matched_native_street_records": 15
+      },
+      "source_coordinate_conflict": {
+        "groups": 2189,
+        "unique_source_city_district_street_keys": 459,
+        "unique_matched_native_street_records": 273
+      }
+    },
+    "基隆市": {
+      "all_groups": {
+        "groups": 98154,
+        "unique_source_city_district_street_keys": 1479,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 97273,
+        "unique_source_city_district_street_keys": 1479,
+        "unique_matched_native_street_records": 230
+      },
+      "existing_numeric_label_ref": {
+        "groups": 98154,
+        "unique_source_city_district_street_keys": 1479,
+        "unique_matched_native_street_records": 230
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 16014,
+        "unique_source_city_district_street_keys": 942,
+        "unique_matched_native_street_records": 210
+      },
+      "matched_direct_city_street_unique_district_unverified": {
+        "groups": 41464,
+        "unique_source_city_district_street_keys": 238,
+        "unique_matched_native_street_records": 230
+      },
+      "matched_unique_next4": {
+        "groups": 35877,
+        "unique_source_city_district_street_keys": 170,
+        "unique_matched_native_street_records": 162
+      },
+      "matched_unique_next5": {
+        "groups": 5572,
+        "unique_source_city_district_street_keys": 66,
+        "unique_matched_native_street_records": 66
+      },
+      "matched_unique_next6": {
+        "groups": 15,
+        "unique_source_city_district_street_keys": 2,
+        "unique_matched_native_street_records": 2
+      },
+      "missing_native_street_in_direct_city_district_unverified": {
+        "groups": 56690,
+        "unique_source_city_district_street_keys": 1241,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 16142,
+        "unique_source_city_district_street_keys": 947,
+        "unique_matched_native_street_records": 213
+      },
+      "source_coordinate_conflict": {
+        "groups": 881,
+        "unique_source_city_district_street_keys": 299,
+        "unique_matched_native_street_records": 146
+      }
+    },
+    "宜蘭縣": {
+      "all_groups": {
+        "groups": 646,
+        "unique_source_city_district_street_keys": 315,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 626,
+        "unique_source_city_district_street_keys": 310,
+        "unique_matched_native_street_records": 260
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 512,
+        "unique_source_city_district_street_keys": 219,
+        "unique_matched_native_street_records": 219
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 495,
+        "unique_source_city_district_street_keys": 216,
+        "unique_matched_native_street_records": 216
+      },
+      "existing_numeric_label_ref": {
+        "groups": 646,
+        "unique_source_city_district_street_keys": 315,
+        "unique_matched_native_street_records": 263
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 33,
+        "unique_source_city_district_street_keys": 33,
+        "unique_matched_native_street_records": 27
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 568,
+        "unique_source_city_district_street_keys": 263,
+        "unique_matched_native_street_records": 263
+      },
+      "matched_unique_next4": {
+        "groups": 512,
+        "unique_source_city_district_street_keys": 219,
+        "unique_matched_native_street_records": 219
+      },
+      "matched_unique_next5": {
+        "groups": 50,
+        "unique_source_city_district_street_keys": 39,
+        "unique_matched_native_street_records": 39
+      },
+      "matched_unique_next6": {
+        "groups": 6,
+        "unique_source_city_district_street_keys": 5,
+        "unique_matched_native_street_records": 5
+      },
+      "missing_native_district": {
+        "groups": 2,
+        "unique_source_city_district_street_keys": 2,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 76,
+        "unique_source_city_district_street_keys": 50,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 20,
+        "unique_source_city_district_street_keys": 20,
+        "unique_matched_native_street_records": 18
+      },
+      "source_coordinate_conflict": {
+        "groups": 20,
+        "unique_source_city_district_street_keys": 20,
+        "unique_matched_native_street_records": 18
+      }
+    },
+    "屏東市": {
+      "all_groups": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "existing_numeric_label_ref": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_city": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      }
+    },
+    "屏東縣": {
+      "all_groups": {
+        "groups": 257415,
+        "unique_source_city_district_street_keys": 8511,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 251845,
+        "unique_source_city_district_street_keys": 8500,
+        "unique_matched_native_street_records": 2255
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 105592,
+        "unique_source_city_district_street_keys": 1014,
+        "unique_matched_native_street_records": 1014
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 103196,
+        "unique_source_city_district_street_keys": 1014,
+        "unique_matched_native_street_records": 1014
+      },
+      "existing_numeric_label_ref": {
+        "groups": 256859,
+        "unique_source_city_district_street_keys": 8511,
+        "unique_matched_native_street_records": 2259
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 6927,
+        "unique_source_city_district_street_keys": 1361,
+        "unique_matched_native_street_records": 861
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 175498,
+        "unique_source_city_district_street_keys": 2259,
+        "unique_matched_native_street_records": 2259
+      },
+      "matched_unique_next4": {
+        "groups": 106031,
+        "unique_source_city_district_street_keys": 1014,
+        "unique_matched_native_street_records": 1014
+      },
+      "matched_unique_next5": {
+        "groups": 66903,
+        "unique_source_city_district_street_keys": 1185,
+        "unique_matched_native_street_records": 1185
+      },
+      "matched_unique_next6": {
+        "groups": 2564,
+        "unique_source_city_district_street_keys": 60,
+        "unique_matched_native_street_records": 60
+      },
+      "missing_native_district": {
+        "groups": 20,
+        "unique_source_city_district_street_keys": 17,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 81897,
+        "unique_source_city_district_street_keys": 6235,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 7786,
+        "unique_source_city_district_street_keys": 1570,
+        "unique_matched_native_street_records": 1060
+      },
+      "numeric_label_ref_absent": {
+        "groups": 556,
+        "unique_source_city_district_street_keys": 85,
+        "unique_matched_native_street_records": 79
+      },
+      "source_coordinate_conflict": {
+        "groups": 5570,
+        "unique_source_city_district_street_keys": 1179,
+        "unique_matched_native_street_records": 848
+      }
+    },
+    "彰化市": {
+      "all_groups": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "existing_numeric_label_ref": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_city": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      }
+    },
+    "彰化縣": {
+      "all_groups": {
+        "groups": 384094,
+        "unique_source_city_district_street_keys": 18584,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 374993,
+        "unique_source_city_district_street_keys": 18547,
+        "unique_matched_native_street_records": 3427
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 152301,
+        "unique_source_city_district_street_keys": 1702,
+        "unique_matched_native_street_records": 1702
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 148421,
+        "unique_source_city_district_street_keys": 1701,
+        "unique_matched_native_street_records": 1701
+      },
+      "existing_numeric_label_ref": {
+        "groups": 383869,
+        "unique_source_city_district_street_keys": 18584,
+        "unique_matched_native_street_records": 3430
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 12437,
+        "unique_source_city_district_street_keys": 2743,
+        "unique_matched_native_street_records": 1408
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 215637,
+        "unique_source_city_district_street_keys": 3430,
+        "unique_matched_native_street_records": 3430
+      },
+      "matched_unique_next4": {
+        "groups": 152496,
+        "unique_source_city_district_street_keys": 1702,
+        "unique_matched_native_street_records": 1702
+      },
+      "matched_unique_next5": {
+        "groups": 62517,
+        "unique_source_city_district_street_keys": 1664,
+        "unique_matched_native_street_records": 1664
+      },
+      "matched_unique_next6": {
+        "groups": 624,
+        "unique_source_city_district_street_keys": 64,
+        "unique_matched_native_street_records": 64
+      },
+      "missing_native_district": {
+        "groups": 23,
+        "unique_source_city_district_street_keys": 13,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 168434,
+        "unique_source_city_district_street_keys": 15141,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 13755,
+        "unique_source_city_district_street_keys": 2955,
+        "unique_matched_native_street_records": 1543
+      },
+      "numeric_label_ref_absent": {
+        "groups": 225,
+        "unique_source_city_district_street_keys": 60,
+        "unique_matched_native_street_records": 53
+      },
+      "source_coordinate_conflict": {
+        "groups": 9101,
+        "unique_source_city_district_street_keys": 2260,
+        "unique_matched_native_street_records": 1251
+      }
+    },
+    "新北市": {
+      "all_groups": {
+        "groups": 439506,
+        "unique_source_city_district_street_keys": 18974,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 422375,
+        "unique_source_city_district_street_keys": 18903,
+        "unique_matched_native_street_records": 2304
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 156629,
+        "unique_source_city_district_street_keys": 1417,
+        "unique_matched_native_street_records": 1417
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 146072,
+        "unique_source_city_district_street_keys": 1417,
+        "unique_matched_native_street_records": 1417
+      },
+      "existing_numeric_label_ref": {
+        "groups": 439477,
+        "unique_source_city_district_street_keys": 18974,
+        "unique_matched_native_street_records": 2310
+      },
+      "first_group_source_has_embedded_floor_unit": {
+        "groups": 6,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 1
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 245288,
+        "unique_source_city_district_street_keys": 14888,
+        "unique_matched_native_street_records": 2067
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 192960,
+        "unique_source_city_district_street_keys": 2310,
+        "unique_matched_native_street_records": 2310
+      },
+      "matched_unique_next4": {
+        "groups": 156658,
+        "unique_source_city_district_street_keys": 1417,
+        "unique_matched_native_street_records": 1417
+      },
+      "matched_unique_next5": {
+        "groups": 35052,
+        "unique_source_city_district_street_keys": 860,
+        "unique_matched_native_street_records": 860
+      },
+      "matched_unique_next6": {
+        "groups": 1250,
+        "unique_source_city_district_street_keys": 33,
+        "unique_matched_native_street_records": 33
+      },
+      "missing_native_district": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 246545,
+        "unique_source_city_district_street_keys": 16663,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 245542,
+        "unique_source_city_district_street_keys": 14721,
+        "unique_matched_native_street_records": 2049
+      },
+      "numeric_label_ref_absent": {
+        "groups": 29,
+        "unique_source_city_district_street_keys": 7,
+        "unique_matched_native_street_records": 7
+      },
+      "source_coordinate_conflict": {
+        "groups": 17131,
+        "unique_source_city_district_street_keys": 3598,
+        "unique_matched_native_street_records": 1480
+      }
+    },
+    "新竹市": {
+      "all_groups": {
+        "groups": 99594,
+        "unique_source_city_district_street_keys": 4220,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 98406,
+        "unique_source_city_district_street_keys": 4215,
+        "unique_matched_native_street_records": 445
+      },
+      "existing_numeric_label_ref": {
+        "groups": 99563,
+        "unique_source_city_district_street_keys": 4220,
+        "unique_matched_native_street_records": 446
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 12153,
+        "unique_source_city_district_street_keys": 1446,
+        "unique_matched_native_street_records": 320
+      },
+      "matched_direct_city_street_unique_district_unverified": {
+        "groups": 38116,
+        "unique_source_city_district_street_keys": 475,
+        "unique_matched_native_street_records": 446
+      },
+      "matched_unique_next4": {
+        "groups": 32895,
+        "unique_source_city_district_street_keys": 293,
+        "unique_matched_native_street_records": 266
+      },
+      "matched_unique_next5": {
+        "groups": 5173,
+        "unique_source_city_district_street_keys": 178,
+        "unique_matched_native_street_records": 176
+      },
+      "matched_unique_next6": {
+        "groups": 48,
+        "unique_source_city_district_street_keys": 4,
+        "unique_matched_native_street_records": 4
+      },
+      "missing_native_street_in_direct_city_district_unverified": {
+        "groups": 61478,
+        "unique_source_city_district_street_keys": 3745,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 12579,
+        "unique_source_city_district_street_keys": 1457,
+        "unique_matched_native_street_records": 326
+      },
+      "numeric_label_ref_absent": {
+        "groups": 31,
+        "unique_source_city_district_street_keys": 6,
+        "unique_matched_native_street_records": 5
+      },
+      "source_coordinate_conflict": {
+        "groups": 1188,
+        "unique_source_city_district_street_keys": 338,
+        "unique_matched_native_street_records": 186
+      }
+    },
+    "新竹縣": {
+      "all_groups": {
+        "groups": 132593,
+        "unique_source_city_district_street_keys": 8411,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 130487,
+        "unique_source_city_district_street_keys": 8402,
+        "unique_matched_native_street_records": 1049
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 51903,
+        "unique_source_city_district_street_keys": 698,
+        "unique_matched_native_street_records": 698
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 50683,
+        "unique_source_city_district_street_keys": 698,
+        "unique_matched_native_street_records": 698
+      },
+      "existing_numeric_label_ref": {
+        "groups": 132516,
+        "unique_source_city_district_street_keys": 8411,
+        "unique_matched_native_street_records": 1049
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 11274,
+        "unique_source_city_district_street_keys": 1322,
+        "unique_matched_native_street_records": 616
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 63925,
+        "unique_source_city_district_street_keys": 1049,
+        "unique_matched_native_street_records": 1049
+      },
+      "matched_unique_next4": {
+        "groups": 51979,
+        "unique_source_city_district_street_keys": 698,
+        "unique_matched_native_street_records": 698
+      },
+      "matched_unique_next5": {
+        "groups": 11620,
+        "unique_source_city_district_street_keys": 335,
+        "unique_matched_native_street_records": 335
+      },
+      "matched_unique_next6": {
+        "groups": 326,
+        "unique_source_city_district_street_keys": 16,
+        "unique_matched_native_street_records": 16
+      },
+      "missing_native_district": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 68667,
+        "unique_source_city_district_street_keys": 7361,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 11764,
+        "unique_source_city_district_street_keys": 1386,
+        "unique_matched_native_street_records": 646
+      },
+      "numeric_label_ref_absent": {
+        "groups": 77,
+        "unique_source_city_district_street_keys": 11,
+        "unique_matched_native_street_records": 11
+      },
+      "source_coordinate_conflict": {
+        "groups": 2106,
+        "unique_source_city_district_street_keys": 634,
+        "unique_matched_native_street_records": 402
+      }
+    },
+    "桃園市": {
+      "all_groups": {
+        "groups": 520904,
+        "unique_source_city_district_street_keys": 25727,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 513961,
+        "unique_source_city_district_street_keys": 25691,
+        "unique_matched_native_street_records": 3472
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 183035,
+        "unique_source_city_district_street_keys": 2142,
+        "unique_matched_native_street_records": 2142
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 177920,
+        "unique_source_city_district_street_keys": 2141,
+        "unique_matched_native_street_records": 2141
+      },
+      "existing_numeric_label_ref": {
+        "groups": 520702,
+        "unique_source_city_district_street_keys": 25727,
+        "unique_matched_native_street_records": 3477
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 55031,
+        "unique_source_city_district_street_keys": 5183,
+        "unique_matched_native_street_records": 2101
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 225719,
+        "unique_source_city_district_street_keys": 3477,
+        "unique_matched_native_street_records": 3477
+      },
+      "matched_unique_next4": {
+        "groups": 183218,
+        "unique_source_city_district_street_keys": 2142,
+        "unique_matched_native_street_records": 2142
+      },
+      "matched_unique_next5": {
+        "groups": 40724,
+        "unique_source_city_district_street_keys": 1253,
+        "unique_matched_native_street_records": 1253
+      },
+      "matched_unique_next6": {
+        "groups": 1777,
+        "unique_source_city_district_street_keys": 82,
+        "unique_matched_native_street_records": 82
+      },
+      "missing_native_district": {
+        "groups": 5,
+        "unique_source_city_district_street_keys": 5,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 295180,
+        "unique_source_city_district_street_keys": 22245,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 57821,
+        "unique_source_city_district_street_keys": 5399,
+        "unique_matched_native_street_records": 2225
+      },
+      "numeric_label_ref_absent": {
+        "groups": 202,
+        "unique_source_city_district_street_keys": 70,
+        "unique_matched_native_street_records": 62
+      },
+      "source_coordinate_conflict": {
+        "groups": 6943,
+        "unique_source_city_district_street_keys": 1586,
+        "unique_matched_native_street_records": 1132
+      }
+    },
+    "澎湖縣": {
+      "all_groups": {
+        "groups": 8588,
+        "unique_source_city_district_street_keys": 533,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 8077,
+        "unique_source_city_district_street_keys": 529,
+        "unique_matched_native_street_records": 97
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 3593,
+        "unique_source_city_district_street_keys": 57,
+        "unique_matched_native_street_records": 57
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 3285,
+        "unique_source_city_district_street_keys": 57,
+        "unique_matched_native_street_records": 57
+      },
+      "existing_numeric_label_ref": {
+        "groups": 8588,
+        "unique_source_city_district_street_keys": 533,
+        "unique_matched_native_street_records": 97
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 789,
+        "unique_source_city_district_street_keys": 149,
+        "unique_matched_native_street_records": 72
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 4424,
+        "unique_source_city_district_street_keys": 97,
+        "unique_matched_native_street_records": 97
+      },
+      "matched_unique_next4": {
+        "groups": 3593,
+        "unique_source_city_district_street_keys": 57,
+        "unique_matched_native_street_records": 57
+      },
+      "matched_unique_next5": {
+        "groups": 825,
+        "unique_source_city_district_street_keys": 38,
+        "unique_matched_native_street_records": 38
+      },
+      "matched_unique_next6": {
+        "groups": 6,
+        "unique_source_city_district_street_keys": 2,
+        "unique_matched_native_street_records": 2
+      },
+      "missing_native_street": {
+        "groups": 4164,
+        "unique_source_city_district_street_keys": 436,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 813,
+        "unique_source_city_district_street_keys": 148,
+        "unique_matched_native_street_records": 72
+      },
+      "source_coordinate_conflict": {
+        "groups": 511,
+        "unique_source_city_district_street_keys": 107,
+        "unique_matched_native_street_records": 60
+      }
+    },
+    "花蓮縣": {
+      "all_groups": {
+        "groups": 101632,
+        "unique_source_city_district_street_keys": 4675,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 100323,
+        "unique_source_city_district_street_keys": 4673,
+        "unique_matched_native_street_records": 1272
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 50787,
+        "unique_source_city_district_street_keys": 682,
+        "unique_matched_native_street_records": 682
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 49860,
+        "unique_source_city_district_street_keys": 682,
+        "unique_matched_native_street_records": 682
+      },
+      "existing_numeric_label_ref": {
+        "groups": 101595,
+        "unique_source_city_district_street_keys": 4675,
+        "unique_matched_native_street_records": 1272
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 2999,
+        "unique_source_city_district_street_keys": 805,
+        "unique_matched_native_street_records": 511
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 67290,
+        "unique_source_city_district_street_keys": 1272,
+        "unique_matched_native_street_records": 1272
+      },
+      "matched_unique_next4": {
+        "groups": 50821,
+        "unique_source_city_district_street_keys": 682,
+        "unique_matched_native_street_records": 682
+      },
+      "matched_unique_next5": {
+        "groups": 15775,
+        "unique_source_city_district_street_keys": 547,
+        "unique_matched_native_street_records": 547
+      },
+      "matched_unique_next6": {
+        "groups": 694,
+        "unique_source_city_district_street_keys": 43,
+        "unique_matched_native_street_records": 43
+      },
+      "missing_native_street": {
+        "groups": 34342,
+        "unique_source_city_district_street_keys": 3403,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 3374,
+        "unique_source_city_district_street_keys": 899,
+        "unique_matched_native_street_records": 569
+      },
+      "numeric_label_ref_absent": {
+        "groups": 37,
+        "unique_source_city_district_street_keys": 6,
+        "unique_matched_native_street_records": 5
+      },
+      "source_coordinate_conflict": {
+        "groups": 1309,
+        "unique_source_city_district_street_keys": 486,
+        "unique_matched_native_street_records": 374
+      }
+    },
+    "苗栗縣": {
+      "all_groups": {
+        "groups": 99205,
+        "unique_source_city_district_street_keys": 4912,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 98488,
+        "unique_source_city_district_street_keys": 4908,
+        "unique_matched_native_street_records": 932
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 43291,
+        "unique_source_city_district_street_keys": 520,
+        "unique_matched_native_street_records": 520
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 42762,
+        "unique_source_city_district_street_keys": 520,
+        "unique_matched_native_street_records": 520
+      },
+      "existing_numeric_label_ref": {
+        "groups": 99158,
+        "unique_source_city_district_street_keys": 4912,
+        "unique_matched_native_street_records": 933
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 4663,
+        "unique_source_city_district_street_keys": 894,
+        "unique_matched_native_street_records": 426
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 55399,
+        "unique_source_city_district_street_keys": 933,
+        "unique_matched_native_street_records": 933
+      },
+      "matched_unique_next4": {
+        "groups": 43321,
+        "unique_source_city_district_street_keys": 520,
+        "unique_matched_native_street_records": 520
+      },
+      "matched_unique_next5": {
+        "groups": 11347,
+        "unique_source_city_district_street_keys": 378,
+        "unique_matched_native_street_records": 378
+      },
+      "matched_unique_next6": {
+        "groups": 731,
+        "unique_source_city_district_street_keys": 35,
+        "unique_matched_native_street_records": 35
+      },
+      "missing_native_district": {
+        "groups": 8,
+        "unique_source_city_district_street_keys": 7,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 43798,
+        "unique_source_city_district_street_keys": 3972,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 5179,
+        "unique_source_city_district_street_keys": 942,
+        "unique_matched_native_street_records": 470
+      },
+      "numeric_label_ref_absent": {
+        "groups": 47,
+        "unique_source_city_district_street_keys": 8,
+        "unique_matched_native_street_records": 8
+      },
+      "source_coordinate_conflict": {
+        "groups": 717,
+        "unique_source_city_district_street_keys": 231,
+        "unique_matched_native_street_records": 190
+      }
+    },
+    "連江縣": {
+      "all_groups": {
+        "groups": 10,
+        "unique_source_city_district_street_keys": 6,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 10,
+        "unique_source_city_district_street_keys": 6,
+        "unique_matched_native_street_records": 3
+      },
+      "existing_numeric_label_ref": {
+        "groups": 10,
+        "unique_source_city_district_street_keys": 6,
+        "unique_matched_native_street_records": 3
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 4,
+        "unique_source_city_district_street_keys": 3,
+        "unique_matched_native_street_records": 3
+      },
+      "matched_unique_next5": {
+        "groups": 4,
+        "unique_source_city_district_street_keys": 3,
+        "unique_matched_native_street_records": 3
+      },
+      "missing_native_street": {
+        "groups": 6,
+        "unique_source_city_district_street_keys": 3,
+        "unique_matched_native_street_records": 0
+      }
+    },
+    "金門縣": {
+      "all_groups": {
+        "groups": 8013,
+        "unique_source_city_district_street_keys": 627,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 7804,
+        "unique_source_city_district_street_keys": 625,
+        "unique_matched_native_street_records": 117
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 2387,
+        "unique_source_city_district_street_keys": 44,
+        "unique_matched_native_street_records": 44
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 2290,
+        "unique_source_city_district_street_keys": 44,
+        "unique_matched_native_street_records": 44
+      },
+      "existing_numeric_label_ref": {
+        "groups": 8005,
+        "unique_source_city_district_street_keys": 627,
+        "unique_matched_native_street_records": 117
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 931,
+        "unique_source_city_district_street_keys": 212,
+        "unique_matched_native_street_records": 58
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 4366,
+        "unique_source_city_district_street_keys": 117,
+        "unique_matched_native_street_records": 117
+      },
+      "matched_unique_next4": {
+        "groups": 2391,
+        "unique_source_city_district_street_keys": 44,
+        "unique_matched_native_street_records": 44
+      },
+      "matched_unique_next5": {
+        "groups": 1844,
+        "unique_source_city_district_street_keys": 67,
+        "unique_matched_native_street_records": 67
+      },
+      "matched_unique_next6": {
+        "groups": 131,
+        "unique_source_city_district_street_keys": 6,
+        "unique_matched_native_street_records": 6
+      },
+      "missing_native_district": {
+        "groups": 1,
+        "unique_source_city_district_street_keys": 1,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 3646,
+        "unique_source_city_district_street_keys": 509,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 990,
+        "unique_source_city_district_street_keys": 218,
+        "unique_matched_native_street_records": 62
+      },
+      "numeric_label_ref_absent": {
+        "groups": 8,
+        "unique_source_city_district_street_keys": 4,
+        "unique_matched_native_street_records": 3
+      },
+      "source_coordinate_conflict": {
+        "groups": 209,
+        "unique_source_city_district_street_keys": 95,
+        "unique_matched_native_street_records": 44
+      }
+    },
+    "雲林縣": {
+      "all_groups": {
+        "groups": 161370,
+        "unique_source_city_district_street_keys": 4830,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 158960,
+        "unique_source_city_district_street_keys": 4829,
+        "unique_matched_native_street_records": 1467
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 75181,
+        "unique_source_city_district_street_keys": 664,
+        "unique_matched_native_street_records": 664
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 73821,
+        "unique_source_city_district_street_keys": 664,
+        "unique_matched_native_street_records": 664
+      },
+      "existing_numeric_label_ref": {
+        "groups": 161227,
+        "unique_source_city_district_street_keys": 4830,
+        "unique_matched_native_street_records": 1467
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 2398,
+        "unique_source_city_district_street_keys": 471,
+        "unique_matched_native_street_records": 307
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 112915,
+        "unique_source_city_district_street_keys": 1467,
+        "unique_matched_native_street_records": 1467
+      },
+      "matched_unique_next4": {
+        "groups": 75304,
+        "unique_source_city_district_street_keys": 664,
+        "unique_matched_native_street_records": 664
+      },
+      "matched_unique_next5": {
+        "groups": 35543,
+        "unique_source_city_district_street_keys": 760,
+        "unique_matched_native_street_records": 760
+      },
+      "matched_unique_next6": {
+        "groups": 2068,
+        "unique_source_city_district_street_keys": 43,
+        "unique_matched_native_street_records": 43
+      },
+      "missing_native_street": {
+        "groups": 48455,
+        "unique_source_city_district_street_keys": 3363,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 5012,
+        "unique_source_city_district_street_keys": 971,
+        "unique_matched_native_street_records": 648
+      },
+      "numeric_label_ref_absent": {
+        "groups": 143,
+        "unique_source_city_district_street_keys": 43,
+        "unique_matched_native_street_records": 41
+      },
+      "source_coordinate_conflict": {
+        "groups": 2410,
+        "unique_source_city_district_street_keys": 630,
+        "unique_matched_native_street_records": 475
+      }
+    },
+    "高雄市": {
+      "all_groups": {
+        "groups": 739771,
+        "unique_source_city_district_street_keys": 25058,
+        "unique_matched_native_street_records": 0
+      },
+      "coordinate_ready_global_bounds": {
+        "groups": 733279,
+        "unique_source_city_district_street_keys": 25044,
+        "unique_matched_native_street_records": 5227
+      },
+      "exact_unique_next4_existing_ref_before_coordinate_review": {
+        "groups": 297152,
+        "unique_source_city_district_street_keys": 2661,
+        "unique_matched_native_street_records": 2661
+      },
+      "exact_unique_next4_existing_ref_coordinate_ready": {
+        "groups": 292581,
+        "unique_source_city_district_street_keys": 2661,
+        "unique_matched_native_street_records": 2661
+      },
+      "existing_numeric_label_ref": {
+        "groups": 739578,
+        "unique_source_city_district_street_keys": 25058,
+        "unique_matched_native_street_records": 5231
+      },
+      "group_with_separate_floor_unit_door_level_tags": {
+        "groups": 42477,
+        "unique_source_city_district_street_keys": 4806,
+        "unique_matched_native_street_records": 2089
+      },
+      "matched_native_street_exact_unique": {
+        "groups": 405569,
+        "unique_source_city_district_street_keys": 5231,
+        "unique_matched_native_street_records": 5231
+      },
+      "matched_unique_next4": {
+        "groups": 297293,
+        "unique_source_city_district_street_keys": 2661,
+        "unique_matched_native_street_records": 2661
+      },
+      "matched_unique_next5": {
+        "groups": 106135,
+        "unique_source_city_district_street_keys": 2449,
+        "unique_matched_native_street_records": 2449
+      },
+      "matched_unique_next6": {
+        "groups": 2141,
+        "unique_source_city_district_street_keys": 121,
+        "unique_matched_native_street_records": 121
+      },
+      "missing_native_district": {
+        "groups": 13,
+        "unique_source_city_district_street_keys": 7,
+        "unique_matched_native_street_records": 0
+      },
+      "missing_native_street": {
+        "groups": 334189,
+        "unique_source_city_district_street_keys": 19820,
+        "unique_matched_native_street_records": 0
+      },
+      "multi_source_node_group": {
+        "groups": 46593,
+        "unique_source_city_district_street_keys": 5320,
+        "unique_matched_native_street_records": 2396
+      },
+      "numeric_label_ref_absent": {
+        "groups": 193,
+        "unique_source_city_district_street_keys": 63,
+        "unique_matched_native_street_records": 57
+      },
+      "source_coordinate_conflict": {
+        "groups": 6492,
+        "unique_source_city_district_street_keys": 1882,
+        "unique_matched_native_street_records": 1381
+      }
+    }
+  },
+  "four_city_raw_missing_district_group_corrections": {
+    "missing_native_street_in_direct_city_district_unverified": 277514
+  },
+  "unique_matched_group_next_level_counts": {
+    "4": 1794100,
+    "5": 541855,
+    "6": 16735
+  },
+  "unique_matched_street_records_by_next_level": {
+    "4": 17801,
+    "5": 13421,
+    "6": 706
+  },
+  "taichung_subset": {
+    "semantic_eligible_groups_before_coordinate_review": 290995,
+    "candidate_groups": 282574,
+    "candidate_unique_native_streets": 2451,
+    "coordinate_review_groups": 8421,
+    "target_index": {
+      "targets": 290995,
+      "multiple_group_targets": 0,
+      "coordinate_collision_targets": 0,
+      "blocked_targets": 8421
+    },
+    "candidate": {
+      "path": "staging/navigation-address-house-join-v1/taichung-next4-existing-label-ready-candidates.jsonl.gz",
+      "rows": 282574,
+      "bytes": 9810225,
+      "sha256": "ca5f11b2b3aa032ab74cc9c96d2f2e84bc3a604ce09d40a8841f7a3ed362c974",
+      "uncompressed_sha256": "ad7514a4deb8bb3821dcc657ac986c3051c69e2e1a56d692097d6d44b7e3994d",
+      "hash_computed_while_writing_not_second_read": true
+    },
+    "review": {
+      "path": "staging/navigation-address-house-join-v1/taichung-next4-existing-label-coordinate-review.jsonl.gz",
+      "rows": 8421,
+      "bytes": 494720,
+      "sha256": "9a8c8b4b8fbed7f455904c4e43560494f8a34957ecdb440ca94ecc6aa48c24d5",
+      "uncompressed_sha256": "2d5de30315d6630ebe4c21f5fca597f3c86ee3db99ca8ded2c7634f93cb2bb7a",
+      "hash_computed_while_writing_not_second_read": true
+    },
+    "candidate_order": "native street record then original group ID; no native house sort asserted."
+  },
+  "nine_verified_source_controls": [
+    {
+      "house_label": "6號",
+      "group_id": 42368,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8529006128,
+      "source_id_present": true,
+      "source_ids": [
+        8529006128
+      ],
+      "plan_coordinate_strings": [
+        "24.135716",
+        "120.682502"
+      ],
+      "group_first_coordinate_strings": [
+        "24.135716",
+        "120.682502"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 23,
+      "installed_manifest_primary_ref": 23,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 42368,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "8號",
+      "group_id": 42369,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8529006129,
+      "source_id_present": true,
+      "source_ids": [
+        8529006129
+      ],
+      "plan_coordinate_strings": [
+        "24.1357909",
+        "120.6824793"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1357909",
+        "120.6824793"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 25,
+      "installed_manifest_primary_ref": 25,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 42369,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "138號",
+      "group_id": 39884,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997649,
+      "source_id_present": true,
+      "source_ids": [
+        8528997649
+      ],
+      "plan_coordinate_strings": [
+        "24.1405103",
+        "120.6771645"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1405103",
+        "120.6771645"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 150,
+      "installed_manifest_primary_ref": 150,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39884,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "140號",
+      "group_id": 39885,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997650,
+      "source_id_present": true,
+      "source_ids": [
+        8528997650
+      ],
+      "plan_coordinate_strings": [
+        "24.1405443",
+        "120.6771368"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1405443",
+        "120.6771368"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 152,
+      "installed_manifest_primary_ref": 152,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39885,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "142號",
+      "group_id": 39886,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997651,
+      "source_id_present": true,
+      "source_ids": [
+        8528997651
+      ],
+      "plan_coordinate_strings": [
+        "24.1406286",
+        "120.6771586"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1406286",
+        "120.6771586"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 154,
+      "installed_manifest_primary_ref": 154,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39886,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "144號",
+      "group_id": 39887,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997652,
+      "source_id_present": true,
+      "source_ids": [
+        8528997652
+      ],
+      "plan_coordinate_strings": [
+        "24.140617",
+        "120.6770728"
+      ],
+      "group_first_coordinate_strings": [
+        "24.140617",
+        "120.6770728"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 783,
+      "installed_manifest_primary_ref": 783,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39887,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "146號",
+      "group_id": 39888,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997653,
+      "source_id_present": true,
+      "source_ids": [
+        8528997653
+      ],
+      "plan_coordinate_strings": [
+        "24.1406476",
+        "120.6770326"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1406476",
+        "120.6770326"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 784,
+      "installed_manifest_primary_ref": 784,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39888,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "148號",
+      "group_id": 39889,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997654,
+      "source_id_present": true,
+      "source_ids": [
+        8528997654
+      ],
+      "plan_coordinate_strings": [
+        "24.1406772",
+        "120.6769941"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1406772",
+        "120.6769941"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 157,
+      "installed_manifest_primary_ref": 157,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39889,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    },
+    {
+      "house_label": "150號",
+      "group_id": 39890,
+      "native_match": "matched_native_street_exact_unique",
+      "source_id_from_original_plan": 8528997655,
+      "source_id_present": true,
+      "source_ids": [
+        8528997655
+      ],
+      "plan_coordinate_strings": [
+        "24.1407082",
+        "120.6769654"
+      ],
+      "group_first_coordinate_strings": [
+        "24.1407082",
+        "120.6769654"
+      ],
+      "coordinate_status": "coordinate_ready_global_bounds",
+      "plan_coordinate_equals_group_point_when_verifiable": true,
+      "coordinate_verification_note": "Ready groups guarantee all recorded source coordinates equal; conflicting groups only expose the first node coordinate in this ledger.",
+      "existing_index_primary_ref": 787,
+      "installed_manifest_primary_ref": 787,
+      "ref_equal_to_installed_manifest": true,
+      "installed_manifest_source_id_equals_plan": true,
+      "nativeStreetID": 16707,
+      "semantic_taichung_eligibility": true,
+      "candidate_before_target_collision_check": true,
+      "output_index_routing": [
+        {
+          "group_id": 39890,
+          "included_in_candidate": true,
+          "review_reason": null
+        }
+      ],
+      "included_in_candidate": true
+    }
+  ],
+  "nine_all_in_candidate": true,
+  "nine_source_ID_and_existing_ref_checks_passed": true,
+  "working_index": {
+    "sqlite_integrity_check": "ok",
+    "target_member_counts_reconciled": true,
+    "temporary_bytes": 317009920,
+    "removed_after_output": true
+  },
+  "limits": [
+    "No native original house-label membership/overlap decoded; no actual new-house count.",
+    "Candidate point strings are OSM planning data, not verified all-Taiwan entrances/routing.",
+    "Only Taichung exact unique original next4 branches with existing numeric text refs emitted; all-country source scope retained in same-pass statistics.",
+    "Next5/6, ambiguous streets, missing street/admin, absent labels, source conflicts and metadata errors remain explicit categories.",
+    "No image/data/profile/firmware writer, native CPU, device, UI or full2026 address update completed.",
+    "No output full-ledger readback parse; source gzip EOF/rolling hashes and SQLite/output index accounting provide this scope validation."
+  ],
+  "device_IO": false,
+  "native_CPU_executed": false,
+  "native_house_overlap_checked": false,
+  "full_Taiwan_native_update_complete": false
+}

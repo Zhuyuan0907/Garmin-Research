@@ -1,0 +1,188 @@
+{
+  "schema": "garmin-activation-FILE-structural-checks/v1",
+  "count": 36,
+  "checks": [
+    {
+      "name": "capture_pin:native/music-endpoint/endpoint.c",
+      "passed": true,
+      "evidence": "private-captures/native__music-endpoint__endpoint.c.gz"
+    },
+    {
+      "name": "capture_pin:native/music-endpoint/endpoint.h",
+      "passed": true,
+      "evidence": "private-captures/native__music-endpoint__endpoint.h.gz"
+    },
+    {
+      "name": "capture_pin:native/music-continuous/entry.c",
+      "passed": true,
+      "evidence": "private-captures/native__music-continuous__entry.c.gz"
+    },
+    {
+      "name": "capture_pin:native/avdtp-gate/gate.c",
+      "passed": true,
+      "evidence": "private-captures/native__avdtp-gate__gate.c.gz"
+    },
+    {
+      "name": "fresh_source_stat:native/avdtp-gate/gate.c",
+      "passed": true,
+      "evidence": "native/avdtp-gate/gate.c"
+    },
+    {
+      "name": "capture_pin:native/avdtp-gate/gate.h",
+      "passed": true,
+      "evidence": "private-captures/native__avdtp-gate__gate.h.gz"
+    },
+    {
+      "name": "fresh_source_stat:native/avdtp-gate/gate.h",
+      "passed": true,
+      "evidence": "native/avdtp-gate/gate.h"
+    },
+    {
+      "name": "capture_pin:native/avdtp-reply/reply.c",
+      "passed": true,
+      "evidence": "private-captures/native__avdtp-reply__reply.c.gz"
+    },
+    {
+      "name": "fresh_source_stat:native/avdtp-reply/reply.c",
+      "passed": true,
+      "evidence": "native/avdtp-reply/reply.c"
+    },
+    {
+      "name": "capture_pin:native/sbc-prototype/app_component_entry.c",
+      "passed": true,
+      "evidence": "private-captures/native__sbc-prototype__app_component_entry.c.gz"
+    },
+    {
+      "name": "fresh_source_stat:native/sbc-prototype/app_component_entry.c",
+      "passed": true,
+      "evidence": "native/sbc-prototype/app_component_entry.c"
+    },
+    {
+      "name": "capture_pin:staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+      "passed": true,
+      "evidence": "private-captures/staging__native-player-loaded-single-image__build-v2__reply_pause_binding_v1.c.gz"
+    },
+    {
+      "name": "fresh_source_stat:staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+      "passed": true,
+      "evidence": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c"
+    },
+    {
+      "name": "capture_pin:staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+      "passed": true,
+      "evidence": "private-captures/staging__native-player-loaded-single-image__build-v2__remote_pause_binding_v1.c.gz"
+    },
+    {
+      "name": "fresh_budget",
+      "passed": true,
+      "evidence": "5 fresh C/H /15540 B <=98304 B;4 inherited C/H /19556 B"
+    },
+    {
+      "name": "old_C_activation_order",
+      "passed": true,
+      "evidence": "entry.c61-78"
+    },
+    {
+      "name": "old_C_callback_identity",
+      "passed": true,
+      "evidence": "entry.c73-76"
+    },
+    {
+      "name": "partial_activation_no_local_retry",
+      "passed": true,
+      "evidence": "entry.c63-76; no stage execution"
+    },
+    {
+      "name": "bootstrap_return_is_not_activation_result",
+      "passed": true,
+      "evidence": "entry.c81-90"
+    },
+    {
+      "name": "base_initializer_only_bootstrap_and_reset",
+      "passed": true,
+      "evidence": "app_component_entry.c12-24"
+    },
+    {
+      "name": "SEP_fields_before_claim_and_ownership",
+      "passed": true,
+      "evidence": "endpoint.c19-45"
+    },
+    {
+      "name": "unused_slot_guard_and_rollback",
+      "passed": true,
+      "evidence": "endpoint.c21-40"
+    },
+    {
+      "name": "gate_claim_is_only_private_binding",
+      "passed": true,
+      "evidence": "gate.c28-35"
+    },
+    {
+      "name": "gate_header_distinguishes_registration",
+      "passed": true,
+      "evidence": "gate.h4-7"
+    },
+    {
+      "name": "SDP_handle_and_field_precondition",
+      "passed": true,
+      "evidence": "endpoint.c48-59"
+    },
+    {
+      "name": "AV_unlock_before_SDP_enable",
+      "passed": true,
+      "evidence": "endpoint.c60-64"
+    },
+    {
+      "name": "enable_result_scopes",
+      "passed": true,
+      "evidence": "endpoint.c64-67"
+    },
+    {
+      "name": "new_C_caller_pointer_guard_before_helper",
+      "passed": true,
+      "evidence": "reply_pause_binding.c71-79; C short-circuit only, mapped input backing remains external"
+    },
+    {
+      "name": "caller_guard_stock_fallback",
+      "passed": true,
+      "evidence": "reply_pause_binding.c75-83"
+    },
+    {
+      "name": "fallback_guard_before_body_read",
+      "passed": true,
+      "evidence": "gate.c57-61"
+    },
+    {
+      "name": "config_pass_is_stock_handler_after_local_policy",
+      "passed": true,
+      "evidence": "gate.c94-100"
+    },
+    {
+      "name": "reply_witness_after_result_and_written",
+      "passed": true,
+      "evidence": "reply_pause_binding.c29-42"
+    },
+    {
+      "name": "new_callback_identity_requirement",
+      "passed": true,
+      "evidence": "remote_pause_binding.c35-39"
+    },
+    {
+      "name": "new_config_callback_identity_requirement",
+      "passed": true,
+      "evidence": "remote_pause_binding.c55-60"
+    },
+    {
+      "name": "extern_providers_are_not_definitions",
+      "passed": true,
+      "evidence": "app source and two reply sources declare external providers"
+    },
+    {
+      "name": "historical_metadata_pin",
+      "passed": true,
+      "evidence": "closed small BT matrix metadata; no original code re-read"
+    }
+  ],
+  "target_execution": false,
+  "not_C_tests": true
+}

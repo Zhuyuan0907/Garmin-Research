@@ -1,0 +1,56 @@
+全台 prepared-group → native street / house text reference join
+
+合併分析輸入：
+  exact-next4-existing-label-ready-candidates.jsonl.gz
+  exact-next5-existing-label-ready-candidates.jsonl.gz
+  exact-next6-existing-label-ready-candidates.jsonl.gz
+每列仍是原始 planning group，不是已生成的原生 record。
+
+另外保存，不能自動當正式 city/district/street 候選：
+  directcity-next{4,5,6}-district-unverified-ready-planning.jsonl.gz
+四個城市為基隆市、台北市、新竹市、嘉義市。原廠 JAI 是 city→street，
+輸入 addr:district 沒有經原廠 district 層驗證；native_district=null，district_verified=false。
+
+各 scope/level 的 coordinate-review.jsonl.gz 都沒有選定座標。
+matched-native-street-label-review.jsonl.gz 保存缺現有 numeric label ref 的匹配群組。
+matched-nonconservative-house-review.jsonl.gz 保存未符合保守 numeric house key 的匹配群組。
+unresolved-native-name-group-keys.jsonl.gz 保存每個未匹配/有歧義群組的 group_id、raw_address、
+分類及完整原 groups ledger 參照；source IDs、raw coordinates 等完整 provenance 仍在原 ledger。
+
+共同欄位：
+  group_id, source_ids, source_node_count, raw_address [city,district,street,house]
+  normalized_planning_key, source_original_native_match
+  native_match_scope = exact_city_district_street / direct_city_street_district_unverified
+  district_verified
+  coordinate_strings [原 lat字串,原 lon字串] 或 null
+  coordinate_status, unselected_first_coordinate_strings
+  source_different_coordinate_nodes, separate_floor_unit_source_nodes
+  embedded_floor_unit_first_source_flag（只涵蓋群組第一個 source node）
+  native_street_record（含level nibble）, nativeStreetID（low28 ID）
+  native_city, native_district, native_street
+  old_child_first, old_child_count, old_child_level_and_flags, old_next_level
+  house_label, primary_ref
+  same_native_street_house_group_count
+  same_native_street_house_coordinate_collision
+  same_native_street_house_unready_coordinate_members
+  same_native_street_house_collision_checked
+  native_merge_eligible（只代表本 join 的 exact/label/global-coordinate 門檻）
+  native_house_overlap_checked=false, native_new_record_encoded=false
+
+保守條件：
+  House key 僅正 ASCII integer / 之正subnumber＋號；不猜 hyphen 是之號或範圍。
+  臺→台／NFKC／外側空白僅主機 exact matching，不改裝置 prefix comparator。
+  現有 primary_ref 證明可使用同文字 ref，不能證明該街已有此地址。
+  坐標僅 global finite WGS84 bounds，未通過台灣/城市 polygon 或路由位置驗證。
+  同一 native street+house 的任何 source conflict / unready member 使整 key 進 review；
+  多個 ready members 的 Decimal 正規座標不同則標 cross-group coordinate collision。
+  相同座標的 multiple groups 保留各 group 與 source IDs；後續 writer 須先 coalesce provenance，
+  不得把 repeated planning groups 當不同的新門牌。
+
+排序為 native_street_record、house_label 的文字順序、原 group_id。
+不是原廠 numeric house sort；flags8/13 保留原值，不在這裡推導改寫語意。
+根據 old_next_level 分別準備 L4 / L5 / L6 merge；不能因字串含巷/弄就猜層級。
+
+輸出不做原廠 house membership/overlap 判定、不生成新 records、沒有 CPU/IMG/USB操作。
+全台原生圖資更新仍未完成。proof.json 包含每市 groups/street/targets、rolling hashes、
+source EOF/immutable stat、cross-target totals、temporary SQLite清除紀錄。

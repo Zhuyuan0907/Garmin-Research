@@ -1,0 +1,26 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-nostdlib",
+    "-no-pie",
+    "-Wl,--gc-sections",
+    "-Wl,--no-undefined",
+    "-Wl,-T,/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/audio-session.ld",
+    "-Wl,-Map,/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/audio-session.map",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/00-audio_session_driver.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/01-pcm_fifo_test_owner.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/02-runtime.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/03-music_session_guard_v2.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/04-native_context_v2.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/05-pull_bridge.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/06-memory_output_scope_owner_v2.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/07-media_queue.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/08-media_worker.o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/09-ui_music_control.o",
+    "-o",
+    "/root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/audio-session-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: /root/garmin/staging/native-player-native-allocation/audio-session-static/build-v2/audio-session-EMULATION-ONLY.elf has a LOAD segment with RWX permissions\n/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored\n"
+}

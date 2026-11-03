@@ -1,0 +1,182 @@
+{
+  "schema": "garmin-observer-guard-independent-static-detail/v1",
+  "all_static_assertions_passed": true,
+  "unchanged_function_class_AST": {
+    "need": "7545a250fa32233e5e0b555cd89cce666373fa59527e9a208b35b8832b199610",
+    "sha": "8dd59cc3f8cc05d94f8689155fda233b399aa85eb1de78c3e6bc595c1021df51",
+    "stat": "b15922caf1cff51c9efd9fbcee1ab5ae57ae3536a8cad02d95a6b96940a89fe1",
+    "save": "980d4ac28060a84c1a4652515abf0031037d534d34098686eca0c24b27fab846",
+    "OwnBudgetError": "a7aede10980d84955b79a63b0be13fcc6f6f5689d360508e5f347048ace2e79e",
+    "rss": "012ad599b4f208fc6c1e76892bfe0536b9e70603a4bb931d9376fa798193e1b3",
+    "load_bytes": "1f13c4875343a2af52fe5b3db94ae314c837911ff5e1626f816420725944325f",
+    "load": "c251a577a6833acafd02d2236456664dace40f3eb31a9e695dff97e27dc83c56",
+    "ReadBudget": "5d079bc36cf3a9f078a922ec82fe722600ba9b0cc313788cf9d957cd475b22d7",
+    "allocate_fields": "dcb72ce57e861771c33eff9acd546eaa08ec3294ce3e78a8673d910054d37912",
+    "ObserveAllocations": "4eabd84060c37d7a35c10376531959d0990554fab0c82696b05bc68643748b3e"
+  },
+  "all_module_assignment_ASTs_identical": true,
+  "imports_identical": true,
+  "main_after_only_schema_measurement_report_removal_AST_identical": true,
+  "exception_entry_after_only_schema_measurement_report_removal_AST_identical": true,
+  "Observer_init_and_close_AST_identical": true,
+  "guard_expression": "enforce and (proc_errors or guarded > RSS_CAP_KIB)",
+  "guard_expression_AST": "BoolOp(op=And(), values=[Name(id='enforce', ctx=Load()), BoolOp(op=Or(), values=[Name(id='proc_errors', ctx=Load()), Compare(left=Name(id='guarded', ctx=Load()), ops=[Gt()], comparators=[Name(id='RSS_CAP_KIB', ctx=Load())])])])",
+  "guard_metric": "max(proc['VmRSS_KiB'], proc['VmHWM_KiB']) if not proc_errors else None",
+  "enforcement_dependencies": [
+    "RSS_CAP_KIB",
+    "enforce",
+    "guarded",
+    "proc_errors"
+  ],
+  "memory_cap_KiB": 393216,
+  "IMG_cap_bytes": 160000000,
+  "same_current_counts": {
+    "3": 47870,
+    "4": 4896236,
+    "5": 3077845,
+    "6": 2062771
+  },
+  "same_stock_counts": {
+    "4": 2133948,
+    "5": 2341096,
+    "6": 1973316
+  },
+  "same_lower_strides_source": [
+    128,
+    126,
+    68
+  ],
+  "same_original_RAM_selected_function_AST": {
+    "analyze": "0426639f31cb8465ec2917699711466dbd39730552182ea8d028165a28c4d0e5",
+    "contains": "215bd71c5c6e932616feaab93097b85f4f191b42aef7d48f7e27b38b8ec2ae1f",
+    "fill_all": "dec1752fd3fbda56bcd9e56236a8388e848002678af4fee3d28feef27780c296",
+    "make_rank": "adb19c8296f50a2a0ee91b5f073052512c896262d8f22c9e8c56f8cf37e30284",
+    "mapped_ID": "7af1122ddb130add080677f2c48365446e7cae71efdccfb637f96ad2d1fb479a",
+    "mark": "d9684c5caa13b4f00ff015b9c03926b90b76884b67e42c3e1a357076fcc9c380",
+    "prefix_mask": "19333d81d8b95d54e318e05306215f8262f0b747608204b30bfde4c1f8dcce66",
+    "stream_actual": "19300f3265bef7be810d132bd582d1e97d2ce12660d862277604c32640818daa"
+  },
+  "same_mapper_Image_AST_sha256": "f13eea0a3c10404d278e43b2cf35d1afc30eb8bdab62ecda721cc26710f6693b",
+  "same_mapper_NAMES_AST_sha256": "7ae8583947f28f8a9561a917f709a849db3bfd712f73b45dcd5ab3f14b0054e1",
+  "original_analyzer_mains_not_in_selected_AST": true,
+  "guard_fail_closed_static_paths": [
+    "required VmRSS/VmHWM missing",
+    "malformed field numeric format",
+    "non-kB unit",
+    "duplicate parsed memory field",
+    "proc open/read error",
+    "either current RSS or current-mm high-water exceeds393216KiB"
+  ],
+  "durable_write_flush_fsync_before_guard_branch": true,
+  "valid_proc_error_short_circuit_prevents_None_threshold_comparison": true,
+  "historical_ru_maxrss_diagnostic_only": true,
+  "normal_snapshot_calls_use_default_enforce_true": true,
+  "only_enforce_false_call": {
+    "line": 325,
+    "purpose": "exception final receipt; outer handler still bare-reraises"
+  },
+  "original_failed_v3_observation": {
+    "ru_maxrss_KiB": 424240,
+    "VmRSS_KiB": 17824,
+    "VmHWM_KiB": 17824,
+    "actual_IMG_bytes_read": 0
+  },
+  "primary_notes_reviewed": {
+    "schema": "garmin-ordinary-host-memory-guard-primary-evidence/v4",
+    "local_document_pins": [
+      {
+        "path": "/usr/share/man/man2/getrusage.2.gz",
+        "compressed_bytes": 2866,
+        "sha256": "3f8d1a52db881a8d383a685dbaa24fb6713f8d7325d0b98775f443aaa98367ec",
+        "uncompressed_sha256": "3fb5d4ff99f5c660644fc3e2949742b0a6084bd168cf4bd77de07989109c4360",
+        "supported_scope": "ru_maxrss kilobytes; resource metrics preserved across execve",
+        "local_primary_man_pages_version": "6.9.1"
+      },
+      {
+        "path": "/usr/share/man/man5/proc_pid_status.5.gz",
+        "compressed_bytes": 3295,
+        "sha256": "73aca162fe1218e9348b3ed00a2b19245c8e1a436fa529f0e8fe8f8bc2f3ea67",
+        "uncompressed_sha256": "a1e4a55fe38f2ceaa4b2dfb8ab073778fcebecdd737484ce6de6f541cf13fc32",
+        "supported_scope": "VmRSS/current and VmHWM/peak, approximate accounting",
+        "local_primary_man_pages_version": "6.9.1"
+      },
+      {
+        "path": "/usr/share/man/man5/proc_pid_statm.5.gz",
+        "compressed_bytes": 826,
+        "sha256": "ecaf9ad55a2c561d9d958d69a440d66bb082e2bca08c3662d27ff529183ea23c",
+        "uncompressed_sha256": "d4cc2dee9a2b4e4cd7fb6b4c80af18ff264c5b2f243cfece7e6be19e3ee45987",
+        "supported_scope": "status RSS accounting approximation; smaps/rollup slower accurate accounting",
+        "local_primary_man_pages_version": "6.9.1"
+      },
+      {
+        "path": "/usr/share/man/man2/execve.2.gz",
+        "compressed_bytes": 9125,
+        "sha256": "79ee457a5bbd5ec346e9d05bd9e4e2e6789ad1e5a400ed73b813fe0f61b28ea6",
+        "uncompressed_sha256": "df8104a150d180024f1643507ebddbb60a04cd3daab4b5e9bc915236c4991b4e",
+        "supported_scope": "memory mappings replaced; process usage attributes can persist",
+        "local_primary_man_pages_version": "6.9.1"
+      }
+    ],
+    "upstream_primary_sources": [
+      {
+        "url": "https://raw.githubusercontent.com/torvalds/linux/v6.18/fs/proc/task_mmu.c",
+        "function": "task_mem",
+        "lines_one_based": [
+          33,
+          80
+        ],
+        "supports": "current mm RSS and high-water RSS; pages shifted PAGE_SHIFT-10 then kB output, so binary KiB; snapshots can be inconsistent",
+        "browsed": true,
+        "full_remote_source_hash_not_computed": true
+      },
+      {
+        "url": "https://raw.githubusercontent.com/torvalds/linux/v6.18/fs/exec.c",
+        "functions": [
+          "bprm_mm_init",
+          "exec_mmap"
+        ],
+        "lines_one_based": [
+          [
+            243,
+            272
+          ],
+          [
+            826,
+            851
+          ]
+        ],
+        "supports": "new mm allocated and installed at exec, old-mm hiwater saved in signal maxrss",
+        "browsed": true,
+        "full_remote_source_hash_not_computed": true
+      }
+    ],
+    "local_installed_kernel_header_witnesses": [
+      {
+        "path": "/usr/src/linux-headers-6.18.50+rpt-common-rpi/include/linux/mm.h",
+        "lines": [
+          2846,
+          2848
+        ],
+        "symbol": "get_mm_hiwater_rss",
+        "observed_relation": "max current mm hiwater_rss and current mm rss"
+      },
+      {
+        "path": "/usr/src/linux-headers-6.18.50+rpt-common-rpi/include/linux/mm_types.h",
+        "line": 1093,
+        "field": "mm_struct hiwater_rss"
+      }
+    ],
+    "host_running_kernel_source_not_fully_verified": true,
+    "metric_policy": "Enforce max current-mm /proc VmRSS and VmHWM at393216KiB; inherited ru_maxrss is diagnostic only",
+    "unit": "kernel kB fields are KiB as shown by pages <<(PAGE_SHIFT-10)",
+    "limitations": [
+      "VmRSS/VmHWM are approximate process accounting, not byte-accurate allocations",
+      "No exact transient kernel/accounting or physical-RAM limit is guaranteed",
+      "No counter reset, fallback, subprocess-context retry or numerical cap increase"
+    ],
+    "scanner_or_runtime_guard_cases_executed": false
+  },
+  "primary_man_fullfiles_or_remote_sources_independently_reread": false,
+  "source_review_executed_analyzer_or_guard_helper": false,
+  "retained_algorithm_caveat": "force_all may conservatively retain all suffix records while earlier range census remains incomplete; alias_complete alone is not closure proof"
+}

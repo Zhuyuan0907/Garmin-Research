@@ -1,0 +1,19 @@
+AP 原生 provider 目錄：120 bytes 有限只讀證據
+
+新目錄 staging/navigation-AP-provider-records-v1；已封 schema/proof 不變。
+來源原廠 gmapprom1.img 的 00004171.MDR，logical offset0x0585C7A8，length120。
+header descriptor在MDR+0x258：DWORD [92653480,120,20,1]；六筆20-byte records到MDR EOF。
+120 bytes只跨一個block：logical block22620→FAT disk block22635，within1960，
+physical offset92714920，FATpart94／slot60。全部hex與u8/u16/u32 LE/BE投影在JSON。
+
+六筆record前兩個LE DWORD的數值若視offset與length，形成六個逆序且連續、不重疊的區間，
+正好覆蓋MDR[4195100,92653480)，共88458380 bytes；本輪沒有讀這些大區間。
+這是可核實的數值關係，尚未由consumer確認offset/length語義。
+第三DWORD數值122/122/111/128/126/68，第四DWORD低16bit皆0x84C1，最後DWORD10/10/12/10/9/0。
+整個DWORD不直接匹配原廠map IDs或任何JAI logical record；少數小值與infoPK／城市lowID數值相同，
+只是數值碰巧命中，不能命名為城市／JAI欄位，更不能把count6叫六都。
+
+原native parser proof的ctx slice投影顯示+2B0=0、+2B4=0x0585C7A8、+2B8=20、+2BC=1、+2C0=6。
+本輪只引用該observed value；store／consumer語義需native agent繼續核對。
+payload僅讀120bytes；加IMG公開header／FAT目錄／772-byte MDR header共55164bytes。
+沒有全圖hash、沒有解鎖／解密、沒有寫原圖或裝置；所有結論都不代替實機搜尋／路由驗收。

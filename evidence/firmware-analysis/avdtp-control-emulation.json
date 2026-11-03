@@ -1,0 +1,611 @@
+{
+  "updated_utc": "2026-10-03T09:52:11.419441+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "case_count": 17,
+  "cases": [
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1203",
+          "state_before_send": 2,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 9,
+          "status": 0,
+          "handle_hex": "000000000102010203040506",
+          "payload_hex": "01000706000021150235",
+          "payload_length": 10,
+          "state_during_callback": 2,
+          "pending_during_callback": 0,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 2,
+      "pending": 0,
+      "negotiated_codec_hex": "21150235",
+      "native_media_channel_index": 1,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": true,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "configure_SBC_uses_original_parser_and_channel_reservation",
+      "passed": true
+    },
+    {
+      "signal": 6,
+      "payload_hex": "04",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1206",
+          "state_before_send": 2,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 2,
+      "pending": 2,
+      "negotiated_codec_hex": "21150235",
+      "native_media_channel_index": 1,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "Open_accepts_then_waits_for_real_L2CAP_completion",
+      "passed": true
+    },
+    {
+      "signal": 7,
+      "payload_hex": "04",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13070431",
+          "state_before_send": 2,
+          "pending_before_send": 2
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 17,
+          "status": 0,
+          "handle_hex": "000000000102010203040506",
+          "payload_hex": "0000",
+          "payload_length": 2,
+          "state_during_callback": 8,
+          "pending_during_callback": 6,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 8,
+      "pending": 2,
+      "negotiated_codec_hex": "21150235",
+      "native_media_channel_index": 1,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "rejected_Start_still_updates_state_after_successful_send",
+      "passed": true
+    },
+    {
+      "signal": 7,
+      "payload_hex": "04",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1207",
+          "state_before_send": 4,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 17,
+          "status": 0,
+          "handle_hex": "000000000100010203040506",
+          "payload_hex": "a5a5",
+          "payload_length": 2,
+          "state_during_callback": 8,
+          "pending_during_callback": 4,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 8,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "Start_from_synthetic_ready_state",
+      "passed": true
+    },
+    {
+      "signal": 9,
+      "payload_hex": "04",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1209",
+          "state_before_send": 8,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 19,
+          "status": 0,
+          "handle_hex": "000000000100010203040506",
+          "payload_hex": "",
+          "payload_length": 0,
+          "state_during_callback": 4,
+          "pending_during_callback": 8,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 4,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "Suspend_returns_to_ready_state",
+      "passed": true
+    },
+    {
+      "signal": 9,
+      "payload_hex": "04",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13090431",
+          "state_before_send": 4,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 19,
+          "status": 0,
+          "handle_hex": "000000000100010203040506",
+          "payload_hex": "",
+          "payload_length": 0,
+          "state_during_callback": 4,
+          "pending_during_callback": 8,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 4,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "rejected_duplicate_Suspend_still_calls_application",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13030112",
+          "state_before_send": 0,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 0,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "inactive_SEP_configuration_rejected",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "04080706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13030129",
+          "state_before_send": 1,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 1,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "missing_MediaTransport_rejected",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "04080100070600002115",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13030711",
+          "state_before_send": 1,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 1,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "bad_codec_length_rejected",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040001000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13030018",
+          "state_before_send": 1,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 1,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "invalid_remote_SEID_rejected",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13030013",
+          "state_before_send": 1,
+          "pending_before_send": 1
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 1,
+      "pending": 1,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "busy_SEP_configuration_rejected",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "13030631",
+          "state_before_send": 1,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 1,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": true,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "all_media_channels_reserved_rejects_configuration",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1203",
+          "state_before_send": 2,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 9,
+          "status": 0,
+          "handle_hex": "000000000102010203040506",
+          "payload_hex": "01000706000021150235",
+          "payload_length": 10,
+          "state_during_callback": 2,
+          "pending_during_callback": 0,
+          "mutex_held": false,
+          "callback_return_fixture": 57005
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 2,
+      "pending": 0,
+      "negotiated_codec_hex": "21150235",
+      "native_media_channel_index": 1,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": true,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "callback_return_error_does_not_reject_already_accepted_config",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000021150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1203",
+          "state_before_send": 2,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 2,
+      "pending": 0,
+      "negotiated_codec_hex": "21150235",
+      "native_media_channel_index": 1,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": true,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "no_callback_config_still_accepted",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "040801000706000221150235",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1203",
+          "state_before_send": 2,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 9,
+          "status": 0,
+          "handle_hex": "000000000102010203040506",
+          "payload_hex": "01000706000221150235",
+          "payload_length": 10,
+          "state_during_callback": 2,
+          "pending_during_callback": 0,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 2,
+      "pending": 0,
+      "negotiated_codec_hex": "21150235",
+      "native_media_channel_index": 1,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": true,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "codec_ID_without_local_decoder_validation_control",
+      "passed": true
+    },
+    {
+      "signal": 3,
+      "payload_hex": "04080100",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1203",
+          "state_before_send": 2,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [
+        {
+          "event": 9,
+          "status": 0,
+          "handle_hex": "000000000102010203040506",
+          "payload_hex": "0100",
+          "payload_length": 2,
+          "state_during_callback": 2,
+          "pending_during_callback": 0,
+          "mutex_held": false,
+          "callback_return_fixture": 0
+        }
+      ],
+      "event_order": [
+        "send",
+        "unlock",
+        "callback",
+        "lock"
+      ],
+      "state": 2,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 1,
+      "original_parser_executed": true,
+      "original_channel_reservation_executed": true,
+      "original_callback_veneer_executed": true,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "transport_only_config_has_no_codec_but_core_accepts",
+      "passed": true
+    },
+    {
+      "signal": 7,
+      "payload_hex": "04",
+      "replies": [
+        {
+          "channel": 4660,
+          "wire_hex": "1207",
+          "state_before_send": 4,
+          "pending_before_send": 0
+        }
+      ],
+      "callbacks": [],
+      "event_order": [
+        "send"
+      ],
+      "state": 4,
+      "pending": 0,
+      "negotiated_codec_hex": "00000000",
+      "native_media_channel_index": 255,
+      "original_parser_executed": false,
+      "original_channel_reservation_executed": false,
+      "original_callback_veneer_executed": false,
+      "original_code_input_and_RAM_guards_intact": true,
+      "stack_and_mutex_restored": true,
+      "name": "Start_send_failure_does_not_transition",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "cpu_model": "ARM1176",
+  "source_sha256": {
+    "scripts/emulate_avdtp_control.py": "b2eb67dd8209590fb559bae4a0cd90580333c6ceb1823a93d425fb7a0f2966f4",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "real_SEP_registration_executed": false,
+  "real_L2CAP_connection_completion_executed": false,
+  "original_config_parser_and_channel_reservation_executed": true,
+  "configuration_reply_precedes_application_callback": true,
+  "callback_return_not_a_configuration_rejection_API": true,
+  "rejected_Start_can_transition_and_callback_after_successful_reject_send": true,
+  "application_requires_preaccept_codec_policy_and_media_ready_state_fences": true,
+  "device_io": false,
+  "firmware_modified": false,
+  "device_install_candidate": false,
+  "native_App_or_physical_phone_or_speaker_verified": false,
+  "fixtures": [
+    "Preinitialized SEP/channel/context pools",
+    "log/memcpy/L2CAP send/mutex hooks",
+    "Application callback target/return value",
+    "Fresh ready-state VM for Start/Suspend"
+  ],
+  "limitations": "No real SDP/SEP registration, L2CAP completion, negotiated decoder/profile validation, real scheduling/concurrency, module acceptance, native UI or speaker. Open chain stops at pending media connection, never manually advanced and claimed complete. Independent Start controls use synthetic ready state. Native callback payload/handles are transient stack views, not owned persistent storage."
+}

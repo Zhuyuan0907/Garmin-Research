@@ -1,0 +1,24 @@
+AP provider 六段資料：每段前128bytes有限觀察
+
+依已封120-byte目錄的前兩個LE DWORD數值，讀取各span前min(128,size) bytes，
+所有六段都至少128bytes，因此新增body讀取總量768bytes。
+這是數值範圍的驗證，不是已完成原生carrier解碼或已命名的縣市記錄。
+原始圖、已封目錄與schema保持不變；無實機I/O、無整段dump／hash、沒有XOR／解密嘗試。
+
+序號  數值起点(MDR-relative)  數值長度   目錄第三DWORD  內容首u16LE
+0     0x0585C658             336        122            56223
+1     0x0585B1E9             5231       122            48137
+2     0x057B8F64             664197     111            48485
+3     0x037293A4             34143168   128            363
+4     0x013FF35E             36872262   126            363
+5     0x0040031C             16773186   68             39
+
+沒有一段內容首u16LE等於目錄第三DWORD；目前不支持其為內容首兩bytes的直接header length。
+六段bytes2..12也沒有GARMIN文字signature。資料格式／壓縮／加密語義尚未確認，
+不能從看似雜亂的bytes就聲稱已證明加密，更不能以改metadata就產生有效新資料。
+內容完整hex、u8/u16/u32 LE/BE、少量可列印片段、byte13原值、FAT映射都在JSON。
+
+本probe透過已封readonly range-reader，總實際原圖讀取55040bytes；
+其中54272bytes為DSKIMG頭／目錄元資料，768bytes是六段前綴。
+未再讀取120-byte目錄body，使用已封前版證據。未讀各span其餘88457612bytes。
+後續由native agent追ctx descriptor consumer和flag欄，確認原生資料格式／路段門牌定位引用。

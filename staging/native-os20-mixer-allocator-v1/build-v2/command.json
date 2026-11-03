@@ -1,0 +1,29 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mthumb",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pie",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--build-id=none,-T,/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v1.ld",
+    "/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v2.c",
+    "-o",
+    "/root/garmin/staging/native-os20-mixer-allocator-v1/build-v2/allocator-supply-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

@@ -1,0 +1,24 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py",
+  "launch_tool_result": {
+    "chunk_id": "9c1f3d",
+    "wall_time_seconds": 1.000802699,
+    "session_id": 11742,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "tool_result": {
+    "chunk_id": "bb77c7",
+    "wall_time_seconds": 0.00001763,
+    "exit_code": 1,
+    "original_token_count": 315,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py\", line 639, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py\", line 578, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py\", line 423, in verify_case\n    sync=verify_sync(d,rp,symbols)\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py\", line 473, in verify_sync\n    require(a==t+12 and t in (S,M,C,I),'Original contention/context save TCBSPlocation')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Original contention/context save TCBSPlocation\n"
+  },
+  "terminal": true,
+  "guest_execution": false,
+  "canonical_write": false,
+  "source_sha256": {
+    "staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v3.py": "72023f1dd06fb3aab4eb4b613f49558e89a01e06b4b4a35e87384ebb54230c7b"
+  },
+  "failure_kind": "FILE verifier incorrectly equated current READY head with outgoing saved-context owner after original scheduler updated READY before saving outgoing frame."
+}

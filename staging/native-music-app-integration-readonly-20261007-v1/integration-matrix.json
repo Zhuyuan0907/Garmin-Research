@@ -1,0 +1,492 @@
+{
+  "schema": "native-music-app-integration-readonly-matrix/v1",
+  "device": "Taiwan nuvi2565RT HWID1352 SW8.00",
+  "review_only": true,
+  "no_execution": true,
+  "STOP": true,
+  "main_finding": "Existing base/resources Play callback requests source9 diagnostic WAV. Channel8 native phone controller/adapter exists as a separately compiled prototype, with required ownership/session/core/event/publication/admission/full-return/GUI bindings absent.",
+  "rows": [
+    {
+      "id": "ui_launch_and_resources",
+      "feature": "合法原機選單／按鈕入口",
+      "sources": [
+        {
+          "path": "native/player-menu/player_menu.c",
+          "sha256": "1d00e3e2cb11c13af386db4766c8b3f259a515e8cff4ba26c0d410fc2ce1bfb8",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 66,
+          "function": "native_player_menu_install"
+        },
+        {
+          "path": "staging/native-player-resources/manifest.json",
+          "sha256": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": null,
+          "function": "/normal_Grid_state_updater_registered; /limits"
+        }
+      ],
+      "proved": "Base source encodes the original String/Grid constructors and append/destroy calls; resource manifest reports normal Grid updater/resource ABI and borrowed stock icon tokens.",
+      "unproved": "Legal boot catalog mapping, UI-thread ownership, GUI/SQL/touch event chain and an actual phone-music launch handler. Registration after TTS initialization is explicitly a fixture, not verified UI-thread timing.",
+      "missing_binding": "Bind one legal GUI launch context on its real UI owner to a resident controller's request_start/request_stop APIs; retain caption/resources/callback context; prove actual touch invokes that handler rather than manually calling a function.",
+      "next_safe_file_evidence": "Read small closed original caller/context/resource registry evidence and identify exact owned callback context. No hook or live test in this scope."
+    },
+    {
+      "id": "current_play_button_route",
+      "feature": "目前 activate 的真實音訊路由",
+      "sources": [
+        {
+          "path": "native/player-menu/player_menu.c",
+          "sha256": "1d00e3e2cb11c13af386db4766c8b3f259a515e8cff4ba26c0d410fc2ce1bfb8",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 44,
+          "function": "native_player_menu_activate"
+        },
+        {
+          "path": "native/player-resources/player_menu.c",
+          "sha256": "cde50122f7189aa6db5f9700a8f4da95596154f75bb0257a4401edbda3faf889",
+          "sha256_scope": "actual sequential bytes[0,4352), stopped after complete target function",
+          "line": 80,
+          "function": "native_player_menu_activate"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 7,
+          "function": "source9 unsupported by channel8 adapter"
+        }
+      ],
+      "proved": "Both separately identified source variants increment counters, register diagnostic WAV on source9/kind22, then call original source9 start. Resource variant function bytes were actually read and hash checked, not inferred from base.",
+      "unproved": "No call to umc_request_start, no channel8 direct-phone start, no stop-button integration, no speaker success from those API requests.",
+      "missing_binding": "A separate legitimate GUI callback must call umc_request_start on the resident channel8 controller and display pending/error/status. Source9 WAV cannot be routed through umcn_init, which rejects non8.",
+      "next_safe_file_evidence": "Locate the final GUI launch function-table/context binding and confirm channel8 controller request APIs are actually referenced; current code lacks that connection."
+    },
+    {
+      "id": "single_artifact_and_map",
+      "feature": "同一載入映像／core function table／生命期",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/original_imports.c",
+          "sha256": "919a1978df7010fa606a3fa1dd6bee33749a4727662d9ac28e2a7ba23bfbed2c",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 25,
+          "function": "umcn_fill_exact_continuous_bindings"
+        },
+        {
+          "path": "native/ui-music-native-adapter/exact_continuous_bindings.h",
+          "sha256": "7eee86e141ea6b3a895299683b959a3008ae438ead3039fa81284d1e87f56b9d",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 1,
+          "function": "exact continuous map"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 165,
+          "function": "umcn_init"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 3,
+          "function": "compiled adapter scope"
+        }
+      ],
+      "proved": "Original kernel imports and fixed continuous module symbols are explicit C address calls; initializer requires all core function pointers, typed state pointers, channel8 and caller-confirmed resident storage.",
+      "unproved": "A single accepted loaded image containing GUI plus this controller/adapter plus the matching continuous runtime. Fixed addresses are specific to an immutable older variant and cannot be reused after relink. Original imports are compiled statements, not newly executed original instructions.",
+      "missing_binding": "Provide actual core.init/ready/service/status/gate/started/cleaned/callback_acquire/callback_release/kick targets; regenerate exact runtime/state map for one bootstrap; pin zero-initialized controller/context/code/stacks. Helper returns BINDING_MISSING and does not supply residency/session/owner/core.",
+      "next_safe_file_evidence": "Cross-check only a small final linker/export/ABI binding manifest against the intended exact image. Do not install the relocatable prototype."
+    },
+    {
+      "id": "source_ready",
+      "feature": "按 Start 前的 Source／decoder READY",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 20,
+          "function": "runtime_ready"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 191,
+          "function": "umcn_owner_ready"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "b109c17e908957cb714229a21014d3c670a35b06201b95979085f88469a113d1",
+          "sha256_scope": "bytes[0,10000); whole-source hash not computed",
+          "line": 50,
+          "function": "umc_runtime_ready"
+        }
+      ],
+      "proved": "Adapter checks initialized/channel8, source/decoder TCB identities and entered/quit state, source initializer done/result/owner, coordinator owner and output initialization; controller ready changes BOOTING to IDLE on the configured owner.",
+      "unproved": "These checks do not initialize workers or establish their real loaded ABI, cold/physical readiness, exclusivity or mixer operation. Host views can satisfy them synthetically; later separate Source READY proofs are not an App integration proof.",
+      "missing_binding": "Invoke owner_ready only after the full original initializer returned with matching real Source TCB/result and decoder/output views from the same artifact; connect its ready notification to the UI state.",
+      "next_safe_file_evidence": "Match the already closed warm Source READY contract and exact module state ABI to this adapter; distinguish software CONFIG grant from physical ownership."
+    },
+    {
+      "id": "start_request_and_service",
+      "feature": "按 Start 的 request／原 Source actor service",
+      "sources": [
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "b109c17e908957cb714229a21014d3c670a35b06201b95979085f88469a113d1",
+          "sha256_scope": "bytes[0,10000); whole-source hash not computed",
+          "line": 66,
+          "function": "umc_request_start"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "b109c17e908957cb714229a21014d3c670a35b06201b95979085f88469a113d1",
+          "sha256_scope": "bytes[0,10000); whole-source hash not computed",
+          "line": 148,
+          "function": "umc_service"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 49,
+          "function": "adapter_wake"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 15,
+          "function": "source-loop service binding"
+        }
+      ],
+      "proved": "Start allocates nonwrapping generation only from idle/stopped with no covered leases; it durably queues a command. Source owner service calls prepare_start. Wake merges pending state then calls original post; a late preparation cannot reopen admission after Stop.",
+      "unproved": "Post return0 is not scheduling evidence. The real source loop has no installed service/return hooks here, and event0x80000 availability is not certified.",
+      "missing_binding": "Confirm the event bit in the actual source event contract and bind existing owner event-loop service to umcn_service_owner; propagate request token/status to the GUI. Do not create a surrogate actor or treat queued start as sound.",
+      "next_safe_file_evidence": "Inspect exact closed source loop pending/event-bit handlers and determine the legal invocation boundary for service/returned iteration."
+    },
+    {
+      "id": "ownership_snapshot",
+      "feature": "Start／observe 前的實際排他 reservation",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 63,
+          "function": "umcn_ownership_witness; ownership_snapshot"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 33,
+          "function": "witnessed"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 59,
+          "function": "adapter_prepare"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 11,
+          "function": "native reservation/barrier missing"
+        }
+      ],
+      "proved": "The C gate demands matching generation,cookie,channel8,source TCB,source token and nonzero epoch plus native_writers_excluded and future_borrowing_callbacks_excluded; observations reject an epoch change.",
+      "unproved": "No actual reservation/barrier implementation is supplied. IRQ exclusion, private cookie, caller-confirmed booleans, zero current references, software Source CONFIG grant or an idle physical snapshot cannot establish these two exclusions.",
+      "missing_binding": "Recover a serialized native route/list/provider reservation bound to the actual Source record/TCB and generation/token/epoch, valid through retirement, that excludes independent writers and not-yet-entered callbacks. Supply its ownership_snapshot implementation, not a fixture promise.",
+      "next_safe_file_evidence": "Read narrow closed all-writer/callback ownership metadata and identify the actual acquisition/release/barrier API and invalidation conditions before any native test."
+    },
+    {
+      "id": "prepare_session",
+      "feature": "channel8 phone session 準備",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 59,
+          "function": "adapter_prepare"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 80,
+          "function": "prepare_session"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 13,
+          "function": "AV-locked provider"
+        }
+      ],
+      "proved": "On Source owner the adapter requires clean queue/output/coordinator/private state, gets an ownership witness, calls external prepare_session(context,generation,epoch), then rechecks the same epoch.",
+      "unproved": "No AV-locked session provider is implemented here; this is not pairing, SEP publication, accepted remote START, transport binding or decoded data.",
+      "missing_binding": "Bind coherent stream/session preparation to the real AV mutex and remote peer/descriptor/configuration/codec lifecycle, preserving original policy/runtime gates. Never synthesize SEP state, remote START or native ACK.",
+      "next_safe_file_evidence": "Use the separate finite Bluetooth binding matrix to match provider identity/lock/configuration epoch and exact callback ABI to this request generation."
+    },
+    {
+      "id": "five_admission_sites",
+      "feature": "config／START／resume17／F1／consumer admission",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 201,
+          "function": "umcn_admission"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 13,
+          "function": "five original stream sites unwired"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ADAPTER_CONTRACT.md",
+          "sha256": "e7a85ca628a9d995a19b28003350822651a0ec76c29c7c421100b5965b30eac8",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 13,
+          "function": "umc_admission contract"
+        }
+      ],
+      "proved": "Adapter exports a core.gate wrapper; contract requires supplementing original AV mutex/policy/session/epoch/runtime checks. A local Stop is intended to keep F1 and event17 closed even while the remote phone streams.",
+      "unproved": "The five actual original stream call sites are explicitly not wired. Controller admission implementation after the selected prefix was not read; its rule is inherited from the contract, not freshly verified here.",
+      "missing_binding": "Carry one control generation through all five real entries, preserve their original gates and buffer lifetime, and fence reconfiguration/disconnect/late callbacks. No local-stop-to-remote-AVRCP/Suspend implementation exists.",
+      "next_safe_file_evidence": "Cross-reference narrow existing stream entrypoint/identity contracts; enumerate each actual provider callsite and generation source."
+    },
+    {
+      "id": "publication_and_factory",
+      "feature": "原註冊／factory／reader 的 publication 接線",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 204,
+          "function": "umcn_note_owned_publication"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 17,
+          "function": "after-register before-native-START"
+        },
+        {
+          "path": "staging/native-player-resources/manifest.json",
+          "sha256": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": null,
+          "function": "/private_api; /symbols; /limits"
+        }
+      ],
+      "proved": "Publication adapter reads actual coordinator/output/slot ticket and nonfree state, requires exactly one native node and no native call in flight, captures remove/release baselines, then notifies core.started. Manifest contains compiled memory_output/source/decoder APIs but says no music-worker startup in the resource variant.",
+      "unproved": "The original coordinator publication hook is not installed; adapter itself does not execute factory/selector/reader or provide PCM. Presence of symbols and observed methods/provider arrays are not runtime ownership or successful mixer consumption.",
+      "missing_binding": "Invoke note_owned_publication only after the actual owned registration returned and before native START, using the same allocator/token/anchor/provider lifetime. Establish that selected original factory/reader and both mixer pull paths are this route's consumers.",
+      "next_safe_file_evidence": "Match existing finite factory/reader and typed-FIFO/source contracts to the exact same artifact/record/token lifetime; keep earlier mixer-admission failure and native acceptance unverified."
+    },
+    {
+      "id": "stop_request_and_cancel",
+      "feature": "按 Stop 的 admission closure／cancel request",
+      "sources": [
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "b109c17e908957cb714229a21014d3c670a35b06201b95979085f88469a113d1",
+          "sha256_scope": "bytes[0,10000); whole-source hash not computed",
+          "line": 97,
+          "function": "umc_request_stop"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 86,
+          "function": "adapter_cancel"
+        },
+        {
+          "path": "native/ui-music-native-adapter/original_imports.c",
+          "sha256": "919a1978df7010fa606a3fa1dd6bee33749a4727662d9ac28e2a7ba23bfbed2c",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 21,
+          "function": "exact_runtime_cancel"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 19,
+          "function": "asynchronous original cancel path"
+        }
+      ],
+      "proved": "Stop closes local admission immediately, cancels pending Start, preserves the active generation and queues wake. Owner adapter records cancel/pump baselines and delegates to exact music_runtime_cancel; no direct active-audio clear/free is supplied.",
+      "unproved": "A queued/returned request does not mean STOP_DONE or immediate mute/PCM flush. Original stop ignores message-send status; the source9 clear path is separate.",
+      "missing_binding": "Wire a legal Stop UI handler, durable owner service and exact original cancellation pipeline; retain STOPPING/error until actual return witnesses and local/native work barriers are complete.",
+      "next_safe_file_evidence": "Identify exact cancel request/returned iteration/message failure witnesses and UI pending/error presentation without inventing a completion ACK."
+    },
+    {
+      "id": "stop_full_return_and_cleanup",
+      "feature": "停止的 returned iteration／整段 callback barrier",
+      "sources": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 230,
+          "function": "umcn_after_native_iteration"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 246,
+          "function": "umcn_cleanup_begin"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 262,
+          "function": "umcn_cleanup_after_original"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 25,
+          "function": "cleanup_bridge.S ABI and execution limit"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 27,
+          "function": "single replacement full-return hook"
+        }
+      ],
+      "proved": "C observation requires actual iteration result/cleared cancel flags/advanced baselines and matching generation. Cleanup frame captures real bound record/generation/token/entry LR, holds callback reference across original completion notification/preemption and rejects duplicate handling.",
+      "unproved": "The ARM bridge is documented as assembled, not natively executed; no full-return callsite is installed. This review did not read/import/execute assembly or original cleanup. Host invoking after_original is not actual-return provenance.",
+      "missing_binding": "A single correctly bound resident full-return bridge must run the original cleanup exactly once, preserve result/SP/LR, forward source_completed and release the covered frame only after the whole original/notification lifetime. Install only after separately proved ABI/caller provenance; none installed here.",
+      "next_safe_file_evidence": "Review compact closed wrapper ABI/caller/entry-LR evidence and original notification scheduling boundaries; do not retry the interrupted guest."
+    },
+    {
+      "id": "STOP_DONE_and_restart_lifetime",
+      "feature": "STOP_DONE／restart／unload 邊界",
+      "sources": [
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "b109c17e908957cb714229a21014d3c670a35b06201b95979085f88469a113d1",
+          "sha256_scope": "bytes[0,10000); whole-source hash not computed",
+          "line": 125,
+          "function": "stop_complete"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "b109c17e908957cb714229a21014d3c670a35b06201b95979085f88469a113d1",
+          "sha256_scope": "bytes[0,10000); whole-source hash not computed",
+          "line": 200,
+          "function": "STOPPED publication"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.c",
+          "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 103,
+          "function": "adapter_observe"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ADAPTER_CONTRACT.md",
+          "sha256": "e7a85ca628a9d995a19b28003350822651a0ec76c29c7c421100b5965b30eac8",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 3,
+          "function": "resident no destructor"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 29,
+          "function": "unload/TCB reclamation absent"
+        }
+      ],
+      "proved": "Source code requires matching ownership plus returned cancel, actual idle methods/provider/mixer/driver/list/calls, empty private work, correct cleanup token and node/anchor/FIFO return witnesses, and zero covered leases before STOPPED.",
+      "unproved": "These predicates are implemented over bound views, but real native reservation/future-callback exclusion and installed whole-return hooks remain absent. Already committed PCM cannot be rolled back. STOPPED does not authorize unload or stack/TCB free.",
+      "missing_binding": "Bind serialized real observations under a persistent valid ownership epoch and prove callback admission barrier plus actual cleanup/remove/release/discard returns. Keep all component/UI/stack resources pinned; restart only through a new eligible generation.",
+      "next_safe_file_evidence": "List each observed field's real producer/retirement boundary and separate no-source cancellation barrier from published-source cleanup. Hardware mute and coexistence stay unproved."
+    },
+    {
+      "id": "physical_ingress_and_package",
+      "feature": "實機語音 ingress 證據／App package acceptance",
+      "sources": [
+        {
+          "path": "native/ui-music-control-prototype/ADAPTER_CONTRACT.md",
+          "sha256": "e7a85ca628a9d995a19b28003350822651a0ec76c29c7c421100b5965b30eac8",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 1,
+          "function": "prototype loader/package absent"
+        },
+        {
+          "path": "native/ui-music-native-adapter/ADAPTER_BINDING.md",
+          "sha256": "9326b8b49b85013a7fdc88f99e7cd54c6f611bdb8b2fa93bf142f49532626055",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": 1,
+          "function": "relocatable artifact nontransferable"
+        },
+        {
+          "path": "staging/native-player-resources/manifest.json",
+          "sha256": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+          "sha256_scope": "whole file body at bounded ordinary read",
+          "line": null,
+          "function": "/package_checks; /device_install_candidate; /real_package_acceptance_verified"
+        }
+      ],
+      "proved": "Root inherited historical user observations establish modified voice-module marker code ingress and a WFFF idle initialization snapshot; latest historical control reports restored2.10. This narrow later fact is separate from older manifest package-acceptance=false.",
+      "unproved": "Marker ingress does not establish GUI launch, the combined UI/adapter image, persistent reservation, live Source/decoder/mixer, general VPM/SIG acceptance, safe reload/unregister/unload or direct-phone sound.",
+      "missing_binding": "Preserve original40 TTS exports/bootstrap/imports and exact package/member integrity in any future separately authorized image; prove the actual combined image and legal launch conditions. Current EMULATION-ONLY resources are not installation candidates.",
+      "next_safe_file_evidence": "Reference root-pinned compact physical marker/control proofs, then compare only small accepted-container/loader binding metadata to the intended combined image; no package/device operation in this review."
+    }
+  ],
+  "physical_evidence_inherited_from_root_only": [
+    {
+      "path": "evidence/native-marker-physical-positive-20261005.json",
+      "bytes": 1081,
+      "sha256": "4db25ef5492ac960f2ed3106a32717e98709381b45e4187f709ef2f4103e84f7",
+      "scope": "M7Q9 historical user-observed code ingress; root696b7b ordinary read"
+    },
+    {
+      "path": "evidence/native-warm-probe-physical-positive-20261005T045004Z.json",
+      "bytes": 2117,
+      "sha256": "66d56b203a54916c517e6448b55b8e9da396167ff4c23346fed0ee8f552afd38",
+      "scope": "WFFF historical idle initializer observation,12 cached fields; root696b7b ordinary read"
+    },
+    {
+      "path": "evidence/native-warm-probe-physical-final-control-20261005T045419Z.json",
+      "bytes": 969,
+      "sha256": "a4f1958506b62d8b461518d6ef0e677bee0eaa9b5206265ae5757a094bef8b64",
+      "scope": "Historical2.10→WFFF→2.10 control; not a current device query"
+    }
+  ],
+  "false_flags": {
+    "native_App_complete": false,
+    "direct_phone_native_playback_complete": false,
+    "hardware_speaker_success": false,
+    "STOP_DONE": false,
+    "persistent_native_ownership_proved": false,
+    "install_ready": false,
+    "physical_test_this_scope": false
+  },
+  "source_range_limits": "Controller bytes0..9999 and resource prefix0..4351 only; suffix/assembly/binaries/test bodies not read. Full hashes of partial sources were not recomputed. No broad firmware/RAM or old guest execution."
+}

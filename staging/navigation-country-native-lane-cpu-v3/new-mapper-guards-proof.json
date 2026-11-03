@@ -1,0 +1,75 @@
+{
+  "schema": "new-finite-v3-AP8K-mapper-guards/v1",
+  "all_assigned_controls_passed": true,
+  "positive_cases": 1,
+  "rejecting_cases": 12,
+  "guards": [
+    {
+      "case": "writable_uncompleted_input",
+      "rejected": true,
+      "reason": "Completed readonly candidate identity differs"
+    },
+    {
+      "case": "source_stat_mismatch",
+      "rejected": true,
+      "reason": "Completed readonly candidate identity differs"
+    },
+    {
+      "case": "wrong_block_descriptor",
+      "rejected": true,
+      "reason": "Actual AP8K component/image size profile"
+    },
+    {
+      "case": "foreign_profile",
+      "rejected": true,
+      "reason": "Strict AP8K descriptor profile"
+    },
+    {
+      "case": "wrong_actual_exponent",
+      "rejected": true,
+      "reason": "Exact explicit AP8K header allocation profile"
+    },
+    {
+      "case": "wrong_header_checksum_byte15_contract",
+      "rejected": true,
+      "reason": "Exact explicit AP8K header allocation profile"
+    },
+    {
+      "case": "wrong_capacity_sectors",
+      "rejected": true,
+      "reason": "Exact explicit AP8K header allocation profile"
+    },
+    {
+      "case": "metadata_hash_mismatch",
+      "rejected": true,
+      "reason": "Actual complete metadata hash versus sealed descriptor"
+    },
+    {
+      "case": "component_root_alias",
+      "rejected": true,
+      "reason": "Allocation aliases another component/root"
+    },
+    {
+      "case": "FAT_outside_actual_EOF",
+      "rejected": true,
+      "reason": "FAT sentinel/bounds/duplicate"
+    },
+    {
+      "case": "allocated_block_after_sentinel_or_alias",
+      "rejected": true,
+      "reason": "Allocation aliases another component/root"
+    },
+    {
+      "case": "descriptor_actual_FAT_row_mismatch",
+      "rejected": true,
+      "reason": "Actual component FAT versus descriptor"
+    }
+  ],
+  "independent_fixture_bytes": 57344,
+  "mapper_sha256": "fe76a3b33b361d02518f7045b8437db9819b34dffeafd77a0bfb9058af1100ec",
+  "test_source_sha256": "6abe76f23fd343acfdff5179a81b936efde7365d4686f67838cf2525269e57f7",
+  "actual_candidate_IMG_opened": false,
+  "native_CPU_executed": false,
+  "old_suites_or_cases_run": false,
+  "device_IO": false
+}

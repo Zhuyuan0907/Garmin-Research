@@ -1,0 +1,3245 @@
+{
+  "schema": "taiwan-native-address-ingestion-preparation/v1",
+  "created_utc": "2026-10-06T17:32:47.834982+00:00",
+  "scope": {
+    "offline_source_preparation_only": true,
+    "all_tagged_address_nodes_one_source_pass": true,
+    "no_native_or_device_execution": true,
+    "source_and_stock_unmodified": true,
+    "native_full_Taiwan_2026_update_complete": false
+  },
+  "source": {
+    "path": "sources/maps/taiwan-latest.osm.pbf",
+    "bytes": 327206226,
+    "snapshot_utc": "2026-10-01T20:22:06Z",
+    "sha256_inherited_not_rehashed": "f57631c6c5cdcee9b2e38c460494bf224c80d03301e6a45fd3bfaec0b52e5912",
+    "license": "OpenStreetMap contributors, ODbL; downloaded Geofabrik Taiwan extract",
+    "filter_command": [
+      "osmium",
+      "tags-filter",
+      "--no-progress",
+      "-R",
+      "-f",
+      "osm",
+      "/root/garmin/sources/maps/taiwan-latest.osm.pbf",
+      "n/addr:*"
+    ],
+    "stderr_bytes": 0,
+    "source_node_address_tags_only": true,
+    "address_ways_relations_not_counted": true
+  },
+  "native": {
+    "database": "backups/20261002T154458Z/files/.System/SQLite/Prefecture/TWNJAI.db",
+    "city_rows": 22,
+    "district_rows": 343,
+    "named_street_rows": 47853,
+    "street_AP_slots": 47870,
+    "street_AP_holes_without_JAI_name": 17,
+    "city_names": [
+      "基隆市",
+      "台北市",
+      "新北市",
+      "桃園市",
+      "新竹市",
+      "新竹縣",
+      "苗栗縣",
+      "台中市",
+      "彰化縣",
+      "南投縣",
+      "雲林縣",
+      "嘉義市",
+      "嘉義縣",
+      "台南市",
+      "高雄市",
+      "屏東縣",
+      "宜蘭縣",
+      "花蓮縣",
+      "台東縣",
+      "澎湖縣",
+      "金門縣",
+      "連江縣"
+    ],
+    "direct_city_street_rows": 2098,
+    "stock_street_table_bytes_newly_read": 664197,
+    "stock_street_child_level_distribution": {
+      "6": 8710,
+      "5": 19036,
+      "4": 20107
+    }
+  },
+  "offline_matching_policy": "NFKC, strip surrounding whitespace, 臺→台 in host matching keys only; raw tags and native names preserved; no comparator, prefix or keyboard change",
+  "house_policy": "Conservative integer/之 subnumber; embedded explicit 號+floor/unit grouping retained; semicolon/comma/slash/ranges and ambiguous hyphen values quarantined; no automatic splitting or expanding",
+  "coordinate_policy": "Keep source node lat/lon strings, version and timestamp. No centroid, nearest-road, admin guessing or silent conflicting-location selection.",
+  "counts": {
+    "address_nodes": 9777556,
+    "full_city_district_street_house_nodes": 9101635,
+    "incomplete_structured_address_nodes": 675921,
+    "missing_addr:street": 674333,
+    "missing_addr:housenumber": 3627,
+    "separate_floor_unit_door_level_nodes": 4583188,
+    "missing_addr:city": 1775,
+    "missing_addr:district": 2419,
+    "repeated_full_address_nodes_ignoring_floor_unit": 4443551
+  },
+  "native_match_counts": {
+    "matched_native_street": 4374363,
+    "missing_source_street": 672732,
+    "matched_direct_city_street_district_unverified": 702860,
+    "missing_native_street": 3199721,
+    "missing_native_district": 825390,
+    "missing_source_city": 1775,
+    "missing_source_district": 638,
+    "matched_direct_city_street": 26,
+    "missing_native_city": 51
+  },
+  "house_number_classes": {
+    "single_integer": 8339616,
+    "hyphen_subnumber_or_range_ambiguous": 4717,
+    "missing": 3627,
+    "multiple_or_range": 1268,
+    "single_subnumber": 1405439,
+    "malformed_or_unrecognized": 22494,
+    "nonnumeric": 5,
+    "single_with_embedded_floor_unit": 381,
+    "malformed": 9
+  },
+  "coordinate_provenance_counts": {
+    "direct_OSM_node": 9777556
+  },
+  "floor_unit_dedup_counts": {
+    "groups": 4630959,
+    "multi_node_groups": 637021,
+    "different_coordinate_groups": 89272,
+    "same_coordinate_multi_node_groups": 547749,
+    "groups_with_floor_unit_tags": 611485,
+    "groups_with_embedded_floor_unit": 31
+  },
+  "raw_source_city_counts": {
+    "新北市": 1947237,
+    "高雄市": 1226068,
+    "臺中市": 1198551,
+    "臺北市": 1114148,
+    "桃園市": 1005318,
+    "臺南市": 811365,
+    "彰化縣": 462777,
+    "屏東縣": 328880,
+    "雲林縣": 277680,
+    "新竹縣": 259990,
+    "苗栗縣": 215159,
+    "新竹市": 208177,
+    "嘉義縣": 197469,
+    "基隆市": 192182,
+    "花蓮縣": 151227,
+    "台東縣": 93686,
+    "澎湖縣": 39793,
+    "金門縣": 32162,
+    "台北市": 6642,
+    "台中市": 1854,
+    "<absent>": 1775,
+    "南投縣": 1714,
+    "臺東縣": 964,
+    "台南市": 931,
+    "宜蘭縣": 854,
+    "嘉義市": 765,
+    "連江縣": 137,
+    "松山市": 12,
+    "南港鎮": 5,
+    "樹林市": 4,
+    "三峽市": 3,
+    "鶯歌鎮": 3,
+    "Hualien City": 3,
+    "芎林鄉": 2,
+    "鹿谷鄉": 2,
+    "台南市永康區": 1,
+    "麟洛鄉": 1,
+    "南港市": 1,
+    "竹北市": 1,
+    "台南市新化區大新路77之2號": 1,
+    "望安鄉": 1,
+    "鳳山市": 1,
+    "Keelung": 1,
+    "台北巿": 1,
+    "梅山鄉": 1,
+    "Kaoshiung": 1,
+    "嘉義巿": 1,
+    "Taipei": 1,
+    "Hong Kong": 1,
+    "社內": 1,
+    "屏東市": 1,
+    "彰化市": 1
+  },
+  "raw_source_city_district_pairs": [
+    {
+      "city": "新北市",
+      "district": "板橋區",
+      "nodes": 252132
+    },
+    {
+      "city": "桃園市",
+      "district": "桃園區",
+      "nodes": 214132
+    },
+    {
+      "city": "新北市",
+      "district": "中和區",
+      "nodes": 201447
+    },
+    {
+      "city": "桃園市",
+      "district": "中壢區",
+      "nodes": 200592
+    },
+    {
+      "city": "新北市",
+      "district": "三重區",
+      "nodes": 190155
+    },
+    {
+      "city": "新北市",
+      "district": "新莊區",
+      "nodes": 186442
+    },
+    {
+      "city": "新北市",
+      "district": "新店區",
+      "nodes": 158426
+    },
+    {
+      "city": "高雄市",
+      "district": "三民區",
+      "nodes": 154398
+    },
+    {
+      "city": "高雄市",
+      "district": "鳳山區",
+      "nodes": 147186
+    },
+    {
+      "city": "臺北市",
+      "district": "中山區",
+      "nodes": 137088
+    },
+    {
+      "city": "臺中市",
+      "district": "西屯區",
+      "nodes": 133730
+    },
+    {
+      "city": "新北市",
+      "district": "淡水區",
+      "nodes": 132983
+    },
+    {
+      "city": "臺北市",
+      "district": "大安區",
+      "nodes": 129646
+    },
+    {
+      "city": "臺中市",
+      "district": "北屯區",
+      "nodes": 126772
+    },
+    {
+      "city": "新北市",
+      "district": "汐止區",
+      "nodes": 118804
+    },
+    {
+      "city": "臺北市",
+      "district": "內湖區",
+      "nodes": 116969
+    },
+    {
+      "city": "臺北市",
+      "district": "士林區",
+      "nodes": 108487
+    },
+    {
+      "city": "臺南市",
+      "district": "永康區",
+      "nodes": 108455
+    },
+    {
+      "city": "新竹市",
+      "district": "東區",
+      "nodes": 107500
+    },
+    {
+      "city": "新北市",
+      "district": "土城區",
+      "nodes": 103963
+    },
+    {
+      "city": "臺北市",
+      "district": "文山區",
+      "nodes": 103163
+    },
+    {
+      "city": "新竹縣",
+      "district": "竹北市",
+      "nodes": 101518
+    },
+    {
+      "city": "新北市",
+      "district": "永和區",
+      "nodes": 101315
+    },
+    {
+      "city": "高雄市",
+      "district": "左營區",
+      "nodes": 96647
+    },
+    {
+      "city": "臺北市",
+      "district": "北投區",
+      "nodes": 94118
+    },
+    {
+      "city": "臺北市",
+      "district": "信義區",
+      "nodes": 94024
+    },
+    {
+      "city": "桃園市",
+      "district": "龜山區",
+      "nodes": 92167
+    },
+    {
+      "city": "屏東縣",
+      "district": "屏東市",
+      "nodes": 91131
+    },
+    {
+      "city": "高雄市",
+      "district": "楠梓區",
+      "nodes": 90496
+    },
+    {
+      "city": "彰化縣",
+      "district": "彰化市",
+      "nodes": 90364
+    },
+    {
+      "city": "桃園市",
+      "district": "平鎮區",
+      "nodes": 88564
+    },
+    {
+      "city": "桃園市",
+      "district": "八德區",
+      "nodes": 86068
+    },
+    {
+      "city": "高雄市",
+      "district": "苓雅區",
+      "nodes": 85976
+    },
+    {
+      "city": "臺北市",
+      "district": "松山區",
+      "nodes": 85633
+    },
+    {
+      "city": "臺中市",
+      "district": "北區",
+      "nodes": 84757
+    },
+    {
+      "city": "高雄市",
+      "district": "前鎮區",
+      "nodes": 83504
+    },
+    {
+      "city": "臺南市",
+      "district": "東區",
+      "nodes": 83348
+    },
+    {
+      "city": "新北市",
+      "district": "蘆洲區",
+      "nodes": 81094
+    },
+    {
+      "city": "臺中市",
+      "district": "南屯區",
+      "nodes": 80665
+    },
+    {
+      "city": "新北市",
+      "district": "樹林區",
+      "nodes": 77506
+    },
+    {
+      "city": "臺中市",
+      "district": "大里區",
+      "nodes": 77105
+    },
+    {
+      "city": "桃園市",
+      "district": "楊梅區",
+      "nodes": 75480
+    },
+    {
+      "city": "臺南市",
+      "district": "安南區",
+      "nodes": 75201
+    },
+    {
+      "city": "桃園市",
+      "district": "蘆竹區",
+      "nodes": 73070
+    },
+    {
+      "city": "臺中市",
+      "district": "太平區",
+      "nodes": 72999
+    },
+    {
+      "city": "臺北市",
+      "district": "中正區",
+      "nodes": 70417
+    },
+    {
+      "city": "高雄市",
+      "district": "鼓山區",
+      "nodes": 69465
+    },
+    {
+      "city": "臺中市",
+      "district": "西區",
+      "nodes": 67434
+    },
+    {
+      "city": "新竹市",
+      "district": "北區",
+      "nodes": 67340
+    },
+    {
+      "city": "臺北市",
+      "district": "萬華區",
+      "nodes": 65912
+    },
+    {
+      "city": "臺中市",
+      "district": "南區",
+      "nodes": 65500
+    },
+    {
+      "city": "新北市",
+      "district": "林口區",
+      "nodes": 65144
+    },
+    {
+      "city": "臺北市",
+      "district": "大同區",
+      "nodes": 60265
+    },
+    {
+      "city": "臺南市",
+      "district": "北區",
+      "nodes": 60265
+    },
+    {
+      "city": "臺中市",
+      "district": "豐原區",
+      "nodes": 57154
+    },
+    {
+      "city": "新北市",
+      "district": "三峽區",
+      "nodes": 55957
+    },
+    {
+      "city": "高雄市",
+      "district": "小港區",
+      "nodes": 55461
+    },
+    {
+      "city": "雲林縣",
+      "district": "斗六市",
+      "nodes": 54329
+    },
+    {
+      "city": "花蓮縣",
+      "district": "花蓮市",
+      "nodes": 52398
+    },
+    {
+      "city": "桃園市",
+      "district": "龍潭區",
+      "nodes": 52381
+    },
+    {
+      "city": "臺南市",
+      "district": "南區",
+      "nodes": 51719
+    },
+    {
+      "city": "彰化縣",
+      "district": "員林市",
+      "nodes": 50267
+    },
+    {
+      "city": "臺北市",
+      "district": "南港區",
+      "nodes": 48333
+    },
+    {
+      "city": "高雄市",
+      "district": "大寮區",
+      "nodes": 47285
+    },
+    {
+      "city": "台東縣",
+      "district": "台東市",
+      "nodes": 46316
+    },
+    {
+      "city": "苗栗縣",
+      "district": "頭份市",
+      "nodes": 44208
+    },
+    {
+      "city": "新北市",
+      "district": "五股區",
+      "nodes": 43805
+    },
+    {
+      "city": "臺南市",
+      "district": "中西區",
+      "nodes": 43565
+    },
+    {
+      "city": "高雄市",
+      "district": "仁武區",
+      "nodes": 43009
+    },
+    {
+      "city": "新竹縣",
+      "district": "竹東鎮",
+      "nodes": 41400
+    },
+    {
+      "city": "基隆市",
+      "district": "安樂區",
+      "nodes": 40640
+    },
+    {
+      "city": "高雄市",
+      "district": "岡山區",
+      "nodes": 40067
+    },
+    {
+      "city": "臺中市",
+      "district": "潭子區",
+      "nodes": 39449
+    },
+    {
+      "city": "新北市",
+      "district": "鶯歌區",
+      "nodes": 38962
+    },
+    {
+      "city": "苗栗縣",
+      "district": "苗栗市",
+      "nodes": 38456
+    },
+    {
+      "city": "桃園市",
+      "district": "大溪區",
+      "nodes": 37973
+    },
+    {
+      "city": "新竹縣",
+      "district": "湖口鄉",
+      "nodes": 37554
+    },
+    {
+      "city": "花蓮縣",
+      "district": "吉安鄉",
+      "nodes": 36834
+    },
+    {
+      "city": "雲林縣",
+      "district": "虎尾鎮",
+      "nodes": 36796
+    },
+    {
+      "city": "苗栗縣",
+      "district": "竹南鎮",
+      "nodes": 36715
+    },
+    {
+      "city": "臺中市",
+      "district": "沙鹿區",
+      "nodes": 36455
+    },
+    {
+      "city": "新北市",
+      "district": "泰山區",
+      "nodes": 35434
+    },
+    {
+      "city": "彰化縣",
+      "district": "和美鎮",
+      "nodes": 35057
+    },
+    {
+      "city": "臺中市",
+      "district": "清水區",
+      "nodes": 34999
+    },
+    {
+      "city": "桃園市",
+      "district": "大園區",
+      "nodes": 34805
+    },
+    {
+      "city": "臺南市",
+      "district": "安平區",
+      "nodes": 34692
+    },
+    {
+      "city": "臺中市",
+      "district": "大雅區",
+      "nodes": 34277
+    },
+    {
+      "city": "臺中市",
+      "district": "東區",
+      "nodes": 34196
+    },
+    {
+      "city": "臺南市",
+      "district": "仁德區",
+      "nodes": 33962
+    },
+    {
+      "city": "臺南市",
+      "district": "新營區",
+      "nodes": 33878
+    },
+    {
+      "city": "基隆市",
+      "district": "中正區",
+      "nodes": 33367
+    },
+    {
+      "city": "新竹市",
+      "district": "香山區",
+      "nodes": 33328
+    },
+    {
+      "city": "高雄市",
+      "district": "新興區",
+      "nodes": 33180
+    },
+    {
+      "city": "嘉義縣",
+      "district": "民雄鄉",
+      "nodes": 32762
+    },
+    {
+      "city": "桃園市",
+      "district": "觀音區",
+      "nodes": 30271
+    },
+    {
+      "city": "彰化縣",
+      "district": "鹿港鎮",
+      "nodes": 29685
+    },
+    {
+      "city": "臺中市",
+      "district": "烏日區",
+      "nodes": 29532
+    },
+    {
+      "city": "臺中市",
+      "district": "龍井區",
+      "nodes": 28846
+    },
+    {
+      "city": "臺南市",
+      "district": "歸仁區",
+      "nodes": 27320
+    },
+    {
+      "city": "基隆市",
+      "district": "信義區",
+      "nodes": 26561
+    },
+    {
+      "city": "基隆市",
+      "district": "七堵區",
+      "nodes": 26120
+    },
+    {
+      "city": "屏東縣",
+      "district": "內埔鄉",
+      "nodes": 25271
+    },
+    {
+      "city": "新竹縣",
+      "district": "新豐鄉",
+      "nodes": 25164
+    },
+    {
+      "city": "屏東縣",
+      "district": "潮州鎮",
+      "nodes": 24942
+    },
+    {
+      "city": "臺南市",
+      "district": "善化區",
+      "nodes": 24635
+    },
+    {
+      "city": "澎湖縣",
+      "district": "馬公市",
+      "nodes": 24477
+    },
+    {
+      "city": "臺中市",
+      "district": "霧峰區",
+      "nodes": 24407
+    },
+    {
+      "city": "基隆市",
+      "district": "中山區",
+      "nodes": 24251
+    },
+    {
+      "city": "臺中市",
+      "district": "大甲區",
+      "nodes": 24245
+    },
+    {
+      "city": "高雄市",
+      "district": "林園區",
+      "nodes": 23529
+    },
+    {
+      "city": "臺南市",
+      "district": "佳里區",
+      "nodes": 23454
+    },
+    {
+      "city": "臺中市",
+      "district": "神岡區",
+      "nodes": 22598
+    },
+    {
+      "city": "高雄市",
+      "district": "鳥松區",
+      "nodes": 22413
+    },
+    {
+      "city": "臺中市",
+      "district": "梧棲區",
+      "nodes": 21682
+    },
+    {
+      "city": "基隆市",
+      "district": "仁愛區",
+      "nodes": 21534
+    },
+    {
+      "city": "嘉義縣",
+      "district": "水上鄉",
+      "nodes": 20628
+    },
+    {
+      "city": "高雄市",
+      "district": "橋頭區",
+      "nodes": 20522
+    },
+    {
+      "city": "高雄市",
+      "district": "前金區",
+      "nodes": 20510
+    },
+    {
+      "city": "新北市",
+      "district": "八里區",
+      "nodes": 20080
+    },
+    {
+      "city": "基隆市",
+      "district": "暖暖區",
+      "nodes": 19708
+    },
+    {
+      "city": "彰化縣",
+      "district": "溪湖鎮",
+      "nodes": 19571
+    },
+    {
+      "city": "雲林縣",
+      "district": "斗南鎮",
+      "nodes": 19489
+    },
+    {
+      "city": "高雄市",
+      "district": "路竹區",
+      "nodes": 19190
+    },
+    {
+      "city": "嘉義縣",
+      "district": "朴子市",
+      "nodes": 19141
+    },
+    {
+      "city": "臺中市",
+      "district": "大肚區",
+      "nodes": 18875
+    },
+    {
+      "city": "屏東縣",
+      "district": "萬丹鄉",
+      "nodes": 18761
+    },
+    {
+      "city": "臺南市",
+      "district": "新市區",
+      "nodes": 18589
+    },
+    {
+      "city": "雲林縣",
+      "district": "西螺鎮",
+      "nodes": 18556
+    },
+    {
+      "city": "臺南市",
+      "district": "麻豆區",
+      "nodes": 18512
+    },
+    {
+      "city": "屏東縣",
+      "district": "東港鎮",
+      "nodes": 18224
+    },
+    {
+      "city": "苗栗縣",
+      "district": "苑裡鎮",
+      "nodes": 17953
+    },
+    {
+      "city": "嘉義縣",
+      "district": "太保市",
+      "nodes": 17939
+    },
+    {
+      "city": "新北市",
+      "district": "瑞芳區",
+      "nodes": 17885
+    },
+    {
+      "city": "臺南市",
+      "district": "新化區",
+      "nodes": 17573
+    },
+    {
+      "city": "臺中市",
+      "district": "東勢區",
+      "nodes": 17219
+    },
+    {
+      "city": "臺中市",
+      "district": "后里區",
+      "nodes": 17176
+    },
+    {
+      "city": "彰化縣",
+      "district": "二林鎮",
+      "nodes": 17106
+    },
+    {
+      "city": "雲林縣",
+      "district": "北港鎮",
+      "nodes": 17101
+    },
+    {
+      "city": "彰化縣",
+      "district": "花壇鄉",
+      "nodes": 16954
+    },
+    {
+      "city": "桃園市",
+      "district": "新屋區",
+      "nodes": 16332
+    },
+    {
+      "city": "高雄市",
+      "district": "旗山區",
+      "nodes": 15937
+    },
+    {
+      "city": "彰化縣",
+      "district": "福興鄉",
+      "nodes": 15767
+    },
+    {
+      "city": "嘉義縣",
+      "district": "中埔鄉",
+      "nodes": 15677
+    },
+    {
+      "city": "高雄市",
+      "district": "大社區",
+      "nodes": 15583
+    },
+    {
+      "city": "高雄市",
+      "district": "大樹區",
+      "nodes": 15161
+    },
+    {
+      "city": "新北市",
+      "district": "三芝區",
+      "nodes": 15074
+    },
+    {
+      "city": "彰化縣",
+      "district": "埔心鄉",
+      "nodes": 14863
+    },
+    {
+      "city": "高雄市",
+      "district": "鹽埕區",
+      "nodes": 14770
+    },
+    {
+      "city": "彰化縣",
+      "district": "田中鎮",
+      "nodes": 14746
+    },
+    {
+      "city": "屏東縣",
+      "district": "恆春鎮",
+      "nodes": 14709
+    },
+    {
+      "city": "臺中市",
+      "district": "中區",
+      "nodes": 14643
+    },
+    {
+      "city": "新竹縣",
+      "district": "新埔鎮",
+      "nodes": 14348
+    },
+    {
+      "city": "彰化縣",
+      "district": "秀水鄉",
+      "nodes": 14125
+    },
+    {
+      "city": "嘉義縣",
+      "district": "大林鎮",
+      "nodes": 13956
+    },
+    {
+      "city": "苗栗縣",
+      "district": "後龍鎮",
+      "nodes": 13765
+    },
+    {
+      "city": "彰化縣",
+      "district": "北斗鎮",
+      "nodes": 13536
+    },
+    {
+      "city": "高雄市",
+      "district": "美濃區",
+      "nodes": 13445
+    },
+    {
+      "city": "彰化縣",
+      "district": "社頭鄉",
+      "nodes": 13055
+    },
+    {
+      "city": "雲林縣",
+      "district": "古坑鄉",
+      "nodes": 12974
+    },
+    {
+      "city": "高雄市",
+      "district": "湖內區",
+      "nodes": 12913
+    },
+    {
+      "city": "彰化縣",
+      "district": "伸港鄉",
+      "nodes": 12845
+    },
+    {
+      "city": "雲林縣",
+      "district": "麥寮鄉",
+      "nodes": 12737
+    },
+    {
+      "city": "高雄市",
+      "district": "梓官區",
+      "nodes": 12711
+    },
+    {
+      "city": "屏東縣",
+      "district": "長治鄉",
+      "nodes": 12531
+    },
+    {
+      "city": "臺南市",
+      "district": "關廟區",
+      "nodes": 12345
+    },
+    {
+      "city": "臺南市",
+      "district": "安定區",
+      "nodes": 12134
+    },
+    {
+      "city": "彰化縣",
+      "district": "大村鄉",
+      "nodes": 12130
+    },
+    {
+      "city": "嘉義縣",
+      "district": "竹崎鄉",
+      "nodes": 12090
+    },
+    {
+      "city": "新北市",
+      "district": "深坑區",
+      "nodes": 12077
+    },
+    {
+      "city": "高雄市",
+      "district": "燕巢區",
+      "nodes": 12048
+    },
+    {
+      "city": "苗栗縣",
+      "district": "公館鄉",
+      "nodes": 11795
+    },
+    {
+      "city": "雲林縣",
+      "district": "土庫鎮",
+      "nodes": 11721
+    },
+    {
+      "city": "屏東縣",
+      "district": "新園鄉",
+      "nodes": 11594
+    },
+    {
+      "city": "彰化縣",
+      "district": "永靖鄉",
+      "nodes": 11238
+    },
+    {
+      "city": "彰化縣",
+      "district": "芳苑鄉",
+      "nodes": 11195
+    },
+    {
+      "city": "花蓮縣",
+      "district": "玉里鎮",
+      "nodes": 10886
+    },
+    {
+      "city": "彰化縣",
+      "district": "埤頭鄉",
+      "nodes": 10867
+    },
+    {
+      "city": "苗栗縣",
+      "district": "通霄鎮",
+      "nodes": 10838
+    },
+    {
+      "city": "彰化縣",
+      "district": "田尾鄉",
+      "nodes": 10650
+    },
+    {
+      "city": "臺南市",
+      "district": "白河區",
+      "nodes": 10438
+    },
+    {
+      "city": "臺南市",
+      "district": "學甲區",
+      "nodes": 10371
+    },
+    {
+      "city": "嘉義縣",
+      "district": "新港鄉",
+      "nodes": 10360
+    },
+    {
+      "city": "彰化縣",
+      "district": "埔鹽鄉",
+      "nodes": 10304
+    },
+    {
+      "city": "臺中市",
+      "district": "外埔區",
+      "nodes": 10278
+    },
+    {
+      "city": "新竹縣",
+      "district": "關西鎮",
+      "nodes": 10172
+    },
+    {
+      "city": "花蓮縣",
+      "district": "壽豐鄉",
+      "nodes": 10168
+    },
+    {
+      "city": "臺南市",
+      "district": "鹽水區",
+      "nodes": 10129
+    },
+    {
+      "city": "台東縣",
+      "district": "卑南郷",
+      "nodes": 10121
+    },
+    {
+      "city": "高雄市",
+      "district": "阿蓮區",
+      "nodes": 10100
+    },
+    {
+      "city": "雲林縣",
+      "district": "莿桐鄉",
+      "nodes": 10042
+    },
+    {
+      "city": "花蓮縣",
+      "district": "新城鄉",
+      "nodes": 9569
+    },
+    {
+      "city": "新北市",
+      "district": "萬里區",
+      "nodes": 9558
+    },
+    {
+      "city": "雲林縣",
+      "district": "元長鄉",
+      "nodes": 9509
+    },
+    {
+      "city": "臺南市",
+      "district": "官田區",
+      "nodes": 9482
+    },
+    {
+      "city": "嘉義縣",
+      "district": "布袋鎮",
+      "nodes": 9464
+    },
+    {
+      "city": "屏東縣",
+      "district": "里港鄉",
+      "nodes": 9461
+    },
+    {
+      "city": "金門縣",
+      "district": "金城鎮",
+      "nodes": 9453
+    },
+    {
+      "city": "臺南市",
+      "district": "西港區",
+      "nodes": 9396
+    },
+    {
+      "city": "屏東縣",
+      "district": "枋寮鄉",
+      "nodes": 9322
+    },
+    {
+      "city": "雲林縣",
+      "district": "崙背鄉",
+      "nodes": 9278
+    },
+    {
+      "city": "高雄市",
+      "district": "茄萣區",
+      "nodes": 9265
+    },
+    {
+      "city": "雲林縣",
+      "district": "二崙鄉",
+      "nodes": 9253
+    },
+    {
+      "city": "臺南市",
+      "district": "柳營區",
+      "nodes": 9072
+    },
+    {
+      "city": "新北市",
+      "district": "金山區",
+      "nodes": 9008
+    },
+    {
+      "city": "彰化縣",
+      "district": "溪州鄉",
+      "nodes": 8938
+    },
+    {
+      "city": "高雄市",
+      "district": "旗津區",
+      "nodes": 8905
+    },
+    {
+      "city": "臺南市",
+      "district": "後壁區",
+      "nodes": 8774
+    },
+    {
+      "city": "臺南市",
+      "district": "六甲區",
+      "nodes": 8750
+    },
+    {
+      "city": "彰化縣",
+      "district": "芬園鄉",
+      "nodes": 8727
+    },
+    {
+      "city": "臺南市",
+      "district": "下營區",
+      "nodes": 8702
+    },
+    {
+      "city": "臺中市",
+      "district": "新社區",
+      "nodes": 8586
+    },
+    {
+      "city": "屏東縣",
+      "district": "鹽埔鄉",
+      "nodes": 8458
+    },
+    {
+      "city": "新竹縣",
+      "district": "芎林鄉",
+      "nodes": 8438
+    },
+    {
+      "city": "金門縣",
+      "district": "金寧鄉",
+      "nodes": 8279
+    },
+    {
+      "city": "屏東縣",
+      "district": "九如鄉",
+      "nodes": 8243
+    },
+    {
+      "city": "屏東縣",
+      "district": "高樹鄉",
+      "nodes": 8139
+    },
+    {
+      "city": "雲林縣",
+      "district": "水林鄉",
+      "nodes": 8025
+    },
+    {
+      "city": "金門縣",
+      "district": "金湖鎮",
+      "nodes": 7959
+    },
+    {
+      "city": "雲林縣",
+      "district": "口湖鄉",
+      "nodes": 7947
+    },
+    {
+      "city": "雲林縣",
+      "district": "臺西鄉",
+      "nodes": 7874
+    },
+    {
+      "city": "雲林縣",
+      "district": "四湖鄉",
+      "nodes": 7715
+    },
+    {
+      "city": "臺南市",
+      "district": "七股區",
+      "nodes": 7673
+    },
+    {
+      "city": "嘉義縣",
+      "district": "東石鄉",
+      "nodes": 7581
+    },
+    {
+      "city": "嘉義縣",
+      "district": "六腳鄉",
+      "nodes": 7067
+    },
+    {
+      "city": "雲林縣",
+      "district": "大埤鄉",
+      "nodes": 7032
+    },
+    {
+      "city": "新竹縣",
+      "district": "寶山鄉",
+      "nodes": 6948
+    },
+    {
+      "city": "臺南市",
+      "district": "將軍區",
+      "nodes": 6937
+    },
+    {
+      "city": "屏東縣",
+      "district": "萬巒鄉",
+      "nodes": 6768
+    },
+    {
+      "city": "雲林縣",
+      "district": "林內鄉",
+      "nodes": 6751
+    },
+    {
+      "city": "臺南市",
+      "district": "東山區",
+      "nodes": 6737
+    },
+    {
+      "city": "嘉義縣",
+      "district": "梅山鄉",
+      "nodes": 6680
+    },
+    {
+      "city": "苗栗縣",
+      "district": "造橋鄉",
+      "nodes": 6509
+    },
+    {
+      "city": "嘉義縣",
+      "district": "義竹鄉",
+      "nodes": 6492
+    },
+    {
+      "city": "屏東縣",
+      "district": "竹田鄉",
+      "nodes": 6450
+    },
+    {
+      "city": "屏東縣",
+      "district": "林邊鄉",
+      "nodes": 6007
+    },
+    {
+      "city": "苗栗縣",
+      "district": "銅鑼鄉",
+      "nodes": 5994
+    },
+    {
+      "city": "屏東縣",
+      "district": "佳冬鄉",
+      "nodes": 5974
+    },
+    {
+      "city": "彰化縣",
+      "district": "線西鄉",
+      "nodes": 5903
+    },
+    {
+      "city": "臺南市",
+      "district": "玉井區",
+      "nodes": 5820
+    },
+    {
+      "city": "高雄市",
+      "district": "六龜區",
+      "nodes": 5804
+    },
+    {
+      "city": "台東縣",
+      "district": "成功鎮",
+      "nodes": 5751
+    },
+    {
+      "city": "高雄市",
+      "district": "彌陀區",
+      "nodes": 5735
+    },
+    {
+      "city": "澎湖縣",
+      "district": "湖西鄉",
+      "nodes": 5724
+    },
+    {
+      "city": "臺中市",
+      "district": "大安區",
+      "nodes": 5717
+    },
+    {
+      "city": "花蓮縣",
+      "district": "瑞穗鄉",
+      "nodes": 5636
+    },
+    {
+      "city": "花蓮縣",
+      "district": "鳳林鎮",
+      "nodes": 5621
+    },
+    {
+      "city": "花蓮縣",
+      "district": "光復鄉",
+      "nodes": 5535
+    },
+    {
+      "city": "雲林縣",
+      "district": "東勢鄉",
+      "nodes": 5512
+    },
+    {
+      "city": "苗栗縣",
+      "district": "三義鄉",
+      "nodes": 5416
+    },
+    {
+      "city": "彰化縣",
+      "district": "竹塘鄉",
+      "nodes": 5269
+    },
+    {
+      "city": "彰化縣",
+      "district": "二水鄉",
+      "nodes": 5223
+    },
+    {
+      "city": "臺中市",
+      "district": "石岡區",
+      "nodes": 5210
+    },
+    {
+      "city": "雲林縣",
+      "district": "褒忠鄉",
+      "nodes": 5033
+    },
+    {
+      "city": "嘉義縣",
+      "district": "鹿草鄉",
+      "nodes": 5007
+    },
+    {
+      "city": "嘉義縣",
+      "district": "番路鄉",
+      "nodes": 4887
+    },
+    {
+      "city": "新竹縣",
+      "district": "橫山鄉",
+      "nodes": 4844
+    },
+    {
+      "city": "苗栗縣",
+      "district": "卓蘭鎮",
+      "nodes": 4795
+    },
+    {
+      "city": "屏東縣",
+      "district": "麟洛鄉",
+      "nodes": 4702
+    },
+    {
+      "city": "台東縣",
+      "district": "太麻里鄉",
+      "nodes": 4629
+    },
+    {
+      "city": "苗栗縣",
+      "district": "大湖鄉",
+      "nodes": 4617
+    },
+    {
+      "city": "高雄市",
+      "district": "杉林區",
+      "nodes": 4566
+    },
+    {
+      "city": "嘉義縣",
+      "district": "溪口鄉",
+      "nodes": 4514
+    },
+    {
+      "city": "金門縣",
+      "district": "金沙鎮",
+      "nodes": 4462
+    },
+    {
+      "city": "花蓮縣",
+      "district": "秀林鄉",
+      "nodes": 4430
+    },
+    {
+      "city": "花蓮縣",
+      "district": "富里鄉",
+      "nodes": 4375
+    },
+    {
+      "city": "彰化縣",
+      "district": "大城鄉",
+      "nodes": 4366
+    },
+    {
+      "city": "高雄市",
+      "district": "永安區",
+      "nodes": 4217
+    },
+    {
+      "city": "台東縣",
+      "district": "東河鄉",
+      "nodes": 4158
+    },
+    {
+      "city": "高雄市",
+      "district": "內門區",
+      "nodes": 4039
+    },
+    {
+      "city": "臺中市",
+      "district": "和平區",
+      "nodes": 4022
+    },
+    {
+      "city": "屏東縣",
+      "district": "琉球鄉",
+      "nodes": 3953
+    },
+    {
+      "city": "苗栗縣",
+      "district": "南庄鄉",
+      "nodes": 3883
+    },
+    {
+      "city": "臺南市",
+      "district": "楠西區",
+      "nodes": 3868
+    },
+    {
+      "city": "屏東縣",
+      "district": "崁頂鄉",
+      "nodes": 3842
+    },
+    {
+      "city": "新北市",
+      "district": "貢寮區",
+      "nodes": 3820
+    },
+    {
+      "city": "屏東縣",
+      "district": "南州鄉",
+      "nodes": 3811
+    },
+    {
+      "city": "屏東縣",
+      "district": "車城鄉",
+      "nodes": 3725
+    },
+    {
+      "city": "屏東縣",
+      "district": "新埤鄉",
+      "nodes": 3711
+    },
+    {
+      "city": "新北市",
+      "district": "石門區",
+      "nodes": 3478
+    },
+    {
+      "city": "桃園市",
+      "district": "復興區",
+      "nodes": 3475
+    },
+    {
+      "city": "臺南市",
+      "district": "北門區",
+      "nodes": 3447
+    },
+    {
+      "city": "澎湖縣",
+      "district": "白沙鄉",
+      "nodes": 3444
+    },
+    {
+      "city": "台東縣",
+      "district": "池上鄉",
+      "nodes": 3426
+    },
+    {
+      "city": "台東縣",
+      "district": "關山鎮",
+      "nodes": 3416
+    },
+    {
+      "city": "臺南市",
+      "district": "大內區",
+      "nodes": 3394
+    },
+    {
+      "city": "台東縣",
+      "district": "鹿野鄉",
+      "nodes": 3390
+    },
+    {
+      "city": "澎湖縣",
+      "district": "西嶼鄉",
+      "nodes": 3347
+    },
+    {
+      "city": "新北市",
+      "district": "雙溪區",
+      "nodes": 3276
+    },
+    {
+      "city": "苗栗縣",
+      "district": "頭屋鄉",
+      "nodes": 3260
+    },
+    {
+      "city": "新北市",
+      "district": "石碇區",
+      "nodes": 3238
+    },
+    {
+      "city": "台東縣",
+      "district": "長濱鄉",
+      "nodes": 3140
+    },
+    {
+      "city": "屏東縣",
+      "district": "滿州鄉",
+      "nodes": 3018
+    },
+    {
+      "city": "新竹縣",
+      "district": "北埔鄉",
+      "nodes": 2866
+    },
+    {
+      "city": "新竹縣",
+      "district": "尖石鄉",
+      "nodes": 2821
+    },
+    {
+      "city": "高雄市",
+      "district": "甲仙區",
+      "nodes": 2791
+    },
+    {
+      "city": "臺南市",
+      "district": "南化區",
+      "nodes": 2601
+    },
+    {
+      "city": "台東縣",
+      "district": "大武鄉",
+      "nodes": 2597
+    },
+    {
+      "city": "臺南市",
+      "district": "山上區",
+      "nodes": 2593
+    },
+    {
+      "city": "屏東縣",
+      "district": "來義鄉",
+      "nodes": 2450
+    },
+    {
+      "city": "高雄市",
+      "district": "田寮區",
+      "nodes": 2405
+    },
+    {
+      "city": "屏東縣",
+      "district": "三地門鄉",
+      "nodes": 2381
+    },
+    {
+      "city": "新竹縣",
+      "district": "峨眉鄉",
+      "nodes": 2350
+    },
+    {
+      "city": "新北市",
+      "district": "坪林區",
+      "nodes": 2288
+    },
+    {
+      "city": "苗栗縣",
+      "district": "三灣鄉",
+      "nodes": 2194
+    },
+    {
+      "city": "新北市",
+      "district": "平溪區",
+      "nodes": 2188
+    },
+    {
+      "city": "屏東縣",
+      "district": "枋山鄉",
+      "nodes": 2019
+    },
+    {
+      "city": "嘉義縣",
+      "district": "阿里山鄉",
+      "nodes": 2017
+    },
+    {
+      "city": "花蓮縣",
+      "district": "豐濱鄉",
+      "nodes": 2010
+    },
+    {
+      "city": "金門縣",
+      "district": "烈嶼鄉",
+      "nodes": 2006
+    },
+    {
+      "city": "屏東縣",
+      "district": "瑪家鄉",
+      "nodes": 2000
+    },
+    {
+      "city": "屏東縣",
+      "district": "牡丹鄉",
+      "nodes": 1938
+    },
+    {
+      "city": "花蓮縣",
+      "district": "卓溪鄉",
+      "nodes": 1894
+    },
+    {
+      "city": "花蓮縣",
+      "district": "萬榮鄉",
+      "nodes": 1869
+    },
+    {
+      "city": "苗栗縣",
+      "district": "西湖鄉",
+      "nodes": 1836
+    },
+    {
+      "city": "",
+      "district": "",
+      "nodes": 1736
+    },
+    {
+      "city": "臺南市",
+      "district": "左鎮區",
+      "nodes": 1717
+    },
+    {
+      "city": "新北市",
+      "district": "烏來區",
+      "nodes": 1676
+    },
+    {
+      "city": "台北市",
+      "district": "文山區",
+      "nodes": 1662
+    },
+    {
+      "city": "苗栗縣",
+      "district": "獅潭鄉",
+      "nodes": 1638
+    },
+    {
+      "city": "澎湖縣",
+      "district": "望安鄉",
+      "nodes": 1605
+    },
+    {
+      "city": "新竹縣",
+      "district": "五峰鄉",
+      "nodes": 1566
+    },
+    {
+      "city": "屏東縣",
+      "district": "獅子鄉",
+      "nodes": 1532
+    },
+    {
+      "city": "臺南市",
+      "district": "龍崎區",
+      "nodes": 1453
+    },
+    {
+      "city": "台東縣",
+      "district": "蘭嶼鄉",
+      "nodes": 1448
+    },
+    {
+      "city": "台東縣",
+      "district": "達仁鄉",
+      "nodes": 1436
+    },
+    {
+      "city": "屏東縣",
+      "district": "春日鄉",
+      "nodes": 1352
+    },
+    {
+      "city": "高雄市",
+      "district": "桃源區",
+      "nodes": 1341
+    },
+    {
+      "city": "苗栗縣",
+      "district": "泰安鄉",
+      "nodes": 1277
+    },
+    {
+      "city": "屏東縣",
+      "district": "泰武鄉",
+      "nodes": 1252
+    },
+    {
+      "city": "台北市",
+      "district": "中山區",
+      "nodes": 1210
+    },
+    {
+      "city": "嘉義縣",
+      "district": "大埔鄉",
+      "nodes": 1203
+    },
+    {
+      "city": "澎湖縣",
+      "district": "七美鄉",
+      "nodes": 1196
+    },
+    {
+      "city": "屏東縣",
+      "district": "霧臺鄉",
+      "nodes": 1172
+    },
+    {
+      "city": "台東縣",
+      "district": "海端鄉",
+      "nodes": 1167
+    },
+    {
+      "city": "台北市",
+      "district": "士林區",
+      "nodes": 1086
+    },
+    {
+      "city": "台東縣",
+      "district": "延平鄉",
+      "nodes": 953
+    },
+    {
+      "city": "高雄市",
+      "district": "那瑪夏區",
+      "nodes": 930
+    },
+    {
+      "city": "南投縣",
+      "district": "竹山鎮",
+      "nodes": 877
+    },
+    {
+      "city": "台東縣",
+      "district": "綠島鄉",
+      "nodes": 867
+    },
+    {
+      "city": "台東縣",
+      "district": "金峰鄉",
+      "nodes": 861
+    },
+    {
+      "city": "台中市",
+      "district": "太平區",
+      "nodes": 620
+    },
+    {
+      "city": "台北市",
+      "district": "大安區",
+      "nodes": 549
+    },
+    {
+      "city": "高雄市",
+      "district": "茂林區",
+      "nodes": 541
+    },
+    {
+      "city": "臺東縣",
+      "district": "池上鄉",
+      "nodes": 532
+    },
+    {
+      "city": "台北市",
+      "district": "中正區",
+      "nodes": 423
+    },
+    {
+      "city": "台中市",
+      "district": "大里區",
+      "nodes": 422
+    },
+    {
+      "city": "嘉義市",
+      "district": "西區",
+      "nodes": 383
+    },
+    {
+      "city": "嘉義市",
+      "district": "東區",
+      "nodes": 374
+    },
+    {
+      "city": "臺南市",
+      "district": "",
+      "nodes": 361
+    },
+    {
+      "city": "台北市",
+      "district": "內湖區",
+      "nodes": 318
+    },
+    {
+      "city": "台北市",
+      "district": "信義區",
+      "nodes": 293
+    },
+    {
+      "city": "台北市",
+      "district": "萬華區",
+      "nodes": 292
+    },
+    {
+      "city": "台北市",
+      "district": "松山區",
+      "nodes": 286
+    },
+    {
+      "city": "南投縣",
+      "district": "埔里鎮",
+      "nodes": 272
+    },
+    {
+      "city": "台中市",
+      "district": "霧峰區",
+      "nodes": 247
+    },
+    {
+      "city": "臺東縣",
+      "district": "臺東市",
+      "nodes": 236
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "礁溪鄉",
+      "nodes": 236
+    },
+    {
+      "city": "台南市",
+      "district": "東區",
+      "nodes": 213
+    },
+    {
+      "city": "台北市",
+      "district": "大同區",
+      "nodes": 189
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "宜蘭市",
+      "nodes": 171
+    },
+    {
+      "city": "台南市",
+      "district": "中西區",
+      "nodes": 168
+    },
+    {
+      "city": "南投縣",
+      "district": "名間鄉",
+      "nodes": 166
+    },
+    {
+      "city": "台北市",
+      "district": "北投區",
+      "nodes": 127
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "羅東鎮",
+      "nodes": 114
+    },
+    {
+      "city": "台北市",
+      "district": "南港區",
+      "nodes": 107
+    },
+    {
+      "city": "台北市",
+      "district": "",
+      "nodes": 98
+    },
+    {
+      "city": "台中市",
+      "district": "東區",
+      "nodes": 93
+    },
+    {
+      "city": "臺北市",
+      "district": "",
+      "nodes": 92
+    },
+    {
+      "city": "台南市",
+      "district": "北區",
+      "nodes": 92
+    },
+    {
+      "city": "南投縣",
+      "district": "草屯鎮",
+      "nodes": 85
+    },
+    {
+      "city": "南投縣",
+      "district": "南投市",
+      "nodes": 80
+    },
+    {
+      "city": "台南市",
+      "district": "永康區",
+      "nodes": 64
+    },
+    {
+      "city": "連江縣",
+      "district": "北竿鄉",
+      "nodes": 64
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "冬山鄉",
+      "nodes": 61
+    },
+    {
+      "city": "台中市",
+      "district": "西區",
+      "nodes": 59
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "頭城鎮",
+      "nodes": 58
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "蘇澳鎮",
+      "nodes": 58
+    },
+    {
+      "city": "南投縣",
+      "district": "國姓鄉",
+      "nodes": 56
+    },
+    {
+      "city": "台中市",
+      "district": "北屯區",
+      "nodes": 55
+    },
+    {
+      "city": "台南市",
+      "district": "安平區",
+      "nodes": 53
+    },
+    {
+      "city": "台中市",
+      "district": "北區",
+      "nodes": 52
+    },
+    {
+      "city": "連江縣",
+      "district": "南竿鄉",
+      "nodes": 49
+    },
+    {
+      "city": "台中市",
+      "district": "豐原區",
+      "nodes": 49
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "五結鄉",
+      "nodes": 44
+    },
+    {
+      "city": "台南市",
+      "district": "安南區",
+      "nodes": 41
+    },
+    {
+      "city": "南投縣",
+      "district": "仁愛鄉",
+      "nodes": 41
+    },
+    {
+      "city": "南投縣",
+      "district": "魚池鄉",
+      "nodes": 41
+    },
+    {
+      "city": "台中市",
+      "district": "南屯區",
+      "nodes": 38
+    },
+    {
+      "city": "台中市",
+      "district": "西屯區",
+      "nodes": 36
+    },
+    {
+      "city": "台南市",
+      "district": "善化區",
+      "nodes": 36
+    },
+    {
+      "city": "台南市",
+      "district": "新市區",
+      "nodes": 35
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "員山鄉",
+      "nodes": 35
+    },
+    {
+      "city": "南投縣",
+      "district": "鹿谷鄉",
+      "nodes": 34
+    },
+    {
+      "city": "臺東縣",
+      "district": "東河鄉",
+      "nodes": 31
+    },
+    {
+      "city": "台南市",
+      "district": "南區",
+      "nodes": 31
+    },
+    {
+      "city": "台南市",
+      "district": "",
+      "nodes": 31
+    },
+    {
+      "city": "台中市",
+      "district": "大甲區",
+      "nodes": 26
+    },
+    {
+      "city": "台中市",
+      "district": "中區",
+      "nodes": 26
+    },
+    {
+      "city": "台中市",
+      "district": "大雅區",
+      "nodes": 25
+    },
+    {
+      "city": "南投縣",
+      "district": "水里鄉",
+      "nodes": 23
+    },
+    {
+      "city": "臺東縣",
+      "district": "成功鎮",
+      "nodes": 23
+    },
+    {
+      "city": "彰化縣",
+      "district": "員林鎮",
+      "nodes": 22
+    },
+    {
+      "city": "臺中市",
+      "district": "",
+      "nodes": 22
+    },
+    {
+      "city": "連江縣",
+      "district": "東引鄉",
+      "nodes": 22
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "三星鄉",
+      "nodes": 21
+    },
+    {
+      "city": "",
+      "district": "中壢區",
+      "nodes": 21
+    },
+    {
+      "city": "屏東縣",
+      "district": "恒春鎮",
+      "nodes": 21
+    },
+    {
+      "city": "臺東縣",
+      "district": "綠島鄉",
+      "nodes": 20
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "大同鄉",
+      "nodes": 20
+    },
+    {
+      "city": "台南市",
+      "district": "新營區",
+      "nodes": 20
+    },
+    {
+      "city": "新北市",
+      "district": "",
+      "nodes": 20
+    },
+    {
+      "city": "臺東縣",
+      "district": "卑南鄉",
+      "nodes": 18
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "南澳鄉",
+      "nodes": 17
+    },
+    {
+      "city": "臺東縣",
+      "district": "鹿野鄉",
+      "nodes": 17
+    },
+    {
+      "city": "台南市",
+      "district": "仁德區",
+      "nodes": 17
+    },
+    {
+      "city": "台中市",
+      "district": "南區",
+      "nodes": 17
+    },
+    {
+      "city": "南投縣",
+      "district": "信義鄉",
+      "nodes": 16
+    },
+    {
+      "city": "臺東縣",
+      "district": "關山鎮",
+      "nodes": 16
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "壯圍鄉",
+      "nodes": 16
+    },
+    {
+      "city": "台中市",
+      "district": "東勢區",
+      "nodes": 16
+    },
+    {
+      "city": "臺東縣",
+      "district": "台東市",
+      "nodes": 16
+    },
+    {
+      "city": "台南市",
+      "district": "關廟區",
+      "nodes": 15
+    },
+    {
+      "city": "屏東縣",
+      "district": "霧台鄉",
+      "nodes": 13
+    },
+    {
+      "city": "台南市",
+      "district": "學甲區",
+      "nodes": 12
+    },
+    {
+      "city": "松山市",
+      "district": "興雅區",
+      "nodes": 12
+    },
+    {
+      "city": "臺東縣",
+      "district": "太麻里鄉",
+      "nodes": 11
+    },
+    {
+      "city": "南投縣",
+      "district": "中寮鄉",
+      "nodes": 11
+    },
+    {
+      "city": "台中市",
+      "district": "沙鹿區",
+      "nodes": 11
+    },
+    {
+      "city": "台南市",
+      "district": "歸仁區",
+      "nodes": 10
+    },
+    {
+      "city": "台南市",
+      "district": "柳營區",
+      "nodes": 10
+    },
+    {
+      "city": "臺東縣",
+      "district": "海端鄉",
+      "nodes": 10
+    },
+    {
+      "city": "台南市",
+      "district": "新化區",
+      "nodes": 10
+    },
+    {
+      "city": "台南市",
+      "district": "麻豆區",
+      "nodes": 9
+    },
+    {
+      "city": "高雄市",
+      "district": "楠官區",
+      "nodes": 9
+    },
+    {
+      "city": "高雄市",
+      "district": "",
+      "nodes": 9
+    },
+    {
+      "city": "台南市",
+      "district": "將軍區",
+      "nodes": 8
+    },
+    {
+      "city": "臺東縣",
+      "district": "蘭嶼鄉",
+      "nodes": 8
+    },
+    {
+      "city": "台中市",
+      "district": "清水區",
+      "nodes": 8
+    },
+    {
+      "city": "嘉義市",
+      "district": "",
+      "nodes": 8
+    },
+    {
+      "city": "台中市",
+      "district": "烏日區",
+      "nodes": 8
+    },
+    {
+      "city": "台中市",
+      "district": "潭子區",
+      "nodes": 8
+    },
+    {
+      "city": "台南市",
+      "district": "玉井區",
+      "nodes": 8
+    },
+    {
+      "city": "台東縣",
+      "district": "卑南鄉",
+      "nodes": 7
+    },
+    {
+      "city": "臺東縣",
+      "district": "達仁鄉",
+      "nodes": 7
+    },
+    {
+      "city": "臺東縣",
+      "district": "延平鄉",
+      "nodes": 7
+    },
+    {
+      "city": "台中市",
+      "district": "龍井區",
+      "nodes": 7
+    },
+    {
+      "city": "新竹市",
+      "district": "",
+      "nodes": 6
+    },
+    {
+      "city": "南投縣",
+      "district": "集集鎮",
+      "nodes": 6
+    },
+    {
+      "city": "台南市",
+      "district": "鹽水區",
+      "nodes": 6
+    },
+    {
+      "city": "台中市",
+      "district": "后里區",
+      "nodes": 6
+    },
+    {
+      "city": "苗栗縣",
+      "district": "頭份鎮",
+      "nodes": 5
+    },
+    {
+      "city": "臺東縣",
+      "district": "長濱鄉",
+      "nodes": 5
+    },
+    {
+      "city": "臺東縣",
+      "district": "金峰鄉",
+      "nodes": 5
+    },
+    {
+      "city": "台南市",
+      "district": "白河區",
+      "nodes": 5
+    },
+    {
+      "city": "台南市",
+      "district": "七股區",
+      "nodes": 5
+    },
+    {
+      "city": "台中市",
+      "district": "神岡區",
+      "nodes": 5
+    },
+    {
+      "city": "台南市",
+      "district": "佳里區",
+      "nodes": 5
+    },
+    {
+      "city": "南投縣",
+      "district": "漁池鄉",
+      "nodes": 5
+    },
+    {
+      "city": "",
+      "district": "中山區",
+      "nodes": 4
+    },
+    {
+      "city": "雲林縣",
+      "district": "台西鄉",
+      "nodes": 4
+    },
+    {
+      "city": "台中市",
+      "district": "新社區",
+      "nodes": 4
+    },
+    {
+      "city": "台中市",
+      "district": "",
+      "nodes": 4
+    },
+    {
+      "city": "",
+      "district": "竹南鎮",
+      "nodes": 4
+    },
+    {
+      "city": "南港鎮",
+      "district": "三重里",
+      "nodes": 4
+    },
+    {
+      "city": "台中市",
+      "district": "和平區",
+      "nodes": 4
+    },
+    {
+      "city": "台南市",
+      "district": "楠西區",
+      "nodes": 4
+    },
+    {
+      "city": "",
+      "district": "板橋區",
+      "nodes": 3
+    },
+    {
+      "city": "樹林市",
+      "district": "",
+      "nodes": 3
+    },
+    {
+      "city": "彰化縣",
+      "district": "",
+      "nodes": 3
+    },
+    {
+      "city": "桃園市",
+      "district": "",
+      "nodes": 3
+    },
+    {
+      "city": "台南市",
+      "district": "西區",
+      "nodes": 3
+    },
+    {
+      "city": "台南市",
+      "district": "六甲區",
+      "nodes": 3
+    },
+    {
+      "city": "台中市",
+      "district": "梧棲區",
+      "nodes": 3
+    },
+    {
+      "city": "台南市",
+      "district": "安定區",
+      "nodes": 3
+    },
+    {
+      "city": "Hualien City",
+      "district": "",
+      "nodes": 3
+    },
+    {
+      "city": "雲林縣",
+      "district": "",
+      "nodes": 2
+    },
+    {
+      "city": "台中市",
+      "district": "大肚區",
+      "nodes": 2
+    },
+    {
+      "city": "台南市",
+      "district": "官田區",
+      "nodes": 2
+    },
+    {
+      "city": "連江縣",
+      "district": "莒光鄉",
+      "nodes": 2
+    },
+    {
+      "city": "台東縣",
+      "district": "臺東市",
+      "nodes": 2
+    },
+    {
+      "city": "苗栗縣",
+      "district": "竹南鎮環市",
+      "nodes": 2
+    },
+    {
+      "city": "屏東縣",
+      "district": "佳丹鄉",
+      "nodes": 2
+    },
+    {
+      "city": "臺東縣",
+      "district": "大武鄉",
+      "nodes": 2
+    },
+    {
+      "city": "苗栗縣",
+      "district": "",
+      "nodes": 2
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "莊圍鄉",
+      "nodes": 2
+    },
+    {
+      "city": "台南市",
+      "district": "東山區",
+      "nodes": 2
+    },
+    {
+      "city": "台南市",
+      "district": "下營區",
+      "nodes": 2
+    },
+    {
+      "city": "芎林鄉",
+      "district": "",
+      "nodes": 2
+    },
+    {
+      "city": "台南市",
+      "district": "龍崎區",
+      "nodes": 2
+    },
+    {
+      "city": "金門縣",
+      "district": "烏坵鄉",
+      "nodes": 2
+    },
+    {
+      "city": "三峽市",
+      "district": "隆恩埔",
+      "nodes": 2
+    },
+    {
+      "city": "鶯歌鎮",
+      "district": "",
+      "nodes": 2
+    },
+    {
+      "city": "嘉義縣",
+      "district": "番路鄉'",
+      "nodes": 2
+    },
+    {
+      "city": "",
+      "district": "蘇澳鎭",
+      "nodes": 1
+    },
+    {
+      "city": "",
+      "district": "桃園區",
+      "nodes": 1
+    },
+    {
+      "city": "台南市",
+      "district": "中區",
+      "nodes": 1
+    },
+    {
+      "city": "桃園市",
+      "district": "中壢區市",
+      "nodes": 1
+    },
+    {
+      "city": "花蓮縣",
+      "district": "瑞豐鄉",
+      "nodes": 1
+    },
+    {
+      "city": "高雄市",
+      "district": "梓官鄉",
+      "nodes": 1
+    },
+    {
+      "city": "台東縣",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "台南市永康區",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "麟洛鄉",
+      "district": "電話寮",
+      "nodes": 1
+    },
+    {
+      "city": "新北市",
+      "district": "土城市",
+      "nodes": 1
+    },
+    {
+      "city": "",
+      "district": "樹林區",
+      "nodes": 1
+    },
+    {
+      "city": "南港市",
+      "district": "三重埔",
+      "nodes": 1
+    },
+    {
+      "city": "竹北市",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "台南市新化區大新路77之2號",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "台南市",
+      "district": "左鎮區",
+      "nodes": 1
+    },
+    {
+      "city": "臺北市",
+      "district": "中正區=",
+      "nodes": 1
+    },
+    {
+      "city": "望安鄉",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "臺南市",
+      "district": "中南區",
+      "nodes": 1
+    },
+    {
+      "city": "臺南市",
+      "district": "西區",
+      "nodes": 1
+    },
+    {
+      "city": "花蓮縣",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "彰化縣",
+      "district": "溪湖鄉",
+      "nodes": 1
+    },
+    {
+      "city": "金門縣",
+      "district": "金寧鎮",
+      "nodes": 1
+    },
+    {
+      "city": "新北市",
+      "district": "中和",
+      "nodes": 1
+    },
+    {
+      "city": "台南市",
+      "district": "鹽水",
+      "nodes": 1
+    },
+    {
+      "city": "桃園市",
+      "district": "平鎮",
+      "nodes": 1
+    },
+    {
+      "city": "新竹市",
+      "district": "科學工業園區",
+      "nodes": 1
+    },
+    {
+      "city": "新竹市",
+      "district": "新竹科學園區",
+      "nodes": 1
+    },
+    {
+      "city": "",
+      "district": "中西區",
+      "nodes": 1
+    },
+    {
+      "city": "樹林市",
+      "district": "溪崑區",
+      "nodes": 1
+    },
+    {
+      "city": "嘉義縣",
+      "district": "朴子鎮竹圍里7鄰市",
+      "nodes": 1
+    },
+    {
+      "city": "嘉義縣",
+      "district": "朴子鎮",
+      "nodes": 1
+    },
+    {
+      "city": "台南市",
+      "district": "西港區",
+      "nodes": 1
+    },
+    {
+      "city": "臺南市",
+      "district": "中區",
+      "nodes": 1
+    },
+    {
+      "city": "台南市",
+      "district": "大內區",
+      "nodes": 1
+    },
+    {
+      "city": "新竹市",
+      "district": "東區園區",
+      "nodes": 1
+    },
+    {
+      "city": "高雄市",
+      "district": "前鎮區高雄加工出口區",
+      "nodes": 1
+    },
+    {
+      "city": "高雄市",
+      "district": "高雄加工出口區",
+      "nodes": 1
+    },
+    {
+      "city": "高雄市",
+      "district": "小港區臨海工業區",
+      "nodes": 1
+    },
+    {
+      "city": "台中市",
+      "district": "西屯區工業區",
+      "nodes": 1
+    },
+    {
+      "city": "台中市",
+      "district": "外埔區",
+      "nodes": 1
+    },
+    {
+      "city": "台中市",
+      "district": "潭子區台中加工出口區",
+      "nodes": 1
+    },
+    {
+      "city": "桃園市",
+      "district": "龜山區山區",
+      "nodes": 1
+    },
+    {
+      "city": "桃園市",
+      "district": "南山路",
+      "nodes": 1
+    },
+    {
+      "city": "新竹縣",
+      "district": "湖口郷",
+      "nodes": 1
+    },
+    {
+      "city": "",
+      "district": "內湖區",
+      "nodes": 1
+    },
+    {
+      "city": "台北市",
+      "district": "景興路282巷",
+      "nodes": 1
+    },
+    {
+      "city": "台北市",
+      "district": "台北市南港區研究院路二段128號",
+      "nodes": 1
+    },
+    {
+      "city": "桃園市",
+      "district": "林口區",
+      "nodes": 1
+    },
+    {
+      "city": "鳳山市",
+      "district": "文山區",
+      "nodes": 1
+    },
+    {
+      "city": "苗栗縣",
+      "district": "竹東鎮",
+      "nodes": 1
+    },
+    {
+      "city": "宜蘭縣",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "Keelung",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "台北巿",
+      "district": "大安區",
+      "nodes": 1
+    },
+    {
+      "city": "南投縣",
+      "district": "集集區",
+      "nodes": 1
+    },
+    {
+      "city": "南港鎮",
+      "district": "南港里",
+      "nodes": 1
+    },
+    {
+      "city": "梅山鄉",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "屏東縣",
+      "district": "東港鎭",
+      "nodes": 1
+    },
+    {
+      "city": "三峽市",
+      "district": "陳公厝",
+      "nodes": 1
+    },
+    {
+      "city": "Kaoshiung",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "鶯歌鎮",
+      "district": "鳳鳴里",
+      "nodes": 1
+    },
+    {
+      "city": "基隆市",
+      "district": "仁愛鄉",
+      "nodes": 1
+    },
+    {
+      "city": "台南市",
+      "district": "北門區",
+      "nodes": 1
+    },
+    {
+      "city": "高雄市",
+      "district": "衫林區",
+      "nodes": 1
+    },
+    {
+      "city": "嘉義巿",
+      "district": "西區",
+      "nodes": 1
+    },
+    {
+      "city": "鹿谷鄉",
+      "district": "鹿谷村",
+      "nodes": 1
+    },
+    {
+      "city": "Taipei",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "Hong Kong",
+      "district": "",
+      "nodes": 1
+    },
+    {
+      "city": "社內",
+      "district": "新市區",
+      "nodes": 1
+    },
+    {
+      "city": "屏東市",
+      "district": "屏東市",
+      "nodes": 1
+    },
+    {
+      "city": "彰化市",
+      "district": "彰化市",
+      "nodes": 1
+    },
+    {
+      "city": "",
+      "district": "湖口鄉",
+      "nodes": 1
+    },
+    {
+      "city": "",
+      "district": "羅東鎮",
+      "nodes": 1
+    },
+    {
+      "city": "鹿谷鄉",
+      "district": "廣興村",
+      "nodes": 1
+    },
+    {
+      "city": "臺中市",
+      "district": "沙廘區",
+      "nodes": 1
+    }
+  ],
+  "missing_native_hierarchy_unique_triples": 160125,
+  "missing_native_hierarchy_top30": [
+    {
+      "classification": "missing_native_district",
+      "raw_city": "基隆市",
+      "raw_district": "安樂區",
+      "raw_street": "樂利二街62巷",
+      "source_nodes": 2661
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "汐止區",
+      "raw_street": "湖前街110巷97弄",
+      "source_nodes": 2024
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "淡水區",
+      "raw_street": "學府路136巷",
+      "source_nodes": 1802
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "新店區",
+      "raw_street": "央北二路",
+      "source_nodes": 1796
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "桃園市",
+      "raw_district": "龜山區",
+      "raw_street": "樂善二路",
+      "source_nodes": 1775
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "臺北市",
+      "raw_district": "中山區",
+      "raw_street": "敬業三路162巷",
+      "source_nodes": 1758
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "高雄市",
+      "raw_district": "左營區",
+      "raw_street": "翠華路601巷",
+      "source_nodes": 1616
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "新竹市",
+      "raw_district": "北區",
+      "raw_street": "武陵路175巷",
+      "source_nodes": 1521
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "基隆市",
+      "raw_district": "中山區",
+      "raw_street": "中和路85巷",
+      "source_nodes": 1448
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "板橋區",
+      "raw_street": "藝文街",
+      "source_nodes": 1438
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "新店區",
+      "raw_street": "寶橋路78巷",
+      "source_nodes": 1427
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "高雄市",
+      "raw_district": "苓雅區",
+      "raw_street": "新光路62巷",
+      "source_nodes": 1399
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "新竹市",
+      "raw_district": "東區",
+      "raw_street": "明湖路1050巷",
+      "source_nodes": 1358
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "淡水區",
+      "raw_street": "淡金路38巷",
+      "source_nodes": 1346
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新竹縣",
+      "raw_district": "竹東鎮",
+      "raw_street": "旭光一路",
+      "source_nodes": 1338
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "淡水區",
+      "raw_street": "沙崙路一段126巷",
+      "source_nodes": 1323
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "新竹市",
+      "raw_district": "東區",
+      "raw_street": "關新路19巷",
+      "source_nodes": 1319
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "新店區",
+      "raw_street": "中正路700巷",
+      "source_nodes": 1282
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "台東縣",
+      "raw_district": "卑南郷",
+      "raw_street": "龍泉路",
+      "source_nodes": 1266
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "土城區",
+      "raw_street": "莊園街",
+      "source_nodes": 1187
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "臺北市",
+      "raw_district": "信義區",
+      "raw_street": "信義路五段150巷",
+      "source_nodes": 1185
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "汐止區",
+      "raw_street": "汐萬路二段228巷31弄",
+      "source_nodes": 1170
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "臺中市",
+      "raw_district": "西區",
+      "raw_street": "三民路一段50巷",
+      "source_nodes": 1161
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "淡水區",
+      "raw_street": "紅樹林路",
+      "source_nodes": 1115
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "土城區",
+      "raw_street": "學府路一段126巷",
+      "source_nodes": 1112
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "三峽區",
+      "raw_street": "民生街1巷",
+      "source_nodes": 1110
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "淡水區",
+      "raw_street": "北新路169巷",
+      "source_nodes": 1105
+    },
+    {
+      "classification": "missing_native_district",
+      "raw_city": "新竹市",
+      "raw_district": "東區",
+      "raw_street": "鐵道路一段28巷",
+      "source_nodes": 1105
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "臺中市",
+      "raw_district": "清水區",
+      "raw_street": "港都路",
+      "source_nodes": 1098
+    },
+    {
+      "classification": "missing_native_street",
+      "raw_city": "新北市",
+      "raw_district": "三重區",
+      "raw_street": "重新路五段609巷",
+      "source_nodes": 1091
+    }
+  ],
+  "incremental_level4_capacity": {
+    "stock_level4_count": 2133948,
+    "first_child_22bit_max": 4194303,
+    "numerical_remaining_level4_ids": 2060355,
+    "clone_entire_old_level4_then_new_total": 4267896,
+    "clone_entire_old_level4_overflows_before_new_addresses_by": 73593,
+    "matched_native_streets_with_parseable_complete_source_groups": 30308,
+    "matched_streets_with_other_child_level": 13735,
+    "matched_level4_street_old_records_to_clone": 1824684,
+    "matched_level4_source_groups_assumed_all_new": 1637976,
+    "selective_append_worst_case_records": 3462660,
+    "selective_append_worst_case_final_count": 5596608,
+    "selective_append_numerical_capacity_fits": false,
+    "streets_exceeding_12bit_merged_child_count": [],
+    "caution": "Arithmetic planning bound only. Source/native leaf overlap, node coordinate conflicts, flags/order, old incoming references, new labels, higher-level additions, carrier FAT/component capacity and native JAI rebuild remain unresolved."
+  },
+  "required_next_work": [
+    "Decode existing level4 leaf labels for matched streets and compare actual house overlap before additions.",
+    "Resolve full-key coordinate conflicts and malformed/multiple/subnumber addresses with source provenance.",
+    "Resolve missing native streets/admin and direct-city street district association without guessing.",
+    "Preserve contiguous child ranges, old records and incoming references; validate native order/flags and 12-/22-bit limits.",
+    "Allocate labels and rebuild required native JAI family/FTS/segments together with AP/road support; test bounded candidates before a full deployment.",
+    "Quantify OSM coverage gaps including address ways/relations, inferred admin and official untagged addresses; this node extract is not comprehensive official Taiwan addresses."
+  ]
+}

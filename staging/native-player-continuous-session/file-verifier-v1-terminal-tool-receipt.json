@@ -1,0 +1,16 @@
+{
+  "observed_session_id": null,
+  "source_sha256": {
+    "staging/native-player-continuous-session/verify_continuous_session_v1_files.py": "a4e18bbd70dd6025bcce166d9241627e94e9b9db254bf644897786251568dd98"
+  },
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-continuous-session/verify_continuous_session_v1_files.py",
+  "tool_result": {
+    "chunk_id": "fe2945",
+    "wall_time_seconds": 0.059823195,
+    "exit_code": 1,
+    "original_token_count": 199,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-continuous-session/verify_continuous_session_v1_files.py\", line 477, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-continuous-session/verify_continuous_session_v1_files.py\", line 427, in main\n    assert elf.symbol(name)['value']==symbols[name]['value']and elf.symbol(name)['size']==symbols[name]['size']\n           ~~~~~~~~~~^^^^^^\n  File \"/root/garmin/staging/native-player-continuous-session/verify_continuous_session_v1_files.py\", line 51, in symbol\n    out=[s for s in self.symbols if s['name']==name];assert len(out)==1,name;return out[0]\n                                                            ^^^^^^^^^^^\nAssertionError: lock\n"
+  },
+  "scope": "Actual FILE ONLY failed verifier, not guest. Verifier incorrectly demanded globally unique local function names; ELF has multiple TU-local lock symbols.",
+  "guest_rerun": false
+}

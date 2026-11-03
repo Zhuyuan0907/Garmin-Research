@@ -1,0 +1,136 @@
+{
+  "schema": "garmin-report-current-guidance-audit/v1",
+  "report_snapshot_sha256": "493917f2647c38e688d55eca71384b1e1a179db0b6a41e3289744d5c58da0925",
+  "snapshot_updated_utc": "2026-10-07T07:59:28.664490+00:00",
+  "html_confirmed_current_conflicts": 2,
+  "independently_read_structured_conflict_records": 1,
+  "independently_read_stale_structured_fields": 2,
+  "inherited_parent_observation_records": 2,
+  "HTML_findings": [
+    {
+      "id": "HTML-80",
+      "kind": "confirmed_current_guidance_conflict",
+      "paragraph_id": 80,
+      "dom_path": "html[1] > main[1] > section#navigation-repair-checkpoint-v2 > ol[1] > li[2]",
+      "heading_context": {
+        "h2": "v2道路與民權路回歸通過；擴大更新仍進行中",
+        "h3": "接著處理"
+      },
+      "enclosing_ids": [
+        "navigation-repair-checkpoint-v2"
+      ],
+      "html_line": 8,
+      "paragraph_text_sha256": "406b0693cdb368084394a495d988a4416085a9e29500c25b7ea8f4862a0ddfb4",
+      "paragraph": "全台完整更新仍未完成；新街道／子號離線前置原型尚未合併到已安裝v3，不把工程估計當地址覆蓋率。",
+      "replace_exact": "新街道／子號離線前置原型尚未合併到已安裝v3",
+      "replace_with": "新街道／子號離線前置原型尚未合併到車機目前使用的v2；v3已因道路顯示回歸停用",
+      "reason": "Located in the current 接著處理 list; unqualified 已安裝v3 conflicts with current v2 and rollback evidence in the same section.",
+      "minimal_replacement_paragraph": "全台完整更新仍未完成；新街道／子號離線前置原型尚未合併到車機目前使用的v2；v3已因道路顯示回歸停用，不把工程估計當地址覆蓋率。",
+      "evidence_paragraphs": [
+        1,
+        18,
+        66,
+        68,
+        79
+      ],
+      "delete_historical_record": false
+    },
+    {
+      "id": "HTML-78",
+      "kind": "confirmed_current_guidance_conflict",
+      "paragraph_id": 78,
+      "dom_path": "html[1] > main[1] > section#navigation-repair-checkpoint-v2 > ul[2] > li[5]",
+      "heading_context": {
+        "h2": "v2道路與民權路回歸通過；擴大更新仍進行中",
+        "h3": "新街道與之號：離線前置驗證"
+      },
+      "enclosing_ids": [
+        "navigation-repair-checkpoint-v2"
+      ],
+      "html_line": 8,
+      "paragraph_text_sha256": "3130acca887387bf981f51383e504c886babc2f47cec530c66bb7cc46dabc00e",
+      "paragraph": "仍缺新街道prefix/segment搜尋、完整圖資與還原整合、完整前端及實機驗收；這些原型不放入可安裝v3包。",
+      "replace_exact": "這些原型不放入可安裝v3包。",
+      "replace_with": "這些原型仍只供離線研究；舊v3包已撤下下載並停用。",
+      "reason": "Current new-street limitation calls v3 installable even though its known regressing download is retired and installation stopped.",
+      "minimal_replacement_paragraph": "仍缺新街道prefix/segment搜尋、完整圖資與還原整合、完整前端及實機驗收；這些原型仍只供離線研究；舊v3包已撤下下載並停用。",
+      "evidence_paragraphs": [
+        1,
+        18,
+        66,
+        68,
+        79
+      ],
+      "delete_historical_record": false
+    }
+  ],
+  "structured_findings": [
+    {
+      "id": "WEB-current-presence",
+      "kind": "independently_read_current_structured_conflict",
+      "source": "evidence/report-web-latest.json",
+      "json_pointers": {
+        "/current_physical_test_requested": {
+          "actual": true,
+          "suggested": false
+        },
+        "/user_away_for_class": {
+          "actual": false,
+          "suggested": true
+        }
+      },
+      "evidence": "/offline_24h_work_order declares user_away=true, no unsolicited presence questions, user will notify return; HTML paragraphs 14 and 18 agree",
+      "change_historical_physical_checkpoints": false
+    }
+  ],
+  "inherited_parent_observations": [
+    {
+      "id": "ROOT-task-state-presence",
+      "source": "evidence/task-state.json",
+      "json_pointer": "/user_away",
+      "root_reported_actual": false,
+      "suggested": true,
+      "provenance": "Parent root current-state scan; requested key not independently obtained from the authorized 4096B prefix",
+      "independently_verified_here": false
+    },
+    {
+      "id": "ROOT-findings-goal",
+      "source": "reports/findings.json",
+      "json_pointer": "/research_goal_status",
+      "root_reported_actual": "paused",
+      "suggested": "active_offline",
+      "provenance": "Parent root current-state scan, compared by root with canonical deep.research_goal_status=active_offline; key beyond decoded prefix",
+      "independently_verified_here": false,
+      "actual_goal_API_status_in_existing_web_capture": "active"
+    }
+  ],
+  "requested_wording_search": {
+    "v3_latest_prepared_count": 0,
+    "v3_not_yet_physically_installed_count": 0,
+    "v3_acceptance_only_waiting_count": 0,
+    "only_check_layers_occurrences": [
+      26
+    ],
+    "only_check_layers_current_unversioned_instruction_count": 0
+  },
+  "historical_records_preserved": {
+    "physical_v3_install_and_road_failure": true,
+    "rollback_to_stock_then_v2": true,
+    "only_check_two_layers_paragraph_26_is_reported_v3_failure_not_a_current_instruction": true,
+    "paragraph_244_is_old_installer_stage_not_active_presence_request": true,
+    "all_old_phase_logs_unchanged": true
+  },
+  "current_fact_checks": {
+    "v2_plus_Search_v2_visible": true,
+    "Minquan_6_150_184_scope_visible": true,
+    "no_all_130637_verified_claim_found": true,
+    "v3_road_failure_and_retirement_visible": true,
+    "header_virtual_controls_not_device_renderer_fix": true,
+    "full_country_incomplete_visible": true,
+    "native_App_40_estimate_not_completed": true,
+    "user_away_no_question_visible": true
+  },
+  "publisher_action": "Root may apply the two exact HTML substitutions and four current structured-field updates; preserve historical checkpoints",
+  "report_and_canonical_edited": false,
+  "full_UI_renderer_routes_validated": false
+}

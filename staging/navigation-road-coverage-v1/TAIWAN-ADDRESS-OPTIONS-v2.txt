@@ -1,0 +1,13 @@
+Supersedes v1 proposed city rules (source now confirms county townships use level8).
+
+From the SAME original PBF administrative tags: 22 TW-* level4 roots, 170 level7 districts and 198 level8 county townships. The PBF also includes Fujian CN-FJ and 13 China level6 boundaries; do not force all to TWN. native-taiwan-admin-roots.json supplies the exact whitelist.
+
+Copy default style to a NEW directory. Include inc-taiwan-address-v2 before inc/address in the <finalize> blocks of points, lines and polygons if present. Supply --style-file=<newstyle> and --bounds=<preprocessed directory> to original PBF tile compilation. Repackaging old IMG tiles alone cannot change these address associations.
+
+Use --location-autofill=is_in, dropping nearest once bounds assignment is verified. The whitelist sets country=TWN and region=admin4; *市 roots use city=admin4, *縣 roots city=admin8 then admin7 fallback. Do not use admin9 village/hamlet for city keys. Preserve addr:district as source metadata/POI display, not as narrow city key under municipality.
+
+Examples: central 民權路 in 中區/西區/北區 => region 臺中市, city 臺中市. Coastal 民和路 in 梧棲區/清水區 => region 臺中市, city 臺中市. 信義鄉/竹山鎮 => region 南投縣, city 信義鄉/竹山鎮. 屏東市 => region 屏東縣, city 屏東市. 新竹市 district 東區 => city 新竹市; 新竹縣竹北市 => city 竹北市. Retain road names unchanged.
+
+Validate final LBL/NET and global MDR/SRT cities/codepages and real device search. Removing nearest must not leave unassigned road cities at a trim edge. Check coordinate membership and log gaps instead of adding arbitrary village guesses. 
+
+Current root-reference check: native-root-closure-proof.json. 21 roots complete; 高雄市 r2127079 has two missing outer ways (284788564, 654482084). Existing mainland and one other outer loop are closed, but the complete root is unproven. Do not equate a whitelist entry or existence of a preprocessed .bnd file with complete national geometry.

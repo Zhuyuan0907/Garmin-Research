@@ -1,0 +1,78 @@
+{
+  "all_passed": true,
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mthumb",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pie",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-ffunction-sections",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--build-id=none,-T,/root/garmin/native/os20-task-bridge/resident_music_v1.ld",
+    "/root/garmin/native/os20-task-bridge/resident_music_v2.c",
+    "-o",
+    "/root/garmin/staging/native-os20-resident-music-build-v2/resident-music-v2.elf"
+  ],
+  "source_sha256": {
+    "scripts/build_os20_resident_music_v2.py": "c98af5ad7ff15cf6a66e445a0b186146edbb425a469926e59c44935eee498fb7",
+    "native/os20-task-bridge/resident_music_v2.c": "babf9e4bb441fbe362ba3d384ec7925cfd4daf8fee64068e89c9add2d4ade5fe",
+    "native/os20-task-bridge/resident_music_v1.ld": "b0c01b2b6cd3b93250ec8fbc3fb99c450c78898f3326a8562a034297c49b3f58",
+    "native/os20-task-bridge/resident_music_v1.h": "8e484cdd60865b55e331a3060997f23b472bafc666e46440b6501b0a3796115b",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "staging/native-sbc/manifest.json": "bd338047a161bbf43eb03835c08098077abc2922942acabf5ef460d063be5754",
+    "staging/native-sbc/decoder-armv6.elf": "2682ec7fa0868af3ccb795eede209923747ca0772f4209da8c3aaf72f36bc06a"
+  },
+  "ELF": "staging/native-os20-resident-music-build-v2/resident-music-v2.elf",
+  "ELF_sha256": "270636b5d50c30fc802c4e319ef2ac48f7da80029cb38ce5133f8546f75a76d1",
+  "symbols": {
+    "resident_music_worker_v1": {
+      "address": 151322624,
+      "type": "T"
+    },
+    "resident_failure_v1": {
+      "address": 151322876,
+      "type": "T"
+    },
+    "check": {
+      "address": 151322880,
+      "type": "t"
+    },
+    "receive": {
+      "address": 151322900,
+      "type": "t"
+    },
+    "command": {
+      "address": 151322956,
+      "type": "t"
+    },
+    "resident_controller_v1": {
+      "address": 151323108,
+      "type": "T"
+    },
+    "resident_idle_checkpoint_v1": {
+      "address": 151323380,
+      "type": "T"
+    },
+    "resident_idle_v1": {
+      "address": 151323384,
+      "type": "T"
+    }
+  },
+  "decoder_ELF": "staging/native-sbc/decoder-armv6.elf",
+  "decoder_ELF_sha256": "2682ec7fa0868af3ccb795eede209923747ca0772f4209da8c3aaf72f36bc06a",
+  "undefined_symbols": [],
+  "device_IO": false,
+  "install_candidate": false
+}

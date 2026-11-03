@@ -1,0 +1,79 @@
+{
+  "schema": "L6-exact-leaf-reuse-next-scope-proposal-only/v1",
+  "executed": false,
+  "source_IMG_reads": 0,
+  "goal": "Measure complete68bit original-stock L6 leaf group reuse, no coordinate-nearest/label aliases, no deleted addresses or image construction.",
+  "actual_current_scope_observations": {
+    "L3target4_unique_ranges_per_source": 20107,
+    "live_L4_rows_per_source": 2222042,
+    "live_L5_rows_v2": 2381566,
+    "live_L5_rows_v3": 2426184,
+    "L5_incoming_ranges_per_source": 124767,
+    "all_L4_and_L5_known_incoming_maxdegree": 1,
+    "matched_subset_L5_rawflag6_parents": 6295
+  },
+  "global_incoming_requirement": "Fresh all L3target6 plus every reachable L4target6 and reachable L5target6, including raw highflag14; count alias multiplicity. The saved1636 group plan alone cannot prove absence elsewhere.",
+  "streaming_read_plan": {
+    "metadata_L3_bytes_estimate_exact_for_unchanged_sources": 1482432,
+    "all_live_L4_bytealigned_ranges": 71105344,
+    "metadata_L3_plus_liveL4": 72587776,
+    "live_L5_significant_bits": 605776500,
+    "live_L5_row_bits_byte_lower_bound": 75722063,
+    "maximum_extra_window_bytes_1_5_each": 374301,
+    "before_target_L6_read_lower_bound": 148309839,
+    "before_target_L6_read_conservative_upper_bound": 148684140,
+    "headroom_under_existing160M_cap": 11315860,
+    "assumptions": [
+      "Fresh range geometry confirms same frozen counts, all L3target4/L5 live ranges pairwise disjoint as observed here.",
+      "Read every live L4 interval once; bytealigned128bit rows do not need complete full L4 caches.",
+      "Read every live L5 interval once using actual global shift0/2/4/6; each physical window overhead<=1.5B beyond exact significant-bit length.",
+      "Preflight exact actual L5 windows after fresh L4 edges, and exact old/new L6 windows after complete global incoming occupancy; hold if totalcap exceeded."
+    ]
+  },
+  "simple_full_cache_fallback_estimates": {
+    "metadata_L3_and_fullL4_pair": 140327712,
+    "fullL5_pair": 90490334,
+    "fixed_total_before_targetL6": 230818046,
+    "fullL6_pair_if_used": 34398115,
+    "fallback_exceeds_current160M_cap_requires_newscope_authorization": true
+  },
+  "RAM_planning": {
+    "proposed_streaming_typing": "Packed parent-context/range arrays, signed difference arrays and saturated degree bytearrays. Keep at most one paired live L4/L5 group in RAM; no complete raw tables on disk.",
+    "estimated_current_mm_range_MiB": [
+      96,
+      256
+    ],
+    "estimate_not_executed_or_proved": true,
+    "existing_384MiB_guard_should_remain_actual_proc_sampled": true,
+    "fullcache_scope_observed_peak_KiB": 273600,
+    "candidate_storage_caveat": "The complete selected-L6 parent list size is unknown: worst old liveL5 rowcount2381566 at64B packed context is152420224B, plus base arrays/host state. Current384MiB guard remains; do not promise128MiB for full graph matching."
+  },
+  "eligibility": [
+    "Pin exact original-stock L6 prefix count from closed small source proof before any candidate claim; it is not supplied by current constants.",
+    "Same complete source parent path/count/order and raw parent bits except its proved childfirst/count field; ambiguous/group-changing matches held.",
+    "Old L6 group entirely stock prefix, old incoming exclusive, currentv3 oldstock range zero incoming, currentv3 poststock clone exclusive; both selected sets pairwise disjoint.",
+    "Every ordered68bit leaf significant bit must be identical; L6 has no field mask or permitted edits. Preserve global row shifts0/4 and window boundary bits.",
+    "Redirect retained parent using both closed L4 and L5 stock-reuse mappings before stable suffixrank/remap. Keep all desired currentv3 childtrees and stock numeric IDs.",
+    "External/cache/highflag ABI remains held even if known graph complete; numeric arithmetic does not prove lookup/render/install."
+  ],
+  "capacity_arithmetic_only": {
+    "combined_current_base_MDR": 130720080,
+    "additional_L6_minimum_rows": 71359,
+    "one_less": {
+      "saved_L6_rows": 71358,
+      "MDR_bytes": 130113537,
+      "FAT_rows": 142,
+      "metadata_bytes": 77824,
+      "IMG_bytes": 134221824
+    },
+    "minimum": {
+      "saved_L6_rows": 71359,
+      "MDR_bytes": 130113528,
+      "FAT_rows": 142,
+      "metadata_bytes": 77824,
+      "IMG_bytes": 134217728
+    },
+    "not_hardware_storage_limit_proof": true
+  },
+  "next_run_not_prepared_or_authorized_by_this_document": true
+}

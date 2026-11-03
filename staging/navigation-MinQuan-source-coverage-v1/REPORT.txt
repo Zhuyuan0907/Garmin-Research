@@ -1,0 +1,30 @@
+民權路來源覆蓋比較（XML與封存primary labels，無IMG/USB）
+
+資料快照：2026-10-01T20:22:06Z；現有minquan-addresses.osm SHA0888c1046137d101f7913ca34c9d481c361c8dc67e778d9e8fc0893ee053a870。新比較 actual EXIT0/chunk94487b；小摘要 actual EXIT0/chunk98271e。未修改既有XML、原84筆證據或canonical；未重跑codec/native readers。
+
+只以明確addr:city為臺中市或台中市、addr:district中區、addr:street民權路且有addr:housenumber納入；不由同名街道或坐標猜行政區。共1093 objects（1084 nodes/9 ways）；19054全台同名street+house來源中，17961明確其他縣市/行政區排除，本批符合/待判來源中沒有缺行政addr的uncertain記錄。
+
+這1093不是1093新增門牌：1020含floor/unit tags，164號有796 objects。逐字housenumber形式75種；只有純ASCII整數另記補「號」的格式等價規則後，有66種比對名稱，其中56出現在原84 primary labels、10未觀察到。原始tags/raw匹配和格式等價匹配各自保留。
+
+9個明確單一門牌來源候選（未出現在原84 primary）及原node座標：
+6號   node8529006128  24.1357160,120.6825020
+8號   node8529006129  24.1357909,120.6824793
+138號 node8528997649  24.1405103,120.6771645
+140號 node8528997650  24.1405443,120.6771368
+142號 node8528997651  24.1406286,120.6771586
+144號 node8528997652  24.1406170,120.6770728
+146號 node8528997653  24.1406476,120.6770326
+148號 node8528997654  24.1406772,120.6769941
+150號 node8528997655  24.1407082,120.6769654
+
+這9個都有完整明確行政addr tags，完整tags與source ID/OSM版本/修改timestamp保留。其2026-03-13修改timestamp與快照日期不證明是2016後新建門牌，只支持目前來源已有這些標記。
+
+第10種未觀察到的字串是way addr:housenumber「16,18」，不是一個新單一門牌；16號與18號原primary均存在，因此單獨列multi-address原樣，不作新增候選。
+
+184號：原84及來源都存在；source node8528998711，raw coord24.1425658,120.6748857，完整標記addr:full「臺中市中區大誠里1鄰民權路184號」。沒有由本比較執行native query/改記錄或聲稱定位導航已正確。
+
+反向資料缺漏也保留：28個原primary名稱未出現在這份符合行政tags的來源比較形式（含特殊入口/巷名）。這不證明原門牌已消失，不能直接刪除原資料。原84 primary未出現也不等同整個Garmin找不到，可能在level6或補充索引。
+
+coverage-summary-v1.json是89905-byte小摘要（66種完整清單、9候選完整tags/coordinates、56既有名稱各一份完整source例、184及multi-address、反向缺漏）；MinQuan-source-coverage-proof-v1.json保存全部1093 source objects的完整tags/ID/coords和原樣/格式匹配，compact1152529bytes。Way座標明示為既有XML頂點平均，不是入口/路由目標。
+
+不生成新ZIP，不改canonical、原IMG、DB或USB；此比較只用於選擇有更新價值的候選及顯示來源不足。

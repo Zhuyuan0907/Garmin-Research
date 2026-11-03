@@ -1,0 +1,56 @@
+{
+  "proposals": [
+    {
+      "proposal": "lossless_numeric_section_writing_sidecar",
+      "example_originals": [
+        "崇德路2段",
+        "崇德路3段"
+      ],
+      "example_writing_candidates": [
+        "崇德路二段",
+        "崇德路三段"
+      ],
+      "required_fields": [
+        "original_literal",
+        "raw_section_digits",
+        "writing_candidate",
+        "existing_exact_stock_reference",
+        "source_group_and_line",
+        "held_relationship"
+      ],
+      "requires_before_use": [
+        "same_road_primary_source_or_actual_road_evidence",
+        "original_literal_kept_reconstructible"
+      ],
+      "data_format_only": true,
+      "new_record_or_label_reference_created": false
+    },
+    {
+      "proposal": "lossless_anchored_branch_house_sidecar",
+      "example_original": "昌平路二段50之6巷2弄",
+      "raw_parent": "昌平路二段",
+      "raw_lane": "50之6巷",
+      "raw_alley": "2弄",
+      "example_original_house": "39號",
+      "source_group_id": 172188,
+      "source_capture_line": 87,
+      "required_fields": [
+        "original_street_literal",
+        "existing_exact_parent_reference",
+        "raw_lane_suffix",
+        "raw_alley_suffix",
+        "original_raw_house_literal",
+        "source_group_and_line",
+        "unmaterialized_node_ID_reference",
+        "floor_coordinate_and_subnumber_holds"
+      ],
+      "requires_before_use": [
+        "supported_original_branch_and_house_format",
+        "complete_per_group_metadata_review",
+        "official_and_same_road_relationship_review"
+      ],
+      "data_format_only": true,
+      "house_integer_or_flat_street_assignment_created": false
+    }
+  ]
+}

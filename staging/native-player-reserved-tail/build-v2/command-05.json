@@ -1,0 +1,11 @@
+{
+  "command": [
+    "arm-linux-gnueabi-objdump",
+    "-d",
+    "--disassemble=resident_loader_read_gate",
+    "/root/garmin/staging/native-player-reserved-tail/build-v2/reserved-tail-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "\n/root/garmin/staging/native-player-reserved-tail/build-v2/reserved-tail-EMULATION-ONLY.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n02f96098 <resident_loader_read_gate>:\n 2f96098:\te3510000 \tcmp\tr1, #0\n 2f9609c:\t13500000 \tcmpne\tr0, #0\n 2f960a0:\t03a03001 \tmoveq\tr3, #1\n 2f960a4:\t13a03000 \tmovne\tr3, #0\n 2f960a8:\t1a000004 \tbne\t2f960c0 <resident_loader_read_gate+0x28>\n 2f960ac:\te3a00004 \tmov\tr0, #4\n 2f960b0:\te12fff1e \tbx\tlr\n 2f960b4:\te3a00004 \tmov\tr0, #4\n 2f960b8:\te28dd03c \tadd\tsp, sp, #60\t@ 0x3c\n 2f960bc:\te49df004 \tpop\t{pc}\t\t@ (ldr pc, [sp], #4)\n 2f960c0:\te52de004 \tpush\t{lr}\t\t@ (str lr, [sp, #-4]!)\n 2f960c4:\te24dd03c \tsub\tsp, sp, #60\t@ 0x3c\n 2f960c8:\te28d2004 \tadd\tr2, sp, #4\n 2f960cc:\te790c003 \tldr\tip, [r0, r3]\n 2f960d0:\te2833004 \tadd\tr3, r3, #4\n 2f960d4:\te3530034 \tcmp\tr3, #52\t@ 0x34\n 2f960d8:\te482c004 \tstr\tip, [r2], #4\n 2f960dc:\t1afffffa \tbne\t2f960cc <resident_loader_read_gate+0x34>\n 2f960e0:\te59d201c \tldr\tr2, [sp, #28]\n 2f960e4:\te59f3028 \tldr\tr3, [pc, #40]\t@ 2f96114 <resident_loader_read_gate+0x7c>\n 2f960e8:\te1520003 \tcmp\tr2, r3\n 2f960ec:\t1afffff0 \tbne\t2f960b4 <resident_loader_read_gate+0x1c>\n 2f960f0:\te59d3020 \tldr\tr3, [sp, #32]\n 2f960f4:\te3530603 \tcmp\tr3, #3145728\t@ 0x300000\n 2f960f8:\t1affffed \tbne\t2f960b4 <resident_loader_read_gate+0x1c>\n 2f960fc:\te59f3014 \tldr\tr3, [pc, #20]\t@ 2f96118 <resident_loader_read_gate+0x80>\n 2f96100:\te28d0004 \tadd\tr0, sp, #4\n 2f96104:\te0433002 \tsub\tr3, r3, r2\n 2f96108:\te58d3020 \tstr\tr3, [sp, #32]\n 2f9610c:\teb0027d1 \tbl\t2fa0058 <__stock_reader_tail_relocated_from_arm>\n 2f96110:\teaffffe8 \tb\t2f960b8 <resident_loader_read_gate+0x20>\n 2f96114:\t02d4bb74 \t.word\t0x02d4bb74\n 2f96118:\t02f96000 \t.word\t0x02f96000\n",
+  "stderr": ""
+}

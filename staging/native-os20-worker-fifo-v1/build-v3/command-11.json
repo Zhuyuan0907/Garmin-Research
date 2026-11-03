@@ -1,0 +1,28 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mfloat-abi=soft",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--no-undefined,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/worker-fifo.map",
+    "-Wl,-T,/root/garmin/staging/native-os20-worker-fifo-v1/worker_fifo_v1.ld",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/00-entry_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/01-worker_fifo_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/02-decoder_bind_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/03-runtime_v2.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/04-memory_output.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/05-owned_media.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/06-owned_queue.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/07-pcm_converter.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/08-voice_media.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/09-media_worker.o",
+    "-lgcc",
+    "-o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/worker-fifo-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

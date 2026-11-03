@@ -1,0 +1,161 @@
+{
+  "all_passed": true,
+  "updated_at_Taiwan": "2026-10-07T20:42:12+08:00",
+  "checkpoint": {
+    "updated_utc": "2026-10-07T12:42:12.760179+00:00",
+    "proof_pins": {
+      "staging/native-music-control-stop-interface-readonly-20261007-v1/proof.json": "0e9221ce12081633da3132db88a4536059ff78d0891c5df17c31413f0271de7f",
+      "staging/native-music-control-stop-interface-readonly-20261007-v1/comparison.json": "c3c77791bec2b7267d17f17f10b21d2260c7581f07c7b87c2a42792426d38521",
+      "staging/native-music-control-stop-interface-readonly-20261007-v1/sealed-files.json": "96eb4dd0f59740300b7e3bb1924102b9f22f257702396e32a61ffbb3c2ea4543",
+      "staging/native-music-control-stop-interface-readonly-20261007-v1/actual-terminal-closure.json": "924cd2a2b91716d485ee1453763bb178d7654781920da5ca1e1b21de25c75e00",
+      "staging/native-music-SBC-capability-contract-readonly-20261007-v1/proof.json": "c57c83b9018bb99b17670b3fcc3c9a5dbe0c374ddea660b5398624955a498515",
+      "staging/native-music-SBC-capability-contract-readonly-20261007-v1/capability-contract-ledger.json": "f7fe74e42ce250bfe39caac9eafd3b2f8e641e0db6d7d3a4ba7c0be3c36a2548",
+      "staging/native-music-SBC-capability-contract-readonly-20261007-v1/sealed-files.json": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7",
+      "staging/native-music-android-AVDTP-contract-readonly-20261007-v1/proof.json": "ea84f34ca63154f77782dd4393e6a239adeacc51826346aa5e7414ed3ef40ea7",
+      "staging/native-music-android-AVDTP-contract-readonly-20261007-v1/android-capability-choice-ledger.json": "48b7aaa32fb84a97521e9faedf9ca95f0ef8ffad6afafb693d0af1de3b258b5b",
+      "staging/native-music-android-AVDTP-contract-readonly-20261007-v1/sealed-files.json": "13000c8475276ca10be5535814490a9fda267558624e9562a031937a16f6b586",
+      "staging/native-music-android-AVDTP-contract-readonly-20261007-v1/actual-postcheck-tool-receipt.json": "3da31ee6f458ec22b44a2a9bead2536fb844528fbed20e097506ab829e059113"
+    },
+    "scope": "finite saved C/H/docs/JSON and public AOSP source review",
+    "public_control_table_model": {
+      "ARM32_source_only": true,
+      "version_word": true,
+      "function_pointers": 8,
+      "bytes": 36
+    },
+    "old_adapter_table_model": {
+      "function_pointers": 10,
+      "bytes": 40
+    },
+    "common_named_typed_symbols": 6,
+    "direct_table_cast_compatible": false,
+    "coordinator_view_model": {
+      "bytes": 60,
+      "fields": 15,
+      "storage_equal": true,
+      "lifecycle_equivalent": false
+    },
+    "compiler_or_device_ABI_verified_this_turn": false,
+    "registration_ticket_is_durable_native_token": false,
+    "required_identity_binding": "persistent native anchor/node-generation token mapped to controller generation, session epoch, ownership cookie and Source actor",
+    "typed_started_cleanup_APIs_exist": true,
+    "production_started_whole_cleanup_or_wake_service_hooks_verified": false,
+    "guard_sync": {
+      "base_C_included": false,
+      "base_header_line": 5,
+      "source_body_is_separate_copy": true,
+      "base_C_not_directly_manifest_pinned_proves_missing_implementation": false
+    },
+    "SBC": {
+      "capability_bytes": "3f ff 02 35",
+      "advertised_rates": [
+        44100,
+        48000
+      ],
+      "bitpool_range": [
+        2,
+        53
+      ],
+      "validator_fields_agree": true,
+      "converter_supports_advertised_subset": true,
+      "converter_16k_32k_inputs_also_advertised": false,
+      "outer_parser": "complete nonfragmented RTPv2 packets, 1..15 SBC frames, codec/MTU limits",
+      "numeric_summary": {
+        "codec_format_shapes": 128,
+        "max_samples_per_channel_per_SBC_frame": 128,
+        "source_buffer_bytes": 512,
+        "converted_buffer_bytes": 256,
+        "conservative_15_frame_output_bound_bytes": 3840,
+        "gather_capacity_bytes": 4096,
+        "arithmetic_only": true,
+        "no_PCM_or_native_execution": true
+      },
+      "fresh_inner_parser_CRC_or_actual_phone_traffic_verified": false,
+      "nsg_config_begin_first_byte_precondition_proves_actual_null_caller": false
+    },
+    "original_SDP_template": {
+      "AVDTP_version": "1.0",
+      "A2DP_version": "1.0",
+      "live_advertisement_verified": false
+    },
+    "Android_inference": {
+      "if_unchanged_template_advertised_and_phone_follows_reviewed_branch": "peer AVDTP 1.0 fails the >=1.3 condition; request uses GetCapabilities (2)",
+      "GetConfiguration_4_is_GetAllCapabilities": false,
+      "all_capabilities_12_proven_required_for_this_Pixel_or_this_device": false,
+      "physical_A2DP_endpoint_or_negotiation_proven": false
+    },
+    "AOSP_primary_sources": [
+      {
+        "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/a5a1f4f32268a9bdff15978dcf6126825a8e0c44/system/bta/av/bta_av_aact.cc",
+        "whole_source_bytes": 127315,
+        "whole_source_sha256": "30020c37b73982f676aa4ecf794d165e74b57528deb684900d1d6165ed9585e1",
+        "facts": {
+          "function": "bta_av_next_getcap",
+          "condition_line": 336,
+          "GetAllCapabilities_requires_peer_and_local_version_at_least": "1.3"
+        },
+        "firmware_or_Pixel_OS_build": false
+      },
+      {
+        "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/7d9992990d914ac0531344060a355c85f041043c/system/stack/avdt/avdt_api.cc",
+        "whole_source_bytes": 37091,
+        "whole_source_sha256": "544c5a6eabf43d68a93b8c0fce7acb523dd3584adffcdeb6221632c3b23b4aae",
+        "facts": {
+          "function": "AVDT_GetCapReq",
+          "choice_line": 374,
+          "true_choice": "GET_ALLCAP",
+          "false_choice": "GETCAP"
+        },
+        "firmware_or_Pixel_OS_build": false
+      }
+    ],
+    "errata": {
+      "signal4_name_corrected_to_GetConfiguration": true,
+      "GetAllCapabilities_signal": 12,
+      "GetAll_delegated_to_stock_claim_withdrawn": true,
+      "interface_value_macro_label": "UMC_ABI_VERSION1 is an inherited label error, not a C identifier; only abi_version at offset0 is used",
+      "original_sealed_reviews_preserved": true
+    },
+    "FILE_scopes": {
+      "interface": {
+        "fresh_files": 3,
+        "fresh_bytes": 17119,
+        "historical_captures_reused": 10
+      },
+      "SBC": {
+        "fresh_files": 8,
+        "fresh_bytes": 43671,
+        "FILE_scalar_checks": 38
+      },
+      "root": {
+        "SDP_source_body_reads": 2,
+        "SDP_source_body_bytes": 165448,
+        "public_source_decoded_body_bytes": 206756,
+        "entire_network_or_filesystem_IO_total_claimed": false,
+        "prior_stat_cap_observation": {
+          "chunk_id": "07f66b",
+          "exit_code": 1,
+          "body_read": false,
+          "observed_metadata_size": 82724,
+          "cap": 65536
+        },
+        "later_fixed_metadata_cap": 98304,
+        "whole_turn_all_commands_passed": false
+      }
+    },
+    "native_compile_execution_guest_original_ASM_MAIN_binary_RAM_source_changes": false,
+    "device_BT_DBUS_audio_or_interrupted_guest_retry": false,
+    "native_ownership_STOP_DONE_App_direct_phone_speaker_or_install_verified": false,
+    "native_install_ready": false,
+    "full_goal_complete": false
+  },
+  "report_url": "http://172.16.60.187:8765/",
+  "report_sha256": "90b07387f9b952987a29b36b51395e031e9dda2fdda8fa9b1e58c7bcb939bb68",
+  "service": {
+    "MainPID": "357833",
+    "ActiveState": "active",
+    "SubState": "running"
+  },
+  "device_IO": false,
+  "goal_complete": false
+}

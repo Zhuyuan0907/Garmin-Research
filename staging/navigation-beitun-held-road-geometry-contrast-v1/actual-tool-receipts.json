@@ -1,0 +1,133 @@
+{
+  "schema": "bounded-host-data-task-actual-tool-receipts/v1",
+  "workspace": "/root/garmin",
+  "namespace": "staging/navigation-beitun-held-road-geometry-contrast-v1",
+  "source_preparation": {
+    "command": "python3 staging/navigation-beitun-held-road-geometry-contrast-v1/prepare_sources.py",
+    "exit_code": 0,
+    "chunk_id": "d6c19a",
+    "groups": 2,
+    "new_source_membership_cases": 2,
+    "new_raw24_membership_cases": 2
+  },
+  "ordinary_Java": {
+    "command": "python3 staging/navigation-beitun-held-road-geometry-contrast-v1/run_java_once.py",
+    "exec_initial_chunk_id": "22eef5",
+    "session_id": 66693,
+    "terminal_chunk_id": "084c08",
+    "exit_code": 0,
+    "Java_process_receipt": "reader-process.json",
+    "actual_invocations": 1,
+    "tiles": 1
+  },
+  "new_analysis": {
+    "command": "python3 staging/navigation-beitun-held-road-geometry-contrast-v1/analyze_contrast.py",
+    "chunk_id": "725038",
+    "exit_code": 0,
+    "actual_executed_source": "analyze_contrast.executed.py",
+    "new_pure_segment_controls": 6,
+    "old_controls_rerun": false
+  },
+  "source_description_edit_after_execution": {
+    "chunk_id": "170f56",
+    "exit_code": 0,
+    "preserved_versions": "source-run-edit-history.json",
+    "mathematical_changes": false,
+    "analysis_rerun": false
+  },
+  "output_audit": {
+    "command": "python3 staging/navigation-beitun-held-road-geometry-contrast-v1/finalize_audit.py",
+    "chunk_id": "b37792",
+    "exit_code": 0,
+    "IMG_Java_geometry_CPU_execution": false,
+    "proof_sha256": "81a5d02a3829511c17ab18f8a260c544ea3bbe2e720217765e48036f20f0e195"
+  },
+  "initial_host_capture_inspections": [
+    {
+      "chunk_id": "6ee246",
+      "exit_code": 0,
+      "actual_result": "Wrong top-level raw_address key lookup found zero; no inference accepted/no write."
+    },
+    {
+      "chunk_id": "046335",
+      "exit_code": 0,
+      "actual_result": "Nested original_prepared_group raw_address fields located exact lines16/17; smallcapture EOF only."
+    }
+  ],
+  "host_inspection_chunks_this_continuation": [
+    "f460cc",
+    "13b07c",
+    "4960e6",
+    "9853c5",
+    "98813b",
+    "b3602a",
+    "acb980",
+    "f5ba6f",
+    "7d8335",
+    "699448"
+  ],
+  "source_capture_total_passes_including_initial_exploration": 3,
+  "tracked_file_read_receipts": "prepared-inputs.json/reader-process.json/analysis-input-read-receipts.json",
+  "exploratory_host_reads_not_falsely_claimed_in_program_byte_totals": true,
+  "selected_tile_Java_syscall_ranges": "java-tile-read-receipt.json",
+  "unknowns": {
+    "Java_SIGSEGV_trace_runtime_cause_not_inferred": true,
+    "host_storage_physical_page_IO_not_measured": true,
+    "Java_RSS_not_measured": true
+  },
+  "MAIN_IMG_fullhash_sourceledger_PBF_CPU_device_rerun_or_mutation": false,
+  "sealing_actual_receipt": "sealer-receipt.json and separate actual seal_scope.py terminal",
+  "all_image_handles_closed": true,
+  "initial_static_inspection_journal": [
+    {
+      "chunk_id": "68bce4",
+      "exit_code": 0,
+      "operation": "rg file inventory; output truncated, not proof"
+    },
+    {
+      "chunk_id": "d96366",
+      "exit_code": 2,
+      "operation": "rg stale lowercase Dunfu glob missing; failed search preserved, no accepted inference"
+    },
+    {
+      "chunk_id": "a11fdd",
+      "exit_code": 0,
+      "operation": "Read sealed Dunfu HANDOFF only"
+    },
+    {
+      "chunk_id": "a2be4d",
+      "exit_code": 0,
+      "operation": "Read sealed old Java source only, not execute"
+    },
+    {
+      "chunk_id": "847961",
+      "exit_code": 0,
+      "operation": "Read small proof/tile/reader/membership metadata"
+    },
+    {
+      "chunk_id": "f87825",
+      "exit_code": 0,
+      "operation": "Read frozen membership API source"
+    },
+    {
+      "chunk_id": "3250ac",
+      "exit_code": 0,
+      "operation": "Read old Dunfu analyze source only, old main not run"
+    },
+    {
+      "chunk_id": "082e0c",
+      "exit_code": 0,
+      "operation": "Inspect frozen geometry/schema/SEAL and file sizes; Shapely absent, not installed"
+    },
+    {
+      "chunk_id": "4e17e2",
+      "exit_code": 0,
+      "operation": "Inspect seal row shape"
+    },
+    {
+      "chunk_id": "557a8f",
+      "exit_code": 0,
+      "operation": "Create own namespace only"
+    }
+  ]
+}

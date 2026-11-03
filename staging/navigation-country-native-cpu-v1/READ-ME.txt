@@ -1,0 +1,43 @@
+全台既有街道候選：有限原韌體 CPU 驗證
+
+成功 EXIT 0，session 79985，initial chunk bcb542，terminal chunk 11d9ed。
+程式 elapsed 3.211740373983048 秒；此時間不代表實機效能。
+實際候選 gmapprom1.img 121,823,232 bytes，root 全檔讀回 SHA-256
+a2e3d43ae33307e6e81bd6f724314a5e03af82082cf453d0aa20cdc4c81b12fa。
+本 scope 只讀實檔 73,315 bytes，原 FAT/header 真正導出 component mapping，
+檔案前後 stat 不變。沒有重算全檔 SHA、複製 IMG、修改圖/USB/ZIP/canonical。
+
+原 parser 讀實際 772-byte MDR header，輸出接原六 entry directory decoder；
+其输出再接原 packed-record prefix。動態 L3 w0=23 /stride112，L4/L5/L6
+count=3425572/2614789/1983085 與 writer plan 完全相同，位置沒有 hardcode。
+8 個 L3 父街道（next4 2、next5 4、next6 2）、11 個真新增門牌共19次prefix：
+  L4 新門牌3：三民路二段2號，民權路6號及150號。
+  L5 新門牌5：三民路二段正隆巷2號、東興街50/67號、中興路95號、東林街153號。
+  L6 新門牌3：光環路二段24/32號、西路71號。
+每個 selected parent first/count/rawflags 和每個新葉子的 existing ref/raw24
+與 sealed producer 相同。父節點 first 大於各自原 table 結尾；它們仍小於
+4194304，沒有把先前 synthetic 高23rd-bit控制重稱為本圖實際數據。
+
+L5 實際 initial shifts=0/2/4/6；L6=0/4。真正未對齊的 raw bytes 和實際後續
+4-byte lookahead 原樣交給 FS mapping。原 ID/stride 算術自行跳過 initial bits；
+逐欄 native bit progression 與 directory-derived widths一致。輸入頁為唯讀，
+slice結尾在未映射頁前；没有 synthetic zero lookahead 或CPU輸入資料重排。
+比較用的 normalized significant payload 不供給 native CPU。
+
+原 GMP header 真 LBL pointer → 真661-byte LBL header → 原 LBL parser/address/
+encoding10 copy fragments，19 个 refs 的原 CPU 複製與終止通過，host CP950
+呈現等於預期街名/門牌。這是分開 staged fragments，非完整 registry getter。
+
+每個 packed prefix 到0x0448F740 metadata入口前停止。hooks只有底層 FS
+open/read/mapping；没有metadata成功/排序/搜尋結果/policy hook。未執行完整
+record getter/query/UI/route；没有宣稱實機接受。flags13未被選為重寫分支，
+其原 flags由root整表preservation證據保留，本 scope不解釋未知highflag語義。
+
+準備輸入僅讀 root candidate proof/plan、merge proof、14.6MB prepared selected
+ranges、8.4MB prepared new-house ledger及既有單街manifest（6/150 payload對照）。
+沒有重開大型country-ready source groups/PBF/source node ledger。舊probe只載入
+sealed methods，Taichung/單街/width/deeperclosed main及case suites未執行。
+
+結果不能當作完整台灣2026地址覆盖、原生搜尋正確、source點等於入口或導航
+路由正確的證據。原JAI/SQL/provider lifecycle、physical install/search/route、
+未覆蓋城市/新街/巷弄/subnumbers及未知flags語義仍是其他scope的缺口。

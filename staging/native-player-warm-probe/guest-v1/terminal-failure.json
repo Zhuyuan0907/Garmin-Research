@@ -1,0 +1,44 @@
+{
+  "all_passed": false,
+  "error": "UcError(55476284, 68)",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 138, in main\n    case=run(stock,inventory,m,kind,runtime);cases.append(case);print(json.dumps(case),flush=True)\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 78, in run\n    expected=reference_sample(vm);expected_mask=mask(expected)\n  File \"/root/garmin/staging/native-player-warm-probe/emulate_warm_probe_v1.py\", line 27, in reference_sample\n    methods=bytes(vm.uc.mem_read(RECORD+0xf4,68))\n                  ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 980, in mem_read\n    raise UcError(status, address, size)\nunicorn.unicorn_py3.unicorn.UcError: Invalid memory read (UC_ERR_READ_UNMAPPED)\n",
+  "completed_cases": [],
+  "device_IO": false,
+  "partial": {
+    "last_PC": 65536,
+    "original_calls": [
+      {
+        "entry": "0x3008a0",
+        "r0": 54841088,
+        "instructions": 9,
+        "seconds": 0.0006570409750565886
+      },
+      {
+        "entry": "0x3008a0",
+        "r0": 61337996,
+        "instructions": 9,
+        "seconds": 0.00016585300909355283
+      },
+      {
+        "entry": "0x3008a0",
+        "r0": 17163816,
+        "instructions": 9,
+        "seconds": 0.00026859401259571314
+      },
+      {
+        "entry": "0x3008a0",
+        "r0": 134459424,
+        "instructions": 9,
+        "seconds": 0.00018259300850331783
+      },
+      {
+        "entry": "0x1d897c",
+        "r0": 0,
+        "instructions": 880671,
+        "seconds": 2.897644645010587
+      }
+    ],
+    "probe_reads": [],
+    "CPU_write_journal": []
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-10-05T15:18:28.426912+00:00",
+  "previous_goal_turn_classification": "progress",
+  "previous_progress_evidence": "staging/navigation-repair-checkpoint-v2/root-final-readback.json",
+  "current_goal_turn_classification": "no_progress",
+  "consecutive_physical_blocker_turns": 1,
+  "blocker_key": "garmin_usb_absent_and_physical_navigation_acceptance_pending",
+  "authoritative_observations": [
+    {
+      "tool": "lsblk -J -b -o NAME,TYPE,SIZE,TRAN,FSTYPE,MOUNTPOINTS",
+      "chunk_id": "7e5e70",
+      "exit_code": 0,
+      "USB_disks": 0
+    },
+    {
+      "tool": "lsusb",
+      "chunk_id": "fd71ab",
+      "exit_code": 0,
+      "Garmin_USB_devices": 0,
+      "only_root_hubs": true
+    },
+    {
+      "tool": "ps scoped completed v2 build/package/verifier processes",
+      "chunk_id": "0e09a9",
+      "exit_code": 1,
+      "matching_processes": 0
+    }
+  ],
+  "active_build_or_test_handle_confirmed": false,
+  "verified_wait": false,
+  "completion_audit": {
+    "candidate_built_packaged_offline_checked": true,
+    "device_installation": "missing",
+    "physical_address_search_speed": "unverified",
+    "physical_Minquan_vs_Minhe_selection": "unverified",
+    "physical_new_map_routing": "unverified",
+    "music_research_resume_condition": "navigation verification pending"
+  },
+  "next_safe_action": "When the navigator is physically connected, verify its USB identity, install/read back v2, then request address and GPS route A/B results.",
+  "task_priority": "navigation_search_repair",
+  "goal_status": "active",
+  "goal_complete": false,
+  "device_IO": false,
+  "device_files_written": false,
+  "canonical_or_sealed_candidate_modified": false,
+  "blocking_threshold_met": false,
+  "meaningful_remaining_verification_requires_physical_navigator": true
+}

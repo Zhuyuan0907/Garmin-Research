@@ -1,0 +1,42 @@
+CLOSED / STOP — normal FILE-only provider-reference review.
+
+Fresh content: exactly 10 files, 105421 B (limit 122880 B), largest 55116 B.
+All saved-capture SHA pins and before/after/final original-source stat pins match.
+47 FILE structural checks passed. These are text/metadata checks, not compilation,
+C semantic proof, native execution, original-instruction execution or live acceptance.
+Only own saved captures were analyzed after the final three-file capture.
+Name-index I/O is separate and not byte-instrumented; content count is not aggregate
+filesystem I/O. Metadata patch-plan/VM instruction fields were not analyzed.
+
+Actual C cancel path:
+  music_stream_callback (AV unlock first) -> music_runtime_cancel ->
+  source_worker_cancel (flag + POST, request0) -> Source actor ->
+  media_coordinator_cancel (owner TCB gate) -> native-idle/remove/release completion.
+Actor counters are written after full coordinator return. Coordinator holds private
+native_calls through original list removal and requires release return0 before
+clearing cancel_pending. This is source implementation, not observed device stop.
+
+Completion receiver source_worker_completed exists and validates record/channel.
+Selected six C files contain only its definition. The old generated manifest also
+lists completion hook/after-original/original symbols, so absence is NOT project-wide.
+Assembly glue/body and installed original call sites were not read or proven.
+
+The old adapter's generation/ownership epoch/cancel baseline/full-return observation
+contract is distinct from its request callback. Root-provided old adapter body/hash
+references are explicitly inherited; current scope did not reread native_adapter.c
+or original_imports.c. Root owns cleanup bridge contract; .S/H not read here.
+The newer shared-core driver really provides init/ready/start/service, but its
+cancel/observe_stop callback remains uncertified (-200), as inherited from the
+closed lifecycle review. Do not automatically apply old private offsets/function
+maps or counter observations to newer generated loaded-pause image.
+
+Missing: same-new-image cancel/observe provider, serialized generation/epoch and
+native ownership binding, installed actor/original full-return hooks, scheduler
+and STOP_DONE/quiescence evidence. Old request0, matching method state and a listed
+assembly symbol do not close these gaps.
+
+Peer Source-wake ledger is referenced by exact SHA, not reread. No live phone,
+BT, D-Bus, PCM, guest, emulator, binary, MAIN/RAM, ASM decoding, compile/import or
+blocked-guest retry. All handles closed, no owned background session remains.
+No shared/canonical edits. Native app/phone/speaker/hardware acceptance stays false.
+Seal records actual file modes; hash-sealed does not imply readonly mode.

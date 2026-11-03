@@ -1,0 +1,17 @@
+本有限普通 OSM 資料來源核對完成；不執行 native/firmware/audio/device，不產地圖或安裝候選。
+
+原 group172188 全21 sourceIDs／raw_addr／firstpoint／different_coordinate_nodes=0／coordinate-ready／separate_floor_unit_nodes=20／完整原分類與 holds，原樣保存在 original-captured-group.json 及 exact original-capture-line.jsonl。原 rawstreet 是昌平路二段50之6巷2弄，rawhouse 是39號；沒有去掉 floor／改成數字 house／改街名／轉 unit 為 subnumber。
+
+一次 osmium getid 從既有2026-10-01 Taiwan PBF 定向取得保存的21完整 nodeIDs，沒有加 referenced objects。21實際 nodes 全在，missing/extra/duplicate0；原XML13,468B，低於64KiB上限。strace actual source oneopen/oneclose、10,177 read syscalls，monotonic exact [0,327206226) 共327,206,226B，無 mmap、無第二抽取。來源 SHA f57631c6c5cdcee9b2e38c460494bf224c80d03301e6a45fd3bfaec0b52e5912 及 snapshot2026-10-01T20:22:06Z 是既有原metadata繼承，非本輪重hash。原PBF新before/after stat完全一致；未冒稱驗過此前未保存的inode pin。
+
+關鍵來源補完：原firstnode8535190177其實有 addr:floor=4樓、addr:unit=之1。沒有這些 floor/unit/door/level 標籤的獨立 node 是8535365806，原sourceID次序第18筆。其原 addr:full 結束39號，沒有樓層/單元字；這是從它自己的原 tags 判定，不是由 count20 或第一點推定。它的version3、timestamp2026-03-13T00:09:45Z、coords24.19197/120.6841351、原4addr keys及全部相關地址tags都保存。
+
+其餘20個sourceIDs都有明確 addr:floor、addr:unit：3樓到12樓，每樓之1/之2各一筆，原字串逐筆保留；未轉成20個平面門牌，也未把之1解作house subnumber。21點全部 literal/numeric coords 與 captured firstpoint一致；原四個addr keys全部一致；source raw24量化都同[1127428,5624288]。21版本皆3；17筆timestamp2026-03-13T00:07:02Z、4筆00:09:45Z。此source timestamp不是官方地址有效期或入口/路由驗收。
+
+node-provenance.json schema exact21-OSM-node-floor-provenance/v1：node_records 含 captured source order、ID、version/timestamp、原coords/raw24、原4addr keys、all_relevant_tags_original_values、原floor policy flags、分類status、私密raw element digest。原相關tags包括所有addr:*及floor/unit/level等；無關電話/帳號不放入公開衍生資料，全部原tags/metadata仍在 private rawextract.osm。
+
+source-partition-proposal.json schema held-source-only-base-floor-partition-proposal/v1：source-only base partition=[8535365806]，floor partition=另外20原IDs；disjoint exact union覆蓋原21。兩partition只是來源規劃提案。原21group及全部holds不修改、不放行；no_floor資料缺口只在新per-node witness被補完。後續仍需真existing native lane/alley branch、literal39號/reference membership、地理/alias與planner政策證據。沒有預留record/ref/group新ID，native_write_ready/install_ready=false。
+
+osmium getid --help及version在執行前核對；工具1.18.0/libosmium2.22.0，exact argv、source metadata pin、新前後stat、actualbyte ledger及terminal IDs均保存。靜態前置一次rg staleglob EXIT2及no-earlier-inode-pin search EXIT1有紀錄，未作成功或負面結論；沒有重掃nodeledger/groups/ready/PBF全hash或network。
+
+獨立 tiny XML/output audit 只再讀13,468B private extract，21筆version/timestamp/rawaddr/coords/flags與衍生行真比對，source PBF只stat、0內容讀，沒有重抽/重跑舊suite。原held group不變。目錄0700；rawextract.osm保留0400，其他封存輸出0444，不在報告貼帳號/無關tags。全部handlesclosed，僅本namespace新增普通小檔。proof/sealed-files及actual receipts一併交root與onefamilyplanner；本scope停止。

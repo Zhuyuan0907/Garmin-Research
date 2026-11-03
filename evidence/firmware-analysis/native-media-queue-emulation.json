@@ -1,0 +1,239 @@
+{
+  "updated_utc": "2026-10-02T21:41:43.252574+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": "803c916c7c15ae4e62bff2b2f66aef184b8ff43461510b4420890f63e6b7fcb7",
+  "queue_manifest": "staging/native-media-queue/manifest.json",
+  "queue_elf_sha256": "b91e8ac24aa6a74342c9b8d0e99c42a761871715047207cd40e0c1f49f3a0183",
+  "dependency_sha256": {
+    "scripts/emulate_native_voice_convert.py": "55b78bf99209addb1eb466c7fd79120515454d9c4e4bfdbe9158c2f1b78c0d8b",
+    "scripts/emulate_native_voice_media.py": "6e910090a648d5003f9c76e100000a404e50448c0d6e5921b58ea8092808369d",
+    "scripts/emulate_avdtp_media.py": "348c6f402acf89f362daebfffcc6accb6e37334f419a70f56a82226713ca6b18",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc"
+  },
+  "cases": [
+    {
+      "voice": "backups/20261002T154458Z/files/Voice/Chinese_Big5_MeiLing.vpm",
+      "combined_sha256": "99ffdf1c81a654d8825b1521886d13330b18eb3e614e13b1974a9e1f3ad36f1e",
+      "streams": [
+        {
+          "rate": 44100,
+          "channels": 2,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "a86cc656e36c3d9c747611d9825557b4d2467eb823dc9798144d0e93e5946b45",
+          "reference_byte_identical": true,
+          "passed": true
+        },
+        {
+          "rate": 48000,
+          "channels": 2,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "7180edf3b2af9c640c2a9937fc75f9488d0fc3b455cf952db16b5045546f1faa",
+          "reference_byte_identical": true,
+          "passed": true
+        },
+        {
+          "rate": 16000,
+          "channels": 1,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "74a390fd65f866b99073cad220d983b9333dff6674e000daebb9015945fbd1f4",
+          "reference_byte_identical": true,
+          "passed": true
+        }
+      ],
+      "guards_and_interleavings": [
+        {
+          "case": "full_queue_drops_newest_and_stop_discards_pending",
+          "capacity": 4,
+          "stock_dispatch_ignores_full_error": true,
+          "passed": true
+        },
+        {
+          "case": "wrong_event",
+          "returned": -20,
+          "no_slot_published": true,
+          "passed": true
+        },
+        {
+          "case": "bad_status",
+          "returned": -20,
+          "no_slot_published": true,
+          "passed": true
+        },
+        {
+          "case": "null_source",
+          "returned": -20,
+          "no_slot_published": true,
+          "passed": true
+        },
+        {
+          "case": "short_length",
+          "returned": -20,
+          "no_slot_published": true,
+          "passed": true
+        },
+        {
+          "case": "oversized_declared_length",
+          "returned": -20,
+          "no_slot_published": true,
+          "passed": true
+        },
+        {
+          "case": "maximum_packet_copied_then_validation_error_reported",
+          "packet_bytes": 4096,
+          "worker_error": -17,
+          "passed": true
+        },
+        {
+          "case": "pcm_capacity_defer_then_cancel",
+          "free_bytes": 8960,
+          "stock_blocking_reserve_not_called": true,
+          "passed": true
+        },
+        {
+          "case": "stop_during_copy_prevents_publication_and_restart",
+          "second_call_on_separate_stack": true,
+          "passed": true
+        },
+        {
+          "case": "enqueue_during_decode_and_reentrant_consumer_rejected",
+          "fifo_and_pcm_reference_identical": true,
+          "passed": true
+        },
+        {
+          "case": "stop_during_decode_finishes_selected_packet_then_discards_pending",
+          "in_flight_pcm_can_still_be_submitted": true,
+          "restart_waits_for_quiescence_and_resets_codec_fir": true,
+          "passed": true
+        },
+        {
+          "case": "stop_during_begin_reset_does_not_reenable_stream",
+          "passed": true
+        }
+      ],
+      "original_40_exports_imports_trampolines_and_ram_preserved": true,
+      "original_irq_save_restore_executed": true,
+      "queue_work_invoked_explicitly": true,
+      "all_passed": true
+    },
+    {
+      "voice": "backups/20261002T154458Z/files/Voice/Chinese_GB_MeiLing.vpm",
+      "combined_sha256": "cd9c975f4945ea22ab0cc870a1f104b3927334697b8ad66755809168bd987c50",
+      "streams": [
+        {
+          "rate": 44100,
+          "channels": 2,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "a86cc656e36c3d9c747611d9825557b4d2467eb823dc9798144d0e93e5946b45",
+          "reference_byte_identical": true,
+          "passed": true
+        },
+        {
+          "rate": 48000,
+          "channels": 2,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "7180edf3b2af9c640c2a9937fc75f9488d0fc3b455cf952db16b5045546f1faa",
+          "reference_byte_identical": true,
+          "passed": true
+        },
+        {
+          "rate": 16000,
+          "channels": 1,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "74a390fd65f866b99073cad220d983b9333dff6674e000daebb9015945fbd1f4",
+          "reference_byte_identical": true,
+          "passed": true
+        }
+      ],
+      "guards_and_interleavings": [],
+      "original_40_exports_imports_trampolines_and_ram_preserved": true,
+      "original_irq_save_restore_executed": true,
+      "queue_work_invoked_explicitly": true,
+      "all_passed": true
+    },
+    {
+      "voice": "backups/20261002T154458Z/files/Voice/English_American_Jill.vpm",
+      "combined_sha256": "4f6d71ee42311bc68329ee7e26a86648c4d4aa8514121acb0e5e25a4a45b13ae",
+      "streams": [
+        {
+          "rate": 44100,
+          "channels": 2,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "a86cc656e36c3d9c747611d9825557b4d2467eb823dc9798144d0e93e5946b45",
+          "reference_byte_identical": true,
+          "passed": true
+        },
+        {
+          "rate": 48000,
+          "channels": 2,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "7180edf3b2af9c640c2a9937fc75f9488d0fc3b455cf952db16b5045546f1faa",
+          "reference_byte_identical": true,
+          "passed": true
+        },
+        {
+          "rate": 16000,
+          "channels": 1,
+          "frames": 40,
+          "packets": 7,
+          "source_destroyed_after_enqueue": true,
+          "callback_did_not_decode_or_output": true,
+          "pcm_sha256": "74a390fd65f866b99073cad220d983b9333dff6674e000daebb9015945fbd1f4",
+          "reference_byte_identical": true,
+          "passed": true
+        }
+      ],
+      "guards_and_interleavings": [],
+      "original_40_exports_imports_trampolines_and_ram_preserved": true,
+      "original_irq_save_restore_executed": true,
+      "queue_work_invoked_explicitly": true,
+      "all_passed": true
+    }
+  ],
+  "voices": 3,
+  "queue_slots": 4,
+  "payload_bytes": 16384,
+  "packet_capacity_bytes": 4096,
+  "conservative_pcm_free_bytes": 8961,
+  "decoded_converted_and_routed_frames": 360,
+  "accepted_stream_packets": 63,
+  "guard_and_interleaving_cases": 12,
+  "all_passed": true,
+  "device_io": false,
+  "device_install_candidate": false,
+  "queue_callback_returns_without_decoding_or_pcm_output": true,
+  "input_and_temporary_handle_not_borrowed": true,
+  "work_step_invoked_explicitly": true,
+  "os_worker_or_event_loop_implemented": false,
+  "real_concurrent_irq_scheduling_tested": false,
+  "real_output_ring_single_producer_ownership_verified": false,
+  "cold_pcm_initialization_verified": false,
+  "physical_speaker_verified": false,
+  "real_sep_registration_verified": false,
+  "signature_acceptance_verified": false,
+  "limitations": "Standalone compiled ARMv6 queue companion, not merged into the voice package or installed. Exact stock dispatch/lookup/BX veneer enqueues copied synthetic packets; explicit work calls run the existing preserving SBC/FIR and original PCM writer/reader. Three voices retain original40exports/imports/trampolines/RAM. Real IRQ save/restore protects metadata; deterministic interleavings use paused ARM contexts and separate caller stacks, not a real scheduler or concurrent hardware. Capacity deferral assumes an initialized ring with exclusive producer ownership; that ownership, cold initialization, actual channel policy and timing remain unverified. Stop during a selected packet permits that packet to finish submitting PCM, then discards pending work; it is not immediate mute. First init requires quiescence, and module/stack reclamation and OS task/wakeup remain unimplemented. No fragmentation, jitter/loss handling, SEP, UI or hardware playback is supplied."
+}

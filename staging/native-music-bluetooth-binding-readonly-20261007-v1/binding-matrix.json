@@ -1,0 +1,623 @@
+{
+  "schema": "garmin-native-music-BT-binding-file-review/v1",
+  "target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "model": "Taiwan nuvi2565RT"
+  },
+  "scope": "Finite FILE-only review of saved small contracts, manifests and C/H. Inherited original-code and guest results are not re-executed here.",
+  "matrix": [
+    {
+      "layer": "SDP_Audio_Sink",
+      "actual_binding": {
+        "record_handle": "0x90007",
+        "original_enable": "0x607F9C/Thumb607F9D",
+        "compiled_provider": "music_endpoint_publish"
+      },
+      "existing_proven_scope": "Captured state index identifies inactive Audio Sink template. Closed endpoint checkpoint reports stock enable/attribute read under offline fixtures.",
+      "required_unbound_integration": "Real module must exclusively own SDP record, serialize publication after Stage1 readiness, retain code/capability memory, and handle enable-plus-unlock uncertainty; no fresh live SDP evidence.",
+      "evidence": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "line": 48,
+          "sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.h",
+          "line": 15,
+          "sha256": "c63c094c6a4182cbb354c5dd574840588d080c89bd1958fe11a1c167dc551195"
+        },
+        {
+          "path": "evidence/firmware-analysis/native-music-endpoint-checkpoint-audit.json",
+          "line": 4,
+          "sha256": "c8b6a86026844d5d254a42405879e773b92ff6bdd8421e522e429fadc7ad22ee"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 517,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "PSM25_profile_registration",
+      "actual_binding": {
+        "original_initializer": "0x4CCC3C",
+        "descriptor_init": "0x50C138",
+        "register": "0x50C150",
+        "PSM": 25,
+        "descriptor_bytes": 52,
+        "callback_descriptor_offset": "0x20",
+        "callback_pointer": "0x50BBB9",
+        "zero_length_wrapper": "0x50BBB8",
+        "original_registration_copy": "0x50C282 -> ARM memcpy 0x39129C, length52",
+        "scope": "Static exact-source only. Prior proofs controlled kernel/PSM transport; new native PSM registration not executed here.",
+        "application_SEP_callback_registration": false
+      },
+      "existing_proven_scope": "Existing exact-source review identifies original initializer4CCC3C, descriptor+20 callback50BBB9, 52-byte registration copy.",
+      "required_unbound_integration": "The stock L2CAP receiver callback is separate from the application SEP callback. Real transport/profile initialization and callback linkage remain unverified for the new module.",
+      "evidence": [
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 504,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "SEP_pool_and_custom_publication",
+      "actual_binding": {
+        "SEP_base": "0x03A88EF0",
+        "SEP_stride": 32,
+        "descriptor_base": "0x03A89058",
+        "descriptor_stride": 12,
+        "slots": 3,
+        "callback_offset": 0,
+        "state_offset": "0x12",
+        "prepare": "music_endpoint_prepare"
+      },
+      "existing_proven_scope": "Custom source fills callback/MTU/descriptor, writes state1 last, claims gate ownership. Closed29-case checkpoint includes stock Discover/capability reads of compiled data.",
+      "required_unbound_integration": "No recovered original SEP-registration API. Must bind actual loaded resident callback, prove unused pool/SDP ownership under native initialization, and install dispatch before publish. SDP alone does not register a SEP.",
+      "evidence": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "line": 19,
+          "sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.h",
+          "line": 4,
+          "sha256": "c63c094c6a4182cbb354c5dd574840588d080c89bd1958fe11a1c167dc551195"
+        },
+        {
+          "path": "evidence/firmware-analysis/native-music-endpoint-checkpoint-audit.json",
+          "line": 4,
+          "sha256": "c8b6a86026844d5d254a42405879e773b92ff6bdd8421e522e429fadc7ad22ee"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 517,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "capability_and_configuration_dispatch",
+      "actual_binding": {
+        "capabilities": "music_endpoint_capabilities",
+        "configuration": "music_configuration_gate",
+        "owned_caps_flags": "0x11",
+        "accepted_services": [
+          "MediaTransport",
+          "audio/SBC"
+        ],
+        "rates": [
+          44100,
+          48000
+        ],
+        "bitpool": [
+          2,
+          53
+        ]
+      },
+      "existing_proven_scope": "Captured C supports guarded owned SEP capability serializer, rejects unsupported services/reconfiguration, and retains stock behavior for unowned endpoints.",
+      "required_unbound_integration": "Actual native dispatch-site binding is a caller obligation. This source does not provide live phone negotiation, general codecs, or a working installed profile.",
+      "evidence": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "line": 70,
+          "sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577"
+        },
+        {
+          "path": "native/avdtp-gate/gate.c",
+          "line": 49,
+          "sha256": "cfbed353aacf9b2a10c7b041676c5974c150f4194b05b782c3e58149c382acb3"
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "line": 42,
+          "sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 575,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "coherent_session_provider",
+      "actual_binding": {
+        "identity": "nsg identity/view",
+        "native_context_base": "0x03A88EB8",
+        "context_stride": 28,
+        "channel_base": "0x03A88F50",
+        "channel_stride": 8,
+        "fields": [
+          "callback identity",
+          "local/remote SEID",
+          "peer",
+          "context",
+          "channel index",
+          "LCID",
+          "flags/type",
+          "codec",
+          "receive MTU",
+          "accepted epoch"
+        ]
+      },
+      "existing_proven_scope": "remote v1 reads matching native identity under its declared AVDTP-lock path; policy verifies codec/state/channel/MTU.",
+      "required_unbound_integration": "App provider must supply a coherent native session plus monotonic generation and durable ownership epoch, close on mismatch/replacement, and coordinate producer leases. This review does not establish a live provider or synchronization guarantee.",
+      "evidence": [
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 31,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 41,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "line": 71,
+          "sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4"
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "line": 93,
+          "sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 575,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "accepted_Configure_and_Start",
+      "actual_binding": {
+        "configure_begin_end": [
+          53,
+          67
+        ],
+        "start_begin_end": [
+          82,
+          93
+        ],
+        "reply_witness": 62
+      },
+      "existing_proven_scope": "Closed four remote scopes report accepted Configure/full Start with actual callback identity. Source requires matching reply witness and full-return result before admitting.",
+      "required_unbound_integration": "state8/event17 alone is insufficient: original reject sequence may still emit them. Bind exact command/reply generation and full-return hook to actual native dispatch; do not fabricate remote START from UI.",
+      "evidence": [
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 53,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 62,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 82,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 575,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        },
+        {
+          "path": "staging/native-remote-source-binding/ROOT-remote-binding-file-proof-v1.json",
+          "line": 148,
+          "sha256": "bc06d131ca92ade5c9b44d084832033d125a3e2cf57353a61b8e2f2295768fcb"
+        }
+      ]
+    },
+    {
+      "layer": "media_F1_callback_and_copy",
+      "actual_binding": {
+        "native_chain": [
+          "0x50BBB8 nonempty wrapper",
+          "0x50BBC0",
+          "0x525138 LCID lookup12slots",
+          "0x50BC5C cached SEP callback in r7",
+          "0x50BC60 original mutex unlock",
+          "0x50BC92/BA BL 42758E",
+          "0x42758E BX r7",
+          "0x50BCC0 original mutex relock"
+        ],
+        "caller_ABI": {
+          "r0": "LCID",
+          "r1": "borrowed packet pointer",
+          "r2": "length"
+        },
+        "callback_ABI": {
+          "r0": "eventF1",
+          "r1": "0 streaming / 0x131 error",
+          "r2": "borrowed stack12-byte handle; bytes0..3 uninitialized",
+          "r3": "borrowed packet",
+          "stack_word0": "length"
+        },
+        "handle_defined_bytes": {
+          "4": "local SEID 1..3",
+          "5": "remote SEID",
+          "6..11": "peer copied from context+0x16"
+        },
+        "raw_channel": "typeFF + matching channelindex, no SBC decode by dispatcher",
+        "success_state_check": "state8 after original unlock; insufficient validated remoteStart/admission evidence",
+        "callback_return_is_transport_acceptance_or_playback": false,
+        "borrowed_storage_rule": "Copy validated packet and only defined handle bytes into module-owned slot before full callback return; retain neither original pointer."
+      },
+      "existing_proven_scope": "Original chain50BBC0→525138→cached r7→unlock→42758E BX r7; five-argument F1 callback ABI. Closed remote scope21 callbacks/5 Source ingress/8 SBC returns.",
+      "required_unbound_integration": "Borrowed packet and stack handle must be copied before return; only handle bytes4..11 are defined. Actual phone packets/radio/SCO-free native speaker output remain unproven. Callback return0 is not transport acceptance or playback.",
+      "evidence": [
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 534,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 134,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/ROOT-remote-binding-file-proof-v1.json",
+          "line": 135,
+          "sha256": "bc06d131ca92ade5c9b44d084832033d125a3e2cf57353a61b8e2f2295768fcb"
+        },
+        {
+          "path": "staging/native-remote-source-binding/ROOT-remote-binding-file-proof-v1.json",
+          "line": 147,
+          "sha256": "bc06d131ca92ade5c9b44d084832033d125a3e2cf57353a61b8e2f2295768fcb"
+        }
+      ]
+    },
+    {
+      "layer": "receiver_to_Source_API_provider",
+      "actual_binding": {
+        "NSG_SOURCE_INGRESS": "0x07000E90",
+        "NSG_SOURCE_COMMAND": "0x07000938",
+        "source_header": "Exact offline Source ELF imports"
+      },
+      "existing_proven_scope": "Reviewed header pins exact offline imports. remote callback passes event,status,handle,packet,length and existing ingress owns a copy before POST.",
+      "required_unbound_integration": "These addresses are VM ELF placement, not recovered live firmware APIs. Actual relocated resident module import table, Source TCB/stack/provider readiness, generation-tagged FIFO leases, and capacity path must be bound together.",
+      "evidence": [
+        {
+          "path": "staging/native-remote-source-binding/source_imports_v1.h",
+          "line": 1,
+          "sha256": "884ffd83d4e80e1dcfe8f12df3b3f727d9c26bf619b3941fc3474dc9af9dfc34"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 152,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 621,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "Source_decoder_PCM_route",
+      "actual_binding": {
+        "logical_ready": "OS20 Source initializer/full returns",
+        "closed_remote_music_PCM_bytes": 744,
+        "closed_remote_original_output_bytes": 7168
+      },
+      "existing_proven_scope": "Ready contract reports six full initializer returns, original CURRENT/POST/WAIT and preserved40 TTS exports under inherited guest fixtures; remote bridge separately reaches Source/SBC/FIFO/mixer.",
+      "required_unbound_integration": "Ready case has no media packets/factory pulls and is logical warm Source readiness. Physical clock/mixer/DMA/speaker, timing, navigation coexistence, and real all-writer ownership remain unproven.",
+      "evidence": [
+        {
+          "path": "staging/native-os20-source-ready-v1/contract-v1.json",
+          "line": 359,
+          "sha256": "a72f58a9eb799d499c00b07cbd146760821f53a2f9448781a34c9254de76e6da"
+        },
+        {
+          "path": "staging/native-os20-source-ready-v1/contract-v1.json",
+          "line": 360,
+          "sha256": "a72f58a9eb799d499c00b07cbd146760821f53a2f9448781a34c9254de76e6da"
+        },
+        {
+          "path": "staging/native-remote-source-binding/ROOT-remote-binding-file-proof-v1.json",
+          "line": 135,
+          "sha256": "bc06d131ca92ade5c9b44d084832033d125a3e2cf57353a61b8e2f2295768fcb"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 644,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "stream_revocation_and_restart",
+      "actual_binding": {
+        "reviewed_remote_v1": "one stream per boot",
+        "events": "19/F2 retire;17 notification only",
+        "revoke_required": [
+          "Suspend",
+          "Close",
+          "Abort",
+          "disconnect",
+          "Stop",
+          "profile/provider replacement",
+          "newconfiguration",
+          "failedpublication",
+          "generationoverflow"
+        ]
+      },
+      "existing_proven_scope": "remote v1 retires admission and posts existing Source Stop on Suspend/disconnect; four scopes include TX-failure, disconnect, profile replacement.",
+      "required_unbound_integration": "Reviewed v1 deliberately has no resume/restart/STOP_DONE/unload. Later pause lifecycle index is known but not audited here; this is not an exhaustive code-absence claim. Real native lifecycle must revoke matching generation, drain producers/mixer leases and prove restart/Stop barriers.",
+      "evidence": [
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 1,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 124,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 134,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        },
+        {
+          "path": "staging/native-remote-source-binding/ROOT-remote-binding-file-proof-v1.json",
+          "line": 155,
+          "sha256": "bc06d131ca92ade5c9b44d084832033d125a3e2cf57353a61b8e2f2295768fcb"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 575,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "cached_callbacks_residency_and_quiescence",
+      "actual_binding": {
+        "media_target_cached_before_unlock": "50BC5C -> 50BC60",
+        "disconnect_target_cached_before_unlock": "543E32 -> 543E68 -> 427588",
+        "Start_target_cached_before_unlock": "575416 -> 57541A -> 42758E",
+        "clearing_SEP_callback_is_quiescence": false,
+        "required": "Keep code/capabilities/TCBs/stacks resident, close admission before mutation, preserve generation-tagged typed callback leases through return, wait for native dispatch and deferred consumers to quiesce before any replacement/unload.",
+        "late_not_yet_entered_cached_callbacks": "Application callback-entry refcount alone cannot account for native cached target before it enters. Resident module or proven native dispatcher barrier required."
+      },
+      "existing_proven_scope": "Original source witnesses cache media, Start and disconnect targets before unlocking; clearing SEP callback is not quiescence.",
+      "required_unbound_integration": "Keep code, capabilities, TCBs and stacks resident. Entry refcounts miss a cached callback not yet entered; replacement/unload needs native-dispatch barrier plus deferred producer/mixer quiescence. Do not equate Stop request/return with STOP_DONE.",
+      "evidence": [
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 567,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.h",
+          "line": 4,
+          "sha256": "c63c094c6a4182cbb354c5dd574840588d080c89bd1958fe11a1c167dc551195"
+        },
+        {
+          "path": "staging/native-remote-source-binding/remote_binding_v1.c",
+          "line": 152,
+          "sha256": "62cda3165c5f284d724a77cedd03bd7674fd6a00023b3e8eb8ee7d26f5d76ab4"
+        }
+      ]
+    },
+    {
+      "layer": "warm_channel8_ownership",
+      "actual_binding": {
+        "historical_snapshot_mask": "FFF",
+        "channel": 8,
+        "historical_original_callback": "0x277C6B",
+        "sample_context": "voice initialization cached diagnostics"
+      },
+      "existing_proven_scope": "User-reported WFFF historical snapshot records initialized idle channel8/profile0/emptylist/provider clear/Mixer idle/free slot.",
+      "required_unbound_integration": "Snapshot is neither current state nor durable exclusive capability. Avoid rerunning whole18-channel init on active system; native all-writer ownership and STOP_DONE remain false in ready contract.",
+      "evidence": [
+        {
+          "path": "evidence/native-warm-probe-physical-positive-20261005T045004Z.json",
+          "line": 1,
+          "sha256": "66d56b203a54916c517e6448b55b8e9da396167ff4c23346fed0ee8f552afd38"
+        },
+        {
+          "path": "staging/native-os20-source-ready-v1/contract-v1.json",
+          "line": 360,
+          "sha256": "a72f58a9eb799d499c00b07cbd146760821f53a2f9448781a34c9254de76e6da"
+        },
+        {
+          "path": "staging/native-os20-source-ready-v1/contract-v1.json",
+          "line": 362,
+          "sha256": "a72f58a9eb799d499c00b07cbd146760821f53a2f9448781a34c9254de76e6da"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 644,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ]
+    },
+    {
+      "layer": "loaded_publication_order_and_App_boundary",
+      "actual_binding": {
+        "historical_loaded_entry": [
+          "original DLL BLX3B3332",
+          "native_app_component_entry clears relinked BSS",
+          "originalTTSbootstrap registers40 exports via2356BC",
+          "native_music_start",
+          "dispatch_install guest-owned sites",
+          "compiled endpoint_prepare",
+          "compiled endpoint_publish"
+        ],
+        "new_required_order": [
+          "Single guarded resident loaded entry; never re-clear active module on voice reload",
+          "Preserve original40 exports/runtime and check exact image/boot readiness",
+          "Complete Stage1 decoder/copiedqueue/guard/profile and actual SourceTCB+stack owner READY",
+          "Install validated preaccept Configure/Start and typed5-argument ingress target while admissionclosed",
+          "Only then compiled prepare/publish candidate",
+          "First admitted external packet wakes Source0x80000; Source owns decode/register/native start/fullsync",
+          "Open PLAY only after original initializer fully returns and typed ownership is valid"
+        ],
+        "Stage1_READY_does_not_require_first_packet_PCM_registration": true,
+        "SDP_readiness_checks_not_complete_radio_or_mutex_health": true,
+        "main_write_MMU_cache_physical_package_acceptance_still_unproved": true
+      },
+      "existing_proven_scope": "Older loaded-entry offline proof retained original40 exports and custom endpoint; later remote proof is VM-only.",
+      "required_unbound_integration": "Single guarded resident entry must establish Source/FIFO/guard/profile readiness, install accepted Configure/Start/typed ingress while closed, then publish. Generic native App/menu→actual coherent-session provider and UI start/stop integration remain separate unbound work.",
+      "evidence": [
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 621,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        },
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 644,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.h",
+          "line": 4,
+          "sha256": "c63c094c6a4182cbb354c5dd574840588d080c89bd1958fe11a1c167dc551195"
+        }
+      ]
+    }
+  ],
+  "pipeline_index": {
+    "required_pipeline": [
+      "Native application/GUI entry and compatible loading mechanism",
+      "Local SDP Audio Sink registration",
+      "AVDTP SEP registration and stream state machine",
+      "SBC decoding and PCM routing into native speaker mixer",
+      "User-controlled playback from native UI"
+    ],
+    "captured_static_names": [
+      "initialized_data_relocation",
+      "sdp_templates",
+      "sdp_activation",
+      "avdtp_discover",
+      "phone_database",
+      "native_component_loader",
+      "sbc_decoder_prototype",
+      "sbc_component_integration",
+      "tts_vpm_containers",
+      "native_pcm_route",
+      "native_remote_generation_Source_bridge_build",
+      "native_remote_generation_Source_same_VM",
+      "native_remote_generation_Source_ROOT_FILE"
+    ],
+    "index_is_partial": true,
+    "native_app_running": false,
+    "direct_phone_music_verified": false,
+    "a2dp_sink_enabled": false,
+    "range_sources": [
+      {
+        "path": "evidence/deep-research-state.json",
+        "offset": 29214,
+        "read_bytes": 8192,
+        "range_sha256": "37ce136fa43a89a583c9115787c4e40c9f0b03e055f10e5abb62c6dde3ccde7b",
+        "stat_before": {
+          "dev": 45826,
+          "ino": 540680,
+          "bytes": 1049295,
+          "mtime_ns": 1791370553764568856,
+          "ctime_ns": 1791370553796568954,
+          "mode": "0o644"
+        },
+        "stat_after": {
+          "dev": 45826,
+          "ino": 540680,
+          "bytes": 1049295,
+          "mtime_ns": 1791370553764568856,
+          "ctime_ns": 1791370553796568954,
+          "mode": "0o644"
+        },
+        "capture": "captures/deep-state-native-music-29214-8192.txt.gz",
+        "source_start_line": 541,
+        "whole_file_hash_not_computed": true,
+        "capture_bytes": 2787,
+        "capture_sha256": "5a1dc402786e82bbf89d7a4cc2e5ba1289b13748636f7061c9d0007c120bf55d"
+      },
+      {
+        "path": "evidence/deep-research-state.json",
+        "offset": 640269,
+        "read_bytes": 1536,
+        "range_sha256": "daa555fbd5be3bfb8b7a1f0f3087fa8ab171118a44a6d855c13de1676d9c3996",
+        "stat_before": {
+          "dev": 45826,
+          "ino": 540680,
+          "bytes": 1049295,
+          "mtime_ns": 1791370553764568856,
+          "ctime_ns": 1791370553796568954,
+          "mode": "0o644"
+        },
+        "stat_after": {
+          "dev": 45826,
+          "ino": 540680,
+          "bytes": 1049295,
+          "mtime_ns": 1791370553764568856,
+          "ctime_ns": 1791370553796568954,
+          "mode": "0o644"
+        },
+        "capture": "captures/deep-state-remote-binding-index-640269-1536.txt.gz",
+        "source_start_line": 17540,
+        "whole_file_hash_not_computed": true,
+        "capture_bytes": 703,
+        "capture_sha256": "30daf49cfcb5c98b62c786db7b04d2f88a492915023067fd163b1cbaa1155e6a"
+      }
+    ]
+  },
+  "current_status": {
+    "direct_phone_A2DP_verified": false,
+    "native_App_running_verified": false,
+    "physical_speaker_from_native_player_verified": false,
+    "install_candidate_produced": false,
+    "goal_complete": false
+  },
+  "guardrails": {
+    "emulator_guest_compile_target_imports": 0,
+    "firmware_image_or_MAIN_reads": 0,
+    "live_BT_DBUS_PCM_device_service_audio": 0,
+    "call_site_source_changes": 0,
+    "interrupted_guest_retry": false
+  },
+  "limits": [
+    "Original exact instruction claims inherit captured receiver static contract; no fresh MAIN bytes were read.",
+    "Closed remote FILE proof is selected-opcode/preimage/whole-RW/RX reconstruction, not complete non-store CFG or all effective-address replay.",
+    "Existing static contract predates newer remote bridge; its unintegrated statement is retained as historical Stage1 scope, while newer four-scope VM binding is recorded separately.",
+    "No fresh live SDP/SEP/phone packet/ownership/renderer/speaker evidence. Historical WFFF is an initialization snapshot.",
+    "Full native-app_music object/static-findings inventory was not parsed; only two bounded ranges and filename/name index were used.",
+    "Discovery rg reads were not byte-instrumented;102389B counts explicit source-content captures, not aggregate filesystem I/O."
+  ]
+}

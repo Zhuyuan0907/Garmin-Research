@@ -1,0 +1,15 @@
+New Taichung installer review notes (offline only)
+
+install_taichung_addresses.py loads this sealed manifest, candidate hash and compact layout recipe. Default CLI is inherited read-only USB preflight; only --install or --rollback may remount for writing. There is no mocked-device CLI option. This agent did not call physical discovery or CLI execution.
+
+device_support.py is an exact byte copy of the previously tested nine-house installer (SHA256 8c3a74b620ad75a452421777b53c60285510c409df66cd10602648bf3604f411). It supplies unchanged safe paths, regular-file reads, identity/protection, USB discovery/reconfirmation, shared lock and unmount helpers. Its historical top-level candidate constants are unused by the new loader/transaction. The execute body is copied verbatim into the new module, where global loader/preflight/transaction names resolve to new implementations. Running device_support.py directly is not the new package entry point.
+
+New image states: exact stock 96,739,328 B; exact previously verified nine-house image at same size; exact new 100,945,920 B. All other hashes/sizes and legacy/new recovery partials are refused. Install may upgrade either accepted predecessor; rollback uses the new bundled candidate plus compact recipe to reconstruct exact stock, including from accepted nine. It does not restore the nine-house candidate as an intermediate backup.
+
+Transaction: write exclusively owned temporary inode of desired size, fsync, full hash/readback, verify target state/inode and temporary inode/content, XML bytes/protected hashes/USB final callback fences, then atomic replace, directory fsync and full destination/preserved/identity readback. The fences run again after the precommit observer. Before commit, only the owned temporary inode is cleaned. After commit, failures leave target intact and report committed=true; a rename that committed before raising is detected via the owned inode. Different-size rollback writes a new smaller file and replaces the old, so no tail is left. No second full backup is created.
+
+The real package load_manifest check actually passed (EXIT0/dd8110), including full new-candidate hash and exact original reconstruction through the recipe. New tests actually passed 35 controls (EXIT0/352c38), using small independently constructed 4K IMG files and real file operations. These tests do not discover a USB disk, emulate physical firmware, or verify navigation. Helper copy and execute source equality are checked in that proof. The old 61-control suite was not rerun.
+
+The original first test failure was a wrong protected-file size in the synthetic test fixture; the protection check correctly refused it. Receipts preserve this failure and successful new runs. Earlier incremental proof files were reduced to receipt names/hashes/counts to avoid packaging duplicate test JSON.
+
+The agent's task did not alter manifest, recipe, restoration module, candidate, roadmap, root README, canonical report, ZIP or unit files. Root still needs review/preflight before any physical install, and physical search/destination/route acceptance belongs to the root agent.

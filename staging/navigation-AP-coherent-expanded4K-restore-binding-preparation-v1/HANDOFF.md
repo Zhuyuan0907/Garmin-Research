@@ -1,0 +1,7 @@
+# Preserved preparation failure
+
+Actual metadata attempt `0f1046 EXIT1` read only90112 metadata bytes and772 MDR header bytes from the existing `.disabled` expanded4K image. It used an incorrect own host-reader offset0x2B2 (actual word0), then asserted the expected directory offset. The unchanged old helper uses decimal600/0x258; the saved header at that offset contains `[149220236,120,20,1]`. This is a preparation-reader bug, not IMG rejection, a platform review failure or a checksum finding.
+
+`failed-metadata-capture-v1.py` preserves the executed heredoc body. The exception occurred before DIR120 and before the final journal write. `failure-proof.json` explicitly reconstructs the exact two reads from that body and the saved return-byte captures, hashes only owned captures, and verifies the original source stat without reopening IMG content. The with-context closed on exception; its planned final explicit closure assertion did not run. `actual-failed-metadata-terminal-receipt.json` preserves the actual exit and terminal tail.
+
+Earlier ordinary small reads pinned the old helper, recipe and old binding; the recipe full compressed/decompressed digest and gzip EOF/CRC passed. No API/binding, synthetic fixture or production reconstruction was prepared or run, and no full/component IMG hash was repeated. Old sources/seals and all device/audio/guest/firmware state remain unchanged. This scope is closed at its first guard failure. Parent separately authorized v2 using decimal600 and saved captures; that permission does not rewrite this failure.

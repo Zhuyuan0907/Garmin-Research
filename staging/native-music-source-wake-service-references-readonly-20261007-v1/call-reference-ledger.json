@@ -1,0 +1,573 @@
+{
+  "schema": "source-wake-service-call-reference-file-review-v1",
+  "scope": "native-music-source-wake-service-references-readonly-20261007-v1",
+  "review_only": true,
+  "conclusion": "The bounded Source family registers mh_source_entry as a kernel task callback and provides a concrete original-initializer CONFIG/PLAY synchronization bridge. It does not register a controller-service event callback or call core started/cleanup token APIs. Initial READY/start/service delegation exists through aas_initialize from the previous pinned capture; sync-completed and mh_initialized are separate observations, not those controller APIs.",
+  "coverage": {
+    "fresh_files": 4,
+    "fresh_source_bytes": 37685,
+    "fresh_limit_bytes": 122880,
+    "per_file_limit_bytes": 65536,
+    "fresh_file_cap": 10,
+    "prior_captures_reused": 5,
+    "prior_sources_body_read_again": 0,
+    "ASM_firmware_binary_RAM_or_snapshot_reads": 0,
+    "filename_index_scope": "exact names in native/staging; source-snapshot, build directories and workspace copies excluded"
+  },
+  "source_registration": [
+    {
+      "file": "v4",
+      "line": 118,
+      "word": 0,
+      "entry": "mh_source_entry",
+      "kernel_builder_line": 122,
+      "registry_line": 124,
+      "first_post_line": 125,
+      "WAIT_line": 107,
+      "bits_dispatch": "WAIT bits explicitly discarded; command mailbox only",
+      "evidence": {
+        "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+        "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+        "line": 118,
+        "function": "mh_boot_source",
+        "fresh_this_scope": true,
+        "prior_scope": null
+      },
+      "runtime_execution_verified": false
+    },
+    {
+      "file": "sync",
+      "line": 123,
+      "word": 0,
+      "entry": "mh_source_entry",
+      "kernel_builder_line": 127,
+      "registry_line": 129,
+      "first_post_line": 130,
+      "WAIT_line": 112,
+      "bits_dispatch": "WAIT bits explicitly discarded; command mailbox only",
+      "evidence": {
+        "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+        "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+        "line": 123,
+        "function": "mh_boot_source",
+        "fresh_this_scope": true,
+        "prior_scope": null
+      },
+      "runtime_execution_verified": false
+    },
+    {
+      "file": "pause",
+      "line": 145,
+      "word": 0,
+      "entry": "mh_source_entry",
+      "kernel_builder_line": 148,
+      "registry_line": 150,
+      "first_post_line": 151,
+      "WAIT_line": 133,
+      "bits_dispatch": "command before data; UMC_SOURCE_EVENT or resume9 drains copied FIFO; no controller service branch",
+      "evidence": {
+        "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+        "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+        "line": 145,
+        "function": "mh_boot_source",
+        "fresh_this_scope": false,
+        "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+      },
+      "runtime_execution_verified": false
+    }
+  ],
+  "call_reference_rows": [
+    {
+      "id": "Source-task-registration",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 115,
+          "function": "mh_boot_source",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 120,
+          "function": "mh_boot_source",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 142,
+          "function": "mh_boot_source",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "Descriptor word0 points to compiled mh_source_entry, with preallocated Source stack, kernel builder/descriptor registry calls and first POST. These are C original-address calls; no native task execution is claimed.",
+      "not_registered": "No controller-service callback is assigned in these descriptor initializers; they register their Source loop entry, not umc_service.",
+      "artifact_boundary": "Three alternative definitions of the same mh_* symbols, not one proof that all are simultaneously linked."
+    },
+    {
+      "id": "initial-READY-controller-delegation",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 60,
+          "function": "initialize_source",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 61,
+          "function": "initialize_source",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 49,
+          "function": "initialize_stage1",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 33,
+          "function": "aas_initialize",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 50,
+          "function": "umc_runtime_ready / request_start / first service",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "All selected Source variants call aas_initialize. Prior pinned driver constructs real umc_adapters then calls umc_init, mcs_init, READY, request_start, first service and callback installation.",
+      "classification": "Real C provider/delegation. Driver body is a prior capture, not freshly read this scope.",
+      "limits": "Controller READY relies on caller-asserted Source/decoder readiness and resident flag; original mixer synchronous initialization and actual phone Start occur later. Static delegation does not certify warm/device readiness."
+    },
+    {
+      "id": "v4-wake-dispatch",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 102,
+          "function": "mh_source_entry",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 127,
+          "function": "mh_request_command",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 71,
+          "function": "process_command",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        }
+      ],
+      "actual_reference": "WAIT returns bits, which are discarded; IRQ-protected mailbox is read/cleared, and only a pending command is dispatched. Request command rejects an occupied mailbox then POSTs.",
+      "controller_service_reference": "No umc_service or controller-token call in this body, and no separate service callback pointer registered here.",
+      "classification": "Prototype event-loop C; initial and subsequent PCM are synthesized by make_pcm/publish_pcm, not direct-phone received media."
+    },
+    {
+      "id": "sync-v2-wake-dispatch",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 107,
+          "function": "mh_source_entry",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 132,
+          "function": "mh_request_command",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 73,
+          "function": "process_command",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        }
+      ],
+      "actual_reference": "Same WAIT bits discarded/command-only dispatch as v4, with command7 allowing another original mixer synchronization call followed by ms_validate_completed_sync.",
+      "controller_service_reference": "No subsequent controller service/token notification. Command completion/result are local command observations.",
+      "classification": "Prototype C with embedded deterministic PCM; no phone/media runtime proof."
+    },
+    {
+      "id": "pause-wake-dispatch",
+      "evidence": [
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 128,
+          "function": "mh_source_entry",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 61,
+          "function": "drain_source_event",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 153,
+          "function": "mh_request_command",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "Later pause variant uses WAIT bits for copied-data draining, processes command before data, and resumes with command9. Its mailbox rejects collision, never coalesces. No embedded PCM first packet.",
+      "controller_service_reference": "UMC_SOURCE_EVENT triggers drain_source_event, not umc_service. This exact body remains the prior closed capture.",
+      "classification": "Actual copied-FIFO Source caller C; no new native/phone execution in this review."
+    },
+    {
+      "id": "pre-sync-CONFIG-callback",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-sync/initializer_sync_bridge_v1.c",
+          "sha256": "bd78bf9ece77339aac996d98dc5f8e9ff28c748273d405e2b7914f895b81cb5a",
+          "line": 30,
+          "function": "ms_before_original_sync",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/initializer_sync_bridge_v1.c",
+          "sha256": "bd78bf9ece77339aac996d98dc5f8e9ff28c748273d405e2b7914f895b81cb5a",
+          "line": 58,
+          "function": "mcs_handoff_source_to_mixer",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        }
+      ],
+      "actual_reference": "Before original synchronous initializer, bridge checks record/wait/seek/original LR, held registration, current Source owner/normal context, zero media/callback/native refs and CONFIG admission. It either grants mixer capability or verifies existing descriptor/capability.",
+      "registration_status": "No C caller to ms_before_original_sync is present in these fresh files. Comment names an assembly tail-call bridge; ASM/call-site bytes and hook installation are explicitly out of scope.",
+      "classification": "Concrete C pre-call hook provider, with guest/prototype binding external. No production callback registration inferred."
+    },
+    {
+      "id": "post-sync-complete-return",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 69,
+          "function": "initialize_source",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 102,
+          "function": "process_command command7",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/initializer_sync_bridge_v1.c",
+          "sha256": "bd78bf9ece77339aac996d98dc5f8e9ff28c748273d405e2b7914f895b81cb5a",
+          "line": 65,
+          "function": "ms_validate_completed_sync",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 56,
+          "function": "start_first_external_packet",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "Source C invokes original initializer, checks its result, then invokes ms_validate_completed_sync; that requires current Source owner/normal context and a valid scoped mixer capability before setting ms_original_sync_completed=1.",
+      "identity": "This flags original mixer synchronous-initializer return in this source call order. It is not umc_runtime_ready, umc_source_started, source-token publication or cleanup return.",
+      "limits": "No original code execution/full return/assembly bridge was run here; the producer text and function names are not runtime evidence."
+    },
+    {
+      "id": "PLAY-full-pull-gate",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-sync/music_session_guard_sync_v1.c",
+          "sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+          "line": 8,
+          "function": "ms_original_sync_completed declaration",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/music_session_guard_sync_v1.c",
+          "sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+          "line": 251,
+          "function": "mcs_pull_begin",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/music_session_guard_sync_v1.c",
+          "sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+          "line": 265,
+          "function": "sync completion rejection",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/music_session_guard_sync_v1.c",
+          "sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+          "line": 285,
+          "function": "mcs_pull_end",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        }
+      ],
+      "actual_reference": "Sync guard adds ms_original_sync_completed as an explicit pull admission condition before media/callback leases. It still requires current mixer/generation/session/provider/caller frame and releases leases on declared full return.",
+      "comparison": "Against cached prior v4 guard, the added extern declaration and pull-condition flag are the only line-text changes (not a complete binary/AST equality claim).",
+      "limits": "This gate is a play/pull condition, not controller READY/Stop/cleanup token notification or installed bridge proof."
+    },
+    {
+      "id": "started-cleanup-token-references",
+      "evidence": [
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 313,
+          "function": "umc_source_started",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 334,
+          "function": "umc_cleanup_returned",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "staging/native-player-mixer-sync/initializer_sync_bridge_v1.c",
+          "sha256": "bd78bf9ece77339aac996d98dc5f8e9ff28c748273d405e2b7914f895b81cb5a",
+          "line": 72,
+          "function": "ms_original_sync_completed assignment",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 105,
+          "function": "mh_initialized assignment",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 110,
+          "function": "mh_initialized assignment",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 131,
+          "function": "mh_initialized assignment",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "Core token API definitions exist in prior capture. The fresh family has zero direct name references to either core token API. mh_initialized is assigned after the initializer returns even if result failed; command acceptance separately checks mh_initialize_result.",
+      "bound_negative": "Zero references is bounded to four fresh C files and the exact prior pause body. No global-project/API absence claim; unreviewed helper/ASM/callback tables may exist.",
+      "missing_binding": "Publication must pass native record/token+controller generation/cookie to source_started, and complete original cleanup return must pass the same identity to cleanup_returned."
+    },
+    {
+      "id": "stop-delegation-not-full-completion",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 85,
+          "function": "process_command command5",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 87,
+          "function": "process_command command5",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 107,
+          "function": "process_command command5",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 57,
+          "function": "aas_stop",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "Command5 delegates to aas_stop, which calls controller request_stop and local queue stop, then sends reset/reset-done/read mixer messages when appropriate. It does not call service or token cleanup APIs.",
+      "limits": "Local command0, messages17/reset-done or sync_completed cannot substitute native cancel/observe_stop/full cleanup barriers. Prior driver cancel/stop observer returns -200; real provider candidates are the sibling agent's separate review."
+    },
+    {
+      "id": "selector-bridge-not-publication-token",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/mixer_source_task_v4.c",
+          "sha256": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+          "line": 136,
+          "function": "mh_selector_bridge",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c",
+          "sha256": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+          "line": 141,
+          "function": "mh_selector_bridge",
+          "fresh_this_scope": true,
+          "prior_scope": null
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 167,
+          "function": "mh_selector_bridge",
+          "fresh_this_scope": false,
+          "prior_scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1"
+        }
+      ],
+      "actual_reference": "Callable C wrapper invokes guard, calls original selector address, separately records original return and runs after_original binding. It does not call controller started/token API.",
+      "registration_status": "No concrete C table assignment/register call installs this bridge in the selected family. The actual original BL→bridge integration is external/unreviewed, not proof from a compiled function existing.",
+      "limits": "Neither a selector-return counter nor selected anchor match is native publication/ownership/full Stop evidence."
+    }
+  ],
+  "exact_name_check": {
+    "method": "C comments and string/character literals masked while preserving newline positions; exact API-token followed by '(' search over complete fresh source text",
+    "targets": [
+      "umc_init",
+      "umc_runtime_ready",
+      "umc_request_start",
+      "umc_request_stop",
+      "umc_service",
+      "umc_status_read",
+      "umc_source_started",
+      "umc_cleanup_returned"
+    ],
+    "fresh_matches": {
+      "staging/native-player-mixer-handoff/mixer_source_task_v4.c": [],
+      "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c": [],
+      "staging/native-player-mixer-sync/initializer_sync_bridge_v1.c": [],
+      "staging/native-player-mixer-sync/music_session_guard_sync_v1.c": []
+    },
+    "all_fresh_target_reference_counts_zero": true,
+    "parser_scope": "ordinary text, not C semantic compiler or binary callgraph"
+  },
+  "prior_capture_bindings": [
+    {
+      "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+      "bytes": 9793,
+      "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+      "fresh_this_scope": false,
+      "body_available_from_closed_capture": true,
+      "stat_freshly_revalidated_this_scope": false
+    },
+    {
+      "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+      "bytes": 4644,
+      "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+      "fresh_this_scope": false,
+      "body_available_from_closed_capture": true,
+      "stat_freshly_revalidated_this_scope": false
+    },
+    {
+      "path": "native/ui-music-control-prototype/ui_music_control.c",
+      "bytes": 14916,
+      "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+      "fresh_this_scope": false,
+      "body_available_from_closed_capture": true,
+      "stat_freshly_revalidated_this_scope": false
+    },
+    {
+      "path": "native/ui-music-control-prototype/ui_music_control.h",
+      "bytes": 7167,
+      "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+      "fresh_this_scope": false,
+      "body_available_from_closed_capture": true,
+      "stat_freshly_revalidated_this_scope": false
+    },
+    {
+      "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+      "bytes": 17740,
+      "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+      "fresh_this_scope": false,
+      "body_available_from_closed_capture": true,
+      "stat_freshly_revalidated_this_scope": false
+    }
+  ],
+  "prior_proof": {
+    "path": "staging/native-music-loaded-controller-lifecycle-readonly-20261007-v1/proof.json",
+    "sha256": "451d9217e8d6faa832fb6cff574ba165db52e853f9297da3008c5d2a3cbc7271",
+    "source_pin_ledger_sha256": "40a72db34fa83c5af58f01a83853559d5189daf38d1620fd487417f3cfe446b0",
+    "reopened": false
+  },
+  "next_file_evidence": "The concrete Source iteration/wake callback invoking umc_service, plus production publication and original whole-cleanup callbacks passing the same controller/native Source token; current selected families do not provide those bindings.",
+  "limits": [
+    "No producer/native imports, compile/tests, native/guest/emulator execution, ASM instruction bytes, MAIN/binary/RAM, device/BT/DBus/audio or original/shared/canonical edits.",
+    "Prior capture reuse is explicitly historical; no fresh byte/stat/binary equivalence is inferred.",
+    "Different Source variants are separate prototype artifacts; presence of the same exported function names does not prove one-image binding.",
+    "No global callgraph, source-snapshot corpus or firmware scan.",
+    "Fresh source hashes bind ordinary files only; compiled registry/output ownership and cancel-provider scopes belong to root/peer."
+  ],
+  "acceptance_flags": {
+    "native_owner": false,
+    "STOP_DONE": false,
+    "native_App": false,
+    "direct_phone_A2DP": false,
+    "speaker": false,
+    "installable": false
+  }
+}

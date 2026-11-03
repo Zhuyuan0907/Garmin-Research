@@ -1,0 +1,1297 @@
+{
+  "updated_utc": "2026-10-04T07:08:29.501703+00:00",
+  "review_kind": "Read-only static analysis and existing journal cross-check; no new guest execution",
+  "exact_target": {
+    "model": "Taiwan nuvi2565RT",
+    "HWID": 1352,
+    "software": "8.00",
+    "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "review_inputs_sha256": {
+    "evidence/firmware-analysis/native-task-runtime-full-emulation.json": "0dff2284ec443a4135a030e6f778f8129bd9da3cbd73231937ed3687b2988e0d",
+    "staging/native-player-task-runtime-full/post-guard-background-development-probe.json": "3308bde61d48e6dba37596972a6c07cdc9f37849eb3f8f57e6c033327c1edfef",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/probe_native_mainmenu_controller.py": "d9f3c1ce76e362515a2a410dd39f01b5d87e8195b94f53bc304e820c34bd9d15",
+    "scripts/probe_native_pool_clock.py": "35d29ecaab8a16bea38ddf6005529c0a72062c8613ae7293e8b079be0d5a8093",
+    "scripts/probe_native_condition_timer_owner.py": "a059681919d850ba5f1e56dd8243fa16dab20505b608070368536b1d01fd3c68",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_native_kernel_context.py": "62325fba9af6338f5289af927faf81b723a04d3a0a89d6d4cba8a8a28dd4aab2",
+    "scripts/analyze_native_task_mutex_static.py": "6614da71ab4c0d5d298e602c50559c2a356e754c8cefb74ac7d4a176e44fe5ca",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "staging/native-player-task-runtime-full/task-lifetime-guard-preflight.json": "9a087801ae81e95dba4ef028f02be111f7323718870b94fc4ce69f210b949579",
+    "staging/native-player-task-runtime-full/gui-stack-fill-preflight.json": "063345227562d4ae7c55a857be4b21d133e43a22a1d079bcd9de29abe10ca380"
+  },
+  "frozen_positive_dependency_sha256": {
+    "backups/20261002T154458Z/files/.System/SQLite/custom_mm_icons.db": "1ae4071e1d93496cac562edf74093f5054f3f72497f4a5c40405a52df2ba2e99",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "evidence/firmware-analysis/voice-modules/Chinese_Big5_MeiLing/DLLIMG.BIN": "a1e8f473c5cf87f5cdc364b402229f6222ce657fe779582dea62b8423cacec44",
+    "native/player-menu-loaded/entry.c": "f821a782f281e1116356bba3a9ecf198e03c44df2a7b4cd08a09839d28445b75",
+    "native/player-resources/player_menu.c": "097dd7267b859bddc7e7114938727926bea52f0357335d769aca23116d309eae",
+    "native/sbc-prototype/app_component_entry.c": "e7e1605a21a862ee9b3de52499d5251530e1c4c8f1d0e214d890ad6466b08b1f",
+    "native/sbc-prototype/decoder.c": "b82ae30f71cd5c5a61120aff9435164bcc375397a90a775d2e0255db78e28661",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "native/sbc-prototype/media_coordinator.c": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+    "native/sbc-prototype/media_queue.c": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+    "native/sbc-prototype/media_queue.h": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+    "native/sbc-prototype/media_worker.c": "be69e2096232d93cf6517df72ac600657b161f62fb080ad209cc8bfff26acbad",
+    "native/sbc-prototype/media_worker.h": "f942220caf544fd6c4db4dbd2607c6c923772ca822e6436234a35112774353ab",
+    "native/sbc-prototype/memory_output.c": "0a20c1d7a9d4dca5147b49054542f5ed1c57701a3ed1b440c94ef086186cc770",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "native/sbc-prototype/owned_media.c": "d6e53fac4bb3f1d50c7712045a3b0d8592e1505b48f29e66fba3717a6961b4f1",
+    "native/sbc-prototype/pcm_converter.c": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+    "native/sbc-prototype/pcm_converter.h": "8f183e510d47f7b0ebb19d044c56c2933b29d8870ee0c5395f5de7fd1b84fa07",
+    "native/sbc-prototype/playback_control.c": "23e339fd62a6476aeaaa6eef26ce9464c5123319191000c8d255ca360739d0c1",
+    "native/sbc-prototype/playback_hook.S": "3a7602fdb6007c8c4ac86e7c5d16a61584cdcbddeaddc2c1480565b46c664197",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/source_event_hooks.S": "845730e6ecca4aa9941772d35a67979a2f0cd64b8c3d4b5b5e17ff9adef6ced2",
+    "native/sbc-prototype/source_worker.c": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+    "native/sbc-prototype/voice_media.c": "ec53e3eff695d26d9117dedadfcddfb88755a4de8f4cbc6b6a82c78f7f8868f0",
+    "scripts/analyze_native_loader.py": "4f83c8e1c9f1aa12e350db7238a78ee557259fbf1123662fb3e52a5496a072b1",
+    "scripts/analyze_native_player_resources.py": "0743f0a65bf09e7fa8b668af3f1d7f92908b2b5717ee970006cee243d81a2e2e",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_usb_transition.py": "5deb660142324f8c07287055c02b748a97540330024600a2cf00d3041d878b3b",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+    "scripts/analyze_tts_vpm.py": "e8a0ec9640493af2f32a81891ee5cab38eb13cd7cd147ae21cd9546693c7fdc7",
+    "scripts/build_native_app_component.py": "f3c2ac1daa220b9a4d93c8a552bb5170e11efb1896078d37ae8fd532813539c6",
+    "scripts/build_native_media_coordinator.py": "f9d46fa6600886c1a093711930965270b8307cdfe01d06b1b58e0228b1ec37af",
+    "scripts/build_native_owned_media.py": "3970b93ee5ee784ddbce0990f4e4cb4b804aa394307498f0e869de8eef64b8c4",
+    "scripts/build_native_playback_control.py": "89f93f3bf271827dfde86c40237fbeef7bf651cb7c037cbf9652ad260a4e644d",
+    "scripts/build_native_player_resources.py": "43adbdf3db6963c5e2501f72f66efc69198a2bc75f9f3775272bdb463895b2be",
+    "scripts/build_native_source_worker.py": "9de9fb2ec5dd530967ce2b715de7d8aefb4ac1d71065c3ff83dc9ea5987b7d5a",
+    "scripts/build_native_voice_package_fixture.py": "15cbac97e82aafeff6cb8709e6d43ca25380ee67dc572cd7191390ef7ba4aa57",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_native_kernel_context.py": "14071090f7d97794b2e174a773642bbcc38c3905177a29d50905d3fc33bba36d",
+    "scripts/emulate_native_loader.py": "88f02fc748aa5aa98926bc343ebf4633a22b708a7bd85a0bc1598891c055168d",
+    "scripts/emulate_native_mainmenu_constructor.py": "c79f097883f9c4c66b1f1344210d10f5ab0e6296a6d4dd2fcd7b4377cc8193a5",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_player_external_fonts.py": "1add15de2352b50e16f8aa41359e00c52071cef825473e3bc8249210201ce470",
+    "scripts/emulate_native_player_grid.py": "a0bbc29098fe048d42382e1914582f6f48c67c79bb75b1001dca9a069c5649f2",
+    "scripts/emulate_native_player_menu.py": "1cce0562d944a03cf39b1a38a4d671528db14f72c2b2810d94aac32a04aa3029",
+    "scripts/emulate_native_player_menu_loaded.py": "eb54cee452d9551aa84e6485524d01b6a04d7a4369ca1d2f3fc9bd4899f91ce8",
+    "scripts/emulate_native_player_menu_selection.py": "f5c7cfe4985db564717dc9655d42765a708eb2def59561e715ed47e00d027b16",
+    "scripts/emulate_native_player_page.py": "39e4550a50de13da4fc4d47e862808ec66e6d7b77972ec583d40bb78ca5b6a63",
+    "scripts/emulate_native_player_text.py": "97bdaa55db989bc30f2fda4bf3b959d6dbb1fdaf9d82e06ab43c8bf900d78f4d",
+    "scripts/emulate_native_player_widget.py": "c7375c9cc2d7298c6890cf4904fc9c88f5f2636de06ea1cfd572cd0ee0ffdd6a",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_sbc_component.py": "ab81b6471be88ffdf77537e8ceea1380f2906fb58bf1214e59feaea6a328707e",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/emulate_native_voice_metadata.py": "a20c99ee2cb81b3bb5974485f676cc1434abec76cd3ba154e588853be24ce810",
+    "scripts/emulate_native_voice_outer.py": "f6691a09db57998fbfd1cd53db7e107f5dd0cbb91270580163a2944b9ec650d1",
+    "scripts/emulate_native_voice_registry.py": "2d114b9befcf47e5e7a1cc9ec779bee56c6edc20d126c2c08e3b2e07d3c5c74b",
+    "scripts/emulate_native_voice_selection.py": "0c438f0deb96ba4675df5f88cd5152454b3f2143455609473739c460d6e1cc61",
+    "scripts/emulate_native_vpm_filesystem.py": "326855842ad9081b68f76b8d4cd7eb77340dd196976384140f3c3616f6c26da2",
+    "scripts/probe_native_condition_timer_owner.py": "a059681919d850ba5f1e56dd8243fa16dab20505b608070368536b1d01fd3c68",
+    "scripts/probe_native_dispatcher_condition.py": "7969f8609694ac0f062eab1a91f4024aeb4c298a1848ffdf629b8620a2c73c45",
+    "scripts/probe_native_dispatcher_kernel_context.py": "099e5bd7d08d4d33781d03ffd8bad6de739679f936027424e68238f1eff00e9c",
+    "scripts/probe_native_dispatcher_owner.py": "4faf2c65b75bfbb8cdbe73d1049a07111c977c796c7e0caf70f99bcd53ad252f",
+    "scripts/probe_native_dispatcher_reacquire.py": "9506aee35d51a0be8d8d94fa5bbafe686bd8c38e9f40bcf85899c34d41a6795d",
+    "scripts/probe_native_gui_runtime_bootstrap.py": "26d218c054b8249b0ee465a2dc166b84544d626fd9e30a37d6f05b203b3d5ff7",
+    "scripts/probe_native_heap_callback.py": "3894abe78bd40fc17500e3e9fc58b0189cacda7cd5b5e4711ed85577d01556a8",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/probe_native_mainmenu_context.py": "36e825681ca5978fe41e05e960b97128d69578bfb8fcde2e26ba911db1c17c5f",
+    "scripts/probe_native_mainmenu_controller.py": "d9f3c1ce76e362515a2a410dd39f01b5d87e8195b94f53bc304e820c34bd9d15",
+    "scripts/probe_native_mainmenu_metadata.py": "6a7478b8e44ca6d613187a040c4d2fd25d629ed407b1f5374f6cb6b088f6e909",
+    "scripts/probe_native_mutex_owner.py": "71a13cc2c8a1f3147dd31fa2c30a69c89845a9a3d4224d2d117b4d8a473f523a",
+    "scripts/probe_native_player_mainmenu.py": "e9fc9c84fa518e5cd2ead7eb6d6d0cc60a2af2e0cd3521e99c56f5c4459a5280",
+    "scripts/probe_native_player_rendering.py": "14577423e656847ec806f96261b51cee40af2f06c3f6025ce56406db29504c3f",
+    "scripts/probe_native_player_resource_cache.py": "d7e0c7833ade1580957d9b9f9a5f1e8509214150a55e4eebd1a730a70e721943",
+    "scripts/probe_native_player_resources.py": "08bf031c451a20dd0b7d935cac1835e608621023a93067c3367ade532fa2ec6b",
+    "scripts/probe_native_pool_clock.py": "35d29ecaab8a16bea38ddf6005529c0a72062c8613ae7293e8b079be0d5a8093",
+    "scripts/probe_native_settings_writer.py": "c317ac2e33ad36a1e25f2b59bfb0885c961a264fc7c1d4c3941ecef6246c981c",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "sources/deep-research/sbc-2.1/sbc/sbc.c": "42d16642f3eebf51f7f9e84a03f62a1d722c03414ed3265ba183bdaa0d9dccc4",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/app_component.ld": "b9825e1b659da432cd8e8e8d741203ac0bec7c221052e66aa6e8baaf56ce9dd1",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/manifest.json": "555055661866aa13d49746816405a47e26b3b416c2a54a4a8003271fb1ab7f26",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/source_worker_imports.h": "2147d9dc725638a4dda8861d8f390245d6ae08cabc3905f963064aa8d017bdf0",
+    "staging/native-media-coordinator/coordinator.ld": "32556c11456bfb65911e4e9658eea07a16519df1b192ec77efb406dc9cf25e61",
+    "staging/native-media-coordinator/manifest.json": "f8a8cf87e2e99fd6b95166a203b4969a8ac9cbf7ae5c37114a7facd0ddf4e97f",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844",
+    "staging/native-owned-media/owned.ld": "4fb15e019df4048f9cc689aaf82a1a051837131c2a656d0a5a168f22d7efc542",
+    "staging/native-owned-media/owned_queue.c": "db1deed241cea130f66cfbf29e232a2131be71ebe8b6451313bff0eba970359e",
+    "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc",
+    "staging/native-pcm-converter/pcm_converter_tables.h": "9608e31285d91e7c0c96b11eb497effbde4ab8cd4bd27c580da4258c3140d488",
+    "staging/native-playback-control/manifest.json": "8e5cb718e3b6ca93706481333ed4f12418ca24be1db341614acf7830109affed",
+    "staging/native-playback-control/playback.ld": "fcae768fa1919150c3dff5ebc1eca7a4582c438953e668d707f716dff11bb840",
+    "staging/native-playback-control/playback_imports.h": "5dce5d671888faf35935a20cdc6ba9e5ea1595b4cd1945181f56d7315a675486",
+    "staging/native-player-menu/build.json": "af29534c2fc3cbed20b0db0b4c092d61dc10e2f3d4a65be75bbd77aa1792bea4",
+    "staging/native-player-resources/combined-voice-player-EMULATION-ONLY.bin": "e5693728fe645a67a38d6f320d2e57cfa551a48cc632a8bc9cab23b7d624ea6a",
+    "staging/native-player-resources/manifest.json": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+    "staging/native-player-resources/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+    "staging/native-player-resources/player-component-EMULATION-ONLY.bin": "9ba8682d38ec7822dca8060d8816fd656b250db9c60c1da30343e6f9338ba6d4",
+    "staging/native-player-resources/player-component-EMULATION-ONLY.elf": "64b120faf0209d21c552dd73c3977ffe76a301e433736e2614f403969b7e61fd",
+    "staging/native-player-resources/player-menu-EMULATION-ONLY.vpm": "f452d466bcbb700ede6bef166add99c7badc3a005857c296043e3526d25e71c7",
+    "staging/native-player-resources/player_component.ld": "bcd0957f9dfbcbc8eee111abe25313d6077389160ea1ab1a1f61b704fb90f111",
+    "staging/native-player-resources/source_worker_imports.h": "69202bb97b0fcb2ee3c1e610c5bedd06738b01297ec24ae2f834c38d88ed2470",
+    "staging/native-source-worker/manifest.json": "402344f58453955af85e96b1c77ceaf226ad031af073dee46c770f85bd47f660",
+    "staging/native-source-worker/source_worker.ld": "1b3f445283cb33622580e1f7b9e803c3dee127df876ccaecdec79b26b7b0bdb6",
+    "staging/native-source-worker/source_worker_imports.h": "874b26207a99d2261356fbd47a3501b5de01c453cade84fccc0c80cb3a2bfb08"
+  },
+  "frozen_positive_dependencies_rechecked_count": 106,
+  "all_frozen_positive_dependency_hashes_match": true,
+  "pre_background_proof": {
+    "path": "evidence/firmware-analysis/native-task-runtime-full-emulation.json",
+    "sha256": "0dff2284ec443a4135a030e6f778f8129bd9da3cbd73231937ed3687b2988e0d",
+    "passed_groups": 3,
+    "guards_end_before_original_controller_wait": true
+  },
+  "background_scope": {
+    "path": "staging/native-player-task-runtime-full/post-guard-background-development-probe.json",
+    "sha256": "3308bde61d48e6dba37596972a6c07cdc9f37849eb3f8f57e6c033327c1edfef",
+    "original_controller_wait_returned": false,
+    "idle_sentinel_reached": true,
+    "original_resume_destinations_reached_count": 10,
+    "full_scoped_background_final_guards_passed": false,
+    "static_review_cannot_promote_background_to_positive_proof": true
+  },
+  "cross_checks": {
+    "all_checks_in_this_review_passed": true,
+    "original_restore_prefix_7_unchanged": true,
+    "new_restore_rows": [
+      {
+        "current": "0x88092b0",
+        "previous_running_task": "0x9503f90",
+        "saved_context": "0x8809254",
+        "saved_PC": "0x358ebc",
+        "context_format": 0,
+        "original_restore_entry_reached": true,
+        "original_task_resume_destination_reached": true,
+        "python_CPU_context_restore": false
+      },
+      {
+        "current": "0x8804fb8",
+        "previous_running_task": "0x88092b0",
+        "saved_context": "0x8804f1c",
+        "saved_PC": "0x300d98",
+        "context_format": 0,
+        "original_restore_entry_reached": true,
+        "original_task_resume_destination_reached": true,
+        "python_CPU_context_restore": false
+      },
+      {
+        "current": "0x9508f90",
+        "previous_running_task": "0x8804fb8",
+        "saved_context": "0x9508f5c",
+        "saved_PC": "0x9400000",
+        "context_format": 0,
+        "original_restore_entry_reached": true,
+        "original_task_resume_destination_reached": true,
+        "python_CPU_context_restore": false
+      }
+    ],
+    "original_pending_mutex_rows_completed": [
+      {
+        "index": 6,
+        "pre_background_operation": {
+          "original_entry": "0x3009a0",
+          "pointer": "0x34a59ac",
+          "native_caller": "0x310408",
+          "operation": "lock",
+          "scope": "Cpp_mutex",
+          "running_task": "0x8804fb8",
+          "entry_SP": "0x8804f78",
+          "entry_LR": "0x310409",
+          "before_words": [
+            "0x0",
+            "0x9503fb0",
+            "0x9503f90",
+            "0x0",
+            "0x31041c",
+            "0x0"
+          ],
+          "native_body_returned": false,
+          "semaphore_fields_written_by_original_only": true,
+          "host_CPU_context_restore": false
+        },
+        "background_completed_operation": {
+          "original_entry": "0x3009a0",
+          "pointer": "0x34a59ac",
+          "native_caller": "0x310408",
+          "operation": "lock",
+          "scope": "Cpp_mutex",
+          "running_task": "0x8804fb8",
+          "entry_SP": "0x8804f78",
+          "entry_LR": "0x310409",
+          "before_words": [
+            "0x0",
+            "0x9503fb0",
+            "0x9503f90",
+            "0x0",
+            "0x31041c",
+            "0x0"
+          ],
+          "native_body_returned": true,
+          "semaphore_fields_written_by_original_only": true,
+          "host_CPU_context_restore": false,
+          "original_return_branch_reached": true,
+          "after_words": [
+            "0x0",
+            "0x8804fd8",
+            "0x8804fb8",
+            "0x0",
+            "0x31041c",
+            "0x0"
+          ],
+          "native_owner": "0x8804fb8",
+          "original_return": 0,
+          "native_lock_acquired_by_originating_task": true,
+          "native_recursion_count": 0,
+          "thread_owned_list_head": "0x34a59ac",
+          "ready_head_at_epilogue": "0x8804fb8"
+        }
+      },
+      {
+        "index": 11,
+        "pre_background_operation": {
+          "original_entry": "0x3008b0",
+          "pointer": "0x8805274",
+          "native_caller": "0x310414",
+          "operation": "unlock",
+          "scope": "Cpp_mutex",
+          "running_task": "0x88092b0",
+          "entry_SP": "0x8809298",
+          "entry_LR": "0x310415",
+          "before_words": [
+            "0x0",
+            "0x88092d0",
+            "0x88092b0",
+            "0x9503ec8",
+            "0x31041c",
+            "0x0"
+          ],
+          "native_body_returned": false,
+          "semaphore_fields_written_by_original_only": true,
+          "host_CPU_context_restore": false
+        },
+        "background_completed_operation": {
+          "original_entry": "0x3008b0",
+          "pointer": "0x8805274",
+          "native_caller": "0x310414",
+          "operation": "unlock",
+          "scope": "Cpp_mutex",
+          "running_task": "0x88092b0",
+          "entry_SP": "0x8809298",
+          "entry_LR": "0x310415",
+          "before_words": [
+            "0x0",
+            "0x88092d0",
+            "0x88092b0",
+            "0x9503ec8",
+            "0x31041c",
+            "0x0"
+          ],
+          "native_body_returned": true,
+          "semaphore_fields_written_by_original_only": true,
+          "host_CPU_context_restore": false,
+          "original_return_branch_reached": true,
+          "after_words": [
+            "0x34a59ac",
+            "0x9503fb0",
+            "0x0",
+            "0x0",
+            "0x31041c",
+            "0x0"
+          ],
+          "native_owner": "0x0",
+          "original_return": 142643888,
+          "native_lock_acquired_by_originating_task": null,
+          "native_recursion_count": 0,
+          "thread_owned_list_head": "0x0",
+          "ready_head_at_epilogue": "0x88092b0"
+        }
+      }
+    ],
+    "new_original_dispatcher_global_unlock": {
+      "original_entry": "0x3008b0",
+      "pointer": "0x34a59ac",
+      "native_caller": "0x310414",
+      "operation": "unlock",
+      "scope": "Cpp_mutex",
+      "running_task": "0x8804fb8",
+      "entry_SP": "0x8804f78",
+      "entry_LR": "0x310415",
+      "before_words": [
+        "0x0",
+        "0x8804fd8",
+        "0x8804fb8",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "native_body_returned": true,
+      "semaphore_fields_written_by_original_only": true,
+      "host_CPU_context_restore": false,
+      "original_return_branch_reached": true,
+      "after_words": [
+        "0x0",
+        "0x8804fd8",
+        "0x0",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "native_owner": "0x0",
+      "original_return": 55204268,
+      "native_lock_acquired_by_originating_task": null,
+      "native_recursion_count": 0,
+      "thread_owned_list_head": "0x0",
+      "ready_head_at_epilogue": "0x8804fb8"
+    },
+    "mutex_operations_all_15_returned_via_original_branches": true,
+    "pending_mutex_operations": {},
+    "condition_wait_returned_and_reacquired": [
+      {
+        "original_entry": "0x3ec5c6",
+        "native_caller": "0x6048d2",
+        "condition": "0x8805290",
+        "mutex": "0x8805274",
+        "native_argument": "0xffffffff",
+        "native_kind": 1,
+        "running_task": "0x9503f90",
+        "semaphore_owner_before": "0x9503f90",
+        "native_owner_gate_passed": true,
+        "original_wait_returned": true,
+        "real_kernel_wait_verified": true,
+        "context_restore_boundary_reached": true,
+        "original_reacquire_entry_reached": true,
+        "original_return_branch_reached": true,
+        "original_return": 0,
+        "native_owner_after": "0x9503f90",
+        "native_reacquisition_verified": true,
+        "physical_kernel_or_IRQ_timing_verified": false
+      }
+    ],
+    "ALL_order": [
+      "0x88092b0",
+      "0x8804fb8",
+      "0x2d227c8",
+      "0x9503f90",
+      "0x9508f90"
+    ],
+    "ready_order": [
+      "0x9508f90"
+    ],
+    "ALL_links_independently_reconstructed_from_raw108": true,
+    "task_state_and_frames": [
+      {
+        "TCB": "0x88092b0",
+        "raw108_hex": "0800000010000000000000002c9280085c5c00000000080047a2d15e405280080000000000000000b84f80088c90f000000000000000000000000000000000000000000000000000301e26000000000000000000000000000000000000000000301e26000000000000000000",
+        "base_priority": 92,
+        "effective_priority": 92,
+        "state": 8,
+        "context_format": 0,
+        "saved_frame": "0x880922c",
+        "owned_mutex_head": "0x0",
+        "saved_frame13_words": [
+          "0x200001ff",
+          "0x353c64",
+          "0xf08c87",
+          "0x8805220",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x927c0",
+          "0x8809260",
+          "0x353c0f"
+        ]
+      },
+      {
+        "TCB": "0x8804fb8",
+        "raw108_hex": "ffffffff00000000245080085c4f80085c5c00140800020047a2d15ee00f80080000000000000000c827d202d892800800000000000000000000000000000000000000000000000044255d00000000000000000000000000000000000000000044255d000000000000000000",
+        "base_priority": 92,
+        "effective_priority": 92,
+        "state": 2,
+        "context_format": 0,
+        "saved_frame": "0x8804f5c",
+        "owned_mutex_head": "0x0",
+        "saved_frame13_words": [
+          "0x200001ff",
+          "0x2fd0ac",
+          "0x10",
+          "0x8801008",
+          "0x8800520",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x5c",
+          "0x8804f90",
+          "0x5d21a9"
+        ]
+      },
+      {
+        "TCB": "0x2d227c8",
+        "raw108_hex": "ffffffff00000000000000008c27d202010100000000020047a2d10e000000009052800800000000903f5009e04f8008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "base_priority": 1,
+        "effective_priority": 1,
+        "state": 2,
+        "context_format": 0,
+        "saved_frame": "0x2d2278c",
+        "owned_mutex_head": "0x8805290",
+        "saved_frame13_words": [
+          "0x200001ff",
+          "0x2fd0ac",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x2d227c0",
+          "0x353d7d"
+        ]
+      },
+      {
+        "TCB": "0x9503f90",
+        "raw108_hex": "ffffffff0000000000000000543f5009101000000000020047a2d10e000000000000000000000000908f5009f027d202000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "base_priority": 16,
+        "effective_priority": 16,
+        "state": 2,
+        "context_format": 0,
+        "saved_frame": "0x9503f54",
+        "owned_mutex_head": "0x0",
+        "saved_frame13_words": [
+          "0x200001ff",
+          "0x2fd0ac",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x5c",
+          "0x9503f88",
+          "0x10001"
+        ]
+      },
+      {
+        "TCB": "0x9508f90",
+        "raw108_hex": "0000000000000000000000005c8f5009f0f000000000010047a2d10e00000000000000000000000000000000b83f5009000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "base_priority": 240,
+        "effective_priority": 240,
+        "state": 1,
+        "context_format": 0,
+        "saved_frame": "0x9508f5c",
+        "owned_mutex_head": "0x0",
+        "saved_frame13_words": [
+          "0x1f",
+          "0x9400000",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x9508f90",
+          "0x358fa5"
+        ]
+      }
+    ],
+    "parsed_TCB_fields": {
+      "0x88092b0": {
+        "ready_link_or_wait_mask": "0x8",
+        "mailbox": "0x10",
+        "descriptor_word1": "0x0",
+        "metadata": "0x8805240",
+        "ALL_next": "0x8804fb8",
+        "ALL_previous_link_pointer": "0xf0908c",
+        "flags": "0x5ed1a247",
+        "internal_mutex_owner_waiter_and_depth_zero": true
+      },
+      "0x8804fb8": {
+        "ready_link_or_wait_mask": "0xffffffff",
+        "mailbox": "0x0",
+        "descriptor_word1": "0x8805024",
+        "metadata": "0x8800fe0",
+        "ALL_next": "0x2d227c8",
+        "ALL_previous_link_pointer": "0x88092d8",
+        "flags": "0x5ed1a247",
+        "internal_mutex_owner_waiter_and_depth_zero": true
+      },
+      "0x2d227c8": {
+        "ready_link_or_wait_mask": "0xffffffff",
+        "mailbox": "0x0",
+        "descriptor_word1": "0x0",
+        "metadata": "0x0",
+        "ALL_next": "0x9503f90",
+        "ALL_previous_link_pointer": "0x8804fe0",
+        "flags": "0xed1a247",
+        "internal_mutex_owner_waiter_and_depth_zero": true
+      },
+      "0x9503f90": {
+        "ready_link_or_wait_mask": "0xffffffff",
+        "mailbox": "0x0",
+        "descriptor_word1": "0x0",
+        "metadata": "0x0",
+        "ALL_next": "0x9508f90",
+        "ALL_previous_link_pointer": "0x2d227f0",
+        "flags": "0xed1a247",
+        "internal_mutex_owner_waiter_and_depth_zero": true
+      },
+      "0x9508f90": {
+        "ready_link_or_wait_mask": "0x0",
+        "mailbox": "0x0",
+        "descriptor_word1": "0x0",
+        "metadata": "0x0",
+        "ALL_next": "0x0",
+        "ALL_previous_link_pointer": "0x9503fb8",
+        "flags": "0xed1a247",
+        "internal_mutex_owner_waiter_and_depth_zero": true
+      }
+    },
+    "changed_TCB_word_offsets_since_singleton": {
+      "0x88092b0": [
+        {
+          "offset": 0,
+          "before": "0x8804fb8",
+          "after": "0x8"
+        },
+        {
+          "offset": 12,
+          "before": "0x8809254",
+          "after": "0x880922c"
+        },
+        {
+          "offset": 20,
+          "before": "0x10000",
+          "after": "0x80000"
+        }
+      ],
+      "0x8804fb8": [
+        {
+          "offset": 0,
+          "before": "0x9508f90",
+          "after": "0xffffffff"
+        },
+        {
+          "offset": 4,
+          "before": "0x10",
+          "after": "0x0"
+        },
+        {
+          "offset": 12,
+          "before": "0x8804f1c",
+          "after": "0x8804f5c"
+        },
+        {
+          "offset": 20,
+          "before": "0x10008",
+          "after": "0x20008"
+        },
+        {
+          "offset": 32,
+          "before": "0x34a59ac",
+          "after": "0x0"
+        }
+      ],
+      "0x2d227c8": [],
+      "0x9503f90": [
+        {
+          "offset": 0,
+          "before": "0x88092b0",
+          "after": "0xffffffff"
+        },
+        {
+          "offset": 12,
+          "before": "0x9503e94",
+          "after": "0x9503f54"
+        },
+        {
+          "offset": 20,
+          "before": "0x10000",
+          "after": "0x20000"
+        }
+      ],
+      "0x9508f90": []
+    },
+    "background_registers": {
+      "r0": "0x9508f90",
+      "r1": "0x0",
+      "r2": "0x8804fb8",
+      "r3": "0x2fd051",
+      "lr": "0x358fa5",
+      "pc": "0x9400000",
+      "sp": "0x9508f90"
+    },
+    "invalid_accesses": [],
+    "native_fatal_entries": [],
+    "audio_requests": []
+  },
+  "precise_returns": {
+    "native_lock_epilogue": "Thumb 300A08 POP r3;300A0A BX r3, returning to310408 with LR310409 for Dispatcher global lock",
+    "native_unlock_epilogue": "Thumb 300928 POP r3;30092A BX r3, returning to310414 with LR310415 for Thread and Dispatcher",
+    "Thread_suspended_unlock_path": "Original358EBC resumes from the prior native reschedule; then native3008B0 epilogue returns. The old waiter transfer is already complete; return does not initiate a new transfer.",
+    "Dispatcher_suspended_lock_path": "Original300D98 resumes contention; cleared stack waiter+4 yields original0, then3009A0 epilogue310408. Global owner was already Dispatcher; row records acquired originTCB.",
+    "unlock_return_value": "Raw R0 is not specified as boolean success by3008B0. Thread142643888 and Dispatcher55204268 are native observed values; ownership/list fields and original return branch establish release.",
+    "event_wait_resume": "Original2FD0AC reconstructs return event/mailbox, restores saved CPSR, Thumb2FD0D0 addsSP8 and2FD0D2 BX LR. Controller saved LR10001 is declared host-return sentinel, not actual firmware controller code.",
+    "Thread_timed_wait_resume": "Original353C64 loads saved CPSR fromSP+0x18;353C6C restores it;353C78 addsSP0x1C;353C7A POP r3;353C7C BX r3. Not yet resumed in current background journal."
+  },
+  "Thread_timed_wait_static": {
+    "original_entry": "0x353be4",
+    "node_stack_address_inferred_from_original_frame": "0x8809264",
+    "node_bytes": 20,
+    "node_location": "Saved native SP0x8809260 +4; saved original CPSR isSP+0x18 and callerLR isSP+0x1C",
+    "node_layout": {
+      "next": 0,
+      "TCB_or_zero_after_expiry": 4,
+      "absolute_deadline": 8,
+      "type_byte": 12,
+      "type_specific_parameter": 16
+    },
+    "original_arm_wrapper": "353C0A BL353D68, nativecontinuation353C0E;353D70 literal-tail to353E49",
+    "node_owner_write": "353E54 stores original ready headF09090 at node+4",
+    "deadline_write": "353C04/06 reads clockF09098;353C08 adds caller relative duration;353E4E stores result atnode+8",
+    "type_write": "353D6C sets2;353E4C storesbyte2 atnode+12",
+    "queue_head": "0xf0909c",
+    "queue_insert_writers": "353E92 node.next=current insertion successor;353E94 predecessor/head link=node",
+    "queue_order": "Original comparison uses unsigned deadline-relative-to(clock-0x927C0), with BHS traversing equal-deadline entries. Preserve original ordering and wrap behavior.",
+    "original_state_and_removal": "353C10..14 removes ready head;353C18 TCB+0=8;353C1C statebyte=8;353C44 saves frameSP;353C60 BLX358EC4",
+    "observed_saved_PC": "0x353c64",
+    "observed_saved_SP": "0x8809260",
+    "observed_TCB_state": 8,
+    "observed_TCB_wait_mask": "0x8",
+    "observed_mailbox": "0x10",
+    "node_raw_or_deadline_present_in_background_journal": false,
+    "actual_queue_membership_verified_at_background_endpoint": false
+  },
+  "timer_service_static": {
+    "entry": "0x353d78",
+    "original_wait_call": "353D78 BL2FD034; only eventbit1 enters timer queue service after353D7E test",
+    "clock_literal": "353DE8=F09098",
+    "queue_literal": "353DEC=F0909C",
+    "deadline_order_wrap_window_literal": "353DF0=0x927C0",
+    "due_check": "353D92 readsnode+8;353D94 clock-deadline;353D98 BHS with0x927C0 returns towait when not due under originalwrap-window comparison",
+    "due_node_unlink": "353D9A/9C updates F0909C fromnode.next",
+    "Thread_type2_expiry": "353DD8/DDA clearsnode+4;353DE0 BLX2FCF44(originalTCB,8)",
+    "type1_expiry": "353DC6/C8 clearsnode+4;353DD2 posts(node+16|4)",
+    "type0_periodic": "353DB2 updatesdeadline fromnode+16;353DB8 reinserts353E14;353DC0 posts1",
+    "wait_node_remains_resident_until_native_expiry_resume": true,
+    "actual_due_node_or_tick_service_not_executed_by_this_review": true
+  },
+  "static_local_CFGs": {
+    "0x353be4": {
+      "entry": "0x353be4",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x353be4",
+          "mode": "Thumb",
+          "instruction": "push {lr}"
+        },
+        {
+          "address": "0x353be6",
+          "mode": "Thumb",
+          "instruction": "sub sp, #0x1c"
+        },
+        {
+          "address": "0x353be8",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "address": "0x353bea",
+          "mode": "Thumb",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x353bec",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x353be8"
+        },
+        {
+          "address": "0x353bec",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "address": "0x353bf0",
+          "mode": "ARM",
+          "instruction": "orr r3, r1, #0x80"
+        },
+        {
+          "address": "0x353bf4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "address": "0x353bf8",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "address": "0x353bfc",
+          "mode": "ARM",
+          "instruction": "bx r3",
+          "explicit_interworking_target": "0x353c00",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x353bf8"
+        },
+        {
+          "address": "0x353c00",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp, #0x18]"
+        },
+        {
+          "address": "0x353c02",
+          "mode": "Thumb",
+          "instruction": "add r1, sp, #4"
+        },
+        {
+          "address": "0x353c04",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x78]",
+          "literal_address": "0x353c80",
+          "literal_value": "0xf09098"
+        },
+        {
+          "address": "0x353c06",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "address": "0x353c08",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "address": "0x353c0a",
+          "mode": "Thumb",
+          "instruction": "bl #0x353d68",
+          "direct_call": "0x353d68",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x353c0e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x74]",
+          "literal_address": "0x353c84",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x353c10",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r0]"
+        },
+        {
+          "address": "0x353c12",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r2]"
+        },
+        {
+          "address": "0x353c14",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "address": "0x353c16",
+          "mode": "Thumb",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x353c18",
+          "mode": "Thumb",
+          "instruction": "str r1, [r2]"
+        },
+        {
+          "address": "0x353c1a",
+          "mode": "Thumb",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x353c1c",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r2, #0x16]"
+        },
+        {
+          "address": "0x353c1e",
+          "mode": "Thumb",
+          "instruction": "adr r0, #4"
+        },
+        {
+          "address": "0x353c20",
+          "mode": "Thumb",
+          "instruction": "bx r0",
+          "explicit_interworking_target": "0x353c24",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x353c1e"
+        },
+        {
+          "address": "0x353c24",
+          "mode": "ARM",
+          "instruction": "mov r0, sp"
+        },
+        {
+          "address": "0x353c28",
+          "mode": "ARM",
+          "instruction": "push {r0, lr}"
+        },
+        {
+          "address": "0x353c2c",
+          "mode": "ARM",
+          "instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, ip}"
+        },
+        {
+          "address": "0x353c30",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #0x2c"
+        },
+        {
+          "address": "0x353c34",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x353c38",
+          "mode": "ARM",
+          "instruction": "mrs r0, apsr"
+        },
+        {
+          "address": "0x353c3c",
+          "mode": "ARM",
+          "instruction": "orr r0, r0, #0x20"
+        },
+        {
+          "address": "0x353c40",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {r0}"
+        },
+        {
+          "address": "0x353c44",
+          "mode": "ARM",
+          "instruction": "str sp, [r2, #0xc]"
+        },
+        {
+          "address": "0x353c48",
+          "mode": "ARM",
+          "instruction": "mov r0, #0"
+        },
+        {
+          "address": "0x353c4c",
+          "mode": "ARM",
+          "instruction": "strb r0, [r2, #0x17]"
+        },
+        {
+          "address": "0x353c50",
+          "mode": "ARM",
+          "instruction": "lsr r0, sp, #3"
+        },
+        {
+          "address": "0x353c54",
+          "mode": "ARM",
+          "instruction": "lsl sp, r0, #3"
+        },
+        {
+          "address": "0x353c58",
+          "mode": "ARM",
+          "instruction": "add r0, pc, #1"
+        },
+        {
+          "address": "0x353c5c",
+          "mode": "ARM",
+          "instruction": "bx r0",
+          "explicit_interworking_target": "0x353c60",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x353c58"
+        },
+        {
+          "address": "0x353c60",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4",
+          "direct_call": "0x358ec4",
+          "call_target_mode": "ARM"
+        },
+        {
+          "address": "0x353c64",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #0x18]"
+        },
+        {
+          "address": "0x353c66",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "address": "0x353c68",
+          "mode": "Thumb",
+          "instruction": "bx r2",
+          "explicit_interworking_target": "0x353c6c",
+          "target_mode": "ARM",
+          "verified_target_producer": "0x353c66"
+        },
+        {
+          "address": "0x353c6c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "address": "0x353c70",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "address": "0x353c74",
+          "mode": "ARM",
+          "instruction": "bx r2",
+          "explicit_interworking_target": "0x353c78",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x353c70"
+        },
+        {
+          "address": "0x353c78",
+          "mode": "Thumb",
+          "instruction": "add sp, #0x1c"
+        },
+        {
+          "address": "0x353c7a",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0x353c7c",
+          "mode": "Thumb",
+          "instruction": "bx r3",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x353c7c"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x353d78": {
+      "entry": "0x353d78",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x353d78",
+          "mode": "Thumb",
+          "instruction": "bl #0x2fd034",
+          "direct_call": "0x2fd034",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x353d7c",
+          "mode": "Thumb",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x353d7e",
+          "mode": "Thumb",
+          "instruction": "tst r0, r1"
+        },
+        {
+          "address": "0x353d80",
+          "mode": "Thumb",
+          "instruction": "beq #0x353d78"
+        },
+        {
+          "address": "0x353d82",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [pc, #0x64]",
+          "literal_address": "0x353de8",
+          "literal_value": "0xf09098"
+        },
+        {
+          "address": "0x353d84",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r4]"
+        },
+        {
+          "address": "0x353d86",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [pc, #0x64]",
+          "literal_address": "0x353dec",
+          "literal_value": "0xf0909c"
+        },
+        {
+          "address": "0x353d88",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x64]",
+          "literal_address": "0x353df0",
+          "literal_value": "0x927c0"
+        },
+        {
+          "address": "0x353d8a",
+          "mode": "Thumb",
+          "instruction": "mov r8, r1"
+        },
+        {
+          "address": "0x353d8c",
+          "mode": "Thumb",
+          "instruction": "ldr r6, [r5]"
+        },
+        {
+          "address": "0x353d8e",
+          "mode": "Thumb",
+          "instruction": "cmp r6, #0"
+        },
+        {
+          "address": "0x353d90",
+          "mode": "Thumb",
+          "instruction": "beq #0x353d78"
+        },
+        {
+          "address": "0x353d92",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r6, #8]"
+        },
+        {
+          "address": "0x353d94",
+          "mode": "Thumb",
+          "instruction": "subs r1, r4, r2"
+        },
+        {
+          "address": "0x353d96",
+          "mode": "Thumb",
+          "instruction": "cmp r1, r8"
+        },
+        {
+          "address": "0x353d98",
+          "mode": "Thumb",
+          "instruction": "bhs #0x353d78"
+        },
+        {
+          "address": "0x353d9a",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r6]"
+        },
+        {
+          "address": "0x353d9c",
+          "mode": "Thumb",
+          "instruction": "str r1, [r5]"
+        },
+        {
+          "address": "0x353d9e",
+          "mode": "Thumb",
+          "instruction": "ldr r7, [r6, #4]"
+        },
+        {
+          "address": "0x353da0",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r6, #0xc]"
+        },
+        {
+          "address": "0x353da2",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #2"
+        },
+        {
+          "address": "0x353da4",
+          "mode": "Thumb",
+          "instruction": "beq #0x353dd8"
+        },
+        {
+          "address": "0x353da6",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "address": "0x353da8",
+          "mode": "Thumb",
+          "instruction": "beq #0x353dc6"
+        },
+        {
+          "address": "0x353daa",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x353dac",
+          "mode": "Thumb",
+          "instruction": "bne #0x353d8c"
+        },
+        {
+          "address": "0x353dae",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r6, #0x10]"
+        },
+        {
+          "address": "0x353db0",
+          "mode": "Thumb",
+          "instruction": "adds r2, r2, r3"
+        },
+        {
+          "address": "0x353db2",
+          "mode": "Thumb",
+          "instruction": "str r2, [r6, #8]"
+        },
+        {
+          "address": "0x353db4",
+          "mode": "Thumb",
+          "instruction": "adds r0, r6, #0"
+        },
+        {
+          "address": "0x353db6",
+          "mode": "Thumb",
+          "instruction": "adds r1, r5, #0"
+        },
+        {
+          "address": "0x353db8",
+          "mode": "Thumb",
+          "instruction": "bl #0x353e14",
+          "direct_call": "0x353e14",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x353dbc",
+          "mode": "Thumb",
+          "instruction": "adds r0, r7, #0"
+        },
+        {
+          "address": "0x353dbe",
+          "mode": "Thumb",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x353dc0",
+          "mode": "Thumb",
+          "instruction": "blx #0x2fcf44",
+          "direct_call": "0x2fcf44",
+          "call_target_mode": "ARM"
+        },
+        {
+          "address": "0x353dc4",
+          "mode": "Thumb",
+          "instruction": "b #0x353d8c"
+        },
+        {
+          "address": "0x353dc6",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x353dc8",
+          "mode": "Thumb",
+          "instruction": "str r1, [r6, #4]"
+        },
+        {
+          "address": "0x353dca",
+          "mode": "Thumb",
+          "instruction": "adds r0, r7, #0"
+        },
+        {
+          "address": "0x353dcc",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r6, #0x10]"
+        },
+        {
+          "address": "0x353dce",
+          "mode": "Thumb",
+          "instruction": "movs r2, #4"
+        },
+        {
+          "address": "0x353dd0",
+          "mode": "Thumb",
+          "instruction": "orrs r1, r2"
+        },
+        {
+          "address": "0x353dd2",
+          "mode": "Thumb",
+          "instruction": "blx #0x2fcf44",
+          "direct_call": "0x2fcf44",
+          "call_target_mode": "ARM"
+        },
+        {
+          "address": "0x353dd6",
+          "mode": "Thumb",
+          "instruction": "b #0x353d8c"
+        },
+        {
+          "address": "0x353dd8",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x353dda",
+          "mode": "Thumb",
+          "instruction": "str r1, [r6, #4]"
+        },
+        {
+          "address": "0x353ddc",
+          "mode": "Thumb",
+          "instruction": "adds r0, r7, #0"
+        },
+        {
+          "address": "0x353dde",
+          "mode": "Thumb",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x353de0",
+          "mode": "Thumb",
+          "instruction": "blx #0x2fcf44",
+          "direct_call": "0x2fcf44",
+          "call_target_mode": "ARM"
+        },
+        {
+          "address": "0x353de4",
+          "mode": "Thumb",
+          "instruction": "b #0x353d8c"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    }
+  },
+  "static_call_graph_limits": {
+    "local_timed_wait_CFG_complete": true,
+    "local_timer_service_loop_CFG_complete": true,
+    "recursive_callees_not_treated_as_complete_kernel": true,
+    "callee_inventory": {
+      "0x353d68": "Literal-tail to353E48 already bounded in frozen task-mutex-static-preflight.json",
+      "0x358ec4": "Normal original restore already bounded in frozen kernel/task preflight; terminal is saved destination dispatch",
+      "0x2fd034": "Original normal wait already bounded in frozen kernel preflight; actual controller/Dispatcher/timer frames separately observed",
+      "0x353e14": "Original queue reinsertion helper body not newly recursively included",
+      "0x2fcf44": "Normal event post bounded earlier; IRQ alternate2FCE38 and physical IRQ exit remain outside this review"
+    },
+    "complete_boot_IRQ_kernel_or_scheduler_verified": false
+  },
+  "next_background_final_guard_requirements": [
+    "Declare an exact background endpoint first: idle fixture9400000 with original restore reached, running_task==ready head==idle and idleSP9508F90. Controller originalWAIT has not returned; do not demand returned=true or set a synthetic event.",
+    "At that endpoint independently reread ALL108-byte TCBs and links, ready-only-idle, states Thread8/Dispatcher2/timer2/controller2/idle1, base/effective priorities92/92/1/16/240 and expected metadata/flags. Keep every TCB and stack declared, live and unfreed.",
+    "Read full current mutex fields and traverse owned lists, not only logical counters. Expected only retainedcondition8805290 owned bytimer; global34A59AC/user8805274/aux88052AC/recursive88009BC owner0, no waiters/depth. Zero-owner native sem.next/previous words may remain stale and must not be swept or requiredzero.",
+    "Verify normal mutex logical counters zero, retained condition token separately equals native timerowner, and task_mutex_ops/task_waits/task_releases/task_lower_waits/pending notifications all empty without host counter sweeping.",
+    "Reread F0909C and every timed node20 bytes; enforce bounded acyclic unique queue, declared resident storage, original deadline order/wrap behavior, type2 Threadnode8809264 exactly once, node+4=Thread88092B0 and node+8 equal observed caller duration plus observed F09098 at353C08. Capture original duration/clock, never invent a deadline from lack of serialized bytes.",
+    "Reread each13-word context and bounds on its declared stack. Threadframe880922C PC353C64/SP8809260/LR353C0F; Dispatcherframe8804F5C PC2FD0AC/SP8804F90/LR5D21A9; timerframe2D2278C PC2FD0AC/SP2D227C0/LR353D7D; controllerframe9503F54 PC2FD0AC/SP9503F88/LR10001; idle retains consumed builderframe9508F5C PC9400000/SP9508F90/LR358FA5. These are resident continuations, not task exits.",
+    "Rerun whole code/startup copies, preserving voice40/export/import, private12/player2, full declared GUI initialized regions, DB checksum/read-only SQL handles, filesystem closure, allocations/storage/descriptors and code/RX permissions guards at the post-background endpoint. The prior proof ends before controllerWAIT and cannot substitute these reads.",
+    "Preserve A5 leading64 synthetic controller/idle and A5 leading24 timer canaries; GUIleading64 baseline is FF from originalF6F26/3794F0 fill. Never impose prebuilder GUIleading64 baseline or arbitrary CPSR lowbyteBF: savedwait frames currently200001FF satisfy native mode/flags.",
+    "Record no guest instruction patch, host CPU context restore, fake waiter-marker clear/owner transfer, priority/ready edit, synthetic sleep return or fake clock/timerpost. Any later clock/timer event input must be separately declared and test genuine original post/timer dispatch before claiming an expired wait.",
+    "Keep whole module, tasks, timed node/condition token and resident frames alive. Empty old mutex pending stacks do not establish task quiescence, exit-listener safety, callback drain, unload or on-device GUI/audio."
+  ],
+  "fixture_boundaries": {
+    "controller_and_idle_descriptor_stack_ready_seed": "Explicit synthetic kernel input from probe_native_kernel_context.py; original358BF8 buildsTCBs/frames, but fullboot inventory is not reconstructed",
+    "idle_endpoint": "Host-declared mapped ARM branch fixture at9400000, intercepted before physicalidle/hardwareclock",
+    "controller_return_LR": "Host declaredRETURN|1=10001; context saved by originalWAIT, actual firmwarecontroller entry not proven",
+    "timer_boot_event": "Explicit originalPOST(timer,0x10) input occurred before pre-background proof; no realclockIRQ",
+    "clock": "Inherited ControllerVM supplies F09098 +20 only on original353A9C getter entry; pool clock can separately script input. Original353BE4 reads F09098 directly. Neither establishes hardwareticks or automatic timer event1.",
+    "heap_filesystem_settings_IRQ_services": "Existing declared fixture inputs remain; current static review does not change them"
+  },
+  "new_runtime_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "frozen_files_modified": false,
+  "full_scoped_background_final_guards_passed": false,
+  "physical_hardware_GUI_App_music_safe_unload_verified": false,
+  "install_candidate": false
+}

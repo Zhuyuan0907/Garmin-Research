@@ -1,0 +1,50 @@
+--- a/test/test-rfcomm.c
++++ b/test/test-rfcomm.c
+@@ -12,6 +12,7 @@
+ # include <config.h>
+ #endif
+ 
++#include <poll.h>
+ #include <pthread.h>
+ #include <signal.h>
+ #include <stdbool.h>
+@@ -328,6 +329,39 @@
+ 	ba_transport_pcm_volume_update(pcm);
+ 	ck_assert_rfcomm_recv(fd, "\r\n+VGS:7\r\n");
+ 
++	/* Without an external owner, the original idle response still applies. */
++	ck_assert_rfcomm_send(fd, "AT+CIND?\r");
++	ck_assert_rfcomm_recv(fd, "\r\n+CIND:0,0,0,0,0,0,5\r\n");
++	ck_assert_rfcomm_recv(fd, "\r\nOK\r\n");
++
++	/* Exercise the real RFCOMM loop, with an external call-state owner. */
++	int external[2];
++	ck_assert_int_eq(socketpair(AF_UNIX, SOCK_SEQPACKET, 0, external), 0);
++	sco->sco.rfcomm->handler_fd = external[0];
++	ba_rfcomm_send_signal(sco->sco.rfcomm, BA_RFCOMM_SIGNAL_PING);
++	/* A forwarded notification proves that the poll loop attached the fd. */
++	ck_assert_rfcomm_send(external[1], "\r\n+CIEV:1,1\r\n");
++	ck_assert_rfcomm_recv(fd, "\r\n+CIEV:1,1\r\n");
++
++	const char *states[] = { "1,1,0,0,4,0,5", "1,0,1,0,4,0,5" };
++	for (size_t i = 0; i < G_N_ELEMENTS(states); i++) {
++		ck_assert_rfcomm_send(fd, "AT+CIND?\r");
++		ck_assert_rfcomm_recv(external[1], "AT+CIND?\r");
++		/* No contradictory idle response may precede the owner's reply. */
++		struct pollfd pending = { .fd = fd, .events = POLLIN };
++		ck_assert_int_eq(poll(&pending, 1, 100), 0);
++		char reply[64];
++		snprintf(reply, sizeof(reply), "\r\n+CIND:%s\r\n", states[i]);
++		ck_assert_int_eq(write(external[1], reply, strlen(reply)), strlen(reply));
++		char received[64] = { 0 };
++		ck_assert_int_eq(read(fd, received, strlen(reply)), strlen(reply));
++		ck_assert_str_eq(received, reply);
++		ck_assert_rfcomm_send(external[1], "\r\nOK\r\n");
++		ck_assert_rfcomm_recv(fd, "\r\nOK\r\n");
++		ck_assert_int_eq(poll(&pending, 1, 100), 0);
++	}
++
++	close(external[1]);
+ 	ba_transport_destroy(sco);
+ 	close(fd);
+ 

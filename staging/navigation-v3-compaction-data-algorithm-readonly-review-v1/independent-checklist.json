@@ -1,0 +1,125 @@
+{
+  "schema": "finite-static-compaction-data-review/v1",
+  "findings": [
+    {
+      "ID": "G1",
+      "topic": "Root set and forward graph closure",
+      "assessment": "Conditionally conservative",
+      "witness_lines": [
+        232,
+        223
+      ],
+      "condition": "All47870 L3 records are roots, entire declared lower prefix is marked, and every dependency is a forward first/count range to4/5/6. Level skipping including4→6 works. With forward edges only, level4 then5 is a topological pass; no fixpoint is needed.",
+      "guard": "Unknown flags, nonforward targets, invalid ranges or incoherent nonempty child encoding call anomaly and retain ALL lower suffixes.",
+      "remaining_hold": "Other roots/relations in MDR non-table prefix, GMP, caches or external consumers are not proven absent."
+    },
+    {
+      "ID": "G2",
+      "topic": "Complete range marking and stable rank",
+      "assessment": "Static range/rank argument valid under bounds",
+      "witness_lines": [
+        174,
+        186,
+        192
+      ],
+      "condition": "Require0<=prefix[level]<=count[level], positive first/count for nonempty range and last<=count. mark retains every original ID in interval; rank counts retained IDs in original order. Therefore an n-child interval maps to one contiguous n-child interval, including shared intersections.",
+      "stock_prefix": "When every original1..P is kept, rank(ID)=ID for ID<=P. This proves prefix ID identity, not unconditional byte identity of parent first fields.",
+      "missing_generic_guard": "prefix_mask does not explicitly reject prefix>count or negative input. Fixed sealed profiles must actually satisfy these bounds before arithmetic is interpreted; do not use as unrestricted generic API."
+    },
+    {
+      "ID": "G3",
+      "topic": "Intervals, duplicates and alias analysis",
+      "assessment": "Order-preserving map retains aliases; dynamic census can be partial",
+      "witness_lines": [
+        230,
+        273,
+        303,
+        264
+      ],
+      "condition": "Do not duplicate shared nodes per parent. Apply one stable mapping per level to all retained IDs, and map all child pointers using that mapping. Then duplicate and overlapping original intervals share the same mapped IDs.",
+      "census_limit": "Per-target encoded range list is capped2M. Past cap alias_complete=false; overlap/contiguity census is for stored ranges. Per-parent remap loop checks only first, while mathematical full-range marking gives contiguity for every valid marked interval.",
+      "finding": "Late force_all can mark previously skipped lower parents after their edge pass. Retaining every lower row makes retention conservative and dense rank identity, but those newly retained earlier parents are absent from range census. alias_complete only reflects range-cap overflow, so a true value does not independently certify full retained-parent census after anomaly.",
+      "required_reporting": "Gate complete census on no anomalies/force_all plus no truncation, or enumerate full retained parents again in a separately authorized scope. No algorithm change or rerun done here."
+    },
+    {
+      "ID": "G4",
+      "topic": "Unknown flags and invalid child encodings",
+      "assessment": "Conservative retention guard exists; extra semantics unknown",
+      "witness_lines": [
+        27,
+        217,
+        211
+      ],
+      "condition": "Any unclassified flag/invalid range forces all three lower tables retained; no removal may be inferred from its uninterpreted pointer. Source fullrawbits must survive any future writer.",
+      "known_shape_boundary": "Set0/4/5/6/8/12/13/14 is declared structural knowledge for first/count and flags&7. High bits8/12/13/14 are not semantically decoded by this source. Recognizing their pointer shape does not prove absence of additional references, special lookup/cache/alias semantics.",
+      "safe_result_boundary": "If force_all is set, removal is zero and rank identity. Counts/capacity can remain conservative even when pointer_relation_reachability_complete=false; no full graph/alias semantic proof follows."
+    },
+    {
+      "ID": "G5",
+      "topic": "Preserve every active v3 leaf and stock lower IDs",
+      "assessment": "Conditional structural retention, no reconstructed image evidence",
+      "witness_lines": [
+        233,
+        307,
+        306
+      ],
+      "condition": "Complete root set and all valid ranges ensure every descendant leaf of those roots is retained. Copy each retained original full significant record in original order; remap only proven first fields, keep counts/flags/labelrefs/mapordinal/coords and unknown bits. Prefix IDs stay fixed; active suffix IDs can change.",
+      "important_distinction": "Keeping prefix records is presence/ID preservation. If such a parent points to a moved suffix, its first pointer must change. Do not claim every prefix parent byte is unchanged. All active leaf identities require source-bound fullbit/label/point verification, not field arrays alone.",
+      "not_proven": "Field arrays retain only first/count/flags; source performs no raw-record copy, patched payload emission, everyleaf identity audit or native query verification. Old-v2 leaf preservation is inherited from producer proof, not rechecked here."
+    },
+    {
+      "ID": "G6",
+      "topic": "Hardcoded field extraction",
+      "assessment": "Exact pinned profile required",
+      "witness_lines": [
+        120,
+        127,
+        134,
+        121,
+        128,
+        135,
+        153
+      ],
+      "condition": "Before treating arrays as the graph, the actual directory must match the exact expected descriptor and all field widths/ref layout offsets, not stride alone. Source actualMDR hash/DIR bindings protect fixed fixture; reusable caller must separately enforce full widths/refs/counts and prefix bounds.",
+      "mapordinal": "stream_actual records mapordinal counts but does not reject non1 values. One-GMP/mapordinal1 interpretation is conditional on actual counters or inherited fixed-source proof. No corresponding data counters have been produced by this readonly review."
+    },
+    {
+      "ID": "G7",
+      "topic": "Capacity arithmetic and future remap",
+      "assessment": "Arithmetic possible; construction/acceptance remains held",
+      "witness_lines": [
+        285,
+        289,
+        294
+      ],
+      "condition": "Use exact actualcounts/strides, ceil(count*stride/8) per table, unchanged unknown-prefix/upper-table/DIR size, all five component sizes,4K block ceilings,240 allocation IDs per FAT row, one root row and actual metadata start/floor. Incoming limits are retainedL4<2^23,L5<2^22,L6<2^21; original per-parent count bounds stay unchanged.",
+      "capacity_is_only_arithmetic": "fits_4K_capacity_arithmetic is computed separately from anomalies/alias_complete/widths_ok. A true fit must not be reported as safe remap or installable output without those conditions and full original4K header/capacity/geometry/allocation validation.",
+      "future_writer_requirements": "Recompute proven table start/size and MDR DIR pointer; bit-splice complete records without per-record padding. Preserve descriptor unknown fields and all unchanged components. Locate/remap or prove absent ALL external lowerID and table-byteoffset references. Check exact header/checksum/CHS contract, virtual fullstream and inverse/readback in a new authorized scope.",
+      "unresolved_external_refs": "A stale external suffix ID can silently select a different dense record even when file fits, while removed IDs can become invalid. L3/JAI keys fixed does not resolve L4/L5/L6 consumers."
+    },
+    {
+      "ID": "O1",
+      "topic": "Observed wrapper and reported initial memory guard",
+      "assessment": "Source instrumentation only; initial failure is no graph result",
+      "witness_lines": [
+        175,
+        146,
+        179,
+        81
+      ],
+      "source_scope": "Exact6bf697 source selects eight original RAM helpers and supplies same flags/range cap plus observed allocate_fields. Adds phase/array observations around selected assignments and does not run closed historical main. This review does not import, compile or call helpers/wrapper.",
+      "reported_actual_not_our_execution": {
+        "root_reported_terminal": "19798a EXIT1 before all inputs",
+        "root_reported_ru_maxrss_KiB": 424240,
+        "root_reported_VmHWM_KiB": 17824,
+        "cap_KiB": 393216
+      },
+      "observation_guard": "This source enforces historical ru_maxrss, logs current proc RSS/HWM without enforcing those values. Different ru/proc observations are not proof of algorithm allocations or future peak. Root pending corrected observation source is outside this pinned review.",
+      "readiness": "No reachability count, memory success, projected compact size or renderer cause is inferred from the initial failure."
+    }
+  ],
+  "all_assigned_static_topics_reviewed": true,
+  "actual_capacity_or_graph_results_computed": false,
+  "no_reviewed_source_execution_import_compile": true,
+  "external_lowerID_or_offset_ABI_proven": false
+}

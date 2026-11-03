@@ -1,0 +1,3137 @@
+{
+  "schema": "android-auto-audio-host-v1",
+  "pass": true,
+  "generated_at": "2026-10-08T01:01:52.358345+00:00",
+  "scope": "Own bounded Linux-host S16LE PCM provider; no Garmin/phone/hardware audio",
+  "device_IO": false,
+  "native_guest_executed": false,
+  "original_Garmin_code_executed": false,
+  "ARM_crosscompiled": false,
+  "TLS_executed": false,
+  "hardware_audio_playback": false,
+  "installation_candidate": false,
+  "current_Pixel_interoperability_proven": false,
+  "host_function_claim": {
+    "software_PCM_backend_routing_verified": true,
+    "PCM_sample_frame_reassembly_verified": true,
+    "owned_indication_acceptance_and_partial_backend_retry_verified": true
+  },
+  "host_architecture": "aarch64",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "source_sha256": {
+    "native/aa-audio/README.md": "d5621ff42ff3bf7adceda8ed3d2ccfaddb8808f63dd97d008943b8305f0caa1f",
+    "native/aa-audio/audio.c": "85142884755cdc466ebe4b323485bd2ecc400f09cb7d1a0f8fb6f0086de4aa87",
+    "native/aa-audio/audio.h": "532f2094e7f1962ca58b09e74f32c2d3fcc48481c78b902332289106ebfcf8ef",
+    "native/aa-audio/test_audio.c": "73ae5bb69a59c44e666d357af66856e4710fdad1dd540f2dca6008611a392047",
+    "native/aa-control/control.h": "fd7263c950c00bf812bc560515bd5fc9353cbf34cec3b9ec3af84ad17617b149",
+    "native/aa-message/message.h": "54e35ab33937fa6841d235b16cae0b121d643b6079f1e6efebf86af399dc975c",
+    "native/aa-proto/generated/AVChannelData.pb.h": "b910fb1528af5985a1e8a09ee4b46d4206e306e3efa51929282366d9e5133000",
+    "native/aa-proto/generated/AVChannelSetupRequestMessage.pb.h": "199cfbced49d4e8230c378a92f93c27e460b37247f8914ac575c2ca759afa692",
+    "native/aa-proto/generated/AVChannelSetupResponseMessage.pb.h": "c18b9a826cc31dd5f2ca168ab0d653d95ac9a846c002135702af5bf607a8211c",
+    "native/aa-proto/generated/AVChannelSetupStatusEnum.pb.h": "5f09ceacb73a731f9bd31b3636f943be95393df5159175eef7a77f9d15288574",
+    "native/aa-proto/generated/AVChannelStartIndicationMessage.pb.h": "5e9efcb798816a7a61b95411a8311f6d452ca2eae5700fc0a97843a792c80404",
+    "native/aa-proto/generated/AVChannelStopIndicationMessage.pb.h": "4b1408b68bb8480cc17bf74cb173e04b107d41780b5ac9032c932cf3b9005abb",
+    "native/aa-proto/generated/AVInputChannelData.pb.h": "3aafe461ec6904775ad64f367ac04699d0d21e18191d40acd23e9913a13945f6",
+    "native/aa-proto/generated/AVMediaAckIndicationMessage.pb.h": "596921cb711b112d94d17d2f89323654cefcfc0297cbc61606388f89eee248ba",
+    "native/aa-proto/generated/AVStreamTypeEnum.pb.h": "8d2b6b1d28d77971af5e846e5cae59a12c1e1d7b65d2f0c9239b907a1dddc223",
+    "native/aa-proto/generated/AudioConfigData.pb.h": "15bceb88b28268bdbc8a13a37f422ff0b492c713a2bafed9fa8bcc9cf1aeca31",
+    "native/aa-proto/generated/AudioFocusRequestMessage.pb.h": "7f456e762e20acb312eb48b5df5d5fa3127a800699b8ea95332204a698ac98aa",
+    "native/aa-proto/generated/AudioFocusResponseMessage.pb.h": "cbd3880bb6a00c3f668eef1acf49720b323f0b36d1ebb2ef22ad649042d35913",
+    "native/aa-proto/generated/AudioFocusStateEnum.pb.h": "ff631cf15efb17414a00cad11a096f1bd26482b97aa7767051154c139f520f36",
+    "native/aa-proto/generated/AudioFocusTypeEnum.pb.h": "b4181ce5c8cfe439e37c4b97fcf2e1e9690bd21966ef49bcd8206bef628544b1",
+    "native/aa-proto/generated/AudioTypeEnum.pb.h": "bc45f5ed07af3c1ae6e9e0147b0015161f2bd1d361ba41b4188505b08034eda8",
+    "native/aa-proto/generated/BindingRequestMessage.pb.h": "dd3a1abe1154ef2b16f40547e27e0857850b5d3a6bf0d47d0c5841156e980cb6",
+    "native/aa-proto/generated/BindingResponseMessage.pb.h": "bcbc526f97cc70010613afcfdeab7dc4ad955d833013183cb3bd216fc2e51963",
+    "native/aa-proto/generated/BluetoothChannelData.pb.h": "ba1a1bc0800ba59e114d8df0e2573d767f4cb5cce605c729369ef9f70bba8b48",
+    "native/aa-proto/generated/BluetoothPairingMethodEnum.pb.h": "646ef5fd30f5e6348a272b861a701cc00e53a0fee83bd248ede35ec8bf9778fa",
+    "native/aa-proto/generated/ChannelDescriptorData.pb.h": "c692898b41db74b80e4f7e9871d97cc91d5ff038f47f50973d1e99490c13edf3",
+    "native/aa-proto/generated/ChannelOpenRequestMessage.pb.h": "92abab1bbe0f98b0f28a568c79ce9999d0f223b18259e24dd591fff7ed39e3b5",
+    "native/aa-proto/generated/ChannelOpenResponseMessage.pb.h": "875d7523bf2b0b90fcb44d6d7d902a030a48efd769ee2403cca7c0bfd5a319ee",
+    "native/aa-proto/generated/InputChannelData.pb.h": "5c9291232f72a8bbd580e0a838d889c56d0c5225817a06c7a66dec0f28c1cb95",
+    "native/aa-proto/generated/NavigationChannelData.pb.h": "d1023915f6323ea521127492b557efa2b7ac5b8e74dc2866df7b250eec3c97bd",
+    "native/aa-proto/generated/NavigationImageOptionsData.pb.h": "e20788196e73b00514e473da3ebeee140a5dfd7bcb4f5f812b3d085bad698449",
+    "native/aa-proto/generated/PingRequestMessage.pb.h": "01a382f049ceee99ebc1bb8b8a1f268861fe0ec6f24cbad3e07cb30f4b0dd093",
+    "native/aa-proto/generated/PingResponseMessage.pb.h": "26c00f81091b0d315ebe39facd00c1a81a2810242d5ce226882ec164b82f7593",
+    "native/aa-proto/generated/SensorChannelData.pb.h": "5be60e0f628c737d942297bccd173834aa51938b22a71a453a02782721ca2976",
+    "native/aa-proto/generated/SensorData.pb.h": "842864aec4c9af4dc80e9a2632fb8b0dee225592fb2e1ffc9f046402dcdf1480",
+    "native/aa-proto/generated/SensorTypeEnum.pb.h": "fdb668883451c4ad859d6b9f773d3ec970a8e6c685d4265af53ff9ad36cebb04",
+    "native/aa-proto/generated/ServiceDiscoveryRequestMessage.pb.h": "d5a08c38b99db56f0def2f35ca3e8d63719e1a6417d6b81889c90f1e7aadb75c",
+    "native/aa-proto/generated/ServiceDiscoveryResponseMessage.pb.h": "c28749dfcc9aa63b9a5da73d92731473abd745173577235434e4f6a156a37c1f",
+    "native/aa-proto/generated/ShutdownReasonEnum.pb.h": "64076738e4dcb4106e3add9fcfdbcf4d3063f2171dc018560f1601a2aab6185b",
+    "native/aa-proto/generated/ShutdownRequestMessage.pb.h": "25d98597077a48daf4246ce55a5f24a36877b6e9ac6fe62d6c4e8192326fbd5e",
+    "native/aa-proto/generated/ShutdownResponseMessage.pb.h": "1c61486a2427e614c41418cd26b693f36be253f40c816c686943d6583377ac7a",
+    "native/aa-proto/generated/StatusEnum.pb.h": "78e64e96a6548e04d941fbe39ec00870b73f7723799e6411b8874e7da70b60e0",
+    "native/aa-proto/generated/TouchConfigData.pb.h": "ed1174e48eaccb05c768aae5e71a72439e4330ff21468dfd4ba50d96e2fb6dc9",
+    "native/aa-proto/generated/VendorExtensionChannelData.pb.h": "c73af963f754171be27141d51d88f7a66a10dcbdf25de75b4a879dcd78a54c00",
+    "native/aa-proto/generated/VideoConfigData.pb.h": "d7dfe0acf6d653866555b990cc38ad942f0053fc4ab6abe6de77a666dfbd97dd",
+    "native/aa-proto/generated/VideoFPSEnum.pb.h": "8ea8c88ea06f176b1f326492b99733240fc231befb440f37bda05f51dc5525e4",
+    "native/aa-proto/generated/VideoFocusIndicationMessage.pb.h": "98b1ba82672b039c0ef4d3efbb1d015a35d9cac769585e6185ddabfb55dc8eb0",
+    "native/aa-proto/generated/VideoFocusModeEnum.pb.h": "7cca4d7e2a887dfffce40754430318047637d1f337c6d915cf4c561f7ada5f87",
+    "native/aa-proto/generated/VideoFocusReasonEnum.pb.h": "9af2bb5cb2b99cd0b77f1173424b146b2e862e050c58fcb42b6d9f0459120ffb",
+    "native/aa-proto/generated/VideoFocusRequestMessage.pb.h": "c0ed7a6d3560cc147b253a0c8463ec7cd19eed25d59dadf2f92d4e70271a21ab",
+    "native/aa-proto/generated/VideoResolutionEnum.pb.h": "96e908d299886eba46cbc15085b16d59751114ca51c693a064f817dee546d401",
+    "native/aa-proto/proto.h": "4e5700c4710f17a5937c2bfc21ffe4a843b826bff82350490721af2a2668fcf9",
+    "native/aa-proto/runtime/pb.h": "a2ecdca9fdaeef5f4972ed983540c0d6fb0a5c402a2e0b0349d7e1bc5e188d29",
+    "native/aa-proto/runtime/pb_decode.h": "1747746e5961de5789bcf0795588da0790cd18b2e4e706ad9c7099a0fa1cc83f",
+    "native/aa-proto/runtime/pb_encode.h": "9aa00fee4ff08adf0da16e33a55be08810ea657800a648dc78f82e89c60c10cf",
+    "scripts/test_aa_audio_host.py": "6a65310dc6990b29a2375cac64dd21b4ede2d1bdb34cd315a539a6ababe33cab",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AudioFocusStateEnum.proto": "8b97a0e4ef053e4bffce32d79f816e3f05d7aab77121b3a3c2df9d83cc95961c",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AudioFocusTypeEnum.proto": "d3c6648379681314b5f4350ec47ea82e38b52886dd1aa6fa771011b109aae629",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/ChannelId.hpp": "5ee9638fa0ab114b01096771e7be5f4f38b200f715bc1e1099f5d87dd7f95777",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/AudioServiceChannel.cpp": "67de7288ebeb9c01b804d87f2dfdc97f387c764b4a811ed3c2a08c15b4d7c2c9",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/MediaAudioServiceChannel.cpp": "c5416a2b137ca03bf8a677c3967f676f349f0a5551f1c24d4c3962e2fdedc1d9",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/SpeechAudioServiceChannel.cpp": "ec07195b2e0cfed488a604f4e988ca56656c4954a321885b24887fb46aa8d19d",
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/SystemAudioServiceChannel.cpp": "ae0cf623bbce4b478c27b99d1df5c63bd43d279223e96670509f32be678b7c99",
+    "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Projection/QtAudioOutput.cpp": "ca9c9dc4610ca8a0a620f3ca3f1940ab18e604506fb61bda3d24409e511ae095",
+    "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Projection/RtAudioOutput.cpp": "5f1194cfdd95a0c00be2e1c3a2c3388c1162841f725eddc0faf1f515b25acbc4",
+    "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AndroidAutoEntity.cpp": "41e55c8fdfc8008b861ff5b29fec0abb4967c0fefc78795c941fe8044a3e5e26",
+    "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp": "4fee958da289ee687015dfa26fe402562c192f209f56ee75123cc2c6177ccae0",
+    "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/ServiceFactory.cpp": "7a28d8ac969aa61d4e00efc4e6363ae528d771856d63f726e4e5b019663aee8c"
+  },
+  "source_review": {
+    "method": "Static public source review plus exact archive member comparison; no upstream execution",
+    "snapshots": [
+      {
+        "repository": "https://github.com/f1xpl/aasdk",
+        "commit": "046b3b381595509d0939fa84b14a90978f46ff63",
+        "archive": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63.zip",
+        "url": "https://codeload.github.com/f1xpl/aasdk/zip/046b3b381595509d0939fa84b14a90978f46ff63",
+        "sha256": "ff439a3e206edaff6c3cfa2eb458a911ddcf677e86695c0c7785377235add0e9",
+        "bytes": 303122
+      },
+      {
+        "repository": "https://github.com/f1xpl/openauto",
+        "commit": "aa90412bf93b5a5078495ea85ac9270c6297d369",
+        "archive": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369.zip",
+        "url": "https://codeload.github.com/f1xpl/openauto/zip/aa90412bf93b5a5078495ea85ac9270c6297d369",
+        "sha256": "7d1c50b53afd5beb0447ce53414ef7441f500e1205a22c4a303b737befde4823",
+        "bytes": 138233
+      }
+    ],
+    "archive_verified_source_count": 12,
+    "contracts": [
+      "ChannelId enum order fixes control0/media4/speech5/system6 in pinned legacy sources",
+      "Factory media is 48000Hz stereo16; speech/system 16000Hz mono16",
+      "Qt backend explicitly PCM signed little endian",
+      "ID0 body strips Timestamp::ValueType; ID1 forwards raw media bytes",
+      "ACK value1 per indication follows backend write; not per sample frame",
+      "RtAudio buffer frame counts are observations, not packet-boundary contract",
+      "Old OpenAuto suspend differs from our explicit discard-on-STOP host policy",
+      "Old control audio focus response is simplistic; our gate/grant policy is separately declared"
+    ],
+    "current_Pixel_interoperability_proven": false
+  },
+  "fixture_sha256": {
+    "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+    "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+    "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+    "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+    "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+    "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912"
+  },
+  "fixtures": [
+    {
+      "channel": 4,
+      "input": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+      "bytes": 64,
+      "sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+      "frames": 16
+    },
+    {
+      "channel": 4,
+      "input": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+      "bytes": 16384,
+      "sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+      "frames": 4096
+    },
+    {
+      "channel": 5,
+      "input": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+      "bytes": 32,
+      "sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+      "frames": 16
+    },
+    {
+      "channel": 5,
+      "input": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+      "bytes": 8192,
+      "sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+      "frames": 4096
+    },
+    {
+      "channel": 6,
+      "input": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+      "bytes": 32,
+      "sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+      "frames": 16
+    },
+    {
+      "channel": 6,
+      "input": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+      "bytes": 8192,
+      "sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+      "frames": 4096
+    }
+  ],
+  "oracle": "Independent Python signed integers packed <h; exact routed PCM bytes; no audio device",
+  "bounds": {
+    "context_bytes": 111376,
+    "context_alignment": 8,
+    "owned_input_slots_per_route": 2,
+    "input_bytes_per_slot": 16384,
+    "output_bytes_per_route": 4096,
+    "sample_carry_max_bytes": 3,
+    "provider_heap_allocation": false,
+    "backend_memory_bounded": false
+  },
+  "shared_library": {
+    "path": "staging/android-auto-audio-host-v1/ordinary/libaa-audio-host.so",
+    "sha256": "03e63ea50d81277936ad2ab87a90290c975a50b2c16edb749a4e155f23339ffa"
+  },
+  "build_manifest": {
+    "c_sources": [
+      "native/aa-audio/audio.c"
+    ],
+    "include_dirs": [
+      "native/aa-audio",
+      "native/aa-control",
+      "native/aa-message",
+      "native/aa-proto",
+      "native/aa-proto/generated",
+      "native/aa-proto/runtime"
+    ],
+    "required_backend": "caller supplies memory-only or explicitly authorized backend"
+  },
+  "case_count": 156,
+  "runtime_case_count": 154,
+  "selftest_categories_per_configuration": 26,
+  "results": [
+    {
+      "configuration": "ordinary",
+      "compiler_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-O2"
+      ],
+      "binary": "staging/android-auto-audio-host-v1/ordinary/test_audio",
+      "binary_sha256": "2e164af494712909cdcb8fd248e2f2a7e10e43a4a15359f5fcf9c54a21df7d24",
+      "selftest": {
+        "case_count": 26,
+        "assertions": 906
+      },
+      "independent_PCM_golden_cases": [
+        {
+          "bytes": 64,
+          "backend_calls": 16,
+          "assertions": 208,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 290,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 16,
+          "assertions": 124,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 226,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 4096,
+          "assertions": 49168,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 69650,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 4096,
+          "assertions": 27324,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 53266,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 231,
+          "assertions": 1402,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 4,
+          "assertions": 40,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 16,
+          "assertions": 144,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 226,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 11,
+          "assertions": 82,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 4096,
+          "assertions": 32784,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53266,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2731,
+          "assertions": 16402,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 116,
+          "assertions": 712,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2,
+          "assertions": 28,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 16,
+          "assertions": 144,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 226,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 11,
+          "assertions": 82,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 4096,
+          "assertions": 32784,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53266,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2731,
+          "assertions": 16402,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 116,
+          "assertions": 712,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2,
+          "assertions": 28,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 0,
+          "backend_calls": 0,
+          "assertions": 16,
+          "empty_eof": true,
+          "channel": 4,
+          "byte_exact": true
+        },
+        {
+          "bytes": 0,
+          "backend_calls": 0,
+          "assertions": 16,
+          "empty_eof": true,
+          "channel": 5,
+          "byte_exact": true
+        },
+        {
+          "bytes": 0,
+          "backend_calls": 0,
+          "assertions": 16,
+          "empty_eof": true,
+          "channel": 6,
+          "byte_exact": true
+        }
+      ],
+      "case_count": 77
+    },
+    {
+      "configuration": "asan-ubsan",
+      "compiler_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer"
+      ],
+      "binary": "staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+      "binary_sha256": "2fdb28d85f753584552f708fedf0390c64419e896e9363b502280ae350ccced0",
+      "selftest": {
+        "case_count": 26,
+        "assertions": 906
+      },
+      "independent_PCM_golden_cases": [
+        {
+          "bytes": 64,
+          "backend_calls": 16,
+          "assertions": 208,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 290,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 16,
+          "assertions": 124,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 226,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 64,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "6fe336586ab23680babd3c2545503fe1effef64f8c5ece89aadbe6320672eb5a",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 4096,
+          "assertions": 49168,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 69650,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 4096,
+          "assertions": 27324,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 53266,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 231,
+          "assertions": 1402,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 4,
+          "assertions": 40,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 16384,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+          "channel": 4,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "aba7ef253e326972f2c221d571c0b10bd3b7c9bd28f183bc5290ce74cf66696c",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 16,
+          "assertions": 144,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 226,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 11,
+          "assertions": 82,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 4096,
+          "assertions": 32784,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53266,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2731,
+          "assertions": 16402,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 116,
+          "assertions": 712,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2,
+          "assertions": 28,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+          "channel": 5,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "4da8fd97448d35c4bf91131d71e820eba5d43c2005ed0309c36dd090a2815915",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 16,
+          "assertions": 144,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 226,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 11,
+          "assertions": 82,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 1,
+          "assertions": 22,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 32,
+          "backend_calls": 32,
+          "assertions": 224,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "50348f81802aa5179611635eb57601d6f7496e845db3787198ca1b3276aa531b",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 4096,
+          "assertions": 32784,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53266,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 1,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2731,
+          "assertions": 16402,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 3,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 116,
+          "assertions": 712,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 71,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 2,
+          "assertions": 28,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 0,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 8192,
+          "backend_calls": 8192,
+          "assertions": 53264,
+          "fixture": "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+          "channel": 6,
+          "indication_chunk_bytes": 16384,
+          "backend_mode": 8,
+          "actual_sha256": "ba165ce3f6764870834a825fe9cc7b14595db848ca753854fe625d3ef5718912",
+          "byte_exact": true
+        },
+        {
+          "bytes": 0,
+          "backend_calls": 0,
+          "assertions": 16,
+          "empty_eof": true,
+          "channel": 4,
+          "byte_exact": true
+        },
+        {
+          "bytes": 0,
+          "backend_calls": 0,
+          "assertions": 16,
+          "empty_eof": true,
+          "channel": 5,
+          "byte_exact": true
+        },
+        {
+          "bytes": 0,
+          "backend_calls": 0,
+          "assertions": 16,
+          "empty_eof": true,
+          "channel": 6,
+          "byte_exact": true
+        }
+      ],
+      "case_count": 77
+    }
+  ],
+  "mutation_controls": [
+    {
+      "label": "lost-owned-copy",
+      "mutated_source_sha256": "81fb90389b568ef0e425ce6382966da59f600451b159725d4b8776c562ea5111",
+      "observed_exit_code": 2
+    },
+    {
+      "label": "lost-sample-carry",
+      "mutated_source_sha256": "60445cf00c667ddef38a556f88f91c5682db0dd755b555ad743e8912ac61671c",
+      "observed_exit_code": 2
+    }
+  ],
+  "actual_subprocess_receipts": [
+    {
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-O2",
+        "-I",
+        "native/aa-audio",
+        "-I",
+        "native/aa-control",
+        "-I",
+        "native/aa-message",
+        "-I",
+        "native/aa-proto",
+        "-I",
+        "native/aa-proto/generated",
+        "-I",
+        "native/aa-proto/runtime",
+        "native/aa-audio/audio.c",
+        "native/aa-audio/test_audio.c",
+        "-o",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_time_seconds": 1.1056595640257
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"case_count\":26,\"assertions\":906}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0012236309703439474
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":16,\"assertions\":208}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007387789664790034
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":290}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007159831002354622
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":16,\"assertions\":124}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.004160579992458224
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":226}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001251372043043375
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007327049970626831
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0009647420374676585
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006487780483439565
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0009369819890707731
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":4096,\"assertions\":49168}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0022368920035660267
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":69650}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.002190707018598914
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":4096,\"assertions\":27324}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001399743021465838
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":53266}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.003870005952194333
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":231,\"assertions\":1402}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0010717610130086541
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001117520034313202
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":4,\"assertions\":40}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0010664639994502068
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "4",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001737816957756877
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":16,\"assertions\":144}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0010658899554982781
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":226}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.004563803086057305
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":11,\"assertions\":82}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.004960915073752403
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007885569939389825
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006257049972191453
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0008401500526815653
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006008340278640389
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0008310750126838684
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":4096,\"assertions\":32784}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0012901690788567066
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53266}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0013300389982759953
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2731,\"assertions\":16402}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0009739460656419396
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0037181719671934843
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":116,\"assertions\":712}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007071859436109662
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001159001956693828
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2,\"assertions\":28}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.000695446040481329
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "5",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0018111319513991475
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":16,\"assertions\":144}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006681679515168071
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":226}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006412409711629152
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":11,\"assertions\":82}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0008000009693205357
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006819639820605516
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0008398350328207016
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.003939099027775228
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007988350698724389
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.000606409041211009
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":4096,\"assertions\":32784}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001360854017548263
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53266}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0013401880860328674
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2731,\"assertions\":16402}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0008670749375596642
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0011574829695746303
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":116,\"assertions\":712}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006688709836453199
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.001073280000127852
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2,\"assertions\":28}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.000694611924700439
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual.s16le",
+        "6",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.004227507044561207
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "/root/garmin/staging/android-auto-audio-host-v1/empty.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual-empty.s16le",
+        "4",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":0,\"backend_calls\":0,\"assertions\":16}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0005647609941661358
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "/root/garmin/staging/android-auto-audio-host-v1/empty.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual-empty.s16le",
+        "5",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":0,\"backend_calls\":0,\"assertions\":16}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0006379639962688088
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/test_audio",
+        "/root/garmin/staging/android-auto-audio-host-v1/empty.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/actual-empty.s16le",
+        "6",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":0,\"backend_calls\":0,\"assertions\":16}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0007182230474427342
+    },
+    {
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-O1",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-I",
+        "native/aa-audio",
+        "-I",
+        "native/aa-control",
+        "-I",
+        "native/aa-message",
+        "-I",
+        "native/aa-proto",
+        "-I",
+        "native/aa-proto/generated",
+        "-I",
+        "native/aa-proto/runtime",
+        "native/aa-audio/audio.c",
+        "native/aa-audio/test_audio.c",
+        "-o",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_time_seconds": 2.013388616964221
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"case_count\":26,\"assertions\":906}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.010232405038550496
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":16,\"assertions\":208}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.00783367792610079
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":290}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007893605041317642
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":16,\"assertions\":124}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007955864071846008
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":226}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007872586022131145
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007807623944245279
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0077232340117916465
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007718770997598767
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":64,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.00808821595273912
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":4096,\"assertions\":49168}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.014144947985187173
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":69650}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.014578763046301901
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":4096,\"assertions\":27324}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.010800719959661365
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":53266}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.011461499030701816
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":231,\"assertions\":1402}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.008001956040970981
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.011328907101415098
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":4,\"assertions\":40}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.008487271959893405
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch4-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "4",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":16384,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.012397259939461946
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":16,\"assertions\":144}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007789586088620126
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":226}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007749438052996993
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":11,\"assertions\":82}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.00764893798623234
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007661437964998186
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007910771993920207
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007862215978093445
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0077036230359226465
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007669438025914133
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":4096,\"assertions\":32784}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.011189980083145201
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53266}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.011689665960147977
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2731,\"assertions\":16402}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.009173254948109388
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.01106762804556638
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":116,\"assertions\":712}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007754733902402222
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.010981850093230605
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2,\"assertions\":28}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007834622985683382
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch5-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "5",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.01273429801221937
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":16,\"assertions\":144}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007822623010724783
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":226}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007852290058508515
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":11,\"assertions\":82}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.00793803099077195
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.008138495031744242
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007865975028835237
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007846641005016863
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":1,\"assertions\":22}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007599381962791085
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-literal.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":32,\"backend_calls\":32,\"assertions\":224}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.00791712396312505
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":4096,\"assertions\":32784}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.011211203061975539
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "1",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53266}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.011873148032464087
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "3",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2731,\"assertions\":16402}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.00953881093300879
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "3",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.01101131399627775
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "71",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":116,\"assertions\":712}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007855030940845609
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "71",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.010994239011779428
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "16384",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":2,\"assertions\":28}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007867456995882094
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "staging/android-auto-audio-host-v1/pcm-ch6-long.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual.s16le",
+        "6",
+        "16384",
+        "8",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":8192,\"backend_calls\":8192,\"assertions\":53264}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.01250024198088795
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "/root/garmin/staging/android-auto-audio-host-v1/empty.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual-empty.s16le",
+        "4",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":0,\"backend_calls\":0,\"assertions\":16}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007606900995597243
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "/root/garmin/staging/android-auto-audio-host-v1/empty.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual-empty.s16le",
+        "5",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":0,\"backend_calls\":0,\"assertions\":16}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007696641958318651
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/test_audio",
+        "/root/garmin/staging/android-auto-audio-host-v1/empty.s16le",
+        "/root/garmin/staging/android-auto-audio-host-v1/asan-ubsan/actual-empty.s16le",
+        "6",
+        "1",
+        "0",
+        "host-pcm"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"bytes\":0,\"backend_calls\":0,\"assertions\":16}\n",
+      "stderr": "",
+      "wall_time_seconds": 0.007661974988877773
+    },
+    {
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-O2",
+        "-I",
+        "native/aa-audio",
+        "-I",
+        "native/aa-control",
+        "-I",
+        "native/aa-message",
+        "-I",
+        "native/aa-proto",
+        "-I",
+        "native/aa-proto/generated",
+        "-I",
+        "native/aa-proto/runtime",
+        "/root/garmin/staging/android-auto-audio-host-v1/mutations/lost-owned-copy.c",
+        "native/aa-audio/test_audio.c",
+        "-o",
+        "/root/garmin/staging/android-auto-audio-host-v1/mutations/lost-owned-copy/test_audio"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_time_seconds": 1.1068301580380648
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/mutations/lost-owned-copy/test_audio"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "check native/aa-audio/test_audio.c:122: f.sink->bytes[0][i]==(uint8_t)(i*7+3)\n",
+      "wall_time_seconds": 0.0007792230462655425
+    },
+    {
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-g",
+        "-O2",
+        "-I",
+        "native/aa-audio",
+        "-I",
+        "native/aa-control",
+        "-I",
+        "native/aa-message",
+        "-I",
+        "native/aa-proto",
+        "-I",
+        "native/aa-proto/generated",
+        "-I",
+        "native/aa-proto/runtime",
+        "/root/garmin/staging/android-auto-audio-host-v1/mutations/lost-sample-carry.c",
+        "native/aa-audio/test_audio.c",
+        "-o",
+        "/root/garmin/staging/android-auto-audio-host-v1/mutations/lost-sample-carry/test_audio"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_time_seconds": 1.120481400983408
+    },
+    {
+      "command": [
+        "/root/garmin/staging/android-auto-audio-host-v1/mutations/lost-sample-carry/test_audio"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "check native/aa-audio/test_audio.c:132: f.sink->last_ts==100 && f.sink->lengths[0]==8 && !memcmp(f.sink->bytes[0],data,8)\n",
+      "wall_time_seconds": 0.0007594269700348377
+    },
+    {
+      "command": [
+        "cc",
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-fPIC",
+        "-shared",
+        "-I",
+        "native/aa-audio",
+        "-I",
+        "native/aa-control",
+        "-I",
+        "native/aa-message",
+        "-I",
+        "native/aa-proto",
+        "-I",
+        "native/aa-proto/generated",
+        "-I",
+        "native/aa-proto/runtime",
+        "native/aa-audio/audio.c",
+        "-o",
+        "/root/garmin/staging/android-auto-audio-host-v1/ordinary/libaa-audio-host.so"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "wall_time_seconds": 0.23036970803514123
+    },
+    {
+      "command": [
+        "cc",
+        "-MM",
+        "-I",
+        "native/aa-audio",
+        "-I",
+        "native/aa-control",
+        "-I",
+        "native/aa-message",
+        "-I",
+        "native/aa-proto",
+        "-I",
+        "native/aa-proto/generated",
+        "-I",
+        "native/aa-proto/runtime",
+        "native/aa-audio/audio.c",
+        "native/aa-audio/test_audio.c"
+      ],
+      "exit_code": 0,
+      "stdout": "audio.o: native/aa-audio/audio.c native/aa-audio/audio.h \\\n native/aa-control/control.h native/aa-message/message.h \\\n native/aa-proto/proto.h native/aa-proto/runtime/pb.h \\\n native/aa-proto/runtime/pb_encode.h native/aa-proto/runtime/pb.h \\\n native/aa-proto/runtime/pb_decode.h \\\n native/aa-proto/generated/ServiceDiscoveryRequestMessage.pb.h \\\n native/aa-proto/runtime/pb.h \\\n native/aa-proto/generated/ServiceDiscoveryResponseMessage.pb.h \\\n native/aa-proto/generated/ChannelDescriptorData.pb.h \\\n native/aa-proto/generated/SensorChannelData.pb.h \\\n native/aa-proto/generated/SensorData.pb.h \\\n native/aa-proto/generated/SensorTypeEnum.pb.h \\\n native/aa-proto/generated/AVChannelData.pb.h \\\n native/aa-proto/generated/AVStreamTypeEnum.pb.h \\\n native/aa-proto/generated/AudioTypeEnum.pb.h \\\n native/aa-proto/generated/AudioConfigData.pb.h \\\n native/aa-proto/generated/VideoConfigData.pb.h \\\n native/aa-proto/generated/VideoResolutionEnum.pb.h \\\n native/aa-proto/generated/VideoFPSEnum.pb.h \\\n native/aa-proto/generated/InputChannelData.pb.h \\\n native/aa-proto/generated/TouchConfigData.pb.h \\\n native/aa-proto/generated/AVInputChannelData.pb.h \\\n native/aa-proto/generated/BluetoothChannelData.pb.h \\\n native/aa-proto/generated/BluetoothPairingMethodEnum.pb.h \\\n native/aa-proto/generated/NavigationChannelData.pb.h \\\n native/aa-proto/generated/NavigationImageOptionsData.pb.h \\\n native/aa-proto/generated/VendorExtensionChannelData.pb.h \\\n native/aa-proto/generated/ChannelOpenRequestMessage.pb.h \\\n native/aa-proto/generated/ChannelOpenResponseMessage.pb.h \\\n native/aa-proto/generated/StatusEnum.pb.h \\\n native/aa-proto/generated/PingRequestMessage.pb.h \\\n native/aa-proto/generated/PingResponseMessage.pb.h \\\n native/aa-proto/generated/AVChannelSetupRequestMessage.pb.h \\\n native/aa-proto/generated/AVChannelSetupResponseMessage.pb.h \\\n native/aa-proto/generated/AVChannelSetupStatusEnum.pb.h \\\n native/aa-proto/generated/AVChannelStartIndicationMessage.pb.h \\\n native/aa-proto/generated/AVChannelStopIndicationMessage.pb.h \\\n native/aa-proto/generated/AVMediaAckIndicationMessage.pb.h \\\n native/aa-proto/generated/BindingRequestMessage.pb.h \\\n native/aa-proto/generated/BindingResponseMessage.pb.h \\\n native/aa-proto/generated/VideoFocusRequestMessage.pb.h \\\n native/aa-proto/generated/VideoFocusModeEnum.pb.h \\\n native/aa-proto/generated/VideoFocusReasonEnum.pb.h \\\n native/aa-proto/generated/VideoFocusIndicationMessage.pb.h \\\n native/aa-proto/generated/AudioFocusRequestMessage.pb.h \\\n native/aa-proto/generated/AudioFocusTypeEnum.pb.h \\\n native/aa-proto/generated/AudioFocusResponseMessage.pb.h \\\n native/aa-proto/generated/AudioFocusStateEnum.pb.h \\\n native/aa-proto/generated/ShutdownRequestMessage.pb.h \\\n native/aa-proto/generated/ShutdownReasonEnum.pb.h \\\n native/aa-proto/generated/ShutdownResponseMessage.pb.h\ntest_audio.o: native/aa-audio/test_audio.c native/aa-audio/audio.h \\\n native/aa-control/control.h native/aa-message/message.h \\\n native/aa-proto/proto.h native/aa-proto/runtime/pb.h \\\n native/aa-proto/runtime/pb_encode.h native/aa-proto/runtime/pb.h \\\n native/aa-proto/runtime/pb_decode.h \\\n native/aa-proto/generated/ServiceDiscoveryRequestMessage.pb.h \\\n native/aa-proto/runtime/pb.h \\\n native/aa-proto/generated/ServiceDiscoveryResponseMessage.pb.h \\\n native/aa-proto/generated/ChannelDescriptorData.pb.h \\\n native/aa-proto/generated/SensorChannelData.pb.h \\\n native/aa-proto/generated/SensorData.pb.h \\\n native/aa-proto/generated/SensorTypeEnum.pb.h \\\n native/aa-proto/generated/AVChannelData.pb.h \\\n native/aa-proto/generated/AVStreamTypeEnum.pb.h \\\n native/aa-proto/generated/AudioTypeEnum.pb.h \\\n native/aa-proto/generated/AudioConfigData.pb.h \\\n native/aa-proto/generated/VideoConfigData.pb.h \\\n native/aa-proto/generated/VideoResolutionEnum.pb.h \\\n native/aa-proto/generated/VideoFPSEnum.pb.h \\\n native/aa-proto/generated/InputChannelData.pb.h \\\n native/aa-proto/generated/TouchConfigData.pb.h \\\n native/aa-proto/generated/AVInputChannelData.pb.h \\\n native/aa-proto/generated/BluetoothChannelData.pb.h \\\n native/aa-proto/generated/BluetoothPairingMethodEnum.pb.h \\\n native/aa-proto/generated/NavigationChannelData.pb.h \\\n native/aa-proto/generated/NavigationImageOptionsData.pb.h \\\n native/aa-proto/generated/VendorExtensionChannelData.pb.h \\\n native/aa-proto/generated/ChannelOpenRequestMessage.pb.h \\\n native/aa-proto/generated/ChannelOpenResponseMessage.pb.h \\\n native/aa-proto/generated/StatusEnum.pb.h \\\n native/aa-proto/generated/PingRequestMessage.pb.h \\\n native/aa-proto/generated/PingResponseMessage.pb.h \\\n native/aa-proto/generated/AVChannelSetupRequestMessage.pb.h \\\n native/aa-proto/generated/AVChannelSetupResponseMessage.pb.h \\\n native/aa-proto/generated/AVChannelSetupStatusEnum.pb.h \\\n native/aa-proto/generated/AVChannelStartIndicationMessage.pb.h \\\n native/aa-proto/generated/AVChannelStopIndicationMessage.pb.h \\\n native/aa-proto/generated/AVMediaAckIndicationMessage.pb.h \\\n native/aa-proto/generated/BindingRequestMessage.pb.h \\\n native/aa-proto/generated/BindingResponseMessage.pb.h \\\n native/aa-proto/generated/VideoFocusRequestMessage.pb.h \\\n native/aa-proto/generated/VideoFocusModeEnum.pb.h \\\n native/aa-proto/generated/VideoFocusReasonEnum.pb.h \\\n native/aa-proto/generated/VideoFocusIndicationMessage.pb.h \\\n native/aa-proto/generated/AudioFocusRequestMessage.pb.h \\\n native/aa-proto/generated/AudioFocusTypeEnum.pb.h \\\n native/aa-proto/generated/AudioFocusResponseMessage.pb.h \\\n native/aa-proto/generated/AudioFocusStateEnum.pb.h \\\n native/aa-proto/generated/ShutdownRequestMessage.pb.h \\\n native/aa-proto/generated/ShutdownReasonEnum.pb.h \\\n native/aa-proto/generated/ShutdownResponseMessage.pb.h\n",
+      "stderr": "",
+      "wall_time_seconds": 0.03364707005675882
+    },
+    {
+      "command": [
+        "cc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout": "cc (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": "",
+      "wall_time_seconds": 0.0010544268880039454
+    }
+  ],
+  "limitations": [
+    "No true TLS/control integration in this proof; root harness supplies that separately",
+    "No current Pixel, Garmin backend, Bluetooth, speaker, device queries or playback",
+    "No conversion/mixing/ducking; explicit host focus policy does not prove navigation coexistence",
+    "Whole-indication ACK means owned accepted bytes, not played audio",
+    "Transport token guards apply to direct APIs; caller must invalidate stale provider callbacks",
+    "STOP discards own data only; accepted backend bytes cannot be retracted or muted",
+    "Timestamp remains opaque output assembly metadata, not a synthesized playback clock",
+    "Serialized API and rejected reentry are not asynchronous quiescence or thread locks"
+  ]
+}

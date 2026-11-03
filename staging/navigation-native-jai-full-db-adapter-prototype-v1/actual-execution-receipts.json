@@ -1,0 +1,66 @@
+{
+  "schema": "complete-JAI-offline-prototype-actual-execution/v1",
+  "created_utc": "2026-10-07T04:43:43.786656+00:00",
+  "all_assigned_execution_and_preservation_checks_passed": true,
+  "command": [
+    "strace",
+    "-f",
+    "-yy",
+    "-s",
+    "0",
+    "-e",
+    "trace=openat,read,pread64,lseek,close",
+    "-o",
+    "staging/navigation-native-jai-full-db-adapter-prototype-v1/actual-database-IO.strace",
+    "env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python3",
+    "staging/navigation-native-jai-full-db-adapter-prototype-v1/prepare_full_db_prototype.py"
+  ],
+  "actual_session": 84722,
+  "initial_chunk": "49009f",
+  "terminal_chunk": "c986c7",
+  "actual_exit_code": 0,
+  "trace": {
+    "path": "staging/navigation-native-jai-full-db-adapter-prototype-v1/actual-database-IO.strace",
+    "bytes": 9953711,
+    "sha256": "7cf399a3eddc62fa14fc7b303738e34fd420a614f364dd9006b3ada05e2dab21",
+    "lines": 65707,
+    "full_trace_read_passes_by_receipt": 1,
+    "content_suppressed_by_strace_s0": true,
+    "only_exact_original_and_new_prototype_FD_paths_counted": true
+  },
+  "original_actual_IO": {
+    "content_reads": 195,
+    "content_bytes_returned": 12743680,
+    "read_EOF_operations": 2,
+    "open_flags": [
+      "O_RDONLY|O_CLOEXEC"
+    ]
+  },
+  "new_prototype_actual_IO": {
+    "content_reads": 64999,
+    "content_bytes_returned": 78362908,
+    "read_EOF_operations": 2,
+    "open_flags": [
+      "O_WRONLY|O_CREAT|O_EXCL|O_CLOEXEC, 0666",
+      "O_RDONLY|O_CLOEXEC",
+      "O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644",
+      "O_RDONLY|O_CLOEXEC",
+      "O_RDONLY|O_CLOEXEC"
+    ]
+  },
+  "original_source_unchanged_and_SQLite_never_opened_original": true,
+  "all_logical_rows_reviewed_from_exact_original_byte_copy_and_modified_copy": true,
+  "full_table_logical_hash_passes": 2,
+  "explicit_selected_expected_row_derivation_and_other_info_family_checks": true,
+  "closed_transaction_failure_guards_reused_not_replayed": true,
+  "all_temporary_SQLite_journal_WAL_SHM_removed": true,
+  "all_database_handles_closed": true,
+  "original_format_pragmas_not_relaxed_or_reformatted": true,
+  "complete_Beitun_geometry_found": false,
+  "district_source_and_raw24_gate": false,
+  "device_IO": false,
+  "candidateIMG_or_sealed_scope_or_report_mutated": false,
+  "install_candidate": false
+}

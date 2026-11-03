@@ -1,0 +1,17 @@
+{
+  "command": "python3 -B -u scripts/verify_actual_coherent8k_map_restore_v1.py",
+  "initial": {
+    "chunk_id": "b7e3a6",
+    "wall_time_seconds": 1.000717135,
+    "session_id": 87026,
+    "original_token_count": 20,
+    "output": "{\"phase\": \"materializing_one_disabled_local_candidate\", \"IMG_bytes\": 153346048}\n"
+  },
+  "terminal": {
+    "chunk_id": "ea061f",
+    "wall_time_seconds": 0.000022833,
+    "exit_code": 1,
+    "original_token_count": 318,
+    "output": "{\"phase\": \"fresh_actual_candidate_and_streamed_stock_verification\", \"saved_SHA\": \"9af1e68e1308bf28deeb7f7d4c7cfab88efd0063c38f4f2df77fcde352990dd3\"}\nTraceback (most recent call last):\n  File \"/root/garmin/scripts/verify_actual_coherent8k_map_restore_v1.py\", line 231, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/scripts/verify_actual_coherent8k_map_restore_v1.py\", line 180, in main\n    for block in inputs.helper.restored_stock_blocks(view,inputs.stock,inputs.old_binding,sink):\n                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/navigation-country-address-package-v3/native_8k_stock_restore.py\", line 428, in restored_stock_blocks\n    yield from _restored_blocks(candidate_stream,stock,binding,read_receipts)\n  File \"/root/garmin/staging/navigation-country-address-package-v3/native_8k_stock_restore.py\", line 376, in _restored_blocks\n    current=_layouts_and_header(stream,stock,binding,log)\n  File \"/root/garmin/staging/navigation-country-address-package-v3/native_8k_stock_restore.py\", line 369, in _layouts_and_header\n    log.extend([{'purpose':'actual_MDR_header','bytes':772,'sha256':digest(header)},\n    ^^^^^^^^^^\nAttributeError: 'ReceiptSink' object has no attribute 'extend'\n"
+  }
+}

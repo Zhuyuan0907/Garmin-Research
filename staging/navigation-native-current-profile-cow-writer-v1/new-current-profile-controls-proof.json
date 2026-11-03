@@ -1,0 +1,253 @@
+{
+  "actual_v2_image_read": false,
+  "all_assigned_controls_passed": true,
+  "checksum_or_8K_device_acceptance_verified": false,
+  "created_utc": "2026-10-06T19:58:04.292712+00:00",
+  "device_IO": false,
+  "large_candidate_or_append_files_produced": false,
+  "native_CPU_verified": false,
+  "old_test_suites_executed": false,
+  "positive_controls": [
+    {
+      "all_old_and_appended_records_checked": 28,
+      "case": "current_lower_tables_full_significant_prefix_and_appends",
+      "old_L5_unused_bits": 2,
+      "old_L6_unused_bits": 4
+    },
+    {
+      "case": "copied_parent_payloads_and_raw13_verbatim",
+      "producer_owned_range_edits": true
+    },
+    {
+      "L3_stride": 112,
+      "case": "three_current_L3_branches_only_first_count_and_real_L2_lookahead",
+      "first_width": 23
+    },
+    {
+      "case": "independent_all_eight_bit_carries_one_byte_chunks"
+    },
+    {
+      "case": "new_64KiB_carry_boundary"
+    },
+    {
+      "case": "tiny_current4K_to_explicit8K_full_six_component_FAT_prefix_readback",
+      "changed_header_byte_offsets": [
+        15,
+        24,
+        95,
+        98,
+        460
+      ],
+      "output_bytes": 65536,
+      "source_bytes": 40960
+    },
+    {
+      "case": "current_profile_zero_append_identity"
+    },
+    {
+      "case": "planning_and_capacity_do_not_consume_append_suppliers"
+    }
+  ],
+  "positive_count": 8,
+  "rejection_controls": [
+    {
+      "case": "production_rejects_fixture_profile",
+      "reason": "Only sealed exact current v2 profile supported",
+      "rejected": true
+    },
+    {
+      "case": "source_changed_before_plan",
+      "reason": "Source changed before plan",
+      "rejected": true
+    },
+    {
+      "case": "missing_level",
+      "reason": "Explicit append mapping4/5/6 required",
+      "rejected": true
+    },
+    {
+      "case": "wrong_append_level",
+      "reason": "Append key/type/level differs",
+      "rejected": true
+    },
+    {
+      "case": "append_bit_length_differs",
+      "reason": "Append count/stride/supplier differs",
+      "rejected": true
+    },
+    {
+      "case": "append_noncallable_supplier",
+      "reason": "Append count/stride/supplier differs",
+      "rejected": true
+    },
+    {
+      "case": "duplicate_selected_ID",
+      "reason": "Duplicate/zero selected StreetID",
+      "rejected": true
+    },
+    {
+      "case": "zero_selected_ID",
+      "reason": "Duplicate/zero selected StreetID",
+      "rejected": true
+    },
+    {
+      "case": "selected_branch_conversion",
+      "reason": "Selected raw flags/branch differ; conversion forbidden",
+      "rejected": true
+    },
+    {
+      "case": "selected_rawflags_conversion",
+      "reason": "Selected raw flags/branch differ; conversion forbidden",
+      "rejected": true
+    },
+    {
+      "case": "selected_points_current_prefix",
+      "reason": "COW root must target complete appended corresponding-table range",
+      "rejected": true
+    },
+    {
+      "case": "selected_newrange_overrun",
+      "reason": "COW root must target complete appended corresponding-table range",
+      "rejected": true
+    },
+    {
+      "case": "selected_count12_overflow",
+      "reason": "New L3 count12 outside finite unsigned range",
+      "rejected": true
+    },
+    {
+      "case": "selected_zero_count",
+      "reason": "COW root must target complete appended corresponding-table range",
+      "rejected": true
+    },
+    {
+      "case": "wrong_L3_111bit_stock_profile",
+      "reason": "Current profile differs at level3",
+      "rejected": true
+    },
+    {
+      "case": "directory_EOF_mismatch",
+      "reason": "Current directory descriptor/EOF differs",
+      "rejected": true
+    },
+    {
+      "case": "nonzero_old_L5_final_padding",
+      "reason": "Current unused lower-table padding nonzero",
+      "rejected": true
+    },
+    {
+      "case": "nonzero_old_L6_final_padding",
+      "reason": "Current unused lower-table padding nonzero",
+      "rejected": true
+    },
+    {
+      "case": "source_short_bounded_read",
+      "reason": "Source read callback returned wrong type/length",
+      "rejected": true
+    },
+    {
+      "case": "source_short_L3_stream",
+      "reason": "Source span supplier truncated",
+      "rejected": true
+    },
+    {
+      "case": "source_read_larger64KiB",
+      "reason": "Source read bytes outside finite unsigned range",
+      "rejected": true
+    },
+    {
+      "case": "unchanged_incoming_first_width_overflow_L4",
+      "reason": "New table exceeds unchanged incoming first-field width at level4",
+      "rejected": true
+    },
+    {
+      "case": "unchanged_incoming_first_width_overflow_L5",
+      "reason": "New table exceeds unchanged incoming first-field width at level5",
+      "rejected": true
+    },
+    {
+      "case": "unchanged_incoming_first_width_overflow_L6",
+      "reason": "New table exceeds unchanged incoming first-field width at level6",
+      "rejected": true
+    },
+    {
+      "case": "packed_short",
+      "reason": "Append supplier truncated count/span",
+      "rejected": true
+    },
+    {
+      "case": "packed_long",
+      "reason": "Append supplier exceeds explicit span",
+      "rejected": true
+    },
+    {
+      "case": "packed_nonzero_padding",
+      "reason": "Append unused final bits are nonzero",
+      "rejected": true
+    },
+    {
+      "case": "packed_mapordinal0",
+      "reason": "Append record mapordinal1 differs",
+      "rejected": true
+    },
+    {
+      "case": "packed_nonbytes",
+      "reason": "Append chunk must contain bytes",
+      "rejected": true
+    },
+    {
+      "case": "packed_emptychunk",
+      "reason": "Append chunk must be nonempty and <=64KiB",
+      "rejected": true
+    },
+    {
+      "case": "packed_noniterable",
+      "reason": "Append supplier must return chunk iterable",
+      "rejected": true
+    },
+    {
+      "case": "bit_segment_padding",
+      "reason": "Nonzero unused segment final padding",
+      "rejected": true
+    },
+    {
+      "case": "bit_segment_short",
+      "reason": "Bit segment supplier truncated",
+      "rejected": true
+    },
+    {
+      "case": "bit_segment_long",
+      "reason": "Bit segment supplier exceeds declaration",
+      "rejected": true
+    },
+    {
+      "case": "wrong_container_binding",
+      "reason": "Plan requires its own explicit8K adapter",
+      "rejected": true
+    },
+    {
+      "case": "explicit8K_capacity_overflow_before_supplier",
+      "reason": "Output exceeds explicit AP8K268MiB profile capacity",
+      "rejected": true
+    },
+    {
+      "case": "output_stream_alias",
+      "reason": "Source/destination stream alias",
+      "rejected": true
+    },
+    {
+      "case": "output_existing_bytes",
+      "reason": "Output stream must be new and empty",
+      "rejected": true
+    },
+    {
+      "case": "source_changed_after_plan",
+      "reason": "Current source changed since planning",
+      "rejected": true
+    }
+  ],
+  "rejection_count": 39,
+  "schema": "new-current-profile-cow-writer-controls/v1",
+  "test_source_sha256": "1108be6186a6b470d7341ec371a7c99a1665918613f18c13a5080d19ab454133",
+  "writer_sha256": "71673de65c6e94da664ad8bc8b81307c37a6dfbf94d819eebfa888274b688c9e"
+}

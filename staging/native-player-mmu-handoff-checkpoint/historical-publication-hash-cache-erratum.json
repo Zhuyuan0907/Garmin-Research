@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "pure_static_and_file_comparison": true,
+  "source_sha256": {
+    "staging/native-player-mmu-handoff-checkpoint/prepare_publication_inputs_v2.py": "301d0d97a1926546346c91496404c6bded59b8f2c9538acd86f89ce3e7f03862",
+    "staging/native-player-mmu-handoff-checkpoint/prepare_publication_inputs_v1.py": "6290fbfb0f8a193c4b5fa2a8dbffa76f02cb6120eee6017aef3e2b028b5cf464",
+    "staging/native-player-mmu-handoff-checkpoint/prepare-v1-terminal-tool-receipt.json": "4bae0ffd4b7e0b987cc90233650c77e1551e92d510c4008a4061cc2368a67307",
+    "scripts/publish_native_public_heap_audio_checkpoint.py": "ffde83c39def222fcee8efce6bc4bfbf42bac925b312a6626873d1bedbf0cc65",
+    "scripts/publish_native_settings_scope_checkpoint_v2.py": "e2b39b4a6a09d7ec80585be468e0e896daf5c962f50bfcf5c603eb72afcb73d4",
+    "evidence/firmware-analysis/native-public-heap-audio-checkpoint-audit.json": "57292255cbc3e9891eaa99a3bbb9aa62af42db69ac0489e56e79db06f87cde4d",
+    "staging/native-player-native-allocation/previous-state.json": "7f9e9e873bf00b39daa034ef7b9f27f6d10cca26589c662408957b5639d3e03e",
+    "staging/native-player-native-allocation/previous-report.html": "338b89447deaedca40b953087c8074b035e5c071b22597cc1959a4bdd57273c5",
+    "staging/native-player-mmu-handoff-checkpoint/previous-state.json": "14a5fcfdaa8196e997c223ab70e0492ddbaa378262a4c89b2910f477495911d8",
+    "staging/native-player-mmu-handoff-checkpoint/previous-report.html": "f9c98018f2cacfc5439efe33c686e20a5203a60ad3aa195e10563c24e4f9eb27",
+    "staging/native-player-mmu-handoff-checkpoint/previous-web.json": "faa5f4792f877ff9e2843e4e6443dcb3c7ca097401332af77f723569add61709"
+  },
+  "historical_published_audit": "evidence/firmware-analysis/native-public-heap-audio-checkpoint-audit.json",
+  "historical_audit_sha256": "57292255cbc3e9891eaa99a3bbb9aa62af42db69ac0489e56e79db06f87cde4d",
+  "stale_published_state_sha256": "7f9e9e873bf00b39daa034ef7b9f27f6d10cca26589c662408957b5639d3e03e",
+  "stale_published_local_report_sha256": "338b89447deaedca40b953087c8074b035e5c071b22597cc1959a4bdd57273c5",
+  "actual_current205_state_sha256": "14a5fcfdaa8196e997c223ab70e0492ddbaa378262a4c89b2910f477495911d8",
+  "actual_current_report_sha256": "f9c98018f2cacfc5439efe33c686e20a5203a60ad3aa195e10563c24e4f9eb27",
+  "old_recorded_served_report_sha256": "f9c98018f2cacfc5439efe33c686e20a5203a60ad3aa195e10563c24e4f9eb27",
+  "stale_values_equal_previous185_snapshot_hashes": true,
+  "exact_cause": "Old publisher imported lru_cached sha, hashed originals before writes and reused cached values after writes. Fresh served digest equals current local report.",
+  "old_audit_or_successful_publisher_modified": false,
+  "HTTP_recheck_performed": false,
+  "canonical_write": false,
+  "guest_execution": false,
+  "future_fix": "NEW publisher uses explicit uncached canonical readback after mutations and fresh local/served comparison."
+}

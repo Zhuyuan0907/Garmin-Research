@@ -1,0 +1,176 @@
+{
+  "updated_utc": "2026-10-02T21:58:26.969056+00:00",
+  "elf": "staging/native-media-queue/queue-armv6.elf",
+  "elf_sha256": "b91e8ac24aa6a74342c9b8d0e99c42a761871715047207cd40e0c1f49f3a0183",
+  "flat_binary": "staging/native-media-queue/queue-armv6.bin",
+  "flat_binary_sha256": "d2d3471c75ac7f198da67f9b5462dfa008180700d4c0faaea2aa30d5c114956a",
+  "flat_binary_bytes": 1396,
+  "load_base": 137363456,
+  "symbols": {
+    "lock": {
+      "address": 137363456,
+      "type": "t"
+    },
+    "unlock": {
+      "address": 137363476,
+      "type": "t"
+    },
+    "discard_pending": {
+      "address": 137363488,
+      "type": "t"
+    },
+    "media_queue_begin": {
+      "address": 137363540,
+      "type": "T"
+    },
+    "media_queue_stop": {
+      "address": 137363740,
+      "type": "T"
+    },
+    "media_queue_step": {
+      "address": 137363812,
+      "type": "T"
+    },
+    "media_queue_init": {
+      "address": 137364292,
+      "type": "T"
+    },
+    "media_queue_callback": {
+      "address": 137364408,
+      "type": "T"
+    },
+    "memset": {
+      "address": 137364780,
+      "type": "T"
+    },
+    "memcpy": {
+      "address": 137364804,
+      "type": "T"
+    },
+    "media_queue_api": {
+      "address": 137364832,
+      "type": "R"
+    },
+    "__queue_code_end": {
+      "address": 137364852,
+      "type": "R"
+    },
+    "__queue_state_start": {
+      "address": 137367552,
+      "type": "B"
+    },
+    "lengths": {
+      "address": 137367552,
+      "type": "b"
+    },
+    "media_queue_stats": {
+      "address": 137367568,
+      "type": "B"
+    },
+    "media_queue_control": {
+      "address": 137367604,
+      "type": "B"
+    },
+    "__queue_state_end": {
+      "address": 137367640,
+      "type": "B"
+    },
+    "__queue_payload_start": {
+      "address": 137375744,
+      "type": "B"
+    },
+    "slots": {
+      "address": 137375744,
+      "type": "b"
+    },
+    "__queue_payload_end": {
+      "address": 137392128,
+      "type": "B"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/media_queue.c",
+      "-o",
+      "/root/garmin/staging/native-media-queue/media_queue.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-c",
+      "/root/garmin/native/sbc-prototype/runtime.c",
+      "-o",
+      "/root/garmin/staging/native-media-queue/runtime.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-media-queue/queue.map",
+      "-Wl,-T,/root/garmin/staging/native-media-queue/queue.ld",
+      "/root/garmin/staging/native-media-queue/media_queue.o",
+      "/root/garmin/staging/native-media-queue/runtime.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-media-queue/queue-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8300344\nThere are 3 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08300000 0x08300000 0x00574 0x00574 R E 0x10000\n  LOAD           0x001000 0x08301000 0x08301000 0x00000 0x00058 RW  0x10000\n  LOAD           0x003000 0x08303000 0x08303000 0x00000 0x04000 RW  0x10000\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .rodata \n   01     .bss \n   02     .queue_payload \n",
+  "undefined_symbols": [],
+  "source_sha256": {
+    "native/sbc-prototype/media_queue.c": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/media_queue.h": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+    "staging/native-media-queue/queue.ld": "4b3ae75a9ab115992b92a26dc8ced3e26aa88de189a895a9446c0bbb40b1f0dd",
+    "scripts/build_native_media_queue.py": "7f9e0b974ec0d7d093442160845e2f8abe7b0624381f361c953a38139d8513a1"
+  },
+  "queue_slots": 4,
+  "packet_capacity_bytes": 4096,
+  "payload_bytes": 16384,
+  "conservative_pcm_free_bytes": 8961,
+  "irq_save": "0x21b6cc",
+  "irq_restore": "0x21b6dc",
+  "payload_initialized_before_publication": true,
+  "linux_runtime_required": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Standalone companion ELF for emulation, not merged into a VPM or installed. Caller supplies compiled preserving media and reset functions; first initialization requires quiescence. Single-core metadata protection uses exact stock IRQ functions; payload copies and decoding run outside critical sections. One producer of the initialized stock PCM ring is an unverified real-device requirement. OS task/event wake, real navigation ownership, package acceptance, SEP registration and hardware playback are not provided."
+}

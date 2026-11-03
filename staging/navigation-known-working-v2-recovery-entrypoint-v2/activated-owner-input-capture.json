@@ -1,0 +1,140 @@
+{
+  "schema": "activated-owner-small-input-capture/v2",
+  "rows": [
+    {
+      "path": "staging/navigation-AP-coherent8K-activated-test-entrypoint-v1/sealed-files.json",
+      "bytes": 7970,
+      "sha256": "54bdfcd2aa434d99d2d141f23e405870958218fc6e9052f402b7015bcbbefb9d",
+      "stat_before": [
+        45826,
+        540240,
+        7970,
+        1791365236314303812,
+        1791365236314303812,
+        292,
+        1
+      ],
+      "stat_after": [
+        45826,
+        540240,
+        7970,
+        1791365236314303812,
+        1791365236314303812,
+        292,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent8K-activated-test-entrypoint-v1/PACKAGING.json",
+      "bytes": 5082,
+      "sha256": "a6a2a84e91bbbc2b515b13cd93b4c008f2a85c0394bae72f077c93dd496b2af1",
+      "stat_before": [
+        45826,
+        540220,
+        5082,
+        1791364767896552150,
+        1791365236312661067,
+        292,
+        1
+      ],
+      "stat_after": [
+        45826,
+        540220,
+        5082,
+        1791364767896552150,
+        1791365236312661067,
+        292,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent8K-activated-test-entrypoint-v1/install_native_house_supplement.py",
+      "bytes": 27863,
+      "sha256": "10167906752df5e22985b79cae4af33600de55ea8823c869c4d0abf26f98973c",
+      "stat_before": [
+        45826,
+        540218,
+        27863,
+        1791364767895804536,
+        1791365236312661067,
+        292,
+        1
+      ],
+      "stat_after": [
+        45826,
+        540218,
+        27863,
+        1791364767895804536,
+        1791365236312661067,
+        292,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent8K-activated-test-entrypoint-v1/manifest.json",
+      "bytes": 12040,
+      "sha256": "a491e77131a1c3a468865f98cc204984acf4fb81198fdb89049e5338f57a9e52",
+      "stat_before": [
+        45826,
+        540217,
+        12040,
+        1791364767873275011,
+        1791365236312661067,
+        292,
+        1
+      ],
+      "stat_after": [
+        45826,
+        540217,
+        12040,
+        1791364767873275011,
+        1791365236312661067,
+        292,
+        1
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent8K-activated-test-entrypoint-v1/entrypoint-source-binding.json",
+      "bytes": 3216,
+      "sha256": "653427d59d444409068d0bd0fcfb85e6c50a44a3d52592ad5ffbf1db263a3121",
+      "stat_before": [
+        45826,
+        540219,
+        3216,
+        1791364767896065667,
+        1791365236312661067,
+        292,
+        1
+      ],
+      "stat_after": [
+        45826,
+        540219,
+        3216,
+        1791364767896065667,
+        1791365236312661067,
+        292,
+        1
+      ]
+    }
+  ],
+  "raw_input_bytes": 56171,
+  "recipe_reads_or_decodes": 0,
+  "real_IMG_operations": 0,
+  "owner_actual_sealer_receipt": "eef411 EXIT0",
+  "independent_source_review_pending_not_claimed_passed": true,
+  "main_source": "def main():\n    os.umask(0o077)\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--bundle', type=Path, default=Path(__file__).resolve().parent)\n    modes = parser.add_mutually_exclusive_group()\n    modes.add_argument('--install', action='store_true', help='Install this larger country house supplement candidate from a pinned accepted AP state')\n    modes.add_argument('--rollback', action='store_true', help='Restore exact smaller stock AP using one compact recipe')\n    args = parser.parse_args()\n    mode = 'install' if args.install else 'rollback' if args.rollback else 'preflight'\n    signal.signal(signal.SIGTERM, interrupt); signal.signal(signal.SIGINT, interrupt)\n    try:\n        result = execute(args.bundle, mode)\n    except BaseException as error:\n        result = {'started_at': timestamp(), 'completed_at': timestamp(), 'mode': mode, 'state': 'failed',\n                  'error': str(error) if isinstance(error, Refusal) else type(error).__name__ + ': operation failed',\n                  'physical_device_present': False, 'device_files_written': False,\n                  'device_search_verified': False, 'device_routing_verified': False, 'candidate_device_verified': False}\n    print(json.dumps(result, ensure_ascii=False))\n    return 1 if result['state'] == 'failed' else 0",
+  "load_manifest_first_statements": [
+    "bundle = Path(bundle).resolve()",
+    "manifest_path = safe_path(bundle, 'manifest.json')",
+    "verify_file(manifest_path, MANIFEST_BYTES, MANIFEST_SHA, 'Sealed country house supplement manifest')",
+    "m = read_json(manifest_path, 1024 * 1024)",
+    "need(m.get('schema') == SCHEMA, 'Unsupported country house supplement manifest schema')",
+    "t, d, rb = (m.get('target', {}), m.get('device', {}), m.get('rollback', {}))",
+    "need(t.get('device_path') == TARGET and t.get('bundle_path') == CANDIDATE and (t.get('bytes') == CANDIDATE_BYTES) and (t.get('candidate_sha256') == CANDIDATE_SHA) and (t.get('original_bytes') == ORIGINAL_BYTES) and (t.get('original_sha256') == ORIGINAL_SHA) and (t.get('accepted_predecessors') == EXPECTED_PREDECESSORS), 'Unexpected country house supplement target/predecessor identity')",
+    "need(d.get('part_number') == '006-B1352-00' and str(d.get('software_version')) == '800' and (d.get('disk_bytes') == support.DISK_BYTES) and (d.get('unit_id_sha256') == support.UNIT_ID_SHA), 'Unexpected authorized model/software/unit/disk')",
+    "usb = d.get('usb', {})",
+    "need(usb.get('vendor') == '091e' and usb.get('product') == '2548' and (usb.get('serial_sha256') == support.USB_SERIAL_SHA), 'Unexpected authorized USB identity')",
+    "need(rb == EXPECTED_ROLLBACK, 'Unexpected compactstock recipe/actual8K binding identities')",
+    "need(m.get('portable_helpers') == EXPECTED_HELPERS, 'Unexpected portable helper identities')"
+  ]
+}

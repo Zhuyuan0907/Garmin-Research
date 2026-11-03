@@ -1,0 +1,531 @@
+{
+  "updated_utc": "2026-10-04T06:52:10.587007+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "staging/native-player-task-runtime-full/GUI-stack-leading-boundary-terminal-failure.json": "7dd5369c739a6e7213fef38f65c2ec74c3e085ae677039e36eac9ed7f45f19fe",
+    "staging/native-player-task-runtime-full/source-at-GUI-stack-leading-boundary-failure.py": "14c3d5c197d3cf8092297b0a0e06e513f8e2398bff118c130ae41fe4ee86e79f",
+    "staging/native-player-task-runtime-full/GUI-stack-leading-boundary-terminal-metadata.json": "2cbab10d7aba58f1c2c9b1366e70dcba8396e853f2eb33a64ff220ddcaf5e97e",
+    "staging/native-player-task-runtime-full/task-lifetime-guard-preflight.json": "9a087801ae81e95dba4ef028f02be111f7323718870b94fc4ce69f210b949579",
+    "staging/native-player-task-mutex/gui-worker-boot-preflight.json": "dfb39b1beaf8587206fa43f95ae1029699cba5133058b1bd737ad694c1e13087",
+    "staging/native-player-task-mutex/gui-worker-boot-erratum-and-inputs.json": "4a54d4470370a731f98b195fe4970317f74dbe891ead0d516a07612f4ab5ac6d",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_native_task_mutex_static.py": "6614da71ab4c0d5d298e602c50559c2a356e754c8cefb74ac7d4a176e44fe5ca",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "complete_bounded_CFG_count": 3,
+  "functions": {
+    "0xf5030": {
+      "entry": "0xf5030",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0xf5030",
+          "mode": "Thumb",
+          "instruction": "movs r2, #0"
+        },
+        {
+          "address": "0xf5032",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0xf5034",
+          "mode": "Thumb",
+          "instruction": "movs r1, r2"
+        },
+        {
+          "address": "0xf5036",
+          "mode": "Thumb",
+          "instruction": "bl #0xf6f26",
+          "direct_call": "0xf6f26",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0xf503a",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0xf503a"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0xf6f26": {
+      "entry": "0xf6f26",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0xf6f26",
+          "mode": "Thumb",
+          "instruction": "movs r3, r1"
+        },
+        {
+          "address": "0xf6f28",
+          "mode": "Thumb",
+          "instruction": "movs r1, r2"
+        },
+        {
+          "address": "0xf6f2a",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0xf6f2c",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0xf6f2e",
+          "mode": "Thumb",
+          "instruction": "beq #0xf6f3c"
+        },
+        {
+          "address": "0xf6f30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "address": "0xf6f32",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0xf6f34",
+          "mode": "Thumb",
+          "instruction": "beq #0xf6f3c"
+        },
+        {
+          "address": "0xf6f36",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r0, #8]"
+        },
+        {
+          "address": "0xf6f38",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0xc]"
+        },
+        {
+          "address": "0xf6f3a",
+          "mode": "Thumb",
+          "instruction": "lsls r1, r0, #2"
+        },
+        {
+          "address": "0xf6f3c",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "address": "0xf6f3e",
+          "mode": "Thumb",
+          "instruction": "beq #0xf6f48"
+        },
+        {
+          "address": "0xf6f40",
+          "mode": "Thumb",
+          "instruction": "movs r2, #0xff"
+        },
+        {
+          "address": "0xf6f42",
+          "mode": "Thumb",
+          "instruction": "movs r0, r3"
+        },
+        {
+          "address": "0xf6f44",
+          "mode": "Thumb",
+          "instruction": "blx #0x3794f0",
+          "direct_call": "0x3794f0",
+          "call_target_mode": "ARM"
+        },
+        {
+          "address": "0xf6f48",
+          "mode": "Thumb",
+          "instruction": "pop {r4}"
+        },
+        {
+          "address": "0xf6f4a",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0xf6f4c",
+          "mode": "Thumb",
+          "instruction": "bx r3",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0xf6f4c"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "0x3794f0": {
+      "entry": "0x3794f0",
+      "entry_mode": "ARM",
+      "complete_discontiguous_bounded_CFG": true,
+      "segments": [
+        {
+          "start": "0x3794f0",
+          "end_exclusive": "0x379500",
+          "mode": "ARM"
+        },
+        {
+          "start": "0x35ad50",
+          "end_exclusive": "0x35ad8c",
+          "mode": "ARM"
+        },
+        {
+          "start": "0x35b4f8",
+          "end_exclusive": "0x35b548",
+          "mode": "ARM"
+        }
+      ],
+      "instructions": [
+        {
+          "address": "0x35ad50",
+          "mode": "ARM",
+          "instruction": "cmp r1, #4"
+        },
+        {
+          "address": "0x35ad54",
+          "mode": "ARM",
+          "instruction": "blo #0x35ad78"
+        },
+        {
+          "address": "0x35ad58",
+          "mode": "ARM",
+          "instruction": "ands ip, r0, #3"
+        },
+        {
+          "address": "0x35ad5c",
+          "mode": "ARM",
+          "instruction": "beq #0x35b4f8"
+        },
+        {
+          "address": "0x35ad60",
+          "mode": "ARM",
+          "instruction": "rsb ip, ip, #4"
+        },
+        {
+          "address": "0x35ad64",
+          "mode": "ARM",
+          "instruction": "cmp ip, #2"
+        },
+        {
+          "address": "0x35ad68",
+          "mode": "ARM",
+          "instruction": "strbne r2, [r0], #1"
+        },
+        {
+          "address": "0x35ad6c",
+          "mode": "ARM",
+          "instruction": "sub r1, r1, ip"
+        },
+        {
+          "address": "0x35ad70",
+          "mode": "ARM",
+          "instruction": "strhge r2, [r0], #2"
+        },
+        {
+          "address": "0x35ad74",
+          "mode": "ARM",
+          "instruction": "b #0x35b4f8"
+        },
+        {
+          "address": "0x35ad78",
+          "mode": "ARM",
+          "instruction": "lsls ip, r1, #0x1f"
+        },
+        {
+          "address": "0x35ad7c",
+          "mode": "ARM",
+          "instruction": "strbhs r2, [r0], #1"
+        },
+        {
+          "address": "0x35ad80",
+          "mode": "ARM",
+          "instruction": "strbhs r2, [r0], #1"
+        },
+        {
+          "address": "0x35ad84",
+          "mode": "ARM",
+          "instruction": "strbmi r2, [r0], #1"
+        },
+        {
+          "address": "0x35ad88",
+          "mode": "ARM",
+          "instruction": "bx lr",
+          "resolved_original_LR_return": true,
+          "conditional_return_with_fallthrough": false
+        },
+        {
+          "address": "0x35b4f8",
+          "mode": "ARM",
+          "instruction": "stmdb sp!, {lr}"
+        },
+        {
+          "address": "0x35b4fc",
+          "mode": "ARM",
+          "instruction": "mov r3, r2"
+        },
+        {
+          "address": "0x35b500",
+          "mode": "ARM",
+          "instruction": "mov ip, r2"
+        },
+        {
+          "address": "0x35b504",
+          "mode": "ARM",
+          "instruction": "mov lr, r2"
+        },
+        {
+          "address": "0x35b508",
+          "mode": "ARM",
+          "instruction": "subs r1, r1, #0x20"
+        },
+        {
+          "address": "0x35b50c",
+          "mode": "ARM",
+          "instruction": "stmhs r0!, {r2, r3, ip, lr}"
+        },
+        {
+          "address": "0x35b510",
+          "mode": "ARM",
+          "instruction": "stmhs r0!, {r2, r3, ip, lr}"
+        },
+        {
+          "address": "0x35b514",
+          "mode": "ARM",
+          "instruction": "subshs r1, r1, #0x20"
+        },
+        {
+          "address": "0x35b518",
+          "mode": "ARM",
+          "instruction": "bhs #0x35b50c"
+        },
+        {
+          "address": "0x35b51c",
+          "mode": "ARM",
+          "instruction": "lsls r1, r1, #0x1c"
+        },
+        {
+          "address": "0x35b520",
+          "mode": "ARM",
+          "instruction": "stmhs r0!, {r2, r3, ip, lr}"
+        },
+        {
+          "address": "0x35b524",
+          "mode": "ARM",
+          "instruction": "stmmi r0!, {r2, r3}"
+        },
+        {
+          "address": "0x35b528",
+          "mode": "ARM",
+          "instruction": "ldm sp!, {lr}"
+        },
+        {
+          "address": "0x35b52c",
+          "mode": "ARM",
+          "instruction": "lsls r1, r1, #2"
+        },
+        {
+          "address": "0x35b530",
+          "mode": "ARM",
+          "instruction": "strhs r2, [r0], #4"
+        },
+        {
+          "address": "0x35b534",
+          "mode": "ARM",
+          "instruction": "bxeq lr",
+          "resolved_original_LR_return": true,
+          "conditional_return_with_fallthrough": true
+        },
+        {
+          "address": "0x35b538",
+          "mode": "ARM",
+          "instruction": "strhmi r2, [r0], #2"
+        },
+        {
+          "address": "0x35b53c",
+          "mode": "ARM",
+          "instruction": "tst r1, #0x40000000"
+        },
+        {
+          "address": "0x35b540",
+          "mode": "ARM",
+          "instruction": "strbne r2, [r0], #1"
+        },
+        {
+          "address": "0x35b544",
+          "mode": "ARM",
+          "instruction": "bx lr",
+          "resolved_original_LR_return": true,
+          "conditional_return_with_fallthrough": false
+        },
+        {
+          "address": "0x3794f0",
+          "mode": "ARM",
+          "instruction": "and r3, r2, #0xff"
+        },
+        {
+          "address": "0x3794f4",
+          "mode": "ARM",
+          "instruction": "orr r2, r3, r3, lsl #8"
+        },
+        {
+          "address": "0x3794f8",
+          "mode": "ARM",
+          "instruction": "orr r2, r2, r2, lsl #16"
+        },
+        {
+          "address": "0x3794fc",
+          "mode": "ARM",
+          "instruction": "b #0x35ad50"
+        }
+      ],
+      "original_LR_returns": [
+        "0x35ad88",
+        "0x35b534",
+        "0x35b544"
+      ],
+      "unresolved_local_exits": [],
+      "conditional_BX_LR_both_return_and_fallthrough_preserved": true,
+      "instruction_limit_reached": false
+    }
+  },
+  "exact_native_chain": {
+    "builder_call": "0x358c22 ThumbBL→0x0f5030",
+    "wrapper": "0x0f5030 setsr1/r2=0 then0F5036 BL0F6F26",
+    "metadata_gate": "0F6F30 descriptor+16; ifmetadata!=0 usemetadata+8 base andmetadata+12 wordcount; fill onlyifbase!=0",
+    "byte_count": "wordcount<<2",
+    "fill_value_byte": "0xff",
+    "fill_call": "0x0f6f44 ThumbBLX→0x3794f0 ARM",
+    "fill_return_continuation": "0x0f6f48 Thumb",
+    "ARM_byte_expand": "3794F0 masksbyte;3794F4/F8 replicatewordFFFFFFFF",
+    "ARM_tail": "3794FC B35AD50→35B4F8 bulkfill",
+    "flag_C8_F5_not_read_in_fill_gate": true
+  },
+  "exact_fill_ABI": {
+    "entry": "0x3794f0 ARM",
+    "r0": "destinationbase",
+    "r1": "bytecount",
+    "r2": "fillbyte (low8)",
+    "destination_return": "r0advancedtoend; notISO C memsetoriginalbase return",
+    "LR_return": "0x0f6f49 Thumb",
+    "aligned16384_bulk_writer_PCs": [
+      "0x35b50c",
+      "0x35b510"
+    ],
+    "bulk_step_bytes": 32,
+    "STM_each_bytes": 16,
+    "iterations": 512,
+    "expanded_word": "0xffffffff",
+    "full_interval": "[metadata+8, metadata+8 +4*metadata+12)",
+    "prefix_and_tail_writer_PCs": [
+      "0x35ad68 STRBNE",
+      "0x35ad70 STRHGE",
+      "0x35ad7c STRBHS",
+      "0x35ad80 STRBHS",
+      "0x35ad84 STRBMI",
+      "0x35b520 STMHS",
+      "0x35b524 STMMI",
+      "0x35b530 STRHS",
+      "0x35b538 STRHMI",
+      "0x35b540 STRBNE"
+    ],
+    "aligned16384_path_has_no_prefix_or_tail_write": true
+  },
+  "GUI_expected_fills": [
+    {
+      "role": "Dispatcher",
+      "descriptor": "0x08800fcc",
+      "metadata": "0x08800fe0",
+      "base": "0x08801024",
+      "words": 4096,
+      "bytes": 16384,
+      "end_exclusive": "0x08805024",
+      "TCB": "0x08804fb8",
+      "leading64_interval": [
+        "0x08801024",
+        "0x08801064"
+      ],
+      "expected_leading64_after_native_fill_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "role": "Thread",
+      "descriptor": "0x0880522c",
+      "metadata": "0x08805240",
+      "base": "0x08805320",
+      "words": 4096,
+      "bytes": 16384,
+      "end_exclusive": "0x08809320",
+      "TCB": "0x088092b0",
+      "leading64_interval": [
+        "0x08805320",
+        "0x08805360"
+      ],
+      "expected_leading64_after_native_fill_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    }
+  ],
+  "no_fill_controls": {
+    "controller_idle_timer_descriptor_metadata_zero": true,
+    "wrapper_default_base_r1_zero": true,
+    "reason": "F5030 r1=r2=0; whenmetadata=NULL, F6F26 leavesbase r3=0 andskips fill. ExistingexplicitA5controller/idle/timerleadingcanaries shouldstayA5 underthispath.",
+    "not_attributed_to_flag_C_or_F": true
+  },
+  "corrected_guard_baseline": {
+    "original_failure": "At358BF8entry leading64 precedesoriginalF5030 stackfill; comparinglaterbytes topre-fill snapshot incorrectlyrejects legalFFfill.",
+    "recommended_phase": "AtF6F44 entry record exactdescriptor/metadata/base/count/FF/LR; observeeachoriginalwrite andboundcoverage; atoriginalF6F48 continuation snapshotleading64/fullfillhash immediatelyafterfill andrequireFF. Usepost-fill leadingbaseline forlaterstackdepth boundary.",
+    "keep_before_and_after_bytes_and_hashes": true,
+    "do_not_patch_or_reseed_guest_stack": true,
+    "do_not_skip_original_F5030_or_3794F0": true,
+    "post_fill_full_region_may_later_legally_change": "Originalbuilder writesTCB/context neartop; laternativework usesupperstack. Onlyuntouchedleading64 comparedatfinalguard; fullfillregionhash isphaseevidence notglobalimmutabilityguard.",
+    "observer_stack_identity": "Fill runswhilecontroller/creator executes; destinationisGUI stack, not currentCPU stack. ARM35B4F8 pushLR writescallerstack separately; trace filterdestinationinterval ratherthanmisattribute allmemwrites."
+  },
+  "proposed_runtime_writer_checks": [
+    "Atnativefill3794F0/35AD50 entry verify r0/r1/r2 exactlymatchdeclaredGUI metadata interval andbytes16384, byteFF andoriginalcallerF6F49; fullrangeinsideunfreed guardedallocation.",
+    "Collect originalMEM_WRITE PC/address/size/value for GUI destination only; permit exactbulk35B50C/510 foraligned16384path, requireintervalbounds and everydestinationbyte coveredwithoutgaps; do notinfercompletememorysafetysolelyfromhookcount.",
+    "Observebothsynthetic stack allocationcanaries before/after fill, plusGUIstackallocationleading/trailing guardoutsideinterval; unchangedguardsprove filldidnotexceeddeclaredinterval inthisrun.",
+    "Capture F6F48 continuation withoutregisterwrite, require leading64 FF andrecord fullregionSHA beforelaternativeTCB writes; compare finalleading64 tothislegitimate postfillbaseline.",
+    "Exceptionjournalmustinclude eachGUI canarybefore/after hex, metadata/interval, writerPCcoverage, pendingfilltrace andphase—even iflaterwholeguardfails."
+  ],
+  "preserved_22074_scope": {
+    "session": 22074,
+    "completed_cases": [
+      "original_GUI_workers_notify_and_handoff_mutex_then_singleton_returns_originating_controller",
+      "exact_native_task_ready_ALL_owned_mutex_lists_and_resident_background_frames_match"
+    ],
+    "seven_original_destinations_reached": true,
+    "ALL_ready_owned_context_checks_passed": true,
+    "full_memory_guards_passed": false,
+    "GUI_leading64_before_after_snapshots_available": false,
+    "actual_whole_stack_fill_trace_available": false,
+    "qualification": "Staticoriginalchain explains legalfill thatcaninvalidatepre-fillguard; newruntime must capturewriterandactualbytes, notclaim22074alreadyvalidatedthose."
+  },
+  "task_lifetime_preflight_CPSR_erratum": {
+    "path": "staging/native-player-task-runtime-full/task-lifetime-guard-preflight.json",
+    "source_document_unchanged": true,
+    "error": "The frameplan incorrectlyspecified (CPSR&FF)==BF fordispatcher/Thread. ItassumedFIQ statefrominitialbuilder contextratherthanthe actualoriginalsave.",
+    "correction": "22074rawframeword0 fordispatcher,Thread,timer is200001FF. PreservecapturedrawCPSR; assertverifiedmode31, Thumb20 andIRQ80 whileFIQ40/Abort100 remainasrecorded. Do nothostnormalizeCPSR orimposeBF.",
+    "raw_crosscheck": {
+      "0x8804fb8": "0x200001ff",
+      "0x88092b0": "0x200001ff",
+      "0x2d227c8": "0x200001ff"
+    },
+    "other_expected_lists_frames_SP_LR_match_preserved_22074": true
+  },
+  "new_runtime_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "firmware_modified": false,
+  "install_candidate": false,
+  "limits": "Read-onlystatic completewrapper/fill CFG pluspreservedfailureinventorycrosscheck. No newloader/emulatorrun, actualGUIfillwritertrace, fullmemoryguarantee, IRQ/realclock, taskquiescence/safeunload, physicalGUI/App or phoneplayback."
+}

@@ -1,0 +1,923 @@
+{
+  "schema": "stock-taichung-FTS-family-links/v2",
+  "created_utc": "2026-10-05T17:52:04.458124+00:00",
+  "all_bounded_checks_passed": true,
+  "source_sha256": "2961ca52060e172e1ca0e489030ac5291a553abe2c0509dcfd87371d385a6447",
+  "inputs": {
+    "completed_codec_proof": "staging/navigation-stock-fts-codec-v1/stock-fts-token-codec-proof-v1.json",
+    "completed_codec_proof_sha256": "09ca38fcbdc88e4bc4bb87e226945d4e2567ace057b0cfd358d93f0f134c5ca9",
+    "codec_source": "staging/navigation-stock-fts-codec-v1/analyze_stock_fts_codec_v1.py",
+    "codec_source_sha256": "1e77a8dd44103c366daa6f22a631d06e09e58ad0f19495a4e088c21b65b6a92e",
+    "database": "backups/20261002T154458Z/files/.System/SQLite/Prefecture/TWNJAI.db"
+  },
+  "scope": {
+    "FILE_ONLY": true,
+    "prior_city_FTS_suite_rerun": false,
+    "selected_original_FTS_witnesses": 9,
+    "whole_DB_decoded": false,
+    "native_family_consumer_executed": false,
+    "Garmin_UI_query_reproduced": false,
+    "query_codepage_confirmed": false,
+    "address184_house_provider_decoded": false,
+    "NT_AP_payload_read": false,
+    "map_or_DB_writer": false
+  },
+  "record_key_contract": {
+    "observed": "u32 logical key = high-nibble level1/2/3 and low28 recordID",
+    "byte_hex_note": "u32_le hex is a logical scalar rendering, not an AP payload offset or a copy of SQLite on-disk varint encoding",
+    "family_query": "SELECT parent_record FROM japan_addr_family WHERE the_first_record <= ? ORDER BY the_first_record DESC LIMIT 0,1",
+    "boundary_caution": "candidate links use predecessor interval and explicit next boundary; whole-stock family gaps remain legal and unmodified",
+    "FTS_link": "record_info>>8 is info.id; selected record-level nibble comes from bits4..7; low4 flag semantics unverified"
+  },
+  "selected_city": {
+    "record_hex": "0x10000008",
+    "info_id": 12987,
+    "decoded_text": "台中市",
+    "initial_char": "U+53F0"
+  },
+  "district_interval": {
+    "first_record_hex": "0x2000004a",
+    "next_city_first_record_hex": "0x20000067",
+    "district_count": 29,
+    "witness_limit": 40,
+    "districts": [
+      {
+        "info_id": 12988,
+        "record_hex": "0x2000004a",
+        "index_record": "tkgbkfitkgchgatkgblep",
+        "decoded_text": "北屯區"
+      },
+      {
+        "info_id": 13430,
+        "record_hex": "0x2000004b",
+        "index_record": "tkgdcgitkkbbedtkgblep",
+        "decoded_text": "大里區"
+      },
+      {
+        "info_id": 13774,
+        "record_hex": "0x2000004c",
+        "index_record": "tklddhatkgchgatkgblep",
+        "decoded_text": "西屯區"
+      },
+      {
+        "info_id": 14293,
+        "record_hex": "0x2000004d",
+        "index_record": "tkgdcgftkgcphmtkgblep",
+        "decoded_text": "太平區"
+      },
+      {
+        "info_id": 14647,
+        "record_hex": "0x2000004e",
+        "index_record": "tkgbkfitkgblep",
+        "decoded_text": "北區"
+      },
+      {
+        "info_id": 14896,
+        "record_hex": "0x2000004f",
+        "index_record": "tklchfptkgbifatkgblep",
+        "decoded_text": "豐原區"
+      },
+      {
+        "info_id": 15114,
+        "record_hex": "0x20000050",
+        "index_record": "tkgblfitkgchgatkgblep",
+        "decoded_text": "南屯區"
+      },
+      {
+        "info_id": 15423,
+        "record_hex": "0x20000051",
+        "index_record": "tkfcoektkfcghltkgblep",
+        "decoded_text": "清水區"
+      },
+      {
+        "info_id": 15629,
+        "record_hex": "0x20000052",
+        "index_record": "tklddhatkgblep",
+        "decoded_text": "西區"
+      },
+      {
+        "info_id": 15827,
+        "record_hex": "0x20000053",
+        "index_record": "tkfcefgtkkcphatkgblep",
+        "decoded_text": "沙鹿區"
+      },
+      {
+        "info_id": 16091,
+        "record_hex": "0x20000054",
+        "index_record": "tkfalhotkgblep",
+        "decoded_text": "東區"
+      },
+      {
+        "info_id": 16250,
+        "record_hex": "0x20000055",
+        "index_record": "tkgdcgitkeachntkgblep",
+        "decoded_text": "大甲區"
+      },
+      {
+        "info_id": 16397,
+        "record_hex": "0x20000056",
+        "index_record": "tkgblfitkgblep",
+        "decoded_text": "南區"
+      },
+      {
+        "info_id": 16556,
+        "record_hex": "0x20000057",
+        "index_record": "tkfdegitkfdfhntkgblep",
+        "decoded_text": "梧棲區"
+      },
+      {
+        "info_id": 16765,
+        "record_hex": "0x20000058",
+        "index_record": "tkhcogctkgblep",
+        "decoded_text": "中區"
+      },
+      {
+        "info_id": 16805,
+        "record_hex": "0x20000059",
+        "index_record": "tkfalhotkgbngntkgblep",
+        "decoded_text": "東勢區"
+      },
+      {
+        "info_id": 16922,
+        "record_hex": "0x2000005a",
+        "index_record": "tkfclgctkgdlfptkgblep",
+        "decoded_text": "潭子區"
+      },
+      {
+        "info_id": 17076,
+        "record_hex": "0x2000005b",
+        "index_record": "tkgdcgitkkanektkgblep",
+        "decoded_text": "大雅區"
+      },
+      {
+        "info_id": 17242,
+        "record_hex": "0x2000005c",
+        "index_record": "tkkciectkhcmfktkgblep",
+        "decoded_text": "龍井區"
+      },
+      {
+        "info_id": 17372,
+        "record_hex": "0x2000005d",
+        "index_record": "tkebfeatkfabgktkgblep",
+        "decoded_text": "烏日區"
+      },
+      {
+        "info_id": 17543,
+        "record_hex": "0x2000005e",
+        "index_record": "tkkakgitkgcfhptkgblep",
+        "decoded_text": "霧峰區"
+      },
+      {
+        "info_id": 17698,
+        "record_hex": "0x2000005f",
+        "index_record": "tkeddfbtkgcegotkgblep",
+        "decoded_text": "神岡區"
+      },
+      {
+        "info_id": 17804,
+        "record_hex": "0x20000060",
+        "index_record": "tkgdcgitklbefftkgblep",
+        "decoded_text": "大肚區"
+      },
+      {
+        "info_id": 17889,
+        "record_hex": "0x20000061",
+        "index_record": "tkgagebtkkbbedtkgblep",
+        "decoded_text": "后里區"
+      },
+      {
+        "info_id": 18016,
+        "record_hex": "0x20000062",
+        "index_record": "tkgdcfjtkgajfltkgblep",
+        "decoded_text": "外埔區"
+      },
+      {
+        "info_id": 18092,
+        "record_hex": "0x20000063",
+        "index_record": "tkfaahptkedchbtkgblep",
+        "decoded_text": "新社區"
+      },
+      {
+        "info_id": 18165,
+        "record_hex": "0x20000064",
+        "index_record": "tkgdcgitkgdiegtkgblep",
+        "decoded_text": "大安區"
+      },
+      {
+        "info_id": 18224,
+        "record_hex": "0x20000065",
+        "index_record": "tkeajhmtkgcegotkgblep",
+        "decoded_text": "石岡區"
+      },
+      {
+        "info_id": 18272,
+        "record_hex": "0x20000066",
+        "index_record": "tkgaeedtkgcphmtkgblep",
+        "decoded_text": "和平區"
+      }
+    ]
+  },
+  "selected_street_family_witnesses": [
+    {
+      "prior_FTS_record_info": 3774257,
+      "prior_FTS_info_id": 14743,
+      "child": {
+        "info_id": 14743,
+        "record": 805321042,
+        "record_hex": "0x30003952",
+        "logical_record_u32_le": "52390030",
+        "level_high_nibble": 3,
+        "low28_id": 14674,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "decoded_text": "民權路"
+      },
+      "family_links": [
+        {
+          "child_record": 805321042,
+          "child_record_hex": "0x30003952",
+          "parent_record": 536870990,
+          "parent_record_hex": "0x2000004e",
+          "parent_u32_le": "4e000020",
+          "the_first_record": 805320947,
+          "the_first_record_hex": "0x300038f3",
+          "first_u32_le": "f3380030",
+          "next_family_first": 805321195,
+          "next_family_first_hex": "0x300039eb",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 14647,
+            "record": 536870990,
+            "record_hex": "0x2000004e",
+            "logical_record_u32_le": "4e000020",
+            "level_high_nibble": 2,
+            "low28_id": 78,
+            "index_record": "tkgbkfitkgblep",
+            "decoded_text": "北區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536870990,
+          "child_record_hex": "0x2000004e",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 北區 → 民權路"
+    },
+    {
+      "prior_FTS_record_info": 4023857,
+      "prior_FTS_info_id": 15718,
+      "child": {
+        "info_id": 15718,
+        "record": 805322013,
+        "record_hex": "0x30003d1d",
+        "logical_record_u32_le": "1d3d0030",
+        "level_high_nibble": 3,
+        "low28_id": 15645,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "decoded_text": "民權路"
+      },
+      "family_links": [
+        {
+          "child_record": 805322013,
+          "child_record_hex": "0x30003d1d",
+          "parent_record": 536870994,
+          "parent_record_hex": "0x20000052",
+          "parent_u32_le": "52000020",
+          "the_first_record": 805321925,
+          "the_first_record_hex": "0x30003cc5",
+          "first_u32_le": "c53c0030",
+          "next_family_first": 805322122,
+          "next_family_first_hex": "0x30003d8a",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 15629,
+            "record": 536870994,
+            "record_hex": "0x20000052",
+            "logical_record_u32_le": "52000020",
+            "level_high_nibble": 2,
+            "low28_id": 82,
+            "index_record": "tklddhatkgblep",
+            "decoded_text": "西區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536870994,
+          "child_record_hex": "0x20000052",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 西區 → 民權路"
+    },
+    {
+      "prior_FTS_record_info": 4177969,
+      "prior_FTS_info_id": 16320,
+      "child": {
+        "info_id": 16320,
+        "record": 805322612,
+        "record_hex": "0x30003f74",
+        "logical_record_u32_le": "743f0030",
+        "level_high_nibble": 3,
+        "low28_id": 16244,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "decoded_text": "民權路"
+      },
+      "family_links": [
+        {
+          "child_record": 805322612,
+          "child_record_hex": "0x30003f74",
+          "parent_record": 536870997,
+          "parent_record_hex": "0x20000055",
+          "parent_u32_le": "55000020",
+          "the_first_record": 805322543,
+          "the_first_record_hex": "0x30003f2f",
+          "first_u32_le": "2f3f0030",
+          "next_family_first": 805322689,
+          "next_family_first_hex": "0x30003fc1",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 16250,
+            "record": 536870997,
+            "record_hex": "0x20000055",
+            "logical_record_u32_le": "55000020",
+            "level_high_nibble": 2,
+            "low28_id": 85,
+            "index_record": "tkgdcgitkeachntkgblep",
+            "decoded_text": "大甲區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536870997,
+          "child_record_hex": "0x20000055",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 大甲區 → 民權路"
+    },
+    {
+      "prior_FTS_record_info": 4297265,
+      "prior_FTS_info_id": 16786,
+      "child": {
+        "info_id": 16786,
+        "record": 805323075,
+        "record_hex": "0x30004143",
+        "logical_record_u32_le": "43410030",
+        "level_high_nibble": 3,
+        "low28_id": 16707,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "decoded_text": "民權路"
+      },
+      "family_links": [
+        {
+          "child_record": 805323075,
+          "child_record_hex": "0x30004143",
+          "parent_record": 536871000,
+          "parent_record_hex": "0x20000058",
+          "parent_u32_le": "58000020",
+          "the_first_record": 805323055,
+          "the_first_record_hex": "0x3000412f",
+          "first_u32_le": "2f410030",
+          "next_family_first": 805323094,
+          "next_family_first_hex": "0x30004156",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 16765,
+            "record": 536871000,
+            "record_hex": "0x20000058",
+            "logical_record_u32_le": "58000020",
+            "level_high_nibble": 2,
+            "low28_id": 88,
+            "index_record": "tkhcogctkgblep",
+            "decoded_text": "中區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536871000,
+          "child_record_hex": "0x20000058",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 中區 → 民權路"
+    },
+    {
+      "prior_FTS_record_info": 4503345,
+      "prior_FTS_info_id": 17591,
+      "child": {
+        "info_id": 17591,
+        "record": 805323874,
+        "record_hex": "0x30004462",
+        "logical_record_u32_le": "62440030",
+        "level_high_nibble": 3,
+        "low28_id": 17506,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "decoded_text": "民權路"
+      },
+      "family_links": [
+        {
+          "child_record": 805323874,
+          "child_record_hex": "0x30004462",
+          "parent_record": 536871006,
+          "parent_record_hex": "0x2000005e",
+          "parent_u32_le": "5e000020",
+          "the_first_record": 805323827,
+          "the_first_record_hex": "0x30004433",
+          "first_u32_le": "33440030",
+          "next_family_first": 805323981,
+          "next_family_first_hex": "0x300044cd",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 17543,
+            "record": 536871006,
+            "record_hex": "0x2000005e",
+            "logical_record_u32_le": "5e000020",
+            "level_high_nibble": 2,
+            "low28_id": 94,
+            "index_record": "tkkakgitkgcfhptkgblep",
+            "decoded_text": "霧峰區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536871006,
+          "child_record_hex": "0x2000005e",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 霧峰區 → 民權路"
+    },
+    {
+      "prior_FTS_record_info": 4541489,
+      "prior_FTS_info_id": 17740,
+      "child": {
+        "info_id": 17740,
+        "record": 805324022,
+        "record_hex": "0x300044f6",
+        "logical_record_u32_le": "f6440030",
+        "level_high_nibble": 3,
+        "low28_id": 17654,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "decoded_text": "民權路"
+      },
+      "family_links": [
+        {
+          "child_record": 805324022,
+          "child_record_hex": "0x300044f6",
+          "parent_record": 536871007,
+          "parent_record_hex": "0x2000005f",
+          "parent_u32_le": "5f000020",
+          "the_first_record": 805323981,
+          "the_first_record_hex": "0x300044cd",
+          "first_u32_le": "cd440030",
+          "next_family_first": 805324086,
+          "next_family_first_hex": "0x30004536",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 17698,
+            "record": 536871007,
+            "record_hex": "0x2000005f",
+            "logical_record_u32_le": "5f000020",
+            "level_high_nibble": 2,
+            "low28_id": 95,
+            "index_record": "tkeddfbtkgcegotkgblep",
+            "decoded_text": "神岡區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536871007,
+          "child_record_hex": "0x2000005f",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 神岡區 → 民權路"
+    },
+    {
+      "prior_FTS_record_info": 3969329,
+      "prior_FTS_info_id": 15505,
+      "child": {
+        "info_id": 15505,
+        "record": 805321801,
+        "record_hex": "0x30003c49",
+        "logical_record_u32_le": "493c0030",
+        "level_high_nibble": 3,
+        "low28_id": 15433,
+        "index_record": "tkfcgfotkgaeedtklcbgatkhcmedtkfdihk",
+        "decoded_text": "民和路二段"
+      },
+      "family_links": [
+        {
+          "child_record": 805321801,
+          "child_record_hex": "0x30003c49",
+          "parent_record": 536870993,
+          "parent_record_hex": "0x20000051",
+          "parent_u32_le": "51000020",
+          "the_first_record": 805321720,
+          "the_first_record_hex": "0x30003bf8",
+          "first_u32_le": "f83b0030",
+          "next_family_first": 805321925,
+          "next_family_first_hex": "0x30003cc5",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 15423,
+            "record": 536870993,
+            "record_hex": "0x20000051",
+            "logical_record_u32_le": "51000020",
+            "level_high_nibble": 2,
+            "low28_id": 81,
+            "index_record": "tkfcoektkfcghltkgblep",
+            "decoded_text": "清水區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536870993,
+          "child_record_hex": "0x20000051",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 清水區 → 民和路二段"
+    },
+    {
+      "prior_FTS_record_info": 4264753,
+      "prior_FTS_info_id": 16659,
+      "child": {
+        "info_id": 16659,
+        "record": 805322949,
+        "record_hex": "0x300040c5",
+        "logical_record_u32_le": "c5400030",
+        "level_high_nibble": 3,
+        "low28_id": 16581,
+        "index_record": "tkfcgfotkgaeedtklcbgatkhcoeptkfdihk",
+        "decoded_text": "民和路一段"
+      },
+      "family_links": [
+        {
+          "child_record": 805322949,
+          "child_record_hex": "0x300040c5",
+          "parent_record": 536870999,
+          "parent_record_hex": "0x20000057",
+          "parent_u32_le": "57000020",
+          "the_first_record": 805322847,
+          "the_first_record_hex": "0x3000405f",
+          "first_u32_le": "5f400030",
+          "next_family_first": 805323055,
+          "next_family_first_hex": "0x3000412f",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 16556,
+            "record": 536870999,
+            "record_hex": "0x20000057",
+            "logical_record_u32_le": "57000020",
+            "level_high_nibble": 2,
+            "low28_id": 87,
+            "index_record": "tkfdegitkfdfhntkgblep",
+            "decoded_text": "梧棲區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536870999,
+          "child_record_hex": "0x20000057",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 梧棲區 → 民和路一段"
+    },
+    {
+      "prior_FTS_record_info": 4265009,
+      "prior_FTS_info_id": 16660,
+      "child": {
+        "info_id": 16660,
+        "record": 805322950,
+        "record_hex": "0x300040c6",
+        "logical_record_u32_le": "c6400030",
+        "level_high_nibble": 3,
+        "low28_id": 16582,
+        "index_record": "tkfcgfotkgaeedtklcbgatkhcmedtkfdihk",
+        "decoded_text": "民和路二段"
+      },
+      "family_links": [
+        {
+          "child_record": 805322950,
+          "child_record_hex": "0x300040c6",
+          "parent_record": 536870999,
+          "parent_record_hex": "0x20000057",
+          "parent_u32_le": "57000020",
+          "the_first_record": 805322847,
+          "the_first_record_hex": "0x3000405f",
+          "first_u32_le": "5f400030",
+          "next_family_first": 805323055,
+          "next_family_first_hex": "0x3000412f",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 16556,
+            "record": 536870999,
+            "record_hex": "0x20000057",
+            "logical_record_u32_le": "57000020",
+            "level_high_nibble": 2,
+            "low28_id": 87,
+            "index_record": "tkfdegitkfdfhntkgblep",
+            "decoded_text": "梧棲區"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        },
+        {
+          "child_record": 536870999,
+          "child_record_hex": "0x20000057",
+          "parent_record": 268435464,
+          "parent_record_hex": "0x10000008",
+          "parent_u32_le": "08000010",
+          "the_first_record": 536870986,
+          "the_first_record_hex": "0x2000004a",
+          "first_u32_le": "4a000020",
+          "next_family_first": 536871015,
+          "next_family_first_hex": "0x20000067",
+          "selected_interval_contains_child": true,
+          "first_has_exact_info_row": true,
+          "first_info_rows_observed": 1,
+          "decoded_parent": {
+            "info_id": 12987,
+            "record": 268435464,
+            "record_hex": "0x10000008",
+            "logical_record_u32_le": "08000010",
+            "level_high_nibble": 1,
+            "low28_id": 8,
+            "index_record": "tkgbjhptkhcogctkgcoen",
+            "decoded_text": "台中市"
+          },
+          "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+        }
+      ],
+      "host_hierarchy": "台中市 → 梧棲區 → 民和路二段"
+    }
+  ],
+  "central_district_Minquan_candidate": {
+    "prior_FTS_record_info": 4297265,
+    "prior_FTS_info_id": 16786,
+    "child": {
+      "info_id": 16786,
+      "record": 805323075,
+      "record_hex": "0x30004143",
+      "logical_record_u32_le": "43410030",
+      "level_high_nibble": 3,
+      "low28_id": 16707,
+      "index_record": "tkfcgfotkfdkeftklcbga",
+      "decoded_text": "民權路"
+    },
+    "family_links": [
+      {
+        "child_record": 805323075,
+        "child_record_hex": "0x30004143",
+        "parent_record": 536871000,
+        "parent_record_hex": "0x20000058",
+        "parent_u32_le": "58000020",
+        "the_first_record": 805323055,
+        "the_first_record_hex": "0x3000412f",
+        "first_u32_le": "2f410030",
+        "next_family_first": 805323094,
+        "next_family_first_hex": "0x30004156",
+        "selected_interval_contains_child": true,
+        "first_has_exact_info_row": true,
+        "first_info_rows_observed": 1,
+        "decoded_parent": {
+          "info_id": 16765,
+          "record": 536871000,
+          "record_hex": "0x20000058",
+          "logical_record_u32_le": "58000020",
+          "level_high_nibble": 2,
+          "low28_id": 88,
+          "index_record": "tkhcogctkgblep",
+          "decoded_text": "中區"
+        },
+        "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+      },
+      {
+        "child_record": 536871000,
+        "child_record_hex": "0x20000058",
+        "parent_record": 268435464,
+        "parent_record_hex": "0x10000008",
+        "parent_u32_le": "08000010",
+        "the_first_record": 536870986,
+        "the_first_record_hex": "0x2000004a",
+        "first_u32_le": "4a000020",
+        "next_family_first": 536871015,
+        "next_family_first_hex": "0x20000067",
+        "selected_interval_contains_child": true,
+        "first_has_exact_info_row": true,
+        "first_info_rows_observed": 1,
+        "decoded_parent": {
+          "info_id": 12987,
+          "record": 268435464,
+          "record_hex": "0x10000008",
+          "logical_record_u32_le": "08000010",
+          "level_high_nibble": 1,
+          "low28_id": 8,
+          "index_record": "tkgbjhptkhcogctkgcoen",
+          "decoded_text": "台中市"
+        },
+        "interpretation": "host predecessor interval using exact stock SQL; native family consumer unexecuted"
+      }
+    ],
+    "host_hierarchy": "台中市 → 中區 → 民權路"
+  },
+  "address184_limit": {
+    "JAI_name_levels": "observed city/district/street; selected city8 FTS host control184號 had zero rows",
+    "not_absence_proof": true,
+    "source_OSM_city": "臺中市",
+    "source_OSM_street": "民權路",
+    "source_OSM_housenumber": "184號",
+    "source_node": 8528998711,
+    "stock_candidate": "台中市 → 中區 → 民權路; record0x30004143",
+    "remaining": "native AP/NT house-number provider and exact184 payload must be linked separately; token/family proof does not select or decode house184"
+  },
+  "normalization_limit": "Selected decrypted DB bytes are strict UTF-8. Native query input conversion, complete normalization/keyboard encoding and caller reachability remain unverified; do not assume CP950 or treat 台/臺 difference alone as root cause."
+}

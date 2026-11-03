@@ -1,0 +1,1843 @@
+{
+  "updated_utc": "2026-10-03T14:40:09.460595+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "emulator": {
+    "binding_version": "2.1.4",
+    "distribution_version": "2.1.4",
+    "native_version": [
+      2,
+      1,
+      33621247
+    ],
+    "binding_file": "/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/__init__.py",
+    "native_library": "/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/lib/libunicorn.so.2"
+  },
+  "all_passed": true,
+  "case_count": 21,
+  "cases": [
+    {
+      "name": "owned_SetConfiguration_rejected_until_output_initialized",
+      "passed": true,
+      "checks": {
+        "preaccept_reject_before_state_or_session_change": true,
+        "no_callback_or_queue_started": true
+      },
+      "stream": {
+        "active": 0,
+        "session": 0,
+        "local_seid": 0,
+        "remote_seid": 0,
+        "codec_word": 0,
+        "prepared": 0,
+        "configured": 0,
+        "next_session": 0,
+        "queue_epoch": 0,
+        "callbacks": 0,
+        "enqueued": 0,
+        "rejected": 0,
+        "consumed": 0,
+        "consumer_rejected": 0,
+        "cancellations": 0,
+        "private_retired": 0,
+        "slot0_session": 0,
+        "slot1_session": 0,
+        "slot2_session": 0,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pipeline": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "extra": {}
+    },
+    {
+      "name": "negotiated_44100_mode0_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 1,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328936,
+        "prepared": 1,
+        "configured": 1,
+        "next_session": 1,
+        "queue_epoch": 1,
+        "callbacks": 6,
+        "enqueued": 3,
+        "rejected": 0,
+        "consumed": 3,
+        "consumer_rejected": 0,
+        "cancellations": 0,
+        "private_retired": 3,
+        "slot0_session": 1,
+        "slot1_session": 1,
+        "slot2_session": 1,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        1,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        3,
+        3,
+        0,
+        186,
+        44100,
+        1,
+        3,
+        0,
+        0,
+        3,
+        12
+      ],
+      "extra": {
+        "frequency": 44100,
+        "mode": 0,
+        "channels": 1,
+        "frames": 6,
+        "packets": 3,
+        "session": 1,
+        "PCM_bytes": 558,
+        "PCM_sha256": "1dd27396603d36ecc5ba1416e9a1eb6b30507b0fb89fd7398258fc57c678d5b0",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 4,
+            "bytes": 186,
+            "sha256": "0e7a84d69c4cafdb6ae2d7a4969094b5c253e749df42c174db4f18940a1b09bf",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 8,
+            "bytes": 186,
+            "sha256": "6b58f2cbf66081e1dd93ee20304e2858ca819414a53ed2bb3f7f3108feef8112",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 12,
+            "bytes": 186,
+            "sha256": "ec1749a3608a5f3651e6a6ab3e7c4fb9b1efaada1f9091cd285bc3b6092e7424",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_44100_mode1_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 2,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328932,
+        "prepared": 1,
+        "configured": 2,
+        "next_session": 2,
+        "queue_epoch": 3,
+        "callbacks": 13,
+        "enqueued": 6,
+        "rejected": 0,
+        "consumed": 6,
+        "consumer_rejected": 0,
+        "cancellations": 1,
+        "private_retired": 6,
+        "slot0_session": 2,
+        "slot1_session": 2,
+        "slot2_session": 2,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        3,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        2,
+        2,
+        0,
+        186,
+        44100,
+        2,
+        6,
+        0,
+        0,
+        6,
+        24
+      ],
+      "extra": {
+        "frequency": 44100,
+        "mode": 1,
+        "channels": 2,
+        "frames": 6,
+        "packets": 3,
+        "session": 2,
+        "PCM_bytes": 558,
+        "PCM_sha256": "4f9b0ed6a9f47ebfa83607dd006864fadd6c5ea953ac9e2654798b19b1cd458b",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 16,
+            "bytes": 186,
+            "sha256": "d4f6c10a31de5cccf1af8904b8cb096b5916dda30a22a5e1ca1daa0a3b3ec345",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 20,
+            "bytes": 186,
+            "sha256": "882248c8d50c5639cbe7a9622a6eb9cf97b22ca8b2a86382ff246754cb8aa071",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 24,
+            "bytes": 186,
+            "sha256": "cdd5c642d955c01e8ba7779c44d1ef224f9515a98e90aa3b4a7ee2a42712d8c8",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_44100_mode2_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 3,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328930,
+        "prepared": 1,
+        "configured": 3,
+        "next_session": 3,
+        "queue_epoch": 5,
+        "callbacks": 20,
+        "enqueued": 9,
+        "rejected": 0,
+        "consumed": 9,
+        "consumer_rejected": 0,
+        "cancellations": 2,
+        "private_retired": 9,
+        "slot0_session": 3,
+        "slot1_session": 3,
+        "slot2_session": 3,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        5,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        186,
+        44100,
+        2,
+        9,
+        0,
+        0,
+        9,
+        36
+      ],
+      "extra": {
+        "frequency": 44100,
+        "mode": 2,
+        "channels": 2,
+        "frames": 6,
+        "packets": 3,
+        "session": 3,
+        "PCM_bytes": 558,
+        "PCM_sha256": "aa34409cae0aa64717ecd07ba131da6e41207d4a240a409969b21e549076d0f0",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 28,
+            "bytes": 186,
+            "sha256": "a81d62ab60cc5c97a7785dcc5d8701be2192b05a264b6683d45900cbb93ee00f",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 32,
+            "bytes": 186,
+            "sha256": "65490ba2e1a0798469b89e8238b9dd56fc9dc7f3be9dce95c919f493c60ca5f5",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 36,
+            "bytes": 186,
+            "sha256": "1ba6a3fd08582f5bbe5b195be8bb3bdb832f5f12ab10f5e3f97befacfde49e1c",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_44100_mode3_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 4,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 4,
+        "next_session": 4,
+        "queue_epoch": 7,
+        "callbacks": 27,
+        "enqueued": 12,
+        "rejected": 0,
+        "consumed": 12,
+        "consumer_rejected": 0,
+        "cancellations": 3,
+        "private_retired": 12,
+        "slot0_session": 4,
+        "slot1_session": 4,
+        "slot2_session": 4,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        7,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        186,
+        44100,
+        2,
+        12,
+        0,
+        0,
+        12,
+        48
+      ],
+      "extra": {
+        "frequency": 44100,
+        "mode": 3,
+        "channels": 2,
+        "frames": 6,
+        "packets": 3,
+        "session": 4,
+        "PCM_bytes": 558,
+        "PCM_sha256": "dd2e73fdb596fff99f4ade61f95cedce795773af974edca2e3d1ae1f09b028f6",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 40,
+            "bytes": 186,
+            "sha256": "07dcd2ffe36e688781398a4a2109864560cee17151aa2c05350765b0fc22c2c0",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 44,
+            "bytes": 186,
+            "sha256": "883bcce85e1328662acb69d1b2f7689c9a8adbca681d8682fc65fbe7aa84d863",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 48,
+            "bytes": 186,
+            "sha256": "1ba6a3fd08582f5bbe5b195be8bb3bdb832f5f12ab10f5e3f97befacfde49e1c",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_48000_mode0_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 5,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328920,
+        "prepared": 1,
+        "configured": 5,
+        "next_session": 5,
+        "queue_epoch": 9,
+        "callbacks": 34,
+        "enqueued": 15,
+        "rejected": 0,
+        "consumed": 15,
+        "consumer_rejected": 0,
+        "cancellations": 4,
+        "private_retired": 15,
+        "slot0_session": 5,
+        "slot1_session": 5,
+        "slot2_session": 5,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        9,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        3,
+        3,
+        0,
+        170,
+        48000,
+        1,
+        15,
+        0,
+        0,
+        15,
+        60
+      ],
+      "extra": {
+        "frequency": 48000,
+        "mode": 0,
+        "channels": 1,
+        "frames": 6,
+        "packets": 3,
+        "session": 5,
+        "PCM_bytes": 512,
+        "PCM_sha256": "38bf152732e654cbf28ee071deee7f6cc72778af6b225ce17f55ca543823641e",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 52,
+            "bytes": 172,
+            "sha256": "eabe9d87c1d21c2e3fcd1ecb40c2b0cee4d44eeae3ef8eb88063c41f31ba68ed",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 56,
+            "bytes": 170,
+            "sha256": "41b3072d213395f5223054ec1f665e61823538f6286852fd15553adcae73b532",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 60,
+            "bytes": 170,
+            "sha256": "75210565c6fd473a3fb5cf6f6c43f3c3da26e8b7a593dd9ca676e99cbf9613d9",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_48000_mode1_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 6,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328916,
+        "prepared": 1,
+        "configured": 6,
+        "next_session": 6,
+        "queue_epoch": 11,
+        "callbacks": 41,
+        "enqueued": 18,
+        "rejected": 0,
+        "consumed": 18,
+        "consumer_rejected": 0,
+        "cancellations": 5,
+        "private_retired": 18,
+        "slot0_session": 6,
+        "slot1_session": 6,
+        "slot2_session": 6,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        11,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        2,
+        2,
+        0,
+        170,
+        48000,
+        2,
+        18,
+        0,
+        0,
+        18,
+        72
+      ],
+      "extra": {
+        "frequency": 48000,
+        "mode": 1,
+        "channels": 2,
+        "frames": 6,
+        "packets": 3,
+        "session": 6,
+        "PCM_bytes": 512,
+        "PCM_sha256": "a46423a7168319e77de7a0eb5b3e8501c0dc87c0ce70613c9812a291ce499d5f",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 64,
+            "bytes": 172,
+            "sha256": "59ee8b8ab25c669184b4c370a5c50dff8914b802d5ceeaee0b6eec1f69fe1cf0",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 68,
+            "bytes": 170,
+            "sha256": "10abf38b026783b36720d7e60328951305d5ebb3fe2b83ddf3ecd9e414529da6",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 72,
+            "bytes": 170,
+            "sha256": "0336b1379aa6c8495f7bf1e66dc4e07dbfbe8f20221cfcf8d552bf4d648844ca",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_48000_mode2_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 7,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328914,
+        "prepared": 1,
+        "configured": 7,
+        "next_session": 7,
+        "queue_epoch": 13,
+        "callbacks": 48,
+        "enqueued": 21,
+        "rejected": 0,
+        "consumed": 21,
+        "consumer_rejected": 0,
+        "cancellations": 6,
+        "private_retired": 21,
+        "slot0_session": 7,
+        "slot1_session": 7,
+        "slot2_session": 7,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        13,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        170,
+        48000,
+        2,
+        21,
+        0,
+        0,
+        21,
+        84
+      ],
+      "extra": {
+        "frequency": 48000,
+        "mode": 2,
+        "channels": 2,
+        "frames": 6,
+        "packets": 3,
+        "session": 7,
+        "PCM_bytes": 512,
+        "PCM_sha256": "a328b5b6be6804ab54657908c89c6c5de59f75e6f9c39f1158296681a65783ea",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 76,
+            "bytes": 172,
+            "sha256": "3c3b846103a9e18d86719f40fa23533d60cab60b588665a950c3a5547c7af592",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 80,
+            "bytes": 170,
+            "sha256": "2f4725a342fd22d14aa2b36531a5a8571898a75472ce0c021b8ac56c667106da",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 84,
+            "bytes": 170,
+            "sha256": "e44fadd7daf696ee669dbf948d10a16348f9ea19183e6503d6e68ac63dd8e98c",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "negotiated_48000_mode3_guarded_copy_decode_finite_PCM",
+      "passed": true,
+      "checks": {
+        "configured_guard_uses_original_registered_callback": true,
+        "three_packets_six_frames_PCM_byte_identical": true,
+        "borrowed_input_destroyed_before_native_decode": true,
+        "private_PCM_canceled_not_DAC_or_OS_playback": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 8,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328913,
+        "prepared": 1,
+        "configured": 8,
+        "next_session": 8,
+        "queue_epoch": 15,
+        "callbacks": 55,
+        "enqueued": 24,
+        "rejected": 0,
+        "consumed": 24,
+        "consumer_rejected": 0,
+        "cancellations": 7,
+        "private_retired": 24,
+        "slot0_session": 8,
+        "slot1_session": 8,
+        "slot2_session": 8,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        3,
+        3,
+        0,
+        15,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        170,
+        48000,
+        2,
+        24,
+        0,
+        0,
+        24,
+        96
+      ],
+      "extra": {
+        "frequency": 48000,
+        "mode": 3,
+        "channels": 2,
+        "frames": 6,
+        "packets": 3,
+        "session": 8,
+        "PCM_bytes": 512,
+        "PCM_sha256": "a638895e639dec107f70000f275f6ecbbb83742d2c034fd0cca135df4bd2cb64",
+        "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+        "private_PCM": [
+          {
+            "ticket": 88,
+            "bytes": 172,
+            "sha256": "612e66aba9b003f5e33cff4434684c1bffad443f74414f610948bdbce2345332",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 92,
+            "bytes": 170,
+            "sha256": "10b01c58535bc3a4956af6f02171612595cfafae1bd7bf7a7ccadf37e3e07469",
+            "state": "READY_never_published"
+          },
+          {
+            "ticket": 96,
+            "bytes": 170,
+            "sha256": "2e14b8d0fb6b77bd95bb899f79c8213644906479083c9d6e442bf49cb8e1ff81",
+            "state": "READY_never_published"
+          }
+        ]
+      }
+    },
+    {
+      "name": "all_frames_and_RTP_checked_before_queue_decode_publication",
+      "passed": true,
+      "checks": {
+        "six_rejections_without_queue_or_decoder_advancement": true,
+        "later_frame_mismatch_has_no_published_prefix": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 9,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 9,
+        "next_session": 9,
+        "queue_epoch": 17,
+        "callbacks": 65,
+        "enqueued": 24,
+        "rejected": 6,
+        "consumed": 24,
+        "consumer_rejected": 0,
+        "cancellations": 8,
+        "private_retired": 24,
+        "slot0_session": 8,
+        "slot1_session": 8,
+        "slot2_session": 8,
+        "slot3_session": 0,
+        "last_error": -62
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        17,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        170,
+        0,
+        0,
+        24,
+        0,
+        0,
+        24,
+        96
+      ],
+      "extra": [
+        {
+          "name": "wrong_negotiated_rate",
+          "callback_error": -14
+        },
+        {
+          "name": "second_frame_outside_negotiated_bitpool",
+          "callback_error": -14
+        },
+        {
+          "name": "invalid_RTP_version",
+          "callback_error": -19
+        },
+        {
+          "name": "unsupported_fragment",
+          "callback_error": -61
+        },
+        {
+          "name": "truncated_frame",
+          "callback_error": -19
+        },
+        {
+          "name": "trailing_bytes",
+          "callback_error": -62
+        }
+      ]
+    },
+    {
+      "name": "coherent_native_pending_local_receiveMTU_channel_flags_guards",
+      "passed": true,
+      "checks": {
+        "pending_rejected": true,
+        "local_receiveMTU_rejected": true,
+        "wrong_flags_rejected": true,
+        "no_packet_enqueued": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 9,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 9,
+        "next_session": 9,
+        "queue_epoch": 17,
+        "callbacks": 68,
+        "enqueued": 24,
+        "rejected": 9,
+        "consumed": 24,
+        "consumer_rejected": 0,
+        "cancellations": 8,
+        "private_retired": 24,
+        "slot0_session": 8,
+        "slot1_session": 8,
+        "slot2_session": 8,
+        "slot3_session": 0,
+        "last_error": -18
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        17,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        170,
+        0,
+        0,
+        24,
+        0,
+        0,
+        24,
+        96
+      ],
+      "extra": {}
+    },
+    {
+      "name": "local_receive_limit_distinct_from_peer_transmit_limit",
+      "passed": true,
+      "checks": {
+        "larger_than_peer_limit_accepted_under_local672": true,
+        "decoded_PCM_reference": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 9,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 9,
+        "next_session": 9,
+        "queue_epoch": 17,
+        "callbacks": 69,
+        "enqueued": 25,
+        "rejected": 9,
+        "consumed": 25,
+        "consumer_rejected": 0,
+        "cancellations": 8,
+        "private_retired": 25,
+        "slot0_session": 9,
+        "slot1_session": 8,
+        "slot2_session": 8,
+        "slot3_session": 0,
+        "last_error": 0
+      },
+      "queue": [
+        1,
+        1,
+        0,
+        17,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        186,
+        44100,
+        2,
+        25,
+        0,
+        0,
+        25,
+        100
+      ],
+      "extra": {}
+    },
+    {
+      "name": "bounded_copy_queue_full_does_not_overwrite_FIFO",
+      "passed": true,
+      "checks": {
+        "fifth_packet_rejected_full": true,
+        "four_copied_packets_retained_order_and_PCM": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 10,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 10,
+        "next_session": 10,
+        "queue_epoch": 19,
+        "callbacks": 78,
+        "enqueued": 29,
+        "rejected": 10,
+        "consumed": 29,
+        "consumer_rejected": 0,
+        "cancellations": 9,
+        "private_retired": 29,
+        "slot0_session": 10,
+        "slot1_session": 10,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": 0
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        19,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        92,
+        44100,
+        2,
+        29,
+        0,
+        0,
+        29,
+        116
+      ],
+      "extra": {}
+    },
+    {
+      "name": "disconnect_reconnect_reused_LCID_has_new_session_and_discards_old_work",
+      "passed": true,
+      "checks": {
+        "session_increases": true,
+        "queued_old_packet_not_decoded": true,
+        "same_original_LCID_reconnected": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 12,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 12,
+        "next_session": 12,
+        "queue_epoch": 23,
+        "callbacks": 87,
+        "enqueued": 30,
+        "rejected": 10,
+        "consumed": 29,
+        "consumer_rejected": 0,
+        "cancellations": 11,
+        "private_retired": 29,
+        "slot0_session": 11,
+        "slot1_session": 10,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": 0
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        23,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        92,
+        0,
+        0,
+        29,
+        0,
+        0,
+        29,
+        116
+      ],
+      "extra": {}
+    },
+    {
+      "name": "captured_slot_session_checked_at_consumer_not_inferred_from_LCID",
+      "passed": true,
+      "checks": {
+        "stale_queued_epoch_rejected": true,
+        "no_finite_PCM_published": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 12,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 12,
+        "next_session": 12,
+        "queue_epoch": 23,
+        "callbacks": 88,
+        "enqueued": 31,
+        "rejected": 10,
+        "consumed": 29,
+        "consumer_rejected": 1,
+        "cancellations": 11,
+        "private_retired": 29,
+        "slot0_session": 12,
+        "slot1_session": 10,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": -15
+      },
+      "queue": [
+        1,
+        1,
+        0,
+        23,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        92,
+        0,
+        0,
+        29,
+        0,
+        0,
+        29,
+        116
+      ],
+      "extra": {}
+    },
+    {
+      "name": "consumer_rechecks_native_state_after_enqueue_before_decode",
+      "passed": true,
+      "checks": {
+        "changed_pending_rejected_before_decode": true,
+        "no_PCM_published": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 12,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 12,
+        "next_session": 12,
+        "queue_epoch": 23,
+        "callbacks": 89,
+        "enqueued": 32,
+        "rejected": 10,
+        "consumed": 29,
+        "consumer_rejected": 2,
+        "cancellations": 11,
+        "private_retired": 29,
+        "slot0_session": 12,
+        "slot1_session": 12,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": -17
+      },
+      "queue": [
+        2,
+        2,
+        0,
+        23,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        92,
+        0,
+        0,
+        29,
+        0,
+        0,
+        29,
+        116
+      ],
+      "extra": {}
+    },
+    {
+      "name": "later_SBC_CRC_error_has_no_private_PCM_prefix",
+      "passed": true,
+      "checks": {
+        "framing_accepted_but_decoder_rejects": true,
+        "whole_packet_not_published": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 13,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 13,
+        "next_session": 13,
+        "queue_epoch": 25,
+        "callbacks": 94,
+        "enqueued": 33,
+        "rejected": 10,
+        "consumed": 29,
+        "consumer_rejected": 3,
+        "cancellations": 12,
+        "private_retired": 29,
+        "slot0_session": 13,
+        "slot1_session": 12,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": -6
+      },
+      "queue": [
+        1,
+        1,
+        0,
+        25,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        94,
+        0,
+        0,
+        29,
+        1,
+        0,
+        29,
+        116
+      ],
+      "extra": {}
+    },
+    {
+      "name": "after_CRC_failure_decoder_FIR_restart_matches_fresh_reference",
+      "passed": true,
+      "checks": {
+        "fresh_reset_PCM": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 13,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 13,
+        "next_session": 13,
+        "queue_epoch": 25,
+        "callbacks": 95,
+        "enqueued": 34,
+        "rejected": 10,
+        "consumed": 30,
+        "consumer_rejected": 3,
+        "cancellations": 12,
+        "private_retired": 30,
+        "slot0_session": 13,
+        "slot1_session": 13,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": 0
+      },
+      "queue": [
+        2,
+        2,
+        0,
+        25,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        2,
+        2,
+        0,
+        94,
+        44100,
+        2,
+        30,
+        1,
+        0,
+        30,
+        120
+      ],
+      "extra": {}
+    },
+    {
+      "name": "native_Suspend_invalidates_queue_Start_begins_clean_epoch",
+      "passed": true,
+      "checks": {
+        "paused_receive_rejected": true,
+        "old_queue_discarded_new_epoch_running": true,
+        "guard_session_retained": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 14,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 14,
+        "next_session": 14,
+        "queue_epoch": 29,
+        "callbacks": 103,
+        "enqueued": 35,
+        "rejected": 11,
+        "consumed": 30,
+        "consumer_rejected": 3,
+        "cancellations": 14,
+        "private_retired": 30,
+        "slot0_session": 14,
+        "slot1_session": 13,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": 0
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        29,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        2,
+        2,
+        0,
+        94,
+        0,
+        0,
+        30,
+        1,
+        0,
+        30,
+        120
+      ],
+      "extra": {}
+    },
+    {
+      "name": "new_configuration_rejected_while_old_private_PCM_retained",
+      "passed": true,
+      "checks": {
+        "preaccept_ownership_busy": true,
+        "old_private_PCM_still_pinned": true
+      },
+      "stream": {
+        "active": 0,
+        "session": 14,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 14,
+        "next_session": 14,
+        "queue_epoch": 29,
+        "callbacks": 105,
+        "enqueued": 36,
+        "rejected": 11,
+        "consumed": 31,
+        "consumer_rejected": 3,
+        "cancellations": 15,
+        "private_retired": 30,
+        "slot0_session": 14,
+        "slot1_session": 13,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": 0
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        30,
+        0,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        2,
+        3,
+        1,
+        186,
+        44100,
+        2,
+        31,
+        1,
+        0,
+        30,
+        124
+      ],
+      "extra": {}
+    },
+    {
+      "name": "retiring_unpublished_PCM_allows_new_original_configuration",
+      "passed": true,
+      "checks": {
+        "new_session_accepted_after_cleanup": true,
+        "no_real_output_task_or_speaker_claim": true
+      },
+      "stream": {
+        "active": 1,
+        "session": 15,
+        "local_seid": 1,
+        "remote_seid": 2,
+        "codec_word": 889328929,
+        "prepared": 1,
+        "configured": 15,
+        "next_session": 15,
+        "queue_epoch": 31,
+        "callbacks": 108,
+        "enqueued": 36,
+        "rejected": 11,
+        "consumed": 31,
+        "consumer_rejected": 3,
+        "cancellations": 15,
+        "private_retired": 31,
+        "slot0_session": 14,
+        "slot1_session": 13,
+        "slot2_session": 10,
+        "slot3_session": 10,
+        "last_error": 0
+      },
+      "queue": [
+        0,
+        0,
+        0,
+        31,
+        1,
+        0,
+        0,
+        49818192,
+        49809400
+      ],
+      "pipeline": [
+        1,
+        0,
+        3,
+        3,
+        0,
+        186,
+        0,
+        0,
+        31,
+        1,
+        0,
+        31,
+        124
+      ],
+      "extra": {}
+    }
+  ],
+  "build_manifest": "staging/native-music-stream/manifest.json",
+  "build_manifest_sha256": "620c17ba5da37686c8ff40f31477b40c6e685bedf63fa28387f9394159ff533a",
+  "loader": {
+    "loader_result": 11,
+    "INIT_calls": 1,
+    "native_full_readback_bytes": 2361847,
+    "native_full_readback_sha256": "254528f24d1a4be8cd40d84ade3ecd0465298cd3570b7b5ea14d31aa3148b787",
+    "original40_and_full_original_runtime_preserved": true,
+    "private12_and_music12_linked_and_initialized": true,
+    "original_control_result": 11,
+    "guest_MAIN_write_bytes": 40,
+    "state": {
+      "entered": 1,
+      "patches_installed": 1,
+      "local_seid": 1,
+      "published": 1,
+      "callbacks": 0,
+      "media_dropped": 0,
+      "bootstrap_result": 0,
+      "last_event": 0,
+      "last_status": 0,
+      "last_length": 0
+    },
+    "module_within_original_3MiB": true,
+    "main_writability_is_fixture": true
+  },
+  "codec_formats": [
+    {
+      "frequency": 44100,
+      "mode": 0,
+      "channels": 1,
+      "frames": 6,
+      "packets": 3,
+      "session": 1,
+      "PCM_bytes": 558,
+      "PCM_sha256": "1dd27396603d36ecc5ba1416e9a1eb6b30507b0fb89fd7398258fc57c678d5b0",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 4,
+          "bytes": 186,
+          "sha256": "0e7a84d69c4cafdb6ae2d7a4969094b5c253e749df42c174db4f18940a1b09bf",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 8,
+          "bytes": 186,
+          "sha256": "6b58f2cbf66081e1dd93ee20304e2858ca819414a53ed2bb3f7f3108feef8112",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 12,
+          "bytes": 186,
+          "sha256": "ec1749a3608a5f3651e6a6ab3e7c4fb9b1efaada1f9091cd285bc3b6092e7424",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 44100,
+      "mode": 1,
+      "channels": 2,
+      "frames": 6,
+      "packets": 3,
+      "session": 2,
+      "PCM_bytes": 558,
+      "PCM_sha256": "4f9b0ed6a9f47ebfa83607dd006864fadd6c5ea953ac9e2654798b19b1cd458b",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 16,
+          "bytes": 186,
+          "sha256": "d4f6c10a31de5cccf1af8904b8cb096b5916dda30a22a5e1ca1daa0a3b3ec345",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 20,
+          "bytes": 186,
+          "sha256": "882248c8d50c5639cbe7a9622a6eb9cf97b22ca8b2a86382ff246754cb8aa071",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 24,
+          "bytes": 186,
+          "sha256": "cdd5c642d955c01e8ba7779c44d1ef224f9515a98e90aa3b4a7ee2a42712d8c8",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 44100,
+      "mode": 2,
+      "channels": 2,
+      "frames": 6,
+      "packets": 3,
+      "session": 3,
+      "PCM_bytes": 558,
+      "PCM_sha256": "aa34409cae0aa64717ecd07ba131da6e41207d4a240a409969b21e549076d0f0",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 28,
+          "bytes": 186,
+          "sha256": "a81d62ab60cc5c97a7785dcc5d8701be2192b05a264b6683d45900cbb93ee00f",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 32,
+          "bytes": 186,
+          "sha256": "65490ba2e1a0798469b89e8238b9dd56fc9dc7f3be9dce95c919f493c60ca5f5",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 36,
+          "bytes": 186,
+          "sha256": "1ba6a3fd08582f5bbe5b195be8bb3bdb832f5f12ab10f5e3f97befacfde49e1c",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 44100,
+      "mode": 3,
+      "channels": 2,
+      "frames": 6,
+      "packets": 3,
+      "session": 4,
+      "PCM_bytes": 558,
+      "PCM_sha256": "dd2e73fdb596fff99f4ade61f95cedce795773af974edca2e3d1ae1f09b028f6",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 40,
+          "bytes": 186,
+          "sha256": "07dcd2ffe36e688781398a4a2109864560cee17151aa2c05350765b0fc22c2c0",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 44,
+          "bytes": 186,
+          "sha256": "883bcce85e1328662acb69d1b2f7689c9a8adbca681d8682fc65fbe7aa84d863",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 48,
+          "bytes": 186,
+          "sha256": "1ba6a3fd08582f5bbe5b195be8bb3bdb832f5f12ab10f5e3f97befacfde49e1c",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 48000,
+      "mode": 0,
+      "channels": 1,
+      "frames": 6,
+      "packets": 3,
+      "session": 5,
+      "PCM_bytes": 512,
+      "PCM_sha256": "38bf152732e654cbf28ee071deee7f6cc72778af6b225ce17f55ca543823641e",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 52,
+          "bytes": 172,
+          "sha256": "eabe9d87c1d21c2e3fcd1ecb40c2b0cee4d44eeae3ef8eb88063c41f31ba68ed",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 56,
+          "bytes": 170,
+          "sha256": "41b3072d213395f5223054ec1f665e61823538f6286852fd15553adcae73b532",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 60,
+          "bytes": 170,
+          "sha256": "75210565c6fd473a3fb5cf6f6c43f3c3da26e8b7a593dd9ca676e99cbf9613d9",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 48000,
+      "mode": 1,
+      "channels": 2,
+      "frames": 6,
+      "packets": 3,
+      "session": 6,
+      "PCM_bytes": 512,
+      "PCM_sha256": "a46423a7168319e77de7a0eb5b3e8501c0dc87c0ce70613c9812a291ce499d5f",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 64,
+          "bytes": 172,
+          "sha256": "59ee8b8ab25c669184b4c370a5c50dff8914b802d5ceeaee0b6eec1f69fe1cf0",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 68,
+          "bytes": 170,
+          "sha256": "10abf38b026783b36720d7e60328951305d5ebb3fe2b83ddf3ecd9e414529da6",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 72,
+          "bytes": 170,
+          "sha256": "0336b1379aa6c8495f7bf1e66dc4e07dbfbe8f20221cfcf8d552bf4d648844ca",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 48000,
+      "mode": 2,
+      "channels": 2,
+      "frames": 6,
+      "packets": 3,
+      "session": 7,
+      "PCM_bytes": 512,
+      "PCM_sha256": "a328b5b6be6804ab54657908c89c6c5de59f75e6f9c39f1158296681a65783ea",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 76,
+          "bytes": 172,
+          "sha256": "3c3b846103a9e18d86719f40fa23533d60cab60b588665a950c3a5547c7af592",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 80,
+          "bytes": 170,
+          "sha256": "2f4725a342fd22d14aa2b36531a5a8571898a75472ce0c021b8ac56c667106da",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 84,
+          "bytes": 170,
+          "sha256": "e44fadd7daf696ee669dbf948d10a16348f9ea19183e6503d6e68ac63dd8e98c",
+          "state": "READY_never_published"
+        }
+      ]
+    },
+    {
+      "frequency": 48000,
+      "mode": 3,
+      "channels": 2,
+      "frames": 6,
+      "packets": 3,
+      "session": 8,
+      "PCM_bytes": 512,
+      "PCM_sha256": "a638895e639dec107f70000f275f6ecbbb83742d2c034fd0cca135df4bd2cb64",
+      "byte_identical_to_upstream_SBC_and_independent_FIR": true,
+      "private_PCM": [
+        {
+          "ticket": 88,
+          "bytes": 172,
+          "sha256": "612e66aba9b003f5e33cff4434684c1bffad443f74414f610948bdbce2345332",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 92,
+          "bytes": 170,
+          "sha256": "10b01c58535bc3a4956af6f02171612595cfafae1bd7bf7a7ccadf37e3e07469",
+          "state": "READY_never_published"
+        },
+        {
+          "ticket": 96,
+          "bytes": 170,
+          "sha256": "2e14b8d0fb6b77bd95bb899f79c8213644906479083c9d6e442bf49cb8e1ff81",
+          "state": "READY_never_published"
+        }
+      ]
+    }
+  ],
+  "format_count": 8,
+  "frames_reference_checked": 48,
+  "packets_reference_checked": 24,
+  "guard_fault_controls": [
+    {
+      "kind": "read",
+      "first_access_mapped": true,
+      "second_access_unmapped_fault": 6,
+      "fault_pc": "0x10004",
+      "passed": true
+    },
+    {
+      "kind": "write",
+      "first_access_mapped": true,
+      "second_access_unmapped_fault": 7,
+      "fault_pc": "0x10004",
+      "passed": true
+    }
+  ],
+  "PCM_reference_checked_bytes": 4280,
+  "guard_and_failure_case_count": 13,
+  "source_sha256": {
+    "scripts/emulate_native_music_stream.py": "639cb58864a8152dbacd3a20a2a2ffca3d52f016c69cc1451d9403506cd91c36",
+    "scripts/emulate_native_music_loaded.py": "41ae8cbc39452c01c04a3e08990910fc30a6bc8b64ad633d53a021db4da4945a",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_voice_media.py": "6e910090a648d5003f9c76e100000a404e50448c0d6e5921b58ea8092808369d",
+    "scripts/emulate_native_voice_convert.py": "55b78bf99209addb1eb466c7fd79120515454d9c4e4bfdbe9158c2f1b78c0d8b",
+    "scripts/emulate_native_pcm_converter.py": "4ef1e755fc0544392936ef01934685462b2d05978e9880a1fe32c54386003f80",
+    "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc"
+  },
+  "previous_checkpoint": {
+    "state": "evidence/research-checkpoints/state-before-stream-20261003T140728325207Z.json",
+    "audit": "evidence/research-checkpoints/loaded-audit-before-stream-20261003T140728325207Z.json"
+  },
+  "original_outer_load_registered_endpoint_wire_guard_queue_decoder_same_VM": true,
+  "original40_voice_runtime_preserved_during_stream_tests": true,
+  "captured_session_native_view_local_receiveMTU_RTP_all_frame_checks_integrated": true,
+  "upstream_SBC_independent_FIR_private_PCM_byte_identical": true,
+  "queue_consumer_cooperatively_called_not_booted_OS_worker": true,
+  "READY_PCM_inspected_then_canceled_not_DAC_output": true,
+  "radio_kernel_storage_cache_writability_fixtures": true,
+  "native_OS_output_actor_speaker_navigation_coexistence_verified": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "actual_package_acceptance_verified": false,
+  "limits": "Same original outer loader/bootstrap/registered endpoint/native wire and loaded callback VM with fixture storage/kernel/cache/MAIN write permissions. Native callback snapshots under AVDTP lock, captures session per slot, verifies local receiveMTU/state/pending/channel/RTP/all SBC frames before copying, consumer rechecks captured session and native state then frozen whole-packet SBC/FIR produces owned finite READY PCM. Queue worker step explicitly called by test, PCM inspected then canceled as never published. No OS worker/output actor/real DAC/speaker/radio/phone/App/menu/navigation/lifetime/MMU/cache/device package acceptance or concurrent scheduling proof; large legacy signaling/fragmentation/jitter/reorder/inflight-cancel remain open."
+}

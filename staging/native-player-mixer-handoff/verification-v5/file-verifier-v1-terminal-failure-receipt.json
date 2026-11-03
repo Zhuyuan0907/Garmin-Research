@@ -1,0 +1,17 @@
+{
+  "kind": "actual FILE ONLY verifier failure terminal receipt",
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-handoff/verification-v5/verify_mixer_handoff_v5_files.py",
+  "tool_result": {
+    "chunk_id": "8c485d",
+    "wall_time_seconds": 0.035833437,
+    "exit_code": 1,
+    "original_token_count": 247,
+    "failure": "AssertionError: $a"
+  },
+  "source_sha256": {
+    "staging/native-player-mixer-handoff/verification-v5/verify_mixer_handoff_v5_files.py": "5ddc4f389618941667491a930f84ad5d8723fc163a251535fb20919b0e6eda84"
+  },
+  "cause": "Manifest contains ELF mapping symbol names reused at distinct addresses. Reviewer wrongly required a unique symbol name for every manifest row. Runtime cases unchanged; no VM executed.",
+  "guest_execution": false,
+  "VM_import_or_instantiation": false
+}

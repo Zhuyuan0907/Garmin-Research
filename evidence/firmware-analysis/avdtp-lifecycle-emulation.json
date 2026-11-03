@@ -1,0 +1,4371 @@
+{
+  "updated_utc": "2026-10-03T10:16:56.145891+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/emulate_avdtp_lifecycle.py": "af48c97e9fb7ca7ba620b7d2c17d7e5947043ce5dd9410b84cf63ed6818d7e4a",
+    "scripts/emulate_avdtp_control.py": "b2eb67dd8209590fb559bae4a0cd90580333c6ceb1823a93d425fb7a0f2966f4",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "cpu_model": "ARM1176",
+  "case_count": 16,
+  "cases": [
+    {
+      "name": "complete_stock_configure_Open_L2CAP_ready_Start_media_chain",
+      "passed": true,
+      "checks": {
+        "same_VM_no_host_SEP_state_advancement": true,
+        "real_ready_helper_sets4_and_clears_pending2": true,
+        "native_ready_state_store_observed": true,
+        "real_Start_accepts_after_native_completion": true,
+        "real_media_dispatch_delivers_payload": true,
+        "real_peer_scan_and_pending_scan_executed": true,
+        "remote_and_local_MTU_kept_distinct": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "media_packet",
+          "state": 8,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f",
+              "payload_length": 128,
+              "state_during_callback": 8,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "media_before_completion_reports_wrong_state",
+      "passed": true,
+      "checks": {
+        "pending_not_advanced": true,
+        "error_callback_retains_payload": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "media_packet",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 305,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "6e6f742d7265616479",
+              "payload_length": 9,
+              "state_during_callback": 2,
+              "pending_during_callback": 2,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "Suspend_and_Start_reuse_completed_channel",
+      "passed": true,
+      "checks": {
+        "Suspend_sets_ready": true,
+        "suspended_media_reports_error": true,
+        "resumed_media_delivered": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 9,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1209",
+              "state_before_send": 8,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 19,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 8,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 4,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_9",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "media_packet",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 305,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "706175736564",
+              "payload_length": 6,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "media_packet",
+          "state": 8,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "726573756d6564",
+              "payload_length": 7,
+              "state_during_callback": 8,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "Disconnect_resets_SEP_then_same_VM_reconnects",
+      "passed": true,
+      "checks": {
+        "real_reset_releases_media_slot": true,
+        "disconnect_error_notifies_application": true,
+        "stale_LCID_after_reset_has_no_callback": true,
+        "reconfigured_ready_and_streaming": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "disconnect_notification",
+          "state": 1,
+          "pending": 0,
+          "media_channel_index": 255,
+          "media_channel_hex": null,
+          "channel_pool_hex": "34120000001000000000f003ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 242,
+              "status": 10545,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 1,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": true,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "media_packet",
+          "state": 1,
+          "pending": 0,
+          "media_channel_index": 255,
+          "media_channel_hex": null,
+          "channel_pool_hex": "34120000001000000000f003ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 10516,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "0100f003ff000000",
+          "channel_pool_hex": "34120000001000000100f003ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "0100f003ff000000",
+          "channel_pool_hex": "34120000001000000100f003ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff020000",
+          "channel_pool_hex": "34120000001000006745f003ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "media_packet",
+          "state": 8,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "6e65772d73657373696f6e",
+              "payload_length": 11,
+              "state_during_callback": 8,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "connection_reply_send_failure_runs_stock_cleanup",
+      "passed": true,
+      "checks": {
+        "native_reset_to_idle": true,
+        "application_gets_disconnect_status": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 1,
+          "pending": 0,
+          "media_channel_index": 255,
+          "media_channel_hex": null,
+          "channel_pool_hex": "341200000010000000000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 242,
+              "status": 10545,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 1,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 7
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": true,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "remote_configuration_reply_failure_waits_then_retry_completes",
+      "passed": true,
+      "checks": {
+        "first_reply_failure_not_ready": true,
+        "retry_uses_stock_ready_path": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 7
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 7,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "local_configuration_request_send_failure_resets",
+      "passed": true,
+      "checks": {
+        "native_reset_to_idle": true,
+        "application_gets_disconnect_status": true,
+        "transport_disconnect_requested": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 1,
+          "pending": 0,
+          "media_channel_index": 255,
+          "media_channel_hex": null,
+          "channel_pool_hex": "34120000001000000000f003ff0600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 242,
+              "status": 10545,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 1,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 7
+            },
+            {
+              "operation": "disconnect_request",
+              "lcid": 17767
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": true,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "local_configuration_error_confirmation_resets",
+      "passed": true,
+      "checks": {
+        "native_reset_to_idle": true,
+        "application_gets_disconnect_status": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 1,
+          "pending": 0,
+          "media_channel_index": 255,
+          "media_channel_hex": null,
+          "channel_pool_hex": "34120000001000000000f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 242,
+              "status": 10545,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 1,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [
+            {
+              "operation": "disconnect_request",
+              "lcid": 17767
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": true,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "duplicate_incoming_media_connection_rejected",
+      "passed": true,
+      "checks": {
+        "rejected_without_new_channel_or_state": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 3,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "incoming_media_without_Open_rejected",
+      "passed": true,
+      "checks": {
+        "rejected_without_fake_Open": true,
+        "reserved_channel_not_replaced": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 3,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "duplicate_confirmation_requests_disconnect_then_notification_resets",
+      "passed": true,
+      "checks": {
+        "request_does_not_fake_completed_disconnection": true,
+        "later_notification_resets": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "disconnect_request",
+              "lcid": 17767
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "disconnect_notification",
+          "state": 1,
+          "pending": 0,
+          "media_channel_index": 255,
+          "media_channel_hex": null,
+          "channel_pool_hex": "34120000001000000000f003ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x575684",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 1
+            },
+            {
+              "instruction": "0x575686",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 242,
+              "status": 10545,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 1,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": true,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "unknown_LCID_confirmation_does_not_advance_SEP",
+      "passed": true,
+      "checks": {
+        "lookup_reject_preserves_pending": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "disconnect_request",
+              "lcid": 30583
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 10516,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "4096_byte_read_only_page_end_payload_delivered",
+      "passed": true,
+      "checks": {
+        "max_fixture_payload_matches": true,
+        "input_and_code_guards_intact": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "media_packet",
+          "state": 8,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff",
+              "payload_length": 4096,
+              "state_during_callback": 8,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "zero_length_wrapper_returns_without_lookup_or_callback",
+      "passed": true,
+      "checks": {
+        "empty_early_return": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff260000",
+          "channel_pool_hex": "34120000001000006745f003ff2600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            },
+            {
+              "operation": "configuration_request",
+              "lcid": 17767,
+              "mtu": 672,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1207",
+              "state_before_send": 4,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "f003",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 4,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 4
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "zero_length_packet",
+          "state": 8,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [],
+          "event_order": [],
+          "return_value": 0,
+          "original_lookup_executed": false,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "confirmation_before_outbound_request_is_accepted_by_stock_state_core",
+      "passed": true,
+      "checks": {
+        "first_side_alone_does_not_mark_ready": true,
+        "second_side_marks_ready_without_outbound_request": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "local_configuration_confirmation",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff2a0000",
+          "channel_pool_hex": "341200000010000067450000ff2a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "step": "remote_configuration_request",
+          "state": 4,
+          "pending": 0,
+          "media_channel_index": 1,
+          "media_channel_hex": "6745f003ff100000",
+          "channel_pool_hex": "34120000001000006745f003ff1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x524ea0",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 0
+            },
+            {
+              "instruction": "0x524ea4",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 4
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 13,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "",
+              "payload_length": 0,
+              "state_during_callback": 4,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [
+            {
+              "operation": "configuration_reply",
+              "lcid": 17767,
+              "mtu": 1008,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": true,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    },
+    {
+      "name": "rejected_early_Start_can_deliver_media_with_pending_Open",
+      "passed": true,
+      "checks": {
+        "Start_rejected_but_state8_pending2": true,
+        "media_reports_success_while_channel_not_ready": true,
+        "application_needs_pending_and_channel_ready_fences": true
+      },
+      "steps": [
+        {
+          "signal": 3,
+          "payload_hex": "040801000706000021150235",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1203",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 9,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "01000706000021150235",
+              "payload_length": 10,
+              "state_during_callback": 2,
+              "pending_during_callback": 0,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 2,
+          "pending": 0,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": true,
+          "original_channel_reservation_executed": true,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_3",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x574ce0",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "signal": 6,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "1206",
+              "state_before_send": 2,
+              "pending_before_send": 0
+            }
+          ],
+          "callbacks": [],
+          "event_order": [
+            "send"
+          ],
+          "state": 2,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": false,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_6",
+          "media_channel_index": 1,
+          "media_channel_hex": "01000000ff000000",
+          "channel_pool_hex": "341200000010000001000000ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 1,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5750d6",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "incoming_media_channel",
+          "state": 2,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [],
+          "transport_events": [
+            {
+              "operation": "connection_reply",
+              "lcid": 17767,
+              "result": 0,
+              "return_fixture": 0
+            }
+          ],
+          "event_order": [
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": true,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        },
+        {
+          "signal": 7,
+          "payload_hex": "04",
+          "replies": [
+            {
+              "channel": 4660,
+              "wire_hex": "13070431",
+              "state_before_send": 2,
+              "pending_before_send": 2
+            }
+          ],
+          "callbacks": [
+            {
+              "event": 17,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "0000",
+              "payload_length": 2,
+              "state_during_callback": 8,
+              "pending_during_callback": 6,
+              "mutex_held": false
+            }
+          ],
+          "event_order": [
+            "send",
+            "unlock",
+            "callback",
+            "lock"
+          ],
+          "state": 8,
+          "pending": 2,
+          "negotiated_codec_hex": "21150235",
+          "native_media_channel_index": 1,
+          "original_parser_executed": false,
+          "original_channel_reservation_executed": false,
+          "original_callback_veneer_executed": true,
+          "original_code_input_and_RAM_guards_intact": true,
+          "stack_and_mutex_restored": true,
+          "step": "signal_7",
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [
+            {
+              "instruction": "0x5753a8",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 6
+            },
+            {
+              "instruction": "0x5753ae",
+              "address": "0x3a88f02",
+              "bytes": 1,
+              "value": 8
+            },
+            {
+              "instruction": "0x575474",
+              "address": "0x3a88f03",
+              "bytes": 1,
+              "value": 2
+            }
+          ],
+          "transport_events": []
+        },
+        {
+          "step": "media_packet",
+          "state": 8,
+          "pending": 2,
+          "media_channel_index": 1,
+          "media_channel_hex": "67450000ff020000",
+          "channel_pool_hex": "341200000010000067450000ff0200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "context_pending_media_index": 255,
+          "context_outgoing_media_index": 255,
+          "native_SEP_state_writes": [],
+          "callbacks": [
+            {
+              "event": 241,
+              "status": 0,
+              "handle_initialized_bytes_4_to_11_hex": "0102010203040506",
+              "payload_hex": "67756172642d7265717569726564",
+              "payload_length": 14,
+              "state_during_callback": 8,
+              "pending_during_callback": 2,
+              "mutex_held": false
+            }
+          ],
+          "transport_events": [],
+          "event_order": [
+            "lock",
+            "unlock",
+            "callback",
+            "lock",
+            "unlock"
+          ],
+          "return_value": 0,
+          "original_lookup_executed": true,
+          "original_ready_helper_executed": false,
+          "original_reset_executed": false,
+          "original_pending_scan_executed": false,
+          "code_globals_input_RAM_guards_and_stack_intact": true
+        }
+      ]
+    }
+  ],
+  "all_passed": true,
+  "original_L2CAP_completion_handlers_executed_offline": true,
+  "same_VM_configure_Open_ready_Start_media_and_reconnect": true,
+  "post_setup_SEP_state_changed_only_by_stock_instructions": true,
+  "actual_SEP_SDP_registration_verified": false,
+  "real_L2CAP_transport_executed": false,
+  "native_pending_configuration_queue_fixture": "Empty; stock ready-completion falls back to SEP callback event13.",
+  "callback_handles_and_payloads_borrowed_only_during_call": true,
+  "rejected_early_Start_can_deliver_success_media_with_pending_Open": true,
+  "application_must_fence_pending_channel_readiness_and_session_epoch": true,
+  "device_io": false,
+  "firmware_modified": false,
+  "device_install_candidate": false,
+  "phone_speaker_native_App_or_decoder_integration_verified": false,
+  "fixtures": [
+    "Registered active SEP, callback, local MTU672 and established signaling channel",
+    "Synthetic peer010203040506 and LCID4567",
+    "L2CAP connection/configuration send outcomes and incoming callbacks",
+    "Mutex/log/codec-copy hooks, application callback sink, no global callback or queued outgoing API"
+  ],
+  "limitations": "Offline exact handlers, not a physical Bluetooth connection. Starting registration/signaling pools, transport and OS are synthetic. No decoder/voice loader/UI/speaker integration. 4096-byte test is a buffer boundary, not a negotiated physical MTU. Disconnect drops old LCID before reuse; packet epoch cannot be inferred after reuse and needs application session ownership. Native error callbacks are notifications, not configuration acceptance policy. No phone or installation proof."
+}

@@ -1,0 +1,277 @@
+{
+  "schema": "fresh-small-explicit-4KiB-expanded-geometry-controls/v1",
+  "all_cases_passed": true,
+  "all_assigned_checks_passed": true,
+  "cases": [
+    {
+      "name": "complete_v3_sizes_fit_uint16_4KiB_expanded_arithmetic_only",
+      "passed": true,
+      "IMG_or_components_allocated": false
+    },
+    {
+      "name": "512byte_header_only_count_and_LBA_sector_mirror_changed",
+      "passed": true,
+      "changed_byte_offsets": [
+        "0x63",
+        "0x64",
+        "0x1ca",
+        "0x1cb"
+      ],
+      "header_sha256": "31e5d2048389316e05f4d9772b48eac9c50e64b541662a8c8b0fdff8440bafda"
+    },
+    {
+      "name": "512byte_FAT_original_opaque_fields_part_0",
+      "passed": true,
+      "first_block": 23,
+      "last_block": 262,
+      "wire_sha256": "12a079f3fa4d7df6d2c626dbe9ef27fd57b96f126d18053595c878b4ca145c41",
+      "native_CPU_executed": false
+    },
+    {
+      "name": "512byte_FAT_original_opaque_fields_part_136",
+      "passed": true,
+      "first_block": 32663,
+      "last_block": 32902,
+      "wire_sha256": "9c2b8973ff933f2082daa9654b9672dfd020a5d87c2e92caf0d664ea065f9f35",
+      "native_CPU_executed": false
+    },
+    {
+      "name": "512byte_FAT_original_opaque_fields_part_151",
+      "passed": true,
+      "first_block": 36263,
+      "last_block": 36453,
+      "wire_sha256": "ef1ed87f76ef83d29c7c5b797fe30d994a8d27f94f8ffda019567dc1a83b2204",
+      "native_CPU_executed": false
+    },
+    {
+      "name": "maximum_uint16_non_sentinel_capacity_is_explicit",
+      "passed": true
+    },
+    {
+      "name": "installability_always_prohibited",
+      "passed": true,
+      "expected_rejection": "Expanded4K header/checksum/AP admission policy is incomplete; installation is prohibited"
+    },
+    {
+      "name": "source_short_header",
+      "passed": true,
+      "expected_rejection": "Expected exactly512 immutable header bytes"
+    },
+    {
+      "name": "source_mutable_header",
+      "passed": true,
+      "expected_rejection": "Expected exactly512 immutable header bytes"
+    },
+    {
+      "name": "source_XOR",
+      "passed": true,
+      "expected_rejection": "Exact XOR0/DSKIMG/GARMIN/end signature required"
+    },
+    {
+      "name": "source_signature",
+      "passed": true,
+      "expected_rejection": "Exact XOR0/DSKIMG/GARMIN/end signature required"
+    },
+    {
+      "name": "source_end_marker",
+      "passed": true,
+      "expected_rejection": "Exact XOR0/DSKIMG/GARMIN/end signature required"
+    },
+    {
+      "name": "source_exponent",
+      "passed": true,
+      "expected_rejection": "Exact original4KiB/directory profile required"
+    },
+    {
+      "name": "source_directory_sector",
+      "passed": true,
+      "expected_rejection": "Exact original4KiB/directory profile required"
+    },
+    {
+      "name": "source_opaque_checksum",
+      "passed": true,
+      "expected_rejection": "Original opaque byte0x0F must be retained as219"
+    },
+    {
+      "name": "source_declared_blocks",
+      "passed": true,
+      "expected_rejection": "Exact original geometry/count declaration required"
+    },
+    {
+      "name": "source_sector_mirror",
+      "passed": true,
+      "expected_rejection": "Exact original geometry/count declaration required"
+    },
+    {
+      "name": "source_CHS_sectors",
+      "passed": true,
+      "expected_rejection": "Exact original geometry/count declaration required"
+    },
+    {
+      "name": "source_CHS_heads",
+      "passed": true,
+      "expected_rejection": "Exact original geometry/count declaration required"
+    },
+    {
+      "name": "source_CHS_cylinders",
+      "passed": true,
+      "expected_rejection": "Exact original geometry/count declaration required"
+    },
+    {
+      "name": "source_provenance_not_explicit",
+      "passed": true,
+      "expected_rejection": "Source provenance must be explicit"
+    },
+    {
+      "name": "synthetic_cannot_claim_sealed_stock",
+      "passed": true,
+      "expected_rejection": "Sealed original AP header hash mismatch"
+    },
+    {
+      "name": "forged_header_binding",
+      "passed": true,
+      "expected_rejection": "Header binding identity changed"
+    },
+    {
+      "name": "declared_blocks_None",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declared_blocks_True",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declared_blocks_0",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declared_blocks_32768",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declared_blocks_65535",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declared_blocks_65536",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declared_blocks_-1",
+      "passed": true,
+      "expected_rejection": "Declared block count outside explicit integer range"
+    },
+    {
+      "name": "declaration_under_required_allocations",
+      "passed": true,
+      "expected_rejection": "Expanded declaration cannot cover all image allocations"
+    },
+    {
+      "name": "small_image_cannot_bypass_old_profile",
+      "passed": true,
+      "expected_rejection": "Use the original profile for images within its128MiB declaration"
+    },
+    {
+      "name": "missing_component",
+      "passed": true,
+      "expected_rejection": "Exactly six explicit component size pairs required"
+    },
+    {
+      "name": "reordered_component",
+      "passed": true,
+      "expected_rejection": "Exact unique original component names/order required"
+    },
+    {
+      "name": "duplicate_component",
+      "passed": true,
+      "expected_rejection": "Exact unique original component names/order required"
+    },
+    {
+      "name": "unknown_component",
+      "passed": true,
+      "expected_rejection": "Exact unique original component names/order required"
+    },
+    {
+      "name": "bool_size",
+      "passed": true,
+      "expected_rejection": "Component logical size outside explicit integer range"
+    },
+    {
+      "name": "zero_size",
+      "passed": true,
+      "expected_rejection": "Component logical size outside explicit integer range"
+    },
+    {
+      "name": "negative_size",
+      "passed": true,
+      "expected_rejection": "Component logical size outside explicit integer range"
+    },
+    {
+      "name": "size_over_u32",
+      "passed": true,
+      "expected_rejection": "Component logical size outside explicit integer range"
+    },
+    {
+      "name": "too_large_for_FAT",
+      "passed": true,
+      "expected_rejection": "Expanded declaration cannot cover all image allocations"
+    },
+    {
+      "name": "forged_plan_image_count",
+      "passed": true,
+      "expected_rejection": "Plan integrity changed"
+    },
+    {
+      "name": "forged_plan_sector_mirror",
+      "passed": true,
+      "expected_rejection": "Plan integrity changed"
+    },
+    {
+      "name": "unknown_FAT_component",
+      "passed": true,
+      "expected_rejection": "Unknown component name"
+    },
+    {
+      "name": "negative_FAT_part",
+      "passed": true,
+      "expected_rejection": "FAT continuation ordinal outside explicit integer range"
+    },
+    {
+      "name": "FAT_part_beyond_last",
+      "passed": true,
+      "expected_rejection": "FAT continuation ordinal outside explicit integer range"
+    },
+    {
+      "name": "wrong_FAT_template_name",
+      "passed": true,
+      "expected_rejection": "Exact component FAT template identity required"
+    },
+    {
+      "name": "root_template_as_component",
+      "passed": true,
+      "expected_rejection": "Exact component FAT template identity required"
+    }
+  ],
+  "case_count": 48,
+  "source_sha256": "f98ef6f1cc242fff102e82a0489d7d5b8664ba7fa3eb4f43fa72a39f951bee79",
+  "api_sha256": "d0dd93864aa199ae8401a65adb69c9c9cd942e3e331d1c4df8537258b0c3fb5b",
+  "plan_sha256": "b3ad710f1ba13d56aecad8b717d82bfdaa0f2f2c5729ef3410fb1f81a913228c",
+  "closed_review_sha256": "b50914f3ebba65db14d9f6d5ee9ee06fb6e673c9f674c32e7bd107a6304c2ffe",
+  "old_writer_sha256_before_after": "cb190d5f3c70f0e81e9d49808dff044e4717b5061f749e7720af56aee39b0cf8",
+  "only_512byte_header_and_FAT_rows_generated_in_memory": true,
+  "component_payloads_or_full_IMG_allocated_or_written": false,
+  "actual_candidate_or_backup_IMG_opened": false,
+  "native_CPU_executed": false,
+  "old_closed_suite_replayed": false,
+  "installer_or_device_IO": false,
+  "header_checksum_or_AP_renderer_or_full_container_acceptance_verified": false,
+  "installable": false,
+  "rendering_bug_fixed": false,
+  "current_physical_baseline_parent_observation": "Stock AP+Searchv2 with CN off displays roads; v3 regression established, cause not isolated."
+}

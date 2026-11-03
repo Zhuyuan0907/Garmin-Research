@@ -1,0 +1,254 @@
+{
+  "all_passed": true,
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-leaf-writers/leaf_entries_v1.c": "e28592a6372a3743a7924061e54f557092e1e9e1839e8c58dd0ddb75644bce12",
+    "staging/native-player-leaf-writers/leaf_original_entries_v1.S": "c298bfca9d75df45d99fdf4238fe5ee5da0f545cfec202914e0c398e9e1c48b3"
+  },
+  "six_selected_native_writer_patches": [
+    {
+      "name": "write_alias",
+      "address": 5025418,
+      "patch_bytes": 12,
+      "before_hex": "70b50025002808d08724a400",
+      "register_arguments": 4,
+      "read_borrow": false,
+      "instructions": [
+        {
+          "address": 5025418,
+          "bytes": "70b5",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "address": 5025420,
+          "bytes": "0025",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "address": 5025422,
+          "bytes": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": 5025424,
+          "bytes": "08d0",
+          "instruction": "beq #0x4caea4"
+        },
+        {
+          "address": 5025426,
+          "bytes": "8724",
+          "instruction": "movs r4, #0x87"
+        },
+        {
+          "address": 5025428,
+          "bytes": "a400",
+          "instruction": "lsls r4, r4, #2"
+        }
+      ]
+    },
+    {
+      "name": "seek_alias",
+      "address": 5025448,
+      "patch_bytes": 12,
+      "before_hex": "70b50025ed4300280ad0c31d",
+      "register_arguments": 3,
+      "read_borrow": false,
+      "instructions": [
+        {
+          "address": 5025448,
+          "bytes": "70b5",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "address": 5025450,
+          "bytes": "0025",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "address": 5025452,
+          "bytes": "ed43",
+          "instruction": "mvns r5, r5"
+        },
+        {
+          "address": 5025454,
+          "bytes": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": 5025456,
+          "bytes": "0ad0",
+          "instruction": "beq #0x4caec8"
+        },
+        {
+          "address": 5025458,
+          "bytes": "c31d",
+          "instruction": "adds r3, r0, #7"
+        }
+      ]
+    },
+    {
+      "name": "setup",
+      "address": 6190494,
+      "patch_bytes": 10,
+      "before_hex": "0a680260496841600121",
+      "register_arguments": 2,
+      "read_borrow": false,
+      "instructions": [
+        {
+          "address": 6190494,
+          "bytes": "0a68",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "address": 6190496,
+          "bytes": "0260",
+          "instruction": "str r2, [r0]"
+        },
+        {
+          "address": 6190498,
+          "bytes": "4968",
+          "instruction": "ldr r1, [r1, #4]"
+        },
+        {
+          "address": 6190500,
+          "bytes": "4160",
+          "instruction": "str r1, [r0, #4]"
+        },
+        {
+          "address": 6190502,
+          "bytes": "0121",
+          "instruction": "movs r1, #1"
+        }
+      ]
+    },
+    {
+      "name": "read",
+      "address": 6190522,
+      "patch_bytes": 10,
+      "before_hex": "70b504000800217b0025",
+      "register_arguments": 4,
+      "read_borrow": true,
+      "instructions": [
+        {
+          "address": 6190522,
+          "bytes": "70b5",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "address": 6190524,
+          "bytes": "0400",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": 6190526,
+          "bytes": "0800",
+          "instruction": "movs r0, r1"
+        },
+        {
+          "address": 6190528,
+          "bytes": "217b",
+          "instruction": "ldrb r1, [r4, #0xc]"
+        },
+        {
+          "address": 6190530,
+          "bytes": "0025",
+          "instruction": "movs r5, #0"
+        }
+      ]
+    },
+    {
+      "name": "write",
+      "address": 6190576,
+      "patch_bytes": 12,
+      "before_hex": "70b50400007b0025002810d0",
+      "register_arguments": 4,
+      "read_borrow": false,
+      "instructions": [
+        {
+          "address": 6190576,
+          "bytes": "70b5",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "address": 6190578,
+          "bytes": "0400",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": 6190580,
+          "bytes": "007b",
+          "instruction": "ldrb r0, [r0, #0xc]"
+        },
+        {
+          "address": 6190582,
+          "bytes": "0025",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "address": 6190584,
+          "bytes": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": 6190586,
+          "bytes": "10d0",
+          "instruction": "beq #0x5e761e"
+        }
+      ]
+    },
+    {
+      "name": "seek",
+      "address": 6190626,
+      "patch_bytes": 10,
+      "before_hex": "0023db43002a0bd0012a",
+      "register_arguments": 3,
+      "read_borrow": false,
+      "instructions": [
+        {
+          "address": 6190626,
+          "bytes": "0023",
+          "instruction": "movs r3, #0"
+        },
+        {
+          "address": 6190628,
+          "bytes": "db43",
+          "instruction": "mvns r3, r3"
+        },
+        {
+          "address": 6190630,
+          "bytes": "002a",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": 6190632,
+          "bytes": "0bd0",
+          "instruction": "beq #0x5e7642"
+        },
+        {
+          "address": 6190634,
+          "bytes": "012a",
+          "instruction": "cmp r2, #1"
+        }
+      ]
+    }
+  ],
+  "original_memory_kind": 12,
+  "original_callback_literals": {
+    "0x4cb068": "0x5e7687",
+    "0x4cb06c": "0x5e7677",
+    "0x4cb070": "0x5e7667",
+    "0x4cb074": "0x5e7623",
+    "0x4cb078": "0x5e75f1",
+    "0x4cb07c": "0x5e75b3",
+    "0x4cb080": "0x5e759f",
+    "0x4cb084": "0x5e75bb"
+  },
+  "prior_4CAF2E_labeled_seek_is_kind_selector": true,
+  "true_generic_seek_entry": 5025448,
+  "true_memory_seek_entry": 6190626,
+  "nearby_5E752E_is_other_object_layout": true,
+  "all_writers_ownership_heap_App_phone_or_device_proven": false,
+  "device_IO": false
+}

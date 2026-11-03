@@ -1,0 +1,91 @@
+{
+  "schema": "android-garmin-hfp-direct-feasibility/v1",
+  "recorded_utc": "2026-10-07T13:15:00.532162+00:00",
+  "verdict": "公開API路徑值得最小原型；Garmin出聲未驗證",
+  "layers": {
+    "self_managed_call_hfp_visibility_and_remote_controls": {
+      "status": "officially_supported",
+      "source_ids": [
+        "core-guide",
+        "connectionservice",
+        "aosp-bluetooth-service",
+        "aosp-bluetooth-manifest"
+      ]
+    },
+    "public_bluetooth_endpoint_request": {
+      "status": "officially_supported_not_device_confirmed",
+      "source_ids": [
+        "core-guide",
+        "connection-routes"
+      ]
+    },
+    "local_music_media_player_actual_sco_delivery": {
+      "status": "unverified",
+      "source_ids": [
+        "media-player",
+        "audio-attributes",
+        "audio-manager"
+      ],
+      "not_implied_by_first_two_layers": true
+    }
+  },
+  "versions": {
+    "pixel_android_api": "unknown_not_queried",
+    "self_managed_platform_min_api": 26,
+    "pinned_callsmanager_api_snapshot_min": 26,
+    "connection_request_bluetooth_audio_added": 28,
+    "connection_request_endpoint_change_added": 34,
+    "core_telecom_compat_backend_through_api": 33,
+    "core_telecom_foreground_service_types_from_api": 34,
+    "future_library_release": "需實作時固定並核對選定AndroidX版本；沒有下載／安裝"
+  },
+  "permissions": {
+    "MANAGE_OWN_CALLS": "normal；公開自管通話必需",
+    "FOREGROUND_SERVICE": "依版本維持前景call工作",
+    "FOREGROUND_SERVICE_PHONE_CALL": "依target/API要求，配合phoneCall service type",
+    "BLUETOOTH_CONNECT": "Android12/API31+若辨識Bluetooth端點名字／裝置；實作須按選定API及版本判定",
+    "MODIFY_AUDIO_SETTINGS": "公開音訊屬性／route相關方法按使用核對；normal",
+    "RECORD_AUDIO": "只播放設計不建立AudioRecord/MediaRecorder；是否目標Pixel可完全不宣告／拒權仍未實測，不能由不錄音直接推定免權限",
+    "CALL_PHONE": "本機自管Call方案不使用電信placeCall；計畫不宣告",
+    "default_dialer": "自管模式不需要",
+    "system_signature_or_root": "公開自管API不需要",
+    "BIND_TELECOM_CONNECTION_SERVICE": "legacy服務manifest保護呼叫者的宣告，不是要求App取得system簽章能力"
+  },
+  "carrier_and_microphone": {
+    "carrier_call": "推論：CallsManager註冊自有call及App處理，不呼叫Telephony/電信placeCall，不自動發起電信網路通話；實作應限制非tel本機URI",
+    "microphone_recording": "設計上可不建立錄音物件、不讀任何輸入；SCO通訊route可能同時選輸入硬體，與App錄音不同",
+    "no_microphone_permission_guarantee": false,
+    "local_file_only": "未實作；未錄其他App音樂或MediaProjection"
+  },
+  "minimum_future_test": [
+    "先查使用者回來時實際Android API版本，固定Core-Telecom版本；目前未查手機",
+    "建立單一使用者按鈕觸發的本機incoming audio Call，使用非電話URI與音樂顯示名稱；只自管PhoneAccount，App擁有call notification",
+    "先不播放：記錄Garmin是否顯示Call、接聽／掛斷是否到onAnswer/onDisconnect；未看到端點就停止",
+    "從availableEndpoints只選確定Garmin端點，用requestEndpointChange，必須观察currentCallEndpoint实际改變，失敗不改投其他裝置",
+    "選取一個使用者本機音檔，MediaPlayer在prepare前設定voice-call音訊屬性；不建立麥克風錄音物件。先短10秒／保守固定音量，驗證真正出聲後才談較長播放",
+    "在不宣告或拒絕RECORD_AUDIO条件下確認註冊、端點與播放是否都可行；任何SecurityException保留確切API/版本，再判權限需求",
+    "掛斷、來電搶占、App取消、音檔錯誤時停止release播放及disconnect自管Call；確認通話route解除，不修改系統電話服務"
+  ],
+  "remaining": [
+    "未知Pixel OS／OEM build及Garmin direct pairing相容性",
+    "App本機虛擬call是否在該Pixel與Garmin實際呈現及接聽",
+    "任選音檔是否實際走選定SCO端點與Garmin喇叭",
+    "不錄mic設計是否能完全免RECORD_AUDIO於目標版本",
+    "通話聲道、codec／sampling、Garmin voice DSP與音量pumping仍不能由文件消除",
+    "Android foreground限制／緊急電話並行及call品質行為需真實原型驗證"
+  ],
+  "flags": {
+    "device_IO": false,
+    "phone_queried": false,
+    "bluetooth_or_dbus_queried": false,
+    "actual_call_created": false,
+    "playback": false,
+    "sdk_installed": false,
+    "apk_or_compile": false,
+    "native_guest": false,
+    "native_garmin_A2DP_or_menu_goal_complete": false,
+    "pi_elimination_verified": false,
+    "mic_privacy_runtime_verified": false,
+    "runtime_success": false
+  }
+}

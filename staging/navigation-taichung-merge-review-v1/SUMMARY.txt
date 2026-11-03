@@ -1,0 +1,17 @@
+新台中原生地址 append 獨立審查已完成（離線資料，不是安裝候選）。
+
+Actual EXIT 0：session 68192 / completion chunk 327b4b。
+11,002 個新整數門牌、1,693 個原生 next4 街道：實際 append 位元欄位、單街範圍、來源 ID、座標字串、標籤 ref、行政／街道精確匹配全部核對。另以獨立取商餘數法核對 24-bit 座標量化、float even-odd 幾何核對新增點在臺中市；不宣稱實際入口或行政區位置已驗收。
+282,574 小型來源組：64,285 之號等子號先不新增，207,287 ready 整數組不新增，11,002 新增；來源 join 另外的 8,421 座標衝突組全部隔離。現有精確門牌的舊座標沒有更新。此審查未重新開啟巨大 PBF／來源 node ledger；來源真實性繼承既有 sealed ingestion hashes 與來源 snapshot 2026-10-01T20:22:06Z（OSM/Geofabrik）。
+
+4,196,608 bytes append，共 262,288 記錄 = 251,286 原記錄克隆 + 11,002 新記錄。全部街道 append 與移除新增位置後的原記錄 rolling hashes 對上 root 既有原窗口 receipts。不是說獨立重讀過全部原 251,286 筆。
+24 個實際原圖代表窗口（含民權路、起末街、1499 原筆最大組、165 新筆最大組、只有 1 原筆組及均勻選樣），共 5,994 原記錄直接對比，bytes 和相對序一致；原 2,001 個之號、23 個非數字項、422 個非零階層／flags 記錄也保留。原圖總共實際讀 466,492 bytes，含小 FAT、772-byte header、120-byte directory、原街道窗口與標籤窗口，沒有讀完整原 L4 或 IMG。
+全部新 leaf 的標籤文字／ref 經實際原 GMP 窗口讀出一致；包含代表舊記錄共快取 3,287 個 ref。
+9 個既有民權路黃金控制的 payload、來源 ID、座標字串一致，新 low IDs 改變是追加區重新配置，原單街 candidate 的舊 IDs 不當成全新 candidate IDs。
+
+沒有發現阻擋離線組裝較大 candidate 的欄位、來源、配置或代表排序缺陷。
+後續仍須：完整 MDR／profile／parent rewrite／IMG 容器獨立驗證、新 candidate 的原 CPU reader 代表測試、受控安裝讀回與 rollback、UI 搜尋／目的地／路線驗收。
+Host 數字基底穿插不是完整 native comparator／中文定序／之號排序證明。較大 candidate 尚未被 UI 接受；9 個舊成功 payload 相同不能代替新 candidate 全量驗收。
+新街道／行政區、next5/6、缺少原 label 的門牌、子號、座標問題等仍未完成。沒有 USB、CPU 模擬、Java／地圖編譯、canonical／ZIP 修改，也沒有完整全台地址更新。
+
+審查工具第一輪 EXIT 1 是自己的假設把 bare raw 951 誤要求等於 canonical 951號；修正保守門牌正規化後重跑通過。失敗及成功 receipts 皆保留。

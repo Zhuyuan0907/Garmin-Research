@@ -1,0 +1,855 @@
+{
+ "schema": "persistent-source-token-producer-consumer-matrix-v1",
+ "scope": "native-music-persistent-token-provider-readonly-20261007-v1",
+ "review_only": true,
+ "no_implementation": true,
+ "conclusion": "Existing immutable registration seed plus nonwrapping software session/controller generation can label a held software receipt. No reviewed scalar alone proves native ownership, node-allocation uniqueness or full native cleanup. Bind actual publication and whole-return ingress to the same immutable receipt; transitive owning source remains explicitly unclosed.",
+ "rows": [
+  {
+   "name": "FIFO generation and slot ticket",
+   "type": "private uint32_t generation; uint32_t ticket=(++generation<<2)|slotIndex",
+   "producer": "Base memory_output_submit refuses generation==0x1fffffff, increments under metadata exclusion and publishes COPYING then READY after copied data. Positive ticket is explicitly private, never native client ID.",
+   "consumer": "find(ticket), register admission and continuous FIFO reader validate exact slot.ticket; slot index is low two bits.",
+   "change_or_clear": "configure preserves generation; discard/read/cancel_ready free slot but do not decrease generation. Same slot may next carry a different ticket. BSS reload persistence is not established.",
+   "publication_cleanup_eligibility": "FIFO/body correlation only. A live slot check cannot be required for a persistent source after complete copied PCM consumption.",
+   "evidence": [
+    {
+     "source": "S01",
+     "line": 76,
+     "function": "memory_output_configure"
+    },
+    {
+     "source": "S01",
+     "line": 91,
+     "function": "private ticket contract"
+    },
+    {
+     "source": "S01",
+     "line": 94,
+     "function": "memory_output_submit"
+    },
+    {
+     "source": "S02",
+     "line": 177,
+     "function": "continuous_media_read per-ticket validation"
+    },
+    {
+     "source": "S02",
+     "line": 195,
+     "function": "FIFO free after unlocked copy"
+    },
+    {
+     "source": "S03",
+     "line": 7,
+     "function": "owned_slot"
+    }
+   ]
+  },
+  {
+   "name": "output.active_ticket",
+   "type": "private uint32_t legacy registration seed",
+   "producer": "Base memory_output_register assigns the ticket before calling original registration; full original return updates status. A failure with empty native list/nonbusy record clears it; uncertain publication stays pinned.",
+   "consumer": "Guard queue permit/capture/pull require it equals registration_ticket; loaded reader treats source-live status separately from current FIFO head.",
+   "change_or_clear": "Base memory_output_release clears it only after idle node/record/mixer/method/provider and no in-flight checks plus caller's complete native cleanup/list-return barrier.",
+   "publication_cleanup_eligibility": "Stable software registration label within the held BSS instance, not a node-generation or native owner certificate. Loaded wrapper includes an unreviewed owner TU, so exact base-to-loaded semantic identity is a dependency gap.",
+   "evidence": [
+    {
+     "source": "S01",
+     "line": 132,
+     "function": "memory_output_register"
+    },
+    {
+     "source": "S01",
+     "line": 141,
+     "function": "active_ticket assignment"
+    },
+    {
+     "source": "S01",
+     "line": 155,
+     "function": "registration full-return status"
+    },
+    {
+     "source": "S01",
+     "line": 227,
+     "function": "memory_output_release"
+    },
+    {
+     "source": "S04",
+     "line": 28,
+     "function": "legacy source-live comment"
+    },
+    {
+     "source": "S05",
+     "line": 237,
+     "function": "mcs_capture_selected identity tests"
+    },
+    {
+     "source": "S06",
+     "line": 238,
+     "function": "mcs_capture_selected identity tests (loaded-family copied guard)"
+    }
+   ]
+  },
+  {
+   "name": "guard.registration_ticket",
+   "type": "uint32_t immutable bootstrap/audit seed",
+   "producer": "mcs_register_begin admits a READY copied ticket while owned generation is armed and no prior seed/session/callback mutation exists; successful mcs_register_end stores permit_ticket only if original result0, consumed permit and active_ticket match.",
+   "consumer": "Source handoff, selector capture, full pulls and reader admission require nonzero seed. aas_registration_seed exposes it. No selected-phase guard looks up the seed's old FIFO slot.",
+   "change_or_clear": "register_end clears permit transient fields; registration_ticket remains unchanged by FIFO reads. Successful scoped session release and scoped guard release clear it.",
+   "publication_cleanup_eligibility": "Usable as a software receipt label paired with guard context/session/controller generation, after publication provenance is bound. It is not sufficient alone for whole native cleanup, ownership or native allocation uniqueness across reload.",
+   "evidence": [
+    {
+     "source": "S05",
+     "line": 81,
+     "function": "mcs_register_begin"
+    },
+    {
+     "source": "S06",
+     "line": 82,
+     "function": "mcs_register_begin (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 98,
+     "function": "mcs_register_end"
+    },
+    {
+     "source": "S06",
+     "line": 99,
+     "function": "mcs_register_end (loaded-family copied guard)"
+    },
+    {
+     "source": "S07",
+     "line": 66,
+     "function": "aas_registration_seed"
+    },
+    {
+     "source": "S04",
+     "line": 58,
+     "function": "memory_output_release_session"
+    },
+    {
+     "source": "S05",
+     "line": 49,
+     "function": "mcs_release_scoped"
+    },
+    {
+     "source": "S06",
+     "line": 50,
+     "function": "mcs_release_scoped (loaded-family copied guard)"
+    },
+    {
+     "source": "S08",
+     "line": 32,
+     "function": "registration seed lifetime"
+    }
+   ]
+  },
+  {
+   "name": "continuous coordinator.ticket versus finite coordinator.ticket",
+   "type": "same uint32_t field, different lifetime",
+   "producer": "Both register_head helpers set ticket before calling memory_output_register. It may therefore exist before a successful native publication. Current Source first-start path calls aas_register directly and records mh_ticket per PCM cycle, not coordinator state.",
+   "consumer": "Continuous pump retains its initial ticket once set; finite pump compares/retires each buffer and advances to next. Old adapter publication uses coordinator.ticket as token.",
+   "change_or_clear": "Continuous clears only after stop/remove and memory_output_release success; finite clears after per-buffer owned_media_release. Error paths can leave coordinator.ticket without active native publication.",
+   "publication_cleanup_eligibility": "Conditional correlation only. A nonzero coordinator.ticket is not proof of successful publication; old adapter preconditions cannot be transplanted into loaded Source path using this field alone.",
+   "evidence": [
+    {
+     "source": "S09",
+     "line": 67,
+     "function": "register_head"
+    },
+    {
+     "source": "S09",
+     "line": 122,
+     "function": "continuous pump"
+    },
+    {
+     "source": "S09",
+     "line": 104,
+     "function": "continuous anchor release/clear"
+    },
+    {
+     "source": "S10",
+     "line": 141,
+     "function": "finite pump"
+    },
+    {
+     "source": "S10",
+     "line": 122,
+     "function": "finite buffer cancellation release"
+    },
+    {
+     "source": "S11",
+     "line": 51,
+     "function": "start_first_external_packet"
+    },
+    {
+     "source": "S11",
+     "line": 74,
+     "function": "per-cycle mh_ticket update"
+    },
+    {
+     "source": "S12",
+     "line": 211,
+     "function": "old publication reads coordinator.ticket"
+    }
+   ]
+  },
+  {
+   "name": "anchor address",
+   "type": "static uint16_t anchor_zero address; guard.anchor uint32_t",
+   "producer": "Base owning TU defines anchor_zero; registration params[3] borrows its address with two-byte extent. Driver obtains an anchor through native_ui_music_owned_anchor_address and mcs_init stores caller value.",
+   "consumer": "Queue permit checks params anchor identity; native_binding_matches compares selected pool data pointer against g.anchor. Base release scans pool references against its own anchor.",
+   "change_or_clear": "Address is stable for this owning TU/module lifetime; same address can be reused for later source sessions or after reload. Getter implementation lives in the unreviewed transitive owner file.",
+   "publication_cleanup_eligibility": "Content identity/provenance field only. Not a unique allocation/session ID, nor whole-cleanup token by itself.",
+   "evidence": [
+    {
+     "source": "S01",
+     "line": 28,
+     "function": "persistent anchor declaration"
+    },
+    {
+     "source": "S01",
+     "line": 147,
+     "function": "original registration params"
+    },
+    {
+     "source": "S07",
+     "line": 43,
+     "function": "mcs_init anchor argument"
+    },
+    {
+     "source": "S05",
+     "line": 20,
+     "function": "mcs_init"
+    },
+    {
+     "source": "S06",
+     "line": 21,
+     "function": "mcs_init (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 144,
+     "function": "native_binding_matches"
+    },
+    {
+     "source": "S06",
+     "line": 145,
+     "function": "native_binding_matches (loaded-family copied guard)"
+    },
+    {
+     "source": "S01",
+     "line": 237,
+     "function": "release provider scan"
+    }
+   ]
+  },
+  {
+   "name": "native source record / list and node count",
+   "type": "caller record pointer; uint16_t node count; native key0xffff",
+   "producer": "Driver takes record/pool parameters; known Source path passes its channel8 record/pool constants. Original queue registration mutates list/native record; selected code observes count and fields, not an allocation generation.",
+   "consumer": "Queue dispatch requires list==source_record+0x1a8 and native key0xffff; base register checks node_count; capture checks record busy/F0/method and pool binding. Old cleanup compares exact record pointer.",
+   "change_or_clear": "Record/list address fixed by channel, while contents/profile/methods can be rebuilt. Node count changes with original queue/remove; count1 only reports cardinality.",
+   "publication_cleanup_eligibility": "No native node pointer/allocation serial is recovered in selected captures. Record address, count1 and key0xffff are not unique source tokens. Full native producer/allocator ABI remains unproved.",
+   "evidence": [
+    {
+     "source": "S07",
+     "line": 33,
+     "function": "aas_initialize record/pool parameters"
+    },
+    {
+     "source": "S11",
+     "line": 41,
+     "function": "initialize_stage1 caller"
+    },
+    {
+     "source": "S01",
+     "line": 45,
+     "function": "record"
+    },
+    {
+     "source": "S01",
+     "line": 53,
+     "function": "node_count"
+    },
+    {
+     "source": "S05",
+     "line": 114,
+     "function": "mcs_queue_dispatch"
+    },
+    {
+     "source": "S06",
+     "line": 115,
+     "function": "mcs_queue_dispatch (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 144,
+     "function": "native_binding_matches"
+    },
+    {
+     "source": "S06",
+     "line": 145,
+     "function": "native_binding_matches (loaded-family copied guard)"
+    },
+    {
+     "source": "S12",
+     "line": 253,
+     "function": "cleanup record check"
+    }
+   ]
+  },
+  {
+   "name": "selected_instance and continuous_anchor_instance",
+   "type": "pool index uint32_t in0..4",
+   "producer": "Native original selector/factory writes record+0xf0; guard reads it only after selector completion and validates busy/method/anchor fields. Loaded bind copies guard index to continuous_anchor_instance.",
+   "consumer": "Pool instance selects method/read admission; full pull frame captures index and verifies it against current binding.",
+   "change_or_clear": "Guard init/release set selected_instance UINT32_MAX. Successful rebind may write same index again; original pool index can be recycled. No monotonic native allocation epoch field is tested.",
+   "publication_cleanup_eligibility": "Useful selected-binding field, never an ABA-proof native allocation identity. Native allocator generation not recovered in this source family.",
+   "evidence": [
+    {
+     "source": "S05",
+     "line": 144,
+     "function": "native_binding_matches"
+    },
+    {
+     "source": "S06",
+     "line": 145,
+     "function": "native_binding_matches (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 231,
+     "function": "mcs_capture_selected"
+    },
+    {
+     "source": "S06",
+     "line": 232,
+     "function": "mcs_capture_selected (loaded-family copied guard)"
+    },
+    {
+     "source": "S04",
+     "line": 33,
+     "function": "memory_output_bind_selected_session"
+    },
+    {
+     "source": "S04",
+     "line": 46,
+     "function": "anchor instance copy"
+    },
+    {
+     "source": "S05",
+     "line": 296,
+     "function": "mcs_reader_admit"
+    },
+    {
+     "source": "S06",
+     "line": 297,
+     "function": "mcs_reader_admit (loaded-family copied guard)"
+    }
+   ]
+  },
+  {
+   "name": "guard epoch and selected_session",
+   "type": "uint32_t software session epoch / selected-session latch",
+   "producer": "mcs_reserve_scoped owner/normal-context checks, state/generation matching and UINT32_MAX overflow guard increment epoch after assigning held generation. Actual selected capture latches session==epoch.",
+   "consumer": "Selector bind/release APIs take session; handoff and pull frames compare session/epoch/controller generation. aas_session_id returns selected_session.",
+   "change_or_clear": "selected_session clears after successful native release or stopped scoped release; epoch is not cleared/decremented there. BSS/module reload persistence is an external contract.",
+   "publication_cleanup_eligibility": "Best existing software session discriminator within a pinned guard lifetime. It supplies correlation with the controller generation and actual binding checks, but not native all-writer ownership/full-cleanup evidence.",
+   "evidence": [
+    {
+     "source": "S05",
+     "line": 34,
+     "function": "mcs_reserve_scoped"
+    },
+    {
+     "source": "S06",
+     "line": 35,
+     "function": "mcs_reserve_scoped (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 231,
+     "function": "mcs_capture_selected"
+    },
+    {
+     "source": "S06",
+     "line": 232,
+     "function": "mcs_capture_selected (loaded-family copied guard)"
+    },
+    {
+     "source": "S07",
+     "line": 65,
+     "function": "aas_session_id"
+    },
+    {
+     "source": "S04",
+     "line": 58,
+     "function": "session-specific release"
+    },
+    {
+     "source": "S05",
+     "line": 49,
+     "function": "scoped release"
+    },
+    {
+     "source": "S06",
+     "line": 50,
+     "function": "scoped release (loaded-family copied guard)"
+    }
+   ]
+  },
+  {
+   "name": "controller generation and admission epoch",
+   "type": "two independent uint32_t controller fields",
+   "producer": "umc_request_start increments both with overflow guards, blocks nonidle/nonstopped or active service/leases and clears source_seen/token/cleanup_seen. Stop invalidates admission separately.",
+   "consumer": "Guard copies controller generation; typed source_started/cleanup_returned match same route/generation/cookie. Borrow leases capture admission/current generation.",
+   "change_or_clear": "Generation remains current through Stop; successful next Start increments and clears publication state. Module initialization clears controller before publication only; not a durable reload counter.",
+   "publication_cleanup_eligibility": "Generation is a necessary controller-cycle key, not native node identity. Admission epoch is access revocation, not source token or ownership witness epoch.",
+   "evidence": [
+    {
+     "source": "S13",
+     "line": 27,
+     "function": "umc_init first-init storage"
+    },
+    {
+     "source": "S13",
+     "line": 66,
+     "function": "umc_request_start"
+    },
+    {
+     "source": "S13",
+     "line": 97,
+     "function": "umc_request_stop"
+    },
+    {
+     "source": "S13",
+     "line": 305,
+     "function": "same_source"
+    },
+    {
+     "source": "S13",
+     "line": 313,
+     "function": "typed started"
+    },
+    {
+     "source": "S13",
+     "line": 334,
+     "function": "typed cleanup"
+    }
+   ]
+  },
+  {
+   "name": "ownership cookie and Source actor",
+   "type": "config uint32_t cookie; Source TCB identity",
+   "producer": "Driver config captures current_actor and hardcodes cookie0x1352/resident-confirmed1. Guard owner copies configured Source TCB; coordinator independently captures current TCB at init.",
+   "consumer": "Owner-only reserve/register/mutation compare actual current actor. Old witness provider must match generation/cookie/channel/owner/source_token and nonzero witness epoch with exclusion flags.",
+   "change_or_clear": "Cookie/config Source actor do not change in these objects after init. TCB addresses may recycle or storage reload; no allocation epoch tied to TCB is provided here.",
+   "publication_cleanup_eligibility": "Actor constraint and caller-declared cookie fields only. Fixed HWID-shaped cookie is not ownership; this review does not invent a replacement cookie or derive exclusivity from current TCB.",
+   "evidence": [
+    {
+     "source": "S07",
+     "line": 20,
+     "function": "current_actor function"
+    },
+    {
+     "source": "S07",
+     "line": 35,
+     "function": "config initializer"
+    },
+    {
+     "source": "S05",
+     "line": 20,
+     "function": "mcs_init owner"
+    },
+    {
+     "source": "S06",
+     "line": 21,
+     "function": "mcs_init owner (loaded-family copied guard)"
+    },
+    {
+     "source": "S09",
+     "line": 58,
+     "function": "coordinator init"
+    },
+    {
+     "source": "S14",
+     "line": 63,
+     "function": "ownership witness fields"
+    },
+    {
+     "source": "S12",
+     "line": 33,
+     "function": "witnessed validation"
+    }
+   ]
+  },
+  {
+   "name": "mixer capability tuple",
+   "type": "mixer TCB/descriptor/queue/stacks plus generation/session/admission epoch",
+   "producer": "Source handoff reads original mixer metadata; checks distinct owner, stack/descriptor/current queue and scoped generation before storing tuple.",
+   "consumer": "actual_mixer_actor uses capability match; selector/full pull require actual mixer actor and exact C-supplied caller return provenance values.",
+   "change_or_clear": "mismatch revokes mixer_session; pull/reader binding replacement revokes. Scoped release does not clear mixer_tcb/stack/queue fields; a later handoff in same guard requires !mixer_tcb and is not shown reusable.",
+   "publication_cleanup_eligibility": "Scoped source→mixer capability, explicitly not native exclusive-owner certificate. It binds actor provenance but does not mint source node generation or full cleanup receipt.",
+   "evidence": [
+    {
+     "source": "S05",
+     "line": 154,
+     "function": "mixer_descriptor_matches"
+    },
+    {
+     "source": "S06",
+     "line": 155,
+     "function": "mixer_descriptor_matches (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 167,
+     "function": "mixer_capability_current"
+    },
+    {
+     "source": "S06",
+     "line": 168,
+     "function": "mixer_capability_current (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 181,
+     "function": "mcs_handoff_source_to_mixer"
+    },
+    {
+     "source": "S06",
+     "line": 182,
+     "function": "mcs_handoff_source_to_mixer (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 259,
+     "function": "pull binding revocation"
+    },
+    {
+     "source": "S06",
+     "line": 260,
+     "function": "pull binding revocation (loaded-family copied guard)"
+    },
+    {
+     "source": "S08",
+     "line": 37,
+     "function": "not exclusive owner contract"
+    },
+    {
+     "source": "S05",
+     "line": 49,
+     "function": "fields cleared by scoped release"
+    },
+    {
+     "source": "S06",
+     "line": 50,
+     "function": "fields cleared by scoped release (loaded-family copied guard)"
+    }
+   ]
+  },
+  {
+   "name": "full pull receipt",
+   "type": "mcs_borrow_frame actor/generation/epoch/session/instance plus media/callback leases",
+   "producer": "mcs_pull_begin captures the current tuple before original native descriptor/index load, under metadata exclusion and with typed leases.",
+   "consumer": "reader_admit compares frozen frame identity to current guard/native binding and active registration seed. mcs_pull_end only records if same frame/actor remains.",
+   "change_or_clear": "Full pull end marks original_returned and clears borrow before lease releases. This is a full-pull return receipt, not Source native cleanup or STOP_DONE.",
+   "publication_cleanup_eligibility": "Concrete existing matched borrowed-frame identity usable for pull lifetime. It cannot supply cleanup_returned without a distinct complete cleanup ingress and frozen publication token.",
+   "evidence": [
+    {
+     "source": "S05",
+     "line": 250,
+     "function": "mcs_pull_begin"
+    },
+    {
+     "source": "S06",
+     "line": 251,
+     "function": "mcs_pull_begin (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 284,
+     "function": "mcs_pull_end"
+    },
+    {
+     "source": "S06",
+     "line": 285,
+     "function": "mcs_pull_end (loaded-family copied guard)"
+    },
+    {
+     "source": "S05",
+     "line": 296,
+     "function": "mcs_reader_admit"
+    },
+    {
+     "source": "S06",
+     "line": 297,
+     "function": "mcs_reader_admit (loaded-family copied guard)"
+    },
+    {
+     "source": "S08",
+     "line": 21,
+     "function": "mcs_borrow_frame"
+    }
+   ]
+  },
+  {
+   "name": "core source_token consumer",
+   "type": "opaque nonzero uint32_t supplied by typed caller",
+   "producer": "umc_source_started stores caller token after same_source checks; it does not allocate or discover a native token.",
+   "consumer": "umc_cleanup_returned requires the exact stored token and same generation/route/cookie; stop_complete additionally requires complete cancel/remove/release/quiet evidence.",
+   "change_or_clear": "Start resets token0. A different token while source_seen and not cleaned is rejected; cleanup only sets cleanup_seen, does not itself finish Stop.",
+   "publication_cleanup_eligibility": "The core can consume a proven software receipt label; it cannot make one authoritative. No automatic numeric conversion from epoch/ticket/record or new constant is proposed.",
+   "evidence": [
+    {
+     "source": "S13",
+     "line": 85,
+     "function": "Start reset"
+    },
+    {
+     "source": "S13",
+     "line": 313,
+     "function": "umc_source_started"
+    },
+    {
+     "source": "S13",
+     "line": 334,
+     "function": "umc_cleanup_returned"
+    },
+    {
+     "source": "S13",
+     "line": 125,
+     "function": "stop_complete"
+    },
+    {
+     "source": "S15",
+     "line": 124,
+     "function": "notification caller contracts"
+    }
+   ]
+  },
+  {
+   "name": "old publication/cleanup trace token",
+   "type": "trace source_token/generation/ownership_epoch; cleanup frame immutable copy",
+   "producer": "Old publication helper obtains coordinator ticket+active output+live matching slot and witness, stores trace and invokes started. Cleanup begin holds callback lease then copies trace token/generation/cookie/route and record address.",
+   "consumer": "Cleanup after_original matches captured record/current trace and forwards typed cleaned; original completion callback is still forwarded while callback lease held.",
+   "change_or_clear": "Old prepare clears trace token before start; new publication clears original_cleanup_returned and saves count baselines. Original cleanup-return flag marks only after supplied complete-return helper invocation.",
+   "publication_cleanup_eligibility": "An existing design for publication↔cleanup correlation, but old live-slot producer and unrecovered ownership_snapshot do not match continuous loaded source automatically. No actual loaded notification callsite is established; original ASM bridge not read/executed.",
+   "evidence": [
+    {
+     "source": "S12",
+     "line": 59,
+     "function": "adapter_prepare"
+    },
+    {
+     "source": "S12",
+     "line": 204,
+     "function": "umcn_note_owned_publication"
+    },
+    {
+     "source": "S12",
+     "line": 246,
+     "function": "umcn_cleanup_begin"
+    },
+    {
+     "source": "S12",
+     "line": 262,
+     "function": "umcn_cleanup_after_original"
+    },
+    {
+     "source": "S14",
+     "line": 75,
+     "function": "unrecovered glue provider contract"
+    }
+   ]
+  },
+  {
+   "name": "loaded session release versus old ticket release",
+   "type": "session API uint32_t; old ticket API deliberately rejected",
+   "producer": "Loaded wrapper owns scoped register/bind/read/release entrypoints. Successful release_session captures legacy seed, calls original owner release under native mutation, then clears selected_session/instance/registration_ticket.",
+   "consumer": "Current wrapper rejects memory_output_after_selection(ticket) and memory_output_release(ticket). Base continuous coordinator still calls old release(ticket); actual linked Source path instead lacks complete controller cancel/observe providers here.",
+   "change_or_clear": "Seed is read before original release and cleared only after result0. For a cleanup receipt, it must be captured before possible clearing and retained until actual full original return/notification.",
+   "publication_cleanup_eligibility": "A direct unadapted base coordinator→loaded-wrapper retirement call is incompatible. This is a source-contract join condition, not evidence the actual loaded image executes that join. Unknown generated/relinked caller cannot be assumed. The session release requires selected_session==epoch; a native queue published before selection needs explicit retirement handling, not the never-published barrier.",
+   "evidence": [
+    {
+     "source": "S04",
+     "line": 52,
+     "function": "reject old ticket-shaped APIs"
+    },
+    {
+     "source": "S04",
+     "line": 58,
+     "function": "memory_output_release_session"
+    },
+    {
+     "source": "S09",
+     "line": 104,
+     "function": "base legacy release caller"
+    },
+    {
+     "source": "S07",
+     "line": 28,
+     "function": "unavailable cancel/observe"
+    },
+    {
+     "source": "S11",
+     "line": 107,
+     "function": "command5 Stop remains pending"
+    }
+   ]
+  },
+  {
+   "name": "transitive owning implementation closure",
+   "type": "C preprocessing/import/link dependency",
+   "producer": "Loaded owning wrapper includes memory_output_owner.c after renaming private original APIs. That included owner source was not in this scope's fixed two-file capture.",
+   "consumer": "Wrapper calls renamed original register/read/release and private lock/record/buffer facilities; base continuous memory_output.c is reviewed separately.",
+   "change_or_clear": "Exact source inclusion/hash equivalence and getter definition must be pinned before claiming loaded origin semantics. No fresh source added after fixed capture.",
+   "publication_cleanup_eligibility": "Explicit unclosed dependency. Include text names the owner TU but does not prove its whole body equals the base source or exact emitted image; no ELF/native import/compile performed.",
+   "evidence": [
+    {
+     "source": "S04",
+     "line": 5,
+     "function": "renaming/import declarations"
+    },
+    {
+     "source": "S04",
+     "line": 11,
+     "function": "included owning source"
+    },
+    {
+     "source": "S07",
+     "line": 46,
+     "function": "unresolved anchor getter origin"
+    },
+    {
+     "source": "S01",
+     "line": 1,
+     "function": "separately reviewed base owning TU"
+    }
+   ]
+  }
+ ],
+ "highest_available_correlator": {
+  "fields": [
+   "pinned guard/controller context",
+   "registration_ticket",
+   "guard epoch",
+   "controller generation",
+   "configured route",
+   "Source actor",
+   "ownership cookie",
+   "source record",
+   "anchor address",
+   "selected pool instance when selected",
+   "mixer tuple when handed off"
+  ],
+  "status": "software correlation tuple; not a native ownership certificate or implemented persistent provider",
+  "single_native_scalar_ready": false
+ },
+ "no_numeric_cast_or_cookie_invention": true,
+ "acceptance_flags": {
+  "native_all_writer_ownership_proved": false,
+  "whole_native_cleanup_binding_proved": false,
+  "STOP_DONE_proved": false,
+  "native_App_playable": false,
+  "direct_phone_native_music": false,
+  "speaker_proved": false,
+  "installable": false
+ },
+ "source_bindings": {
+  "S01": {
+   "path": "native/music-continuous/memory_output.c",
+   "whole_source_sha256": "25337955cdf6b39bde6abb8a5cbcf84f8fb572a3d7b51336243a69f77988cd07",
+   "bytes": 10459,
+   "fresh_this_scope": true
+  },
+  "S02": {
+   "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+   "whole_source_sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+   "bytes": 12303,
+   "fresh_this_scope": false
+  },
+  "S03": {
+   "path": "native/sbc-prototype/memory_output.h",
+   "whole_source_sha256": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+   "bytes": 1012,
+   "fresh_this_scope": false
+  },
+  "S04": {
+   "path": "staging/native-player-loaded-single-image/build-v2/memory_output_loaded_owner_v1.c",
+   "whole_source_sha256": "068069947d5e8d02a9e54ce3717a7a34b48d2ba0067be666eda76ddab23bfffa",
+   "bytes": 3674,
+   "fresh_this_scope": true
+  },
+  "S05": {
+   "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+   "whole_source_sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+   "bytes": 17740,
+   "fresh_this_scope": false
+  },
+  "S06": {
+   "path": "staging/native-player-mixer-sync/music_session_guard_sync_v1.c",
+   "whole_source_sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+   "bytes": 17824,
+   "fresh_this_scope": false
+  },
+  "S07": {
+   "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+   "whole_source_sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+   "bytes": 4644,
+   "fresh_this_scope": false
+  },
+  "S08": {
+   "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+   "whole_source_sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+   "bytes": 4840,
+   "fresh_this_scope": false
+  },
+  "S09": {
+   "path": "native/music-continuous/media_coordinator.c",
+   "whole_source_sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+   "bytes": 6052,
+   "fresh_this_scope": false
+  },
+  "S10": {
+   "path": "native/sbc-prototype/media_coordinator.c",
+   "whole_source_sha256": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+   "bytes": 6792,
+   "fresh_this_scope": false
+  },
+  "S11": {
+   "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+   "whole_source_sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+   "bytes": 9793,
+   "fresh_this_scope": false
+  },
+  "S12": {
+   "path": "native/ui-music-native-adapter/native_adapter.c",
+   "whole_source_sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+   "bytes": 16021,
+   "fresh_this_scope": false
+  },
+  "S13": {
+   "path": "native/ui-music-control-prototype/ui_music_control.c",
+   "whole_source_sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+   "bytes": 14916,
+   "fresh_this_scope": false
+  },
+  "S14": {
+   "path": "native/ui-music-native-adapter/native_adapter.h",
+   "whole_source_sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+   "bytes": 8042,
+   "fresh_this_scope": false
+  },
+  "S15": {
+   "path": "native/ui-music-control-prototype/ui_music_control.h",
+   "whole_source_sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+   "bytes": 7167,
+   "fresh_this_scope": false
+  }
+ },
+ "native_node_allocation_generation_recovered": false,
+ "native_node_allocation_generation_scope": "Selected C/H captures only; no original allocator/ASM/firmware/RAM scan. Software generation/session fields are separately identified."
+}

@@ -1,0 +1,22 @@
+AP原生讀取計畫的三筆真source bytes
+
+依已封原0x044B10E4的讀取計畫，直接從原備份AP MDR取得下列三個範圍。
+DSKIMG頭／FAT映射用已封readonly reader；不推定欄位內容或座標意義。
+
+level/ID  MDR offset  bit offset  源read  完整hex
+1/8       92653250    6           16      d5060030004009a00305862e11abd255
+2/88      92649239    6           16      d507003800e025e88401442b110dd155
+3/16707   92215511    6           16      5567000838375440a03a25e230baea33
+
+街道record本身cover15bytes，原底層bitreader首次FS fetch仍要求16bytes；
+因此多出的第16byte也是真正source，沒有synthetic padding。三筆共48bytes。
+FAT實際physical offsets／blocks／parts在JSON，每次只讀指定16bytes，不額外讀整block。
+終版執行總原圖讀取54320bytes，54272為公開disk/FAT metadata，48為三個body ranges。
+未讀DB、未重跑codec／前版數值檢查；由native agent用這些bytes跑真bitreader。
+
+首次未發佈結果的執行，街道case label拼寫不符合frozenplan，在兩筆32bytes源read後被guard拒絕。
+已更正實際label，並把三個label的存在檢查移至開圖之前；重試成功EXIT0。
+失敗與32bytes有限讀取也保存在seal/terminal記錄，不將它稱為0讀取或成功證據。
+
+本source reader没有跑原bitreader、沒有命名packed字段或解出原生184號／位置／路由。
+沒有解鎖、XOR、DB／原图写入、實機USB或canonical/report更動。

@@ -1,0 +1,305 @@
+{
+  "schema": "closed-smallproof-nontable-lineage/v1",
+  "all_assigned_file_provenance_checks_passed": true,
+  "five_components": [
+    {
+      "name": "00004171.MD2",
+      "bytes": 240,
+      "SHA256": "0ede52caef0319594e0380ceb29b4a33bfcb9dbe530d18163aad75d74b64df67",
+      "v3_equals_v2": true,
+      "v2_closed_readback_marks_equals_stock": true,
+      "new_scope_IMG_read": false,
+      "semantic_lowerID_reference_absence_proven": false
+    },
+    {
+      "name": "00004171.SRT",
+      "bytes": 101058,
+      "SHA256": "54505d7f3a30b1848f0d967367974f229df74978dae63ab664716f79094713fd",
+      "v3_equals_v2": true,
+      "v2_closed_readback_marks_equals_stock": true,
+      "new_scope_IMG_read": false,
+      "semantic_lowerID_reference_absence_proven": false
+    },
+    {
+      "name": "I053061A.GMP",
+      "bytes": 3812824,
+      "SHA256": "92d4a1aa7cf84ff17b092d74302fb4d432691bd6cd563ba8da4d7ed51f8d73bd",
+      "v3_equals_v2": true,
+      "v2_closed_readback_marks_equals_stock": true,
+      "new_scope_IMG_read": false,
+      "semantic_lowerID_reference_absence_proven": false
+    },
+    {
+      "name": "I053061A.SRT",
+      "bytes": 101058,
+      "SHA256": "4046e27464f957ea71220b270f78e2b9ecacf9fd92bf92f71040626e26d00be8",
+      "v3_equals_v2": true,
+      "v2_closed_readback_marks_equals_stock": true,
+      "new_scope_IMG_read": false,
+      "semantic_lowerID_reference_absence_proven": false
+    },
+    {
+      "name": "MAPSOURC.MPS",
+      "bytes": 138,
+      "SHA256": "d098b0ee8914924fa9e059c4877291c1a521cd5141d5e6803b06f8ef271c7767",
+      "v3_equals_v2": true,
+      "v2_closed_readback_marks_equals_stock": true,
+      "new_scope_IMG_read": false,
+      "semantic_lowerID_reference_absence_proven": false
+    }
+  ],
+  "ranges": [
+    {
+      "name": "MDR header before DIR pointer",
+      "stock_range": [
+        0,
+        600
+      ],
+      "v2_range": [
+        0,
+        600
+      ],
+      "v3_range": [
+        0,
+        600
+      ],
+      "treatment": "Preserved by pinned writer header-copy contract; this review has no independent stock/header raw-byte compare."
+    },
+    {
+      "name": "MDR header DIR offset",
+      "stock_range": [
+        600,
+        604
+      ],
+      "v2_range": [
+        600,
+        604
+      ],
+      "v3_range": [
+        600,
+        604
+      ],
+      "treatment": "Only explicit4B little-endian DIR start write in both reviewed writer contracts.",
+      "stock_DIR": 92653480,
+      "v2_DIR": 124255187,
+      "v3_DIR": 149220236,
+      "semantic_type": "MDR component byte offset, not established lower-record ID."
+    },
+    {
+      "name": "MDR header after DIR pointer",
+      "stock_range": [
+        604,
+        772
+      ],
+      "v2_range": [
+        604,
+        772
+      ],
+      "v3_range": [
+        604,
+        772
+      ],
+      "treatment": "Preserved by pinned writer header-copy contract; no raw stock/header-byte compare in this new scope."
+    },
+    {
+      "name": "Unknown pretable body",
+      "stock_range": [
+        772,
+        4195100
+      ],
+      "v2_range": [
+        772,
+        4195100
+      ],
+      "v3_range": [
+        772,
+        4195100
+      ],
+      "bytes": 4194328,
+      "treatment": "v2 closed proof states stock byte-preservation; v3 pinned builder explicitly compares every chunk against v2. No new body data written by these paths."
+    },
+    {
+      "name": "L2 payload",
+      "stock_range": [
+        92647913,
+        92653144
+      ],
+      "v2_range": [
+        124249620,
+        124254851
+      ],
+      "v3_range": [
+        149214669,
+        149219900
+      ],
+      "bytes": 5231,
+      "treatment": "Byte-identical payload copied at relocated table start; closed v2 preservation plus explicit v3 full L2-L1 byte comparison. Physical/logical offsets change."
+    },
+    {
+      "name": "L1 payload",
+      "stock_range": [
+        92653144,
+        92653480
+      ],
+      "v2_range": [
+        124254851,
+        124255187
+      ],
+      "v3_range": [
+        149219900,
+        149220236
+      ],
+      "bytes": 336,
+      "treatment": "Byte-identical payload copied at relocated table start; closed v2 preservation plus explicit v3 full L2-L1 byte comparison. Physical/logical offsets change."
+    }
+  ],
+  "arithmetic_layouts": {
+    "stock": {
+      "tables": {
+        "6": {
+          "start": 4195100,
+          "bytes": 16773186,
+          "end_exclusive": 20968286,
+          "count": 1973316,
+          "stride": 68
+        },
+        "5": {
+          "start": 20968286,
+          "bytes": 36872262,
+          "end_exclusive": 57840548,
+          "count": 2341096,
+          "stride": 126
+        },
+        "4": {
+          "start": 57840548,
+          "bytes": 34143168,
+          "end_exclusive": 91983716,
+          "count": 2133948,
+          "stride": 128
+        },
+        "3": {
+          "start": 91983716,
+          "bytes": 664197,
+          "end_exclusive": 92647913,
+          "count": 47870,
+          "stride": 111
+        },
+        "2": {
+          "start": 92647913,
+          "bytes": 5231,
+          "end_exclusive": 92653144,
+          "count": 343,
+          "stride": 122
+        },
+        "1": {
+          "start": 92653144,
+          "bytes": 336,
+          "end_exclusive": 92653480,
+          "count": 22,
+          "stride": 122
+        }
+      },
+      "DIR_start": 92653480,
+      "MDR_bytes": 92653600
+    },
+    "v2": {
+      "tables": {
+        "6": {
+          "start": 4195100,
+          "bytes": 16864561,
+          "end_exclusive": 21059661,
+          "count": 1984066,
+          "stride": 68
+        },
+        "5": {
+          "start": 21059661,
+          "bytes": 42014275,
+          "end_exclusive": 63073936,
+          "count": 2667573,
+          "stride": 126
+        },
+        "4": {
+          "start": 63073936,
+          "bytes": 60505504,
+          "end_exclusive": 123579440,
+          "count": 3781594,
+          "stride": 128
+        },
+        "3": {
+          "start": 123579440,
+          "bytes": 670180,
+          "end_exclusive": 124249620,
+          "count": 47870,
+          "stride": 112
+        },
+        "2": {
+          "start": 124249620,
+          "bytes": 5231,
+          "end_exclusive": 124254851,
+          "count": 343,
+          "stride": 122
+        },
+        "1": {
+          "start": 124254851,
+          "bytes": 336,
+          "end_exclusive": 124255187,
+          "count": 22,
+          "stride": 122
+        }
+      },
+      "DIR_start": 124255187,
+      "MDR_bytes": 124255307
+    },
+    "v3": {
+      "tables": {
+        "6": {
+          "start": 4195100,
+          "bytes": 17533554,
+          "end_exclusive": 21728654,
+          "count": 2062771,
+          "stride": 68
+        },
+        "5": {
+          "start": 21728654,
+          "bytes": 48476059,
+          "end_exclusive": 70204713,
+          "count": 3077845,
+          "stride": 126
+        },
+        "4": {
+          "start": 70204713,
+          "bytes": 78339776,
+          "end_exclusive": 148544489,
+          "count": 4896236,
+          "stride": 128
+        },
+        "3": {
+          "start": 148544489,
+          "bytes": 670180,
+          "end_exclusive": 149214669,
+          "count": 47870,
+          "stride": 112
+        },
+        "2": {
+          "start": 149214669,
+          "bytes": 5231,
+          "end_exclusive": 149219900,
+          "count": 343,
+          "stride": 122
+        },
+        "1": {
+          "start": 149219900,
+          "bytes": 336,
+          "end_exclusive": 149220236,
+          "count": 22,
+          "stride": 122
+        }
+      },
+      "DIR_start": 149220236,
+      "MDR_bytes": 149220356
+    }
+  },
+  "offset_scope": "Computed from pinned exact counts/strides/prefixstart and writer contract; sizes match closed source guards/proofs. This scope does not read actual directory bytes.",
+  "v3_actual_compare_source": "build_country_native_lane_candidate_v3.source.txt.gz spans/adapter.source.exact comparison; source hash12fb... independently observed, not claimed self-bound by v3proof.",
+  "header_verification_boundary": "V3 complete readback compares actual header to current writer plan. Stock→v2 header-rest preservation is reviewed underlying writer contract; main v2 builder source only inherited via pinned proof/seal."
+}

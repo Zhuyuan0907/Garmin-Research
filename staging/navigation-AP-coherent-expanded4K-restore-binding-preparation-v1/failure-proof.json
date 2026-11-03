@@ -1,0 +1,140 @@
+{
+  "scope": "navigation-AP-coherent-expanded4K-restore-binding-preparation-v1",
+  "closed_failed_attempt": true,
+  "API_or_restore_binding_prepared": false,
+  "actual_failure": {
+    "chunk_id": "0f1046",
+    "exit_code": 1,
+    "cause": "Own host reader used offset0x2B2 instead of unchanged helper decimal600/0x258"
+  },
+  "wrong_offset": {
+    "offset": 690,
+    "actual_saved_header_u32": 0
+  },
+  "correct_closed_helper_offset": {
+    "offset": 600,
+    "actual_saved_header_4u32": [
+      149220236,
+      120,
+      20,
+      1
+    ],
+    "scope": "Read from already captured header only; no fresh DIR read"
+  },
+  "original_IMG_reads": [
+    {
+      "physical_offset": 0,
+      "bytes": 90112,
+      "saved_path": "metadata-actual.bin",
+      "saved_capture_SHA256": "8b68a355c596523d5bb5578a7b2475e6bbdf218f97531a5feb05a29e26ffcd8a"
+    },
+    {
+      "physical_offset": 94208,
+      "bytes": 772,
+      "saved_path": "MDRheader-actual.bin",
+      "saved_capture_SHA256": "6cef8684580f782d770f33f4cc2f0367648b726efa31ccc9434a0bfe5b46f5d4"
+    }
+  ],
+  "actual_IMG_bytes": 90884,
+  "IMG_cap": 1048576,
+  "DIR_read": false,
+  "source_stat_before_after_verified_at_failure_close": [
+    45826,
+    538397,
+    153337856,
+    1791347653105259871,
+    1791347659645611251
+  ],
+  "original_IMG_mode": "0o444",
+  "source_handle_close_scope": "Python with-context closes on AssertionError; failed command did not reach its final explicit handle/stat journal",
+  "failure_journal_missing_at_throw": "bounded-metadata-read-receipts.json was not produced; closure reconstructs exact read counts from executed source and saved return-byte captures",
+  "recovered_capture_digest_is_not_full_source_hash": true,
+  "old_helper_SHA256": "43e041518baa72bfbdbc26c627d435749c4bf85adf7882e47ffcfb655c46fe5f",
+  "old_helper_unchanged": true,
+  "recipe_full_actual_hash_EOF_CRC_passed_in_prior_read": "4cba13 EXIT0; source-and-recipe-read-receipts.json",
+  "coherent_expanded4K_future_target": {
+    "bytes": 153337856,
+    "SHA256": "8749b2614f0ef4cfb3ac631dd316b35dd3551e3ab97d2ac058f13a89052f50f6",
+    "header_SHA256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+    "fresh_full_input_validation_and_generator_EOF": "not run"
+  },
+  "artifact_budget_before_seal": {
+    "raw": 1359948,
+    "decoded": 2260437,
+    "raw_cap": 3145728,
+    "decoded_cap": 4194304,
+    "failed_command_delta": 28688,
+    "failure_close_own_reads": [
+      {
+        "name": "source-and-recipe-read-receipts.json",
+        "bytes": 2185,
+        "SHA256": "77cfba6ae1a91d740edc5be9d77832ba816753c35a7bedfcb8c9c7088782d95c",
+        "stat_before_after": [
+          45826,
+          540002,
+          2185,
+          1791361706753480782,
+          1791361706753480782
+        ]
+      },
+      {
+        "name": "initial-artifact-read-receipts.json",
+        "bytes": 4044,
+        "SHA256": "2ed9fa42cdca7baa12285220958e081aab9c411bf6d00b5c89a7ac5c58c66378",
+        "stat_before_after": [
+          45826,
+          539998,
+          4044,
+          1791361657781565784,
+          1791361657781565784
+        ]
+      },
+      {
+        "name": "metadata-actual.bin",
+        "bytes": 90112,
+        "SHA256": "8b68a355c596523d5bb5578a7b2475e6bbdf218f97531a5feb05a29e26ffcd8a",
+        "stat_before_after": [
+          45826,
+          540004,
+          90112,
+          1791361782028429169,
+          1791361782028429169
+        ]
+      },
+      {
+        "name": "MDRheader-actual.bin",
+        "bytes": 772,
+        "SHA256": "6cef8684580f782d770f33f4cc2f0367648b726efa31ccc9434a0bfe5b46f5d4",
+        "stat_before_after": [
+          45826,
+          540005,
+          772,
+          1791361782028590003,
+          1791361782028590003
+        ]
+      }
+    ]
+  },
+  "guards_adapted_or_relaxed": false,
+  "new_IMG_read_after_failure": false,
+  "falseflags": {
+    "fullIMGhash": false,
+    "componenthash": false,
+    "restoreAPIprepared": false,
+    "production_reconstruction": false,
+    "fullIMGoutput": false,
+    "nativeCPU": false,
+    "guest": false,
+    "MAIN": false,
+    "device": false,
+    "audio": false,
+    "service": false,
+    "install": false,
+    "hardware_admission": false,
+    "checksum_verified": false,
+    "renderer_fix": false,
+    "App": false,
+    "fullgoal": false
+  },
+  "next": "Parent separately authorized v2 with corrected decimal600; this v1 stops after failure seal."
+}

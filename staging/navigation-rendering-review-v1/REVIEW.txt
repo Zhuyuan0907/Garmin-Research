@@ -1,0 +1,12 @@
+Search v2 slow redraw: root cause unconfirmed.
+
+Minquan tile70530020 at resolution24: 16,638 polygons /187,582 vertices, of which building type0x13 is11,851 records(71.23%) /127,754 vertices(68.10%). Resolution22:1,971 polygons /19,448 vertices,no buildings. Counts are full tile records, not simultaneously visible objects.
+
+Address supplement changed MDR/FAT size only; road renderer TRE/RGN unchanged. This rules out new AP geometry as an introduced display feature, not all AP/navigation interactions. Stock protected road geometry was not decoded for density comparison.
+
+First A/B: AP+OSM versus AP+stockCN at same scene/scale/view/detail, reboot, record cold and repeated warm pan. Then separately change only exact-model 地圖詳細度=簡略 and only 北方向上(2D), restore each. Exact manual pages93/94 supports these settings but does not promise close-zoom buildings disappear or speed improves.
+
+If new visual candidate is needed, reduce style building type0x13 rendering at resolution24 while retaining address tag action processing, all road routing/connection/access rules, native AP, and existing SRT/index source. --min-size-polygon alone does not affect resolution24. Reuse existing36 split inputs, no all-Taiwan resplit first. Validate actual object reduction, road/address/route semantics, exact installer/readback/rollback and same-scene physical redraw. No new candidate was built.
+
+Official mkgmap options: https://www.mkgmap.org.uk/doc/options
+Detailed reproducible scope, counts, dependencies and execution receipts: review.json

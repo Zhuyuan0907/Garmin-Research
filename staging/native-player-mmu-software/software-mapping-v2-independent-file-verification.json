@@ -1,0 +1,421 @@
+{
+  "all_passed": true,
+  "independent_file_only": true,
+  "source_sha256": {
+    "staging/native-player-mmu-software/emulate_mapping_v2.py": "c0aec32bd7fad3bd063db2d1ce96244067719a0f5b4ef3833054853d13476a8f",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-mmu-software/verify_software_mapping_v2_files.py": "329cad0085217c642901e3c036b3ca8a7a532250faf8d1ea10273f3563189e66",
+    "staging/native-player-mmu-software/software-mapping-v2-proof.json": "6524c9566313154ce54a8a1c0fdab34449a1bc7ae812613e4a4a0a5327dd7f8f",
+    "staging/native-player-mmu-software/guest-v2-terminal-tool-receipt.json": "2ac279a5b1677277d463896a0af299b4d4e2c83a43545feb594108c4e6bb541e",
+    "staging/native-player-mmu-software/guest-v2/inputs-at-run.json": "f3ed2488698b4e50683d9774ec0b38efd5a07649b97661a569627b1b7de4bc1e",
+    "staging/native-player-mmu-software/guest-v2/runner-at-run.py": "c0aec32bd7fad3bd063db2d1ce96244067719a0f5b4ef3833054853d13476a8f",
+    "staging/native-player-mmu-software/emulate_mapping_v1.py": "5b32abf0aa931830c0c8b3703ffd23169e8067f4343e4648f4258ed841fe5f2f",
+    "staging/native-player-mmu-software/guest-v1/runner-at-run.py": "5b32abf0aa931830c0c8b3703ffd23169e8067f4343e4648f4258ed841fe5f2f",
+    "staging/native-player-mmu-software/guest-v1/inputs-at-run.json": "83e54eeb756689cf503935bf90c8656d59c5aaecf5f3d252d7a2a95c392e21fc",
+    "staging/native-player-mmu-software/guest-v1/terminal-failure.json": "3082dafb16763f8546682fe38c7949c033e7fc8b600b209b49675005e90f78d3",
+    "staging/native-player-mmu-software/guest-v1-terminal-tool-receipt.json": "2e3b1d884b134e084aaf4b5e9879bcc95600d74774e4494d5b527bf8e44cde52",
+    "staging/native-player-mmu-software/guest-v2/missing_L1_returns_without_mapping.json": "cfad629411c507de7d8c8e78d3ac06bd0b3ea6ba2072ed3c96d89dadba2432c9",
+    "staging/native-player-mmu-software/guest-v2/section_L1_keeps_low20.json": "f83fc9a445a046ee429a29d014b2763966cc7ee4ecc2223c9bb6abbd7948b729",
+    "staging/native-player-mmu-software/guest-v2/coarse_L2_class0.json": "3bd50827e7403cc2cd37c7e9c56a35572a5b52bc471cfaab70c2c085a2ee6526",
+    "staging/native-player-mmu-software/guest-v2/coarse_L2_class1.json": "308e0bb78909f7cf56182e7732f1da1c257006144254376e2079416fbbd559dc",
+    "staging/native-player-mmu-software/guest-v2/coarse_L2_class2.json": "55310286f6cb60a25e0fdd41855d6194bf6dd7a44f00c2f1cf02ec1258e7eede",
+    "staging/native-player-mmu-software/guest-v2/coarse_L2_class3.json": "3074e649aa7cfc9b8e8ea4b251b2b36cf7afa925bd144e26d09fcda81493b22a",
+    "staging/native-player-mmu-software/guest-v2/fine_L2_class0.json": "cf262572de0d77db2238e4db8f7d41b50d698a48b495dff486a8094139eb97aa",
+    "staging/native-player-mmu-software/guest-v2/fine_L2_class1.json": "f3211ff5f4c935a1a1e18d7b61ba71994642eeae40252b2acb16b467f865f39f",
+    "staging/native-player-mmu-software/guest-v2/fine_L2_class2.json": "792ff18006b5fd584b1903fb2deb3a3d663f6a996a439a75131094d118ce186d",
+    "staging/native-player-mmu-software/guest-v2/fine_L2_class3.json": "ab9f790d3ac8d217bb13b16feb5677755758ee795ae0866e2b4db442a5ed5c86"
+  },
+  "cases": [
+    {
+      "name": "missing_L1_returns_without_mapping",
+      "source_case_sha256": "cfad629411c507de7d8c8e78d3ac06bd0b3ea6ba2072ed3c96d89dadba2432c9",
+      "CPU_stores": 6,
+      "table_stores": 0,
+      "original_instructions": 50,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "section_L1_keeps_low20",
+      "source_case_sha256": "f83fc9a445a046ee429a29d014b2763966cc7ee4ecc2223c9bb6abbd7948b729",
+      "CPU_stores": 7,
+      "table_stores": 1,
+      "original_instructions": 53,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "b4f6d8696f287636107de1fe2956c3b821a6dd656cac69bb3e1800490843f0b7"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "f600eca824e84a43f0691b267bd620e462c50da165c5b80e17aecb7a924f1fa8"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221d9a",
+          "address": "0x3e0060c",
+          "value": "0x18000a02"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "coarse_L2_class0",
+      "source_case_sha256": "3bd50827e7403cc2cd37c7e9c56a35572a5b52bc471cfaab70c2c085a2ee6526",
+      "CPU_stores": 7,
+      "table_stores": 1,
+      "original_instructions": 58,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "e2aa5018877955a42724f3077c5f096fe1146214da74ef0a12ba58a5fd50230c"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "4ab9037413147b4e341b6a57c4fe0c6627aa2b0e788be3026177011f1882278e"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221dae",
+          "address": "0x3f00014",
+          "value": "0x150"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "coarse_L2_class1",
+      "source_case_sha256": "308e0bb78909f7cf56182e7732f1da1c257006144254376e2079416fbbd559dc",
+      "CPU_stores": 8,
+      "table_stores": 2,
+      "original_instructions": 61,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "e2aa5018877955a42724f3077c5f096fe1146214da74ef0a12ba58a5fd50230c"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "b4be64fe7c90de320afea09e8cf1c7f1614834ca1b2e64ef195265519e9342bd"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221dae",
+          "address": "0x3f00014",
+          "value": "0x40000151"
+        },
+        {
+          "PC": "0x221dc6",
+          "address": "0x3f00014",
+          "value": "0x18300151"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "coarse_L2_class2",
+      "source_case_sha256": "55310286f6cb60a25e0fdd41855d6194bf6dd7a44f00c2f1cf02ec1258e7eede",
+      "CPU_stores": 8,
+      "table_stores": 2,
+      "original_instructions": 63,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "e2aa5018877955a42724f3077c5f096fe1146214da74ef0a12ba58a5fd50230c"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "e7c99016f5976a739ceb613e37fe1e51aabe60daf3823d9e903882ea435c1320"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221dae",
+          "address": "0x3f00014",
+          "value": "0x80000152"
+        },
+        {
+          "PC": "0x221dbc",
+          "address": "0x3f00014",
+          "value": "0x18303152"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "coarse_L2_class3",
+      "source_case_sha256": "3074e649aa7cfc9b8e8ea4b251b2b36cf7afa925bd144e26d09fcda81493b22a",
+      "CPU_stores": 7,
+      "table_stores": 1,
+      "original_instructions": 58,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "e2aa5018877955a42724f3077c5f096fe1146214da74ef0a12ba58a5fd50230c"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "2ab73ea6edf144fe3540344387a4c9b55e68c5207275f355397323e024557a0d"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221dae",
+          "address": "0x3f00014",
+          "value": "0xc0000153"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "fine_L2_class0",
+      "source_case_sha256": "cf262572de0d77db2238e4db8f7d41b50d698a48b495dff486a8094139eb97aa",
+      "CPU_stores": 7,
+      "table_stores": 1,
+      "original_instructions": 64,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "865138cfc91ac22f4f879c06ac3ffe2e76c5d64967afb0ee2333c6a508edec52"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "91560ae7acbdb6497cf7f5cb41e0c14a7f9858b4319ac626d7bbb6ae91d743e4"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221d74",
+          "address": "0x3f00050",
+          "value": "0x150"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "fine_L2_class1",
+      "source_case_sha256": "f3211ff5f4c935a1a1e18d7b61ba71994642eeae40252b2acb16b467f865f39f",
+      "CPU_stores": 8,
+      "table_stores": 2,
+      "original_instructions": 65,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "865138cfc91ac22f4f879c06ac3ffe2e76c5d64967afb0ee2333c6a508edec52"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "e8a05a1840a8d0d15b16d6b73f773bf6f57bd0818182fd40c38cbd4431e642f6"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221d74",
+          "address": "0x3f00050",
+          "value": "0x40000151"
+        },
+        {
+          "PC": "0x221dc6",
+          "address": "0x3f00050",
+          "value": "0x18300151"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "fine_L2_class2",
+      "source_case_sha256": "792ff18006b5fd584b1903fb2deb3a3d663f6a996a439a75131094d118ce186d",
+      "CPU_stores": 8,
+      "table_stores": 2,
+      "original_instructions": 67,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "865138cfc91ac22f4f879c06ac3ffe2e76c5d64967afb0ee2333c6a508edec52"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "7068555bed585e35a6ff1fe8b51eff08c465dadab80b8f78d375edcd25039fae"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221d74",
+          "address": "0x3f00050",
+          "value": "0x80000152"
+        },
+        {
+          "PC": "0x221dbc",
+          "address": "0x3f00050",
+          "value": "0x18303152"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    },
+    {
+      "name": "fine_L2_class3",
+      "source_case_sha256": "ab9f790d3ac8d217bb13b16feb5677755758ee795ae0866e2b4db442a5ed5c86",
+      "CPU_stores": 8,
+      "table_stores": 2,
+      "original_instructions": 68,
+      "exact_original_store_GP_semantics_checked": true,
+      "whole_zones": [
+        {
+          "name": "L1",
+          "bytes": 16384,
+          "actual_after_sha256": "865138cfc91ac22f4f879c06ac3ffe2e76c5d64967afb0ee2333c6a508edec52"
+        },
+        {
+          "name": "L2",
+          "bytes": 4096,
+          "actual_after_sha256": "e28b455297afe7df35d00d600defa46bd54ad67f86eb38d79c257ebd64255ab4"
+        },
+        {
+          "name": "stack",
+          "bytes": 65536,
+          "actual_after_sha256": "2996bc67969a5a2ae0957548c9eb042cbf39555b8c026355f1c55253376a65c3"
+        }
+      ],
+      "exact_branch_store_triples": [
+        {
+          "PC": "0x221d74",
+          "address": "0x3f00050",
+          "value": "0xc0000153"
+        },
+        {
+          "PC": "0x221d86",
+          "address": "0x3f00050",
+          "value": "0x18303153"
+        }
+      ],
+      "original_pre_POP_IRQ_and_frame_verified": true,
+      "actual_final_return_register_readback_available": false
+    }
+  ],
+  "case_count": 10,
+  "actual_original_CPU_stores": 74,
+  "actual_original_table_stores": 14,
+  "actual_original_instructions": 607,
+  "whole_zone_case_replays": 30,
+  "actual_guest_terminal_chunk": "538421",
+  "actual_guest_exit_code": 0,
+  "actual_guest_rerun": false,
+  "VM_import_or_instantiation": false,
+  "exact_store_opcode_ISA_GP16_address_value_preimage_verified": true,
+  "branch_class_masks_and_exact_store_PCs_verified": true,
+  "original_instruction_trace_controlflow_and_IRQ_pre_POP_verified": true,
+  "original_POP_frame_and_return_target_independently_verified": true,
+  "final_return_GP16_CPSR_SP_serialized": false,
+  "final_return_registers_independently_readback_verified": false,
+  "frozen_runtime_source_checked_final_R0_saved_flags_SP_and_CPSR": true,
+  "complete_native_return_state_proof": false,
+  "synthetic_L1_L2_inputs": true,
+  "model_MMU_disabled": true,
+  "captured_original_hardware_or_cold_boot_MMU_tables": false,
+  "actual_hardware_translation_physical_page_backing_cache_TLB_effectiveness_verified": false,
+  "native_heap_allocation_return_or_Dispatcher_full_body_or_App_verified": false,
+  "device_io": false,
+  "canonical_write": false,
+  "limits": [
+    "The actual root terminal EXIT0 and exact frozen source checked final SP, CPSR and R0 saved IRQ flags; final GP16/SP/CPSR snapshot was not serialized. Independent history ends at original221D92 POP before execution. Frame destination and pre-POP IRQ state are independently checked, not a complete returned-register proof.",
+    "All three-zone beforebytes are explicitly synthetic host declarations. Whole journals prove software descriptor writes to these declared bytes only, not stock cold tables, installed bootloader, physical backing, hardware translation/cache/TLB or native heap success.",
+    "Model SCTLR.M is0: original6F012C skips the MMU-enabled maintenance/4-byte ARMSTM path. Ten cases cover type0,section and coarse/fine classes0..3; they do not cover actual MMU-enabled state.",
+    "Original returnR0 is saved ARM IRQ flags. Type0 and unsupported coarseclass3 return without address replacement; a successful native function return is not evidence of mapping.",
+    "V1 wrong ARM-initial versus Thumb-return CPSR comparison failure and actual terminal receipt remain immutable dependencies. V2 succeeded without modifying any original MAIN code or function result."
+  ]
+}

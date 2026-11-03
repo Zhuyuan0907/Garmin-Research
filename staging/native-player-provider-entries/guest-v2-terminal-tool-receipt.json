@@ -1,0 +1,18 @@
+{
+  "terminal": true,
+  "start": {
+    "chunk_id": "830e42",
+    "wall_time_seconds": 1.000949189,
+    "session_id": 40338,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "actual_terminal": {
+    "chunk_id": "e77def",
+    "wall_time_seconds": 0.000022722,
+    "exit_code": 1,
+    "original_token_count": 762,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v2.py\", line 310, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v2.py\", line 302, in main\n    m.challenge_playing();m.other_route_controls();m.unclaimed_config_free();m.retirement_records.append(m.stop());complete(m,0);m.attack_pg('provider racer after native retirement');m.allocate_after_Stop()\n                                                   ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v2.py\", line 279, in unclaimed_config_free\n    self.invoke_kernel(0x48ee59,(index,),phase='unclaimed provider original free forwarding')\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v2.py\", line 231, in invoke_kernel\n    r=super().invoke_kernel(*args,**kwargs);self.finish_pg(self.uc.reg_read(UC_ARM_REG_PC),True);return r\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v2.py\", line 47, in invoke_kernel\n    result = super().invoke_kernel(entry, args, phase)\n  File \"/root/garmin/staging/native-player-route-entries/emulate_route_entries_v5.py\", line 25, in invoke_kernel\n    result=super().invoke_kernel(entry,args,phase)\n  File \"/root/garmin/staging/native-player-remote-pause/emulate_remote_pause_v3.py\", line 32, in invoke_kernel\n    self.uc.emu_start(start,B.old.RETURN,count=500000,timeout=15000000)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 769, in emu_start\n    raise self._hook_exception\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 363, in wrapper\n    return func(uc, *args, **kwargs)\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 1077, in __hook_mem_access_cb\n    callback(uc, access, address, size, value, user_data)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-provider-entries/emulate_provider_entries_v2.py\", line 73, in store\n    require(n['ns_stage'] == 3 and n['ns_hold'] == n['native_mutation'] == n['native_calls'] == 1, 'original retirement write outside retained Source cleanup hold')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/emulate_queue_call.py\", line 33, in require\n    if not x:raise ValueError(reason)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: original retirement write outside retained Source cleanup hold\n"
+  },
+  "completed_scopes": 0
+}

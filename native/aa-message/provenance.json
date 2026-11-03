@@ -1,0 +1,42 @@
+{
+  "license": "GPL-3.0-or-later",
+  "upstream_copyright": "Copyright (C) 2018 f1x.studio (Michal Szwaj)",
+  "behavioral_reference_commit": "046b3b381595509d0939fa84b14a90978f46ff63",
+  "repository": "https://github.com/f1xpl/aasdk",
+  "sources": {
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/FrameType.hpp": {
+      "sha256": "1e92ab14068da385cdddb14e107ca5fc4eb1f66b967447adfd4979aa99f69288",
+      "bytes": 929,
+      "url": "https://github.com/f1xpl/aasdk/blob/046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/FrameType.hpp"
+    },
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/MessageType.hpp": {
+      "sha256": "d7ca72dac3bb4763d36d01792491a2d4288e57d6e4122948f35bbf5d73bd381a",
+      "bytes": 905,
+      "url": "https://github.com/f1xpl/aasdk/blob/046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/MessageType.hpp"
+    },
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/EncryptionType.hpp": {
+      "sha256": "dc94c3eb7a8fab0dfe4441b35d098e2746cb097b5db25ba5b7b4692e4f8c8226",
+      "bytes": 868,
+      "url": "https://github.com/f1xpl/aasdk/blob/046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/EncryptionType.hpp"
+    },
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageInStream.cpp": {
+      "sha256": "440aa59bcff8531d3a2ea9b6001f7afafcf93ea6f223802dd5b33e5ed0877691",
+      "bytes": 5310,
+      "url": "https://github.com/f1xpl/aasdk/blob/046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageInStream.cpp"
+    },
+    "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageOutStream.cpp": {
+      "sha256": "66aa09b47a12ba4c86cc6b4441df7fe8265d8d8f4becf285f13781c088ef3da5",
+      "bytes": 5266,
+      "url": "https://github.com/f1xpl/aasdk/blob/046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageOutStream.cpp"
+    }
+  },
+  "differences_from_pinned_upstream": [
+    "FIRST/BULK only at idle; MIDDLE/LAST only while collecting",
+    "Match channel and encryption/control metadata on every fragment",
+    "Require exact LAST plaintext total, prohibit extra total field on non-FIRST",
+    "Caller-owned bounded storage and finite fragment count; no automatic resynchronization",
+    "Callback-only complete-message publication with explicit fragment accepted status",
+    "Empty/1-byte assembled messages allowed; downstream dispatcher validates message ID"
+  ],
+  "scope": "New portable C already-decrypted-message assembler, ordinary Linux-host tests only. No official Google specification, TLS authentication/decryption, wire parsing, native/ARM guest, Garmin ABI or installation, device/phone/Pixel compatibility."
+}

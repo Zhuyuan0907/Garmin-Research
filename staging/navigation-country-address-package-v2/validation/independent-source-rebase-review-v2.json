@@ -1,0 +1,239 @@
+{
+  "schema": "country-v2-exact-source-rebase-review/v1",
+  "created_utc": "2026-10-06T19:41:37.528749+00:00",
+  "all_assigned_checks_passed": true,
+  "candidate_sha256": "925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb",
+  "candidate_bytes": 128356352,
+  "all_new_rows_reviewed": 130637,
+  "all_selected_parents_reviewed": 18823,
+  "omitted_exact_outlier_count": 1,
+  "new_rows_by_origin_and_level": [
+    {
+      "origin": "country_v1",
+      "level": 4,
+      "rows": 74454
+    },
+    {
+      "origin": "country_v1",
+      "level": 5,
+      "rows": 35183
+    },
+    {
+      "origin": "country_v1",
+      "level": 6,
+      "rows": 1970
+    },
+    {
+      "origin": "flat_city_v1",
+      "level": 4,
+      "rows": 3552
+    },
+    {
+      "origin": "flat_city_v1",
+      "level": 5,
+      "rows": 936
+    },
+    {
+      "origin": "flat_city_v1",
+      "level": 6,
+      "rows": 12
+    },
+    {
+      "origin": "kaohsiung_v1",
+      "level": 4,
+      "rows": 10088
+    },
+    {
+      "origin": "kaohsiung_v1",
+      "level": 5,
+      "rows": 4351
+    },
+    {
+      "origin": "kaohsiung_v1",
+      "level": 6,
+      "rows": 91
+    }
+  ],
+  "exact_source_provenance_fields_preserved": true,
+  "actual_new_leaf_payload_ref_labels_native24_verified": true,
+  "all_selected_actual_parent_ranges_flags_and_street_labels_verified": true,
+  "source_rows_single_pass": true,
+  "source_ledger_receipts": [
+    {
+      "path": "staging/navigation-country-native-house-merge-v1/new-house-records.jsonl.gz",
+      "origin": "country_v1",
+      "rows": 111608,
+      "compressed_bytes": 8414249,
+      "compressed_sha256": "34b4f509a89bd8f413e101d1b60c261d678a9c29723c99e96bdc124bdf34fd33",
+      "plain_bytes": 88527457,
+      "plain_sha256": "e7a70ef2d45375b69bfabc09b1fab6896582386ea4d49d32fe1b724926b3dae9",
+      "gzip_EOF": true,
+      "source_stat_unchanged": true
+    },
+    {
+      "path": "staging/navigation-kaohsiung-native-house-merge-v1/new-house-records.jsonl.gz",
+      "origin": "kaohsiung_v1",
+      "rows": 14530,
+      "compressed_bytes": 1633576,
+      "compressed_sha256": "0ba892159ba81a345d4d6a5bcdaf8db54682035f6fcd7b86a0bbc69b866b1186",
+      "plain_bytes": 23949481,
+      "plain_sha256": "cd3a2fc04323840b5c1ca310bf8423cd1081964ff103a971a241f18b90f0ac7e",
+      "gzip_EOF": true,
+      "source_stat_unchanged": true
+    },
+    {
+      "path": "staging/navigation-flat-city-native-house-merge-v1/new-house-records.jsonl.gz",
+      "origin": "flat_city_v1",
+      "rows": 4500,
+      "compressed_bytes": 655110,
+      "compressed_sha256": "9c8bc374c788469a66b3b5a305b2dc59647360b0983d949bd8fb66ed3b68a870",
+      "plain_bytes": 13308857,
+      "plain_sha256": "6edec98a5d3fb80118ba55dc7f43406a79d876e49af32ca265007f21e1a505ca",
+      "gzip_EOF": true,
+      "source_stat_unchanged": true
+    }
+  ],
+  "selected_range_source_receipts": [
+    {
+      "path": "staging/navigation-country-native-house-merge-v1/selected-street-ranges.json",
+      "bytes": 14628154,
+      "sha256": "dd42c0e57c96f61ed6d93f0309b4fdd5ae6c98652a937163fd61f494b8e7bbaa",
+      "rows": 15679
+    },
+    {
+      "path": "staging/navigation-kaohsiung-native-house-merge-v1/selected-street-ranges.json",
+      "bytes": 2608274,
+      "sha256": "1d6309391a1eb009cd4b4c23d3fcaab020d8427d6b6888d6377f2f7fe1eec818",
+      "rows": 2255
+    },
+    {
+      "path": "staging/navigation-flat-city-native-house-merge-v1/selected-street-ranges.json",
+      "bytes": 963950,
+      "sha256": "5b073ff29b328b2582a76b7681a3c9a2a6d47e7b4bb06a2c96810a672b341cfa",
+      "rows": 889
+    }
+  ],
+  "actual_candidate_read_receipt": {
+    "path": "staging/navigation-country-native-candidate-v2/gmapprom1.img",
+    "stat_before": [
+      45826,
+      537885,
+      128356352,
+      1791315205144174752,
+      1791315254852255547
+    ],
+    "stat_after": [
+      45826,
+      537885,
+      128356352,
+      1791315205144174752,
+      1791315254852255547
+    ],
+    "stat_unchanged": true,
+    "actual_bytes_read": 36142878,
+    "operations": 13,
+    "full_image_read_or_hash": false,
+    "bounded_reads": [
+      {
+        "physical_offset": 0,
+        "bytes": 512,
+        "sha256": "b8afc5f2833a380541e1caf6ce729cb523bcf16739769f935ce17fbd9fbeb191",
+        "reason": "public IMG header"
+      },
+      {
+        "physical_offset": 4096,
+        "bytes": 512,
+        "sha256": "c7a6be55d58df9fa73057b605988a0de4c9b2ea06feeca8e13fbcad8f5f368e2",
+        "reason": "FAT first entry"
+      },
+      {
+        "physical_offset": 4096,
+        "bytes": 69632,
+        "sha256": "eee03ff81c26eda8bf3029ece8e623d5f92c4ced0e544f3a1c4c5fa35c9a0def",
+        "reason": "FAT complete metadata only"
+      },
+      {
+        "physical_offset": 77824,
+        "bytes": 32,
+        "sha256": "2216991b20653ec1652637fb8e43e91d3f802be90c0b5599a9d6876bbb111143",
+        "reason": "public MDR header; 00004171.MDR logical-range 0"
+      },
+      {
+        "physical_offset": 78424,
+        "bytes": 16,
+        "sha256": "6b33a733291b88fc32bb503f8659772d3fdaaec8e107bb3b5e261c3bf9303340",
+        "reason": "actual directory descriptor; 00004171.MDR logical-range 600"
+      },
+      {
+        "physical_offset": 124333011,
+        "bytes": 120,
+        "sha256": "2650321e2f1bcbb22234f9f2e8bb3f453c71e69bafd2eaa9abd681cdb1f9dfb0",
+        "reason": "actual six table descriptors; 00004171.MDR logical-range 124255187"
+      },
+      {
+        "physical_offset": 97294928,
+        "bytes": 26362336,
+        "sha256": "dc3a22d65049eb748eb57793c1486d042a7c19e6d9462e54e1c0e0411f6778be",
+        "reason": "v2 new tightly-packed append level4; 00004171.MDR logical-range 97217104"
+      },
+      {
+        "physical_offset": 58009747,
+        "bytes": 5142013,
+        "sha256": "f4ed26fe16835a02691e02b65722f029aa7c5c5bca4184eb47b422990ab2deb8",
+        "reason": "v2 new tightly-packed append level5; 00004171.MDR logical-range 57931923"
+      },
+      {
+        "physical_offset": 21046110,
+        "bytes": 91375,
+        "sha256": "b02c243bb0bbddea389155f47e03938506d07052158b354278f8e5c10589932c",
+        "reason": "v2 new tightly-packed append level6; 00004171.MDR logical-range 20968286"
+      },
+      {
+        "physical_offset": 124436480,
+        "bytes": 57,
+        "sha256": "9fc9c53e2d8b30d9dca315df450ec4387ac875d3065fad1fe609b3fe722f4597",
+        "reason": "v2 GMP header; I053061A.GMP logical-range 0"
+      },
+      {
+        "physical_offset": 124437354,
+        "bytes": 661,
+        "sha256": "28049ee30eff50debb3f76131711ddad507c788ac587849cff7b6b16de6da428",
+        "reason": "v2 actual LBL header; I053061A.GMP logical-range 874"
+      },
+      {
+        "physical_offset": 124443046,
+        "bytes": 3805432,
+        "sha256": "d52071f6bd3b6acd7882bb1b626c1af4a974d8227b17b1949434750f894706f1",
+        "reason": "v2 bounded original label pool; I053061A.GMP logical-range 6566"
+      },
+      {
+        "physical_offset": 123657264,
+        "bytes": 670180,
+        "sha256": "2cd4c24f263cb6df6c863d1113992f3959090c1d99ebf26159288109b1d9ad21",
+        "reason": "v2 bounded actual parent table; 00004171.MDR logical-range 123579440"
+      }
+    ]
+  },
+  "identity_sha256": "7b5c1a3aa58b8255734ee642599761916a255ac6ab0c25c6891948bccdbf9645",
+  "reused_mapper": {
+    "path": "staging/navigation-country-merge-independent-review-v1/review_country_merge.py",
+    "sha256": "5b073ff29b328b2582a76b7681a3c9a2a6d47e7b4bb06a2c96810a672b341cfa",
+    "old_main_or_cases_executed": false
+  },
+  "inherited_source_membership_evidence": [
+    "staging/navigation-country-merge-independent-review-v1/proof.json",
+    "staging/navigation-kaohsiung-native-house-merge-v1/output-readback-proof.json",
+    "staging/navigation-flat-city-native-house-merge-v1/output-readback-proof.json"
+  ],
+  "geometry_recomputed_here": false,
+  "source_PBF_group_ready_ledgers_reopened": false,
+  "whole_candidate_hash_repeated": false,
+  "device_IO": false,
+  "device_installed": false,
+  "full_Taiwan_native_address_update_complete": false,
+  "limits": [
+    "Exact three-source leaf rebase and actual parent pointers, not full UI/query/route execution.",
+    "City/district membership is inherited from separately sealed source reviews; only quantization was independently recalculated here.",
+    "Original preserved-record significant bits and relative ordering have their separate builder/full prior review evidence."
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-08T01:14:34.726784+00:00",
+  "scope": {
+    "kind": "public_primary_source_static_review",
+    "target": "Taiwan Garmin nuvi 2565RT / HWID 1352 / SW 8.00",
+    "identity_basis": "User-provided device diagnostic identity and previously saved metadata; no live device verification in this review. Official product/manual identify model 2565RT, not HWID 1352.",
+    "runtime_tests": 0,
+    "garmin_instruction_execution": false,
+    "emulation": false,
+    "cross_compilation": false,
+    "device_io": false,
+    "pairing_queries": false,
+    "hardware_acceptance_verified": false,
+    "phone_interoperability_verified": false,
+    "firmware_install_candidate": false
+  },
+  "conclusion": {
+    "official_computer_usb_device_use_documented": true,
+    "official_gdr10_dedicated_mount_connection_documented": true,
+    "official_mount_power_input_documented": true,
+    "exact_board_generic_usb_host_verified": false,
+    "exact_board_host_vbus_verified": false,
+    "exact_board_hub_support_verified": false,
+    "exact_board_aoa_verified": false,
+    "capability_absent_proved": false,
+    "summary": "Official Garmin material establishes computer-facing USB device/storage use and dedicated mount power/camera connections. It does not establish a generic USB host role, VBUS output or AOA on this exact board. An OTG-capable chip or a dedicated camera connector cannot close those board-level gaps."
+  },
+  "primary_sources": [
+    {
+      "url": "https://www.garmin.com.tw/products/discontinued/nuvi2565RT/",
+      "publisher": "Garmin Taiwan",
+      "type": "Exact model product page",
+      "retrieval": "Read-only web search/open returned product specifications; later repeat open timed out.",
+      "supports": [
+        "Exact Taiwan nuvi 2565RT product, GPN 010-01008-01.",
+        "Transfer interface specified as microUSB (USB 2.0).",
+        "Video input and dedicated GDR10 attachment are listed."
+      ],
+      "does_not_establish": [
+        "USB host/OTG board wiring",
+        "VBUS supply/current limiting",
+        "Generic hub/peripheral enumeration",
+        "AOA/Android Auto"
+      ]
+    },
+    {
+      "url": "https://download.garmin.com/tw/download/manuals/nuvi2555_2565T_2565RT_TW_0B.pdf",
+      "publisher": "Garmin Taiwan",
+      "type": "Official combined Taiwan manual",
+      "fresh_readonly_fetch": {
+        "http_status": 200,
+        "final_url": "https://download.garmin.com/tw/download/manuals/nuvi2555_2565T_2565RT_TW_0B.pdf",
+        "bytes": 23043732,
+        "sha256": "b48f6b5d3a22d0fa376d00623f4985164eb29235a31da27e788ef762e0fc4912",
+        "byte_identical_to_saved_pdf": true,
+        "new_pdf_written": false,
+        "actual_terminal_completion_chunk": "671754",
+        "actual_terminal_completion_exit_code": 0
+      },
+      "manual_link_discovery": "Existing official API metadata sources/nuvi2565RT-api.json manualLink.url; HTTPS used for fresh fetch.",
+      "supports": [
+        {
+          "paper_page": 17,
+          "pdf_page_1_based": 18,
+          "claim": "Manual applicability includes 2555/2565T/2565RT Traditional Chinese software Ver 2.00 and above; feature changes are possible."
+        },
+        {
+          "paper_page": 18,
+          "pdf_page_1_based": 19,
+          "claim": "Separate body microUSB charging/transfer port (4), video input (7), recorder connection (8), and vehicle-power connection (9) are identified."
+        },
+        {
+          "paper_page": 133,
+          "pdf_page_1_based": 134,
+          "claim": "Power cable plugs into mount miniUSB so mount supplies power to navigation unit; this documents power INPUT."
+        },
+        {
+          "paper_page": 134,
+          "pdf_page_1_based": 135,
+          "claim": "GDR10 transmission cable connects to mount-side microUSB; this documents a DEDICATED accessory connection."
+        },
+        {
+          "paper_page": 146,
+          "pdf_page_1_based": 147,
+          "claim": "Computer connection uses USB cable. Normal and flash-drive modes are offered; flash-drive use supports Mass Storage Device Class and exposes internal memory/microSD as removable drives."
+        }
+      ],
+      "does_not_establish": [
+        "Which controller and protocol serve the GDR10 connector",
+        "Standard USB host enumeration of arbitrary peripherals",
+        "Connector VBUS direction in any host mode",
+        "USB hub driver or AOA",
+        "Concurrent USB host operation and charging",
+        "HWID 1352-specific schematic"
+      ]
+    },
+    {
+      "url": "https://source.android.com/docs/core/interaction/accessories/protocol",
+      "publisher": "Android Open Source Project",
+      "type": "AOA prerequisite documentation",
+      "supports": [
+        "In Android accessory mode the external accessory acts as USB host, supplies bus power and enumerates the Android device.",
+        "Accessories must provide 500 mA at 5 V charging power."
+      ],
+      "does_not_establish": [
+        "Garmin implementation of these requirements",
+        "Pixel interoperability",
+        "Android Auto application/protocol acceptance"
+      ]
+    },
+    {
+      "url": "https://developer.android.com/develop/connectivity/usb/accessory",
+      "publisher": "Android Developers",
+      "type": "USB accessory mode documentation",
+      "supports": [
+        "External accessory is USB host; Android device is USB accessory/device. Host powers bus and enumerates attached devices."
+      ],
+      "does_not_establish": [
+        "Garmin board support or application integration"
+      ]
+    }
+  ],
+  "st_source_status": {
+    "official_domain_queries": [
+      "STA2064 site:st.com",
+      "STA2064 USB site:st.com"
+    ],
+    "query_result": "No results returned in this review; this is not evidence that documentation or the chip does not exist.",
+    "official_urls_attempted": [
+      "https://www.st.com/resource/en/datasheet/sta2064.pdf",
+      "https://www.st.com/resource/en/data_brief/sta2064.pdf"
+    ],
+    "official_url_result": "Web tool reported inaccessible; no HTTP 404 or absence claim is made.",
+    "cached_manufacturer_authored_mirror": {
+      "url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/581/STA2064.pdf",
+      "local_path": "sources/deep-research/STA2064.pdf",
+      "sha256": "37051ec539632537e2314135e28e83d6152b8342e22c633c08f5c3e9b1ddc575",
+      "title": "STMicroelectronics STA2064 data brief, October 2009, Doc ID 16057 Rev 3",
+      "chip_level_claim": "One USB 2.0 OTG port with integrated physical layer is listed.",
+      "evidence_class": "Previously saved manufacturer-authored document hosted by distributor; no newly verified official ST-hosted source.",
+      "board_inference_allowed": false,
+      "limits": [
+        "Physical chip identity, configured roles, package pins routed to connectors, ID routing, power-switch/boost circuit, and board firmware support were not independently confirmed in this review.",
+        "Chip OTG capability alone does not prove exact Garmin board host capability."
+      ]
+    }
+  },
+  "source_sha256": {
+    "evidence/firmware-analysis/native-usb-hub-power-plan.json": "ce8e0049d09f1de8a56b2a37ebb51a1445686788928ea41097c8128736b13edb",
+    "sources/nuvi2565RT-api.json": "a9315eeef9d5f18dc4de35b7c53a5659c50600c70b556ebbe20a7341ecb6b5e9",
+    "sources/nuvi2555_2565T_2565RT_TW_0B.pdf": "b48f6b5d3a22d0fa376d00623f4985164eb29235a31da27e788ef762e0fc4912",
+    "sources/nuvi2555_2565T_2565RT-manual.txt": "49d98929185d01cb20ae8f166c726b54191b25a69a4b136558a2563f1c507938",
+    "sources/deep-research/STA2064.pdf": "37051ec539632537e2314135e28e83d6152b8342e22c633c08f5c3e9b1ddc575",
+    "sources/deep-research/STA2064.txt": "cf5505e71f414313bd0102b112c1e2732e777f599c16c13b4cc7fc2f9cfa0ad6"
+  },
+  "without_device_next_steps": [
+    {
+      "action": "Search publicly released official service/schematic or mount electrical documentation for this exact model/PCB.",
+      "can_resolve": "Physical controller-to-connector routing, ID sensing, power input vs host VBUS source and current limiting, if exact documentation exists.",
+      "current_state": "No such exact board-level primary evidence identified."
+    },
+    {
+      "action": "Continue tests of our own Linux-host enumeration/AOA state-machine software using explicit synthetic transport controls.",
+      "can_resolve": "Only our software parsing, sequencing and failure handling.",
+      "cannot_resolve": "Garmin host hardware, USB electrical roles, phone acceptance or actual on-device runtime."
+    },
+    {
+      "action": "Keep independent mount power/camera ports as a documented lead, not a working connection plan.",
+      "can_resolve": "Nothing about general host compatibility until controller/routing/protocol evidence is available."
+    }
+  ],
+  "later_physical_evidence_required": [
+    "Exact connector role and ID behavior",
+    "VBUS direction, voltage, current limit and backfeed protection in an actual host configuration",
+    "USB peripheral enumeration and hub support",
+    "Android AOA negotiation on exact Garmin board",
+    "Simultaneous safe power and host operation"
+  ],
+  "no_device_required_now": true,
+  "changes": "Only this small review JSON was added. No canonical evidence, AGENTS, firmware, device or product source was changed.",
+  "bounded_exact_board_public_search": {
+    "searched_utc": "2026-10-08T01:18:46.966132+00:00",
+    "previous_review_sha256": "2bb42594ac3befe2d1d5ab9f0c0873ae712fae54447a47ffc077e78dbbb01d12",
+    "query_count": 3,
+    "queries": [
+      "\"2565RT\" (schematic OR 電路圖 OR 內部 OR \"internal photos\")",
+      "\"105-01927-00\" OR \"006-J0162-A0\"",
+      "\"Garmin\" \"1352\" (schematic OR \"internal photos\" OR FCC OR NCC)"
+    ],
+    "domains": [
+      "garmin.com",
+      "garmin.com.tw",
+      "fcc.gov",
+      "ncc.gov.tw"
+    ],
+    "response_scope": "One batch of three web search queries; returned result list is aggregated, so hits are not assigned to individual queries.",
+    "result": "未找到可取得的精確資料",
+    "exact_service_schematic_or_regulatory_board_photos_found_in_returned_results": false,
+    "returned_urls": [
+      {
+        "url": "https://www.garmin.com.tw/m/buzz/tw/minisite/nuvi25xx/2565RT/",
+        "classification": "Exact model marketing minisite; no exact service schematic or regulatory board photos surfaced."
+      },
+      {
+        "url": "https://www.garmin.com.tw/m/buzz/tw/minisite/nuvi25xxplus/2565RT_plus/index.html",
+        "classification": "Plus variant marketing; excluded from exact-board inference."
+      },
+      {
+        "url": "https://www.garmin.com.tw/support/05/",
+        "classification": "Consumer POI installation/support; not service schematic or board photos."
+      },
+      {
+        "url": "https://www.garmin.com.tw/twlocal/support",
+        "classification": "Consumer POI installation/support; not service schematic or board photos."
+      },
+      {
+        "url": "https://www.garmin.com.tw/products/discontinued/nuvi2565RT/",
+        "classification": "Exact model product specifications; already reviewed; not service schematic or board photos."
+      },
+      {
+        "url": "https://www.garmin.com.tw/support/04",
+        "classification": "Consumer POI installation/support; not service schematic or board photos."
+      },
+      {
+        "url": "https://www.garmin.com.tw/m/buzz/tw/minisite/nuvi25xx/2585/",
+        "classification": "Other model marketing; excluded from exact-board inference."
+      },
+      {
+        "url": "https://www.garmin.com.tw/news/newscenter/news20110524/",
+        "classification": "2565RT and 2585 launch announcement; no exact schematic or board-photo evidence surfaced; 2585 capabilities not attributed to 2565RT."
+      },
+      {
+        "url": "https://www.garmin.com.tw/m/buzz/tw/minisite/nuvi25xxplus/2555/index.html",
+        "classification": "Other model marketing; excluded from exact-board inference."
+      },
+      {
+        "url": "https://www.garmin.com.tw/TaiwanCityNavigator201140",
+        "classification": "Consumer map-feature information; not service schematic or board photos."
+      },
+      {
+        "url": "https://www.garmin.com.tw/news/announcement/news-2016-05-no-service/",
+        "classification": "Hardware service discontinuation notice; not service schematic or board photos."
+      },
+      {
+        "url": "https://www.garmin.com.tw/m/buzz/tw/minisite/nuvi25xx/2585/media.html",
+        "classification": "Other model multimedia marketing; excluded from exact-board inference."
+      }
+    ],
+    "fcc_or_ncc_exact_board_material_returned": false,
+    "absence_proved": false,
+    "other_model_or_hwid1371_used_as_substitute": false,
+    "limits": "Search results alone do not prove nonexistence or lack of hardware capability. No additional query rounds, page downloads, firmware instructions, emulation, cross compilation or device operations were performed."
+  }
+}

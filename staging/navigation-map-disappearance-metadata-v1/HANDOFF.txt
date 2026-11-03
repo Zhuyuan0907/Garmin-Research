@@ -1,0 +1,44 @@
+Map disappearance finite metadata diagnosis; no map/device mutations.
+
+The user confirmed Search v2 alone displays roads; adding installed v3 AP makes
+that drawing disappear. Stock CN+AP+Search v2 restores a displayed map. Those
+observations arrived through the parent agent; this scope performed no device IO.
+
+Fresh v3 read-only check EXIT 0 / ac7716 read 74,094 candidate bytes:
+73,728 complete IMG metadata/FAT bytes, 57 GMP public-header bytes,
+289 TRE public-header bytes, and 20 level-table bytes. Strict unique ownership,
+continuation order, root allocation, component bounds and descriptor binding
+passed. The candidate handle is closed, and the fresh stat remained unchanged.
+
+Original AP versus v3 header byte differences are exactly decimal
+15, 24, 95, 98, 460. Decimal byte32/39/40/41 and hexadecimal 0x32/39/40/41
+are unchanged. The exact new public GMP/TRE/level bytes match original closed
+stock byte evidence. Closed complete readback proves the full 3,812,824-byte GMP
+and four other non-MDR components unchanged through v2 -> v3; the nine-house
+manifest also records its display components unchanged. No new draw-priority,
+transparency, or geometry byte is present in the v3 AP display component.
+
+Generic mkgmap TRE convention describes AP flags15 as including transparency,
+with raw three-byte priority11; the representative Search v2 tile has flags1
+and priority25. These are preserved bytes and external format interpretation,
+not an executed Garmin rendering dispatcher. Do not change priority on this
+evidence. Generic standard interpretation alone cannot explain the device A/B.
+
+The actual changed factors are native MDR content/layout and AP 4K -> 8K
+allocation/header. The checksum algorithm is unknown; byte15 is deliberately0.
+The same unit's original CN uses8K, but it does not prove AP8K renderer acceptance.
+No header classification ABI or drawing dispatcher is established by this scope.
+
+Least-change working configuration: preserve the already tested three selections.
+Shortest discriminating next test: existing exact-stock AP rollback, followed by
+original AP+Search v2 with CN off at the same place/zoom. If the original AP also
+hides OSM, original AP/OSM coexistence suffices and new MDR/8K are unnecessary to
+reproduce it. If original AP restores OSM, v3's MDR/container combination is
+implicated; that test still does not distinguish MDR from8K independently.
+
+No performance tuning, 2D/detail/driving tests, firmware emulation, whole-map
+digest replay, compilation, IMG rewrite, installer execution, canonical edit,
+report/ZIP or USB operation was performed. Diagnostic result is not a proved fix.
+
+The earlier finite exploratory first512B read EXIT0/42adc6 is captured separately
+in execution-receipts.json. Aggregate candidate bytes across both reads:74,606.

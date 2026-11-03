@@ -1,0 +1,76 @@
+{
+  "schema": "flat-native-city-new-merge-policy-controls/v1",
+  "all_new_policy_controls_passed": true,
+  "synthetic_native_street_and_source_ID_context": true,
+  "synthetic_controls_are_address_or_native_acceptance_evidence": false,
+  "positive_single_member": true,
+  "positive_same_point_same_district_multiple_members": true,
+  "unique_native_street_required": true,
+  "native_district_record_remains_null": true,
+  "new_rejection_controls": [
+    {
+      "control": "not_all_global_members",
+      "actual_reason": "global_native_street_house_collision_or_missing_members"
+    },
+    {
+      "control": "producer_coordinate_collision",
+      "actual_reason": "global_native_street_house_collision_or_missing_members"
+    },
+    {
+      "control": "unready_member",
+      "actual_reason": "global_native_street_house_collision_or_missing_members"
+    },
+    {
+      "control": "not_coordinate_ready",
+      "actual_reason": "source_coordinate_unready_or_conflict"
+    },
+    {
+      "control": "source_ID_not_positive",
+      "actual_reason": "source_node_ID_invalid_or_reused"
+    },
+    {
+      "control": "unproved_floor_metadata",
+      "actual_reason": "source_floor_unit_metadata_invalid"
+    },
+    {
+      "control": "unproved_house_hyphen",
+      "actual_reason": "source_raw_house_identity_unproved"
+    },
+    {
+      "control": "wrong_street",
+      "actual_reason": "source_literal_city_street_mismatch_under_existing_host_policy"
+    },
+    {
+      "control": "unverified_city_glyph",
+      "actual_reason": "source_literal_city_street_mismatch_under_existing_host_policy"
+    },
+    {
+      "control": "unverified_source_district_glyph",
+      "actual_reason": "source_point_not_inside_declared_source_district"
+    },
+    {
+      "control": "wrong_reference",
+      "actual_reason": "original_label_ref_mismatch"
+    },
+    {
+      "control": "original_mapordinal_unknown",
+      "actual_reason": "original_mapordinal_not_one"
+    },
+    {
+      "control": "different_declared_district_even_same_coordinates",
+      "actual_reason": "same_native_target_multiple_declared_source_districts"
+    },
+    {
+      "control": "different_Decimal_points",
+      "actual_reason": "same_native_target_conflicting_ref_or_Decimal_point"
+    },
+    {
+      "control": "reused_source_node_across_members",
+      "actual_reason": "source_node_ID_invalid_or_reused"
+    }
+  ],
+  "new_rejection_controls_count": 15,
+  "policy_sha256": "ad661744fa1b242957be14d091939c97b407a59573d35c60347d9255c7aec1d9",
+  "closed_existing_suites_rerun": false,
+  "IMG_device_or_address_ledger_read": false
+}

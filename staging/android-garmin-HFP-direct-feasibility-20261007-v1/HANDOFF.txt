@@ -1,0 +1,11 @@
+Android/Pixel → Garmin HFP 的公開 API 替代路徑有文件依據，還沒有實機結果。Self-managed Call 與 Bluetooth 接聽／掛斷支援，以及公開端點請求，不能一起推定本機音樂已經送到 Garmin。
+
+Core-Telecom 是下一個最小原型路徑：由使用者按鈕建立一個 App 自管的 incoming 音訊 Call，先驗 Garmin 來電／回呼，再驗端點切換，最後才加入一個短本機音檔。通知與操作回呼有時限，應處理新增失敗、搶占、掛斷與清理。不混用 Telecom 與 AudioManager 的 SCO 路由。
+
+只播放可避免建立 AudioRecord/MediaRecorder；目前只能說公开 addCall annotation沒有要求 RECORD_AUDIO、參考App權限用於麥克風loopback，不能聲稱未知Pixel版完全免該權限已通過。電信placeCall/default-dialer/system-signature/root不在這個公開自管方案的需求內；本機URI不發起電信真電話是App設計推論，還未實作。
+
+最低三個分離通過點：Garmin接聽掛斷→App回呼；Garmin端點真的成為 currentCallEndpoint；MediaPlayer voice-call音訊在Garmin喇叭實際播放。沒有第三個通過點就不能稱省去Pi成功。音質仍是通話路徑，codec與Garmin語音處理未知；不完成原機A2DP或菜單。
+
+官方來源、API／permission與固定AOSP revision在 sources.json；實際四個小Gitiles HTTP讀取的size/hash在兩份 fetch-receipts。來源摘錄轉為中文paraphrase，未留原文段落引文。Pixel版本沒有查詢。此scope只網路讀、host小檔寫，無手機／BT／D-Bus／裝置／通話／播放／SDK／APK／guest。
+
+STOP。後續原型仍需另行實作／回來時具體測試，本scope不製作程式或APK，也不修改共享報告。

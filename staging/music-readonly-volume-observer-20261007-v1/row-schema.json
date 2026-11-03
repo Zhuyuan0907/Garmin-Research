@@ -1,0 +1,63 @@
+{
+  "schema": "garmin-audio-volume-observer-row/v1",
+  "all_rows": {
+    "timestamp_utc": "UTC ISO8601 +00:00",
+    "monotonic_ns": "host monotonic int",
+    "clock_kind": "host_monotonic_ns",
+    "diagnostic_run_id": "optional caller anonymous ASCII [A-Za-z0-9_-]{1,64}; absent means no epoch binding"
+  },
+  "roles": [
+    "phone",
+    "garmin",
+    "observer(final_summary only)"
+  ],
+  "events": [
+    "initial",
+    "snapshot",
+    "snapshot_change",
+    "role_missing",
+    "role_ambiguous",
+    "parse_error",
+    "rpc_unavailable",
+    "final_summary"
+  ],
+  "states": [
+    "ok",
+    "role_missing",
+    "role_ambiguous",
+    "parse_error",
+    "rpc_unavailable"
+  ],
+  "ok_fields": {
+    "volume": {
+      "raw_q": "uint16",
+      "channels": [
+        {
+          "index": "1 or2",
+          "gain_0_127": "low7bits",
+          "mute": "bit7 bool"
+        }
+      ]
+    },
+    "soft_volume": "optional true bool",
+    "codec": "optional known safe token or other",
+    "codec_recognized": "optional bool"
+  },
+  "volume_order": "highbyte=channel1; lowbyte=channel2; mono emits onlychannel1",
+  "missing_or_error_fields": "fixed state only; volume/codec not guessed",
+  "initial": "bool on eachrole first sample, even when state unavailable",
+  "final_summary_fields": [
+    "stop_reason",
+    "polls",
+    "events_written",
+    "events_dropped",
+    "output_cap_reached",
+    "role_states",
+    "elapsed_seconds",
+    "sample_time_kind",
+    "acoustic_or_device_volume_dB_inferred"
+  ],
+  "sample_time_kind": "after_read_snapshot; properties are sampled sequentially, not atomically with media",
+  "no_boot_or_device_identity_read_for_clock": true,
+  "crossfile_epoch_requires_external_matching_run_token_and_no_clock_reset": true
+}

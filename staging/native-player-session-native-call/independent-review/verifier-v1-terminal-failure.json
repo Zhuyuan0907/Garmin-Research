@@ -1,0 +1,15 @@
+{
+  "kind": "independent file-only verifier v1 terminal failure; no guest failure",
+  "source_path": "staging/native-player-session-native-call/independent-review/verify_native_queue_call_files.py",
+  "source_sha256": "ecad21a10255f8d44ef4cf4040b7d91b8cbf27593af32bcd65a1872245ed7832",
+  "actual_exec_result": {
+    "chunk_id": "aa66e6",
+    "wall_time_seconds": 0.042670402,
+    "exit_code": 1,
+    "original_token_count": 239,
+    "output": "ValueError: Store width differs from original opcode: 0x7000088"
+  },
+  "finding": "Verifier v1 incorrectly required every ARM STRD journal event to have width8; observed frozen journal splits original STRD into paired 4-byte events. Original guest proof remains untouched.",
+  "guest_execution": false,
+  "frozen_successful_input_mutation": false
+}

@@ -1,0 +1,83 @@
+
+Discarded input sections
+
+ .comment       0x00000000       0x20 /root/garmin/staging/native-aoa-host/aoa.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-aoa-host/aoa.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08600000                        . = 0x8600000
+
+.text           0x08600000      0x62c
+ *(.text .text.*)
+ .text          0x08600000        0x0 /root/garmin/staging/native-aoa-host/aoa.o
+ .text.aoa_init
+                0x08600000      0x228 /root/garmin/staging/native-aoa-host/aoa.o
+                0x08600000                aoa_init
+ .text.aoa_next
+                0x08600228      0x178 /root/garmin/staging/native-aoa-host/aoa.o
+                0x08600228                aoa_next
+ .text.aoa_complete
+                0x086003a0      0x128 /root/garmin/staging/native-aoa-host/aoa.o
+                0x086003a0                aoa_complete
+ .text.aoa_cancel
+                0x086004c8       0x30 /root/garmin/staging/native-aoa-host/aoa.o
+                0x086004c8                aoa_cancel
+ .text.aoa_cancel_ack
+                0x086004f8       0x54 /root/garmin/staging/native-aoa-host/aoa.o
+                0x086004f8                aoa_cancel_ack
+ .text.aoa_reenumerated
+                0x0860054c       0xc4 /root/garmin/staging/native-aoa-host/aoa.o
+                0x0860054c                aoa_reenumerated
+ .text.aoa_context_bytes
+                0x08600610        0xc /root/garmin/staging/native-aoa-host/aoa.o
+                0x08600610                aoa_context_bytes
+ .text.aoa_options_bytes
+                0x0860061c        0x8 /root/garmin/staging/native-aoa-host/aoa.o
+                0x0860061c                aoa_options_bytes
+ .text.aoa_request_bytes
+                0x08600624        0x8 /root/garmin/staging/native-aoa-host/aoa.o
+                0x08600624                aoa_request_bytes
+ *(.rodata .rodata.*)
+                0x0860062c                        __code_end = .
+
+.data           0x0860062c        0x0
+ .data          0x0860062c        0x0 /root/garmin/staging/native-aoa-host/aoa.o
+
+.glue_7         0x0860062c        0x0
+ .glue_7        0x0860062c        0x0 linker stubs
+
+.glue_7t        0x0860062c        0x0
+ .glue_7t       0x0860062c        0x0 linker stubs
+
+.vfp11_veneer   0x0860062c        0x0
+ .vfp11_veneer  0x0860062c        0x0 linker stubs
+
+.v4_bx          0x0860062c        0x0
+ .v4_bx         0x0860062c        0x0 linker stubs
+
+.bss            0x0860062c        0x0
+ *(.bss .bss.*)
+ .bss           0x0860062c        0x0 /root/garmin/staging/native-aoa-host/aoa.o
+ *(COMMON)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /root/garmin/staging/native-aoa-host/aoa.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-aoa-host/aoa.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-aoa-host/aoa.o

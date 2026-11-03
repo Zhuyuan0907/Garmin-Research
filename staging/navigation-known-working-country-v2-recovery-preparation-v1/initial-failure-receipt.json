@@ -1,0 +1,15 @@
+{
+  "schema": "ordinary-preparation-failure/v1",
+  "tool_chunk_id": "dc03e5",
+  "exit_code": 1,
+  "exception": "TypeError: list indices must be integers or slices, not str",
+  "failing_source_fragment": "entry=catalog[member]",
+  "cause": "SHA256SUMS.json is a member list, while the first reviewer used dict indexing.",
+  "phase": "after nine small files were captured, before any verification output was persisted",
+  "raw_reads_before_failure_bytes": 985410,
+  "raw_read_bytes_basis": "Exact nine-file loop and closed byte lengths; not a measured syscall counter.",
+  "real_IMG_operations": 0,
+  "device_operations": 0,
+  "producer_files_modified": false,
+  "corrective_action": "Preserve failure, index the existing list by path, and perform one bounded corrected small-artifact capture. No large IMG or device operation is involved."
+}

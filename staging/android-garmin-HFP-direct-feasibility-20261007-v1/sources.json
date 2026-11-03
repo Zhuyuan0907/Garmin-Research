@@ -1,0 +1,124 @@
+{
+  "schema": "android-garmin-hfp-primary-sources/v1",
+  "recorded_utc": "2026-10-07T13:15:00.532162+00:00",
+  "verbatim_prose_quotes": 0,
+  "sources": [
+    {
+      "id": "core-guide",
+      "url": "https://developer.android.com/develop/connectivity/telecom/voip-app/telecom",
+      "retrieved_date_utc": "2026-10-07",
+      "observed_page_update_date_utc": "2026-10-07",
+      "kind": "official-guide",
+      "anchors": [
+        "Manage call audio endpoints",
+        "Remote Surface support",
+        "Foreground support"
+      ],
+      "observations": "Core-Telecom註冊自管通話並接收遠端操作回呼；由可用端點請求路由，再觀察實際端點。通話媒體採voice-call stream。不可同時使用AudioManager的SCO/communication-device路由。新增通話不等於已啟用音訊。通知及遠端回呼都有5秒要求。"
+    },
+    {
+      "id": "connectionservice",
+      "url": "https://developer.android.com/reference/android/telecom/ConnectionService",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-api-reference",
+      "anchors": [
+        "Self-Managed Connection Services",
+        "Incoming Calls"
+      ],
+      "observations": "自管服務不需取代預設撥號程式；須註冊自管PhoneAccount。Bluetooth車機／耳機可看到及控制自管通話。新增App自己的來電，由App自己的Connection回報狀態，不是呼叫電信撥號API。緊急通話／並行通話等條件可能拒絕新增。"
+    },
+    {
+      "id": "owncalls-permission",
+      "url": "https://developer.android.com/reference/android/Manifest.permission#MANAGE_OWN_CALLS",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-api-reference",
+      "observations": "MANAGE_OWN_CALLS於API26加入，保護層級normal；不等同簽章電話控制權限。"
+    },
+    {
+      "id": "connection-routes",
+      "url": "https://developer.android.com/reference/android/telecom/Connection#requestCallEndpointChange(android.telecom.CallEndpoint,java.util.concurrent.Executor,android.os.OutcomeReceiver)",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-api-reference",
+      "observations": "requestBluetoothAudio於API28加入、API34棄用；可因堆疊限制改到其他Bluetooth裝置。API34的requestCallEndpointChange只能使用系統提供的端點，成功時須觀察實际端點變更。"
+    },
+    {
+      "id": "phonecall-fgs",
+      "url": "https://developer.android.com/develop/background-work/services/fgs/service-types#phone-call",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-guide",
+      "observations": "phoneCall前景服務須宣告对应型別／權限；先決條件為MANAGE_OWN_CALLS或預設dialer其一。從可見使用者操作啟動，保留Android版本相關前景服務限制。"
+    },
+    {
+      "id": "media-player",
+      "url": "https://developer.android.com/reference/android/media/MediaPlayer#setAudioAttributes(android.media.AudioAttributes)",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-api-reference",
+      "observations": "播放音訊屬性须在prepare前設定；此API存在不保證指定Garmin端點已收到音訊。"
+    },
+    {
+      "id": "audio-attributes",
+      "url": "https://developer.android.com/reference/android/media/AudioAttributes.Builder#setLegacyStreamType(int)",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-api-reference",
+      "observations": "公開Builder能從voice-call stream取得屬性，API21起提供；不要混設其他usage/content而覆蓋属性。一般建議明確usage/content。"
+    },
+    {
+      "id": "audio-manager",
+      "url": "https://developer.android.com/reference/android/media/AudioManager#startBluetoothSco()",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "official-api-reference",
+      "observations": "舊SCO文件列通話stream、mono、8或16kHz輸出限制；不可推成此Pixel／Garmin已協商的實際codec。AudioManager另有公開communication-device方法，但本提案採Telecom端點API，不同時使用。"
+    },
+    {
+      "id": "aosp-bluetooth-service",
+      "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/a5ba99a1c93b7b0fac7dfb4723e5508b545b8f00/android/app/src/com/android/bluetooth/telephony/BluetoothInCallService.java",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "immutable-primary-source",
+      "commit": "a5ba99a1c93b7b0fac7dfb4723e5508b545b8f00",
+      "blob": "85ebcabeef9697648e432767324d138da3e854f5",
+      "source_date": "commit日未擷取；immutable revision已固定",
+      "functions": [
+        "answerCall",
+        "hangupCall",
+        "updateHeadsetWithCallState"
+      ],
+      "observations": "系統Bluetooth服務由來電Call處理接聽，前景Call處理拒絕／斷線，再將狀態送入HFP Headset接口。其內部MODIFY_PHONE_STATE由系統持有，不是本提案App呼叫的公開入口。未證此revision對應用戶Pixel。"
+    },
+    {
+      "id": "aosp-bluetooth-manifest",
+      "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/a5ba99a1c93b7b0fac7dfb4723e5508b545b8f00/android/app/AndroidManifest.xml",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "immutable-primary-source",
+      "commit": "a5ba99a1c93b7b0fac7dfb4723e5508b545b8f00",
+      "source_date": "commit日未擷取；immutable revision已固定",
+      "observations": "Bluetooth InCallService明示訂閱self-managed calls；manifest預設disabled，由平台Bluetooth生命週期決定啟用，並非已查用戶Pixel目前服務狀態。"
+    },
+    {
+      "id": "androidx-public-api",
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/36f2b146baa569f6c916b23a84afb97e82649bb0/core/core-telecom/api/current.txt",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "immutable-primary-source",
+      "commit": "36f2b146baa569f6c916b23a84afb97e82649bb0",
+      "source_date": "commit日未擷取；immutable revision已固定",
+      "observations": "此固定API快照CallsManager要求API26；registerAppWithTelecom及addCall公開permission annotation只列MANAGE_OWN_CALLS，提供端點request及flows。這不是全部庫／OEM permission行為的獨立執行驗證。"
+    },
+    {
+      "id": "androidx-callsmanager",
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/36f2b146baa569f6c916b23a84afb97e82649bb0/core/core-telecom/src/main/java/androidx/core/telecom/CallsManager.kt",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "immutable-primary-source",
+      "commit": "36f2b146baa569f6c916b23a84afb97e82649bb0",
+      "source_date": "commit日未擷取；immutable revision已固定",
+      "observations": "此檔公開註冊／addCall標註MANAGE_OWN_CALLS，完整讀得檔案內無RECORD_AUDIO文字；這只是一檔的靜態範圍，不證所有下層服務免該權限。Bluetooth命名／多端點辨識另依版本需要Bluetooth權限。"
+    },
+    {
+      "id": "androidx-reference-manifest",
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/36f2b146baa569f6c916b23a84afb97e82649bb0/core/core-telecom/integration-tests/referenceapp/src/main/AndroidManifest.xml",
+      "retrieved_date_utc": "2026-10-07",
+      "kind": "immutable-primary-source",
+      "commit": "36f2b146baa569f6c916b23a84afb97e82649bb0",
+      "source_date": "commit日未擷取；immutable revision已固定",
+      "observations": "官方參考App解釋RECORD_AUDIO用在麥克風loopback測試；參考App亦有microphone service type，不應全部複製到只播放本機檔案的實驗App。未實測拒絕麥克風權限後所有目標Pixel行為。"
+    }
+  ]
+}

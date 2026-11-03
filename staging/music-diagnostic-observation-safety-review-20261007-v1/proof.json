@@ -1,0 +1,107 @@
+{
+  "schema": "music-diagnostic-observation-safety-independent-source-review/v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "review_only": true,
+  "no_execution": true,
+  "review_scope": "Host diagnostics source/contract/test-source review, not live/native playback acceptance",
+  "final_source_bindings": [
+    {
+      "path": "scripts/garmin_audio_conversion.py",
+      "bytes": 6618,
+      "sha256": "cfa0391ad6f121f55bc3523873621bcc8403b4837f463d161ffe0af5cb23087f",
+      "stat": [
+        45826,
+        540281,
+        6618,
+        1791366330061698096,
+        1791366330061698096
+      ],
+      "mode": 420,
+      "pin_method": "earlier full normal source read; stat stable at closure"
+    },
+    {
+      "path": "scripts/garmin_audio_volume_observer.py",
+      "bytes": 16126,
+      "sha256": "e942be5c7fab5e0a2d93af4e40e1a02aebaf18c970404c6b9bc7c437fcdaca3e",
+      "stat": [
+        45826,
+        540442,
+        16126,
+        1791369086144542565,
+        1791369086144542565
+      ],
+      "mode": 420,
+      "pin_method": "earlier full normal source read; stat stable at closure"
+    },
+    {
+      "path": "scripts/analyze_garmin_music_diagnostics.py",
+      "bytes": 32748,
+      "sha256": "0eb165beb3c44f6f02e4577417628651b4681e9cfd6d8ddf336586af363d7b71",
+      "stat": [
+        45826,
+        540447,
+        32748,
+        1791370009139081594,
+        1791370009139081594
+      ],
+      "mode": 420,
+      "pin_method": "owner whole pin/AST-diff witness plus six fresh function-range hashes; not own whole final-source hash"
+    }
+  ],
+  "checks": {
+    "observer_outside_PCM_chain": true,
+    "optional_failure_nonfatal_but_cleanup_required": true,
+    "offline_plan_no_live_queries": true,
+    "exact_authorized_readonly_selectors": true,
+    "typed_scalars_mono_decoding": true,
+    "bounded_new_metadata_fixed_errors": true,
+    "explicit_host_timestamp_scope": true,
+    "analyzer_concrete_deficiencies_closed_in_diff_review": true
+  },
+  "detailed_findings": "review-findings.json",
+  "journals": "*-read-journal.json; actual-readonly-receipts.json",
+  "accounting": {
+    "selected_source_artifact_reads": 236631,
+    "fresh_own_artifact_closure_reads": 22122,
+    "total_ordinary_body_reads": 258753,
+    "read_limit": 262144,
+    "output_limit": 65536,
+    "historical_copies_not_reread_at_closure": [
+      "initial-source-capture.json.gz",
+      "initial-supervisor-source.py.txt"
+    ]
+  },
+  "controls_evidence": {
+    "reviewer_tests_executed": 0,
+    "root_cases": "4 clock/optional +4 bridge/typed +1 plan +1 offline conversion; root closure f9e2422dd19dc59a540893cf16538fe22d0156f3c6912e8c8c57bcd4e2abc073 inherited",
+    "partial_suite_boundary": "v1 initial assertion failure no case pass; v2 suite EXIT1 after4 actual passes; v3 suite EXIT1 after1 plan pass; v4 remaining conversion EXIT0. Not reported as one successful suite.",
+    "analyzer_controls": "Initial20 then4 schema then3 scalar then3 numeric controls on successive source versions, earlier suites not rerun; numeric final receipt binds0eb165. Source reviewed/receipts inherited.",
+    "final_root_log_analysis": "Owner actual983085 EXIT0,18333B output unchanged across3 source versions; raw logs and full report not read by reviewer."
+  },
+  "remaining_limits": [
+    "Final analyzer whole hash and unchanged AST witness are inherited, six changed functions were freshly read and hash checked; no independent whole final-source rehash.",
+    "Shared supplied run token is declared file provenance, not common-boot or sample/acoustic evidence. Sequential observer timestamps are after_read_snapshot, not atomic phone/Garmin or PCM capture times.",
+    "Descriptive ratios require supplied content/resampling assertions; waveform alignment is not independently recomputed from scalar logs.",
+    "Meter is an opt-in inline tee; legacy debug stderr/private repr logs are not claimed bounded or deidentified.",
+    "Live D-Bus construction/timing, actual phone/volume behavior, current speaker sound and cause remain unverified.",
+    "Native App/direct phone A2DP/native ownership/STOP_DONE/VPM/install goals are unchanged."
+  ],
+  "false_flags": {
+    "physical_cause_proved": false,
+    "speaker_improvement_proved": false,
+    "native_direct_phone_playback_complete": false,
+    "native_App_complete": false,
+    "native_ownership_complete": false,
+    "STOP_DONE": false,
+    "install_ready": false
+  },
+  "operations": {
+    "reviewed_imports": 0,
+    "target_tests": 0,
+    "DBus_or_services": 0,
+    "device_or_audio": 0,
+    "firmware_guest_native_compile": 0,
+    "large_logs_or_RAM": 0
+  }
+}

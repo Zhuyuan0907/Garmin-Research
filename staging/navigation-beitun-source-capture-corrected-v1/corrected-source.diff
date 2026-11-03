@@ -1,0 +1,311 @@
+--- staging/navigation-beitun-new-street-bounded-source-v1/analyze_v1.py
++++ staging/navigation-beitun-source-capture-corrected-v1/capture_v1.py
+@@ -1,140 +1,212 @@
+ #!/usr/bin/env python3
+-"""A newly authorized bounded ordinary data prefix, explicitly a reread.
++"""Corrected ordinary data capture, explicitly rereading a bounded prefix.
+ 
+-No full source EOF/hash, PBF/node ledger, native CPU, database/image writer,
+-firmware, device or audio. Save at most two conservative source examples.
++Keep every exact-missing prepared group and each hold/witness before example
++selection. No full source EOF/hash, PBF/node ledger, IMG/JAI, native guest,
++firmware/device/audio. At most two held planning examples; never installable.
+ """
+ import sys
+ sys.dont_write_bytecode=True
+-import json,hashlib,zlib,re,importlib.util,traceback
++import json,hashlib,zlib,re,difflib,importlib.util,traceback
+ from pathlib import Path
+ from datetime import datetime,timezone
+-from decimal import Decimal,ROUND_HALF_UP
++from decimal import Decimal,ROUND_HALF_UP,InvalidOperation
+ 
+ ROOT=Path('/root/garmin');OUT=Path(__file__).resolve().parent
+ GROUPS=ROOT/'staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz'
+-REPEAT_C=3*1024*1024;REPEAT_D=24*1024*1024;NEW_C=9*1024*1024;NEW_D=72*1024*1024
+-INPUTS=[]
++OLD='staging/navigation-beitun-new-street-bounded-source-v1/'
++CBUDGET=12*1024*1024;DBUDGET=96*1024*1024;OUTPUT_BUDGET=4*1024*1024
++INPUTS=[];WRITTEN=0
+ def sha(raw):return hashlib.sha256(raw).hexdigest()
+ def sig(p):
+  s=p.stat();return [s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns]
+ def read(relative,limit,expected=None):
+- p=ROOT/relative;before=sig(p);assert before[2]<=limit,(relative,'small-file bound')
++ p=ROOT/relative;before=sig(p);assert before[2]<=limit
+  raw=p.read_bytes();assert len(raw)==before[2] and sig(p)==before
+  if expected:assert sha(raw)==expected,(relative,'pin mismatch')
+  INPUTS.append({'path':relative,'bytes':len(raw),'SHA256':sha(raw),'stat_before':before,'stat_after':sig(p)})
+  return raw
+ def load(relative,limit,expected=None):return json.loads(read(relative,limit,expected))
+-def save(name,data):
+- with (OUT/name).open('x') as f:json.dump(data,f,ensure_ascii=False,indent=2);f.write('\n')
++def raw_write(name,raw):
++ global WRITTEN
++ if WRITTEN+len(raw)>OUTPUT_BUDGET:raise RuntimeError('Output budget exceeded; stop without dropping fields')
++ with (OUT/name).open('xb') as f:f.write(raw)
++ WRITTEN+=len(raw)
++def save(name,data):raw_write(name,(json.dumps(data,ensure_ascii=False,indent=2)+'\n').encode())
+ def one_edit(a,b):
+  if abs(len(a)-len(b))>1:return False
+  if len(a)==len(b):return sum(x!=y for x,y in zip(a,b))<=1
+  if len(a)>len(b):a,b=b,a
+  return any(a==b[:i]+b[i+1:] for i in range(len(b)))
++def name_shape(street):
++ if any(phrase in street for phrase in ['交叉口','交會處','交會口']) or re.search(r'[&/／×+]',street):
++  return {'kind':'intersection_expression_held','flat_eligible':False,'basis':'Complete intersection phrase or separator, not isolated交/叉/口.'}
++ if street.endswith(('巷','弄')):
++  return {'kind':'lane_alley_existing_branch','flat_eligible':False,'basis':'Full name terminates in巷/弄; retain for existing branch pipeline.'}
++ match=re.fullmatch(r'(?P<base>[\u3400-\u9fffA-Za-z0-9·．]+[路街])(?P<section>[一二三四五六七八九十百0-9]+段)?',street)
++ if match:
++  return {'kind':'sectioned_flat_road_or_street' if match.group('section') else 'flat_road_or_street','flat_eligible':True,'base':match.group('base'),'section':match.group('section'),'basis':'Whole name ending路/街 with optional numbered段; no individual-character blacklist.'}
++ return {'kind':'other_full_name_shape_held','flat_eligible':False,'basis':'Does not fit this whole road/street or numbered section shape; not a statement of name invalidity.'}
++def codec(text):
++ try:
++  raw=text.encode('cp950');return {'roundtrip':raw.decode('cp950')==text,'hex':raw.hex(),'bytes':len(raw)}
++ except (UnicodeEncodeError,UnicodeDecodeError,AttributeError) as error:
++  return {'roundtrip':False,'error_type':type(error).__name__,'error':str(error)}
++def point_info(value):
++ result={'original_first_coordinate':value,'valid_global_and_OSM_precision':False,'native24':None,'native24_degrees':None}
++ try:
++  if not isinstance(value,list) or len(value)!=2 or any(not isinstance(v,str) for v in value):return result
++  lat,lon=[Decimal(v) for v in value]
++  if not lat.is_finite() or not lon.is_finite() or not -90<=lat<=90 or not -180<=lon<180:return result
++  if any(v*10_000_000!=(v*10_000_000).to_integral_value() for v in [lat,lon]):return result
++  signed=[int((v*Decimal(1<<24)/Decimal(360)).to_integral_value(rounding=ROUND_HALF_UP)) for v in [lat,lon]]
++  native=[n&0xffffff for n in signed]
++  result.update(valid_global_and_OSM_precision=True,native24=native,signed24=signed,native24_degrees=[str(Decimal(n)*Decimal(360)/Decimal(1<<24)) for n in signed],quantization_policy='Nearest Decimal ROUND_HALF_UP; stock rounding unknown.')
++ except (InvalidOperation,ValueError,TypeError):pass
++ return result
++class BoundedCapture:
++ def __init__(self,limit):
++  self.limit=limit;self.encoder=zlib.compressobj(level=9,wbits=31);self.chunks=[];self.bytes=0;self.rows=0;self.plain_bytes=0;self.digest=hashlib.sha256();self.truncated=False;self.closed=False
++ def add(self,row):
++  line=(json.dumps(row,ensure_ascii=False,separators=(',',':'),sort_keys=True)+'\n').encode()
++  preview=self.encoder.copy();complete_tail=preview.compress(line)+preview.flush()
++  if self.bytes+len(complete_tail)>self.limit:
++   self.truncated=True;return False
++  chunk=self.encoder.compress(line);self.chunks.append(chunk);self.bytes+=len(chunk);self.rows+=1;self.plain_bytes+=len(line);self.digest.update(line);return True
++ def finish(self):
++  if self.closed:return None
++  tail=self.encoder.flush();self.chunks.append(tail);self.bytes+=len(tail);assert self.bytes<=self.limit;self.closed=True
++  data=b''.join(self.chunks);raw_write('missing-source-groups.jsonl.gz',data)
++  return {'path':'missing-source-groups.jsonl.gz','compressed_bytes':len(data),'SHA256':sha(data),'decompressed_bytes':self.plain_bytes,'decompressed_SHA256':self.digest.hexdigest(),'complete_rows':self.rows,'gzip_closed':True,'capture_limit_bytes':self.limit,'truncated':self.truncated,'no_record_fields_silently_dropped':True}
++def witnesses(street,stock_rows):
++ near=[];prefix=[]
++ for row in stock_rows:
++  base={'stock_label':row['label'],'stock_info_id':row['info_id'],'stock_record':row['record'],'stock_index_token':row['index_record'],'verified_alias':False}
++  if one_edit(row['label'],street):near.append(dict(base,relation='single_character_edit_candidate'))
++  relation=[]
++  if street.startswith(row['label']):relation.append('candidate_starts_stock_name')
++  if row['label'].startswith(street):relation.append('stock_starts_candidate_name')
++  if relation:prefix.append(dict(base,relation=relation))
++ return near,prefix
++def classify(group,stock_rows):
++ raw=group['raw_address'];city,district,street,label=group['normalized_planning_key'];ids=group.get('source_ids')
++ shape=name_shape(street);encoding={'codepage':950,'street':codec(street),'house_label':codec(label)};point=point_info(group.get('first_coordinate'));near,prefix=witnesses(street,stock_rows)
++ plain=bool(isinstance(raw[3],str) and re.fullmatch(r'[1-9][0-9]*',raw[3]) and label==raw[3]+'號')
++ prior368=street=='敦富六街' and raw[3]=='368' and ids==[8280986017]
++ flags={'literal_admin_and_street_unchanged':raw[0] in ['臺中市','台中市'] and raw[1]=='北屯區' and raw[2]==street,'source_ID_metadata_complete':isinstance(ids,list) and bool(ids) and len(ids)==group.get('source_node_count') and len(set(ids))==len(ids) and all(type(n)is int and n>0 for n in ids),'coordinate_selection_metadata_ready':group.get('different_coordinate_nodes')==0 and group.get('coordinate_selection_ready') is True and group.get('needs_coordinate_review') is False,'first_coordinate_valid_global_and_OSM_precision':point['valid_global_and_OSM_precision'],'plain_integer_house_and_label_agree':plain,'no_floor_unit_metadata':not group.get('embedded_floor_unit') and group.get('separate_floor_unit_nodes')==0,'CP950_street_and_house_roundtrip':encoding['street']['roundtrip'] and encoding['house_label']['roundtrip'],'whole_flat_road_or_street_shape':shape['flat_eligible'],'not_prior_closed_source368':not prior368}
++ hard_holds=[name for name,passed in flags.items() if not passed]
++ relation_holds=['held_alias_relation'] if near or prefix else []
++ holds=hard_holds+relation_holds+['official_name_and_historical_alias_unverified']
++ old_holds=[]
++ if street=='敦富六街':old_holds.append('already_closed_six_street_excluded')
++ if not flags['literal_admin_and_street_unchanged']:old_holds.append('nonliteral_raw_admin_or_street_normalization')
++ if not re.fullmatch(r'[\u3400-\u9fff]{2,14}[路街]',street) or re.search(r'[巷弄之段村里鄰交叉口]',street):old_holds.append('not_conservative_flat_road_or_street_literal')
++ if not plain:old_holds.append('not_literal_positive_integer_house')
++ if not flags['source_ID_metadata_complete']:old_holds.append('incomplete_or_invalid_source_IDs')
++ if not flags['coordinate_selection_metadata_ready']:old_holds.append('coordinate_conflict_or_unready')
++ if not flags['no_floor_unit_metadata']:old_holds.append('floor_unit_metadata_present')
++ if near or prefix:old_holds.append('possible_spelling_or_prefix_alias_relation')
++ if not flags['CP950_street_and_house_roundtrip']:old_holds.append('CP950_roundtrip_failure')
++ return {'name_shape':shape,'data_flags':flags,'hard_data_holds':hard_holds,'relationship_holds':relation_holds,'all_hold_reasons':holds,'technical_planning_eligible':not hard_holds,'official_alias_or_formal_address_verified':False,'old_rule_reasons_recomputed_for_same_group':old_holds,'near_stock_witnesses':near,'prefix_stock_witnesses':prefix,'encoding':encoding,'house_class':'plain_positive_integer' if plain else 'non_plain_integer_existing_or_review_branch','point':point}
+ def main():
+- started=datetime.now(timezone.utc).isoformat();phase='existing small captures';state={'compressed_bytes_actually_read':0,'decompressed_bytes_produced':0}
+- assert not (OUT/'proof.json').exists()
++ global WRITTEN
++ assert not (OUT/'proof.json').exists();WRITTEN=sum(p.stat().st_size for p in OUT.iterdir() if p.is_file())
++ started=datetime.now(timezone.utc).isoformat();phase='small pinned dependencies';state={'source_compressed_bytes_actually_read':0,'source_decompressed_bytes_produced':0};capture=None;capture_identity=None
+  try:
+-  read(str(Path(__file__).relative_to(ROOT)),22000)
+-  snapshot=load('staging/navigation-native-jai-new-street-plan-v1/original-family-snapshot.json',350000,'929a52d912f1622f3aa9fecea8a8fc0d71517fed349a0f995e84d983e85f04d6')
+-  assert snapshot['all_assigned_checks_passed'] and len(snapshot['old_info_rows'])==snapshot['selected_named_info_rows']==snapshot['selected_original_physical_L3_count']==441
+-  assert snapshot['city']['record']==0x10000008 and snapshot['district']['record']==0x2000004a
+-  stock={r['label'] for r in snapshot['old_info_rows']}
+-  captures=['staging/navigation-native-new-street-source-example-v1/final-bounded-taichung-shortlist.json','staging/navigation-native-new-street-source-example-v1/bounded-prefix-qualifying-groups.json','staging/navigation-native-new-street-source-example-v1/bounded-taichung-relaxed-screen-groups.json','staging/navigation-Dunfu-road-family-source-plan-v1/source-examples-at-prefix.json']
+-  reused=[]
+-  for path in captures:
+-   rows=load(path,6500)
+-   for row in rows:
+-    groups=row.get('groups',[row.get('group',row)])
+-    for group in groups:
+-     key=group.get('normalized_planning_key',[])
+-     if len(key)==4 and key[:2]==['台中市','北屯區']:
+-      reused.append({'capture':path,'group_id':group['group_id'],'street':key[2],'already_closed_six_street':key[2]=='敦富六街'})
+-  assert reused and all(r['already_closed_six_street'] for r in reused)
+-  prior=load('staging/navigation-Dunfu-road-family-source-plan-v1/prefix-read-receipt.json',6000)
+-  source_manifest=load('staging/navigation-taiwan-address-ingestion-v1/ingestion-summary.json',65000)
++  source_code=read(str(Path(__file__).relative_to(ROOT)),38000)
++  old_source=read(OLD+'analyze_v1.py',22000,'25b98dbaab0978ca54f689a209f85aba0bc38e2de45c4bda74df6654095cb052')
++  diff=''.join(difflib.unified_diff(old_source.decode().splitlines(keepends=True),source_code.decode().splitlines(keepends=True),fromfile=OLD+'analyze_v1.py',tofile=str(Path(__file__).relative_to(ROOT))))
++  raw_write('corrected-source.diff',diff.encode())
++  snapshot=load('staging/navigation-native-jai-new-street-plan-v1/original-family-snapshot.json',350000,'929a52d912f1622f3aa9fecea8a8fc0d71517fed349a0f995e84d983e85f04d6');stock_rows=snapshot['old_info_rows'];stock={r['label'] for r in stock_rows}
++  assert snapshot['all_assigned_checks_passed'] and len(stock_rows)==441 and snapshot['city']['record']==0x10000008 and snapshot['district']['record']==0x2000004a
++  old=load(OLD+'prefix-read-counters.json',6000);load(OLD+'source-examples.json',1000)
++  ingestion=load('staging/navigation-taiwan-address-ingestion-v1/ingestion-summary.json',65000)
++  ingestion_source=read('staging/navigation-taiwan-address-ingestion-v1/prepare_taiwan_address_ingestion.py',40000)
++  assert "city, district, street, house = [tags.get('addr:' + k, '') for k in ('city', 'district', 'street', 'housenumber')]" in ingestion_source.decode()
+   hp=load('staging/navigation-native-house-label-index-v1/proof.json',40000,'793ad2853b07ee3940d0e4f44b39809c612b4ed2de5632387b3a7c36123ed3b4')
+-  labels_raw=read('staging/navigation-native-house-label-index-v1/house-labels.jsonl.gz',270000,hp['ledger_sha256'])
+-  label_inflater=zlib.decompressobj(16+zlib.MAX_WBITS);labels_plain=label_inflater.decompress(labels_raw,8*1024*1024)
+-  assert label_inflater.eof and not label_inflater.unconsumed_tail and not label_inflater.unused_data and len(labels_plain)<8*1024*1024
++  labels_raw=read('staging/navigation-native-house-label-index-v1/house-labels.jsonl.gz',270000,hp['ledger_sha256']);li=zlib.decompressobj(31);labels_plain=li.decompress(labels_raw,8*1024*1024)
++  assert li.eof and not li.unconsumed_tail and not li.unused_data
+   labels={}
+   for line in labels_plain.splitlines():
+    row=json.loads(line);assert row['label'] not in labels;labels[row['label']]=row
+   assert len(labels)==hp['distinct_integer_or_subnumber_house_labels']==50567
+-  api_path='staging/navigation-beitun-district-geometry-v1/beitun_membership.py';read(api_path,7000)
++  api='staging/navigation-beitun-district-geometry-v1/beitun_membership.py';read(api,7000)
+   for path,limit,pin in [('staging/navigation-beitun-district-geometry-v1/geometry.json',150000,'c4b4c2a842af2042ca4fff893fb9e5ccd33940ffe27e445aa3222121269d49b3'),('staging/navigation-beitun-district-geometry-v1/proof.json',11000,'7000011d0cc84272d0ceb4a23b23e8dc2097cf414b9b0b4fea7dd0bbd82cd4e1'),('staging/navigation-beitun-district-geometry-v1/source-membership.json',5000,'d624ec02eb3b79331cd4041a77a093b4dcf2bc14765578eca70196f88a9e0e84'),('staging/navigation-country-merge-independent-review-v1/review_country_merge.py',36000,'7490c4015dc16f4fa8e69d8bb45cdf3f0c6c2ad93afcf1093c44d0cb3d9852ec')]:read(path,limit,pin)
+-  spec=importlib.util.spec_from_file_location('beitun_membership_new_data_scope',ROOT/api_path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);membership=module.BeitunMembership()
+-  phase='explicit new 12MiB compressed prefix read'
+-  before=sig(GROUPS);assert before==prior['source_stat_after'] and before[2]==137633122
++  spec=importlib.util.spec_from_file_location('beitun_corrected_capture_geometry',ROOT/api);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);membership=module.BeitunMembership()
++  phase='new explicitly declared bounded reread12MiB/96MiB'
++  before=sig(GROUPS);assert before==old['source_stat_after'] and before[2]==137633122
+   with GROUPS.open('rb') as f:
+-   repeat_compressed=f.read(REPEAT_C);state['compressed_bytes_actually_read']+=len(repeat_compressed)
+-   assert len(repeat_compressed)==REPEAT_C and f.tell()==REPEAT_C
+-   extra_compressed=f.read(NEW_C);state['compressed_bytes_actually_read']+=len(extra_compressed)
+-   assert len(extra_compressed)==NEW_C and f.tell()==REPEAT_C+NEW_C
+-  assert sha(repeat_compressed)==prior['compressed_prefix_SHA256']
+-  phase='separate repeated24MiB and additional72MiB decompression'
+-  inflater=zlib.decompressobj(16+zlib.MAX_WBITS);repeat_plain=inflater.decompress(repeat_compressed,REPEAT_D);state['decompressed_bytes_produced']+=len(repeat_plain)
+-  assert len(repeat_plain)==REPEAT_D and sha(repeat_plain)==prior['decompressed_prefix_SHA256'] and not inflater.eof
+-  repeated_compressed_tail=inflater.unconsumed_tail
+-  assert len(repeated_compressed_tail)==prior['decompressor_unconsumed_compressed_bytes']==740947
+-  extra_plain=inflater.decompress(repeated_compressed_tail+extra_compressed,NEW_D);state['decompressed_bytes_produced']+=len(extra_plain)
+-  assert len(extra_plain)==NEW_D and not inflater.eof
++   first=f.read(3*1024*1024);rest=f.read(9*1024*1024);state['source_compressed_bytes_actually_read']=len(first)+len(rest);assert f.tell()==CBUDGET
++  assert len(first)==3*1024*1024 and len(rest)==9*1024*1024
++  inflater=zlib.decompressobj(31);first_plain=inflater.decompress(first,24*1024*1024);tail=inflater.unconsumed_tail;rest_plain=inflater.decompress(tail+rest,72*1024*1024)
++  plain=first_plain+rest_plain;state['source_decompressed_bytes_produced']=len(plain)
++  assert len(first_plain)==24*1024*1024 and len(rest_plain)==72*1024*1024 and not inflater.eof
++  assert sha(first)==old['repeated_part']['compressed_SHA256'] and sha(first_plain)==old['repeated_part']['decompressed_SHA256']
++  assert sha(first+rest)==old['total_this_scope']['compressed12MiB_prefix_SHA256'] and sha(plain)==old['total_this_scope']['decompressed96MiB_prefix_SHA256']
+   assert sig(GROUPS)==before
+-  plain=repeat_plain+extra_plain;newline=plain.rfind(b'\n');complete=plain[:newline+1];partial=plain[newline+1:]
+-  repeated_rows=repeat_plain.count(b'\n');assert repeated_rows==46470
+-  phase='bounded complete JSONL conservative source screening'
+-  rows=0;offset=0;selected=[];chosen_names=set();same_admin=0;missing_groups=0;missing_names=set();reason_counts={};parse_failures=[];geometry_calls={'source':0,'raw24':0};geometry_rejections=[];conservative_names={}
++  newline=plain.rfind(b'\n');complete=plain[:newline+1];partial=plain[newline+1:]
++  phase='capture every exact-missing group before planning selection'
++  capture=BoundedCapture(OUTPUT_BUDGET-WRITTEN-512*1024)
++  counts={'complete_prefix_rows_available':complete.count(b'\n'),'rows_processed':0,'same_admin_groups':0,'exact_stock_groups':0,'exact_missing_groups_seen':0,'exact_missing_groups_captured':0,'parse_failures':[],'output_truncated':False,'sourcepoint_calls':0,'raw24_calls':0,'old_source368_membership_calls':0}
++  mapping={};old_counts={};examples=[];chosen=set();assessment=[];offset=0
+   for line in complete.splitlines(keepends=True):
+-   rows+=1
++   counts['rows_processed']+=1
+    try:group=json.loads(line)
+    except Exception as error:
+-    parse_failures.append({'line':rows,'offset':offset,'SHA256':sha(line),'error':str(error)});offset+=len(line);continue
++    counts['parse_failures'].append({'line':counts['rows_processed'],'offset':offset,'error':str(error),'SHA256':sha(line)});offset+=len(line);continue
+    key=group.get('normalized_planning_key',[]);raw=group.get('raw_address',[])
+    if len(key)!=4 or len(raw)!=4 or key[:2]!=['台中市','北屯區']:
+     offset+=len(line);continue
+-   same_admin+=1;city,district,street,label=key
+-   if street in stock:
+-    reason_counts['exact_stock_street_present']=reason_counts.get('exact_stock_street_present',0)+1;offset+=len(line);continue
+-   missing_groups+=1;missing_names.add(street);reasons=[]
+-   if street=='敦富六街':reasons.append('already_closed_six_street_excluded')
+-   if raw[0] not in ['台中市','臺中市'] or raw[1]!='北屯區' or raw[2]!=street:reasons.append('nonliteral_raw_admin_or_street_normalization')
+-   if not isinstance(street,str) or not re.fullmatch(r'[\u3400-\u9fff]{2,14}[路街]',street) or re.search(r'[巷弄之段村里鄰交叉口]',street):reasons.append('not_conservative_flat_road_or_street_literal')
+-   if not isinstance(raw[3],str) or not re.fullmatch(r'[1-9][0-9]*',raw[3]) or label!=raw[3]+'號':reasons.append('not_literal_positive_integer_house')
+-   ids=group.get('source_ids')
+-   if not isinstance(ids,list) or not ids or len(ids)!=group.get('source_node_count') or len(set(ids))!=len(ids) or any(type(n)is not int or n<=0 for n in ids):reasons.append('incomplete_or_invalid_source_IDs')
+-   if group.get('different_coordinate_nodes')!=0 or group.get('coordinate_selection_ready') is not True or group.get('needs_coordinate_review') is not False:reasons.append('coordinate_conflict_or_unready')
+-   if group.get('embedded_floor_unit') or group.get('separate_floor_unit_nodes')!=0:reasons.append('floor_unit_metadata_present')
+-   near=[r for r in snapshot['old_info_rows'] if one_edit(r['label'],street)]
+-   prefixes=[r for r in snapshot['old_info_rows'] if street.startswith(r['label']) or r['label'].startswith(street)]
+-   if near or prefixes:reasons.append('possible_spelling_or_prefix_alias_relation')
+-   try:street_bytes=street.encode('cp950');house_bytes=label.encode('cp950');assert street_bytes.decode('cp950')==street and house_bytes.decode('cp950')==label
+-   except (UnicodeEncodeError,UnicodeDecodeError,AssertionError):reasons.append('CP950_roundtrip_failure')
+-   if reasons:
+-    for reason in reasons:reason_counts[reason]=reason_counts.get(reason,0)+1
+-    offset+=len(line);continue
+-   conservative_names[street]=conservative_names.get(street,0)+1
+-   if street in chosen_names or len(selected)>=2:
+-    offset+=len(line);continue
+-   point=group.get('first_coordinate');assert isinstance(point,list) and len(point)==2
+-   decimals=[Decimal(v) for v in point];assert all(v.is_finite() for v in decimals)
+-   native=[int((v*Decimal(1<<24)/Decimal(360)).to_integral_value(rounding=ROUND_HALF_UP))&0xffffff for v in decimals]
+-   source_result=membership.assess_source_point(city,district,*point);geometry_calls['source']+=1
+-   native_result=membership.assess_raw24(city,district,*native);geometry_calls['raw24']+=1
+-   if not source_result['eligible'] or not native_result['eligible']:
+-    geometry_rejections.append({'street':street,'group_id':group['group_id'],'source_status':source_result['status'],'raw24_status':native_result['status']});offset+=len(line);continue
+-   existing=labels.get(label)
+-   if existing:assert type(existing['primary_ref'])is int and 0<=existing['primary_ref']<((1<<19)-1)
+-   selected.append({'schema':'conservative source-backed new street data example/v1','status':'held_official_name_and_historical_alias_unknown','group':group,'group_id':group['group_id'],'complete_source_node_IDs':ids,'sourcepoint_decimal_strings':point,'native24':native,'native24_degrees':[str(Decimal(n)*Decimal(360)/Decimal(1<<24)) for n in native],'quantization_policy':'Nearest grid Decimal ROUND_HALF_UP; stock rounding unknown.','raw_complete_JSONL_line_SHA256':sha(line),'raw_complete_JSONL_line_bytes':len(line),'complete_line_number':rows,'decompressed_prefix_offset':offset,'within_repeated_first24MiB':offset+len(line)<=REPEAT_D,'source_origin':'Complete prepared OSM-node planning group; all member IDs retained, different_coordinate_nodes0; version/timestamp not in group, full node ledger not opened.','original_city_district_relation':{'stock_city':snapshot['city'],'stock_district':snapshot['district'],'source_raw_city':raw[0],'source_raw_district':raw[1],'normalization':'Explicit 臺中市→台中市 city spelling only; district/street literals unchanged.'},'stock_JAI_name_classification':{'exact_absent_in_complete441_original_family':True,'basis':'Frozen complete original JAI selected-family snapshot, full stock DB not reopened here.','one_character_edit_candidates':near,'either_direction_prefix_candidates':prefixes,'conservative_possible_alias_matches':False,'historical_alias_exclusion_proved':False},'encoding':{'codepage':950,'street_roundtrip':True,'street_hex':street_bytes.hex(),'house_label_roundtrip':True,'house_label_hex':house_bytes.hex(),'street_bytes_with_NUL':len(street_bytes)+1},'house':{'raw_literal':raw[3],'class':'positive_integer','integer':int(raw[3]),'label':label,'existing_label_ref':existing,'existing_label_ref_scope':'Original numeric label text only; no existing-address or route overlap proved.'},'district_membership':{'sourcepoint':source_result,'exact_native24':native_result},'official_street_name_verified':False,'formal_house_address_or_route_verified':False,'record_ID_reserved':False,'IMG_JAI_bundle_created':False})
+-   chosen_names.add(street);offset+=len(line)
+-  assert not parse_failures and sig(GROUPS)==before
+-  counters={'schema':'new explicit repeated/extended bounded source counters/v1','started_utc':started,'finished_utc':datetime.now(timezone.utc).isoformat(),'source_path':str(GROUPS.relative_to(ROOT)),'source_file_bytes':before[2],'source_stat_before':before,'source_stat_after':sig(GROUPS),'source_stat_unchanged':True,'source_single_pass_claim':False,'source_prefix_previously_read_in_other_scopes':True,'repeated_part':{'physical_compressed_bytes_read_again':len(repeat_compressed),'compressed_SHA256':sha(repeat_compressed),'decompressed_bytes_produced_again':len(repeat_plain),'decompressed_SHA256':sha(repeat_plain),'complete_rows_wholly_repeated_prefix':repeated_rows,'unconsumed_compressed_tail_passed_to_extension':len(repeated_compressed_tail),'matches_prior3MiB_24MiB_prefix':True},'extension_part':{'new_physical_compressed_bytes_after_first3MiB':len(extra_compressed),'compressed_new_range_start':REPEAT_C,'compressed_new_range_end_exclusive':REPEAT_C+NEW_C,'compressed_new_range_SHA256':sha(extra_compressed),'new_decompressed_output_after_first24MiB':len(extra_plain),'decompressed_extension_SHA256':sha(extra_plain),'complete_rows_finished_after24MiB_including_boundary_crossing':rows-repeated_rows,'uses_previous740947B_unconsumed_tail_plus_new_physical_range':True},'total_this_scope':{'physical_compressed_bytes_read':state['compressed_bytes_actually_read'],'decompressed_bytes_produced':state['decompressed_bytes_produced'],'compressed_budget':REPEAT_C+NEW_C,'decompressed_budget':REPEAT_D+NEW_D,'compressed12MiB_prefix_SHA256':sha(repeat_compressed+extra_compressed),'decompressed96MiB_prefix_SHA256':sha(plain),'complete_JSONL_rows':rows,'complete_JSONL_bytes':len(complete),'partial_final_row_bytes_not_parsed':len(partial),'gzip_EOF':inflater.eof,'gzip_footer_CRC_not_validated':True,'unconsumed_compressed_bytes_after96MiB':len(inflater.unconsumed_tail),'JSONL_parse_failures':parse_failures},'same_city_district_groups_in_prefix':same_admin,'missing_exact_stock_street_groups':missing_groups,'missing_exact_stock_distinct_street_names':len(missing_names),'conservative_ready_group_counts_by_street':conservative_names,'reject_reason_counts':reason_counts,'actual_sourcepoint_membership_calls':geometry_calls['source'],'actual_raw24_membership_calls':geometry_calls['raw24'],'geometry_rejection_statuses':geometry_rejections,'new_source_examples_saved':len(selected),'max_new_examples':2,'old_368_point_or_seven_controls_rerun':False,'no_full_source_EOF_hash_PBF_or_node_ledger':True}
+-  save('prefix-read-counters.json',counters);save('source-examples.json',selected)
+-  save('source-pins.json',{'schema':'bounded normal analysis source pins/v1','inputs':INPUTS,'groups_pin_scope':'Separately recorded prefix ranges and unchanged full source stat; no full groups EOF/hash','small_house_label_index':{'compressed_bytes':len(labels_raw),'decompressed_bytes':len(labels_plain),'gzip_EOF':True,'label_rows':len(labels),'historical_AP_label_pool_not_opened':True}})
+-  proof={'schema':'Beitun new-street bounded ordinary source plan/v1','ordinary_analysis_complete':True,'status':'held_official_and_historical_alias_unknown' if selected else 'held_no_conservative_new_source_in_authorized_prefix','reused_capture_check':reused,'new_prefix_read_explicitly_declared':True,'source_single_pass_claim':False,'source_origin_inherited':source_manifest['source'],'source_examples':'source-examples.json','new_source_example_count':len(selected),'sourcepins':'source-pins.json','read_counters':'prefix-read-counters.json','stock_JAI_family':{'rows':441,'same_stock_city':snapshot['city'],'same_stock_district':snapshot['district'],'actual_original_L2':snapshot['actual_original_L2_fields'],'cached_complete_family_SHA256':'929a52d912f1622f3aa9fecea8a8fc0d71517fed349a0f995e84d983e85f04d6','full_original_DB_not_reopened':True},'actual_new_point_tests':geometry_calls,'saved_examples_both_inside_same_full_source_Beitun_polygon':bool(selected) and all(x['district_membership']['sourcepoint']['eligible'] and x['district_membership']['exact_native24']['eligible'] for x in selected),'old_368_controls_rerun':False,'no_record_ID_reserved_or_bundle_created':True,'official_names_or_historical_aliases_verified':False,'formal_house_or_route_device_acceptance':False,'CP950_encoding_and_integer_house_and_label_refs_in_each_example':True if selected else 'not_assessed_no_example','limits':['Prefix-only source examples, not full Taiwan coverage.','Every chosen name/house/point is from an actual complete prepared group; no names guessed or centroids/nearest roads assigned.','All original source node IDs retained; group lacks original node version/timestamp and the full node ledger is not opened.','Zero conservative edit/prefix matches does not establish absence of historical aliases; official/alias verification held.','Original label ref is text reuse only, not a preexisting address or route.','Source district polygon inclusion is OSM-data geometry evidence, not official territory/address/entrance/routing acceptance.','No IMG/JAI/firmware/device write, native guest, audio or closed suite.'],'App_music_direct_phone_speaker_install_fullTaiwan_flags':False,'native_CPU_execution':False,'device_IO':False,'audio_execution':False,'IMG_JAI_bundle_created':False}
++   counts['same_admin_groups']+=1;street=key[2]
++   if street in stock:counts['exact_stock_groups']+=1;offset+=len(line);continue
++   counts['exact_missing_groups_seen']+=1;classification=classify(group,stock_rows)
++   original_four_tags=dict(zip(['addr:city','addr:district','addr:street','addr:housenumber'],raw))
++   record={'schema':'complete prepared exact-missing group capture/v1','original_prepared_group':group,'source_complete_JSONL_line_SHA256':sha(line),'source_line_bytes':len(line),'source_complete_line_number':counts['rows_processed'],'source_decompressed_prefix_offset':offset,'original_first_node_addr_tag_subset':original_four_tags,'tag_subset_basis':'Ingestion source reads these four exactaddr: keys into raw_address; values belong to first node in prepared group.','original_first_node_ID':group['source_ids'][0],'full_original_tags_per_node':None,'unavailable_input_fields':['Per-node complete tag dictionaries including otheraddr: keys','Other member raw_address variants','Per-node alternate coordinates when groupconflict exists','Original node version and timestamp'],'classification':classification,'source_city_district_relation':{'stock_city':snapshot['city'],'stock_district':snapshot['district'],'raw_city':raw[0],'raw_district':raw[1],'basis':'Exact original441 street-family native city/district; only city臺→台 normalization.'},'formal_address_alias_or_route_verified':False,'record_ID_reserved':False}
++   if not capture.add(record):counts['output_truncated']=True;break
++   counts['exact_missing_groups_captured']+=1
++   entry=mapping.setdefault(street,{'candidate_literal':street,'group_ids':[],'source_group_capture_lines':[],'raw_house_literals':[],'name_shapes':[],'hold_reason_group_counts':{},'old_rule_reason_group_counts':{},'stock_nearby_witnesses':{'single_character_edit':classification['near_stock_witnesses'],'prefix':classification['prefix_stock_witnesses']},'technical_planning_group_count':0,'alias_relationship_verified':False,'complete_prepared_groups_saved':True,'full_original_per_node_tags_available':False})
++   entry['group_ids'].append(group['group_id']);entry['source_group_capture_lines'].append(capture.rows);entry['raw_house_literals'].append(raw[3])
++   if classification['name_shape']['kind'] not in entry['name_shapes']:entry['name_shapes'].append(classification['name_shape']['kind'])
++   for reason in classification['all_hold_reasons']:entry['hold_reason_group_counts'][reason]=entry['hold_reason_group_counts'].get(reason,0)+1
++   for reason in classification['old_rule_reasons_recomputed_for_same_group']:
++    old_counts[reason]=old_counts.get(reason,0)+1;entry['old_rule_reason_group_counts'][reason]=entry['old_rule_reason_group_counts'].get(reason,0)+1
++   if classification['technical_planning_eligible']:entry['technical_planning_group_count']+=1
++   # Capture is committed before this gate; edit/prefix never drops source.
++   if classification['technical_planning_eligible'] and street not in chosen and len(examples)<2:
++    point=group['first_coordinate'];native=classification['point']['native24']
++    a=membership.assess_source_point('台中市','北屯區',*point);counts['sourcepoint_calls']+=1
++    b=membership.assess_raw24('台中市','北屯區',*native);counts['raw24_calls']+=1
++    test={'group_id':group['group_id'],'source_capture_line':capture.rows,'sourcepoint':a,'exact_native24':b,'both_inside':a['eligible'] and b['eligible']};assessment.append(test)
++    if test['both_inside']:
++     reusable=labels.get(key[3])
++     if reusable:assert type(reusable['primary_ref'])is int and 0<=reusable['primary_ref']<(1<<19)-1
++     examples.append({'candidate_literal':street,'status':'held_alias_relation' if classification['relationship_holds'] else 'held_official_name_and_historical_alias_unknown','source_group_capture_line':capture.rows,'complete_original_prepared_group':group,'complete_source_node_IDs':group['source_ids'],'original_first_node_addr_tag_subset':original_four_tags,'full_original_tags_per_node':None,'sourcepoint':point,'native24':native,'native24_degrees':classification['point']['native24_degrees'],'classification':classification,'house_integer':int(raw[3]),'house_label':key[3],'original_house_label_ref':reusable,'original_house_label_ref_text_only_not_address_overlap':True,'district_membership':test,'formal_address_route_alias_or_official_name_verified':False,'record_ID_reserved':False,'IMG_JAI_or_install_bundle_created':False})
++     chosen.add(street)
++   offset+=len(line)
++  capture_identity=capture.finish()
++  assert not counts['parse_failures'] and sig(GROUPS)==before
++  if not counts['output_truncated']:
++   assert counts['rows_processed']==counts['complete_prefix_rows_available']==old['total_this_scope']['complete_JSONL_rows']==198103
++   assert counts['same_admin_groups']==548 and counts['exact_stock_groups']==446 and counts['exact_missing_groups_captured']==counts['exact_missing_groups_seen']==102 and len(mapping)==28
++   expected={k:v for k,v in old['reject_reason_counts'].items() if k!='exact_stock_street_present'}
++   assert old_counts==expected,('same old reason counts did not replay',old_counts,expected)
++  roster=[mapping[name] for name in sorted(mapping)]
++  save('hold-mapping.json',{'schema':'all captured exact-missing literals/group holds/stock witnesses/v1','roster':roster,'literal_count':len(roster),'captured_complete_groups':capture.rows,'old_reason_counts_recomputed':old_counts,'names_or_reasons_truncated':counts['output_truncated'],'alias_relations_not_verified':True,'source_capture':capture_identity})
++  save('planning-examples.json',examples);save('new-membership-assessments.json',assessment)
++  table=['| Candidate literal | Groups / planning eligible | Stock nearby witnesses | Holds | Complete prepared source |','|---|---|---|---|---|']
++  for row in roster:
++   witness_names=sorted({v['stock_label'] for values in row['stock_nearby_witnesses'].values() for v in values});table.append('| '+row['candidate_literal']+' | '+str(len(row['group_ids']))+' / '+str(row['technical_planning_group_count'])+' | '+('、'.join(witness_names) or '無edit/prefix witness')+' | '+', '.join(row['hold_reason_group_counts'])+' | saved全group；完整逐node tags缺 |')
++  raw_write('hold-mapping-table.md',('\n'.join(table)+'\n').encode())
++  reread={'schema':'corrected explicit bounded source reread counters/v1','started_utc':started,'finished_utc':datetime.now(timezone.utc).isoformat(),'source_path':str(GROUPS.relative_to(ROOT)),'source_file_bytes':before[2],'source_stat_before':before,'source_stat_after':sig(GROUPS),'source_stat_unchanged':True,'source_single_pass_claim':False,'all12MiB_compressed_and96MiB_plaintext_are_rereads_of_previously_pinned_prefix':True,'first_repeated_range':{'compressed_bytes':len(first),'decompressed_bytes':len(first_plain),'compressed_SHA256':sha(first),'decompressed_SHA256':sha(first_plain)},'later_repeated_range':{'compressed_offset':len(first),'compressed_bytes':len(rest),'decompressed_offset':len(first_plain),'decompressed_bytes':len(rest_plain),'compressed_SHA256':sha(rest),'decompressed_SHA256':sha(rest_plain),'unconsumed_first_range_bytes_used':len(tail)},'total_this_scope':dict(state,compressed_budget=CBUDGET,decompressed_budget=DBUDGET,compressed_prefix_SHA256=sha(first+rest),decompressed_prefix_SHA256=sha(plain),gzip_EOF=inflater.eof,gzip_footer_CRC_not_validated=True,complete_rows_available=complete.count(b'\n'),partial_final_row_bytes_not_parsed=len(partial),unconsumed_compressed_bytes=len(inflater.unconsumed_tail)),'classification_counts':counts,'capture_output':capture_identity,'total_output_byte_budget':OUTPUT_BUDGET,'old_prefix_source_pins_and_old_reason_counts_reproduced':not counts['output_truncated'],'fullsource_EOF_hash_PBF_nodeledger_IMG_or_DB_not_opened':True}
++  save('read-counters.json',reread)
++  save('source-pins.json',{'schema':'corrected ordinary source/dependency pins/v1','inputs':INPUTS,'large_source_only_bounded_prefix_pins':'read-counters.json','small_original_house_label_index':{'compressed_bytes':len(labels_raw),'decompressed_bytes':len(labels_plain),'gzip_EOF':True,'labels':len(labels),'ledger_not_source_node_ledger':True}})
++  proof={'schema':'corrected all-missing Beitun source capture/v1','ordinary_data_capture_complete':not counts['output_truncated'],'status':'truncated_output_budget_stop' if counts['output_truncated'] else ('held_planning_examples_captured' if examples else 'held_truezero_planning_examples'),'source_prefix_explicitly_reread':True,'source_single_pass_claim':False,'source_origin_inherited':ingestion['source'],'all_exact_missing_groups_captured':not counts['output_truncated'],'missing_group_count':counts['exact_missing_groups_captured'],'missing_literal_names':sorted(mapping),'missing_literal_count':len(mapping),'previous28_count_reproduced':len(mapping)==28 and not counts['output_truncated'],'old28_literal_set_direct_comparison':'Old list was never saved; count/source-prefix/stock-family/old-reason replay comparisons are available, not an old literal-list comparison.','old28_source_prefix_and_classification_counter_replay':not counts['output_truncated'],'complete_groups_gzip':capture_identity,'hold_mapping':'hold-mapping.json','mapping_table':'hold-mapping-table.md','planning_examples':'planning-examples.json','planning_example_count':len(examples),'max_examples':2,'new_membership_assessments':'new-membership-assessments.json','actual_new_sourcepoint_calls':counts['sourcepoint_calls'],'actual_new_native24_calls':counts['raw24_calls'],'old_source368_or_seven_controls_rerun':False,'near_prefix_witnesses_are_pending_relationships_only':True,'original_four_addr_tags_of_first_node_preserved':True,'full_original_per_node_tags_versions_timestamps_or_conflict_coordinates_available':False,'unavailable_input_fields_explicitly_marked_not_invented':True,'record_IDs_reserved':False,'formal_address_route_official_alias_or_install_acceptance':False,'output_budget_bytes':OUTPUT_BUDGET,'known_output_bytes_before_receipts_handoff_seal':WRITTEN,'App_native_backend_music_direct_phone_speaker_install_fullTaiwan_flags':False,'native_guest_or_firmware_execution':False,'device_IO':False,'audio_execution':False,'IMG_JAI_or_install_bundle_created':False}
+   save('proof.json',proof)
+-  print(json.dumps({'ordinary_analysis_complete':True,'status':proof['status'],'read_repeat_compressed':len(repeat_compressed),'read_new_compressed':len(extra_compressed),'repeat_decompressed':len(repeat_plain),'new_decompressed':len(extra_plain),'complete_rows':rows,'gzip_EOF':False,'source_single_pass_claim':False,'examples':[{'street':x['group']['raw_address'][2],'house':x['group']['raw_address'][3],'group_id':x['group_id'],'source_ids':x['complete_source_node_IDs'],'native24':x['native24'],'existing_house_label_ref':None if not x['house']['existing_label_ref'] else x['house']['existing_label_ref']['primary_ref'],'both_points_inside_Beitun':True} for x in selected],'sourcepoint_calls':geometry_calls['source'],'raw24_calls':geometry_calls['raw24'],'official_alias_verified':False,'IMG_JAI_bundle_created':False,'device_IO':False},ensure_ascii=False),flush=True)
++  for row in INPUTS:assert sig(ROOT/row['path'])==row['stat_after'] and sha((ROOT/row['path']).read_bytes())==row['SHA256']
++  print(json.dumps({'ordinary_data_capture_complete':not counts['output_truncated'],'explicit12_96MiB_reread':True,'source_single_pass_claim':False,'complete_prefix_rows_processed':counts['rows_processed'],'missing_groups_captured':counts['exact_missing_groups_captured'],'missing_names_preserved':len(mapping),'previous28_count_and_old_rule_counters_reproduced':not counts['output_truncated'],'source_capture_gzip_bytes':capture_identity['compressed_bytes'],'output_bytes_so_far':WRITTEN,'output_budget':OUTPUT_BUDGET,'truncated':counts['output_truncated'],'planning_examples':[{'street':e['candidate_literal'],'house':e['house_label'],'group_id':e['complete_original_prepared_group']['group_id'],'source_ids':e['complete_source_node_IDs'],'sourcepoint':e['sourcepoint'],'native24':e['native24'],'status':e['status'],'both_points_inside_Beitun':e['district_membership']['both_inside'],'original_house_label_ref':None if not e['original_house_label_ref'] else e['original_house_label_ref']['primary_ref']} for e in examples],'new_sourcepoint_calls':counts['sourcepoint_calls'],'new_raw24_calls':counts['raw24_calls'],'old_source368_tests':0,'full_original_node_tags_available':False,'formal_alias_address_route_install_acceptance':False,'native_guest_device_audio':False},ensure_ascii=False),flush=True)
+  except Exception as error:
+-  save('actual-failure.json',{'schema':'bounded normal data analysis actual failure/v1','phase':phase,'error_type':type(error).__name__,'error':str(error),'observed_read_counters_before_failure':state,'source_single_pass_claim':False,'no_native_guest_device_or_audio':True})
++  if capture is not None and not capture.closed:
++   capture_identity=capture.finish()
++  save('actual-failure.json',{'schema':'corrected bounded data actual failure/v1','phase':phase,'error_type':type(error).__name__,'error':str(error),'observed_read_counters':state,'partial_complete_capture_if_any':capture_identity,'truncated':True,'source_single_pass_claim':False,'native_guest_device_audio':False})
+   traceback.print_exc();raise
+ if __name__=='__main__':main()

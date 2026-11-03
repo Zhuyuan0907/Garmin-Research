@@ -1,0 +1,56 @@
+全國未匹配名稱：既有原生巷／弄父群匹配計畫
+
+成功 EXIT 0 / session23202 / initial fb2fb0 / terminal cbf666。
+一次完整讀取 sealed unresolved-native-name-group-keys.jsonl.gz：
+2,278,269 rows，compressed45,568,995B，plain1,191,069,561B。
+gzip EOF 與 compressed SHA75ab32345e3cf8b1e1892ae029a5271a4be46908e2e647e1396244304a0252ba
+及 plain SHA51ff38640fe3d1fb53b35114c43ed35a1c7998dc0490964f488b3dce89f61651
+全部相符。未重開 PBF、source node/fullgroup ledger 或 country-ready ledgers。
+
+1,806,069 source group keys 精確接到既有門牌父群，涵蓋122,040個不同
+city/district/fullstreet路徑，也正好是122,040個不同actual parent record。
+父紀錄level4=85,970、level5=36,070；完整rawflags5=80,579、6=41,461。
+沒有把13改5、跳過未知分支或補出不存在的街道/JAI family。
+matched ledger內每列有source group_id/rawkey/status/ref，以及實際父record
+ID/level/rawflags/first/count/nextleaflevel、整條實際record IDs和house membership。
+unique-parent-paths另有真實原圖標籤、parent fields、群SHA及分組狀態統計。
+
+在matched keys中，原圖house present_unique=1,729,220，absent=76,849，duplicate=0。
+existing numeric textref metadata已有=1,806,023、缺少=46。
+來源coordinate_ready metadata=1,792,372，conflict=13,697。
+這些維度不是新增地址交集；76,849不能直接當作可新增或已更新地址數。
+global最低數字文字ref不能證明parent membership，membership另由該實際父群
+的完整子紀錄與GMP label讀取得到。原圖existing house未修改座標。
+
+472,200 held groups：
+  direct-city行政區未驗證277,514
+  無最長exact native street prefix80,943
+  精確巷／弄token不存在75,025
+  最長prefix後suffix不符合完整正整數巷／弄token29,392
+  路徑父群未觀察到直接數字門牌4,634（包括raw13分支）
+  source missing_native_district4,688、missing_native_city4
+其他source分類沒有被模糊匹配。沒有strip行政區/route annotation、猜alias、
+改「巿」字形、Chinese-digit換名或平面L3替代。完整raw flags與未知分支保留。
+
+Original AP實讀71,660,924B /248,353 operations；每筆physical span SHA、
+理由及長度在original-map-read-log。MDR各層start/stride/width/count來自
+真header600和真DIR，LBL pool來自真GMP/LBL headers。來源AP與keys前後stat不變。
+最高RSS424,240KiB（约414MiB，明確500MiB上限），cache stats在proof。
+path cache命中1,751,568；group cache命中1,940,247。group compact inventory
+採32MiBaccounting上限，root/path/label快取另有限額。計數decoded child rows
+4,552,747含LRU被逐出後的重讀，並非distinct原圖record數。
+
+摘要每批最多5,000 distinct keys，54個sorted runs以heap合併並逐run驗
+EOF/plain/compressed hashes；完整match總數在兩種摘要合併後一致，沒有持有
+全國house/parent完整解碼物件。elapsed207.79秒是執行receipt，不是實機效能測試。
+
+sealed20-example來源只AST取指定host definitions，舊main/controls/CPU/
+guest suites未執行。本工具沒有編碼新native records或修改MDR/IMG/JAI/DB，
+沒有USB/ZIP/canonical/服務操作。
+
+這是matching planning。輸入沒有座標值或完整source IDs；後續必須按group_id
+接回原prepared group ledger，再檢查coordinate/geometry/house syntax/ref、
+原家族/JAI consumer與寫入容量。實際parent_record要唯一分組，不能append
+多個同parent互不相連family。Native query、UI、實機搜尋/route、入口正確性、
+未解析城市/街道/巷弄/subnumbers與未知flags語義仍未驗證。
+沒有宣稱fullcoverage或完整台灣2026原生地址更新。

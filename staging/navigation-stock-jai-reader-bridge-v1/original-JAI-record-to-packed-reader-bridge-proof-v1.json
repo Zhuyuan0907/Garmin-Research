@@ -1,0 +1,1425 @@
+{
+  "schema": "original-JAI-record-to-packed-reader-bridge-proof/v1",
+  "created_utc": "2026-10-05T18:15:58.294734+00:00",
+  "all_bounded_checks_passed": true,
+  "source_sha256": "29856a220f387b6d84ae34be76565b86822245755e3771c79b33c49721a9fd9c",
+  "static_fragments": "staging/navigation-stock-jai-reader-bridge-v1/original-JAI-record-to-reader-static-fragments-v1.json",
+  "static_fragments_sha256": "3336c2e7ba5ca68060151880a938d0dadadcdd8fe8824be233a7407f846c1b99",
+  "inputs": {
+    "MAIN": "evidence/firmware-analysis/main_02bd.bin",
+    "MAIN_sha256_inherited": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "MAIN_new_full_rehash": false,
+    "database": "backups/20261002T154458Z/files/.System/SQLite/Prefecture/TWNJAI.db",
+    "database_mode": "ro&immutable=1",
+    "old_reader_plan": "staging/navigation-native-AP-packed-reader-v1/original-packed-reader-plan-proof-v1.json",
+    "old_reader_plan_sha256": "ef3c9b8373aa8fd1471843ef9c08a33c62f39659fd204cb76380921e06de7042",
+    "old_reader_rerun": false
+  },
+  "static_chain": [
+    "04422816 calls0442217E with r2=SP+28 result collection; same outer function04422842 calls04421E5A with r2=SP+28.",
+    "0442217E calls0441950C at044222E6; adapter calls04425C3A; wrapper calls04425726.",
+    "04425726 calls original integer-column veneer0448F9C8 with column1 at044258A0; stores returned logical record in materializer stack argument at044258B4; calls04425304 at044258CE.",
+    "04425304 stores level=record>>28 and lowID=record&0x0FFFFFFF in a12-byte tuple; final04425444 calls044249B4 to copy tuples.",
+    "04421E5A iterates result groups and tuples;04421F0A loads tuple level into stackarg5,04421F16 loads tuple lowID into r3;04421F1C calls04421DB4.",
+    "04421DB4 saves caller lowID at SP+70 and level into r7, then04421DD0 calls044B10E4 with r1=lowID/r2=level.",
+    "After reader and underlying metadata association succeed,04421E04 stores descriptor+4=lowID,04421E08 stores descriptor+8=0x24,04421E10 stores descriptor+9=(level+2)|packed_flags.",
+    "Original descriptor getter044B2976 extracts descriptor+9 low6bits then subtracts2, loads descriptor+4, and044B2988 calls the same reader."
+  ],
+  "record_info_boundary": "FTS record_info>>8 is used by original SQL string fragments to select japan_addr_info.id; the returned japan_addr_info.record is the separate packed logical key split here. These integers are not interchangeable.",
+  "descriptor_contract": {
+    "type_byte_plus8": "0x24",
+    "record_word_plus4": "one-based low28 ID",
+    "level_byte_plus9_low6": "level+2; getter masks0x3F and subtracts2",
+    "upper_flag_bits": "derived from packed reader output flags; semantics unclaimed"
+  },
+  "actual_partial_CPU_cases": [
+    {
+      "underlying_DB_scalar": {
+        "info_id": 12987,
+        "index_record": "tkgbjhptkhcogctkgcoen",
+        "record": 268435464,
+        "record_hex": "0x10000008",
+        "underlying_read": "actual host readonly SQLite parameterized SELECT"
+      },
+      "actual_tuple_words": [
+        1,
+        8,
+        4294967295
+      ],
+      "actual_original_reader_arguments": {
+        "r0_directory": "0x9016000",
+        "r1_one_based_lowID": 8,
+        "r2_level": 1,
+        "r3_output": "0x900e040"
+      },
+      "all_partial_checks_passed": true,
+      "phases": [
+        {
+          "name": "original_SQL_materializer_key_split",
+          "entry": "0x442533e",
+          "end": "0x442534e",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              285212672,
+              285217041,
+              285221410,
+              285225779,
+              268435464,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              0
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              285212672,
+              285217041,
+              8,
+              285225779,
+              268435464,
+              151064576,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71455566
+            ],
+            "CPSR": 63
+          }
+        },
+        {
+          "name": "original_tuple_to_descriptor_constructor_arguments",
+          "entry": "0x4421f0a",
+          "end": "0x4421f1c",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              151052332,
+              285217041,
+              285221410,
+              285225779,
+              285230148,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71455566
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              151080960,
+              151085056,
+              151052316,
+              8,
+              285230148,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71442204
+            ],
+            "CPSR": 536870975
+          }
+        },
+        {
+          "name": "original_constructor_arguments_before_packed_reader_call",
+          "entry": "0x4421dc6",
+          "end": "0x4421dd0",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              285212672,
+              285217041,
+              285221410,
+              285225779,
+              285230148,
+              151085056,
+              285238886,
+              1,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71442204
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              151085056,
+              8,
+              1,
+              151052352,
+              0,
+              151085056,
+              285238886,
+              1,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71441872
+            ],
+            "CPSR": 63
+          }
+        }
+      ],
+      "actual_instructions": [
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442533e",
+          "opcode_hex": "0022"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425340",
+          "opcode_hex": "1a92"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425342",
+          "opcode_hex": "220f"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425344",
+          "opcode_hex": "3260"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425346",
+          "opcode_hex": "2201"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425348",
+          "opcode_hex": "1209"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534a",
+          "opcode_hex": "7260"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534c",
+          "opcode_hex": "3500"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0a",
+          "opcode_hex": "3168"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0c",
+          "opcode_hex": "0baa"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0e",
+          "opcode_hex": "0192"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f10",
+          "opcode_hex": "0091"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f12",
+          "opcode_hex": "1038"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f14",
+          "opcode_hex": "0200"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f16",
+          "opcode_hex": "7368"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f18",
+          "opcode_hex": "1499"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f1a",
+          "opcode_hex": "1e98"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dc6",
+          "opcode_hex": "1c99"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dc8",
+          "opcode_hex": "0024"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dca",
+          "opcode_hex": "3a00"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dcc",
+          "opcode_hex": "2800"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dce",
+          "opcode_hex": "10ab"
+        }
+      ],
+      "actual_CPU_stores": [
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425340",
+          "address": "0x900e068",
+          "size": 4,
+          "value": 0,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            0,
+            285225779,
+            268435464,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455552
+          ],
+          "CPSR": 1073741887
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425344",
+          "address": "0x9011000",
+          "size": 4,
+          "value": 1,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            1,
+            285225779,
+            268435464,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455556
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534a",
+          "address": "0x9011004",
+          "size": 4,
+          "value": 8,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            8,
+            285225779,
+            268435464,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455562
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0e",
+          "address": "0x900e004",
+          "size": 4,
+          "value": 151052332,
+          "before_hex": "00000000",
+          "GP16": [
+            151052332,
+            1,
+            151052332,
+            285225779,
+            285230148,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71442190
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f10",
+          "address": "0x900e000",
+          "size": 4,
+          "value": 1,
+          "before_hex": "00000000",
+          "GP16": [
+            151052332,
+            1,
+            151052332,
+            285225779,
+            285230148,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71442192
+          ],
+          "CPSR": 63
+        }
+      ],
+      "explicit_fixture_writes": [
+        {
+          "address": "0x9011000",
+          "hex": "0000000000000000ffffffff",
+          "purpose": "explicit output tuple storage; third field outside key split scope"
+        },
+        {
+          "address": "0x900e050",
+          "hex": "00600109",
+          "purpose": "declared directory pointer in parent caller frame"
+        },
+        {
+          "address": "0x900e078",
+          "hex": "00500109",
+          "purpose": "declared manager pointer in parent caller frame"
+        },
+        {
+          "address": "0x900e070",
+          "hex": "08000000",
+          "purpose": "constructor saved-r3 frame scalar taken from actual prior CPU argument"
+        }
+      ],
+      "original_RX_pages": [
+        {
+          "runtime": "0x4425000",
+          "load": "0xd48bcc",
+          "sha256": "99f3b73e3a10d7a420e6083847a5e7cac2dbf47274249312e167c509e72f6713"
+        },
+        {
+          "runtime": "0x4421000",
+          "load": "0xd44bcc",
+          "sha256": "6c3f13bdfb182349ffdec41bf20c3f468cca3a4951f35970dbe6972c51b19d20"
+        }
+      ],
+      "packed_reader_executed": false,
+      "native_SQL_result_stub": false,
+      "constructor_full_return": false
+    },
+    {
+      "underlying_DB_scalar": {
+        "info_id": 16765,
+        "index_record": "tkhcogctkgblep",
+        "record": 536871000,
+        "record_hex": "0x20000058",
+        "underlying_read": "actual host readonly SQLite parameterized SELECT"
+      },
+      "actual_tuple_words": [
+        2,
+        88,
+        4294967295
+      ],
+      "actual_original_reader_arguments": {
+        "r0_directory": "0x9016000",
+        "r1_one_based_lowID": 88,
+        "r2_level": 2,
+        "r3_output": "0x900e040"
+      },
+      "all_partial_checks_passed": true,
+      "phases": [
+        {
+          "name": "original_SQL_materializer_key_split",
+          "entry": "0x442533e",
+          "end": "0x442534e",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              285212672,
+              285217041,
+              285221410,
+              285225779,
+              536871000,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              0
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              285212672,
+              285217041,
+              88,
+              285225779,
+              536871000,
+              151064576,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71455566
+            ],
+            "CPSR": 63
+          }
+        },
+        {
+          "name": "original_tuple_to_descriptor_constructor_arguments",
+          "entry": "0x4421f0a",
+          "end": "0x4421f1c",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              151052332,
+              285217041,
+              285221410,
+              285225779,
+              285230148,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71455566
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              151080960,
+              151085056,
+              151052316,
+              88,
+              285230148,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71442204
+            ],
+            "CPSR": 536870975
+          }
+        },
+        {
+          "name": "original_constructor_arguments_before_packed_reader_call",
+          "entry": "0x4421dc6",
+          "end": "0x4421dd0",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              285212672,
+              285217041,
+              285221410,
+              285225779,
+              285230148,
+              151085056,
+              285238886,
+              2,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71442204
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              151085056,
+              88,
+              2,
+              151052352,
+              0,
+              151085056,
+              285238886,
+              2,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71441872
+            ],
+            "CPSR": 63
+          }
+        }
+      ],
+      "actual_instructions": [
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442533e",
+          "opcode_hex": "0022"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425340",
+          "opcode_hex": "1a92"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425342",
+          "opcode_hex": "220f"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425344",
+          "opcode_hex": "3260"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425346",
+          "opcode_hex": "2201"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425348",
+          "opcode_hex": "1209"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534a",
+          "opcode_hex": "7260"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534c",
+          "opcode_hex": "3500"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0a",
+          "opcode_hex": "3168"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0c",
+          "opcode_hex": "0baa"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0e",
+          "opcode_hex": "0192"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f10",
+          "opcode_hex": "0091"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f12",
+          "opcode_hex": "1038"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f14",
+          "opcode_hex": "0200"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f16",
+          "opcode_hex": "7368"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f18",
+          "opcode_hex": "1499"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f1a",
+          "opcode_hex": "1e98"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dc6",
+          "opcode_hex": "1c99"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dc8",
+          "opcode_hex": "0024"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dca",
+          "opcode_hex": "3a00"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dcc",
+          "opcode_hex": "2800"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dce",
+          "opcode_hex": "10ab"
+        }
+      ],
+      "actual_CPU_stores": [
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425340",
+          "address": "0x900e068",
+          "size": 4,
+          "value": 0,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            0,
+            285225779,
+            536871000,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455552
+          ],
+          "CPSR": 1073741887
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425344",
+          "address": "0x9011000",
+          "size": 4,
+          "value": 2,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            2,
+            285225779,
+            536871000,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455556
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534a",
+          "address": "0x9011004",
+          "size": 4,
+          "value": 88,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            88,
+            285225779,
+            536871000,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455562
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0e",
+          "address": "0x900e004",
+          "size": 4,
+          "value": 151052332,
+          "before_hex": "00000000",
+          "GP16": [
+            151052332,
+            2,
+            151052332,
+            285225779,
+            285230148,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71442190
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f10",
+          "address": "0x900e000",
+          "size": 4,
+          "value": 2,
+          "before_hex": "00000000",
+          "GP16": [
+            151052332,
+            2,
+            151052332,
+            285225779,
+            285230148,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71442192
+          ],
+          "CPSR": 63
+        }
+      ],
+      "explicit_fixture_writes": [
+        {
+          "address": "0x9011000",
+          "hex": "0000000000000000ffffffff",
+          "purpose": "explicit output tuple storage; third field outside key split scope"
+        },
+        {
+          "address": "0x900e050",
+          "hex": "00600109",
+          "purpose": "declared directory pointer in parent caller frame"
+        },
+        {
+          "address": "0x900e078",
+          "hex": "00500109",
+          "purpose": "declared manager pointer in parent caller frame"
+        },
+        {
+          "address": "0x900e070",
+          "hex": "58000000",
+          "purpose": "constructor saved-r3 frame scalar taken from actual prior CPU argument"
+        }
+      ],
+      "original_RX_pages": [
+        {
+          "runtime": "0x4425000",
+          "load": "0xd48bcc",
+          "sha256": "99f3b73e3a10d7a420e6083847a5e7cac2dbf47274249312e167c509e72f6713"
+        },
+        {
+          "runtime": "0x4421000",
+          "load": "0xd44bcc",
+          "sha256": "6c3f13bdfb182349ffdec41bf20c3f468cca3a4951f35970dbe6972c51b19d20"
+        }
+      ],
+      "packed_reader_executed": false,
+      "native_SQL_result_stub": false,
+      "constructor_full_return": false
+    },
+    {
+      "underlying_DB_scalar": {
+        "info_id": 16786,
+        "index_record": "tkfcgfotkfdkeftklcbga",
+        "record": 805323075,
+        "record_hex": "0x30004143",
+        "underlying_read": "actual host readonly SQLite parameterized SELECT"
+      },
+      "actual_tuple_words": [
+        3,
+        16707,
+        4294967295
+      ],
+      "actual_original_reader_arguments": {
+        "r0_directory": "0x9016000",
+        "r1_one_based_lowID": 16707,
+        "r2_level": 3,
+        "r3_output": "0x900e040"
+      },
+      "all_partial_checks_passed": true,
+      "phases": [
+        {
+          "name": "original_SQL_materializer_key_split",
+          "entry": "0x442533e",
+          "end": "0x442534e",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              285212672,
+              285217041,
+              285221410,
+              285225779,
+              805323075,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              0
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              285212672,
+              285217041,
+              16707,
+              285225779,
+              805323075,
+              151064576,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71455566
+            ],
+            "CPSR": 63
+          }
+        },
+        {
+          "name": "original_tuple_to_descriptor_constructor_arguments",
+          "entry": "0x4421f0a",
+          "end": "0x4421f1c",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              151052332,
+              285217041,
+              285221410,
+              285225779,
+              285230148,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71455566
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              151080960,
+              151085056,
+              151052316,
+              16707,
+              285230148,
+              285234517,
+              151064576,
+              285243255,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71442204
+            ],
+            "CPSR": 536870975
+          }
+        },
+        {
+          "name": "original_constructor_arguments_before_packed_reader_call",
+          "entry": "0x4421dc6",
+          "end": "0x4421dd0",
+          "full_function_return": false,
+          "before": {
+            "GP16": [
+              285212672,
+              285217041,
+              285221410,
+              285225779,
+              285230148,
+              151085056,
+              285238886,
+              3,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71442204
+            ],
+            "CPSR": 63
+          },
+          "after": {
+            "GP16": [
+              151085056,
+              16707,
+              3,
+              151052352,
+              0,
+              151085056,
+              285238886,
+              3,
+              285247624,
+              285251993,
+              285256362,
+              285260731,
+              285265100,
+              151052288,
+              0,
+              71441872
+            ],
+            "CPSR": 63
+          }
+        }
+      ],
+      "actual_instructions": [
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442533e",
+          "opcode_hex": "0022"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425340",
+          "opcode_hex": "1a92"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425342",
+          "opcode_hex": "220f"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425344",
+          "opcode_hex": "3260"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425346",
+          "opcode_hex": "2201"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425348",
+          "opcode_hex": "1209"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534a",
+          "opcode_hex": "7260"
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534c",
+          "opcode_hex": "3500"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0a",
+          "opcode_hex": "3168"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0c",
+          "opcode_hex": "0baa"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0e",
+          "opcode_hex": "0192"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f10",
+          "opcode_hex": "0091"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f12",
+          "opcode_hex": "1038"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f14",
+          "opcode_hex": "0200"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f16",
+          "opcode_hex": "7368"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f18",
+          "opcode_hex": "1499"
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f1a",
+          "opcode_hex": "1e98"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dc6",
+          "opcode_hex": "1c99"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dc8",
+          "opcode_hex": "0024"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dca",
+          "opcode_hex": "3a00"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dcc",
+          "opcode_hex": "2800"
+        },
+        {
+          "phase": "original_constructor_arguments_before_packed_reader_call",
+          "pc": "0x4421dce",
+          "opcode_hex": "10ab"
+        }
+      ],
+      "actual_CPU_stores": [
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425340",
+          "address": "0x900e068",
+          "size": 4,
+          "value": 0,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            0,
+            285225779,
+            805323075,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455552
+          ],
+          "CPSR": 1073741887
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x4425344",
+          "address": "0x9011000",
+          "size": 4,
+          "value": 3,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            3,
+            285225779,
+            805323075,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455556
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_SQL_materializer_key_split",
+          "pc": "0x442534a",
+          "address": "0x9011004",
+          "size": 4,
+          "value": 16707,
+          "before_hex": "00000000",
+          "GP16": [
+            285212672,
+            285217041,
+            16707,
+            285225779,
+            805323075,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71455562
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f0e",
+          "address": "0x900e004",
+          "size": 4,
+          "value": 151052332,
+          "before_hex": "00000000",
+          "GP16": [
+            151052332,
+            3,
+            151052332,
+            285225779,
+            285230148,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71442190
+          ],
+          "CPSR": 63
+        },
+        {
+          "phase": "original_tuple_to_descriptor_constructor_arguments",
+          "pc": "0x4421f10",
+          "address": "0x900e000",
+          "size": 4,
+          "value": 3,
+          "before_hex": "00000000",
+          "GP16": [
+            151052332,
+            3,
+            151052332,
+            285225779,
+            285230148,
+            285234517,
+            151064576,
+            285243255,
+            285247624,
+            285251993,
+            285256362,
+            285260731,
+            285265100,
+            151052288,
+            0,
+            71442192
+          ],
+          "CPSR": 63
+        }
+      ],
+      "explicit_fixture_writes": [
+        {
+          "address": "0x9011000",
+          "hex": "0000000000000000ffffffff",
+          "purpose": "explicit output tuple storage; third field outside key split scope"
+        },
+        {
+          "address": "0x900e050",
+          "hex": "00600109",
+          "purpose": "declared directory pointer in parent caller frame"
+        },
+        {
+          "address": "0x900e078",
+          "hex": "00500109",
+          "purpose": "declared manager pointer in parent caller frame"
+        },
+        {
+          "address": "0x900e070",
+          "hex": "43410000",
+          "purpose": "constructor saved-r3 frame scalar taken from actual prior CPU argument"
+        }
+      ],
+      "original_RX_pages": [
+        {
+          "runtime": "0x4425000",
+          "load": "0xd48bcc",
+          "sha256": "99f3b73e3a10d7a420e6083847a5e7cac2dbf47274249312e167c509e72f6713"
+        },
+        {
+          "runtime": "0x4421000",
+          "load": "0xd44bcc",
+          "sha256": "6c3f13bdfb182349ffdec41bf20c3f468cca3a4951f35970dbe6972c51b19d20"
+        }
+      ],
+      "packed_reader_executed": false,
+      "native_SQL_result_stub": false,
+      "constructor_full_return": false
+    }
+  ],
+  "totals": {
+    "actual_underlying_DB_scalar_reads": 3,
+    "partial_cases": 3,
+    "original_instructions": 66,
+    "CPU_stores": 15,
+    "full_function_returns": 0,
+    "packed_body_reads": 0,
+    "exact_static_opcode_guards": 35
+  },
+  "scope": {
+    "native_key_split_and_argument_blocks_executed": true,
+    "static_SQL_to_constructor_chain_identified": true,
+    "complete_SQL_query_executed": false,
+    "native_SQL_success_stubs": false,
+    "full_descriptor_constructor_executed": false,
+    "native_bitreader_executed": false,
+    "UI_or_keyboard_caller_verified": false,
+    "hardware_verified": false,
+    "AP_house184_payload_decoded": false,
+    "map_DB_canonical_writes": false,
+    "old_codec_family_or_reader_scopes_rerun": false
+  },
+  "limits": [
+    "Partial CPU phases have explicit caller/storage/register fixtures and seam handoffs; no continuous complete query or constructor execution is claimed.",
+    "The actual underlying scalar reads are host readonly SQLite. No native SQL helper is forced to return these values or success.",
+    "Directory pointers are synthetic inputs, never dereferenced in these phases; execution stops before the original packed reader branch.",
+    "Static original field stores prove the key layout; successful metadata association and complete descriptor initialization remain unexecuted.",
+    "The full UI/address caller, selected map manager and native house/provider handling remain outside this proof."
+  ]
+}

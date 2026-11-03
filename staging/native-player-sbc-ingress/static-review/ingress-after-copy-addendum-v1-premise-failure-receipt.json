@@ -1,0 +1,15 @@
+{
+  "tool": "functions.exec -> tools.exec_command",
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-sbc-ingress/static-review/analyze_ingress_after_copy_lease_lifetime.py",
+  "actual_tool_result": {
+    "chunk_id": "222d47",
+    "exit_code": 1,
+    "wall_time_seconds": 0.289870216,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-ingress/static-review/analyze_ingress_after_copy_lease_lifetime.py\", line 211, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-ingress/static-review/analyze_ingress_after_copy_lease_lifetime.py\", line 105, in main\n    check('New callback never reads foreign payload or temporary handle after end',\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n          'packet' not in after and 'handle' not in after and 'if(!r)SBI_POST(g->owner,UMC_SOURCE_EVENT);' in after)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-ingress/static-review/analyze_ingress_after_copy_lease_lifetime.py\", line 45, in check\n    assert ok, name\n           ^^\nAssertionError: New callback never reads foreign payload or temporary handle after end\n"
+  },
+  "scope": "FILE reviewer premise failure, not guest or producer failure",
+  "exact_cause": "Substring test included C comments containing temporary handle; it did not indicate an actual foreign-pointer read.",
+  "old_source_preserved": true,
+  "guest_executed": false,
+  "device_io": false
+}

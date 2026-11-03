@@ -1,0 +1,42 @@
+待解決原生名稱：唯讀優先計畫，未解決／未新增任何街道
+
+完整preparedgroup分類（不是所有OSM address nodes）：
+  原city/district已匹配但完整JAI街名缺匹配：1,996,063群組。
+  原direct-city佈局 city+street缺匹配、source district未驗：277,514群組。
+  行政區字串缺匹配：4,688群組；城市字串缺匹配：4群組。
+  ambiguous / missing source street / missing source district：本prepared scope皆0。
+  合計2,278,269群組。不能把前兩類直接稱為新道路或必須新增JAI街道數。
+
+完整城市優先量（unresolved groups，含各市全部分類）：
+  台中市：339,875
+  高雄市：334,202
+  桃園市：295,185
+  台南市：283,400
+  新北市：246,546
+  彰化縣：168,457
+
+首先追existing deeper paths：樣本完整JAI名稱沒匹配，但原名冊可能有完整street prefix，
+如『復興路二段71巷31弄』→原『復興路二段』、『內湖路一段91巷35弄』→原『內湖路一段』。
+numeric巷/弄樣本有3196個street-classification keys，這是有界樣本結果，不能推成全台比例。
+還有中文具名巷/弄suffix可作同方向檢查；所有prefix候選 branch_exists_or_matches_proved=false。
+必須依真first_child/count/next_level逐層精確核對actual child label，不得猜或套name alias。
+
+先前原檔實證只有民權路→186巷→3弄→L6 2/4/6/8號這個例子；不代表其他suffix已存在。
+街名完整字串缺JAI仍可能已有L4/L5/L6路徑，因此深層核對可能比新增街道索引更優先。
+
+需要核對的名稱例子：OSM『卑南郷』與原『卑南鄉』、OSM『台北巿』與原『台北市』、
+OSM『恒春鎮』與原『恆春鎮』；『頭份鎮／頭份市』『員林鎮／員林市』『土城市／土城區』
+僅列原source/native字串差異，不證明官方歷史或現在行政名稱，也不自動改source。
+『屏東市』放在city欄但原名冊有『屏東縣→屏東市』是角色層級待核對，不能直接當市縣alias。
+
+具體完整street-name缺口樣本包括新北市中和區『立業路』、台中市后里區『三豐路三段／四段』、
+屏東縣枋山鄉『舊庄路』、桃園市蘆竹區『小古山路』。它們只是在本樣本沒有exact完整JAI名字，
+新增native/JAI前仍需source/admin geography與既有分支／路段名稱核對，不宣稱是新的physical roads。
+
+原japan_addr_family：parent_record UNIQUE；the_first_record PRIMARY KEY。
+不能簡單替同parent新增第二段disjoint familyrow。新street/JAI需一致的family/range/index設計，
+可能牽涉L3/MDR及JAI重編／remap；本scope沒有實作或宣稱可保持全部street IDs的插入方案。
+
+原unresolved-key檔只讀prefix393226B／20000rows，另外沿用完整countrypass每市分類有界examples。
+未重PBF、sourcegroups、nodeledger，沒有IMG/DB寫入、native CPU、USB或自動套別名。
+全台地址更新仍未完成。

@@ -1,0 +1,48 @@
+{
+  "schema": "finite-external-lowerref-provenance-checklist/v1",
+  "checks": [
+    {
+      "ID": "P1",
+      "result": "Confirmed closed evidence chain, not fresh IMG comparison",
+      "detail": "Five complete logical nonMDR component hashes/sizes match v2, whose closed actual component checks mark unchanged_from_stock. GMP/LBL/route-bearing component remains byte-identical, but semantic pointer types/targets are not decoded here."
+    },
+    {
+      "ID": "P2",
+      "result": "Prefix payload provenance narrowed",
+      "detail": "Pre-table body [772,4195100), length4194328, and L2/L1 payloads are copy-preserved across stock→v2→v3 by closed proof/source comparisons. These producer paths did not introduce new literal field bytes there. Header itself is separately classified; DIR offset is modified."
+    },
+    {
+      "ID": "P3",
+      "result": "Header/descriptor modifications identified with evidence boundaries",
+      "detail": "Current writer copies772B header then writes uint32 DIRstart at600; copies120B DIR then updates each entry first8B(start/size), preserves remaining stride/bitfields. Stock writer also widens L3 stride111→112 and first22→23 in DIR, in addition to starts/sizes. Header rest is source contract, not an independent actualstock raw-header check. V2 main builder45969B is source-bound by proof/seal but not content-reviewed in this finite budget."
+    },
+    {
+      "ID": "P4",
+      "result": "Changes that DO encode poststock record relations remain inside MDR graph",
+      "detail": "L3 is widened/selectedfirst-count patched for v2 and further selected7650 roots patched for v3. L4/L5/L6 original significant prefixes are retained; new/cloned lower groups contain explicit new child links. Shared aliases/highflags stay raw. Prior lane producer preserves source identities but does not decode external ABIs."
+    },
+    {
+      "ID": "R1",
+      "result": "Conditional exclusion only",
+      "detail": "IF an unchanged stock field is proved to be a direct one-based L4/L5/L6 reference valid against the stock table, its target lies<=stockcount; retaining all stock lower prefix IDs preserves it. Same applies to a valid stockfirst/count range whose endpoint stays within stockbounds. Those premises are not established for undecoded bytes merely by equality."
+    },
+    {
+      "ID": "R2",
+      "result": "Unknown encodings remain held",
+      "detail": "Unchanged bytes can contain reserved/out-of-stock values, encoded/relative IDs, another namespace, indirect refs through modified L3, count-dependent lookups, table byte offsets or sentinels. New table starts move even when old leaf IDs stay fixed. A numeric value that looks like a poststock ID is not a typed reference proof or a typed absence proof."
+    },
+    {
+      "ID": "R3",
+      "result": "Runtime and same-MDR consumers unresolved",
+      "detail": "Loaded caches/query vectors/handles can acquire new suffix IDs via valid new paths although every external file byte stayed stock. Compaction remap can invalidate them. SameMDR unknown prefix format, highflag8/12/13/14 additional semantics, dynamic source boundaries and all lowerID/offset consumers remain unproved."
+    },
+    {
+      "ID": "R4",
+      "result": "No absence, construction or renderer acceptance claim",
+      "detail": "Immutable byte lineage narrows which producer paths wrote data; it does not prove external lowerref ABI absence. Required before full compaction: typed oldreference validity or conservative retention/remap of all consumers, full rawbit/unknownfield preservation, complete virtual/inverse/readback proof and separately authorized native/device acceptance."
+    }
+  ],
+  "external_lowerref_ABI_absence_proven": false,
+  "new_prefix_poststock_ID_writes_from_reviewed_copy_paths": false,
+  "unchangedbytes_automatically_imply_absence": false
+}

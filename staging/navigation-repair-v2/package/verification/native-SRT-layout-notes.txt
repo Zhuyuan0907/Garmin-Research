@@ -1,0 +1,61 @@
+台灣 HWID 1352 / SW 8.00：獨立 SRT 欄位 packing 證據
+
+結論
+精確原廠 getter 0x1ABD44 對 flags bit14=1 的紀錄使用 primary16 / secondary10 / tertiary6。
+官方 mkgmap r4924 multi writer 寫 primary16 / secondary8 / tertiary8，卻在 SRTHeader 寫 flags 0x6F02。
+因此此機韌體對原格式得到不同 secondary/tertiary；這是已復現的資料格式相容性差異，
+並非已確認「兩小時搜尋／民權變民和」的現場根因。
+
+原始指令
+0x1ABD68..72：flags bit8 設定時 field0 寬度為16。
+0x1ABD74..84：bit9 清除時 field1..4 寬度為4；預設為8。
+0x1ABD8C..A0：bit14 設定時直接覆寫全部寬度 [16,10,6,16,16]。
+iterator+12 選 field；0x1ABDAE..BE 累計前面欄位位元數與 byte offset。
+0x1ABDF4..E0A 取得原始 little-endian word，按 offset 右移並依欄位位數遮罩。
+使用原 reader 0x1ABC44；本輪無 policy hook、韌體修改、檔案／實機 I/O。
+
+官方來源（只讀既有 reference，hash 與 source-receipt.json 相符）
+https://www.mkgmap.org.uk/download/mkgmap-r4924-src.zip
+reference/SRTHeader.java writeHeader3：multi writer.put4(0x6f02)。
+reference/SRTFile.java writeWeights：put2u(primary), put1u(secondary), put1u(tertiary)。
+reference/SRTFile.java writeSrt5Expansions：multi expansion 同樣為16/8/8。
+character 是 flag8 + weight32 =5 bytes；expansion 沒有 flag，是 weight32 =4 bytes。
+
+有限原始指令驗證（terminal EXIT0）
+15 個合成 raw records 與 4 個真正原廠 builtin records，全部通過。
+每個案例以未修改 getter 逐欄位讀取，保持 ARM1176 原始 caller stack，無排序規則攔截。
+0x6F02，host A=[3270,1,5] 原8/8 bytes -> native [3270,257,1]。
+0x6F02，host a=[3270,1,1] -> native [3270,257,0]。
+expansion secondary8/tertiary7 -> native secondary776/tertiary1。
+expansion secondary8/tertiary8 -> native secondary8/tertiary2。
+bit14 造成的公式：nativeS=(hostS | (hostT<<8)) &1023；nativeT=hostT>>2。
+0x6302 對同一 payload 得相同結果；清bit14為0x2F02的診斷控制會讀16/8/8。
+清旗標不是本輪選定方案，只用於隔離欄位寬度原因。
+
+原廠實際內建資料
+readonly MAIN 0x878F60 的 SRT h2 offset37、h3 offset63。
+serialized h3 flags=0x6302；原 descriptor0x878EF4 flags=0x6F02；兩者bit14皆1。
+char record size5；expansion record size4。
+原 memory-reader kind0 與原 descriptor 均直接使用，未替換 builtin 資料：
+A record0x87913B=01 6c0f 2020 -> [3948,32,8]。
+a record0x8791DB=01 6c0f 2008 -> [3948,32,2]。
+expansion10@0x89671E=6c0f7c29 -> [3948,380,10]。
+expansion11@0x896722=c70f207c -> [4039,32,31]。
+這些原紀錄也精確符合16/10/6，並非由自製 writer 推測。
+
+相容 writer 候選的 byte layout
+維持0x6F02與host原secondary/tertiary值，寫：
+  put2u(primary)
+  put2u(secondary | (tertiary <<10))
+primary範圍0..65535，secondary0..1023，tertiary0..63；超出者須拒絕，不作截斷。
+char/expansion 位元总長及 record bytes 不變。
+候選合成 records 逐欄位得到原host值，包括 secondary511/tertiary31跨byte、
+primary65535/secondary1023/tertiary63全寬、全零與8/4/4單byte格式控制。
+此證據支持另一agent實作的writer packing；本scope未改writer、host sort policy、sealed fixture或source。
+
+範圍
+只驗 getter／reader／record packing，未重跑peer完整 string iterator/comparator。
+未驗原機 IMG discovery、MDR 搜尋、UI、導航多工與現場結果。
+也未宣稱 expansion 指標／展開數目全部語意已驗；本輪只驗其4-byte weight extraction。
+原 MAIN、官方 reference、source receipt 與使用的已封存 probe SHA 分析前後不變。
+全部細節、逐指令及案例在 srt-layout-evidence.json；本scope無可安裝韌體／IMG產物。

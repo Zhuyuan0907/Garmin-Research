@@ -1,0 +1,1071 @@
+{
+  "updated_utc": "2026-10-02T20:28:33.021616+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "cpu_model": "ARM1176",
+  "unicorn_version": "2.1.0",
+  "incoming_l2cap_handler": "0x50bbc0",
+  "lcid_lookup": "0x525138",
+  "callback_veneer": "0x42758e",
+  "callback_veneer_instruction": "bx r7",
+  "handler_code_sha256": "2588f63d44a3a0ac365130200bd409699c0efb78c19f4a7d6f7ad033ac29e819",
+  "channel_table": {
+    "base": "0x3a88f50",
+    "slots": 12,
+    "stride": 8,
+    "lcid_offset": 0,
+    "type_offset": 4,
+    "sep_index_offset": 6,
+    "direct_media_type": 255
+  },
+  "local_sep": {
+    "base": "0x3a88ef0",
+    "slots": 3,
+    "stride": 32,
+    "callback_offset": 0,
+    "channel_index_offset": 15,
+    "remote_seid_offset": 16,
+    "context_index_offset": 17,
+    "state_offset": 18,
+    "streaming_state": 8
+  },
+  "context_table": {
+    "base": "0x3a88eb8",
+    "stride": 28,
+    "peer_offset": 22
+  },
+  "callback_abi": {
+    "r0": "event 0xf1",
+    "r1": "status 0 or 0x131",
+    "r2": "temporary handle: local SEID+4, remote SEID+5, peer+6..11",
+    "r3": "raw media packet pointer",
+    "stack_word_0": "packet byte count",
+    "handle_first_four_bytes_initialized_by_handler": false,
+    "packet_parsed_or_decoded_by_dispatch": false
+  },
+  "cases": [
+    {
+      "name": "first_streaming_endpoint",
+      "synthetic_setup": {},
+      "return_value": 0,
+      "callbacks": [
+        {
+          "event": 241,
+          "status": 0,
+          "local_seid": 1,
+          "remote_seid": 7,
+          "synthetic_peer_hex": "010203040506",
+          "payload_pointer": "0x9101fd3",
+          "length": 45,
+          "payload_hex": "80600001000000010000000101000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "mutex_released_before_callback": true
+        }
+      ],
+      "hook_events": [
+        "lock",
+        "unlock",
+        "lock",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": true,
+      "instructions_executed": 105,
+      "passed": true
+    },
+    {
+      "name": "third_endpoint_last_channel",
+      "synthetic_setup": {
+        "slot": 2,
+        "channel_index": 11,
+        "context_index": 1
+      },
+      "return_value": 0,
+      "callbacks": [
+        {
+          "event": 241,
+          "status": 0,
+          "local_seid": 3,
+          "remote_seid": 7,
+          "synthetic_peer_hex": "010203040506",
+          "payload_pointer": "0x9101fd3",
+          "length": 45,
+          "payload_hex": "80600001000000010000000101000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "mutex_released_before_callback": true
+        }
+      ],
+      "hook_events": [
+        "lock",
+        "unlock",
+        "lock",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": true,
+      "instructions_executed": 204,
+      "passed": true
+    },
+    {
+      "name": "non_streaming_status_forwarded",
+      "synthetic_setup": {
+        "state": 1
+      },
+      "return_value": 0,
+      "callbacks": [
+        {
+          "event": 241,
+          "status": 305,
+          "local_seid": 1,
+          "remote_seid": 7,
+          "synthetic_peer_hex": "010203040506",
+          "payload_pointer": "0x9101fd3",
+          "length": 45,
+          "payload_hex": "80600001000000010000000101000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+          "mutex_released_before_callback": true
+        }
+      ],
+      "hook_events": [
+        "lock",
+        "unlock",
+        "log",
+        "log",
+        "lock",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": true,
+      "instructions_executed": 116,
+      "passed": true
+    },
+    {
+      "name": "endpoint_channel_mismatch",
+      "synthetic_setup": {
+        "mismatch": true
+      },
+      "return_value": 0,
+      "callbacks": [],
+      "hook_events": [
+        "lock",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": false,
+      "instructions_executed": 58,
+      "passed": true
+    },
+    {
+      "name": "unknown_channel",
+      "synthetic_setup": {},
+      "return_value": 10516,
+      "callbacks": [],
+      "hook_events": [
+        "lock",
+        "log",
+        "log",
+        "log",
+        "log",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": false,
+      "instructions_executed": 162,
+      "passed": true
+    },
+    {
+      "name": "signalling_channel_control",
+      "synthetic_setup": {
+        "channel_type": 0
+      },
+      "return_value": 0,
+      "callbacks": [],
+      "hook_events": [
+        "lock",
+        "signalling",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": false,
+      "instructions_executed": 55,
+      "passed": true
+    },
+    {
+      "name": "multiplex_channel_control",
+      "synthetic_setup": {
+        "channel_type": 1
+      },
+      "return_value": 0,
+      "callbacks": [],
+      "hook_events": [
+        "lock",
+        "multiplex",
+        "unlock"
+      ],
+      "stock_lcid_lookup_executed": true,
+      "stock_bx_r7_veneer_executed": false,
+      "instructions_executed": 57,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "device_io": false,
+  "real_endpoint_registration_verified": false,
+  "speaker_playback_verified": false,
+  "handler_instructions": {
+    "instructions": [
+      {
+        "address": "0x50bbc0",
+        "instruction": "push {r4, r5, r6, r7, lr}"
+      },
+      {
+        "address": "0x50bbc2",
+        "instruction": "movs r4, r0"
+      },
+      {
+        "address": "0x50bbc4",
+        "instruction": "ldr r0, [pc, #0x160]",
+        "literal_address": "0x50bd28",
+        "literal_value": "0xf50098"
+      },
+      {
+        "address": "0x50bbc6",
+        "instruction": "movs r5, r1"
+      },
+      {
+        "address": "0x50bbc8",
+        "instruction": "movs r6, r2"
+      },
+      {
+        "address": "0x50bbca",
+        "instruction": "sub sp, #0x1c"
+      },
+      {
+        "address": "0x50bbcc",
+        "instruction": "bl #0x5523de",
+        "direct_call": "0x5523de"
+      },
+      {
+        "address": "0x50bbd0",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x50bbd2",
+        "instruction": "bge #0x50bbf0"
+      },
+      {
+        "address": "0x50bbd4",
+        "instruction": "movs r2, #0x97"
+      },
+      {
+        "address": "0x50bbd6",
+        "instruction": "lsls r2, r2, #3"
+      },
+      {
+        "address": "0x50bbd8",
+        "instruction": "adr r1, #0x150",
+        "address_value": "0x50bd2c",
+        "string": "../../../private/protocols/avdtp/avdtp_l2cap.c"
+      },
+      {
+        "address": "0x50bbda",
+        "instruction": "adr r0, #0x180",
+        "address_value": "0x50bd5c",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x50bbdc",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bbe0",
+        "instruction": "adr r0, #0x194",
+        "address_value": "0x50bd78",
+        "string": "FAILED to Lock Mutex in AVDTP.\n"
+      },
+      {
+        "address": "0x50bbe2",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bbe6",
+        "instruction": "add sp, #0x1c"
+      },
+      {
+        "address": "0x50bbe8",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x50bbea",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x50bbec",
+        "instruction": "ldr r0, [pc, #0x1a8]",
+        "literal_address": "0x50bd98",
+        "literal_value": "0x2903"
+      },
+      {
+        "address": "0x50bbee",
+        "instruction": "bx r3"
+      },
+      {
+        "address": "0x50bbf0",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x50bbf2",
+        "instruction": "add r1, sp, #8"
+      },
+      {
+        "address": "0x50bbf4",
+        "instruction": "bl #0x525138",
+        "direct_call": "0x525138"
+      },
+      {
+        "address": "0x50bbf8",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x50bbfa",
+        "instruction": "str r0, [sp, #0x18]"
+      },
+      {
+        "address": "0x50bbfc",
+        "instruction": "bne #0x50bcf2"
+      },
+      {
+        "address": "0x50bbfe",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x50bc00",
+        "instruction": "ldrb r3, [r3, #8]"
+      },
+      {
+        "address": "0x50bc02",
+        "instruction": "ldr r0, [pc, #0x198]",
+        "literal_address": "0x50bd9c",
+        "literal_value": "0x3a88f50"
+      },
+      {
+        "address": "0x50bc04",
+        "instruction": "lsls r1, r3, #3"
+      },
+      {
+        "address": "0x50bc06",
+        "instruction": "adds r0, r1, r0"
+      },
+      {
+        "address": "0x50bc08",
+        "instruction": "ldrb r1, [r0, #4]"
+      },
+      {
+        "address": "0x50bc0a",
+        "instruction": "cmp r1, #0"
+      },
+      {
+        "address": "0x50bc0c",
+        "instruction": "bne #0x50bc1a"
+      },
+      {
+        "address": "0x50bc0e",
+        "instruction": "ldrb r0, [r0, #6]"
+      },
+      {
+        "address": "0x50bc10",
+        "instruction": "movs r2, r6"
+      },
+      {
+        "address": "0x50bc12",
+        "instruction": "movs r1, r5"
+      },
+      {
+        "address": "0x50bc14",
+        "instruction": "bl #0x5247fc",
+        "direct_call": "0x5247fc"
+      },
+      {
+        "address": "0x50bc18",
+        "instruction": "b #0x50bd04"
+      },
+      {
+        "address": "0x50bc1a",
+        "instruction": "cmp r1, #0xff"
+      },
+      {
+        "address": "0x50bc1c",
+        "instruction": "bne #0x50bce6"
+      },
+      {
+        "address": "0x50bc1e",
+        "instruction": "ldrb r1, [r0, #6]"
+      },
+      {
+        "address": "0x50bc20",
+        "instruction": "ldr r0, [pc, #0x17c]",
+        "literal_address": "0x50bda0",
+        "literal_value": "0x3a88ef0"
+      },
+      {
+        "address": "0x50bc22",
+        "instruction": "lsls r2, r1, #5"
+      },
+      {
+        "address": "0x50bc24",
+        "instruction": "adds r4, r2, r0"
+      },
+      {
+        "address": "0x50bc26",
+        "instruction": "ldrb r7, [r4, #0xf]"
+      },
+      {
+        "address": "0x50bc28",
+        "instruction": "cmp r7, r3"
+      },
+      {
+        "address": "0x50bc2a",
+        "instruction": "bne #0x50bd04"
+      },
+      {
+        "address": "0x50bc2c",
+        "instruction": "ldrb r0, [r4, #0x11]"
+      },
+      {
+        "address": "0x50bc2e",
+        "instruction": "adds r1, r1, #1"
+      },
+      {
+        "address": "0x50bc30",
+        "instruction": "lsls r3, r0, #3"
+      },
+      {
+        "address": "0x50bc32",
+        "instruction": "subs r3, r3, r0"
+      },
+      {
+        "address": "0x50bc34",
+        "instruction": "ldr r0, [pc, #0x16c]",
+        "literal_address": "0x50bda4",
+        "literal_value": "0x3a88eb8"
+      },
+      {
+        "address": "0x50bc36",
+        "instruction": "lsls r3, r3, #2"
+      },
+      {
+        "address": "0x50bc38",
+        "instruction": "adds r0, r3, r0"
+      },
+      {
+        "address": "0x50bc3a",
+        "instruction": "ldrb r7, [r0, #0x16]"
+      },
+      {
+        "address": "0x50bc3c",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x50bc3e",
+        "instruction": "strb r7, [r3, #0x12]"
+      },
+      {
+        "address": "0x50bc40",
+        "instruction": "ldrb r7, [r0, #0x17]"
+      },
+      {
+        "address": "0x50bc42",
+        "instruction": "strb r7, [r3, #0x13]"
+      },
+      {
+        "address": "0x50bc44",
+        "instruction": "ldrb r7, [r0, #0x18]"
+      },
+      {
+        "address": "0x50bc46",
+        "instruction": "strb r7, [r3, #0x14]"
+      },
+      {
+        "address": "0x50bc48",
+        "instruction": "ldrb r7, [r0, #0x19]"
+      },
+      {
+        "address": "0x50bc4a",
+        "instruction": "strb r7, [r3, #0x15]"
+      },
+      {
+        "address": "0x50bc4c",
+        "instruction": "ldrb r7, [r0, #0x1a]"
+      },
+      {
+        "address": "0x50bc4e",
+        "instruction": "strb r7, [r3, #0x16]"
+      },
+      {
+        "address": "0x50bc50",
+        "instruction": "ldrb r0, [r0, #0x1b]"
+      },
+      {
+        "address": "0x50bc52",
+        "instruction": "strb r0, [r3, #0x17]"
+      },
+      {
+        "address": "0x50bc54",
+        "instruction": "strb r1, [r3, #0x10]"
+      },
+      {
+        "address": "0x50bc56",
+        "instruction": "ldrb r0, [r4, #0x10]"
+      },
+      {
+        "address": "0x50bc58",
+        "instruction": "strb r0, [r3, #0x11]"
+      },
+      {
+        "address": "0x50bc5a",
+        "instruction": "ldr r0, [pc, #0x144]",
+        "literal_address": "0x50bda0",
+        "literal_value": "0x3a88ef0"
+      },
+      {
+        "address": "0x50bc5c",
+        "instruction": "ldr r7, [r0, r2]"
+      },
+      {
+        "address": "0x50bc5e",
+        "instruction": "ldr r0, [pc, #0xc8]",
+        "literal_address": "0x50bd28",
+        "literal_value": "0xf50098"
+      },
+      {
+        "address": "0x50bc60",
+        "instruction": "bl #0x5523fc",
+        "direct_call": "0x5523fc"
+      },
+      {
+        "address": "0x50bc64",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x50bc66",
+        "instruction": "bge #0x50bc82"
+      },
+      {
+        "address": "0x50bc68",
+        "instruction": "ldr r2, [pc, #0x13c]",
+        "literal_address": "0x50bda8",
+        "literal_value": "0x4ee"
+      },
+      {
+        "address": "0x50bc6a",
+        "instruction": "adr r1, #0xc0",
+        "address_value": "0x50bd2c",
+        "string": "../../../private/protocols/avdtp/avdtp_l2cap.c"
+      },
+      {
+        "address": "0x50bc6c",
+        "instruction": "adr r0, #0xec",
+        "address_value": "0x50bd5c",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x50bc6e",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bc72",
+        "instruction": "adr r0, #0x138",
+        "address_value": "0x50bdac",
+        "string": "FAILED to Unlock Mutex in AVDTP.\n"
+      },
+      {
+        "address": "0x50bc74",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bc78",
+        "instruction": "add sp, #0x1c"
+      },
+      {
+        "address": "0x50bc7a",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x50bc7c",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x50bc7e",
+        "instruction": "ldr r0, [pc, #0x150]",
+        "literal_address": "0x50bdd0",
+        "literal_value": "0x2904"
+      },
+      {
+        "address": "0x50bc80",
+        "instruction": "bx r3"
+      },
+      {
+        "address": "0x50bc82",
+        "instruction": "ldrb r0, [r4, #0x12]"
+      },
+      {
+        "address": "0x50bc84",
+        "instruction": "cmp r0, #8"
+      },
+      {
+        "address": "0x50bc86",
+        "instruction": "bne #0x50bc98"
+      },
+      {
+        "address": "0x50bc88",
+        "instruction": "movs r3, r5"
+      },
+      {
+        "address": "0x50bc8a",
+        "instruction": "movs r1, #0"
+      },
+      {
+        "address": "0x50bc8c",
+        "instruction": "movs r0, #0xf1"
+      },
+      {
+        "address": "0x50bc8e",
+        "instruction": "add r2, sp, #0xc"
+      },
+      {
+        "address": "0x50bc90",
+        "instruction": "str r6, [sp]"
+      },
+      {
+        "address": "0x50bc92",
+        "instruction": "bl #0x42758e",
+        "direct_call": "0x42758e"
+      },
+      {
+        "address": "0x50bc96",
+        "instruction": "b #0x50bcbe"
+      },
+      {
+        "address": "0x50bc98",
+        "instruction": "ldr r2, [pc, #0x138]",
+        "literal_address": "0x50bdd4",
+        "literal_value": "0x4ff"
+      },
+      {
+        "address": "0x50bc9a",
+        "instruction": "adr r1, #0x90",
+        "address_value": "0x50bd2c",
+        "string": "../../../private/protocols/avdtp/avdtp_l2cap.c"
+      },
+      {
+        "address": "0x50bc9c",
+        "instruction": "adr r0, #0xbc",
+        "address_value": "0x50bd5c",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x50bc9e",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bca2",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x50bca4",
+        "instruction": "ldrb r2, [r4, #0x12]"
+      },
+      {
+        "address": "0x50bca6",
+        "instruction": "ldrb r1, [r3, #0x10]"
+      },
+      {
+        "address": "0x50bca8",
+        "instruction": "ldr r0, [pc, #0x12c]",
+        "literal_address": "0x50bdd8",
+        "literal_value": "0xbb4c88"
+      },
+      {
+        "address": "0x50bcaa",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bcae",
+        "instruction": "movs r1, #0xff"
+      },
+      {
+        "address": "0x50bcb0",
+        "instruction": "movs r3, r5"
+      },
+      {
+        "address": "0x50bcb2",
+        "instruction": "adds r1, #0x32"
+      },
+      {
+        "address": "0x50bcb4",
+        "instruction": "movs r0, #0xf1"
+      },
+      {
+        "address": "0x50bcb6",
+        "instruction": "add r2, sp, #0xc"
+      },
+      {
+        "address": "0x50bcb8",
+        "instruction": "str r6, [sp]"
+      },
+      {
+        "address": "0x50bcba",
+        "instruction": "bl #0x42758e",
+        "direct_call": "0x42758e"
+      },
+      {
+        "address": "0x50bcbe",
+        "instruction": "ldr r0, [pc, #0x68]",
+        "literal_address": "0x50bd28",
+        "literal_value": "0xf50098"
+      },
+      {
+        "address": "0x50bcc0",
+        "instruction": "bl #0x5523de",
+        "direct_call": "0x5523de"
+      },
+      {
+        "address": "0x50bcc4",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x50bcc6",
+        "instruction": "bge #0x50bd04"
+      },
+      {
+        "address": "0x50bcc8",
+        "instruction": "movs r2, #0x51"
+      },
+      {
+        "address": "0x50bcca",
+        "instruction": "lsls r2, r2, #4"
+      },
+      {
+        "address": "0x50bccc",
+        "instruction": "adr r1, #0x5c",
+        "address_value": "0x50bd2c",
+        "string": "../../../private/protocols/avdtp/avdtp_l2cap.c"
+      },
+      {
+        "address": "0x50bcce",
+        "instruction": "adr r0, #0x8c",
+        "address_value": "0x50bd5c",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x50bcd0",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bcd4",
+        "instruction": "adr r0, #0xa0",
+        "address_value": "0x50bd78",
+        "string": "FAILED to Lock Mutex in AVDTP.\n"
+      },
+      {
+        "address": "0x50bcd6",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bcda",
+        "instruction": "ldr r0, [pc, #0xbc]",
+        "literal_address": "0x50bd98",
+        "literal_value": "0x2903"
+      },
+      {
+        "address": "0x50bcdc",
+        "instruction": "add sp, #0x1c"
+      },
+      {
+        "address": "0x50bcde",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x50bce0",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x50bce2",
+        "instruction": "bx r3"
+      },
+      {
+        "address": "0x50bce6",
+        "instruction": "ldrb r0, [r0, #6]"
+      },
+      {
+        "address": "0x50bce8",
+        "instruction": "movs r2, r6"
+      },
+      {
+        "address": "0x50bcea",
+        "instruction": "movs r1, r5"
+      },
+      {
+        "address": "0x50bcec",
+        "instruction": "bl #0x524398",
+        "direct_call": "0x524398"
+      },
+      {
+        "address": "0x50bcf0",
+        "instruction": "b #0x50bd04"
+      },
+      {
+        "address": "0x50bcf2",
+        "instruction": "ldr r2, [pc, #0xe8]",
+        "literal_address": "0x50bddc",
+        "literal_value": "0x527"
+      },
+      {
+        "address": "0x50bcf4",
+        "instruction": "adr r1, #0x34",
+        "address_value": "0x50bd2c",
+        "string": "../../../private/protocols/avdtp/avdtp_l2cap.c"
+      },
+      {
+        "address": "0x50bcf6",
+        "instruction": "adr r0, #0x64",
+        "address_value": "0x50bd5c",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x50bcf8",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bcfc",
+        "instruction": "movs r1, r4"
+      },
+      {
+        "address": "0x50bcfe",
+        "instruction": "adr r0, #0xe0",
+        "address_value": "0x50bde0",
+        "string": "[AVDTP] FAILED to Find LCID 0x%04X in LCID Entity\n"
+      },
+      {
+        "address": "0x50bd00",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bd04",
+        "instruction": "ldr r0, [pc, #0x20]",
+        "literal_address": "0x50bd28",
+        "literal_value": "0xf50098"
+      },
+      {
+        "address": "0x50bd06",
+        "instruction": "bl #0x5523fc",
+        "direct_call": "0x5523fc"
+      },
+      {
+        "address": "0x50bd0a",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x50bd0c",
+        "instruction": "bge #0x50bd22"
+      },
+      {
+        "address": "0x50bd0e",
+        "instruction": "ldr r2, [pc, #0x104]",
+        "literal_address": "0x50be14",
+        "literal_value": "0x52c"
+      },
+      {
+        "address": "0x50bd10",
+        "instruction": "adr r1, #0x18",
+        "address_value": "0x50bd2c",
+        "string": "../../../private/protocols/avdtp/avdtp_l2cap.c"
+      },
+      {
+        "address": "0x50bd12",
+        "instruction": "adr r0, #0x48",
+        "address_value": "0x50bd5c",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x50bd14",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bd18",
+        "instruction": "adr r0, #0x90",
+        "address_value": "0x50bdac",
+        "string": "FAILED to Unlock Mutex in AVDTP.\n"
+      },
+      {
+        "address": "0x50bd1a",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x50bd1e",
+        "instruction": "ldr r0, [pc, #0xb0]",
+        "literal_address": "0x50bdd0",
+        "literal_value": "0x2904"
+      },
+      {
+        "address": "0x50bd20",
+        "instruction": "b #0x50bcdc"
+      },
+      {
+        "address": "0x50bd22",
+        "instruction": "ldr r0, [sp, #0x18]"
+      },
+      {
+        "address": "0x50bd24",
+        "instruction": "b #0x50bcdc"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "lookup_instructions": {
+    "instructions": [
+      {
+        "address": "0x525138",
+        "instruction": "push {r4, lr}"
+      },
+      {
+        "address": "0x52513a",
+        "instruction": "ldr r2, [pc, #0x3c]",
+        "literal_address": "0x525178",
+        "literal_value": "0x3a88f50"
+      },
+      {
+        "address": "0x52513c",
+        "instruction": "movs r4, r0"
+      },
+      {
+        "address": "0x52513e",
+        "instruction": "movs r0, #0"
+      },
+      {
+        "address": "0x525140",
+        "instruction": "lsls r3, r0, #3"
+      },
+      {
+        "address": "0x525142",
+        "instruction": "ldrh r3, [r2, r3]"
+      },
+      {
+        "address": "0x525144",
+        "instruction": "cmp r3, r4"
+      },
+      {
+        "address": "0x525146",
+        "instruction": "bne #0x525152"
+      },
+      {
+        "address": "0x525148",
+        "instruction": "strb r0, [r1]"
+      },
+      {
+        "address": "0x52514a",
+        "instruction": "pop {r4}"
+      },
+      {
+        "address": "0x52514c",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x52514e",
+        "instruction": "movs r0, #0"
+      },
+      {
+        "address": "0x525150",
+        "instruction": "bx r3"
+      },
+      {
+        "address": "0x525152",
+        "instruction": "adds r0, r0, #1"
+      },
+      {
+        "address": "0x525154",
+        "instruction": "lsls r0, r0, #0x18"
+      },
+      {
+        "address": "0x525156",
+        "instruction": "lsrs r0, r0, #0x18"
+      },
+      {
+        "address": "0x525158",
+        "instruction": "cmp r0, #0xc"
+      },
+      {
+        "address": "0x52515a",
+        "instruction": "blo #0x525140"
+      },
+      {
+        "address": "0x52515c",
+        "instruction": "ldr r2, [pc, #0x1c]",
+        "literal_address": "0x52517c",
+        "literal_value": "0x24f"
+      },
+      {
+        "address": "0x52515e",
+        "instruction": "adr r1, #0x20",
+        "address_value": "0x525180",
+        "string": "../../../private/protocols/avdtp/avdtp_utils.c"
+      },
+      {
+        "address": "0x525160",
+        "instruction": "adr r0, #0x4c",
+        "address_value": "0x5251b0",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x525162",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x525166",
+        "instruction": "movs r1, r4"
+      },
+      {
+        "address": "0x525168",
+        "instruction": "adr r0, #0x60",
+        "address_value": "0x5251cc",
+        "string": "[AVDTP] FAILED to Find LCID Entity for L2CAP CID 0x%04X\n"
+      },
+      {
+        "address": "0x52516a",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x52516e",
+        "instruction": "pop {r4}"
+      },
+      {
+        "address": "0x525170",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x525172",
+        "instruction": "ldr r0, [pc, #0x94]",
+        "literal_address": "0x525208",
+        "literal_value": "0x2914"
+      },
+      {
+        "address": "0x525174",
+        "instruction": "bx r3"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "limitations": "Synthetic endpoint/channel/context RAM. Mutex and logger controlled; signalling/multiplex controls are stubbed. Real LCID lookup and BX R7 run unchanged. Raw packets reach only a capture callback; this does not prove live endpoint registration, negotiation, Bluetooth reception, SBC decoding or speaker playback."
+}

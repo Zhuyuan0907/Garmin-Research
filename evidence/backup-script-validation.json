@@ -1,0 +1,24 @@
+{
+  "prior_validation": {
+    "time": "2026-10-02T15:41:55.422115+00:00",
+    "type": "Synthetic integrity verification; no physical-device backup performed",
+    "checks": [
+      "Round-trip image bytes and independently verified SHA-256 match",
+      "Short source rejected; no completed image created",
+      "Vendor filter rejects non-Garmin sources"
+    ]
+  },
+  "empty_sd_regression": [
+    {
+      "case": "internal_and_empty_sd",
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "case": "only_empty_sd",
+      "returncode": 2,
+      "passed": true
+    }
+  ],
+  "scope": "Synthetic control-flow validation only. Actual device backup independently verified in backup manifest."
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "android-auto-proto-host-terminal-v1",
+  "actual_terminal_result": {
+    "chunk_id": "d17ba7",
+    "wall_time_seconds": 0.040881565,
+    "exit_code": 0,
+    "original_token_count": 274,
+    "output": "[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'f1x.aasdk.proto.messages.ServiceDiscoveryRequest.device_name' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. \n[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'f1x.aasdk.proto.messages.ServiceDiscoveryRequest.device_name' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. \n{\n  \"pass\": true,\n  \"ordinary_selftest\": {\n    \"categories\": 15,\n    \"assertions\": 37,\n    \"service_response_struct_bytes\": 6888,\n    \"service_response_max_encoded\": 8294,\n    \"success\": true\n  },\n  \"asan_ubsan_selftest\": {\n    \"categories\": 15,\n    \"assertions\": 37,\n    \"service_response_struct_bytes\": 6888,\n    \"service_response_max_encoded\": 8294,\n    \"success\": true\n  },\n  \"independent_runtime_case_count\": 127,\n  \"observed_semantic_limits\": 4,\n  \"proof\": \"evidence/android-auto-proto-host-v1.json\",\n  \"proof_sha256\": \"dd9e7cf6114d9328eff7c23d707d22475e5b09355f06e7e65f383962020d6696\"\n}\n"
+  },
+  "operation": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_aa_proto_host.py",
+  "scope": "ordinary Linux host only; expected independent Python invalid UTF-8 diagnostics correspond to rejection fixtures; no original Garmin/guest/device",
+  "prior_actual_test_completion": {
+    "chunk_id": "fb0652",
+    "exit_code": 0,
+    "scope": "earlier passing same host suite before additional generated Python/generator source pins"
+  }
+}

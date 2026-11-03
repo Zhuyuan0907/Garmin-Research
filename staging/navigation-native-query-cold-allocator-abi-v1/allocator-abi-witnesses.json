@@ -1,0 +1,3087 @@
+{
+  "schema": "garmin-native-query-cold-allocator-five-witnesses/v1",
+  "witness_count": 5,
+  "witnesses": [
+    {
+      "id": "W1",
+      "name": "True mixed-mode mutex and current-task ABI",
+      "source": [
+        {
+          "start": 3148192,
+          "end_exclusive": 3148304,
+          "bytes": 112,
+          "hex": "00b581b000a3184700100fe1803081e303f021e101308fe213ff2fe10091134a1268816800290ad1002382602032116801604260106000290bd0486009e08a4204d1838a01338382002302e000f08cf9031c009900a2104701f02fe101208fe212ff2fe1181c01b008bc18479090f000",
+          "sha256": "446fa91c739a364cbd41f6281ece892697623f7baef2af74c6c10daa4887fa75",
+          "instructions": [
+            {
+              "address": 3148192,
+              "mode": "thumb",
+              "hex": "00b5",
+              "mnemonic": "push",
+              "operands": "{lr}"
+            },
+            {
+              "address": 3148194,
+              "mode": "thumb",
+              "hex": "81b0",
+              "mnemonic": "sub",
+              "operands": "sp, #4"
+            },
+            {
+              "address": 3148196,
+              "mode": "thumb",
+              "hex": "00a3",
+              "mnemonic": "adr",
+              "operands": "r3, #0"
+            },
+            {
+              "address": 3148198,
+              "mode": "thumb",
+              "hex": "1847",
+              "mnemonic": "bx",
+              "operands": "r3"
+            },
+            {
+              "address": 3148200,
+              "mode": "arm",
+              "hex": "00100fe1",
+              "mnemonic": "mrs",
+              "operands": "r1, apsr"
+            },
+            {
+              "address": 3148204,
+              "mode": "arm",
+              "hex": "803081e3",
+              "mnemonic": "orr",
+              "operands": "r3, r1, #0x80"
+            },
+            {
+              "address": 3148208,
+              "mode": "arm",
+              "hex": "03f021e1",
+              "mnemonic": "msr",
+              "operands": "cpsr_c, r3"
+            },
+            {
+              "address": 3148212,
+              "mode": "arm",
+              "hex": "01308fe2",
+              "mnemonic": "add",
+              "operands": "r3, pc, #1"
+            },
+            {
+              "address": 3148216,
+              "mode": "arm",
+              "hex": "13ff2fe1",
+              "mnemonic": "bx",
+              "operands": "r3"
+            },
+            {
+              "address": 3148220,
+              "mode": "thumb",
+              "hex": "0091",
+              "mnemonic": "str",
+              "operands": "r1, [sp]"
+            },
+            {
+              "address": 3148222,
+              "mode": "thumb",
+              "hex": "134a",
+              "mnemonic": "ldr",
+              "operands": "r2, [pc, #0x4c]"
+            },
+            {
+              "address": 3148224,
+              "mode": "thumb",
+              "hex": "1268",
+              "mnemonic": "ldr",
+              "operands": "r2, [r2]"
+            },
+            {
+              "address": 3148226,
+              "mode": "thumb",
+              "hex": "8168",
+              "mnemonic": "ldr",
+              "operands": "r1, [r0, #8]"
+            },
+            {
+              "address": 3148228,
+              "mode": "thumb",
+              "hex": "0029",
+              "mnemonic": "cmp",
+              "operands": "r1, #0"
+            },
+            {
+              "address": 3148230,
+              "mode": "thumb",
+              "hex": "0ad1",
+              "mnemonic": "bne",
+              "operands": "#0x3009de"
+            },
+            {
+              "address": 3148232,
+              "mode": "thumb",
+              "hex": "0023",
+              "mnemonic": "movs",
+              "operands": "r3, #0"
+            },
+            {
+              "address": 3148234,
+              "mode": "thumb",
+              "hex": "8260",
+              "mnemonic": "str",
+              "operands": "r2, [r0, #8]"
+            },
+            {
+              "address": 3148236,
+              "mode": "thumb",
+              "hex": "2032",
+              "mnemonic": "adds",
+              "operands": "r2, #0x20"
+            },
+            {
+              "address": 3148238,
+              "mode": "thumb",
+              "hex": "1168",
+              "mnemonic": "ldr",
+              "operands": "r1, [r2]"
+            },
+            {
+              "address": 3148240,
+              "mode": "thumb",
+              "hex": "0160",
+              "mnemonic": "str",
+              "operands": "r1, [r0]"
+            },
+            {
+              "address": 3148242,
+              "mode": "thumb",
+              "hex": "4260",
+              "mnemonic": "str",
+              "operands": "r2, [r0, #4]"
+            },
+            {
+              "address": 3148244,
+              "mode": "thumb",
+              "hex": "1060",
+              "mnemonic": "str",
+              "operands": "r0, [r2]"
+            },
+            {
+              "address": 3148246,
+              "mode": "thumb",
+              "hex": "0029",
+              "mnemonic": "cmp",
+              "operands": "r1, #0"
+            },
+            {
+              "address": 3148248,
+              "mode": "thumb",
+              "hex": "0bd0",
+              "mnemonic": "beq",
+              "operands": "#0x3009f2"
+            },
+            {
+              "address": 3148250,
+              "mode": "thumb",
+              "hex": "4860",
+              "mnemonic": "str",
+              "operands": "r0, [r1, #4]"
+            },
+            {
+              "address": 3148252,
+              "mode": "thumb",
+              "hex": "09e0",
+              "mnemonic": "b",
+              "operands": "#0x3009f2"
+            },
+            {
+              "address": 3148254,
+              "mode": "thumb",
+              "hex": "8a42",
+              "mnemonic": "cmp",
+              "operands": "r2, r1"
+            },
+            {
+              "address": 3148256,
+              "mode": "thumb",
+              "hex": "04d1",
+              "mnemonic": "bne",
+              "operands": "#0x3009ec"
+            },
+            {
+              "address": 3148258,
+              "mode": "thumb",
+              "hex": "838a",
+              "mnemonic": "ldrh",
+              "operands": "r3, [r0, #0x14]"
+            },
+            {
+              "address": 3148260,
+              "mode": "thumb",
+              "hex": "0133",
+              "mnemonic": "adds",
+              "operands": "r3, #1"
+            },
+            {
+              "address": 3148262,
+              "mode": "thumb",
+              "hex": "8382",
+              "mnemonic": "strh",
+              "operands": "r3, [r0, #0x14]"
+            },
+            {
+              "address": 3148264,
+              "mode": "thumb",
+              "hex": "0023",
+              "mnemonic": "movs",
+              "operands": "r3, #0"
+            },
+            {
+              "address": 3148266,
+              "mode": "thumb",
+              "hex": "02e0",
+              "mnemonic": "b",
+              "operands": "#0x3009f2"
+            },
+            {
+              "address": 3148268,
+              "mode": "thumb",
+              "hex": "00f08cf9",
+              "mnemonic": "bl",
+              "operands": "#0x300d08"
+            },
+            {
+              "address": 3148272,
+              "mode": "thumb",
+              "hex": "031c",
+              "mnemonic": "adds",
+              "operands": "r3, r0, #0"
+            },
+            {
+              "address": 3148274,
+              "mode": "thumb",
+              "hex": "0099",
+              "mnemonic": "ldr",
+              "operands": "r1, [sp]"
+            },
+            {
+              "address": 3148276,
+              "mode": "thumb",
+              "hex": "00a2",
+              "mnemonic": "adr",
+              "operands": "r2, #0"
+            },
+            {
+              "address": 3148278,
+              "mode": "thumb",
+              "hex": "1047",
+              "mnemonic": "bx",
+              "operands": "r2"
+            },
+            {
+              "address": 3148280,
+              "mode": "arm",
+              "hex": "01f02fe1",
+              "mnemonic": "msr",
+              "operands": "cpsr_fsxc, r1"
+            },
+            {
+              "address": 3148284,
+              "mode": "arm",
+              "hex": "01208fe2",
+              "mnemonic": "add",
+              "operands": "r2, pc, #1"
+            },
+            {
+              "address": 3148288,
+              "mode": "arm",
+              "hex": "12ff2fe1",
+              "mnemonic": "bx",
+              "operands": "r2"
+            },
+            {
+              "address": 3148292,
+              "mode": "thumb",
+              "hex": "181c",
+              "mnemonic": "adds",
+              "operands": "r0, r3, #0"
+            },
+            {
+              "address": 3148294,
+              "mode": "thumb",
+              "hex": "01b0",
+              "mnemonic": "add",
+              "operands": "sp, #4"
+            },
+            {
+              "address": 3148296,
+              "mode": "thumb",
+              "hex": "08bc",
+              "mnemonic": "pop",
+              "operands": "{r3}"
+            },
+            {
+              "address": 3148298,
+              "mode": "thumb",
+              "hex": "1847",
+              "mnemonic": "bx",
+              "operands": "r3"
+            }
+          ]
+        }
+      ],
+      "interpretation": {
+        "current_task_word": "F09090",
+        "unowned_path": "Mutex+8=TCB, mutex+0=oldTCBownedhead, mutex+4=TCB+20, TCB+20=mutex; oldheadprevupdatedifpresent",
+        "recursive_path": "Sameownerincrementsu16+14",
+        "contention_path": "3009EC→300D08;notexecuted/covered",
+        "IRQ": "ActualARM MRS/MSR disablesIbittemporarily; restorescapturedcontrolbits;ThumbreturnMOVSmodifiesNZflagslegally",
+        "actual_return_r0": 0,
+        "actual_return_CPSR": 1073741887,
+        "actual_uncontended_only": true
+      }
+    },
+    {
+      "id": "W2",
+      "name": "Actual kernel mutex initializer",
+      "source": [
+        {
+          "start": 3147936,
+          "end_exclusive": 3147952,
+          "bytes": 16,
+          "hex": "0021016041608160c160016141617047",
+          "sha256": "31306309c3e2f9678c13ceccb48a8c67d79f311047c09f1057b85d4a5ebce67b",
+          "instructions": [
+            {
+              "address": 3147936,
+              "mode": "thumb",
+              "hex": "0021",
+              "mnemonic": "movs",
+              "operands": "r1, #0"
+            },
+            {
+              "address": 3147938,
+              "mode": "thumb",
+              "hex": "0160",
+              "mnemonic": "str",
+              "operands": "r1, [r0]"
+            },
+            {
+              "address": 3147940,
+              "mode": "thumb",
+              "hex": "4160",
+              "mnemonic": "str",
+              "operands": "r1, [r0, #4]"
+            },
+            {
+              "address": 3147942,
+              "mode": "thumb",
+              "hex": "8160",
+              "mnemonic": "str",
+              "operands": "r1, [r0, #8]"
+            },
+            {
+              "address": 3147944,
+              "mode": "thumb",
+              "hex": "c160",
+              "mnemonic": "str",
+              "operands": "r1, [r0, #0xc]"
+            },
+            {
+              "address": 3147946,
+              "mode": "thumb",
+              "hex": "0161",
+              "mnemonic": "str",
+              "operands": "r1, [r0, #0x10]"
+            },
+            {
+              "address": 3147948,
+              "mode": "thumb",
+              "hex": "4161",
+              "mnemonic": "str",
+              "operands": "r1, [r0, #0x14]"
+            },
+            {
+              "address": 3147950,
+              "mode": "thumb",
+              "hex": "7047",
+              "mnemonic": "bx",
+              "operands": "lr"
+            }
+          ]
+        }
+      ],
+      "interpretation": {
+        "ABI": "r0=24Bmutexinstance; sixnativezero stores at0/4/8/C/10/14",
+        "actual_instructions": 8,
+        "manual_success_return": false,
+        "full_heap_tag_header_listener_constructor_executed": false
+      }
+    },
+    {
+      "id": "W3",
+      "name": "Wrapper and allocator heap-context prerequisites",
+      "source": [
+        {
+          "start": 3704124,
+          "end_exclusive": 3704174,
+          "bytes": 50,
+          "hex": "f8b50500d448059c0e001700009078f729facf482300c5653a0031002800fff72ffe0400009878f7a5f92000f8bc08bc1847",
+          "sha256": "6dd14145a6ce5357318a2fea7321a320c2a959a306fe49917a766de19d537b27",
+          "instructions": [
+            {
+              "address": 3704124,
+              "mode": "thumb",
+              "hex": "f8b5",
+              "mnemonic": "push",
+              "operands": "{r3, r4, r5, r6, r7, lr}"
+            },
+            {
+              "address": 3704126,
+              "mode": "thumb",
+              "hex": "0500",
+              "mnemonic": "movs",
+              "operands": "r5, r0"
+            },
+            {
+              "address": 3704128,
+              "mode": "thumb",
+              "hex": "d448",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x350]"
+            },
+            {
+              "address": 3704130,
+              "mode": "thumb",
+              "hex": "059c",
+              "mnemonic": "ldr",
+              "operands": "r4, [sp, #0x14]"
+            },
+            {
+              "address": 3704132,
+              "mode": "thumb",
+              "hex": "0e00",
+              "mnemonic": "movs",
+              "operands": "r6, r1"
+            },
+            {
+              "address": 3704134,
+              "mode": "thumb",
+              "hex": "1700",
+              "mnemonic": "movs",
+              "operands": "r7, r2"
+            },
+            {
+              "address": 3704136,
+              "mode": "thumb",
+              "hex": "0090",
+              "mnemonic": "str",
+              "operands": "r0, [sp]"
+            },
+            {
+              "address": 3704138,
+              "mode": "thumb",
+              "hex": "78f729fa",
+              "mnemonic": "bl",
+              "operands": "#0x3009a0"
+            },
+            {
+              "address": 3704142,
+              "mode": "thumb",
+              "hex": "cf48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x33c]"
+            },
+            {
+              "address": 3704144,
+              "mode": "thumb",
+              "hex": "2300",
+              "mnemonic": "movs",
+              "operands": "r3, r4"
+            },
+            {
+              "address": 3704146,
+              "mode": "thumb",
+              "hex": "c565",
+              "mnemonic": "str",
+              "operands": "r5, [r0, #0x5c]"
+            },
+            {
+              "address": 3704148,
+              "mode": "thumb",
+              "hex": "3a00",
+              "mnemonic": "movs",
+              "operands": "r2, r7"
+            },
+            {
+              "address": 3704150,
+              "mode": "thumb",
+              "hex": "3100",
+              "mnemonic": "movs",
+              "operands": "r1, r6"
+            },
+            {
+              "address": 3704152,
+              "mode": "thumb",
+              "hex": "2800",
+              "mnemonic": "movs",
+              "operands": "r0, r5"
+            },
+            {
+              "address": 3704154,
+              "mode": "thumb",
+              "hex": "fff72ffe",
+              "mnemonic": "bl",
+              "operands": "#0x3881bc"
+            },
+            {
+              "address": 3704158,
+              "mode": "thumb",
+              "hex": "0400",
+              "mnemonic": "movs",
+              "operands": "r4, r0"
+            },
+            {
+              "address": 3704160,
+              "mode": "thumb",
+              "hex": "0098",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp]"
+            },
+            {
+              "address": 3704162,
+              "mode": "thumb",
+              "hex": "78f7a5f9",
+              "mnemonic": "bl",
+              "operands": "#0x3008b0"
+            },
+            {
+              "address": 3704166,
+              "mode": "thumb",
+              "hex": "2000",
+              "mnemonic": "movs",
+              "operands": "r0, r4"
+            },
+            {
+              "address": 3704168,
+              "mode": "thumb",
+              "hex": "f8bc",
+              "mnemonic": "pop",
+              "operands": "{r3, r4, r5, r6, r7}"
+            },
+            {
+              "address": 3704170,
+              "mode": "thumb",
+              "hex": "08bc",
+              "mnemonic": "pop",
+              "operands": "{r3}"
+            },
+            {
+              "address": 3704172,
+              "mode": "thumb",
+              "hex": "1847",
+              "mnemonic": "bx",
+              "operands": "r3"
+            }
+          ]
+        },
+        {
+          "start": 3703228,
+          "end_exclusive": 3703510,
+          "bytes": 282,
+          "hex": "ffb5040085b00798002802d00021016007e00698c00704d0a748089a0121b5f685faa34d082c01d2082408e0a348844205d9eb6d9f48089a0221b5f677fa9c48406b8000001941424907490f0d18280089f67eef052802d22900002410e00127401f39008140491e684201404e19300089f66eef87407740421f3900d140041f8b48a200083200238069db431e0082588e40324001d010002fe0641c4068a340834e184022d1280089f652ef052802d22900002005e0012181406940421fd140001fb2694001926f40188000145800e06469002c1ad0a06861684068c908c008c000c900401aa842f2d30fe089f622ff0400b16980000830085889f61bff6c49620189691018896f80000c5806984007002c04902fd1800f0228",
+          "sha256": "1a8e040d2b683ebc0379aa2a78d58c86bdb0425f42a91cbef04e6b99b2aea3ff",
+          "instructions": [
+            {
+              "address": 3703228,
+              "mode": "thumb",
+              "hex": "ffb5",
+              "mnemonic": "push",
+              "operands": "{r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+            },
+            {
+              "address": 3703230,
+              "mode": "thumb",
+              "hex": "0400",
+              "mnemonic": "movs",
+              "operands": "r4, r0"
+            },
+            {
+              "address": 3703232,
+              "mode": "thumb",
+              "hex": "85b0",
+              "mnemonic": "sub",
+              "operands": "sp, #0x14"
+            },
+            {
+              "address": 3703234,
+              "mode": "thumb",
+              "hex": "0798",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x1c]"
+            },
+            {
+              "address": 3703236,
+              "mode": "thumb",
+              "hex": "0028",
+              "mnemonic": "cmp",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3703238,
+              "mode": "thumb",
+              "hex": "02d0",
+              "mnemonic": "beq",
+              "operands": "#0x3881ce"
+            },
+            {
+              "address": 3703240,
+              "mode": "thumb",
+              "hex": "0021",
+              "mnemonic": "movs",
+              "operands": "r1, #0"
+            },
+            {
+              "address": 3703242,
+              "mode": "thumb",
+              "hex": "0160",
+              "mnemonic": "str",
+              "operands": "r1, [r0]"
+            },
+            {
+              "address": 3703244,
+              "mode": "thumb",
+              "hex": "07e0",
+              "mnemonic": "b",
+              "operands": "#0x3881de"
+            },
+            {
+              "address": 3703246,
+              "mode": "thumb",
+              "hex": "0698",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x18]"
+            },
+            {
+              "address": 3703248,
+              "mode": "thumb",
+              "hex": "c007",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #0x1f"
+            },
+            {
+              "address": 3703250,
+              "mode": "thumb",
+              "hex": "04d0",
+              "mnemonic": "beq",
+              "operands": "#0x3881de"
+            },
+            {
+              "address": 3703252,
+              "mode": "thumb",
+              "hex": "a748",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x29c]"
+            },
+            {
+              "address": 3703254,
+              "mode": "thumb",
+              "hex": "089a",
+              "mnemonic": "ldr",
+              "operands": "r2, [sp, #0x20]"
+            },
+            {
+              "address": 3703256,
+              "mode": "thumb",
+              "hex": "0121",
+              "mnemonic": "movs",
+              "operands": "r1, #1"
+            },
+            {
+              "address": 3703258,
+              "mode": "thumb",
+              "hex": "b5f685fa",
+              "mnemonic": "bl",
+              "operands": "#0x23d6e8"
+            },
+            {
+              "address": 3703262,
+              "mode": "thumb",
+              "hex": "a34d",
+              "mnemonic": "ldr",
+              "operands": "r5, [pc, #0x28c]"
+            },
+            {
+              "address": 3703264,
+              "mode": "thumb",
+              "hex": "082c",
+              "mnemonic": "cmp",
+              "operands": "r4, #8"
+            },
+            {
+              "address": 3703266,
+              "mode": "thumb",
+              "hex": "01d2",
+              "mnemonic": "bhs",
+              "operands": "#0x3881e8"
+            },
+            {
+              "address": 3703268,
+              "mode": "thumb",
+              "hex": "0824",
+              "mnemonic": "movs",
+              "operands": "r4, #8"
+            },
+            {
+              "address": 3703270,
+              "mode": "thumb",
+              "hex": "08e0",
+              "mnemonic": "b",
+              "operands": "#0x3881fa"
+            },
+            {
+              "address": 3703272,
+              "mode": "thumb",
+              "hex": "a348",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x28c]"
+            },
+            {
+              "address": 3703274,
+              "mode": "thumb",
+              "hex": "8442",
+              "mnemonic": "cmp",
+              "operands": "r4, r0"
+            },
+            {
+              "address": 3703276,
+              "mode": "thumb",
+              "hex": "05d9",
+              "mnemonic": "bls",
+              "operands": "#0x3881fa"
+            },
+            {
+              "address": 3703278,
+              "mode": "thumb",
+              "hex": "eb6d",
+              "mnemonic": "ldr",
+              "operands": "r3, [r5, #0x5c]"
+            },
+            {
+              "address": 3703280,
+              "mode": "thumb",
+              "hex": "9f48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x27c]"
+            },
+            {
+              "address": 3703282,
+              "mode": "thumb",
+              "hex": "089a",
+              "mnemonic": "ldr",
+              "operands": "r2, [sp, #0x20]"
+            },
+            {
+              "address": 3703284,
+              "mode": "thumb",
+              "hex": "0221",
+              "mnemonic": "movs",
+              "operands": "r1, #2"
+            },
+            {
+              "address": 3703286,
+              "mode": "thumb",
+              "hex": "b5f677fa",
+              "mnemonic": "bl",
+              "operands": "#0x23d6e8"
+            },
+            {
+              "address": 3703290,
+              "mode": "thumb",
+              "hex": "9c48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x270]"
+            },
+            {
+              "address": 3703292,
+              "mode": "thumb",
+              "hex": "406b",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, #0x34]"
+            },
+            {
+              "address": 3703294,
+              "mode": "thumb",
+              "hex": "8000",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #2"
+            },
+            {
+              "address": 3703296,
+              "mode": "thumb",
+              "hex": "0019",
+              "mnemonic": "adds",
+              "operands": "r0, r0, r4"
+            },
+            {
+              "address": 3703298,
+              "mode": "thumb",
+              "hex": "4142",
+              "mnemonic": "rsbs",
+              "operands": "r1, r0, #0"
+            },
+            {
+              "address": 3703300,
+              "mode": "thumb",
+              "hex": "4907",
+              "mnemonic": "lsls",
+              "operands": "r1, r1, #0x1d"
+            },
+            {
+              "address": 3703302,
+              "mode": "thumb",
+              "hex": "490f",
+              "mnemonic": "lsrs",
+              "operands": "r1, r1, #0x1d"
+            },
+            {
+              "address": 3703304,
+              "mode": "thumb",
+              "hex": "0d18",
+              "mnemonic": "adds",
+              "operands": "r5, r1, r0"
+            },
+            {
+              "address": 3703306,
+              "mode": "thumb",
+              "hex": "2800",
+              "mnemonic": "movs",
+              "operands": "r0, r5"
+            },
+            {
+              "address": 3703308,
+              "mode": "thumb",
+              "hex": "89f67eef",
+              "mnemonic": "blx",
+              "operands": "#0x21210c"
+            },
+            {
+              "address": 3703312,
+              "mode": "thumb",
+              "hex": "0528",
+              "mnemonic": "cmp",
+              "operands": "r0, #5"
+            },
+            {
+              "address": 3703314,
+              "mode": "thumb",
+              "hex": "02d2",
+              "mnemonic": "bhs",
+              "operands": "#0x38821a"
+            },
+            {
+              "address": 3703316,
+              "mode": "thumb",
+              "hex": "2900",
+              "mnemonic": "movs",
+              "operands": "r1, r5"
+            },
+            {
+              "address": 3703318,
+              "mode": "thumb",
+              "hex": "0024",
+              "mnemonic": "movs",
+              "operands": "r4, #0"
+            },
+            {
+              "address": 3703320,
+              "mode": "thumb",
+              "hex": "10e0",
+              "mnemonic": "b",
+              "operands": "#0x38823c"
+            },
+            {
+              "address": 3703322,
+              "mode": "thumb",
+              "hex": "0127",
+              "mnemonic": "movs",
+              "operands": "r7, #1"
+            },
+            {
+              "address": 3703324,
+              "mode": "thumb",
+              "hex": "401f",
+              "mnemonic": "subs",
+              "operands": "r0, r0, #5"
+            },
+            {
+              "address": 3703326,
+              "mode": "thumb",
+              "hex": "3900",
+              "mnemonic": "movs",
+              "operands": "r1, r7"
+            },
+            {
+              "address": 3703328,
+              "mode": "thumb",
+              "hex": "8140",
+              "mnemonic": "lsls",
+              "operands": "r1, r0"
+            },
+            {
+              "address": 3703330,
+              "mode": "thumb",
+              "hex": "491e",
+              "mnemonic": "subs",
+              "operands": "r1, r1, #1"
+            },
+            {
+              "address": 3703332,
+              "mode": "thumb",
+              "hex": "6842",
+              "mnemonic": "rsbs",
+              "operands": "r0, r5, #0"
+            },
+            {
+              "address": 3703334,
+              "mode": "thumb",
+              "hex": "0140",
+              "mnemonic": "ands",
+              "operands": "r1, r0"
+            },
+            {
+              "address": 3703336,
+              "mode": "thumb",
+              "hex": "4e19",
+              "mnemonic": "adds",
+              "operands": "r6, r1, r5"
+            },
+            {
+              "address": 3703338,
+              "mode": "thumb",
+              "hex": "3000",
+              "mnemonic": "movs",
+              "operands": "r0, r6"
+            },
+            {
+              "address": 3703340,
+              "mode": "thumb",
+              "hex": "89f66eef",
+              "mnemonic": "blx",
+              "operands": "#0x21210c"
+            },
+            {
+              "address": 3703344,
+              "mode": "thumb",
+              "hex": "8740",
+              "mnemonic": "lsls",
+              "operands": "r7, r0"
+            },
+            {
+              "address": 3703346,
+              "mode": "thumb",
+              "hex": "7740",
+              "mnemonic": "eors",
+              "operands": "r7, r6"
+            },
+            {
+              "address": 3703348,
+              "mode": "thumb",
+              "hex": "421f",
+              "mnemonic": "subs",
+              "operands": "r2, r0, #5"
+            },
+            {
+              "address": 3703350,
+              "mode": "thumb",
+              "hex": "3900",
+              "mnemonic": "movs",
+              "operands": "r1, r7"
+            },
+            {
+              "address": 3703352,
+              "mode": "thumb",
+              "hex": "d140",
+              "mnemonic": "lsrs",
+              "operands": "r1, r2"
+            },
+            {
+              "address": 3703354,
+              "mode": "thumb",
+              "hex": "041f",
+              "mnemonic": "subs",
+              "operands": "r4, r0, #4"
+            },
+            {
+              "address": 3703356,
+              "mode": "thumb",
+              "hex": "8b48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x22c]"
+            },
+            {
+              "address": 3703358,
+              "mode": "thumb",
+              "hex": "a200",
+              "mnemonic": "lsls",
+              "operands": "r2, r4, #2"
+            },
+            {
+              "address": 3703360,
+              "mode": "thumb",
+              "hex": "0832",
+              "mnemonic": "adds",
+              "operands": "r2, #8"
+            },
+            {
+              "address": 3703362,
+              "mode": "thumb",
+              "hex": "0023",
+              "mnemonic": "movs",
+              "operands": "r3, #0"
+            },
+            {
+              "address": 3703364,
+              "mode": "thumb",
+              "hex": "8069",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, #0x18]"
+            },
+            {
+              "address": 3703366,
+              "mode": "thumb",
+              "hex": "db43",
+              "mnemonic": "mvns",
+              "operands": "r3, r3"
+            },
+            {
+              "address": 3703368,
+              "mode": "thumb",
+              "hex": "1e00",
+              "mnemonic": "movs",
+              "operands": "r6, r3"
+            },
+            {
+              "address": 3703370,
+              "mode": "thumb",
+              "hex": "8258",
+              "mnemonic": "ldr",
+              "operands": "r2, [r0, r2]"
+            },
+            {
+              "address": 3703372,
+              "mode": "thumb",
+              "hex": "8e40",
+              "mnemonic": "lsls",
+              "operands": "r6, r1"
+            },
+            {
+              "address": 3703374,
+              "mode": "thumb",
+              "hex": "3240",
+              "mnemonic": "ands",
+              "operands": "r2, r6"
+            },
+            {
+              "address": 3703376,
+              "mode": "thumb",
+              "hex": "01d0",
+              "mnemonic": "beq",
+              "operands": "#0x388256"
+            },
+            {
+              "address": 3703378,
+              "mode": "thumb",
+              "hex": "1000",
+              "mnemonic": "movs",
+              "operands": "r0, r2"
+            },
+            {
+              "address": 3703380,
+              "mode": "thumb",
+              "hex": "2fe0",
+              "mnemonic": "b",
+              "operands": "#0x3882b6"
+            },
+            {
+              "address": 3703382,
+              "mode": "thumb",
+              "hex": "641c",
+              "mnemonic": "adds",
+              "operands": "r4, r4, #1"
+            },
+            {
+              "address": 3703384,
+              "mode": "thumb",
+              "hex": "4068",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, #4]"
+            },
+            {
+              "address": 3703386,
+              "mode": "thumb",
+              "hex": "a340",
+              "mnemonic": "lsls",
+              "operands": "r3, r4"
+            },
+            {
+              "address": 3703388,
+              "mode": "thumb",
+              "hex": "834e",
+              "mnemonic": "ldr",
+              "operands": "r6, [pc, #0x20c]"
+            },
+            {
+              "address": 3703390,
+              "mode": "thumb",
+              "hex": "1840",
+              "mnemonic": "ands",
+              "operands": "r0, r3"
+            },
+            {
+              "address": 3703392,
+              "mode": "thumb",
+              "hex": "22d1",
+              "mnemonic": "bne",
+              "operands": "#0x3882a8"
+            },
+            {
+              "address": 3703394,
+              "mode": "thumb",
+              "hex": "2800",
+              "mnemonic": "movs",
+              "operands": "r0, r5"
+            },
+            {
+              "address": 3703396,
+              "mode": "thumb",
+              "hex": "89f652ef",
+              "mnemonic": "blx",
+              "operands": "#0x21210c"
+            },
+            {
+              "address": 3703400,
+              "mode": "thumb",
+              "hex": "0528",
+              "mnemonic": "cmp",
+              "operands": "r0, #5"
+            },
+            {
+              "address": 3703402,
+              "mode": "thumb",
+              "hex": "02d2",
+              "mnemonic": "bhs",
+              "operands": "#0x388272"
+            },
+            {
+              "address": 3703404,
+              "mode": "thumb",
+              "hex": "2900",
+              "mnemonic": "movs",
+              "operands": "r1, r5"
+            },
+            {
+              "address": 3703406,
+              "mode": "thumb",
+              "hex": "0020",
+              "mnemonic": "movs",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3703408,
+              "mode": "thumb",
+              "hex": "05e0",
+              "mnemonic": "b",
+              "operands": "#0x38827e"
+            },
+            {
+              "address": 3703410,
+              "mode": "thumb",
+              "hex": "0121",
+              "mnemonic": "movs",
+              "operands": "r1, #1"
+            },
+            {
+              "address": 3703412,
+              "mode": "thumb",
+              "hex": "8140",
+              "mnemonic": "lsls",
+              "operands": "r1, r0"
+            },
+            {
+              "address": 3703414,
+              "mode": "thumb",
+              "hex": "6940",
+              "mnemonic": "eors",
+              "operands": "r1, r5"
+            },
+            {
+              "address": 3703416,
+              "mode": "thumb",
+              "hex": "421f",
+              "mnemonic": "subs",
+              "operands": "r2, r0, #5"
+            },
+            {
+              "address": 3703418,
+              "mode": "thumb",
+              "hex": "d140",
+              "mnemonic": "lsrs",
+              "operands": "r1, r2"
+            },
+            {
+              "address": 3703420,
+              "mode": "thumb",
+              "hex": "001f",
+              "mnemonic": "subs",
+              "operands": "r0, r0, #4"
+            },
+            {
+              "address": 3703422,
+              "mode": "thumb",
+              "hex": "b269",
+              "mnemonic": "ldr",
+              "operands": "r2, [r6, #0x18]"
+            },
+            {
+              "address": 3703424,
+              "mode": "thumb",
+              "hex": "4001",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #5"
+            },
+            {
+              "address": 3703426,
+              "mode": "thumb",
+              "hex": "926f",
+              "mnemonic": "ldr",
+              "operands": "r2, [r2, #0x78]"
+            },
+            {
+              "address": 3703428,
+              "mode": "thumb",
+              "hex": "4018",
+              "mnemonic": "adds",
+              "operands": "r0, r0, r1"
+            },
+            {
+              "address": 3703430,
+              "mode": "thumb",
+              "hex": "8000",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #2"
+            },
+            {
+              "address": 3703432,
+              "mode": "thumb",
+              "hex": "1458",
+              "mnemonic": "ldr",
+              "operands": "r4, [r2, r0]"
+            },
+            {
+              "address": 3703434,
+              "mode": "thumb",
+              "hex": "00e0",
+              "mnemonic": "b",
+              "operands": "#0x38828e"
+            },
+            {
+              "address": 3703436,
+              "mode": "thumb",
+              "hex": "6469",
+              "mnemonic": "ldr",
+              "operands": "r4, [r4, #0x14]"
+            },
+            {
+              "address": 3703438,
+              "mode": "thumb",
+              "hex": "002c",
+              "mnemonic": "cmp",
+              "operands": "r4, #0"
+            },
+            {
+              "address": 3703440,
+              "mode": "thumb",
+              "hex": "1ad0",
+              "mnemonic": "beq",
+              "operands": "#0x3882c8"
+            },
+            {
+              "address": 3703442,
+              "mode": "thumb",
+              "hex": "a068",
+              "mnemonic": "ldr",
+              "operands": "r0, [r4, #8]"
+            },
+            {
+              "address": 3703444,
+              "mode": "thumb",
+              "hex": "6168",
+              "mnemonic": "ldr",
+              "operands": "r1, [r4, #4]"
+            },
+            {
+              "address": 3703446,
+              "mode": "thumb",
+              "hex": "4068",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, #4]"
+            },
+            {
+              "address": 3703448,
+              "mode": "thumb",
+              "hex": "c908",
+              "mnemonic": "lsrs",
+              "operands": "r1, r1, #3"
+            },
+            {
+              "address": 3703450,
+              "mode": "thumb",
+              "hex": "c008",
+              "mnemonic": "lsrs",
+              "operands": "r0, r0, #3"
+            },
+            {
+              "address": 3703452,
+              "mode": "thumb",
+              "hex": "c000",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #3"
+            },
+            {
+              "address": 3703454,
+              "mode": "thumb",
+              "hex": "c900",
+              "mnemonic": "lsls",
+              "operands": "r1, r1, #3"
+            },
+            {
+              "address": 3703456,
+              "mode": "thumb",
+              "hex": "401a",
+              "mnemonic": "subs",
+              "operands": "r0, r0, r1"
+            },
+            {
+              "address": 3703458,
+              "mode": "thumb",
+              "hex": "a842",
+              "mnemonic": "cmp",
+              "operands": "r0, r5"
+            },
+            {
+              "address": 3703460,
+              "mode": "thumb",
+              "hex": "f2d3",
+              "mnemonic": "blo",
+              "operands": "#0x38828c"
+            },
+            {
+              "address": 3703462,
+              "mode": "thumb",
+              "hex": "0fe0",
+              "mnemonic": "b",
+              "operands": "#0x3882c8"
+            },
+            {
+              "address": 3703464,
+              "mode": "thumb",
+              "hex": "89f622ff",
+              "mnemonic": "bl",
+              "operands": "#0x2120f0"
+            },
+            {
+              "address": 3703468,
+              "mode": "thumb",
+              "hex": "0400",
+              "mnemonic": "movs",
+              "operands": "r4, r0"
+            },
+            {
+              "address": 3703470,
+              "mode": "thumb",
+              "hex": "b169",
+              "mnemonic": "ldr",
+              "operands": "r1, [r6, #0x18]"
+            },
+            {
+              "address": 3703472,
+              "mode": "thumb",
+              "hex": "8000",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #2"
+            },
+            {
+              "address": 3703474,
+              "mode": "thumb",
+              "hex": "0830",
+              "mnemonic": "adds",
+              "operands": "r0, #8"
+            },
+            {
+              "address": 3703476,
+              "mode": "thumb",
+              "hex": "0858",
+              "mnemonic": "ldr",
+              "operands": "r0, [r1, r0]"
+            },
+            {
+              "address": 3703478,
+              "mode": "thumb",
+              "hex": "89f61bff",
+              "mnemonic": "bl",
+              "operands": "#0x2120f0"
+            },
+            {
+              "address": 3703482,
+              "mode": "thumb",
+              "hex": "6c49",
+              "mnemonic": "ldr",
+              "operands": "r1, [pc, #0x1b0]"
+            },
+            {
+              "address": 3703484,
+              "mode": "thumb",
+              "hex": "6201",
+              "mnemonic": "lsls",
+              "operands": "r2, r4, #5"
+            },
+            {
+              "address": 3703486,
+              "mode": "thumb",
+              "hex": "8969",
+              "mnemonic": "ldr",
+              "operands": "r1, [r1, #0x18]"
+            },
+            {
+              "address": 3703488,
+              "mode": "thumb",
+              "hex": "1018",
+              "mnemonic": "adds",
+              "operands": "r0, r2, r0"
+            },
+            {
+              "address": 3703490,
+              "mode": "thumb",
+              "hex": "896f",
+              "mnemonic": "ldr",
+              "operands": "r1, [r1, #0x78]"
+            },
+            {
+              "address": 3703492,
+              "mode": "thumb",
+              "hex": "8000",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #2"
+            },
+            {
+              "address": 3703494,
+              "mode": "thumb",
+              "hex": "0c58",
+              "mnemonic": "ldr",
+              "operands": "r4, [r1, r0]"
+            },
+            {
+              "address": 3703496,
+              "mode": "thumb",
+              "hex": "0698",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x18]"
+            },
+            {
+              "address": 3703498,
+              "mode": "thumb",
+              "hex": "4007",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #0x1d"
+            },
+            {
+              "address": 3703500,
+              "mode": "thumb",
+              "hex": "002c",
+              "mnemonic": "cmp",
+              "operands": "r4, #0"
+            },
+            {
+              "address": 3703502,
+              "mode": "thumb",
+              "hex": "0490",
+              "mnemonic": "str",
+              "operands": "r0, [sp, #0x10]"
+            },
+            {
+              "address": 3703504,
+              "mode": "thumb",
+              "hex": "2fd1",
+              "mnemonic": "bne",
+              "operands": "#0x388332"
+            },
+            {
+              "address": 3703506,
+              "mode": "thumb",
+              "hex": "800f",
+              "mnemonic": "lsrs",
+              "operands": "r0, r0, #0x1e"
+            },
+            {
+              "address": 3703508,
+              "mode": "thumb",
+              "hex": "0228",
+              "mnemonic": "cmp",
+              "operands": "r0, #2"
+            }
+          ]
+        }
+      ],
+      "interpretation": {
+        "workspaceliteral": 61337968,
+        "mutexliteral": 61337996,
+        "wrapper_next_call": "38855A→3881BC; size/flags/out/callerLR",
+        "caller_expected_handle": "Originaloutparameterclearedbycorewhenexecuted,notbyhigherhandlehook",
+        "core_min_size": 8,
+        "alignment": "Usesworkspace+34 overhead then8bytealign andnativebithelpers21210C/2120F0",
+        "metadata": "Requiresnonnullworkspace+18→L1bitmaps/+78L2table/freeextentlinkednodes; NULLheapnotvalidemptyallocatorstate",
+        "trace_stop_before_core_firstinstruction": true,
+        "known_metadata_initialized_this_scope": false
+      }
+    },
+    {
+      "id": "W4",
+      "name": "Original heap bootstrap ABI and missing ownership initialization",
+      "source": [
+        {
+          "start": 3705636,
+          "end_exclusive": 3705652,
+          "bytes": 16,
+          "hex": "10b565486021d2f7e4ec10bc08bc6248",
+          "sha256": "0beadbcd26f4efe13538a4ff6e52ca1415757948f7c75eebb95ee08f860ea453",
+          "instructions": [
+            {
+              "address": 3705636,
+              "mode": "thumb",
+              "hex": "10b5",
+              "mnemonic": "push",
+              "operands": "{r4, lr}"
+            },
+            {
+              "address": 3705638,
+              "mode": "thumb",
+              "hex": "6548",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x194]"
+            },
+            {
+              "address": 3705640,
+              "mode": "thumb",
+              "hex": "6021",
+              "mnemonic": "movs",
+              "operands": "r1, #0x60"
+            },
+            {
+              "address": 3705642,
+              "mode": "thumb",
+              "hex": "d2f7e4ec",
+              "mnemonic": "blx",
+              "operands": "#0x35b4f4"
+            },
+            {
+              "address": 3705646,
+              "mode": "thumb",
+              "hex": "10bc",
+              "mnemonic": "pop",
+              "operands": "{r4}"
+            },
+            {
+              "address": 3705648,
+              "mode": "thumb",
+              "hex": "08bc",
+              "mnemonic": "pop",
+              "operands": "{r3}"
+            },
+            {
+              "address": 3705650,
+              "mode": "thumb",
+              "hex": "6248",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x188]"
+            }
+          ]
+        },
+        {
+          "start": 3705708,
+          "end_exclusive": 3706354,
+          "bytes": 646,
+          "hex": "ffb553480026806985b000283fd1524889f6c6ea01218140490000d0401c071f05984b4d0468f8017c30211849420905090d0e18ac6105984068b04207d247a200925248524b03214ca2b4f697fda8693100d2f79aeca8697c34076084673d4877f768fe4ba0e8620022009201224f494f48504b120643f0eefc0022009203224d494b484d4b120643f0e5fc0ae00898002807d04aa200923c48554b032137a2b4f66cfd06980025002837d90598059ae900405889184c6825490a6d1219002d0a6506d1002e04d04a6d8019a41b92194a6541420905090d40180490601a0005000d4718a74207d31ca200922748414b032122a2b4f642fd154ae11b506dc0195065936d984200d99065049853686d1c03605060416006988542c7d30898002500287bd90799e8000e584018476830003843000508d030a06b46c1c31348364b05210ea2b4f61afd002068e00100008070f1a7038cf1a703ffffff7f506879736963616c206d656d6f7279206172656120746f6f20736d616c6c2e0074736b5f6d656d5f6d6d752e6300000017805d6ec50400002674736b5f6d656d5f77732e6d656d5f736d70687200000050f1a703b426d202578b380060f1a703378b380043616e277420616464206164646974696f6e616c206d656d6f727920746f207669727475616c20706f6f6c2e00000000f404000021050000496e76616c6964207669727475616c206d656d6f727920617265612e000000004a0500002fe000f032f804006b48006900286a4802d10461002001e0406984602060002000f023f86449f219486100210460816041684907490f1143c908c900891c4160a06060684007400f3043c008c000401c60602000fff76ef908986d1c854200d252e709b0f0bc08bc1847",
+          "sha256": "77dc856f48c99302fc6b82391b1bfd31d7782bba1d01a66b84b1d52d344abd4c",
+          "instructions": [
+            {
+              "address": 3705708,
+              "mode": "thumb",
+              "hex": "ffb5",
+              "mnemonic": "push",
+              "operands": "{r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+            },
+            {
+              "address": 3705710,
+              "mode": "thumb",
+              "hex": "5348",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x14c]"
+            },
+            {
+              "address": 3705712,
+              "mode": "thumb",
+              "hex": "0026",
+              "mnemonic": "movs",
+              "operands": "r6, #0"
+            },
+            {
+              "address": 3705714,
+              "mode": "thumb",
+              "hex": "8069",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, #0x18]"
+            },
+            {
+              "address": 3705716,
+              "mode": "thumb",
+              "hex": "85b0",
+              "mnemonic": "sub",
+              "operands": "sp, #0x14"
+            },
+            {
+              "address": 3705718,
+              "mode": "thumb",
+              "hex": "0028",
+              "mnemonic": "cmp",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3705720,
+              "mode": "thumb",
+              "hex": "3fd1",
+              "mnemonic": "bne",
+              "operands": "#0x388bfa"
+            },
+            {
+              "address": 3705722,
+              "mode": "thumb",
+              "hex": "5248",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x148]"
+            },
+            {
+              "address": 3705724,
+              "mode": "thumb",
+              "hex": "89f6c6ea",
+              "mnemonic": "blx",
+              "operands": "#0x21210c"
+            },
+            {
+              "address": 3705728,
+              "mode": "thumb",
+              "hex": "0121",
+              "mnemonic": "movs",
+              "operands": "r1, #1"
+            },
+            {
+              "address": 3705730,
+              "mode": "thumb",
+              "hex": "8140",
+              "mnemonic": "lsls",
+              "operands": "r1, r0"
+            },
+            {
+              "address": 3705732,
+              "mode": "thumb",
+              "hex": "4900",
+              "mnemonic": "lsls",
+              "operands": "r1, r1, #1"
+            },
+            {
+              "address": 3705734,
+              "mode": "thumb",
+              "hex": "00d0",
+              "mnemonic": "beq",
+              "operands": "#0x388b8a"
+            },
+            {
+              "address": 3705736,
+              "mode": "thumb",
+              "hex": "401c",
+              "mnemonic": "adds",
+              "operands": "r0, r0, #1"
+            },
+            {
+              "address": 3705738,
+              "mode": "thumb",
+              "hex": "071f",
+              "mnemonic": "subs",
+              "operands": "r7, r0, #4"
+            },
+            {
+              "address": 3705740,
+              "mode": "thumb",
+              "hex": "0598",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x14]"
+            },
+            {
+              "address": 3705742,
+              "mode": "thumb",
+              "hex": "4b4d",
+              "mnemonic": "ldr",
+              "operands": "r5, [pc, #0x12c]"
+            },
+            {
+              "address": 3705744,
+              "mode": "thumb",
+              "hex": "0468",
+              "mnemonic": "ldr",
+              "operands": "r4, [r0]"
+            },
+            {
+              "address": 3705746,
+              "mode": "thumb",
+              "hex": "f801",
+              "mnemonic": "lsls",
+              "operands": "r0, r7, #7"
+            },
+            {
+              "address": 3705748,
+              "mode": "thumb",
+              "hex": "7c30",
+              "mnemonic": "adds",
+              "operands": "r0, #0x7c"
+            },
+            {
+              "address": 3705750,
+              "mode": "thumb",
+              "hex": "2118",
+              "mnemonic": "adds",
+              "operands": "r1, r4, r0"
+            },
+            {
+              "address": 3705752,
+              "mode": "thumb",
+              "hex": "4942",
+              "mnemonic": "rsbs",
+              "operands": "r1, r1, #0"
+            },
+            {
+              "address": 3705754,
+              "mode": "thumb",
+              "hex": "0905",
+              "mnemonic": "lsls",
+              "operands": "r1, r1, #0x14"
+            },
+            {
+              "address": 3705756,
+              "mode": "thumb",
+              "hex": "090d",
+              "mnemonic": "lsrs",
+              "operands": "r1, r1, #0x14"
+            },
+            {
+              "address": 3705758,
+              "mode": "thumb",
+              "hex": "0e18",
+              "mnemonic": "adds",
+              "operands": "r6, r1, r0"
+            },
+            {
+              "address": 3705760,
+              "mode": "thumb",
+              "hex": "ac61",
+              "mnemonic": "str",
+              "operands": "r4, [r5, #0x18]"
+            },
+            {
+              "address": 3705762,
+              "mode": "thumb",
+              "hex": "0598",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x14]"
+            },
+            {
+              "address": 3705764,
+              "mode": "thumb",
+              "hex": "4068",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, #4]"
+            },
+            {
+              "address": 3705766,
+              "mode": "thumb",
+              "hex": "b042",
+              "mnemonic": "cmp",
+              "operands": "r0, r6"
+            },
+            {
+              "address": 3705768,
+              "mode": "thumb",
+              "hex": "07d2",
+              "mnemonic": "bhs",
+              "operands": "#0x388bba"
+            },
+            {
+              "address": 3705770,
+              "mode": "thumb",
+              "hex": "47a2",
+              "mnemonic": "adr",
+              "operands": "r2, #0x11c"
+            },
+            {
+              "address": 3705772,
+              "mode": "thumb",
+              "hex": "0092",
+              "mnemonic": "str",
+              "operands": "r2, [sp]"
+            },
+            {
+              "address": 3705774,
+              "mode": "thumb",
+              "hex": "5248",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x148]"
+            },
+            {
+              "address": 3705776,
+              "mode": "thumb",
+              "hex": "524b",
+              "mnemonic": "ldr",
+              "operands": "r3, [pc, #0x148]"
+            },
+            {
+              "address": 3705778,
+              "mode": "thumb",
+              "hex": "0321",
+              "mnemonic": "movs",
+              "operands": "r1, #3"
+            },
+            {
+              "address": 3705780,
+              "mode": "thumb",
+              "hex": "4ca2",
+              "mnemonic": "adr",
+              "operands": "r2, #0x130"
+            },
+            {
+              "address": 3705782,
+              "mode": "thumb",
+              "hex": "b4f697fd",
+              "mnemonic": "bl",
+              "operands": "#0x23d6e8"
+            },
+            {
+              "address": 3705786,
+              "mode": "thumb",
+              "hex": "a869",
+              "mnemonic": "ldr",
+              "operands": "r0, [r5, #0x18]"
+            },
+            {
+              "address": 3705788,
+              "mode": "thumb",
+              "hex": "3100",
+              "mnemonic": "movs",
+              "operands": "r1, r6"
+            },
+            {
+              "address": 3705790,
+              "mode": "thumb",
+              "hex": "d2f79aec",
+              "mnemonic": "blx",
+              "operands": "#0x35b4f4"
+            },
+            {
+              "address": 3705794,
+              "mode": "thumb",
+              "hex": "a869",
+              "mnemonic": "ldr",
+              "operands": "r0, [r5, #0x18]"
+            },
+            {
+              "address": 3705796,
+              "mode": "thumb",
+              "hex": "7c34",
+              "mnemonic": "adds",
+              "operands": "r4, #0x7c"
+            },
+            {
+              "address": 3705798,
+              "mode": "thumb",
+              "hex": "0760",
+              "mnemonic": "str",
+              "operands": "r7, [r0]"
+            },
+            {
+              "address": 3705800,
+              "mode": "thumb",
+              "hex": "8467",
+              "mnemonic": "str",
+              "operands": "r4, [r0, #0x78]"
+            },
+            {
+              "address": 3705802,
+              "mode": "thumb",
+              "hex": "3d48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0xf4]"
+            },
+            {
+              "address": 3705804,
+              "mode": "thumb",
+              "hex": "77f768fe",
+              "mnemonic": "bl",
+              "operands": "#0x3008a0"
+            },
+            {
+              "address": 3705808,
+              "mode": "thumb",
+              "hex": "4ba0",
+              "mnemonic": "adr",
+              "operands": "r0, #0x12c"
+            },
+            {
+              "address": 3705810,
+              "mode": "thumb",
+              "hex": "e862",
+              "mnemonic": "str",
+              "operands": "r0, [r5, #0x2c]"
+            },
+            {
+              "address": 3705812,
+              "mode": "thumb",
+              "hex": "0022",
+              "mnemonic": "movs",
+              "operands": "r2, #0"
+            },
+            {
+              "address": 3705814,
+              "mode": "thumb",
+              "hex": "0092",
+              "mnemonic": "str",
+              "operands": "r2, [sp]"
+            },
+            {
+              "address": 3705816,
+              "mode": "thumb",
+              "hex": "0122",
+              "mnemonic": "movs",
+              "operands": "r2, #1"
+            },
+            {
+              "address": 3705818,
+              "mode": "thumb",
+              "hex": "4f49",
+              "mnemonic": "ldr",
+              "operands": "r1, [pc, #0x13c]"
+            },
+            {
+              "address": 3705820,
+              "mode": "thumb",
+              "hex": "4f48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x13c]"
+            },
+            {
+              "address": 3705822,
+              "mode": "thumb",
+              "hex": "504b",
+              "mnemonic": "ldr",
+              "operands": "r3, [pc, #0x140]"
+            },
+            {
+              "address": 3705824,
+              "mode": "thumb",
+              "hex": "1206",
+              "mnemonic": "lsls",
+              "operands": "r2, r2, #0x18"
+            },
+            {
+              "address": 3705826,
+              "mode": "thumb",
+              "hex": "43f0eefc",
+              "mnemonic": "bl",
+              "operands": "#0x3cc5c2"
+            },
+            {
+              "address": 3705830,
+              "mode": "thumb",
+              "hex": "0022",
+              "mnemonic": "movs",
+              "operands": "r2, #0"
+            },
+            {
+              "address": 3705832,
+              "mode": "thumb",
+              "hex": "0092",
+              "mnemonic": "str",
+              "operands": "r2, [sp]"
+            },
+            {
+              "address": 3705834,
+              "mode": "thumb",
+              "hex": "0322",
+              "mnemonic": "movs",
+              "operands": "r2, #3"
+            },
+            {
+              "address": 3705836,
+              "mode": "thumb",
+              "hex": "4d49",
+              "mnemonic": "ldr",
+              "operands": "r1, [pc, #0x134]"
+            },
+            {
+              "address": 3705838,
+              "mode": "thumb",
+              "hex": "4b48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x12c]"
+            },
+            {
+              "address": 3705840,
+              "mode": "thumb",
+              "hex": "4d4b",
+              "mnemonic": "ldr",
+              "operands": "r3, [pc, #0x134]"
+            },
+            {
+              "address": 3705842,
+              "mode": "thumb",
+              "hex": "1206",
+              "mnemonic": "lsls",
+              "operands": "r2, r2, #0x18"
+            },
+            {
+              "address": 3705844,
+              "mode": "thumb",
+              "hex": "43f0e5fc",
+              "mnemonic": "bl",
+              "operands": "#0x3cc5c2"
+            },
+            {
+              "address": 3705848,
+              "mode": "thumb",
+              "hex": "0ae0",
+              "mnemonic": "b",
+              "operands": "#0x388c10"
+            },
+            {
+              "address": 3705850,
+              "mode": "thumb",
+              "hex": "0898",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x20]"
+            },
+            {
+              "address": 3705852,
+              "mode": "thumb",
+              "hex": "0028",
+              "mnemonic": "cmp",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3705854,
+              "mode": "thumb",
+              "hex": "07d0",
+              "mnemonic": "beq",
+              "operands": "#0x388c10"
+            },
+            {
+              "address": 3705856,
+              "mode": "thumb",
+              "hex": "4aa2",
+              "mnemonic": "adr",
+              "operands": "r2, #0x128"
+            },
+            {
+              "address": 3705858,
+              "mode": "thumb",
+              "hex": "0092",
+              "mnemonic": "str",
+              "operands": "r2, [sp]"
+            },
+            {
+              "address": 3705860,
+              "mode": "thumb",
+              "hex": "3c48",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0xf0]"
+            },
+            {
+              "address": 3705862,
+              "mode": "thumb",
+              "hex": "554b",
+              "mnemonic": "ldr",
+              "operands": "r3, [pc, #0x154]"
+            },
+            {
+              "address": 3705864,
+              "mode": "thumb",
+              "hex": "0321",
+              "mnemonic": "movs",
+              "operands": "r1, #3"
+            },
+            {
+              "address": 3705866,
+              "mode": "thumb",
+              "hex": "37a2",
+              "mnemonic": "adr",
+              "operands": "r2, #0xdc"
+            },
+            {
+              "address": 3705868,
+              "mode": "thumb",
+              "hex": "b4f66cfd",
+              "mnemonic": "bl",
+              "operands": "#0x23d6e8"
+            },
+            {
+              "address": 3705872,
+              "mode": "thumb",
+              "hex": "0698",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x18]"
+            },
+            {
+              "address": 3705874,
+              "mode": "thumb",
+              "hex": "0025",
+              "mnemonic": "movs",
+              "operands": "r5, #0"
+            },
+            {
+              "address": 3705876,
+              "mode": "thumb",
+              "hex": "0028",
+              "mnemonic": "cmp",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3705878,
+              "mode": "thumb",
+              "hex": "37d9",
+              "mnemonic": "bls",
+              "operands": "#0x388c88"
+            },
+            {
+              "address": 3705880,
+              "mode": "thumb",
+              "hex": "0598",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x14]"
+            },
+            {
+              "address": 3705882,
+              "mode": "thumb",
+              "hex": "059a",
+              "mnemonic": "ldr",
+              "operands": "r2, [sp, #0x14]"
+            },
+            {
+              "address": 3705884,
+              "mode": "thumb",
+              "hex": "e900",
+              "mnemonic": "lsls",
+              "operands": "r1, r5, #3"
+            },
+            {
+              "address": 3705886,
+              "mode": "thumb",
+              "hex": "4058",
+              "mnemonic": "ldr",
+              "operands": "r0, [r0, r1]"
+            },
+            {
+              "address": 3705888,
+              "mode": "thumb",
+              "hex": "8918",
+              "mnemonic": "adds",
+              "operands": "r1, r1, r2"
+            },
+            {
+              "address": 3705890,
+              "mode": "thumb",
+              "hex": "4c68",
+              "mnemonic": "ldr",
+              "operands": "r4, [r1, #4]"
+            },
+            {
+              "address": 3705892,
+              "mode": "thumb",
+              "hex": "2549",
+              "mnemonic": "ldr",
+              "operands": "r1, [pc, #0x94]"
+            },
+            {
+              "address": 3705894,
+              "mode": "thumb",
+              "hex": "0a6d",
+              "mnemonic": "ldr",
+              "operands": "r2, [r1, #0x50]"
+            },
+            {
+              "address": 3705896,
+              "mode": "thumb",
+              "hex": "1219",
+              "mnemonic": "adds",
+              "operands": "r2, r2, r4"
+            },
+            {
+              "address": 3705898,
+              "mode": "thumb",
+              "hex": "002d",
+              "mnemonic": "cmp",
+              "operands": "r5, #0"
+            },
+            {
+              "address": 3705900,
+              "mode": "thumb",
+              "hex": "0a65",
+              "mnemonic": "str",
+              "operands": "r2, [r1, #0x50]"
+            },
+            {
+              "address": 3705902,
+              "mode": "thumb",
+              "hex": "06d1",
+              "mnemonic": "bne",
+              "operands": "#0x388c3e"
+            },
+            {
+              "address": 3705904,
+              "mode": "thumb",
+              "hex": "002e",
+              "mnemonic": "cmp",
+              "operands": "r6, #0"
+            },
+            {
+              "address": 3705906,
+              "mode": "thumb",
+              "hex": "04d0",
+              "mnemonic": "beq",
+              "operands": "#0x388c3e"
+            },
+            {
+              "address": 3705908,
+              "mode": "thumb",
+              "hex": "4a6d",
+              "mnemonic": "ldr",
+              "operands": "r2, [r1, #0x54]"
+            },
+            {
+              "address": 3705910,
+              "mode": "thumb",
+              "hex": "8019",
+              "mnemonic": "adds",
+              "operands": "r0, r0, r6"
+            },
+            {
+              "address": 3705912,
+              "mode": "thumb",
+              "hex": "a41b",
+              "mnemonic": "subs",
+              "operands": "r4, r4, r6"
+            },
+            {
+              "address": 3705914,
+              "mode": "thumb",
+              "hex": "9219",
+              "mnemonic": "adds",
+              "operands": "r2, r2, r6"
+            },
+            {
+              "address": 3705916,
+              "mode": "thumb",
+              "hex": "4a65",
+              "mnemonic": "str",
+              "operands": "r2, [r1, #0x54]"
+            },
+            {
+              "address": 3705918,
+              "mode": "thumb",
+              "hex": "4142",
+              "mnemonic": "rsbs",
+              "operands": "r1, r0, #0"
+            },
+            {
+              "address": 3705920,
+              "mode": "thumb",
+              "hex": "0905",
+              "mnemonic": "lsls",
+              "operands": "r1, r1, #0x14"
+            },
+            {
+              "address": 3705922,
+              "mode": "thumb",
+              "hex": "090d",
+              "mnemonic": "lsrs",
+              "operands": "r1, r1, #0x14"
+            },
+            {
+              "address": 3705924,
+              "mode": "thumb",
+              "hex": "4018",
+              "mnemonic": "adds",
+              "operands": "r0, r0, r1"
+            },
+            {
+              "address": 3705926,
+              "mode": "thumb",
+              "hex": "0490",
+              "mnemonic": "str",
+              "operands": "r0, [sp, #0x10]"
+            },
+            {
+              "address": 3705928,
+              "mode": "thumb",
+              "hex": "601a",
+              "mnemonic": "subs",
+              "operands": "r0, r4, r1"
+            },
+            {
+              "address": 3705930,
+              "mode": "thumb",
+              "hex": "0005",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #0x14"
+            },
+            {
+              "address": 3705932,
+              "mode": "thumb",
+              "hex": "000d",
+              "mnemonic": "lsrs",
+              "operands": "r0, r0, #0x14"
+            },
+            {
+              "address": 3705934,
+              "mode": "thumb",
+              "hex": "4718",
+              "mnemonic": "adds",
+              "operands": "r7, r0, r1"
+            },
+            {
+              "address": 3705936,
+              "mode": "thumb",
+              "hex": "a742",
+              "mnemonic": "cmp",
+              "operands": "r7, r4"
+            },
+            {
+              "address": 3705938,
+              "mode": "thumb",
+              "hex": "07d3",
+              "mnemonic": "blo",
+              "operands": "#0x388c64"
+            },
+            {
+              "address": 3705940,
+              "mode": "thumb",
+              "hex": "1ca2",
+              "mnemonic": "adr",
+              "operands": "r2, #0x70"
+            },
+            {
+              "address": 3705942,
+              "mode": "thumb",
+              "hex": "0092",
+              "mnemonic": "str",
+              "operands": "r2, [sp]"
+            },
+            {
+              "address": 3705944,
+              "mode": "thumb",
+              "hex": "2748",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x9c]"
+            },
+            {
+              "address": 3705946,
+              "mode": "thumb",
+              "hex": "414b",
+              "mnemonic": "ldr",
+              "operands": "r3, [pc, #0x104]"
+            },
+            {
+              "address": 3705948,
+              "mode": "thumb",
+              "hex": "0321",
+              "mnemonic": "movs",
+              "operands": "r1, #3"
+            },
+            {
+              "address": 3705950,
+              "mode": "thumb",
+              "hex": "22a2",
+              "mnemonic": "adr",
+              "operands": "r2, #0x88"
+            },
+            {
+              "address": 3705952,
+              "mode": "thumb",
+              "hex": "b4f642fd",
+              "mnemonic": "bl",
+              "operands": "#0x23d6e8"
+            },
+            {
+              "address": 3705956,
+              "mode": "thumb",
+              "hex": "154a",
+              "mnemonic": "ldr",
+              "operands": "r2, [pc, #0x54]"
+            },
+            {
+              "address": 3705958,
+              "mode": "thumb",
+              "hex": "e11b",
+              "mnemonic": "subs",
+              "operands": "r1, r4, r7"
+            },
+            {
+              "address": 3705960,
+              "mode": "thumb",
+              "hex": "506d",
+              "mnemonic": "ldr",
+              "operands": "r0, [r2, #0x54]"
+            },
+            {
+              "address": 3705962,
+              "mode": "thumb",
+              "hex": "c019",
+              "mnemonic": "adds",
+              "operands": "r0, r0, r7"
+            },
+            {
+              "address": 3705964,
+              "mode": "thumb",
+              "hex": "5065",
+              "mnemonic": "str",
+              "operands": "r0, [r2, #0x54]"
+            },
+            {
+              "address": 3705966,
+              "mode": "thumb",
+              "hex": "936d",
+              "mnemonic": "ldr",
+              "operands": "r3, [r2, #0x58]"
+            },
+            {
+              "address": 3705968,
+              "mode": "thumb",
+              "hex": "9842",
+              "mnemonic": "cmp",
+              "operands": "r0, r3"
+            },
+            {
+              "address": 3705970,
+              "mode": "thumb",
+              "hex": "00d9",
+              "mnemonic": "bls",
+              "operands": "#0x388c76"
+            },
+            {
+              "address": 3705972,
+              "mode": "thumb",
+              "hex": "9065",
+              "mnemonic": "str",
+              "operands": "r0, [r2, #0x58]"
+            },
+            {
+              "address": 3705974,
+              "mode": "thumb",
+              "hex": "0498",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x10]"
+            },
+            {
+              "address": 3705976,
+              "mode": "thumb",
+              "hex": "5368",
+              "mnemonic": "ldr",
+              "operands": "r3, [r2, #4]"
+            },
+            {
+              "address": 3705978,
+              "mode": "thumb",
+              "hex": "6d1c",
+              "mnemonic": "adds",
+              "operands": "r5, r5, #1"
+            },
+            {
+              "address": 3705980,
+              "mode": "thumb",
+              "hex": "0360",
+              "mnemonic": "str",
+              "operands": "r3, [r0]"
+            },
+            {
+              "address": 3705982,
+              "mode": "thumb",
+              "hex": "5060",
+              "mnemonic": "str",
+              "operands": "r0, [r2, #4]"
+            },
+            {
+              "address": 3705984,
+              "mode": "thumb",
+              "hex": "4160",
+              "mnemonic": "str",
+              "operands": "r1, [r0, #4]"
+            },
+            {
+              "address": 3705986,
+              "mode": "thumb",
+              "hex": "0698",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x18]"
+            },
+            {
+              "address": 3705988,
+              "mode": "thumb",
+              "hex": "8542",
+              "mnemonic": "cmp",
+              "operands": "r5, r0"
+            },
+            {
+              "address": 3705990,
+              "mode": "thumb",
+              "hex": "c7d3",
+              "mnemonic": "blo",
+              "operands": "#0x388c18"
+            },
+            {
+              "address": 3705992,
+              "mode": "thumb",
+              "hex": "0898",
+              "mnemonic": "ldr",
+              "operands": "r0, [sp, #0x20]"
+            },
+            {
+              "address": 3705994,
+              "mode": "thumb",
+              "hex": "0025",
+              "mnemonic": "movs",
+              "operands": "r5, #0"
+            },
+            {
+              "address": 3705996,
+              "mode": "thumb",
+              "hex": "0028",
+              "mnemonic": "cmp",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3705998,
+              "mode": "thumb",
+              "hex": "7bd9",
+              "mnemonic": "bls",
+              "operands": "#0x388d88"
+            },
+            {
+              "address": 3706000,
+              "mode": "thumb",
+              "hex": "0799",
+              "mnemonic": "ldr",
+              "operands": "r1, [sp, #0x1c]"
+            },
+            {
+              "address": 3706002,
+              "mode": "thumb",
+              "hex": "e800",
+              "mnemonic": "lsls",
+              "operands": "r0, r5, #3"
+            },
+            {
+              "address": 3706004,
+              "mode": "thumb",
+              "hex": "0e58",
+              "mnemonic": "ldr",
+              "operands": "r6, [r1, r0]"
+            },
+            {
+              "address": 3706006,
+              "mode": "thumb",
+              "hex": "4018",
+              "mnemonic": "adds",
+              "operands": "r0, r0, r1"
+            },
+            {
+              "address": 3706008,
+              "mode": "thumb",
+              "hex": "4768",
+              "mnemonic": "ldr",
+              "operands": "r7, [r0, #4]"
+            },
+            {
+              "address": 3706010,
+              "mode": "thumb",
+              "hex": "3000",
+              "mnemonic": "movs",
+              "operands": "r0, r6"
+            },
+            {
+              "address": 3706012,
+              "mode": "thumb",
+              "hex": "3843",
+              "mnemonic": "orrs",
+              "operands": "r0, r7"
+            },
+            {
+              "address": 3706014,
+              "mode": "thumb",
+              "hex": "0005",
+              "mnemonic": "lsls",
+              "operands": "r0, r0, #0x14"
+            },
+            {
+              "address": 3706016,
+              "mode": "thumb",
+              "hex": "08d0",
+              "mnemonic": "beq",
+              "operands": "#0x388cb4"
+            },
+            {
+              "address": 3706018,
+              "mode": "thumb",
+              "hex": "30a0",
+              "mnemonic": "adr",
+              "operands": "r0, #0xc0"
+            },
+            {
+              "address": 3706020,
+              "mode": "thumb",
+              "hex": "6b46",
+              "mnemonic": "mov",
+              "operands": "r3, sp"
+            },
+            {
+              "address": 3706022,
+              "mode": "thumb",
+              "hex": "c1c3",
+              "mnemonic": "stm",
+              "operands": "r3!, {r0, r6, r7}"
+            },
+            {
+              "address": 3706024,
+              "mode": "thumb",
+              "hex": "1348",
+              "mnemonic": "ldr",
+              "operands": "r0, [pc, #0x4c]"
+            },
+            {
+              "address": 3706026,
+              "mode": "thumb",
+              "hex": "364b",
+              "mnemonic": "ldr",
+              "operands": "r3, [pc, #0xd8]"
+            },
+            {
+              "address": 3706028,
+              "mode": "thumb",
+              "hex": "0521",
+              "mnemonic": "movs",
+              "operands": "r1, #5"
+            },
+            {
+              "address": 3706030,
+              "mode": "thumb",
+              "hex": "0ea2",
+              "mnemonic": "adr",
+              "operands": "r2, #0x38"
+            },
+            {
+              "address": 3706032,
+              "mode": "thumb",
+              "hex": "b4f61afd",
+              "mnemonic": "bl",
+              "operands": "#0x23d6e8"
+            },
+            {
+              "address": 3706036,
+              "mode": "thumb",
+              "hex": "0020",
+              "mnemonic": "movs",
+              "operands": "r0, #0"
+            },
+            {
+              "address": 3706038,
+              "mode": "thumb",
+              "hex": "68e0",
+              "mnemonic": "b",
+              "operands": "#0x388d8a"
+            },
+            {
+              "address": 3706040,
+              "mode": "thumb",
+              "hex": "0100",
+              "mnemonic": "movs",
+              "operands": "r1, r0"
+            },
+            {
+              "address": 3706042,
+              "mode": "thumb",
+              "hex": "0080",
+              "mnemonic": "strh",
+              "operands": "r0, [r0]"
+            },
+            {
+              "address": 3706044,
+              "mode": "thumb",
+              "hex": "70f1a703",
+              "mnemonic": "sbcs",
+              "operands": "r3, r0, #0xa7"
+            }
+          ]
+        }
+      ],
+      "interpretation": {
+        "reset": "388B24 resets96Bworkspacevia35B4F4;mustnotresetliveheap",
+        "bootstrap_entry": "388B6C r0primary[base,length]array/r1count/r2secondaryarray/r3count",
+        "required": "Coldworkspace+18 gate; nativeheapheader/reserve/L1L2/freeextent state; actualmutexinit/tag at388BCC/388BD2; nativeexitlisteners; currenttask/nativeownerinventory",
+        "small_prior_os20_contract": "Declares32KiBprivate/64KiBpublic softwareextents plusfixtureTCB/L1L2;notactualaddressqueryheapcontext",
+        "bootstrap_replayed": false,
+        "warm_fullimage_used": false,
+        "scope_next_minimum": "Recoveraddress-query-compatibleisolatedheapbootstrap/statepins;donotinjectunknown38853C/388804success"
+      }
+    },
+    {
+      "id": "W5",
+      "name": "One actual constructor-ABI continuation frontier",
+      "source_artifact": "actual-runtime-journal.json",
+      "source_artifact_sha256": "317b95d75465ac168f2b239abd8e060a9566cca24bf9d5a0a3af51137a3efb55",
+      "exact_original_instruction_trace": [
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147936,
+          "hex": "0021",
+          "cpsr": 63
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147938,
+          "hex": "0160",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147940,
+          "hex": "4160",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147942,
+          "hex": "8160",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147944,
+          "hex": "c160",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147946,
+          "hex": "0161",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147948,
+          "hex": "4161",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "mutex-native-setup",
+          "address": 3147950,
+          "hex": "7047",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704138,
+          "hex": "78f729fa",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148192,
+          "hex": "00b5",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148194,
+          "hex": "81b0",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148196,
+          "hex": "00a3",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148198,
+          "hex": "1847",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148200,
+          "hex": "00100fe1",
+          "cpsr": 31
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148204,
+          "hex": "803081e3",
+          "cpsr": 31
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148208,
+          "hex": "03f021e1",
+          "cpsr": 31
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148212,
+          "hex": "01308fe2",
+          "cpsr": 159
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148216,
+          "hex": "13ff2fe1",
+          "cpsr": 159
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148220,
+          "hex": "0091",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148222,
+          "hex": "134a",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148224,
+          "hex": "1268",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148226,
+          "hex": "8168",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148228,
+          "hex": "0029",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148230,
+          "hex": "0ad1",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148232,
+          "hex": "0023",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148234,
+          "hex": "8260",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148236,
+          "hex": "2032",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148238,
+          "hex": "1168",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148240,
+          "hex": "0160",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148242,
+          "hex": "4260",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148244,
+          "hex": "1060",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148246,
+          "hex": "0029",
+          "cpsr": 191
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148248,
+          "hex": "0bd0",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148274,
+          "hex": "0099",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148276,
+          "hex": "00a2",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148278,
+          "hex": "1047",
+          "cpsr": 1610612927
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148280,
+          "hex": "01f02fe1",
+          "cpsr": 1610612895
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148284,
+          "hex": "01208fe2",
+          "cpsr": 31
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148288,
+          "hex": "12ff2fe1",
+          "cpsr": 31
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148292,
+          "hex": "181c",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148294,
+          "hex": "01b0",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148296,
+          "hex": "08bc",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3148298,
+          "hex": "1847",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704142,
+          "hex": "cf48",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704144,
+          "hex": "2300",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704146,
+          "hex": "c565",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704148,
+          "hex": "3a00",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704150,
+          "hex": "3100",
+          "cpsr": 63
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704152,
+          "hex": "2800",
+          "cpsr": 1073741887
+        },
+        {
+          "phase": "constructor-ABI-continuation",
+          "address": 3704154,
+          "hex": "fff72ffe",
+          "cpsr": 63
+        }
+      ],
+      "interpretation": {
+        "logical_cases": 1,
+        "setup_instructions": 8,
+        "continuation_instructions": 42,
+        "original_mutex_return": 0,
+        "next_entry": "3881BC firstinstructionnotexecuted",
+        "handle_after": 0,
+        "same_old_guest_resumed": false,
+        "reconstructed_ABI_frame": {
+          "source": "Frozenconstructorfrontierobservedregisters+exactnativepush/frameABI",
+          "SP": 151048088,
+          "words": [
+            61337996,
+            380,
+            151007232,
+            150994944,
+            151003136,
+            1522573
+          ],
+          "same_guest_resumed": false,
+          "saved_complete_guest_or_call_stack": false
+        },
+        "mutex_left_owned_in_discarded_fixture_guest": true,
+        "guest_disposal_is_not_native_unlock_or_lifecycle_success": true,
+        "heap_core_no_freeextent_supplied": true,
+        "unknown_returns_faked": false
+      }
+    }
+  ]
+}

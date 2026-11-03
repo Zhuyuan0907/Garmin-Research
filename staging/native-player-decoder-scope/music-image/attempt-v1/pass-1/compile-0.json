@@ -1,0 +1,32 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-I/root/garmin/staging/native-player-decoder-scope/music-image/attempt-v1/pass-1",
+    "-I/root/garmin/staging/native-player-decoder-scope/music-image/attempt-v1/pass-1",
+    "-mcpu=arm1176jzf-s",
+    "-marm",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-stack-protector",
+    "-fno-pie",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-Wall",
+    "-Wextra",
+    "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+    "-I/root/garmin/native/sbc-prototype",
+    "-I/root/garmin/native/sbc-prototype",
+    "-I/root/garmin/staging/native-pcm-converter",
+    "-c",
+    "/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c",
+    "-o",
+    "/root/garmin/staging/native-player-decoder-scope/music-image/attempt-v1/pass-1/0-sbc.o"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c: In function ‘sbc_pack_frame_internal’:\n/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c:831:73: warning: unused parameter ‘len’ [-Wunused-parameter]\n  831 |                                         struct sbc_frame *frame, size_t len,\n      |                                                                  ~~~~~~~^~~\n/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c: In function ‘sbc_set_a2dp’:\n/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c:1092:51: warning: unused parameter ‘flags’ [-Wunused-parameter]\n 1092 | static int sbc_set_a2dp(sbc_t *sbc, unsigned long flags,\n      |                                     ~~~~~~~~~~~~~~^~~~~\n"
+}

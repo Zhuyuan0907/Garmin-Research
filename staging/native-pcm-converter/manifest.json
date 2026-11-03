@@ -1,0 +1,197 @@
+{
+  "updated_utc": "2026-10-02T20:43:14.107352+00:00",
+  "elf": "staging/native-pcm-converter/converter-armv6.elf",
+  "elf_sha256": "da422bfa47be9a79a60b30dddc62c0ab5c41ad73dac45e29ac8f0568acda8bff",
+  "flat_binary": "staging/native-pcm-converter/converter-armv6.bin",
+  "flat_binary_sha256": "deeac71523c01d4a99f4a050115da4036311a7f1f6db8b67003688d3978ff925",
+  "flat_binary_bytes": 32704,
+  "symbols": {
+    "shift": {
+      "address": 0,
+      "type": "a"
+    },
+    "pcm_converter_clear": {
+      "address": 134217728,
+      "type": "T"
+    },
+    "pcm_converter_reset": {
+      "address": 134217856,
+      "type": "T"
+    },
+    "pcm_converter_process": {
+      "address": 134218132,
+      "type": "T"
+    },
+    "__aeabi_idiv0": {
+      "address": 134218800,
+      "type": "T"
+    },
+    ".udivsi3_skip_div0_test": {
+      "address": 134218804,
+      "type": "t"
+    },
+    "__aeabi_uidiv": {
+      "address": 134218804,
+      "type": "T"
+    },
+    "__udivsi3": {
+      "address": 134218804,
+      "type": "T"
+    },
+    "__aeabi_uidivmod": {
+      "address": 134219296,
+      "type": "T"
+    },
+    "pcm_48000": {
+      "address": 134219328,
+      "type": "r"
+    },
+    "pcm_44100": {
+      "address": 134219520,
+      "type": "r"
+    },
+    "pcm_32000": {
+      "address": 134250240,
+      "type": "r"
+    },
+    "coefficients": {
+      "address": 134250496,
+      "type": "b"
+    },
+    "ready": {
+      "address": 134250500,
+      "type": "b"
+    },
+    "input_channels": {
+      "address": 134250504,
+      "type": "b"
+    },
+    "phases": {
+      "address": 134250508,
+      "type": "b"
+    },
+    "step": {
+      "address": 134250512,
+      "type": "b"
+    },
+    "until_next": {
+      "address": 134250516,
+      "type": "b"
+    },
+    "phase": {
+      "address": 134250520,
+      "type": "b"
+    },
+    "head": {
+      "address": 134250524,
+      "type": "b"
+    },
+    "history": {
+      "address": 134250528,
+      "type": "b"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-I/root/garmin/staging/native-pcm-converter",
+      "-c",
+      "/root/garmin/native/sbc-prototype/pcm_converter.c",
+      "-o",
+      "/root/garmin/staging/native-pcm-converter/pcm_converter.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-I/root/garmin/sources/deep-research/sbc-2.1/sbc",
+      "-I/root/garmin/native/sbc-prototype",
+      "-I/root/garmin/staging/native-pcm-converter",
+      "-c",
+      "/root/garmin/native/sbc-prototype/runtime.c",
+      "-o",
+      "/root/garmin/staging/native-pcm-converter/runtime.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-pcm-converter/converter.map",
+      "-Wl,-T,/root/garmin/staging/native-pcm-converter/converter.ld",
+      "-Wl,--undefined=pcm_converter_reset",
+      "-Wl,--undefined=pcm_converter_process",
+      "/root/garmin/staging/native-pcm-converter/pcm_converter.o",
+      "/root/garmin/staging/native-pcm-converter/runtime.o",
+      "-lgcc",
+      "-o",
+      "/root/garmin/staging/native-pcm-converter/converter-armv6.elf"
+    ]
+  ],
+  "source_sha256": {
+    "native/sbc-prototype/pcm_converter.c": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/pcm_converter.h": "8f183e510d47f7b0ebb19d044c56c2933b29d8870ee0c5395f5de7fd1b84fa07",
+    "staging/native-pcm-converter/pcm_converter_tables.h": "9608e31285d91e7c0c96b11eb497effbde4ab8cd4bd27c580da4258c3140d488",
+    "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc",
+    "staging/native-pcm-converter/converter.ld": "b406b9f77849e747fc9ad62eda72ac55ea01486299135391fd0d5e0cc30b93fe",
+    "scripts/build_native_pcm_converter.py": "1ae74eb01bdbf3edcf8b4386368d950b0da90903075f3a33db4a1f7557de5dea"
+  },
+  "coefficient_table": "staging/native-pcm-converter/coefficients.json",
+  "coefficient_table_sha256": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc",
+  "generated_header": "staging/native-pcm-converter/pcm_converter_tables.h",
+  "taps": 96,
+  "cutoff_hz": 7000,
+  "kaiser_beta": 8.6,
+  "phases_44100": 160,
+  "output_format": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "bits": 16
+  },
+  "downmix": "stereo arithmetic mean, integer truncation toward zero",
+  "rounding": "FIR Q15 round nearest, half away from zero; saturating S16",
+  "sources": [
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample_poly.html",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.kaiser.html"
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_align_preserved: 8-byte, except leaf SP\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8000000\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08000000 0x08000000 0x07fc0 0x07fc0 R E 0x10000\n  LOAD           0x008000 0x08008000 0x08008000 0x00000 0x000e0 RW  0x10000\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .rodata \n   01     .bss \n",
+  "undefined_symbols": [],
+  "linux_runtime_required": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "real_time_performance_verified": false,
+  "limitations": "Standalone freestanding converter only. No SBC/AVDTP/native loader/PCM integration supplied by this build. Causal FIR has initial zero history and no automatic tail flush; serialized single-stream ownership is required. Target hardware sample clock/speaker and actual runtime are unverified."
+}

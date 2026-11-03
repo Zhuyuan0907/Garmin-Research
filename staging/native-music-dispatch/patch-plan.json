@@ -1,0 +1,59 @@
+{
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "native_command_dispatcher": "0x5247fc",
+  "table": "0xba6f6c",
+  "patches": [
+    {
+      "address": "0xba6f70",
+      "original": "e5485700",
+      "replacement": "e003e008",
+      "purpose": "ARM_entry_for_signal_2"
+    },
+    {
+      "address": "0xba6f74",
+      "original": "cd4a5700",
+      "replacement": "1008e008",
+      "purpose": "ARM_entry_for_signal_3"
+    },
+    {
+      "address": "0xba6f78",
+      "original": "e5485700",
+      "replacement": "e003e008",
+      "purpose": "ARM_entry_for_signal_4"
+    },
+    {
+      "address": "0xba6f7c",
+      "original": "cd4a5700",
+      "replacement": "1008e008",
+      "purpose": "ARM_entry_for_signal_5"
+    },
+    {
+      "address": "0x5249f8",
+      "original": "0206120e",
+      "replacement": "0200c046",
+      "purpose": "retain_full_handler_body_length_movs_r2_r0_Thumbv6_NOP"
+    },
+    {
+      "address": "0x5248fc",
+      "original": "0b28",
+      "replacement": "0a28",
+      "purpose": "bound_accepted_signals_to_actual10_entry_table"
+    }
+  ],
+  "patch_fields_bytes": 22,
+  "component_manifest": "staging/native-music-endpoint/manifest.json",
+  "component_link_address_is_synthetic": true,
+  "device_install_candidate": false,
+  "unsafe_to_apply_as_live_flash_image": "No actual component allocation/bootstrap, accepted firmware/loader, stable lifetime or device-ready media pipeline proved. This is a VM construction recipe only.",
+  "unknown_signal_reply_captured_at_stock_send_boundary": "1000; outgoing type/signal format versus modern GeneralReject remains unresolved. Stock send implementation and actual phone behavior not validated here.",
+  "vector_load_span_not_free_insertion_gap": {
+    "call": 966110,
+    "runtime_start": 4294901760,
+    "runtime_end": 4294902244,
+    "size": 484,
+    "conditional": false,
+    "load_start": 13309852,
+    "load_end": 13310336,
+    "relocation_delta": 4281591908
+  }
+}

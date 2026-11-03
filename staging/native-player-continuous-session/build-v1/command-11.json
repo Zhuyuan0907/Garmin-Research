@@ -1,0 +1,27 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-nostdlib",
+    "-no-pie",
+    "-Wl,--gc-sections",
+    "-Wl,--no-undefined",
+    "-Wl,-T,/root/garmin/staging/native-player-continuous-session/build-v1/audio-session.ld",
+    "-Wl,-Map,/root/garmin/staging/native-player-continuous-session/build-v1/audio-session.map",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/00-audio_session_driver_v3.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/01-pcm_fifo_session_owner_v3.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/02-runtime.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/03-bounded_pull_entry.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/04-music_session_guard_v3.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/05-native_context_v3.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/06-pull_bridge.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/07-memory_output_session_owner_v3.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/08-media_queue.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/09-media_worker.o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/10-ui_music_control.o",
+    "-o",
+    "/root/garmin/staging/native-player-continuous-session/build-v1/audio-session-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: /root/garmin/staging/native-player-continuous-session/build-v1/audio-session-EMULATION-ONLY.elf has a LOAD segment with RWX permissions\n/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored\n"
+}

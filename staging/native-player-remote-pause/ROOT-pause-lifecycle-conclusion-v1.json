@@ -1,0 +1,99 @@
+{
+  "all_passed": true,
+  "source_sha256": {
+    "staging/native-player-remote-pause/ROOT-remote-pause-file-proof-v3.json": "4303387ece2b775593f53ec317167464cde149bc13b095c7beefc4ae66a667fe",
+    "staging/native-player-remote-pause/guest-v1/two_Suspend_resume_cycles_keep_same_anchor.json": "42ebf93285f584c130631d5496dea4660834a799c5fdf10a6b6d3c90bcebce86",
+    "staging/native-player-remote-pause/guest-v1/failed_resume_Start_keeps_FIFO_until_retry.json": "9ea48e103661f83516418f3f46cc9a67e7155f9d903175c1eb4153d9f532d2b1",
+    "staging/native-player-remote-pause/guest-v1/pause_before_first_input_then_resume.json": "5bce8374b50098592a45a83b9611f5ce8246492a7ee0bc7cd549f6cddbbf52bc",
+    "staging/native-player-remote-pause/guest-v3/Pause_full_FIFO_keeps_pending_compressed_then_capacity_resumes.json": "8bde86f3cb7ff9c3393dad35be3a57df0e6acc2f02d87a366913187ab5d8999d",
+    "staging/native-player-remote-pause/guest-v3/profile_rewrite_while_paused_rejects_resume_data.json": "3a24983a1a70bf99f7c1c8d86090373737832f2927f57cb1f57ae9e22269ab1a",
+    "staging/native-player-remote-pause/guest-v3/Disconnect_while_paused_retires_and_rejects_Start.json": "bcf6ec3ed638c3675b32c16ba20051756c7bcda8e9f0d3ee679bbc1bec60edc9"
+  },
+  "case_count": 6,
+  "cases": [
+    {
+      "name": "two_Suspend_resume_cycles_keep_same_anchor",
+      "resumed_output_chunks": 2,
+      "final_retired": 0,
+      "Source_pause_final": {
+        "mh_remote_paused": 0,
+        "mh_remote_pause_epoch": 4,
+        "mh_remote_paused_reads": 14,
+        "mh_remote_paused_bytes": 3584,
+        "mh_remote_pause_requests": 2,
+        "mh_remote_resume_requests": 2
+      }
+    },
+    {
+      "name": "failed_resume_Start_keeps_FIFO_until_retry",
+      "resumed_output_chunks": 1,
+      "final_retired": 0,
+      "Source_pause_final": {
+        "mh_remote_paused": 0,
+        "mh_remote_pause_epoch": 2,
+        "mh_remote_paused_reads": 14,
+        "mh_remote_paused_bytes": 3584,
+        "mh_remote_pause_requests": 1,
+        "mh_remote_resume_requests": 1
+      }
+    },
+    {
+      "name": "pause_before_first_input_then_resume",
+      "resumed_output_chunks": 1,
+      "final_retired": 0,
+      "Source_pause_final": {
+        "mh_remote_paused": 0,
+        "mh_remote_pause_epoch": 2,
+        "mh_remote_paused_reads": 0,
+        "mh_remote_paused_bytes": 0,
+        "mh_remote_pause_requests": 1,
+        "mh_remote_resume_requests": 1
+      }
+    },
+    {
+      "name": "Pause_full_FIFO_keeps_pending_compressed_then_capacity_resumes",
+      "resumed_output_chunks": 1,
+      "final_retired": 0,
+      "Source_pause_final": {
+        "mh_remote_paused": 0,
+        "mh_remote_pause_epoch": 2,
+        "mh_remote_paused_reads": 14,
+        "mh_remote_paused_bytes": 3584,
+        "mh_remote_pause_requests": 1,
+        "mh_remote_resume_requests": 1
+      }
+    },
+    {
+      "name": "profile_rewrite_while_paused_rejects_resume_data",
+      "resumed_output_chunks": 0,
+      "final_retired": 0,
+      "Source_pause_final": {
+        "mh_remote_paused": 1,
+        "mh_remote_pause_epoch": 1,
+        "mh_remote_paused_reads": 7,
+        "mh_remote_paused_bytes": 1792,
+        "mh_remote_pause_requests": 1,
+        "mh_remote_resume_requests": 0
+      }
+    },
+    {
+      "name": "Disconnect_while_paused_retires_and_rejects_Start",
+      "resumed_output_chunks": 0,
+      "final_retired": 1,
+      "Source_pause_final": {
+        "mh_remote_paused": 1,
+        "mh_remote_pause_epoch": 1,
+        "mh_remote_paused_reads": 7,
+        "mh_remote_paused_bytes": 1792,
+        "mh_remote_pause_requests": 1,
+        "mh_remote_resume_requests": 0
+      }
+    }
+  ],
+  "native_Suspend_resume_same_config_supported": true,
+  "reconnect_STOP_DONE_unload_warm_ownership_unimplemented": true,
+  "phone_or_speaker_or_App_or_warm_install_verified": false,
+  "correction": "FILE-v3 result retained old combined one_stream_per_boot_resume_restart_STOP_DONE_unload_unimplemented flag from pre-Pause code. The six verified case snapshots prove same-configuration Suspend resume. Reconnect/new configuration/STOP_DONE/unload/warm ownership remain unimplemented. Preserve original proof and use these separated conclusions.",
+  "guest_rerun": false,
+  "device_IO": false
+}

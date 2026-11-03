@@ -1,0 +1,106 @@
+{
+  "checked_utc": "2026-10-05T17:28:40.613017+00:00",
+  "scope": "Exact official r4924 source paths + inherited parser/style/build facts",
+  "conclusion": "184號 is parsed as184 and an actual compiled 民權路/臺中市 NET range includes184; source absence, suffix-only parser drop, and missing numeric range are not supported causes for this observed failure.",
+  "parser": {
+    "source": "reference/HousenumberGenerator.java",
+    "lines": [
+      179,
+      197
+    ],
+    "regex": "\\D*(\\d+)\\D?.*",
+    "accepts_first_integer": true,
+    "Chinese_suffix_ignored": true,
+    "actual184_result_inherited": "staging/navigation-road-coverage-v1/housenumber-parser.txt",
+    "range_guard_lines": [
+      219,
+      227
+    ],
+    "min_inclusive": 0,
+    "max_inclusive": 1000000
+  },
+  "source_paths": [
+    {
+      "source": "reference/HousenumberGenerator.java",
+      "lines": [
+        271,
+        283
+      ],
+      "path": "numbers disabled, mkgmap:numbers=false or area2poi can skip nodes"
+    },
+    {
+      "source": "reference/HousenumberGenerator.java",
+      "lines": [
+        762,
+        785
+      ],
+      "path": "no matched road -> ignored; warning commented out, build summary is not node-completeness evidence"
+    },
+    {
+      "source": "reference/HousenumberGenerator.java",
+      "lines": [
+        1753,
+        1850
+      ],
+      "path": "nested RoadSegmentIndex filters explicit street via equalsIgnoreCase; nearby matches and angle/name preferences select a road"
+    },
+    {
+      "source": "reference/HousenumberGenerator.java",
+      "lines": [
+        909,
+        970
+      ],
+      "path": "duplicate handling groups house numbers by CityInfo and street"
+    },
+    {
+      "source": "reference/CityInfo.java",
+      "lines": [
+        66,
+        93
+      ],
+      "path": "CityInfo equals compares city/country/region exact strings; no internal 台→臺 transliteration"
+    },
+    {
+      "source": "reference/RoadDef.java",
+      "lines": [
+        211,
+        237
+      ],
+      "path": "NumberPreparer.prepare false -> Invalid housenumbers warning; positive inspected stream exists"
+    },
+    {
+      "source": "reference/NETFileReader.java",
+      "lines": [
+        203,
+        226
+      ],
+      "path": "standard map reader fetchNumber skips raw stream instead of filling RoadDef numbersList; hasHouseNumbers false from it does not prove absent encoded data"
+    }
+  ],
+  "style": {
+    "path": "staging/navigation-repair-v1/style/inc/address",
+    "reused_by_v2": true,
+    "台中市_to_臺中市_rules_present": true,
+    "verified_Taichung_boundary_admin4_policy_present": true,
+    "addr_street_to_mkgmap_street_present": true,
+    "addr_housenumber_to_mkgmap_housenumber_present": true,
+    "finalize_on_house_nodes_polygons_lines_present": true,
+    "full_style_bounds_assignment_reconstructed": false
+  },
+  "build_log": {
+    "path": "staging/navigation-repair-v2/mkgmap-build.log",
+    "summary_only": true,
+    "MapFailedExceptions": 0,
+    "ExitExceptions": 0,
+    "per_node184_diagnostic_present": false
+  },
+  "compiler_nearest_node184_assignment_proved": false,
+  "house_drop_specific_codepath_trigger_observed": false,
+  "native_address_caller_or_UI_success_verified": false,
+  "physical_control_from_ROOT": "User reports stock CN+Address Point together resolve 民權路 with city/house-number detail; exact184 stock address binary record not decoded by this scope.",
+  "next_direction": "Preserve stock NT/AP and supporting HWM/JAI; investigate their actual lookup carrier/format before any original-map update. No standalone rebuild or replacement.",
+  "minimal_physical_discrimination": [
+    "Same selected city/street with house number skipped versus pure184 isolates whether failure depends on numeric filtering.",
+    "Compare exact184 with stock CN+Address Point together and note candidate location; stock success is positive control, not a binary-format decoder."
+  ]
+}

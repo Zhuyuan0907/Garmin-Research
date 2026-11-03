@@ -1,0 +1,20 @@
+{
+  "schema": "root-observed-tool-terminal-v1",
+  "session_id": 50568,
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-sbc-ingress/emulate_sbc_ingress_v2.py",
+  "launch": {
+    "chunk_id": "91a890",
+    "wall_time_seconds": 1.001817792,
+    "session_id": 50568,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "terminal": {
+    "chunk_id": "04d81b",
+    "wall_time_seconds": 4.898681706,
+    "exit_code": 1,
+    "original_token_count": 327,
+    "output": "{\"case\": \"two_foreign_packets_trigger_Source_events\", \"decoder_returns\": 4, \"native_full_returns\": 15, \"capacity_posts\": 0}\nTraceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-ingress/emulate_sbc_ingress_v2.py\", line 256, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-ingress/emulate_sbc_ingress_v2.py\", line 240, in main\n    m=Ingress(stock,e,build,reference,index);records=run_case(m,name);row=m.result(name,records)\n                                                     ~~~~~~~~^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-ingress/emulate_sbc_ingress_v2.py\", line 203, in run_case\n    before=m.producer();require(before['owned'][4]==4 and before['queue'][6]==2,'backpressure did not retain two copied compressed packets behind four PCM slots')\n                        ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/emulate_queue_call.py\", line 33, in require\n    if not x:raise ValueError(reason)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: backpressure did not retain two copied compressed packets behind four PCM slots\n"
+  },
+  "scope": "First external packet case passed; subsequent backpressure assertion failed. Frozen offline run; not a Garmin physical failure."
+}

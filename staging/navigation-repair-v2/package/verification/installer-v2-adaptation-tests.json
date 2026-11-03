@@ -1,0 +1,53 @@
+{
+  "checked_at_local": "2026-10-05T23:01:19.230304+08:00",
+  "all_passed": true,
+  "tests_run": 6,
+  "cases": [
+    {
+      "name": "Only NEW_PATH changes; normalized AST and all function code/consts equivalent",
+      "passed": true,
+      "function_count": 29
+    },
+    {
+      "name": "V2 production manifest contract and IMG hash/header load",
+      "passed": true
+    },
+    {
+      "name": "Exact XML identity remains enforced",
+      "passed": true
+    },
+    {
+      "name": "V1 target or stock target rejected by V2 manifest",
+      "passed": true
+    },
+    {
+      "name": "V2 install/idempotent install/rollback/idempotent rollback with stock hashes unchanged",
+      "passed": true,
+      "synthetic_IMG_bytes": 102400
+    },
+    {
+      "name": "Rollback refuses a changed V2 image without deleting it",
+      "passed": true
+    }
+  ],
+  "only_source_change": "NEW_PATH v1 -> v2",
+  "v1_prior_19_tests_inherited_not_rerun": true,
+  "prior_proof_sha256": "24a88b581119c54f363771f2752d0d13fcf3fe6c0d20dfb135bca97ba2a89144",
+  "source_sha256": {
+    "install_navigation_bundle.py": "940114eee1944b22b2bfab3dd46b7a79dc72ca8447bc6391c6812e613c2ca0f8",
+    "verify_installer_adaptation.py": "0caccf2eedc1a04207d23a66bf9feb04eeaa895bbd0a843291158055b60e0a9f"
+  },
+  "frozen_v1_sha256_before": {
+    "staging/navigation-map-layers-v1/install_navigation_bundle.py": "9b3f11d2743cbcdc341a060992311adb3bdbdd1342a616ffe8a664b83eb21c90",
+    "staging/navigation-map-layers-v1/installer-test-results.json": "24a88b581119c54f363771f2752d0d13fcf3fe6c0d20dfb135bca97ba2a89144"
+  },
+  "frozen_v1_sha256_after": {
+    "staging/navigation-map-layers-v1/install_navigation_bundle.py": "9b3f11d2743cbcdc341a060992311adb3bdbdd1342a616ffe8a664b83eb21c90",
+    "staging/navigation-map-layers-v1/installer-test-results.json": "24a88b581119c54f363771f2752d0d13fcf3fe6c0d20dfb135bca97ba2a89144"
+  },
+  "actual_usb_discovery": false,
+  "actual_mount": false,
+  "actual_Garmin_write": false,
+  "raw_private_device_identity_in_results": false,
+  "limitations": "New constant adaptation, manifest load and true transaction roundtrip run on a host temporary directory. No real vfat atomic rename, USB/service operation or navigation search was tested."
+}

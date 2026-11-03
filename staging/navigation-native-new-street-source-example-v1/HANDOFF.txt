@@ -1,0 +1,45 @@
+Finite actual source-backed missing-street example; host-only prototype.
+
+Primary input: candidate.json
+schema: garmin-source-backed-new-street-example/v1
+streettext: 敦富六街
+city/district: 台中市 / 北屯區; raw source city 臺中市
+house_label: 368號; house_text_reference.primary_ref: 2967
+source_group_ids: [37506]; source_ids: [8280986017]
+sourcepoint / coordinate_strings: ["24.1882244", "120.7079937"]
+raw24: [1127253, 5625400], latitude then longitude (wire unsigned24).
+source_members preserves the sole node's complete prepared ID/address/point.
+Version/timestamp and other node tags are not in the group: not re-read or invented.
+
+geometry_gate.sourcepoint_inside_full_city and
+geometry_gate.exact_quantized_raw24_inside_same_full_city are both true.
+The full accepted 臺中市 polygon has 9,616 vertices. Exact rational raw24
+membership uses the saved integer winding API, without seven-decimal rounding.
+北屯區 polygon membership is NOT proved here. Literal source district equals
+the existing original native district; do not infer another district.
+
+original_city_district_relationship binds original city 0x10000008 / district
+0x2000004a. Independent actual JAI family snapshot929a52... confirms city family
+first0x2000004a, district family first0x3000327c, 441 named/physical street rows,
+and actual original L2low74 first12924/count441/next3. Literal 敦富六街 is absent.
+All441 oldstreet names have no samecontext one-character edit or literal prefix
+match, and source street has no explicit 巷/弄/段/村/里/鄰 marker. These screens
+do NOT establish absence of historic aliases, official authenticity or physical
+construction dates. Status remains pending-alias prototype only; install=false.
+Earlier 大甲區新正路 was rejected because original 新政路 is a one-character
+alternative. Other shortlisted names were not promoted into this example.
+
+Budget/provenance: final accepted adaptive read exactly3MiB compressed and
+at most24MiB plaintext; 46,470 complete prepared groups (<1.1% of4,630,959).
+gzipEOF=false; partial trailing JSON excluded and compressed tail unconsumed.
+Earlier exploratory prefix reads total917,504 compressed bytes are disclosed
+separately. No more ledger read followed the final cap. prepare_source_example.py
+consumes only the saved shortlist/context, small source proof/geometry/houseindex
+and independent actual family snapshot. Whole137,633,122B group SHA/EOF is
+inherited from the accepted country join, not recomputed in this scope.
+
+No PBF/nodeledger/fulladdress scan, nativeCPU, DB/IMG/LBL/MDR emission, deviceIO,
+sealedv3 mutation, ZIP/publication or full-Taiwan-completion claim.
+proof.json binds every small actual input with immutable stat and byte/hash;
+actual-receipts.json records this new final preparation and exploratory scope.
+sealed-files.json closes only this namespace. Do not extend after handoff.

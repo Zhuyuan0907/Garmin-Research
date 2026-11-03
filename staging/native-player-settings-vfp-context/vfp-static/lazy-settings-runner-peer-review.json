@@ -1,0 +1,125 @@
+{
+  "updated_utc": "2026-10-04T09:32:39.950890+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/probe_native_settings_lazy_vfp.py": "b2d3ff0e303fbc91ad6b15e32c87ec29c6e26729abb65ac61c711c3cf4c49d38",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-settings-vfp-context/micro/original-lazy-vfp-micro-probe.json": "91efaef3e9ec4c285c67859d6054894e410526770e738107c1be380a59d146c7",
+    "staging/native-player-settings-vfp-context/micro/source-at-run.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json": "c2b7da27512b0f73ad22cf25179fbe9e605bab406fdced877433639be906fe35",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_mainmenu_native_settings_journal.py": "1034c6157923dafe44d5f7ea952c87543c3125db4cfd8d5ccd0c744f266bfde3",
+    "scripts/probe_mainmenu_native_settings_prep.py": "beee865dfce0e1c0bddd2895c723a4d5100fc0b0ed7b76cd243db7204e2e990c"
+  },
+  "static_peer_review": true,
+  "new_guest_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "source_or_existing_evidence_modified": false,
+  "reviewed_runner_sha256": "b2d3ff0e303fbc91ad6b15e32c87ec29c6e26729abb65ac61c711c3cf4c49d38",
+  "reviewed_scope": "First/same actual controller lazyVFP under explicit architectural undefined-entry/CPACR/guardedUNDstack inputs; original heap/settings bodies and originalrestore remain unchanged.",
+  "conclusion": {
+    "concrete_blocking_issues_found": [],
+    "previous_push_alias_blocker_resolved_in_new_subclass": true,
+    "native_settings_runtime_has_not_been_executed_by_this_reviewer": true,
+    "this_review_is_not_final_runtime_or_memory_guard_proof": true
+  },
+  "push_journal_review": {
+    "previous_review_runner_sha256": "7b3a67f11d16b373f95ffb9ea640db7e713d22ffff18fae3194080478e122f46",
+    "previous_issue": "Frozen parent journal rejects ARM push alias because it admits str/stm/swp only.",
+    "exact_original_writers": [
+      {
+        "PC": "0x20ebe0",
+        "word": "0xe92d101f",
+        "opcode_hex": "1f102de9",
+        "native_instruction": "push {r0, r1, r2, r3, r4, ip}",
+        "store_size": 4,
+        "addresses_relative_to_undefined_stack_top": [
+          -24,
+          -20,
+          -16,
+          -12,
+          -8,
+          -4
+        ],
+        "GP_snapshot_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          12
+        ]
+      },
+      {
+        "PC": "0x20ec78",
+        "word": "0xe92d4020",
+        "opcode_hex": "20402de9",
+        "native_instruction": "push {r5, lr}",
+        "store_size": 4,
+        "addresses_relative_to_undefined_stack_top": [
+          -32,
+          -28
+        ],
+        "GP_snapshot_indices": [
+          5,
+          "undefined_LR=faultPC+4"
+        ]
+      }
+    ],
+    "new_override_requires_active_lazy_row": true,
+    "new_override_requires_ARM_undefined_mode_low6_0x1B": true,
+    "new_override_compares_stock_and_guest_bytes": true,
+    "new_override_checks_exact_8_addresses_and_snapshot_GP_payloads": true,
+    "new_override_checks_guarded_32byte_native_frame_bounds": true,
+    "all_other_store_writers_delegated_to_frozen_parent": true,
+    "new_stores_participate_in_whole_zone_CPUhistory_replay": true,
+    "eight_stores_bounded_by_two_native_pushes_and_helper_32trap_admission": true
+  },
+  "reviewed_invariants": [
+    "Owner field3AB1038 has originalBSS provenance; requires zero on new initialization without resetting live owner.",
+    "CPACR uses C1_C0_2 explicitvirtualstartup register and requires actual readback00F00000; host never changes FPEXC to repair runtime traps.",
+    "Original taskrestore20EBD4 still disables FPEXC, nativehandler20EC80 enables it, original20ED3C exceptionreturn reaches actual faultopcode retry.",
+    "Lazy exception entry preserves real task GP/banked stack and supplies only UNDmode/SPSR/LR=faultPC+4/guardedUNDSP architectural inputs.",
+    "Full CPSR/GP15/D16/FPSCR are compared before actual retry; EN and owner are checked at retry, recursive/ineligiblefault/other-owner exchanges refused.",
+    "New ownerpage4096 and UNDstackinterior4032 enter frozenwholezone CPUjournal before settings; leading/trailing32byteUNDcanaries remain separate wholechecks.",
+    "Final new check requires owner=controller and controller TCB+28=0; original heap/settings guards retain fullTCB108, ALL/ready, two Timer tokens, residentframes/timedThreadnode and initializedbank guards.",
+    "Original FPboot20ED68/listener and cross-task FPcontext allocate/save/restore are explicitly outside admittedscope; no claim of physical CPUexception delivery or fullboot."
+  ],
+  "stored_micro_evidence": {
+    "path": "staging/native-player-settings-vfp-context/micro/original-lazy-vfp-micro-probe.json",
+    "source_sha256": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "all_passed": true,
+    "case_count": 3,
+    "cases": [
+      {
+        "case": "first_owner_disable_handler_retry",
+        "passed": true,
+        "input_uint32": 1638,
+        "original_return_bits": "0x44ccc000"
+      },
+      {
+        "case": "same_owner_disable_handler_retry",
+        "passed": true,
+        "input_uint32": 42,
+        "original_return_bits": "0x42280000"
+      },
+      {
+        "case": "different_owner_without_FP_context_rejected",
+        "passed": true
+      }
+    ],
+    "this_review_did_not_rerun_microcontrols": true
+  },
+  "broader_scope_limits_not_current_run_blockers": [
+    "No nativeFPboot20ED68/exitlistener registration.",
+    "No cross-task FPcontext exchange or allocator/metadata148byte backing.",
+    "Architectural undefinedentry remains an explicitly declared fixture.",
+    "Wholezonejournals prove net bytes against original CPUwrite history and do not independently catch every same-value/restored hostwrite.",
+    "No settings return/fullfinalguards/nativeforeground/physicalApp claim in this static review."
+  ],
+  "assertions_passed": true
+}

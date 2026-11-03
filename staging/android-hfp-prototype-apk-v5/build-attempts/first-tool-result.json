@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python3",
+    "scripts/build_android_hfp_prototype_v5.py"
+  ],
+  "exit_code": 1,
+  "tool_results": [
+    {
+      "chunk_id": "817cbc",
+      "wall_time_seconds": 1.00476944,
+      "session_id": 64895,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "chunk_id": "1bbc46",
+      "wall_time_seconds": 0.000017222,
+      "exit_code": 1,
+      "original_token_count": 382,
+      "output": "----------\n1. ERROR in /root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflight.java (at line 211)\n\tticket.cancel();\n\t^^^^^^\nThe blank final field ticket may not have been initialized\n----------\n2. ERROR in /root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflight.java (at line 213)\n\tif (!started) LEASE.releaseAfterCleanup(ticket);\n\t                                        ^^^^^^\nThe blank final field ticket may not have been initialized\n----------\n2 problems (2 errors)\n\nTraceback (most recent call last):\n  File \"/root/garmin/scripts/build_android_hfp_prototype_v5.py\", line 192, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/scripts/build_android_hfp_prototype_v5.py\", line 77, in main\n    run(['java', '-jar', TOOLS / 'ecj-3.41.0.jar', '-source', '8', '-target', '8', '-proc:none',\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         '-warn:none', '-encoding', 'UTF-8', '-bootclasspath',\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         str(TOOLS / 'android-35.jar') + os.pathsep + str(TOOLS / 'core-lambda-stubs.jar'), '-d', classes, *sources])\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/scripts/build_android_hfp_prototype_v5.py\", line 37, in run\n    raise RuntimeError('Android host build failed: ' + str(argv[0]))\nRuntimeError: Android host build failed: java\n"
+    }
+  ],
+  "failure_stage": "official_API35_Java_compilation",
+  "APK_created": false
+}
+

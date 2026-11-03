@@ -1,0 +1,28 @@
+{
+  "schema": "garmin-native-query-cold-allocator-execution-receipts/v1",
+  "all_assigned_checks_passed": true,
+  "new_MAIN_bytes_read": 0,
+  "new_IMG_bytes_read": 0,
+  "logical_constructor_continuations": 1,
+  "executed_attempts": 2,
+  "syntax_preparation_failures": 1,
+  "actual_runs": [
+    {"terminal": "426f3e", "exit_code": 0, "operation": "Create new namespace", "original_source_IO": false},
+    {"terminal": "950531", "exit_code": 1, "script": "probe_cold_allocator_abi_initial_CPSR_assertion.py", "failure": "Post-run full-CPSR equality failed after original next-core entry check passed; actual trace/register values not saved", "guest_instruction_count": null, "new_MAIN_bytes": 0, "new_IMG_bytes": 0},
+    {"terminal": "7cdbd7", "exit_code": 0, "operation": "Preserve initial source/failure and correct host CPSR control-bit guard, add runtime journal before assertions", "guest_executed": false},
+    {"terminal": "00f97e", "exit_code": 1, "failure": "IndentationError while adding runtime journal; before Python evaluation", "guest_executed": false, "original_source_IO": false},
+    {"terminal": "528e9f", "exit_code": 0, "operation": "Correct new script indentation", "guest_executed": false},
+    {"terminal": "87238d", "exit_code": 0, "script": "probe_cold_allocator_abi.py", "all_assigned_checks_passed": true, "logical_case": "same cold constructor ABI continuation", "native_setup_instructions": 8, "continuation_instructions": 42, "original_mutex_return": 0, "next_entry_before_execution": "0x003881BC", "handle_after": 0, "new_MAIN_bytes": 0, "new_IMG_bytes": 0},
+    {"terminal": "365120", "exit_code": 0, "script": "analyze_cold_allocator.py", "all_assigned_checks_passed": true, "witnesses": 5, "guest_executed": false, "new_MAIN_bytes": 0, "new_IMG_bytes": 0}
+  ],
+  "existing_small_doc_and_saved_page_inspections": ["02bd48", "f8ca9e", "6092fd", "ae1575", "fd188b", "e29426"],
+  "unknown_OS_mutex_allocator_returns_faked": false,
+  "original_MAIN_patched": false,
+  "old_closed_cases_replayed": false,
+  "music_admission_guest_or_callsite_patch_used": false,
+  "warm_fullimage_used": false,
+  "system_block_encountered": false,
+  "system_block_bypassed": false,
+  "all_source_handles_closed": true,
+  "device_IO": false
+}

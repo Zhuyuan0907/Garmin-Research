@@ -1,0 +1,57 @@
+{
+  "schema": "android-garmin-platform-call-contract/v1",
+  "recorded_utc": "2026-10-07T13:23:42.632445+00:00",
+  "all_assigned_checks_passed": true,
+  "pass_scope": "finite official-doc platform Java API contract only",
+  "independent_runtime_verification": false,
+  "dependencies": {
+    "androidx": false,
+    "core_telecom": false
+  },
+  "contract_file": "CONTRACT.txt",
+  "source_access": "Android official docs via browser; no local source/SDK/device access",
+  "source_functions_checked": [
+    "TelecomManager.registerPhoneAccount",
+    "TelecomManager.addNewIncomingCall",
+    "TelecomManager.isIncomingCallPermitted",
+    "ConnectionService.onCreateIncomingConnection",
+    "Connection.onShowIncomingCallUi",
+    "Connection.onAnswer",
+    "Connection.onDisconnect",
+    "Connection.requestBluetoothAudio",
+    "Connection.requestCallEndpointChange",
+    "Connection.onAvailableCallEndpointsChanged",
+    "Connection.onCallEndpointChanged",
+    "Service.startForeground",
+    "Notification.CallStyle"
+  ],
+  "version_contract": {
+    "selfmanaged_min": 26,
+    "prototype_recommended_min": 28,
+    "requestBluetoothAudio_added": 28,
+    "requestCallEndpointChange_added": 34,
+    "CallStyle_added": 31,
+    "POST_NOTIFICATIONS_version": 33,
+    "phoneCall_fgs_permission_version": 34
+  },
+  "important_limits": [
+    "setActive/setOnHold only after Connection returned/added",
+    "5second FGS startup deadline is not Core addCall deadline",
+    "post-notification exemption applies only configured selfmanaged CallStyle",
+    "endpoint request not proof of correct actual route or music playback",
+    "RECORD_AUDIO not listed for addNewIncomingCall; all-Pixel microphone-permission-free playback remains unverified",
+    "Pixel version unknown"
+  ],
+  "zero_operations": {
+    "device": 0,
+    "bluetooth": 0,
+    "dbus": 0,
+    "incoming_call": 0,
+    "audio": 0,
+    "sdk_install": 0,
+    "apk_or_compile": 0,
+    "native_or_guest": 0
+  },
+  "root_prototype_directory_touched": false,
+  "stop": true
+}

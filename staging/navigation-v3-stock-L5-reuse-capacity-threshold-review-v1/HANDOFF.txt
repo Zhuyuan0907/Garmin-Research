@@ -1,0 +1,50 @@
+Independent L5-only capacity threshold: passed, NUMERIC DATA only
+
+L4reuse summary pin31ff1e560798e9c772cb5cdb01682aa049ba161b80c82d071e0715751e116ec9
+and prior independent math pine2b44383925d87456c88de02d89bb98852f9eb054d6fe1aa43c06ad0492d1162
+verified. Read only six closed small artifacts27380B<98304B; exact source
+hashes/stat/modes and closed file-list pins recorded. New L4reuse seal digest
+was newly established here rather than compared to a nonexistent parent pin.
+Old summary/record-comparison evidence is inherited, not rerun. No source code,
+record ledger, proof118KB, IMG, firmware, scanner, guest or device opened.
+
+Independent bit packing: L4count3781594*128/8=60505504B;
+L5count3074293*126/8 ceil=48420115B; L6count2062771*68/8 ceil=17533554B.
+Nonlower base4870967B; MDR131330140B. Five original other component logical
+sizes240/101058/3812824/101058/138B are unchanged. Original declared capacity
+134217728B is this container's limit, not a proven platform maximum.
+
+Integer4K geometry uses ceil(componentbytes/4096), ceil(blocks/240) FAT parts,
+one root row, metadata ceil((4096+FATrows*512)/4096)*4096 and max73728B.
+Current L4reuse result: MDR32064 blocks/134 parts,143 total FAT rows,
+metadata77824B, projected IMG135438336B, excess1220608B. Every supplied
+baseline capacity field matches independent arithmetic.
+
+EXACT additional L5-only count saving:77245 rows, while retaining every L4/L6
+record and keeping all other sizes/field widths unchanged.
+
+rows saved | L5remaining | L5bytes  | MDRbytes  | MDRblocks | MDRparts | FATrows | metadata | IMGbytes
+77244      | 2997049     | 47203522 | 130113547 | 31767     | 133      | 142     | 77824    | 134221824
+77245      | 2997048     | 47203506 | 130113531 | 31766     | 133      | 142     | 77824    | 134217728
+
+One row fewer still needs one extra4096B allocation block. At the threshold
+total32768 blocks exactly fill the declared capacity. Metadata does not shrink
+in this scope:143→142 FAT rows both require77824B. L5packed bytes saved1216609B;
+MDR allocated blocks saved298=1220608B. Tail/ceil allocation explains the
+difference; saved126-bit records cannot be treated as a constant16B pitch.
+
+Independent closed form agrees with monotone search and adjacent cases:
+other components983 blocks +metadata19 blocks leave31766 MDR blocks,
+maximum MDRlogical130113536B. FixedL4+L6+base82910025B leaves47203511B for L5.
+floor(47203511*8/126)=2997048 L5 records;3074293−2997048=77245.
+
+This is a minimum arithmetic savings threshold, not a finding of77245 safely
+reusable/deletable records or addresses. Real tree ownership/alias mapping,
+lower-ID references, high flag semantics, original UI/renderer/routes and
+physical installation remain unproved. No retention criteria or widths were
+changed; no map was produced, and v3 regression is not fixed by this result.
+
+Actual capture20bb93 EXIT0, numeric review348fc2 EXIT0. math.json gives complete
+baseline/threshold−1/threshold geometry; proof.json gives scope/caveats and pins.
+actual-tool-receipts.json and own final seal preserve the exact receipts.
+All handles closed. Stop after final seal; earlier scopes remain immutable.

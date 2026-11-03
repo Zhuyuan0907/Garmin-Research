@@ -1,0 +1,22 @@
+{
+  "schema": "android-auto-h264-port-shim-syntax-v1",
+  "scope": "Single own platform shim ordinary Linux aarch64 host object compile only; no full decoder link or runtime tests",
+  "full_decoder_tests_run": false,
+  "device_IO": false,
+  "native_guest_executed": false,
+  "ARM_crosscompiled": false,
+  "actual_initial_terminal_result": {
+    "chunk_id": "436775",
+    "wall_time_seconds": 0.000019852,
+    "exit_code": 1,
+    "original_token_count": 815,
+    "output": "native/aa-h264-port/port.cpp:120:13: error: ‘void* operator new(size_t)’: visibility attribute ignored because it conflicts with previous declaration [-Werror=attributes]\n  120 | LOCAL void *operator new(size_t bytes){return malloc(bytes);}\n      |             ^~~~~~~~\n<built-in>: note: previous declaration of ‘void* operator new(size_t)’\nnative/aa-h264-port/port.cpp:121:13: error: ‘void* operator new [](size_t)’: visibility attribute ignored because it conflicts with previous declaration [-Werror=attributes]\n  121 | LOCAL void *operator new[](size_t bytes){return malloc(bytes);}\n      |             ^~~~~~~~\n<built-in>: note: previous declaration of ‘void* operator new [](size_t)’\nnative/aa-h264-port/port.cpp:122:12: error: ‘void operator delete(void*)’: visibility attribute ignored because it conflicts with previous declaration [-Werror=attributes]\n  122 | LOCAL void operator delete(void *pointer) noexcept {free(pointer);}\n      |            ^~~~~~~~\n<built-in>: note: previous declaration of ‘void operator delete(void*)’\nnative/aa-h264-port/port.cpp:123:12: error: ‘void operator delete [](void*)’: visibility attribute ignored because it conflicts with previous declaration [-Werror=attributes]\n  123 | LOCAL void operator delete[](void *pointer) noexcept {free(pointer);}\n      |            ^~~~~~~~\n<built-in>: note: previous declaration of ‘void operator delete [](void*)’\nnative/aa-h264-port/port.cpp: In function ‘void* memcpy(void*, const void*, size_t)’:\nnative/aa-h264-port/port.cpp:133:5: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]\n  133 |     for(size_t i=0;i<n;++i)out[i]=in[i];return destination;\n      |     ^~~\nnative/aa-h264-port/port.cpp:133:41: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’\n  133 |     for(size_t i=0;i<n;++i)out[i]=in[i];return destination;\n      |                                         ^~~~~~\nnative/aa-h264-port/port.cpp: In function ‘void* memset(void*, int, size_t)’:\nnative/aa-h264-port/port.cpp:137:5: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]\n  137 |     for(size_t i=0;i<n;++i)out[i]=static_cast<uint8_t>(value);return destination;\n      |     ^~~\nnative/aa-h264-port/port.cpp:137:63: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’\n  137 |     for(size_t i=0;i<n;++i)out[i]=static_cast<uint8_t>(value);return destination;\n      |                                                               ^~~~~~\nnative/aa-h264-port/port.cpp: In function ‘int memcmp(const void*, const void*, size_t)’:\nnative/aa-h264-port/port.cpp:141:5: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]\n  141 |     for(size_t i=0;i<n;++i)if(a[i]!=b[i])return int(a[i])-int(b[i]);return 0;\n      |     ^~~\nnative/aa-h264-port/port.cpp:141:69: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’\n  141 |     for(size_t i=0;i<n;++i)if(a[i]!=b[i])return int(a[i])-int(b[i]);return 0;\n      |                                                                     ^~~~~~\ncc1plus: all warnings being treated as errors\n"
+  },
+  "actual_final_terminal_result": {
+    "chunk_id": "ba8a24",
+    "wall_time_seconds": 0.000018,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  }
+}

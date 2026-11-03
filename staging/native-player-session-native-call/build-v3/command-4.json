@@ -1,0 +1,20 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-nostdlib",
+    "-no-pie",
+    "-Wl,--gc-sections",
+    "-Wl,--no-undefined",
+    "-Wl,-T,/root/garmin/staging/native-player-session-native-call/build-v3/queue-call.ld",
+    "-Wl,-Map,/root/garmin/staging/native-player-session-native-call/build-v3/queue-call.map",
+    "/root/garmin/staging/native-player-session-native-call/build-v3/queue_call_driver_v2.o",
+    "/root/garmin/staging/native-player-session-native-call/build-v3/music_session_guard_v2.o",
+    "/root/garmin/staging/native-player-session-native-call/build-v3/native_context_v2.o",
+    "/root/garmin/staging/native-player-session-native-call/build-v3/ui_music_control.o",
+    "-o",
+    "/root/garmin/staging/native-player-session-native-call/build-v3/queue-call-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: /root/garmin/staging/native-player-session-native-call/build-v3/queue-call-EMULATION-ONLY.elf has a LOAD segment with RWX permissions\n/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: warning: .note.gnu.build-id section discarded, --build-id ignored\n"
+}

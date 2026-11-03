@@ -1,0 +1,691 @@
+Compiled from "NETFileReader.java"
+public class uk.me.parabola.imgfmt.app.net.NETFileReader extends uk.me.parabola.imgfmt.app.ImgFile {
+  private final uk.me.parabola.imgfmt.app.net.NETHeader netHeader;
+
+  private final java.util.Map<java.lang.Integer, java.lang.Integer> offsetLabelMap;
+
+  private java.util.List<java.lang.Integer> offsets;
+
+  private java.util.List<uk.me.parabola.imgfmt.app.lbl.City> cities;
+
+  private int citySize;
+
+  private java.util.List<uk.me.parabola.imgfmt.app.lbl.Zip> zips;
+
+  private int zipSize;
+
+  private uk.me.parabola.imgfmt.app.lbl.LBLFileReader labels;
+
+  static final boolean $assertionsDisabled;
+
+  public uk.me.parabola.imgfmt.app.net.NETFileReader(uk.me.parabola.imgfmt.fs.ImgChannel);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method uk/me/parabola/imgfmt/app/ImgFile."<init>":()V
+       4: aload_0
+       5: new           #2                  // class uk/me/parabola/imgfmt/app/net/NETHeader
+       8: dup
+       9: invokespecial #3                  // Method uk/me/parabola/imgfmt/app/net/NETHeader."<init>":()V
+      12: putfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+      15: aload_0
+      16: new           #5                  // class java/util/HashMap
+      19: dup
+      20: invokespecial #6                  // Method java/util/HashMap."<init>":()V
+      23: putfield      #7                  // Field offsetLabelMap:Ljava/util/Map;
+      26: aload_0
+      27: aload_0
+      28: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+      31: invokevirtual #8                  // Method setHeader:(Luk/me/parabola/imgfmt/app/CommonHeader;)V
+      34: aload_0
+      35: new           #9                  // class uk/me/parabola/imgfmt/app/BufferedImgFileReader
+      38: dup
+      39: aload_1
+      40: invokespecial #10                 // Method uk/me/parabola/imgfmt/app/BufferedImgFileReader."<init>":(Luk/me/parabola/imgfmt/fs/ImgChannel;)V
+      43: invokevirtual #11                 // Method setReader:(Luk/me/parabola/imgfmt/app/ImgFileReader;)V
+      46: aload_0
+      47: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+      50: aload_0
+      51: invokevirtual #12                 // Method getReader:()Luk/me/parabola/imgfmt/app/ImgFileReader;
+      54: invokevirtual #13                 // Method uk/me/parabola/imgfmt/app/net/NETHeader.readHeader:(Luk/me/parabola/imgfmt/app/ImgFileReader;)V
+      57: aload_0
+      58: invokespecial #14                 // Method readLabelOffsets:()V
+      61: return
+
+  public int getLabelOffset(int);
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field offsetLabelMap:Ljava/util/Map;
+       4: iload_1
+       5: invokestatic  #15                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       8: iconst_0
+       9: invokestatic  #15                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      12: invokeinterface #16,  3           // InterfaceMethod java/util/Map.getOrDefault:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      17: checkcast     #17                 // class java/lang/Integer
+      20: invokevirtual #18                 // Method java/lang/Integer.intValue:()I
+      23: ireturn
+
+  public java.util.List<uk.me.parabola.imgfmt.app.net.RoadDef> getRoads();
+    Code:
+       0: aload_0
+       1: invokevirtual #12                 // Method getReader:()Luk/me/parabola/imgfmt/app/ImgFileReader;
+       4: astore_1
+       5: aload_0
+       6: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+       9: invokevirtual #19                 // Method uk/me/parabola/imgfmt/app/net/NETHeader.getRoadDefinitionsStart:()I
+      12: i2l
+      13: lstore_2
+      14: new           #20                 // class java/util/ArrayList
+      17: dup
+      18: invokespecial #21                 // Method java/util/ArrayList."<init>":()V
+      21: astore        4
+      23: iconst_0
+      24: istore        5
+      26: aload_0
+      27: getfield      #22                 // Field offsets:Ljava/util/List;
+      30: invokeinterface #23,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      35: astore        6
+      37: aload         6
+      39: invokeinterface #24,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      44: ifeq          459
+      47: aload         6
+      49: invokeinterface #25,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      54: checkcast     #17                 // class java/lang/Integer
+      57: invokevirtual #18                 // Method java/lang/Integer.intValue:()I
+      60: istore        7
+      62: aload_1
+      63: lload_2
+      64: iload         7
+      66: i2l
+      67: ladd
+      68: invokeinterface #26,  3           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:(J)V
+      73: new           #27                 // class uk/me/parabola/imgfmt/app/net/RoadDef
+      76: dup
+      77: iinc          5, 1
+      80: iload         5
+      82: i2l
+      83: iload         7
+      85: aconst_null
+      86: invokespecial #28                 // Method uk/me/parabola/imgfmt/app/net/RoadDef."<init>":(JILjava/lang/String;)V
+      89: astore        8
+      91: aload_0
+      92: aload_1
+      93: aload         8
+      95: invokespecial #29                 // Method readLabels:(Luk/me/parabola/imgfmt/app/ImgFileReader;Luk/me/parabola/imgfmt/app/net/RoadDef;)V
+      98: aload_1
+      99: invokeinterface #30,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get:()B
+     104: istore        9
+     106: aload_1
+     107: invokeinterface #31,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get3u:()I
+     112: pop
+     113: bipush        24
+     115: newarray       int
+     117: astore        10
+     119: iconst_0
+     120: istore        11
+     122: iload         11
+     124: bipush        24
+     126: if_icmpge     165
+     129: aload_1
+     130: invokeinterface #30,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get:()B
+     135: istore        12
+     137: aload         10
+     139: iload         11
+     141: iinc          11, 1
+     144: iload         12
+     146: bipush        127
+     148: iand
+     149: iastore
+     150: iload         12
+     152: sipush        128
+     155: iand
+     156: ifeq          162
+     159: goto          165
+     162: goto          122
+     165: iconst_0
+     166: istore        12
+     168: iload         12
+     170: iload         11
+     172: if_icmpge     218
+     175: aload         10
+     177: iload         12
+     179: iaload
+     180: istore        13
+     182: iconst_0
+     183: istore        14
+     185: iload         14
+     187: iload         13
+     189: if_icmpge     212
+     192: aload_1
+     193: invokeinterface #30,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get:()B
+     198: pop
+     199: aload_1
+     200: invokeinterface #32,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get2u:()I
+     205: pop
+     206: iinc          14, 1
+     209: goto          185
+     212: iinc          12, 1
+     215: goto          168
+     218: iload         9
+     220: bipush        16
+     222: iand
+     223: ifeq          408
+     226: aload_1
+     227: invokeinterface #32,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get2u:()I
+     232: istore        12
+     234: iload         12
+     236: bipush        10
+     238: ishr
+     239: iconst_3
+     240: iand
+     241: istore        13
+     243: iload         12
+     245: bipush        12
+     247: ishr
+     248: iconst_3
+     249: iand
+     250: istore        14
+     252: iload         12
+     254: bipush        14
+     256: ishr
+     257: iconst_3
+     258: iand
+     259: istore        15
+     261: new           #33                 // class it/unimi/dsi/fastutil/ints/IntArrayList
+     264: dup
+     265: invokespecial #34                 // Method it/unimi/dsi/fastutil/ints/IntArrayList."<init>":()V
+     268: astore        16
+     270: aload_1
+     271: iload         13
+     273: aload_0
+     274: getfield      #35                 // Field zipSize:I
+     277: aload         16
+     279: invokestatic  #36                 // Method fetchZipCityIndexes:(Luk/me/parabola/imgfmt/app/ImgFileReader;IILit/unimi/dsi/fastutil/ints/IntArrayList;)V
+     282: aload         16
+     284: invokevirtual #37                 // Method it/unimi/dsi/fastutil/ints/IntArrayList.iterator:()Lit/unimi/dsi/fastutil/ints/IntListIterator;
+     287: astore        17
+     289: aload         17
+     291: invokeinterface #24,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     296: ifeq          336
+     299: aload         17
+     301: invokeinterface #25,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     306: checkcast     #17                 // class java/lang/Integer
+     309: invokevirtual #18                 // Method java/lang/Integer.intValue:()I
+     312: istore        18
+     314: aload         8
+     316: aload_0
+     317: getfield      #38                 // Field zips:Ljava/util/List;
+     320: iload         18
+     322: invokeinterface #39,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     327: checkcast     #40                 // class uk/me/parabola/imgfmt/app/lbl/Zip
+     330: invokevirtual #41                 // Method uk/me/parabola/imgfmt/app/net/RoadDef.addZipIfNotPresent:(Luk/me/parabola/imgfmt/app/lbl/Zip;)V
+     333: goto          289
+     336: aload_1
+     337: iload         14
+     339: aload_0
+     340: getfield      #42                 // Field citySize:I
+     343: aload         16
+     345: invokestatic  #36                 // Method fetchZipCityIndexes:(Luk/me/parabola/imgfmt/app/ImgFileReader;IILit/unimi/dsi/fastutil/ints/IntArrayList;)V
+     348: aload         16
+     350: invokevirtual #37                 // Method it/unimi/dsi/fastutil/ints/IntArrayList.iterator:()Lit/unimi/dsi/fastutil/ints/IntListIterator;
+     353: astore        17
+     355: aload         17
+     357: invokeinterface #24,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     362: ifeq          402
+     365: aload         17
+     367: invokeinterface #25,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     372: checkcast     #17                 // class java/lang/Integer
+     375: invokevirtual #18                 // Method java/lang/Integer.intValue:()I
+     378: istore        18
+     380: aload         8
+     382: aload_0
+     383: getfield      #43                 // Field cities:Ljava/util/List;
+     386: iload         18
+     388: invokeinterface #39,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     393: checkcast     #44                 // class uk/me/parabola/imgfmt/app/lbl/City
+     396: invokevirtual #45                 // Method uk/me/parabola/imgfmt/app/net/RoadDef.addCityIfNotPresent:(Luk/me/parabola/imgfmt/app/lbl/City;)V
+     399: goto          355
+     402: aload_1
+     403: iload         15
+     405: invokestatic  #46                 // Method fetchNumber:(Luk/me/parabola/imgfmt/app/ImgFileReader;I)V
+     408: iload         9
+     410: bipush        64
+     412: iand
+     413: ifeq          446
+     416: aload_1
+     417: invokeinterface #47,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get1u:()I
+     422: istore        12
+     424: iload         12
+     426: iconst_3
+     427: iand
+     428: istore        13
+     430: iload         13
+     432: ifle          446
+     435: aload_1
+     436: iload         13
+     438: iconst_1
+     439: iadd
+     440: invokeinterface #48,  2           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.getNu:(I)I
+     445: pop
+     446: aload         4
+     448: aload         8
+     450: invokeinterface #49,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     455: pop
+     456: goto          37
+     459: aload         4
+     461: areturn
+
+  private static void fetchZipCityIndexes(uk.me.parabola.imgfmt.app.ImgFileReader, int, int, it.unimi.dsi.fastutil.ints.IntArrayList);
+    Code:
+       0: aload_3
+       1: invokevirtual #50                 // Method it/unimi/dsi/fastutil/ints/IntArrayList.clear:()V
+       4: iload_1
+       5: iconst_2
+       6: if_icmpne     35
+       9: aload_0
+      10: iload_2
+      11: invokeinterface #48,  2           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.getNu:(I)I
+      16: istore        4
+      18: iload         4
+      20: ifeq          32
+      23: aload_3
+      24: iload         4
+      26: iconst_1
+      27: isub
+      28: invokevirtual #51                 // Method it/unimi/dsi/fastutil/ints/IntArrayList.add:(I)Z
+      31: pop
+      32: goto          123
+      35: iload_1
+      36: iconst_3
+      37: if_icmpne     43
+      40: goto          123
+      43: iload_1
+      44: ifne          66
+      47: aload_0
+      48: invokeinterface #47,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get1u:()I
+      53: istore        4
+      55: aload_0
+      56: iload         4
+      58: iload_2
+      59: aload_3
+      60: invokestatic  #52                 // Method parseList:(Luk/me/parabola/imgfmt/app/ImgFileReader;IILit/unimi/dsi/fastutil/ints/IntArrayList;)V
+      63: goto          123
+      66: iload_1
+      67: iconst_1
+      68: if_icmpne     90
+      71: aload_0
+      72: invokeinterface #32,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get2u:()I
+      77: istore        4
+      79: aload_0
+      80: iload         4
+      82: iload_2
+      83: aload_3
+      84: invokestatic  #52                 // Method parseList:(Luk/me/parabola/imgfmt/app/ImgFileReader;IILit/unimi/dsi/fastutil/ints/IntArrayList;)V
+      87: goto          123
+      90: getstatic     #53                 // Field $assertionsDisabled:Z
+      93: ifne          123
+      96: new           #54                 // class java/lang/AssertionError
+      99: dup
+     100: new           #55                 // class java/lang/StringBuilder
+     103: dup
+     104: invokespecial #56                 // Method java/lang/StringBuilder."<init>":()V
+     107: ldc           #57                 // String flag is
+     109: invokevirtual #58                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     112: iload_1
+     113: invokevirtual #59                 // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     116: invokevirtual #60                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     119: invokespecial #61                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+     122: athrow
+     123: return
+
+  private static void parseList(uk.me.parabola.imgfmt.app.ImgFileReader, int, int, it.unimi.dsi.fastutil.ints.IntArrayList);
+    Code:
+       0: aload_0
+       1: invokeinterface #62,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:()J
+       6: iload_1
+       7: i2l
+       8: ladd
+       9: lstore        4
+      11: iconst_0
+      12: istore        6
+      14: aload_0
+      15: invokeinterface #62,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:()J
+      20: lload         4
+      22: lcmp
+      23: ifge          215
+      26: aload_0
+      27: invokeinterface #47,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get1u:()I
+      32: istore        7
+      34: iload         7
+      36: bipush        31
+      38: iand
+      39: istore        8
+      41: iload         7
+      43: iconst_5
+      44: ishr
+      45: istore        7
+      47: iload         7
+      49: bipush        7
+      51: if_icmpne     80
+      54: aload_0
+      55: invokeinterface #47,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get1u:()I
+      60: istore        7
+      62: iload         8
+      64: iload         7
+      66: bipush        31
+      68: iand
+      69: iconst_5
+      70: ishl
+      71: ior
+      72: istore        8
+      74: iload         7
+      76: iconst_5
+      77: ishr
+      78: istore        7
+      80: iload         6
+      82: iload         8
+      84: iconst_1
+      85: iadd
+      86: iadd
+      87: istore        6
+      89: iconst_0
+      90: istore        9
+      92: iconst_0
+      93: istore        10
+      95: iload         7
+      97: ifne          115
+     100: aload_0
+     101: iload_2
+     102: lload         4
+     104: invokestatic  #63                 // Method getCityOrZip:(Luk/me/parabola/imgfmt/app/ImgFileReader;IJ)I
+     107: dup
+     108: istore        10
+     110: istore        9
+     112: goto          177
+     115: iload         7
+     117: iconst_4
+     118: iand
+     119: ifeq          145
+     122: iload         7
+     124: iconst_1
+     125: iand
+     126: ifne          132
+     129: iconst_0
+     130: istore        9
+     132: iload         7
+     134: iconst_2
+     135: iand
+     136: ifne          177
+     139: iconst_0
+     140: istore        10
+     142: goto          177
+     145: iload         7
+     147: iconst_1
+     148: iand
+     149: ifeq          161
+     152: aload_0
+     153: iload_2
+     154: lload         4
+     156: invokestatic  #63                 // Method getCityOrZip:(Luk/me/parabola/imgfmt/app/ImgFileReader;IJ)I
+     159: istore        10
+     161: iload         7
+     163: iconst_2
+     164: iand
+     165: ifeq          177
+     168: aload_0
+     169: iload_2
+     170: lload         4
+     172: invokestatic  #63                 // Method getCityOrZip:(Luk/me/parabola/imgfmt/app/ImgFileReader;IJ)I
+     175: istore        9
+     177: iload         10
+     179: ifle          191
+     182: aload_3
+     183: iload         10
+     185: iconst_1
+     186: isub
+     187: invokevirtual #51                 // Method it/unimi/dsi/fastutil/ints/IntArrayList.add:(I)Z
+     190: pop
+     191: iload         9
+     193: ifle          212
+     196: iload         10
+     198: iload         9
+     200: if_icmpeq     212
+     203: aload_3
+     204: iload         9
+     206: iconst_1
+     207: isub
+     208: invokevirtual #51                 // Method it/unimi/dsi/fastutil/ints/IntArrayList.add:(I)Z
+     211: pop
+     212: goto          14
+     215: return
+
+  private static int getCityOrZip(uk.me.parabola.imgfmt.app.ImgFileReader, int, long);
+    Code:
+       0: aload_0
+       1: invokeinterface #62,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:()J
+       6: lload_2
+       7: iload_1
+       8: i2l
+       9: lsub
+      10: lcmp
+      11: ifle          32
+      14: getstatic     #53                 // Field $assertionsDisabled:Z
+      17: ifne          30
+      20: new           #54                 // class java/lang/AssertionError
+      23: dup
+      24: ldc           #64                 // String ERRROR overflow
+      26: invokespecial #61                 // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+      29: athrow
+      30: iconst_0
+      31: ireturn
+      32: aload_0
+      33: iload_1
+      34: invokeinterface #48,  2           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.getNu:(I)I
+      39: ireturn
+
+  private static void fetchNumber(uk.me.parabola.imgfmt.app.ImgFileReader, int);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: iload_1
+       3: ifne          16
+       6: aload_0
+       7: invokeinterface #47,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get1u:()I
+      12: istore_2
+      13: goto          51
+      16: iload_1
+      17: iconst_1
+      18: if_icmpne     31
+      21: aload_0
+      22: invokeinterface #32,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get2u:()I
+      27: istore_2
+      28: goto          51
+      31: iload_1
+      32: iconst_3
+      33: if_icmpne     37
+      36: return
+      37: getstatic     #53                 // Field $assertionsDisabled:Z
+      40: ifne          51
+      43: new           #54                 // class java/lang/AssertionError
+      46: dup
+      47: invokespecial #65                 // Method java/lang/AssertionError."<init>":()V
+      50: athrow
+      51: iload_2
+      52: ifle          63
+      55: aload_0
+      56: iload_2
+      57: invokeinterface #66,  2           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get:(I)[B
+      62: pop
+      63: return
+
+  private void readLabels(uk.me.parabola.imgfmt.app.ImgFileReader, uk.me.parabola.imgfmt.app.net.RoadDef);
+    Code:
+       0: iconst_0
+       1: istore_3
+       2: iload_3
+       3: iconst_4
+       4: if_icmpge     52
+       7: aload_1
+       8: invokeinterface #31,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get3u:()I
+      13: istore        4
+      15: aload_0
+      16: getfield      #67                 // Field labels:Luk/me/parabola/imgfmt/app/lbl/LBLFileReader;
+      19: iload         4
+      21: ldc           #68                 // int 8388607
+      23: iand
+      24: invokevirtual #69                 // Method uk/me/parabola/imgfmt/app/lbl/LBLFileReader.fetchLabel:(I)Luk/me/parabola/imgfmt/app/Label;
+      27: astore        5
+      29: aload_2
+      30: aload         5
+      32: invokevirtual #70                 // Method uk/me/parabola/imgfmt/app/net/RoadDef.addLabel:(Luk/me/parabola/imgfmt/app/Label;)V
+      35: iload         4
+      37: ldc           #71                 // int 8388608
+      39: iand
+      40: ifeq          46
+      43: goto          52
+      46: iinc          3, 1
+      49: goto          2
+      52: return
+
+  private void readLabelOffsets();
+    Code:
+       0: aload_0
+       1: invokevirtual #12                 // Method getReader:()Luk/me/parabola/imgfmt/app/ImgFileReader;
+       4: astore_1
+       5: aload_0
+       6: aload_0
+       7: invokespecial #72                 // Method readOffsets:()Ljava/util/List;
+      10: putfield      #22                 // Field offsets:Ljava/util/List;
+      13: aload_0
+      14: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+      17: invokevirtual #19                 // Method uk/me/parabola/imgfmt/app/net/NETHeader.getRoadDefinitionsStart:()I
+      20: i2l
+      21: lstore_2
+      22: aload_0
+      23: getfield      #22                 // Field offsets:Ljava/util/List;
+      26: invokeinterface #23,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      31: astore        4
+      33: aload         4
+      35: invokeinterface #24,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      40: ifeq          103
+      43: aload         4
+      45: invokeinterface #25,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      50: checkcast     #17                 // class java/lang/Integer
+      53: invokevirtual #18                 // Method java/lang/Integer.intValue:()I
+      56: istore        5
+      58: aload_1
+      59: lload_2
+      60: iload         5
+      62: i2l
+      63: ladd
+      64: invokeinterface #26,  3           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:(J)V
+      69: aload_1
+      70: invokeinterface #31,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get3u:()I
+      75: istore        6
+      77: aload_0
+      78: getfield      #7                  // Field offsetLabelMap:Ljava/util/Map;
+      81: iload         5
+      83: invokestatic  #15                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      86: iload         6
+      88: ldc           #68                 // int 8388607
+      90: iand
+      91: invokestatic  #15                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      94: invokeinterface #73,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      99: pop
+     100: goto          33
+     103: return
+
+  private java.util.List<java.lang.Integer> readOffsets();
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+       4: invokevirtual #74                 // Method uk/me/parabola/imgfmt/app/net/NETHeader.getSortedRoadsStart:()I
+       7: istore_1
+       8: aload_0
+       9: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+      12: invokevirtual #75                 // Method uk/me/parabola/imgfmt/app/net/NETHeader.getSortedRoadsEnd:()I
+      15: istore_2
+      16: aload_0
+      17: invokevirtual #12                 // Method getReader:()Luk/me/parabola/imgfmt/app/ImgFileReader;
+      20: astore_3
+      21: aload_3
+      22: iload_1
+      23: i2l
+      24: invokeinterface #26,  3           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:(J)V
+      29: new           #76                 // class java/util/HashSet
+      32: dup
+      33: invokespecial #77                 // Method java/util/HashSet."<init>":()V
+      36: astore        4
+      38: aload_3
+      39: invokeinterface #62,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.position:()J
+      44: iload_2
+      45: i2l
+      46: lcmp
+      47: ifge          85
+      50: aload_3
+      51: invokeinterface #31,  1           // InterfaceMethod uk/me/parabola/imgfmt/app/ImgFileReader.get3u:()I
+      56: istore        5
+      58: aload         4
+      60: iload         5
+      62: ldc           #78                 // int 4194303
+      64: iand
+      65: aload_0
+      66: getfield      #4                  // Field netHeader:Luk/me/parabola/imgfmt/app/net/NETHeader;
+      69: invokevirtual #79                 // Method uk/me/parabola/imgfmt/app/net/NETHeader.getRoadShift:()I
+      72: ishl
+      73: invokestatic  #15                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      76: invokeinterface #80,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      81: pop
+      82: goto          38
+      85: new           #20                 // class java/util/ArrayList
+      88: dup
+      89: aload         4
+      91: invokespecial #81                 // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+      94: astore        5
+      96: aload         5
+      98: aconst_null
+      99: invokeinterface #82,  2           // InterfaceMethod java/util/List.sort:(Ljava/util/Comparator;)V
+     104: aload         5
+     106: areturn
+
+  public void setCities(java.util.List<uk.me.parabola.imgfmt.app.lbl.City>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #43                 // Field cities:Ljava/util/List;
+       5: aload_0
+       6: aload_1
+       7: invokeinterface #83,  1           // InterfaceMethod java/util/List.size:()I
+      12: invokestatic  #84                 // Method uk/me/parabola/imgfmt/Utils.numberToPointerSize:(I)I
+      15: putfield      #42                 // Field citySize:I
+      18: return
+
+  public void setZips(java.util.List<uk.me.parabola.imgfmt.app.lbl.Zip>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #38                 // Field zips:Ljava/util/List;
+       5: aload_0
+       6: aload_1
+       7: invokeinterface #83,  1           // InterfaceMethod java/util/List.size:()I
+      12: invokestatic  #84                 // Method uk/me/parabola/imgfmt/Utils.numberToPointerSize:(I)I
+      15: putfield      #35                 // Field zipSize:I
+      18: return
+
+  public void setLabels(uk.me.parabola.imgfmt.app.lbl.LBLFileReader);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #67                 // Field labels:Luk/me/parabola/imgfmt/app/lbl/LBLFileReader;
+       5: return
+
+  static {};
+    Code:
+       0: ldc           #85                 // class uk/me/parabola/imgfmt/app/net/NETFileReader
+       2: invokevirtual #86                 // Method java/lang/Class.desiredAssertionStatus:()Z
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: putstatic     #53                 // Field $assertionsDisabled:Z
+      16: return
+}

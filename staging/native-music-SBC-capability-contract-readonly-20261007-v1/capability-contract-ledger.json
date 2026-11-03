@@ -1,0 +1,504 @@
+{
+  "schema": "garmin-native-SBC-capability-contract-file-review/v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "field_rows": [
+    {
+      "field": "sampling_frequency",
+      "advertised_mask": 48,
+      "selected_values": [
+        {
+          "bit": 32,
+          "rate_hz": 44100
+        },
+        {
+          "bit": 16,
+          "rate_hz": 48000
+        }
+      ],
+      "validator": "exactly one selected bit within0x30",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            13,
+            13
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            24,
+            29
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "codec"
+        },
+        {
+          "path": "native/sbc-prototype/pcm_converter.c",
+          "lines": [
+            20,
+            35
+          ],
+          "whole_sha256": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+          "fresh_saved_capture": true,
+          "function": "pcm_converter_reset"
+        }
+      ],
+      "status": "declared and accepted subset agree;16/32k converter-only"
+    },
+    {
+      "field": "channel_mode",
+      "advertised_mask": 15,
+      "selected_values": [
+        {
+          "bit": 8,
+          "numeric_mode": 0,
+          "channels": 1
+        },
+        {
+          "bit": 4,
+          "numeric_mode": 1,
+          "channels": 2
+        },
+        {
+          "bit": 2,
+          "numeric_mode": 2,
+          "channels": 2
+        },
+        {
+          "bit": 1,
+          "numeric_mode": 3,
+          "channels": 2
+        }
+      ],
+      "standard_mode_names": [
+        "mono",
+        "dual_channel",
+        "stereo",
+        "joint_stereo"
+      ],
+      "name_provenance": "SBC numeric mode convention; numeric selector/channel mapping is fresh C evidence",
+      "validator": "exactly one bit",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            13,
+            13
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            25,
+            31
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "codec"
+        },
+        {
+          "path": "native/sbc-prototype/pcm_converter.c",
+          "lines": [
+            20,
+            26
+          ],
+          "whole_sha256": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+          "fresh_saved_capture": true,
+          "function": "pcm_converter_reset"
+        }
+      ],
+      "status": "four modes map to1/2channel converter inputs"
+    },
+    {
+      "field": "block_length",
+      "advertised_mask": 240,
+      "selected_values": [
+        {
+          "bit": 128,
+          "blocks": 4
+        },
+        {
+          "bit": 64,
+          "blocks": 8
+        },
+        {
+          "bit": 32,
+          "blocks": 12
+        },
+        {
+          "bit": 16,
+          "blocks": 16
+        }
+      ],
+      "validator": "exactly one bit",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            13,
+            13
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            25,
+            32
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "codec"
+        }
+      ],
+      "status": "all four declared and accepted"
+    },
+    {
+      "field": "subbands",
+      "advertised_mask": 12,
+      "selected_values": [
+        {
+          "bit": 8,
+          "subbands": 4
+        },
+        {
+          "bit": 4,
+          "subbands": 8
+        }
+      ],
+      "validator": "exactly one bit",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            13,
+            13
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            25,
+            31
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "codec"
+        }
+      ],
+      "status": "both declared and accepted"
+    },
+    {
+      "field": "allocation_method",
+      "advertised_mask": 3,
+      "selected_values": [
+        {
+          "bit": 2,
+          "numeric_allocation": 1
+        },
+        {
+          "bit": 1,
+          "numeric_allocation": 0
+        }
+      ],
+      "standard_names": {
+        "1": "SNR",
+        "0": "loudness"
+      },
+      "validator": "exactly one bit",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            13,
+            13
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            25,
+            33
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "codec"
+        }
+      ],
+      "status": "both declared and accepted"
+    },
+    {
+      "field": "bitpool",
+      "advertised_min": 2,
+      "advertised_max": 53,
+      "validator": "2<=minimum<=maximum<=53; per-frame bitpool within configured range",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            13,
+            13
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            24,
+            28
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "codec"
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            113,
+            122
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "music_guard_frame"
+        }
+      ],
+      "status": "same2..53 range; variable frame bitpool within configured min/max accepted"
+    },
+    {
+      "field": "services",
+      "validator": "one empty MediaTransport(category1) plus one6-byte audio/SBC(category7), no other category",
+      "references": [
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            49,
+            67
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "music_validate_configuration"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            92,
+            97
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "fresh_saved_capture": true,
+          "function": "music_endpoint_capabilities"
+        }
+      ],
+      "status": "category6 unsupported; custom GetCapabilities flag0x11 excludes HeaderCompression per source comment; actual signal12 route unknown"
+    },
+    {
+      "field": "packet_and_frames",
+      "validator": "RTPv2; CSRC/extension/padding bounded; no SBC fragment bits;1..15 frames; exact consumed payload and selected rate/mode/blocks/subbands/allocation; max4096andlocalreceiveMTU",
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "lines": [
+            105,
+            124
+          ],
+          "whole_sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "fresh_saved_capture": true,
+          "function": "framing"
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            93,
+            104
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "music_guard_packet"
+        },
+        {
+          "path": "native/avdtp-policy/policy.c",
+          "lines": [
+            106,
+            122
+          ],
+          "whole_sha256": "4d7d87a082bada71ac5c5bfd2c11f98ce9794119ce015e6d83ab5c05e00514c4",
+          "fresh_saved_capture": true,
+          "function": "music_guard_frame"
+        }
+      ],
+      "status": "outer selected-codec parser agrees with format declaration; CRC/inner parser delegated"
+    },
+    {
+      "field": "decoded_PCM_and_output",
+      "validator": "decoded result rate/channels fixed within stream; converter supports16/32/44.1/48k mono/stereo and producesmono16kS16",
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+          "lines": [
+            22,
+            23
+          ],
+          "whole_sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+          "fresh_saved_capture": true
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+          "lines": [
+            52,
+            72
+          ],
+          "whole_sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+          "fresh_saved_capture": true,
+          "function": "owned_media_submit_frame"
+        },
+        {
+          "path": "native/sbc-prototype/pcm_converter.c",
+          "lines": [
+            20,
+            35
+          ],
+          "whole_sha256": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+          "fresh_saved_capture": true,
+          "function": "pcm_converter_reset"
+        },
+        {
+          "path": "native/sbc-prototype/pcm_converter.c",
+          "lines": [
+            55,
+            87
+          ],
+          "whole_sha256": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+          "fresh_saved_capture": true,
+          "function": "pcm_converter_process"
+        }
+      ],
+      "status": "advertised44.1/48k mono/stereo subset fits converter; decoder body/table coefficients not fresh-reviewed"
+    }
+  ],
+  "numeric_summary": {
+    "codec_format_shapes": 128,
+    "max_samples_per_channel_per_SBC_frame": 128,
+    "source_buffer_bytes": 512,
+    "converted_buffer_bytes": 256,
+    "conservative_15_frame_output_bound_bytes": 3840,
+    "gather_capacity_bytes": 4096,
+    "arithmetic_only": true,
+    "no_PCM_or_native_execution": true
+  },
+  "selected_artifacts": {
+    "custom_endpoint": {
+      "source": "native/music-endpoint/endpoint.c",
+      "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+      "custom_provider_not_recovered_original_API": true,
+      "same_loaded_image_binding_fresh_verified": false
+    },
+    "loaded_v2_generated_sources": [
+      {
+        "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+        "bytes": 8368,
+        "sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405"
+      },
+      {
+        "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+        "bytes": 12303,
+        "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5"
+      },
+      {
+        "path": "staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c",
+        "bytes": 4434,
+        "sha256": "d3a2982365b48b98883cb0e994877fb662ff64e77d4c7a1e7e95f46e50ab3fe0"
+      }
+    ],
+    "inherited_root_build_metadata": {
+      "path": "staging/native-player-loaded-single-image/build-v2.json",
+      "whole_sha256": "ee7d464e806cfc2d2f506989ffc7b2d7b30c6ce5e2d5f068b95f303cc6b76f75",
+      "bytes": 75903,
+      "fresh_read_by_this_scope": false,
+      "root_reused_closed_comparison_status": {
+        "remote_cb446d": "declared matched in v2/v3",
+        "fifo_d3a298": "declared matched in v2/v3",
+        "owned_58a665": "not directly declared in comparison; no absence inference",
+        "policy_converter": "not in comparison selected rows; unknown"
+      }
+    }
+  },
+  "findings": [
+    {
+      "kind": "consistent_subset",
+      "detail": "All SBC masks and selected format/range fields in custom capbytes match fresh policy validator; broader converter16/32k input support is intentionally not advertised."
+    },
+    {
+      "kind": "packet_limit",
+      "detail": "Only complete nonfragmented1..15frame packets pass outer parser. RTP sequence/timestamp continuity, payload-type/SSRC continuity, reorder/jitter/retransmit behavior are not implemented in this framing body."
+    },
+    {
+      "kind": "delegated_contract",
+      "detail": "CRC and owned_packet_parse/media_queue_callback bodies are outside eight selected files; full inner-parser equivalence and decoder support are inherited/provisional, not fresh proven."
+    },
+    {
+      "kind": "helper_precondition",
+      "detail": "nsg_config_begin readsbody[0] before validator; selected capture does not contain its caller. Need caller nonNULL/readable first byte before entry; not proof current original caller allows invalid input."
+    },
+    {
+      "kind": "capability_dispatch_gap",
+      "detail": "Helper allows signals2/4 only;4 is GetConfiguration, delegatedstock. Signal12 GetAllCapabilities dispatcher/body is not captured. No global capability-response inconsistency or support claim inferred."
+    }
+  ],
+  "pixel_negotiation_conditions": {
+    "conditional_only_not_phone_test": true,
+    "required_selected_configuration": "44.1or48k; one mode/block/subband/allocation selector;2<=min<=max<=53; only MediaTransport and audio/SBC services",
+    "required_media": "all packet frames match accepted codec_word; nonfragmentedRTP; payload<=localreceiveMTU<=4096;1..15frames",
+    "native_acceptance_more_than_validator0": "matching accepted reply command/witness and fullresult0, actual SEPstate2/context/remoteSEID/callback/codec, later Startreply/state8 admission, Source resident guard/queue ownership",
+    "unknown": [
+      "actual Pixel offered/selected codec and bitpool",
+      "real advertised GetAllCapabilities response",
+      "original SEP/profile/callback installation",
+      "same-image endpoint capability provider link",
+      "native serialized session ownership/scheduling/backpressure",
+      "phone reconnect/live performance/speaker"
+    ]
+  },
+  "historical_scope": {
+    "BT_matrix_sha256": "bdd5f0fb13096680bab4a7712f4fa22f2bcdc29564d5afdec5184cb49365c7a1",
+    "read_by_this_scope": false,
+    "early_discover_empty_SEP_not_direct_A2DP_completion": true,
+    "later_offline_decode_converter_results_not_rerun": true
+  },
+  "errata": [
+    {
+      "type": "incorrect_progress_message_protocol_name",
+      "original_claim": "signal4 GetAllCapabilities",
+      "correction": "signal4 GetConfiguration; GetAllCapabilities signal12(0x0C). This final analysis does not treat stocksignal4 delegation as GetAllCapabilities mismatch.",
+      "source": "parent correction before seal; own source exact4 literal retained",
+      "original_TOOL_case_failure": false
+    }
+  ],
+  "limits": {
+    "fresh_source_files": 8,
+    "fresh_source_bytes": 43671,
+    "budget": 122880,
+    "single_max": 12303,
+    "extra_build_JSON_content_reads": 0,
+    "filename_index_IO": "metadata/name only, not byte-instrumented",
+    "target_imports": 0,
+    "compile_tests_guest_emulator": 0,
+    "ASM_MAIN_ELF_liveRAM": 0,
+    "device_BT_DBUS_audio_private_phone_config": 0,
+    "shared_source_report_edits": 0,
+    "system_risk_guest_retry": 0,
+    "runtime_or_hardware_acceptance": false
+  }
+}

@@ -1,0 +1,75 @@
+原廠多層圖資盤點與修復包設計（2026-10-05）
+
+這台 nüvi 2565RT 原來就有互補圖層。備份解析證明「CN Taiwan NT
+2016.11」與「2016.10 Address Point」是路網與門牌搜尋的分工；兩者同時
+勾選本身不能判定為衝突。新版 OSM 與舊 CN 主路網同時啟用是否導致
+搜尋兩小時、選錯道路，仍需要實機 A/B 測試。
+
+1. gmapbmap.img：「TWN Navi Base Map DEM」，38,137,856 bytes。
+   包含兩組 TRE/RGN/LBL 及兩個 DEM 元件，其中 DEM 約 35.09 MB 與
+   0.22 MB。表示原備份已含地形資料，並非只有平面底圖。
+2. gmapprom.img：「CN Taiwan NT 2016.11 ALL」，166,084,608 bytes。
+   GMP I0533A5C，地圖 ID 5,454,428 / 0x533A5C，FID 4171、PID 1。
+   公開標头可確認 TRE/RGN/LBL/NET/NOD，含主路網和路由資料。
+   另有 MDR/SRT、QSI、IDX、TRF、TYP、內部 RLR.SID；這些是同一產品
+   的搜尋／表現／輔助資料，不是可任意換版本的獨立新版地圖。
+3. gmapprom1.img：「CN Taiwan NT 2016.10 Address Point ALL」，
+   96,739,328 bytes。GMP I053061A，地圖 ID 5,441,050 / 0x53061A，
+   FID 4171、PID 1。只有 TRE/RGN/LBL，NET/NOD 指標為 0；MDR 索引
+   約 92.65 MB。是門牌搜尋補充，不能單獨當成完整導航路網。
+4. gmaptz.img：「Time Zone Map」，579,584 bytes，供時區功能。
+
+主圖與門牌圖的 LBL 公開標頭都是 encoding type 10 / code page 950
+（Big5）；時區是 type 6 / 1252。新版 OSM 使用 65001。Unicode 宣告與
+中文能显示，不足以證明原機的中文排序／地址搜尋也能正常運作。
+
+原廠相依資料已核對：
+- .System/SQLite/HWM/TWNHWM.db：AdvHWM 1611；map_ids=5,454,428，
+  精確對應主圖 I0533A5C。包含道路招牌、交流道／出口等原廠資料表。
+- .System/SQLite/Prefecture/TWNJAI.db：PrefectureAddressIndexing 1610；
+  jai_map_id=5,441,050，精確對應門牌圖 I053061A。含 48,218 筆地址
+  索引資料、22 個一級區域及 22 組 FTS3 索引；字串是 Garmin 的 tk…
+  編碼，並非能直接 LIKE 中文的普通字串。兩個 DB 的 quick_check=ok。
+- .System/JCV/TWCNSTD.JCV、.System/SID/TWPPD.SID 與 G2S 檔存在。
+  GarminDevice.xml 標示 G2S 資料類型為 GarminAdjacencytoSSID。
+  這些原廠資料應保留；沒有證據保證能替 OSM 提供有效新版路口圖、
+  門牌或其他搜尋功能，也不應從別台車機的套件混拷進來。
+- POI 目錄有 11 個 GPI，約 291.62 MB，包含公車、景點、測速等資料。
+  這些是額外 POI，不是完整道路／門牌路網的替代品。
+- 沒有獨立 gmap3d.img，也沒有 GMP 的 DEM／MAR 元件。不能據此斷言
+  韌體不支持任何 3D 功能；一般地圖的透視「3D 顯示」也不等於 3D 建築。
+
+必要實機 A/B：原檔保留，只切地圖勾選。
+A：只啟用修復版 OSM 詳細路網；關閉兩個原廠 CN／Address Point。
+B：關閉 OSM；啟用原廠 CN 主圖與 Address Point。
+兩組均保留底圖／時區，完整重開機後走同一「地址 → 台中市 → 民權路」
+流程，記錄候選名稱、搜尋秒數與選定道路位置，另測民和路和一條已知
+可用道路。超過 60 秒即記錄未完成並取消，不必再等兩小時。
+此測試只是定位問題；實際合格標準需同時包括名稱正確、結果位置正確、
+未漏掉應有街道與可完成合理路線。兩组結果現在都尚未取得。
+
+整包修復設計：
+只分發一個新 OSM IMG，內含同一次編譯產生的 TRE/RGN/LBL/NET/NOD
+及 MDR/SRT/MPS，隨包附授權、SHA-256 manifest、檢查／安装／回復工具
+與 A/B 測試說明。原廠圖層、DB、JCV/SID/G2S、授權檔與 POI 原地保留，
+在 manifest 列路徑與既有雜湊引用，不複製大檔或分發別人的 NT/OEM 內容。
+安裝前讀取實機檔案清單／空間；只替換這個計畫自己產生的 Map/*.img，
+讀回校驗並安全卸載。新路網与搜尋索引必须配套，不能只換名稱或部分索引。
+此目錄的 package-manifest-proposal.json 是設計與待驗證關卡，不是修好
+可裝的成品；實機搜索與路由還未通過，不可宣稱已修复。
+
+資料來源與界線：
+- 本機唯讀完整 USB 邏輯備份；layer-inventory.json 記錄公開目录、標頭、
+  SQLite metadata 與既有備份 hash。没有執行 GarminOS 搜尋，也沒有破解
+  受保護 NT geometry／索引內容。SQLite integrity 並非搜尋功能通過證据。
+- mkgmap MapBlock / ProductBlock / LBLHeader / MDRHeader 原始格式實作：
+  https://github.com/openstreetmap/mkgmap/blob/master/src/uk/me/parabola/imgfmt/mps/MapBlock.java
+  https://github.com/openstreetmap/mkgmap/blob/master/src/uk/me/parabola/imgfmt/mps/ProductBlock.java
+  https://github.com/openstreetmap/mkgmap/blob/master/src/uk/me/parabola/imgfmt/app/lbl/LBLHeader.java
+  https://github.com/openstreetmap/mkgmap/blob/master/src/uk/me/parabola/imgfmt/app/mdr/MDRHeader.java
+- Garmin 官方 Carmax Android 車機 2016 更新說明，確實列出 DEM AOER、
+  OEM CN Taiwan NT2017 3D、Address Point 與 NT2017 四層。它是在說另一
+  平台的套件，不能推論这些 OEM 圖層适用本機 HWID1352 / SW8.00。
+  https://tw.carmax.garmin.com/doc/Android_Update_20161222_QSM.pdf
+- Garmin 官方說明 supplemental map files 可分別啟用／停用：
+  https://support.garmin.com/en-US/?faq=goltFGKcUyAKNc5wjgCT58

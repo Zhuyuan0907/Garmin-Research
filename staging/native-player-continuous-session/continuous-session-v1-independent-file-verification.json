@@ -1,0 +1,3081 @@
+{
+  "all_passed": true,
+  "case_count": 3,
+  "assertion_scope": "FILE ONLY independent replay of frozen three bounded continuous-session cases",
+  "source_sha256": {
+    "staging/native-player-continuous-session/emulate_continuous_session_v1.py": "29a83047a7e5d0fe7cbf337494c44c0b13a9bebe4c1c9936bac1c30949811cad",
+    "staging/native-player-native-allocation/audio-session-static/emulate_audio_session_v2.py": "76d9532dad6f76effeb61bdccba40514ac5e972b7d39bbae4af5f6b814c9a729",
+    "staging/native-player-native-allocation/audio-session-static/emulate_audio_session.py": "752440957882935e19eae872cd59026c134700a0e56a5374a68d1f7523fd1269",
+    "staging/native-player-session-native-call/emulate_queue_call.py": "ae3485d4ce381172035abe56a61a890fbba8078e051e02b3feef8a088c1bae3c",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-continuous-session/build_continuous_session_v1.py": "b7822982c2fe1d92d34cde98f9ff59dc2dbf1e2ff5f90a81209d4075fd1a4803",
+    "staging/native-player-continuous-session/audio_session_driver_v3.c": "83a7a82b4a8c922df04c4fdf7a2c3bd9e13ae25ea2b1be7cdba5b135a18c2dcd",
+    "staging/native-player-continuous-session/pcm_fifo_session_owner_v3.c": "9030780432b5cfa1d84cf7df7cda85d86062dc2a9bf843f68ecee63ed1c793c6",
+    "staging/native-player-native-allocation/audio-session-static/runtime.c": "9d23dac536e18cfbd97971ed0e8ef87892106001d183740a2a3d2ffa441c76a3",
+    "staging/native-player-native-allocation/audio-session-static/bounded_pull_entry.S": "4b6c5cf8f6a665072fdaffe63b577673f23da88e4a365099a17d52ac99bc0ee8",
+    "staging/native-player-continuous-session/music_session_guard_v3.c": "897d5deb7c7f894b009b262b673c6469e1bf292f89987151120f5d7a00bb4a95",
+    "staging/native-player-continuous-session/music_session_guard_v3.h": "86f39fea5ab6e5d9c04684241cbfae59516a32d1273640772e07926c6188b6d9",
+    "staging/native-player-continuous-session/native_context_v3.c": "417699763f1725b5ae5d03079ddb75e73d9ecc86be7e278497a1589cb5ca45e0",
+    "staging/native-player-inline-fields/music-session/pull_bridge.S": "addd15d0a4130a5afcb8891706a5245e2fb3a6afbf491740ff719a52903655bf",
+    "staging/native-player-continuous-session/memory_output_session_owner_v3.c": "d17b846d1fdaeefa6270025305f29c3e3e010539e2be364ecd153816ba5713c6",
+    "staging/native-player-settings-scope/music-owner/memory_output_owner.c": "66507402887d4581f913b192b44aa61ed5cefe8560dc2e3002d6aa506878dde8",
+    "native/music-continuous/memory_output.c": "25337955cdf6b39bde6abb8a5cbcf84f8fb572a3d7b51336243a69f77988cd07",
+    "native/music-continuous/owned_media.c": "eb92262e4f50fc0e7e955417f925de830c5e6666abc15bcad6c48cee576444e1",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "native/sbc-prototype/pcm_converter.h": "8f183e510d47f7b0ebb19d044c56c2933b29d8870ee0c5395f5de7fd1b84fa07",
+    "native/sbc-prototype/media_queue.c": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+    "native/sbc-prototype/media_queue.h": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+    "native/sbc-prototype/media_worker.c": "be69e2096232d93cf6517df72ac600657b161f62fb080ad209cc8bfff26acbad",
+    "native/sbc-prototype/media_worker.h": "f942220caf544fd6c4db4dbd2607c6c923772ca822e6436234a35112774353ab",
+    "native/ui-music-control-prototype/ui_music_control.c": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+    "native/ui-music-control-prototype/ui_music_control.h": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+    "native/ui-music-native-adapter/native_adapter.h": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+    "staging/native-player-dispatcher-native-body/music-static/analyze_single_image_link_bindings.py": "d1cd10ff3c761bc734ef620da024bf6dad1f07f0a996a84abb625980396021c6",
+    "staging/native-player-continuous-session/build-v1/playback_imports.h": "390b52ffa80438d9ec07a8d32a01dae1d889726d69c7d0f1c0a06d88c22536cc",
+    "staging/native-player-continuous-session/build-v1/audio-session.ld": "08c7fbd3aff8947194999d580766931940d41d121d3e584977a580aac847aa82",
+    "staging/native-player-continuous-session/build-v1.json": "46f3fdeb3fb2ee3d626250ca377bce82629203957bccddb41fbc3652a71fd0a1",
+    "staging/native-player-continuous-session/build-v1/audio-session-EMULATION-ONLY.elf": "653710a3e49f3b3c5edf35a1a3e9fa7701e72bc1738ca4c612f8356fb6a12e92",
+    "staging/native-player-native-allocation/audio-session-static/audio-session-emulation-v2-proof.json": "55d49c40019b751c3029c66ef33bff9e9940006965de1dc0587f4631b3a72cc2",
+    "staging/native-player-continuous-session/continuous-session-host-controls-v3.json": "be9274f35a618c1398c2b50c775d9114900c736385b7bcabdfb2ea317e7ab0f3",
+    "staging/native-player-continuous-session/verify_continuous_session_v1_files_v2.py": "416d115d1cdc049c6793d5935b29116f6633233ca36139f1c136db0cfeb2a9bb",
+    "staging/native-player-native-allocation/audio-session-static/verify_audio_session_v2_files_v2.py": "53cb3c2326ec6ae93b948e33f668d9f5c2406a8ecec45f2cbf8036b441874b9b",
+    "staging/native-player-continuous-session/verify_continuous_session_v1_files.py": "a4e18bbd70dd6025bcce166d9241627e94e9b9db254bf644897786251568dd98",
+    "staging/native-player-continuous-session/file-verifier-v1/verifier-at-run.py": "a4e18bbd70dd6025bcce166d9241627e94e9b9db254bf644897786251568dd98",
+    "staging/native-player-continuous-session/file-verifier-v1/inputs-at-run.json": "feb73d233d6a15603a8bc40eef51ac750ab6570d08848579d3b60e764d3756e6",
+    "staging/native-player-continuous-session/file-verifier-v1-terminal-tool-receipt.json": "960d73830a5b0dac0fa6cc28d6ca13499cc3b6d7ae5d167d7365545b2e4f8c86"
+  },
+  "output_sha256": {
+    "staging/native-player-continuous-session/continuous-session-emulation-v1-proof.json": "62bc17e120d2bc314a7ab3e73638b526e09a9e4a2f3f75b14861b9e5b9954f07",
+    "staging/native-player-continuous-session/guest-v1-terminal-tool-receipt.json": "559abf357f15d991ca47bd4c8541b4775c269864ca139f9bd9b2b5956c0bb7b3",
+    "staging/native-player-continuous-session/guest-v1/inputs-at-run.json": "a7dcc1ddac9ad8c7b95b796b6cb9da80b5474666f2cf0a760582a0854b61e0f5",
+    "staging/native-player-continuous-session/guest-v1/runner-at-run.py": "29a83047a7e5d0fe7cbf337494c44c0b13a9bebe4c1c9936bac1c30949811cad",
+    "staging/native-player-continuous-session/guest-v1/twelve_compiled_same_slot_generations_one_native_session.json": "853c2e82cdd8b94bbd03f85f6085f52196bcfcef8e307cbe4435bf0a65f29913",
+    "staging/native-player-continuous-session/guest-v1/underrun_silence_then_recycled_FIFO_resumes_same_session.json": "f13e20b3ad9449d0ba1fbc8ce0d07b747b9610ce27845cb75a9247fbd7ff0f15",
+    "staging/native-player-continuous-session/guest-v1/Stop_after_reuse_denies_new_pull_and_submit_keeps_anchor_pinned.json": "6dfc18c7b6b598987b6147aeecd10f207ba7494cf527a19efedf5985246d1e4d"
+  },
+  "cases": [
+    {
+      "whole_snapshot_zones": 16,
+      "actual_RW_zones_excluding_RX_sentinel": 15,
+      "joint_event_count": 21816,
+      "CPU_store_count": 21765,
+      "declared_after_baseline_fixture_count": 51,
+      "independently_decoded_CPU_stores": 21765,
+      "unique_store_opcode_sites": 391,
+      "ISA_source_counts": {
+        "MAIN/Thumb": 701,
+        "compiled_ELF/ARM": 18906,
+        "MAIN/ARM": 2014,
+        "compiled_ELF/Thumb": 144
+      },
+      "whole_before_after_replay_passed": true,
+      "original_cold_initial_state_reconstructed": true,
+      "RX_sentinel_unchanged": true,
+      "name": "twelve_compiled_same_slot_generations_one_native_session",
+      "passed": true,
+      "instructions": 128966,
+      "session": 1,
+      "bootstrap_registration_audit_seed": 4,
+      "actual_FIFO_tickets": [
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ],
+      "native_registrations": 1,
+      "native_factory_provider_constructions": 1,
+      "complete_native_full_returns": 24,
+      "actual_PCM_bytes": 6144,
+      "explicit_output_consumer_fixture_count": 24,
+      "whole_mixer_ring_verified_at_every_full_return": true,
+      "full_native_frame64_and_borrow_frame72_checked": true,
+      "joint_history_preserves_full_native_return_leases": true,
+      "CPU_copy_inflight_lease_store_checks": {
+        "producer_FIFO_store_with_copy_leases": 6144,
+        "reader_FIFO_store_with_inflight_and_full_return_leases": 6144
+      },
+      "native_session_independent_of_recycled_FIFO_ticket": true,
+      "Stop_denied_without_fabricated_completion": false,
+      "actual_native_mixer_handoff": false,
+      "native_exclusive_ownership": false,
+      "native_STOP_DONE": false
+    },
+    {
+      "whole_snapshot_zones": 16,
+      "actual_RW_zones_excluding_RX_sentinel": 15,
+      "joint_event_count": 5637,
+      "CPU_store_count": 5620,
+      "declared_after_baseline_fixture_count": 17,
+      "independently_decoded_CPU_stores": 5620,
+      "unique_store_opcode_sites": 393,
+      "ISA_source_counts": {
+        "MAIN/Thumb": 321,
+        "compiled_ELF/ARM": 4513,
+        "MAIN/ARM": 756,
+        "compiled_ELF/Thumb": 30
+      },
+      "whole_before_after_replay_passed": true,
+      "original_cold_initial_state_reconstructed": true,
+      "RX_sentinel_unchanged": true,
+      "name": "underrun_silence_then_recycled_FIFO_resumes_same_session",
+      "passed": true,
+      "instructions": 30822,
+      "session": 1,
+      "bootstrap_registration_audit_seed": 4,
+      "actual_FIFO_tickets": [
+        4,
+        8
+      ],
+      "native_registrations": 1,
+      "native_factory_provider_constructions": 1,
+      "complete_native_full_returns": 5,
+      "actual_PCM_bytes": 1280,
+      "explicit_output_consumer_fixture_count": 0,
+      "whole_mixer_ring_verified_at_every_full_return": true,
+      "full_native_frame64_and_borrow_frame72_checked": true,
+      "joint_history_preserves_full_native_return_leases": true,
+      "CPU_copy_inflight_lease_store_checks": {
+        "producer_FIFO_store_with_copy_leases": 1024,
+        "reader_FIFO_store_with_inflight_and_full_return_leases": 1024,
+        "actual_underrun_zero_store": 256
+      },
+      "native_session_independent_of_recycled_FIFO_ticket": true,
+      "Stop_denied_without_fabricated_completion": false,
+      "actual_native_mixer_handoff": false,
+      "native_exclusive_ownership": false,
+      "native_STOP_DONE": false
+    },
+    {
+      "whole_snapshot_zones": 16,
+      "actual_RW_zones_excluding_RX_sentinel": 15,
+      "joint_event_count": 4818,
+      "CPU_store_count": 4801,
+      "declared_after_baseline_fixture_count": 17,
+      "independently_decoded_CPU_stores": 4801,
+      "unique_store_opcode_sites": 404,
+      "ISA_source_counts": {
+        "MAIN/Thumb": 281,
+        "compiled_ELF/ARM": 3878,
+        "MAIN/ARM": 624,
+        "compiled_ELF/Thumb": 18
+      },
+      "whole_before_after_replay_passed": true,
+      "original_cold_initial_state_reconstructed": true,
+      "RX_sentinel_unchanged": true,
+      "name": "Stop_after_reuse_denies_new_pull_and_submit_keeps_anchor_pinned",
+      "passed": true,
+      "instructions": 26424,
+      "session": 1,
+      "bootstrap_registration_audit_seed": 4,
+      "actual_FIFO_tickets": [
+        4,
+        8
+      ],
+      "native_registrations": 1,
+      "native_factory_provider_constructions": 1,
+      "complete_native_full_returns": 3,
+      "actual_PCM_bytes": 768,
+      "explicit_output_consumer_fixture_count": 0,
+      "whole_mixer_ring_verified_at_every_full_return": true,
+      "full_native_frame64_and_borrow_frame72_checked": true,
+      "joint_history_preserves_full_native_return_leases": true,
+      "CPU_copy_inflight_lease_store_checks": {
+        "producer_FIFO_store_with_copy_leases": 1024,
+        "reader_FIFO_store_with_inflight_and_full_return_leases": 768
+      },
+      "native_session_independent_of_recycled_FIFO_ticket": true,
+      "Stop_denied_without_fabricated_completion": true,
+      "actual_native_mixer_handoff": false,
+      "native_exclusive_ownership": false,
+      "native_STOP_DONE": false
+    }
+  ],
+  "exact_CPU_store_count": 32186,
+  "joint_event_count": 32271,
+  "complete_native_full_returns": 32,
+  "independent_full_joint_RW_replay": true,
+  "every_recorded_CPUstore_MAIN_or_ELF_original_bytes_and_ISA_checked": true,
+  "cold_initialization_source_ELF_RX_and_canaries_checked": true,
+  "exact_FIFO_tickets_4_through_48_checked": true,
+  "payload_underrun_silence_Stop_and_every_full_return_leases_checked": true,
+  "explicit_output_consumer_fixture_preserved": true,
+  "per_store_complete_GP_CPSR_available": false,
+  "actual_source_owner_to_native_mixer_handoff_verified": false,
+  "original2FA572_or2FA536_outerwrapper_redirected": false,
+  "native_exclusive_ownership_or_STOP_DONE_or_hardware_or_App_verified": false,
+  "complete_player_verified": false,
+  "historical_file_verifier_failure": {
+    "receipt": "staging/native-player-continuous-session/file-verifier-v1-terminal-tool-receipt.json",
+    "chunk_id": "fe2945",
+    "guest_failure": false,
+    "correction": "Exact manifest name/value/size/section tuple for duplicate TU-local symbols"
+  },
+  "guest_rerun": false,
+  "no_VM_import": true,
+  "device_io": false,
+  "canonical_write": false,
+  "limitations": [
+    "Three bounded single-actor compiled/raw-PCM pipeline controls, not a complete music player or native mixer task/phone/UI/hardware suite.",
+    "Long case read index advances24times only through explicit output-consumer HOST fixture AFTER actual full return and zero borrow/media/callback leases. Raw input updates are explicit fixtures. They are replayed alongside every CPU event; no DMA, mixer worker or timing claim.",
+    "Sixteen whole tracked snapshots include15actualRW zones and one08D00000RXsentinel whose inherited metadata saysprotection3. All4096sentinelbytes checkedzero/unchanged; everywrite rejected.",
+    "Every recorded store matches exact originalMAIN or compiledELF bytes/ISA/width and complete before-after history. Complete per-storeGP/CPSR was not recorded, so independent register-derived address/payload execution cannot be recreated.",
+    "CurrentTCB/normal IRQmarker, initialmapping/ring/descriptor/storage, opaque allocation/query/release, mutex,wake,priority,message/diagnostic boundaries are explicit fixtures. No native heap pinning, whole kernel lifecycle, clock/IRQ, cross-actor exclusion or physical scheduling proof.",
+    "Provider/node/methods/anchor and componentstorage remainresident. Stop leaves secondgenerationREADY and halfconsumed, rejects newpull/submit/release; noSTOP_DONE, cancel cleanup, native source retirement, quiescence or safeunload.",
+    "Originalmixer2FA0DC/M+78 TCBhandoff and selector2FA294->2FA298 capture domain remainabsent; bothoriginal2FA572 and2FA536 directBL2F9CCA stillbypasscompiledfullreturnbridge. Consumerreaderpointer alone is insufficient.",
+    "Onlyslot0 recycled12generations in longcase; no allslot/fullqueue/producer-consumer concurrency, decoder/SBC/mobileinput worker or navigationcoexistence. Legacy output.active_ticket4 is bootstrap audit identity, not a liveFIFOslot."
+  ],
+  "decoded_store_opcode_sites": [
+    {
+      "PC": "0x277d26",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f7b5",
+      "decoded_instruction": "push {r0, r1, r2, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x277d30",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0190",
+      "decoded_instruction": "str r0, [sp, #4]"
+    },
+    {
+      "PC": "0x277d60",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0390",
+      "decoded_instruction": "str r0, [sp, #0xc]"
+    },
+    {
+      "PC": "0x277da4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0290",
+      "decoded_instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x277db4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "eb62",
+      "decoded_instruction": "str r3, [r5, #0x2c]"
+    },
+    {
+      "PC": "0x277db8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "aa62",
+      "decoded_instruction": "str r2, [r5, #0x28]"
+    },
+    {
+      "PC": "0x277dba",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6962",
+      "decoded_instruction": "str r1, [r5, #0x24]"
+    },
+    {
+      "PC": "0x277dbc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2862",
+      "decoded_instruction": "str r0, [r5, #0x20]"
+    },
+    {
+      "PC": "0x277dc2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2863",
+      "decoded_instruction": "str r0, [r5, #0x30]"
+    },
+    {
+      "PC": "0x277dc6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a863",
+      "decoded_instruction": "str r0, [r5, #0x38]"
+    },
+    {
+      "PC": "0x277dca",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6863",
+      "decoded_instruction": "str r0, [r5, #0x34]"
+    },
+    {
+      "PC": "0x277dce",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e863",
+      "decoded_instruction": "str r0, [r5, #0x3c]"
+    },
+    {
+      "PC": "0x277dd2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2060",
+      "decoded_instruction": "str r0, [r4]"
+    },
+    {
+      "PC": "0x277dd6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6060",
+      "decoded_instruction": "str r0, [r4, #4]"
+    },
+    {
+      "PC": "0x277dda",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a060",
+      "decoded_instruction": "str r0, [r4, #8]"
+    },
+    {
+      "PC": "0x277dde",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e060",
+      "decoded_instruction": "str r0, [r4, #0xc]"
+    },
+    {
+      "PC": "0x277de2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2061",
+      "decoded_instruction": "str r0, [r4, #0x10]"
+    },
+    {
+      "PC": "0x277de6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6061",
+      "decoded_instruction": "str r0, [r4, #0x14]"
+    },
+    {
+      "PC": "0x277dea",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a061",
+      "decoded_instruction": "str r0, [r4, #0x18]"
+    },
+    {
+      "PC": "0x277dee",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e061",
+      "decoded_instruction": "str r0, [r4, #0x1c]"
+    },
+    {
+      "PC": "0x277df2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2062",
+      "decoded_instruction": "str r0, [r4, #0x20]"
+    },
+    {
+      "PC": "0x277df6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6062",
+      "decoded_instruction": "str r0, [r4, #0x24]"
+    },
+    {
+      "PC": "0x277e00",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6f77",
+      "decoded_instruction": "strb r7, [r5, #0x1d]"
+    },
+    {
+      "PC": "0x2776f4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "00b5",
+      "decoded_instruction": "push {lr}"
+    },
+    {
+      "PC": "0x27770c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1183",
+      "decoded_instruction": "strh r1, [r2, #0x18]"
+    },
+    {
+      "PC": "0x277710",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "5160",
+      "decoded_instruction": "str r1, [r2, #4]"
+    },
+    {
+      "PC": "0x277714",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "9183",
+      "decoded_instruction": "strh r1, [r2, #0x1c]"
+    },
+    {
+      "PC": "0x277718",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "9176",
+      "decoded_instruction": "strb r1, [r2, #0x1a]"
+    },
+    {
+      "PC": "0x27771c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "d083",
+      "decoded_instruction": "strh r0, [r2, #0x1e]"
+    },
+    {
+      "PC": "0x7000000",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0402de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x7000020",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "18008de5",
+      "decoded_instruction": "str r0, [sp, #0x18]"
+    },
+    {
+      "PC": "0x7000030",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f002cde1",
+      "decoded_instruction": "strd r0, r1, [sp, #0x20]"
+    },
+    {
+      "PC": "0x7000038",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0f00ace8",
+      "decoded_instruction": "stm ip!, {r0, r1, r2, r3}"
+    },
+    {
+      "PC": "0x7000040",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0f008ce8",
+      "decoded_instruction": "stm ip, {r0, r1, r2, r3}"
+    },
+    {
+      "PC": "0x7000048",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c408de5",
+      "decoded_instruction": "str r4, [sp, #0x1c]"
+    },
+    {
+      "PC": "0x70002c4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x7001a84",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x70019bc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x7001aec",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "045083e5",
+      "decoded_instruction": "str r5, [r3, #4]"
+    },
+    {
+      "PC": "0x7001af0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002083e5",
+      "decoded_instruction": "str r2, [r3]"
+    },
+    {
+      "PC": "0x7000ae4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0110c3e4",
+      "decoded_instruction": "strb r1, [r3], #1"
+    },
+    {
+      "PC": "0x70023e8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x700227c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x7002430",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c6088e5",
+      "decoded_instruction": "str r6, [r8, #0x1c]"
+    },
+    {
+      "PC": "0x7002434",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "205088e5",
+      "decoded_instruction": "str r5, [r8, #0x20]"
+    },
+    {
+      "PC": "0x70022d0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x70022b0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "182081e5",
+      "decoded_instruction": "str r2, [r1, #0x18]"
+    },
+    {
+      "PC": "0x70022b8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "082083e5",
+      "decoded_instruction": "str r2, [r3, #8]"
+    },
+    {
+      "PC": "0x70022bc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "042083e5",
+      "decoded_instruction": "str r2, [r3, #4]"
+    },
+    {
+      "PC": "0x70022c0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002083e5",
+      "decoded_instruction": "str r2, [r3]"
+    },
+    {
+      "PC": "0x7002354",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c6084e5",
+      "decoded_instruction": "str r6, [r4, #0xc]"
+    },
+    {
+      "PC": "0x7002358",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "183084e5",
+      "decoded_instruction": "str r3, [r4, #0x18]"
+    },
+    {
+      "PC": "0x7002370",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "187084e5",
+      "decoded_instruction": "str r7, [r4, #0x18]"
+    },
+    {
+      "PC": "0x7002388",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103084e5",
+      "decoded_instruction": "str r3, [r4, #0x10]"
+    },
+    {
+      "PC": "0x7000314",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00308405",
+      "decoded_instruction": "streq r3, [r4]"
+    },
+    {
+      "PC": "0x70025b0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7002658",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0160e3e5",
+      "decoded_instruction": "strb r6, [r3, #1]!"
+    },
+    {
+      "PC": "0x700266c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0f008ee9",
+      "decoded_instruction": "stmib lr, {r0, r1, r2, r3}"
+    },
+    {
+      "PC": "0x7002674",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0f00a5e8",
+      "decoded_instruction": "stm r5!, {r0, r1, r2, r3}"
+    },
+    {
+      "PC": "0x700267c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0f0085e8",
+      "decoded_instruction": "stm r5, {r0, r1, r2, r3}"
+    },
+    {
+      "PC": "0x7002688",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "38308ee5",
+      "decoded_instruction": "str r3, [lr, #0x38]"
+    },
+    {
+      "PC": "0x7002690",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "34608ee5",
+      "decoded_instruction": "str r6, [lr, #0x34]"
+    },
+    {
+      "PC": "0x7002694",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00308ee5",
+      "decoded_instruction": "str r3, [lr]"
+    },
+    {
+      "PC": "0x700007c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10408de5",
+      "decoded_instruction": "str r4, [sp, #0x10]"
+    },
+    {
+      "PC": "0x7000080",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c308de5",
+      "decoded_instruction": "str r3, [sp, #0xc]"
+    },
+    {
+      "PC": "0x7000084",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08008de5",
+      "decoded_instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x7000088",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f060cde1",
+      "decoded_instruction": "strd r6, r7, [sp]"
+    },
+    {
+      "PC": "0x7000bf8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0402de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x7000c90",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f025cce1",
+      "decoded_instruction": "strd r2, r3, [ip, #0x50]"
+    },
+    {
+      "PC": "0x7000c98",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "4c108ce5",
+      "decoded_instruction": "str r1, [ip, #0x4c]"
+    },
+    {
+      "PC": "0x7000c9c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08308ce5",
+      "decoded_instruction": "str r3, [ip, #8]"
+    },
+    {
+      "PC": "0x7000ca4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "58608ce5",
+      "decoded_instruction": "str r6, [ip, #0x58]"
+    },
+    {
+      "PC": "0x7000ca8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "6c308ce5",
+      "decoded_instruction": "str r3, [ip, #0x6c]"
+    },
+    {
+      "PC": "0x7000cb0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c308ce5",
+      "decoded_instruction": "str r3, [ip, #0x2c]"
+    },
+    {
+      "PC": "0x7000cb8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "5c508ce5",
+      "decoded_instruction": "str r5, [ip, #0x5c]"
+    },
+    {
+      "PC": "0x7000cbc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c408ce5",
+      "decoded_instruction": "str r4, [ip, #0xc]"
+    },
+    {
+      "PC": "0x7000cc0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "68e08ce5",
+      "decoded_instruction": "str lr, [ip, #0x68]"
+    },
+    {
+      "PC": "0x7000cc4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00308ce5",
+      "decoded_instruction": "str r3, [ip]"
+    },
+    {
+      "PC": "0x70000b0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "005083e5",
+      "decoded_instruction": "str r5, [r3]"
+    },
+    {
+      "PC": "0x7002d08",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7002d64",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "343084e5",
+      "decoded_instruction": "str r3, [r4, #0x34]"
+    },
+    {
+      "PC": "0x70026b8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x70026f0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002085e5",
+      "decoded_instruction": "str r2, [r5]"
+    },
+    {
+      "PC": "0x7002794",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "400084e5",
+      "decoded_instruction": "str r0, [r4, #0x40]"
+    },
+    {
+      "PC": "0x7002798",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "443084e5",
+      "decoded_instruction": "str r3, [r4, #0x44]"
+    },
+    {
+      "PC": "0x700279c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "5c3084e5",
+      "decoded_instruction": "str r3, [r4, #0x5c]"
+    },
+    {
+      "PC": "0x70027a0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "583084e5",
+      "decoded_instruction": "str r3, [r4, #0x58]"
+    },
+    {
+      "PC": "0x70027a4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "543084e5",
+      "decoded_instruction": "str r3, [r4, #0x54]"
+    },
+    {
+      "PC": "0x70027a8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "503084e5",
+      "decoded_instruction": "str r3, [r4, #0x50]"
+    },
+    {
+      "PC": "0x70027ac",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "6c3084e5",
+      "decoded_instruction": "str r3, [r4, #0x6c]"
+    },
+    {
+      "PC": "0x70027bc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "3c2084e5",
+      "decoded_instruction": "str r2, [r4, #0x3c]"
+    },
+    {
+      "PC": "0x70027c0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "340084e5",
+      "decoded_instruction": "str r0, [r4, #0x34]"
+    },
+    {
+      "PC": "0x70027c4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "743084e5",
+      "decoded_instruction": "str r3, [r4, #0x74]"
+    },
+    {
+      "PC": "0x70027cc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002085e5",
+      "decoded_instruction": "str r2, [r5]"
+    },
+    {
+      "PC": "0x7002544",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x70006e0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00308205",
+      "decoded_instruction": "streq r3, [r2]"
+    },
+    {
+      "PC": "0x700256c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "705084e5",
+      "decoded_instruction": "str r5, [r4, #0x70]"
+    },
+    {
+      "PC": "0x70028c0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0432de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, lr}"
+    },
+    {
+      "PC": "0x7002904",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0320c8e7",
+      "decoded_instruction": "strb r2, [r8, r3]"
+    },
+    {
+      "PC": "0x7002954",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "683084e5",
+      "decoded_instruction": "str r3, [r4, #0x68]"
+    },
+    {
+      "PC": "0x7002968",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "74208415",
+      "decoded_instruction": "strne r2, [r4, #0x74]"
+    },
+    {
+      "PC": "0x700296c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "34308415",
+      "decoded_instruction": "strne r3, [r4, #0x34]"
+    },
+    {
+      "PC": "0x7000cdc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7000da8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "102084e5",
+      "decoded_instruction": "str r2, [r4, #0x10]"
+    },
+    {
+      "PC": "0x7000dac",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "141084e5",
+      "decoded_instruction": "str r1, [r4, #0x14]"
+    },
+    {
+      "PC": "0x7000db0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "043084e5",
+      "decoded_instruction": "str r3, [r4, #4]"
+    },
+    {
+      "PC": "0x70029cc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "6c5084e5",
+      "decoded_instruction": "str r5, [r4, #0x6c]"
+    },
+    {
+      "PC": "0x70029e4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "343084e5",
+      "decoded_instruction": "str r3, [r4, #0x34]"
+    },
+    {
+      "PC": "0x70029f0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "443084e5",
+      "decoded_instruction": "str r3, [r4, #0x44]"
+    },
+    {
+      "PC": "0x7002a14",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "687084e5",
+      "decoded_instruction": "str r7, [r4, #0x68]"
+    },
+    {
+      "PC": "0x7000dc8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7000e40",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "64308405",
+      "decoded_instruction": "streq r3, [r4, #0x64]"
+    },
+    {
+      "PC": "0x7000e58",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "60218305",
+      "decoded_instruction": "streq r2, [r3, #0x160]"
+    },
+    {
+      "PC": "0x7000330",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0472de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, sl, lr}"
+    },
+    {
+      "PC": "0x70017c4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0472de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, sl, lr}"
+    },
+    {
+      "PC": "0x7002cb0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7002d84",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7002e10",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "603084e5",
+      "decoded_instruction": "str r3, [r4, #0x60]"
+    },
+    {
+      "PC": "0x7002e18",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "080185e9",
+      "decoded_instruction": "stmib r5, {r3, r8}"
+    },
+    {
+      "PC": "0x7002e1c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "003085e5",
+      "decoded_instruction": "str r3, [r5]"
+    },
+    {
+      "PC": "0x7002e28",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c3085e5",
+      "decoded_instruction": "str r3, [r5, #0xc]"
+    },
+    {
+      "PC": "0x7002e34",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103085e5",
+      "decoded_instruction": "str r3, [r5, #0x10]"
+    },
+    {
+      "PC": "0x7002fa8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7003004",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "643084e5",
+      "decoded_instruction": "str r3, [r4, #0x64]"
+    },
+    {
+      "PC": "0x7003010",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f020c5e1",
+      "decoded_instruction": "strd r2, r3, [r5]"
+    },
+    {
+      "PC": "0x700301c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "083085e5",
+      "decoded_instruction": "str r3, [r5, #8]"
+    },
+    {
+      "PC": "0x7003024",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c3085e5",
+      "decoded_instruction": "str r3, [r5, #0xc]"
+    },
+    {
+      "PC": "0x700302c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103085e5",
+      "decoded_instruction": "str r3, [r5, #0x10]"
+    },
+    {
+      "PC": "0x7001888",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "28908605",
+      "decoded_instruction": "streq sb, [r6, #0x28]"
+    },
+    {
+      "PC": "0x700188c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c708605",
+      "decoded_instruction": "streq r7, [r6, #0x2c]"
+    },
+    {
+      "PC": "0x70003f8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "043084e5",
+      "decoded_instruction": "str r3, [r4, #4]"
+    },
+    {
+      "PC": "0x7001bf4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0472de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, sl, lr}"
+    },
+    {
+      "PC": "0x7001ce8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "084083e5",
+      "decoded_instruction": "str r4, [r3, #8]"
+    },
+    {
+      "PC": "0x7001cf4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00408ce7",
+      "decoded_instruction": "str r4, [ip, r0]"
+    },
+    {
+      "PC": "0x7001cf8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "043086e5",
+      "decoded_instruction": "str r3, [r6, #4]"
+    },
+    {
+      "PC": "0x7001d04",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "085086e5",
+      "decoded_instruction": "str r5, [r6, #8]"
+    },
+    {
+      "PC": "0x7001d08",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c3086e5",
+      "decoded_instruction": "str r3, [r6, #0xc]"
+    },
+    {
+      "PC": "0x7001d0c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "141086e5",
+      "decoded_instruction": "str r1, [r6, #0x14]"
+    },
+    {
+      "PC": "0x7001d10",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "101086e5",
+      "decoded_instruction": "str r1, [r6, #0x10]"
+    },
+    {
+      "PC": "0x7000ac8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "03c0c0e7",
+      "decoded_instruction": "strb ip, [r0, r3]"
+    },
+    {
+      "PC": "0x7001d30",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "043086e5",
+      "decoded_instruction": "str r3, [r6, #4]"
+    },
+    {
+      "PC": "0x7002e4c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7000478",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "026183e7",
+      "decoded_instruction": "str r6, [r3, r2, lsl #2]"
+    },
+    {
+      "PC": "0x7000488",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c3084e5",
+      "decoded_instruction": "str r3, [r4, #0xc]"
+    },
+    {
+      "PC": "0x7000494",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103084e5",
+      "decoded_instruction": "str r3, [r4, #0x10]"
+    },
+    {
+      "PC": "0x70004a0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "203084e5",
+      "decoded_instruction": "str r3, [r4, #0x20]"
+    },
+    {
+      "PC": "0x70004a4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "306084e5",
+      "decoded_instruction": "str r6, [r4, #0x30]"
+    },
+    {
+      "PC": "0x70004b0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "043084e5",
+      "decoded_instruction": "str r3, [r4, #4]"
+    },
+    {
+      "PC": "0x70018bc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7002ee4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7002f6c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "006085e5",
+      "decoded_instruction": "str r6, [r5]"
+    },
+    {
+      "PC": "0x7002f7c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "603084e5",
+      "decoded_instruction": "str r3, [r4, #0x60]"
+    },
+    {
+      "PC": "0x7003044",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x70030bc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "005086e5",
+      "decoded_instruction": "str r5, [r6]"
+    },
+    {
+      "PC": "0x70030cc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "643084e5",
+      "decoded_instruction": "str r3, [r4, #0x64]"
+    },
+    {
+      "PC": "0x7002120",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7000e68",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7000fa8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "186084e5",
+      "decoded_instruction": "str r6, [r4, #0x18]"
+    },
+    {
+      "PC": "0x7000fb4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c0084e5",
+      "decoded_instruction": "str r0, [r4, #0x1c]"
+    },
+    {
+      "PC": "0x7000fb8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "205084e5",
+      "decoded_instruction": "str r5, [r4, #0x20]"
+    },
+    {
+      "PC": "0x7000fbc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "243084e5",
+      "decoded_instruction": "str r3, [r4, #0x24]"
+    },
+    {
+      "PC": "0x7001e50",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0432de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, lr}"
+    },
+    {
+      "PC": "0x7001a44",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x7001ef4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c8084e5",
+      "decoded_instruction": "str r8, [r4, #0xc]"
+    },
+    {
+      "PC": "0x7001f04",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "143084e5",
+      "decoded_instruction": "str r3, [r4, #0x14]"
+    },
+    {
+      "PC": "0x7001f30",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "14308de5",
+      "decoded_instruction": "str r3, [sp, #0x14]"
+    },
+    {
+      "PC": "0x7001f34",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08308de5",
+      "decoded_instruction": "str r3, [sp, #8]"
+    },
+    {
+      "PC": "0x7001f40",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f801cde1",
+      "decoded_instruction": "strd r0, r1, [sp, #0x18]"
+    },
+    {
+      "PC": "0x7001f44",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "20208de5",
+      "decoded_instruction": "str r2, [sp, #0x20]"
+    },
+    {
+      "PC": "0x7001f50",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "04508de5",
+      "decoded_instruction": "str r5, [sp, #4]"
+    },
+    {
+      "PC": "0x7001f54",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00308de5",
+      "decoded_instruction": "str r3, [sp]"
+    },
+    {
+      "PC": "0x7001f64",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "24908de5",
+      "decoded_instruction": "str sb, [sp, #0x24]"
+    },
+    {
+      "PC": "0x270458",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "ffb5",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x270494",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0490",
+      "decoded_instruction": "str r0, [sp, #0x10]"
+    },
+    {
+      "PC": "0x27049e",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "c1c1",
+      "decoded_instruction": "stm r1!, {r0, r6, r7}"
+    },
+    {
+      "PC": "0x700127c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1f402de9",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, lr}"
+    },
+    {
+      "PC": "0x7001284",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0cc08de5",
+      "decoded_instruction": "str ip, [sp, #0xc]"
+    },
+    {
+      "PC": "0x700128c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08c08de5",
+      "decoded_instruction": "str ip, [sp, #8]"
+    },
+    {
+      "PC": "0x7001294",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08108de8",
+      "decoded_instruction": "stm sp, {r3, ip}"
+    },
+    {
+      "PC": "0x7001080",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f04f2de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, lr}"
+    },
+    {
+      "PC": "0x7001094",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "04108de5",
+      "decoded_instruction": "str r1, [sp, #4]"
+    },
+    {
+      "PC": "0x70010cc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c308de5",
+      "decoded_instruction": "str r3, [sp, #0xc]"
+    },
+    {
+      "PC": "0x70010dc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08008de5",
+      "decoded_instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x700120c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "202084e5",
+      "decoded_instruction": "str r2, [r4, #0x20]"
+    },
+    {
+      "PC": "0x7001218",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "342084e5",
+      "decoded_instruction": "str r2, [r4, #0x34]"
+    },
+    {
+      "PC": "0x7001244",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "fca3cde1",
+      "decoded_instruction": "strd sl, fp, [sp, #0x3c]"
+    },
+    {
+      "PC": "0x7001248",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "38608de5",
+      "decoded_instruction": "str r6, [sp, #0x38]"
+    },
+    {
+      "PC": "0x277c6a",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "ffb5",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x277c72",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0190",
+      "decoded_instruction": "str r0, [sp, #4]"
+    },
+    {
+      "PC": "0x277c94",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0290",
+      "decoded_instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x277cb6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0173",
+      "decoded_instruction": "strb r1, [r0, #0xc]"
+    },
+    {
+      "PC": "0x277cbc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "4173",
+      "decoded_instruction": "strb r1, [r0, #0xd]"
+    },
+    {
+      "PC": "0x277cca",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6060",
+      "decoded_instruction": "str r0, [r4, #4]"
+    },
+    {
+      "PC": "0x277ccc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a060",
+      "decoded_instruction": "str r0, [r4, #8]"
+    },
+    {
+      "PC": "0x3732e8",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "0130c0e4",
+      "decoded_instruction": "strb r3, [r0], #1"
+    },
+    {
+      "PC": "0x3732f0",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "01c0c094",
+      "decoded_instruction": "strbls ip, [r0], #1"
+    },
+    {
+      "PC": "0x37334c",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "043080e4",
+      "decoded_instruction": "str r3, [r0], #4"
+    },
+    {
+      "PC": "0x37338c",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "0130c024",
+      "decoded_instruction": "strbhs r3, [r0], #1"
+    },
+    {
+      "PC": "0x373390",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "01c0c024",
+      "decoded_instruction": "strbhs ip, [r0], #1"
+    },
+    {
+      "PC": "0x277cdc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2082",
+      "decoded_instruction": "strh r0, [r4, #0x10]"
+    },
+    {
+      "PC": "0x277cea",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a073",
+      "decoded_instruction": "strb r0, [r4, #0xe]"
+    },
+    {
+      "PC": "0x277cee",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2060",
+      "decoded_instruction": "str r0, [r4]"
+    },
+    {
+      "PC": "0x277b38",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f8b5",
+      "decoded_instruction": "push {r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x277b42",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0090",
+      "decoded_instruction": "str r0, [sp]"
+    },
+    {
+      "PC": "0x277b7a",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0160",
+      "decoded_instruction": "str r1, [r0]"
+    },
+    {
+      "PC": "0x277b98",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0d50",
+      "decoded_instruction": "str r5, [r1, r0]"
+    },
+    {
+      "PC": "0x277c64",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2083",
+      "decoded_instruction": "strh r0, [r4, #0x18]"
+    },
+    {
+      "PC": "0x7001f80",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "143084e5",
+      "decoded_instruction": "str r3, [r4, #0x14]"
+    },
+    {
+      "PC": "0x7001f88",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c5084e5",
+      "decoded_instruction": "str r5, [r4, #0x2c]"
+    },
+    {
+      "PC": "0x7000fd0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7001060",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "48308405",
+      "decoded_instruction": "streq r3, [r4, #0x48]"
+    },
+    {
+      "PC": "0x7001070",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "243084e5",
+      "decoded_instruction": "str r3, [r4, #0x24]"
+    },
+    {
+      "PC": "0x7001074",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c3084e5",
+      "decoded_instruction": "str r3, [r4, #0x1c]"
+    },
+    {
+      "PC": "0x7001078",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "183084e5",
+      "decoded_instruction": "str r3, [r4, #0x18]"
+    },
+    {
+      "PC": "0x7000130",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x7001b58",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x277536",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "70b5",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x2f9f2e",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f3b5",
+      "decoded_instruction": "push {r0, r1, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x2f9f48",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0997",
+      "decoded_instruction": "str r7, [sp, #0x24]"
+    },
+    {
+      "PC": "0x2f9f4a",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0497",
+      "decoded_instruction": "str r7, [sp, #0x10]"
+    },
+    {
+      "PC": "0x2f9f4c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1490",
+      "decoded_instruction": "str r0, [sp, #0x50]"
+    },
+    {
+      "PC": "0x2f9fa0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1390",
+      "decoded_instruction": "str r0, [sp, #0x4c]"
+    },
+    {
+      "PC": "0x277a6c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f8b5",
+      "decoded_instruction": "push {r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x277a88",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "3060",
+      "decoded_instruction": "str r0, [r6]"
+    },
+    {
+      "PC": "0x2f9fac",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0192",
+      "decoded_instruction": "str r2, [sp, #4]"
+    },
+    {
+      "PC": "0x2f9fae",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0091",
+      "decoded_instruction": "str r1, [sp]"
+    },
+    {
+      "PC": "0x277ac2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "ffb5",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x277ad8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0290",
+      "decoded_instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x277ade",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0096",
+      "decoded_instruction": "str r6, [sp]"
+    },
+    {
+      "PC": "0x277ae8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0197",
+      "decoded_instruction": "str r7, [sp, #4]"
+    },
+    {
+      "PC": "0x2777f0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "ffb5",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x2777fc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0292",
+      "decoded_instruction": "str r2, [sp, #8]"
+    },
+    {
+      "PC": "0x27746a",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "70b5",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x277804",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0190",
+      "decoded_instruction": "str r0, [sp, #4]"
+    },
+    {
+      "PC": "0x277812",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "3870",
+      "decoded_instruction": "strb r0, [r7]"
+    },
+    {
+      "PC": "0x277818",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0170",
+      "decoded_instruction": "strb r1, [r0]"
+    },
+    {
+      "PC": "0x27781e",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6860",
+      "decoded_instruction": "str r0, [r5, #4]"
+    },
+    {
+      "PC": "0x277822",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a860",
+      "decoded_instruction": "str r0, [r5, #8]"
+    },
+    {
+      "PC": "0x2f9f90",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "3063",
+      "decoded_instruction": "str r0, [r6, #0x30]"
+    },
+    {
+      "PC": "0x2f9f94",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "7063",
+      "decoded_instruction": "str r0, [r6, #0x34]"
+    },
+    {
+      "PC": "0x2f9fd4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0390",
+      "decoded_instruction": "str r0, [sp, #0xc]"
+    },
+    {
+      "PC": "0x2f9fe0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1290",
+      "decoded_instruction": "str r0, [sp, #0x48]"
+    },
+    {
+      "PC": "0x2f9fea",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1190",
+      "decoded_instruction": "str r0, [sp, #0x44]"
+    },
+    {
+      "PC": "0x2f9ff6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0490",
+      "decoded_instruction": "str r0, [sp, #0x10]"
+    },
+    {
+      "PC": "0x4379d4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "ffb5",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x437764",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "70b5",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x35b4f8",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "00402de9",
+      "decoded_instruction": "stmdb sp!, {lr}"
+    },
+    {
+      "PC": "0x35b50c",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "0c50a028",
+      "decoded_instruction": "stmhs r0!, {r2, r3, ip, lr}"
+    },
+    {
+      "PC": "0x35b510",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "0c50a028",
+      "decoded_instruction": "stmhs r0!, {r2, r3, ip, lr}"
+    },
+    {
+      "PC": "0x35b530",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "04208024",
+      "decoded_instruction": "strhs r2, [r0], #4"
+    },
+    {
+      "PC": "0x4378a8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6061",
+      "decoded_instruction": "str r0, [r4, #0x14]"
+    },
+    {
+      "PC": "0x4378aa",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2160",
+      "decoded_instruction": "str r1, [r4]"
+    },
+    {
+      "PC": "0x4378b0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e061",
+      "decoded_instruction": "str r0, [r4, #0x1c]"
+    },
+    {
+      "PC": "0x4378b2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a161",
+      "decoded_instruction": "str r1, [r4, #0x18]"
+    },
+    {
+      "PC": "0x4378b6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2062",
+      "decoded_instruction": "str r0, [r4, #0x20]"
+    },
+    {
+      "PC": "0x4378b8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e162",
+      "decoded_instruction": "str r1, [r4, #0x2c]"
+    },
+    {
+      "PC": "0x4378bc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a162",
+      "decoded_instruction": "str r1, [r4, #0x28]"
+    },
+    {
+      "PC": "0x4378c0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e160",
+      "decoded_instruction": "str r1, [r4, #0xc]"
+    },
+    {
+      "PC": "0x4378c4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2161",
+      "decoded_instruction": "str r1, [r4, #0x10]"
+    },
+    {
+      "PC": "0x4378c8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2163",
+      "decoded_instruction": "str r1, [r4, #0x30]"
+    },
+    {
+      "PC": "0x4378ca",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6063",
+      "decoded_instruction": "str r0, [r4, #0x34]"
+    },
+    {
+      "PC": "0x43792c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "6062",
+      "decoded_instruction": "str r0, [r4, #0x24]"
+    },
+    {
+      "PC": "0x4379fc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2063",
+      "decoded_instruction": "str r0, [r4, #0x30]"
+    },
+    {
+      "PC": "0x48ee68",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "30b4",
+      "decoded_instruction": "push {r4, r5}"
+    },
+    {
+      "PC": "0x48ee8c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1573",
+      "decoded_instruction": "strb r5, [r2, #0xc]"
+    },
+    {
+      "PC": "0x48ee8e",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "2160",
+      "decoded_instruction": "str r1, [r4]"
+    },
+    {
+      "PC": "0x48eef0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "10b5",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x4caf36",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "30b5",
+      "decoded_instruction": "push {r4, r5, lr}"
+    },
+    {
+      "PC": "0x35b520",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "0c50a028",
+      "decoded_instruction": "stmhs r0!, {r2, r3, ip, lr}"
+    },
+    {
+      "PC": "0x4cafba",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "07c3",
+      "decoded_instruction": "stm r3!, {r0, r1, r2}"
+    },
+    {
+      "PC": "0x4cafc0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0192",
+      "decoded_instruction": "str r2, [sp, #4]"
+    },
+    {
+      "PC": "0x4cafc2",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0091",
+      "decoded_instruction": "str r1, [sp]"
+    },
+    {
+      "PC": "0x4cadf4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f0b4",
+      "decoded_instruction": "push {r4, r5, r6, r7}"
+    },
+    {
+      "PC": "0x4cae04",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "4261",
+      "decoded_instruction": "str r2, [r0, #0x14]"
+    },
+    {
+      "PC": "0x4cae08",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0161",
+      "decoded_instruction": "str r1, [r0, #0x10]"
+    },
+    {
+      "PC": "0x4cae0e",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f2c2",
+      "decoded_instruction": "stm r2!, {r1, r4, r5, r6, r7}"
+    },
+    {
+      "PC": "0x4cae10",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "c362",
+      "decoded_instruction": "str r3, [r0, #0x2c]"
+    },
+    {
+      "PC": "0x48eea4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "70b5",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x48eeb0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1d50",
+      "decoded_instruction": "str r5, [r3, r0]"
+    },
+    {
+      "PC": "0x48eeb6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "4560",
+      "decoded_instruction": "str r5, [r0, #4]"
+    },
+    {
+      "PC": "0x48eebc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "8360",
+      "decoded_instruction": "str r3, [r0, #8]"
+    },
+    {
+      "PC": "0x4cae18",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "70b5",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x5e75a0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0260",
+      "decoded_instruction": "str r2, [r0]"
+    },
+    {
+      "PC": "0x5e75a4",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "4160",
+      "decoded_instruction": "str r1, [r0, #4]"
+    },
+    {
+      "PC": "0x5e75a8",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0173",
+      "decoded_instruction": "strb r1, [r0, #0xc]"
+    },
+    {
+      "PC": "0x5e75ac",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "8160",
+      "decoded_instruction": "str r1, [r0, #8]"
+    },
+    {
+      "PC": "0x4cae38",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a581",
+      "decoded_instruction": "strh r5, [r4, #0xc]"
+    },
+    {
+      "PC": "0x2fa01a",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0990",
+      "decoded_instruction": "str r0, [sp, #0x24]"
+    },
+    {
+      "PC": "0x2fa01c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0490",
+      "decoded_instruction": "str r0, [sp, #0x10]"
+    },
+    {
+      "PC": "0x2fa028",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "e977",
+      "decoded_instruction": "strb r1, [r5, #0x1f]"
+    },
+    {
+      "PC": "0x437a3e",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f8b5",
+      "decoded_instruction": "push {r3, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x48ee40",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0880",
+      "decoded_instruction": "strh r0, [r1]"
+    },
+    {
+      "PC": "0x48ee44",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "8b60",
+      "decoded_instruction": "str r3, [r1, #8]"
+    },
+    {
+      "PC": "0x48ee4c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "4a80",
+      "decoded_instruction": "strh r2, [r1, #2]"
+    },
+    {
+      "PC": "0x48ee54",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "4a60",
+      "decoded_instruction": "str r2, [r1, #4]"
+    },
+    {
+      "PC": "0x437a88",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "f063",
+      "decoded_instruction": "str r0, [r6, #0x3c]"
+    },
+    {
+      "PC": "0x437a8c",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "a070",
+      "decoded_instruction": "strb r0, [r4, #2]"
+    },
+    {
+      "PC": "0x7002160",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x70012bc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x70013dc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "286084e5",
+      "decoded_instruction": "str r6, [r4, #0x28]"
+    },
+    {
+      "PC": "0x70013e0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c8084e5",
+      "decoded_instruction": "str r8, [r4, #0x2c]"
+    },
+    {
+      "PC": "0x7002210",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "083180e5",
+      "decoded_instruction": "str r3, [r0, #0x108]"
+    },
+    {
+      "PC": "0x700221c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002083e5",
+      "decoded_instruction": "str r2, [r3]"
+    },
+    {
+      "PC": "0x7002224",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103087e5",
+      "decoded_instruction": "str r3, [r7, #0x10]"
+    },
+    {
+      "PC": "0x7001940",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "ff412de9",
+      "decoded_instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x700195c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "042081e4",
+      "decoded_instruction": "str r2, [r1], #4"
+    },
+    {
+      "PC": "0x70013ec",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7001400",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "3c0085e5",
+      "decoded_instruction": "str r0, [r5, #0x3c]"
+    },
+    {
+      "PC": "0x7001520",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "303085e5",
+      "decoded_instruction": "str r3, [r5, #0x30]"
+    },
+    {
+      "PC": "0x7001528",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "280085e5",
+      "decoded_instruction": "str r0, [r5, #0x28]"
+    },
+    {
+      "PC": "0x700152c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "343085e5",
+      "decoded_instruction": "str r3, [r5, #0x34]"
+    },
+    {
+      "PC": "0x700153c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c1085e5",
+      "decoded_instruction": "str r1, [r5, #0x2c]"
+    },
+    {
+      "PC": "0x7001540",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "383085e5",
+      "decoded_instruction": "str r3, [r5, #0x38]"
+    },
+    {
+      "PC": "0x70015a0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "605084e5",
+      "decoded_instruction": "str r5, [r4, #0x60]"
+    },
+    {
+      "PC": "0x70015a4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "403085e5",
+      "decoded_instruction": "str r3, [r5, #0x40]"
+    },
+    {
+      "PC": "0x70015b4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "3c3084e5",
+      "decoded_instruction": "str r3, [r4, #0x3c]"
+    },
+    {
+      "PC": "0x70019b0",
+      "source": "compiled_ELF",
+      "Thumb": true,
+      "original_opcode_hex": "f1b5",
+      "decoded_instruction": "push {r0, r4, r5, r6, r7, lr}"
+    },
+    {
+      "PC": "0x2f9ce0",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0290",
+      "decoded_instruction": "str r0, [sp, #8]"
+    },
+    {
+      "PC": "0x2f9c12",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "70b5",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x2f9a20",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "30b4",
+      "decoded_instruction": "push {r4, r5}"
+    },
+    {
+      "PC": "0x2f9d08",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0990",
+      "decoded_instruction": "str r0, [sp, #0x24]"
+    },
+    {
+      "PC": "0x2f9d14",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0890",
+      "decoded_instruction": "str r0, [sp, #0x20]"
+    },
+    {
+      "PC": "0x7001e14",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7001688",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7001d4c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7001d98",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "183085e5",
+      "decoded_instruction": "str r3, [r5, #0x18]"
+    },
+    {
+      "PC": "0x7000788",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f04f2de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, sb, sl, fp, lr}"
+    },
+    {
+      "PC": "0x70007d4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00508de5",
+      "decoded_instruction": "str r5, [sp]"
+    },
+    {
+      "PC": "0x70008fc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c308de5",
+      "decoded_instruction": "str r3, [sp, #0xc]"
+    },
+    {
+      "PC": "0x7000904",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "141086e5",
+      "decoded_instruction": "str r1, [r6, #0x14]"
+    },
+    {
+      "PC": "0x700090c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "04208de5",
+      "decoded_instruction": "str r2, [sp, #4]"
+    },
+    {
+      "PC": "0x7000914",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08108de5",
+      "decoded_instruction": "str r1, [sp, #8]"
+    },
+    {
+      "PC": "0x700093c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "141086e5",
+      "decoded_instruction": "str r1, [r6, #0x14]"
+    },
+    {
+      "PC": "0x7000948",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "101086e5",
+      "decoded_instruction": "str r1, [r6, #0x10]"
+    },
+    {
+      "PC": "0x7000974",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "008081e5",
+      "decoded_instruction": "str r8, [r1]"
+    },
+    {
+      "PC": "0x7000984",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "08c081e5",
+      "decoded_instruction": "str ip, [r1, #8]"
+    },
+    {
+      "PC": "0x7000824",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "042083e5",
+      "decoded_instruction": "str r2, [r3, #4]"
+    },
+    {
+      "PC": "0x7001dc4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "183085e5",
+      "decoded_instruction": "str r3, [r5, #0x18]"
+    },
+    {
+      "PC": "0x7001dd0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c3085e5",
+      "decoded_instruction": "str r3, [r5, #0x1c]"
+    },
+    {
+      "PC": "0x7001ddc",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "203085e5",
+      "decoded_instruction": "str r3, [r5, #0x20]"
+    },
+    {
+      "PC": "0x2f9dc6",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0390",
+      "decoded_instruction": "str r0, [sp, #0xc]"
+    },
+    {
+      "PC": "0x2f9dcc",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0790",
+      "decoded_instruction": "str r0, [sp, #0x1c]"
+    },
+    {
+      "PC": "0x39129c",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x3912ac",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "1850a028",
+      "decoded_instruction": "stmhs r0!, {r3, r4, ip, lr}"
+    },
+    {
+      "PC": "0x3912b4",
+      "source": "MAIN",
+      "Thumb": false,
+      "original_opcode_hex": "1850a028",
+      "decoded_instruction": "stmhs r0!, {r3, r4, ip, lr}"
+    },
+    {
+      "PC": "0x2f9e14",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "0861",
+      "decoded_instruction": "str r0, [r1, #0x10]"
+    },
+    {
+      "PC": "0x2f9e24",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "1874",
+      "decoded_instruction": "strb r0, [r3, #0x10]"
+    },
+    {
+      "PC": "0x2f9e2a",
+      "source": "MAIN",
+      "Thumb": true,
+      "original_opcode_hex": "5874",
+      "decoded_instruction": "strb r0, [r3, #0x11]"
+    },
+    {
+      "PC": "0x7001984",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "48008de5",
+      "decoded_instruction": "str r0, [sp, #0x48]"
+    },
+    {
+      "PC": "0x70015c8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "f0412de9",
+      "decoded_instruction": "push {r4, r5, r6, r7, r8, lr}"
+    },
+    {
+      "PC": "0x7001648",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "443085e5",
+      "decoded_instruction": "str r3, [r5, #0x44]"
+    },
+    {
+      "PC": "0x7001650",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "603084e5",
+      "decoded_instruction": "str r3, [r4, #0x60]"
+    },
+    {
+      "PC": "0x7001660",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "443084e5",
+      "decoded_instruction": "str r3, [r4, #0x44]"
+    },
+    {
+      "PC": "0x70019a0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "000088e5",
+      "decoded_instruction": "str r0, [r8]"
+    },
+    {
+      "PC": "0x70009a4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "04c083e5",
+      "decoded_instruction": "str ip, [r3, #4]"
+    },
+    {
+      "PC": "0x70009b8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "082083e5",
+      "decoded_instruction": "str r2, [r3, #8]"
+    },
+    {
+      "PC": "0x70009c4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "102083e5",
+      "decoded_instruction": "str r2, [r3, #0x10]"
+    },
+    {
+      "PC": "0x70009d0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c2083e5",
+      "decoded_instruction": "str r2, [r3, #0x2c]"
+    },
+    {
+      "PC": "0x70009d4",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00c081e5",
+      "decoded_instruction": "str ip, [r1]"
+    },
+    {
+      "PC": "0x70009e0",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103081e5",
+      "decoded_instruction": "str r3, [r1, #0x10]"
+    },
+    {
+      "PC": "0x70009ec",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "00308de5",
+      "decoded_instruction": "str r3, [sp]"
+    },
+    {
+      "PC": "0x7000208",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "482000e5",
+      "decoded_instruction": "str r2, [r0, #-0x48]"
+    },
+    {
+      "PC": "0x7000210",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "442000e5",
+      "decoded_instruction": "str r2, [r0, #-0x44]"
+    },
+    {
+      "PC": "0x7000220",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "402000e5",
+      "decoded_instruction": "str r2, [r0, #-0x40]"
+    },
+    {
+      "PC": "0x7000228",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "3c2000e5",
+      "decoded_instruction": "str r2, [r0, #-0x3c]"
+    },
+    {
+      "PC": "0x7000230",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "382000e5",
+      "decoded_instruction": "str r2, [r0, #-0x38]"
+    },
+    {
+      "PC": "0x7000238",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "343000e5",
+      "decoded_instruction": "str r3, [r0, #-0x34]"
+    },
+    {
+      "PC": "0x7000244",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "302000e5",
+      "decoded_instruction": "str r2, [r0, #-0x30]"
+    },
+    {
+      "PC": "0x700024c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c2000e5",
+      "decoded_instruction": "str r2, [r0, #-0x2c]"
+    },
+    {
+      "PC": "0x7000254",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "282000e5",
+      "decoded_instruction": "str r2, [r0, #-0x28]"
+    },
+    {
+      "PC": "0x700025c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "243000e5",
+      "decoded_instruction": "str r3, [r0, #-0x24]"
+    },
+    {
+      "PC": "0x7000268",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "202000e5",
+      "decoded_instruction": "str r2, [r0, #-0x20]"
+    },
+    {
+      "PC": "0x7000270",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c2000e5",
+      "decoded_instruction": "str r2, [r0, #-0x1c]"
+    },
+    {
+      "PC": "0x7000278",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "182000e5",
+      "decoded_instruction": "str r2, [r0, #-0x18]"
+    },
+    {
+      "PC": "0x7000284",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "142000e5",
+      "decoded_instruction": "str r2, [r0, #-0x14]"
+    },
+    {
+      "PC": "0x7000288",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103000e5",
+      "decoded_instruction": "str r3, [r0, #-0x10]"
+    },
+    {
+      "PC": "0x7000294",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c2000e5",
+      "decoded_instruction": "str r2, [r0, #-0xc]"
+    },
+    {
+      "PC": "0x700029c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "083000e5",
+      "decoded_instruction": "str r3, [r0, #-8]"
+    },
+    {
+      "PC": "0x70002a8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "043000e5",
+      "decoded_instruction": "str r3, [r0, #-4]"
+    },
+    {
+      "PC": "0x7000518",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002080e5",
+      "decoded_instruction": "str r2, [r0]"
+    },
+    {
+      "PC": "0x7000520",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "042080e5",
+      "decoded_instruction": "str r2, [r0, #4]"
+    },
+    {
+      "PC": "0x7000528",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "082080e5",
+      "decoded_instruction": "str r2, [r0, #8]"
+    },
+    {
+      "PC": "0x7000530",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c2080e5",
+      "decoded_instruction": "str r2, [r0, #0xc]"
+    },
+    {
+      "PC": "0x7000538",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "103080e5",
+      "decoded_instruction": "str r3, [r0, #0x10]"
+    },
+    {
+      "PC": "0x7000544",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "142080e5",
+      "decoded_instruction": "str r2, [r0, #0x14]"
+    },
+    {
+      "PC": "0x700054c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "182080e5",
+      "decoded_instruction": "str r2, [r0, #0x18]"
+    },
+    {
+      "PC": "0x7000554",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "1c2080e5",
+      "decoded_instruction": "str r2, [r0, #0x1c]"
+    },
+    {
+      "PC": "0x7000560",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "202080e5",
+      "decoded_instruction": "str r2, [r0, #0x20]"
+    },
+    {
+      "PC": "0x7000564",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "243080e5",
+      "decoded_instruction": "str r3, [r0, #0x24]"
+    },
+    {
+      "PC": "0x7000574",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "282080e5",
+      "decoded_instruction": "str r2, [r0, #0x28]"
+    },
+    {
+      "PC": "0x7000578",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "2c3080e5",
+      "decoded_instruction": "str r3, [r0, #0x2c]"
+    },
+    {
+      "PC": "0x7000a18",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "142083e5",
+      "decoded_instruction": "str r2, [r3, #0x14]"
+    },
+    {
+      "PC": "0x7000a28",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c2083e5",
+      "decoded_instruction": "str r2, [r3, #0xc]"
+    },
+    {
+      "PC": "0x70001ac",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x70027ec",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    },
+    {
+      "PC": "0x7002820",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "002085e5",
+      "decoded_instruction": "str r2, [r5]"
+    },
+    {
+      "PC": "0x700286c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "443084e5",
+      "decoded_instruction": "str r3, [r4, #0x44]"
+    },
+    {
+      "PC": "0x7002880",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "40308415",
+      "decoded_instruction": "strne r3, [r4, #0x40]"
+    },
+    {
+      "PC": "0x7002888",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "343084e5",
+      "decoded_instruction": "str r3, [r4, #0x34]"
+    },
+    {
+      "PC": "0x7002890",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "482084e5",
+      "decoded_instruction": "str r2, [r4, #0x48]"
+    },
+    {
+      "PC": "0x7002894",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "743084e5",
+      "decoded_instruction": "str r3, [r4, #0x74]"
+    },
+    {
+      "PC": "0x7002398",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "10402de9",
+      "decoded_instruction": "push {r4, lr}"
+    },
+    {
+      "PC": "0x70023ac",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "102083e5",
+      "decoded_instruction": "str r2, [r3, #0x10]"
+    },
+    {
+      "PC": "0x70023b8",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "0c2083e5",
+      "decoded_instruction": "str r2, [r3, #0xc]"
+    },
+    {
+      "PC": "0x700158c",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "403084e5",
+      "decoded_instruction": "str r3, [r4, #0x40]"
+    },
+    {
+      "PC": "0x7000594",
+      "source": "compiled_ELF",
+      "Thumb": false,
+      "original_opcode_hex": "70402de9",
+      "decoded_instruction": "push {r4, r5, r6, lr}"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-02T17:46:12.803041+00:00",
+  "source": "https://github.com/arkq/bluez-alsa/blob/v4.3.1/src/ba-rfcomm.c",
+  "original_sha256": "b010847781469557ed33fe003266fcab2bdc4d0f8de02712bfb9ed846c138a81",
+  "patched_sha256": "fd751af1cfd62374169c787710b67b5788bd8f49695bbb995603b3949b162e86",
+  "scope": "CIND query response delegated to external handler only while attached; stock idle behavior preserved otherwise",
+  "deployed": false,
+  "compiled": true,
+  "current_bluetooth_service_restarted": false,
+  "speaker_issue_resolved": false,
+  "patch_dry_run_passed": true,
+  "helper_detects_marker": "Garmin external CIND state handler",
+  "build_requirement": "Build with debug logging enabled so the signature remains in the binary",
+  "binary": "staging/bluealsa/bluealsa-4.3.1-garmin",
+  "binary_sha256": "ce8a8533a82fd7bf361e404788a04770460e72b56e88edde1068ec6311971c97",
+  "compiled_utc": "2026-10-02T18:05:40.438845+00:00",
+  "configure_options": [
+    "--enable-debug",
+    "--enable-test",
+    "--enable-cli",
+    "--enable-msbc",
+    "--disable-manpages"
+  ],
+  "protocol_tests": {
+    "command": "./test/test-rfcomm",
+    "checks": 5,
+    "failures": 0,
+    "errors": 0,
+    "evidence": "evidence/audio-rfcomm-test.log",
+    "external_handler_active_ringing_and_idle_fallback_verified": true
+  },
+  "system_binary_unchanged": true,
+  "physical_temporary_cind_success": "evidence/audio-playback-20261002T175259349859Z.json",
+  "regression_control": {
+    "stock_exitcode": 1,
+    "patched_exitcode": 0,
+    "stock_failure": "Unexpected idle CIND response before external handler reply",
+    "evidence": "evidence/audio-rfcomm-regression-control.json"
+  }
+}

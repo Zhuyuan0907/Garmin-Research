@@ -1,0 +1,7 @@
+{
+  "chunk_id": "bf7d3d",
+  "wall_time_seconds": 4.4593e-05,
+  "exit_code": 1,
+  "original_token_count": 319,
+  "output": "Traceback (most recent call last):\n  File \"/root/garmin/scripts/verify_music_volume_bridge_integration_v2.py\", line 138, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/scripts/verify_music_volume_bridge_integration_v2.py\", line 122, in main\n    planned = subprocess.run([sys.executable, '-c', runner, str(ROOT / 'scripts/garmin_phone_audio_bridge.py'), '--plan-conversion', '--diagnostics'], capture_output=True, check=True, timeout=5)\n  File \"/usr/lib/python3.13/subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['/usr/bin/python3', '-c', 'import sys,runpy\\ndef audit(event,args):\\n if event.startswith(\"socket.\") or (event==\"import\" and args[0]==\"dbus\"): raise RuntimeError(\"offline mode accessed Bluetooth\")\\n if event==\"open\" and isinstance(args[0],str) and (\"authorized-phone.json\" in args[0] or \"bluetooth-followup-scan.json\" in args[0]): raise RuntimeError(\"offline mode read device configuration\")\\nsys.addaudithook(audit)\\nsys.argv=sys.argv[1:]\\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\\n', '/root/garmin/scripts/garmin_phone_audio_bridge.py', '--plan-conversion', '--diagnostics']' returned non-zero exit status 1.\n"
+}

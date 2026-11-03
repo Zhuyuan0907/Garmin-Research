@@ -1,0 +1,131 @@
+{
+  "schema": "android-auto-pipeline-host-v1",
+  "pass": true,
+  "completed_utc": "2026-10-07T23:46:17Z",
+  "case_count": 27,
+  "cases": [
+    "real TLS record -> bytewise wire feed -> copied complete BULK message",
+    "40KB FIRST/MIDDLE/LAST through two-slot queue backpressure with consumed-source overwrite",
+    "message delivery pause retains exact plaintext and never repeats TLS ciphertext",
+    "exact 16KB split message completed by zero-length LAST",
+    "multiple complete TLS records in one AA frame, arbitrary wire splits",
+    "80 sequential messages across eight channels retain order through repeated queue saturation",
+    "plaintext disabled by default before message publication",
+    "explicit plaintext opt-in is retained as unauthenticated provenance separately from encrypted messages",
+    "ciphertext-length substituted for FIRST plaintext total fails exact LAST validation",
+    "fragment channel change rejected without partial message publication",
+    "fragment encryption provenance change rejected",
+    "fragment control flag change rejected",
+    "declared message capacity limit rejects publication and wipes partial plaintext",
+    "real TLS ciphertext authentication failure is terminal and publishes no message",
+    "later corrupt TLS record in a frame cannot publish its earlier valid plaintext prefix",
+    "later corrupt message fragment clears already assembled prefix without publishing it",
+    "old-model policy rejects TLS record split across AA frames before feeding TLS",
+    "truncated TLS record rejected before decryption",
+    "orphan MIDDLE cannot start a message",
+    "bounded fragment count prevents unbounded empty continuation sequences",
+    "negative complete-message callback fails terminally and clears owned buffers",
+    "callback cannot reenter receiver feed/worker and rejected reentry leaves stream valid",
+    "stale session rejected without mutating current receiver",
+    "EOF inside wire header reports truncated transport",
+    "EOF inside assembled message reports truncated message",
+    "serialized stop discards queued and partial transport data, zeroes storage and rejects restart",
+    "all real TLS peers/adapter contexts released; shared bounded allocator verifies with zero live bytes"
+  ],
+  "metrics": {
+    "TLS_ciphers": [
+      "ECDHE-RSA-AES128-GCM-SHA256"
+    ],
+    "receiver_context_bytes": 65808,
+    "message_capacity_tested": 262144,
+    "TLS_heap_peak_bytes": 51900,
+    "TLS_heap_final_bytes": 0
+  },
+  "scope": "Real local OpenSSL TLS1.2 peer -> our compiled C wire parser -> owned bounded frame queue -> Mbed TLS adapter -> plaintext assembler -> complete-message callback, Linux host only",
+  "device_IO": false,
+  "native_guest_executed": false,
+  "Garmin_code_executed": false,
+  "phone_session_verified": false,
+  "Android_Auto_receiver_running_on_Garmin": false,
+  "Google_Maps_running_on_Garmin": false,
+  "install_candidate": false,
+  "wire_TLS_plaintext_assembly_integrated": true,
+  "post_handshake_only": true,
+  "production_record_authentication_tested": true,
+  "callback_pause_does_not_refeed_ciphertext_verified": true,
+  "source_sha256": {
+    "native/aa-receiver/receiver.c": "1b8a453178482ec8aa3875f8a2be027c9118cb4f170bf3cd3b00a652678ec5a9",
+    "native/aa-receiver/receiver.h": "fa74f6240e1fbee573cb54ae68a93d316311b04d5cff91f6e967542cec9490e0",
+    "native/aa-tls/tls.c": "f049f76661a0c1c2a4d233a7987df84dfb7c8a827057cba988f731c81547cd87",
+    "native/aa-tls/tls.h": "be2e4ed4a98a5075d976879067247137f63f5739822810ea9682fbcff96b69f5",
+    "native/aa-tls/config.h": "51113a8b14210b20b769eb31e48fb085d73796f1b847e7bd2df4dc5c90bc2506",
+    "native/aa-tls/port.c": "c3522979a2aa79e4ce397e9136bea2e5d2e56af06fe3215aed9c469b676229af",
+    "scripts/test_aa_tls_host.py": "aaccb6b36e673f09bc5d5c6aba522d129a97d1671db97b7e775b35afb0d817b6",
+    "native/aa-wire/wire.c": "3d70a6892e9a1ac02000a5ac7c52d6bc0ffee6b1209473bdbe384a620583eb67",
+    "native/aa-wire/wire.h": "65fbf8bb42944a389eeaccd93b3e997724f8d1905e8880ef8be337ef368c2692",
+    "native/aa-wire/test_wire.c": "44c2e2cb27a7cfb61d766c7d3317b7040c1915bb60b0d96bed37428935bd902e",
+    "native/aa-wire/README.md": "b1f01e3605fd0d8b8c94b129d7d70847aba1da160c988311bc5ef4eba408f869",
+    "native/aa-wire/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "native/aa-wire/provenance.json": "e6558177e0f4b4c9ba7830b6e6f32618f86b591bfa8b8b7af8931c1d28cdb9e4",
+    "scripts/test_aa_wire_host.py": "5d5ff532aaf005d41f287dfc880ef94831c704ad087ffa3f98c5fc05b568e78a",
+    "native/aa-message/message.c": "13ce3d8b3af47efb536718cc598631378bc4e2c198c08267035924bb834b2266",
+    "native/aa-message/message.h": "54e35ab33937fa6841d235b16cae0b121d643b6079f1e6efebf86af399dc975c",
+    "native/aa-message/test_message.c": "548dcddae3a7bdcdbfc0dd5efa6aaf5758e122f0d23c496ce9b06060af9a6a7d",
+    "native/aa-message/README.md": "9ef8a27a1a0676285514b8e3ea00c5d898b78e30fd36a960598171b49365eaff",
+    "native/aa-message/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "native/aa-message/provenance.json": "d17bc438a11f5770817501ef7bd5cd62d23cf2443e144a3abe0cd5628dcd0058",
+    "scripts/test_aa_message_host.py": "51aef4ba624fad3e14453b26502bd2be48fd5e184723ead15acb3d99058f216e",
+    "scripts/test_aa_receiver_host.py": "c2d9f4dba5136e7890d41bcdeaf623cfc2a8cf0d3083a4a1e61d57fbcbcbed21"
+  },
+  "prerequisites": {
+    "tls": {
+      "path": "evidence/android-auto-tls-host-v1.json",
+      "sha256": "9eb13367d723a35643b5c47f3fc37938fab6cf6ce0a72538fc8de0ecc735f263"
+    },
+    "wire": {
+      "path": "evidence/android-auto-wire-host-v1.json",
+      "sha256": "f2af6d462bbb52bf814b0fca98ebed5a04bf93536b7c455510929f32f5f8ca97"
+    },
+    "message": {
+      "path": "evidence/android-auto-message-host-v1.json",
+      "sha256": "4940fe9e4af597dfde95ea7eed1e822f15f71b187704c8115dd2fb559c00f731"
+    }
+  },
+  "compiled_library_sha256": "eae6db608266c91254f93d9c50b81a0f6b6500887fc118d8c7fb8885fee7894f",
+  "TLS_library_sha256": "ca22122af9217e7f79258699ef713f2527858a3104c6e2e2e7e6d0e657b0c634",
+  "compile_receipt": {
+    "argv": [
+      "cc",
+      "-shared",
+      "-fPIC",
+      "-std=c11",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/root/garmin/native/aa-receiver",
+      "-I/root/garmin/native/aa-wire",
+      "-I/root/garmin/native/aa-message",
+      "-I/root/garmin/native/aa-tls",
+      "/root/garmin/native/aa-receiver/receiver.c",
+      "/root/garmin/native/aa-wire/wire.c",
+      "/root/garmin/native/aa-message/message.c",
+      "/root/garmin/staging/android-auto-tls-host-v1/libaa-tls-host-test.so",
+      "-o",
+      "/root/garmin/staging/android-auto-pipeline-host-v1/libaa-receiver-host.so"
+    ],
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "host_arch": "aarch64",
+  "host_elapsed_seconds": 1.935,
+  "limitations": [
+    "Old pinned-model whole TLS application records per AA frame; current Pixel unverified",
+    "Stricter no-intertwined-fragments policy than old aasdk; header metadata not TLS-authenticated",
+    "Post-handshake only; no AA version, SSL_HANDSHAKE envelope, AUTH_COMPLETE or protobuf dispatch",
+    "No media ACK, USB host/VBUS/AOA backend, worker/IRQ/native ABI or hardware entropy provider",
+    "No Garmin H264/display/touch/audio/UI, realtime performance, phone or installation validation",
+    "Stop is serialized buffer discard, not asynchronous cancellation or hardware mute",
+    "No pipeline ASan claim; component assembler/framer tests independently use ASan/UBSan"
+  ]
+}

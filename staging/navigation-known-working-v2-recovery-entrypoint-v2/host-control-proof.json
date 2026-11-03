@@ -1,0 +1,147 @@
+{
+  "schema": "working-v2-recovery-entrypoint-host-controls/v2",
+  "all_controls_passed": true,
+  "controls": [
+    {
+      "name": "exact portable argv and complete inventory then two stages",
+      "passed": true,
+      "spy_calls": 2,
+      "successful_reply": true
+    },
+    {
+      "name": "same packet works from unrelated cwd",
+      "passed": true,
+      "spy_calls": 2,
+      "successful_reply": true
+    },
+    {
+      "name": "already stock then already working-v2 replies",
+      "passed": true,
+      "spy_calls": 2,
+      "successful_reply": true
+    },
+    {
+      "name": "missing helper blocks all subprocesses",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "wrong helper bytes block all subprocesses",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "wrong recovery-binding pin blocks all subprocesses",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "preparation manifest is refused even when fixture hash matches",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "device parity mismatch is refused before subprocess",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "protected map parity mismatch is refused before subprocess",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "Search v2 mismatch is refused before subprocess",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "owner source-binding link cannot name another source",
+      "passed": true,
+      "spy_calls": 0,
+      "successful_reply": false
+    },
+    {
+      "name": "zero-exit waiting for USB halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "unsafe unmount halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "unverified stock readback halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "wrong result manifest role halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "postcommit recovery-required halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "malformed stdout halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "runner exception halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "runner timeout halts after one call",
+      "passed": true,
+      "spy_calls": 1,
+      "successful_reply": false
+    },
+    {
+      "name": "second-stage waiting never reports recovery success",
+      "passed": true,
+      "spy_calls": 2,
+      "successful_reply": false
+    },
+    {
+      "name": "default plan works with missing packet and no reads",
+      "passed": true,
+      "spy_calls": 0
+    },
+    {
+      "name": "execute with missing packet halts before runner",
+      "passed": true,
+      "spy_calls": 0
+    }
+  ],
+  "peak_small_fixture_bytes": 7245,
+  "peak_fixture_plus_reply_bytes": 7887,
+  "fixture_cap": 8192,
+  "fixture_scope": "many independent tiny controls; cap bounds one complete synthetic packet and one live reply, not aggregate repeated reads",
+  "approved_source_digests_rebound_only_in_test_RAM": true,
+  "production_source_or_binding_modified": false,
+  "real_subprocess_calls": 0,
+  "real_installer_imports": 0,
+  "real_IMG_operations": 0,
+  "device_operations": 0,
+  "temp_fixture_handles_closed_and_files_removed": true
+}

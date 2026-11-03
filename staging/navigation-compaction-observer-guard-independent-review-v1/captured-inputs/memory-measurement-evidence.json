@@ -1,0 +1,95 @@
+{
+  "schema": "garmin-ordinary-host-memory-guard-primary-evidence/v4",
+  "local_document_pins": [
+    {
+      "path": "/usr/share/man/man2/getrusage.2.gz",
+      "compressed_bytes": 2866,
+      "sha256": "3f8d1a52db881a8d383a685dbaa24fb6713f8d7325d0b98775f443aaa98367ec",
+      "uncompressed_sha256": "3fb5d4ff99f5c660644fc3e2949742b0a6084bd168cf4bd77de07989109c4360",
+      "supported_scope": "ru_maxrss kilobytes; resource metrics preserved across execve",
+      "local_primary_man_pages_version": "6.9.1"
+    },
+    {
+      "path": "/usr/share/man/man5/proc_pid_status.5.gz",
+      "compressed_bytes": 3295,
+      "sha256": "73aca162fe1218e9348b3ed00a2b19245c8e1a436fa529f0e8fe8f8bc2f3ea67",
+      "uncompressed_sha256": "a1e4a55fe38f2ceaa4b2dfb8ab073778fcebecdd737484ce6de6f541cf13fc32",
+      "supported_scope": "VmRSS/current and VmHWM/peak, approximate accounting",
+      "local_primary_man_pages_version": "6.9.1"
+    },
+    {
+      "path": "/usr/share/man/man5/proc_pid_statm.5.gz",
+      "compressed_bytes": 826,
+      "sha256": "ecaf9ad55a2c561d9d958d69a440d66bb082e2bca08c3662d27ff529183ea23c",
+      "uncompressed_sha256": "d4cc2dee9a2b4e4cd7fb6b4c80af18ff264c5b2f243cfece7e6be19e3ee45987",
+      "supported_scope": "status RSS accounting approximation; smaps/rollup slower accurate accounting",
+      "local_primary_man_pages_version": "6.9.1"
+    },
+    {
+      "path": "/usr/share/man/man2/execve.2.gz",
+      "compressed_bytes": 9125,
+      "sha256": "79ee457a5bbd5ec346e9d05bd9e4e2e6789ad1e5a400ed73b813fe0f61b28ea6",
+      "uncompressed_sha256": "df8104a150d180024f1643507ebddbb60a04cd3daab4b5e9bc915236c4991b4e",
+      "supported_scope": "memory mappings replaced; process usage attributes can persist",
+      "local_primary_man_pages_version": "6.9.1"
+    }
+  ],
+  "upstream_primary_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v6.18/fs/proc/task_mmu.c",
+      "function": "task_mem",
+      "lines_one_based": [
+        33,
+        80
+      ],
+      "supports": "current mm RSS and high-water RSS; pages shifted PAGE_SHIFT-10 then kB output, so binary KiB; snapshots can be inconsistent",
+      "browsed": true,
+      "full_remote_source_hash_not_computed": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/torvalds/linux/v6.18/fs/exec.c",
+      "functions": [
+        "bprm_mm_init",
+        "exec_mmap"
+      ],
+      "lines_one_based": [
+        [
+          243,
+          272
+        ],
+        [
+          826,
+          851
+        ]
+      ],
+      "supports": "new mm allocated and installed at exec, old-mm hiwater saved in signal maxrss",
+      "browsed": true,
+      "full_remote_source_hash_not_computed": true
+    }
+  ],
+  "local_installed_kernel_header_witnesses": [
+    {
+      "path": "/usr/src/linux-headers-6.18.50+rpt-common-rpi/include/linux/mm.h",
+      "lines": [
+        2846,
+        2848
+      ],
+      "symbol": "get_mm_hiwater_rss",
+      "observed_relation": "max current mm hiwater_rss and current mm rss"
+    },
+    {
+      "path": "/usr/src/linux-headers-6.18.50+rpt-common-rpi/include/linux/mm_types.h",
+      "line": 1093,
+      "field": "mm_struct hiwater_rss"
+    }
+  ],
+  "host_running_kernel_source_not_fully_verified": true,
+  "metric_policy": "Enforce max current-mm /proc VmRSS and VmHWM at393216KiB; inherited ru_maxrss is diagnostic only",
+  "unit": "kernel kB fields are KiB as shown by pages <<(PAGE_SHIFT-10)",
+  "limitations": [
+    "VmRSS/VmHWM are approximate process accounting, not byte-accurate allocations",
+    "No exact transient kernel/accounting or physical-RAM limit is guaranteed",
+    "No counter reset, fallback, subprocess-context retry or numerical cap increase"
+  ],
+  "scanner_or_runtime_guard_cases_executed": false
+}

@@ -1,0 +1,69 @@
+{
+  "all_passed": true,
+  "previous_checkpoint": "evidence/firmware-analysis/native-os20-allocator-checkpoint-audit.json",
+  "snapshots": [
+    {
+      "original": "evidence/firmware-analysis/native-os20-allocator-checkpoint-audit.json",
+      "snapshot": "staging/garminos-storage-followup-checkpoint-v1/previous-audit.json.gz",
+      "encoding": "gzip",
+      "decoded_sha256": "ea4de2a1c2d6898c45b4ba545128bbd87e0b2e026c8802913566195890dc6656"
+    },
+    {
+      "original": "evidence/report-web-latest.json",
+      "snapshot": "staging/garminos-storage-followup-checkpoint-v1/previous-web.json.gz",
+      "encoding": "gzip",
+      "decoded_sha256": "77f73db044e41993257dec3361caad82a62450c28c338f39b9f38a30ecb3aefa"
+    },
+    {
+      "original": "evidence/deep-research-state.json",
+      "snapshot": "staging/garminos-storage-followup-checkpoint-v1/previous-state.json.gz",
+      "encoding": "gzip",
+      "decoded_sha256": "68379aa200d964810d17bbce06e41e2f07ce6219b0ff3fbdb7ed7118541d4fd2"
+    },
+    {
+      "original": "evidence/task-state.json",
+      "snapshot": "staging/garminos-storage-followup-checkpoint-v1/previous-task.json.gz",
+      "encoding": "gzip",
+      "decoded_sha256": "656d180762e78923cb54c6b84c2e69b78724e4bf537ee06ebebae99ec4bff97d"
+    },
+    {
+      "original": "reports/findings.json",
+      "snapshot": "staging/garminos-storage-followup-checkpoint-v1/previous-public.json.gz",
+      "encoding": "gzip",
+      "decoded_sha256": "358dc535d85db84deeee5ab50628a2d5f951c2573b97645366ce98b4e3719296"
+    },
+    {
+      "original": "reports/nuvi2565RT.html",
+      "snapshot": "staging/garminos-storage-followup-checkpoint-v1/previous-report.html.gz",
+      "encoding": "gzip",
+      "decoded_sha256": "aaa9b6a0ff60aed58f2f47b01e0757d73af2ffa69a39c2c109961c716cb49ab8"
+    }
+  ],
+  "focused_sources": {
+    "staging/maps/Taiwan_OSM_20261001_UTF8/Taiwan_OSM_20261001.img": "0c97b5726318a96272d7662b66279c5ca08003cd13f13478be70abe67b4ab5b8",
+    "staging/maps/Taiwan_OSM_20261001_UTF8/compiled/gmapsupp.img": "0c97b5726318a96272d7662b66279c5ca08003cd13f13478be70abe67b4ab5b8",
+    "staging/maps/Taiwan_OSM_20261001_ZhuYuan/Taiwan_OSM_20261001.img": "2801d07dfa4f3ae8d69fcdaea616e88499da6a6ed4a6d773b378253b9ebcb600",
+    "staging/maps/Taiwan_OSM_20261001_ZhuYuan/gmapsupp.img": "2801d07dfa4f3ae8d69fcdaea616e88499da6a6ed4a6d773b378253b9ebcb600",
+    "staging/garminos-storage-followup-v1/cleanup-result.json": "552e10a516360dcc061310f542fe11fb08f410bf6e2bb2c54ad678d040ae8475",
+    "staging/garminos-storage-followup-v1/duplicate-operations.json": "dcc5f0eaa7ab0c7683233a27eeb97c2a82e85f4a67b76ebf91495c44596e5de2",
+    "staging/garminos-storage-followup-v1/terminal-tool-receipt.json": "1e7d11e260397ec47ee580f12aa7c4a4eb9708373ad65a8c5ab68110c65d0407",
+    "staging/garminos-storage-followup-v1/verified-plan.json": "d65f4cb13f293581692cb572e84d056b9935fa5953f011d2a9f48b84d40a8fd3",
+    "evidence/firmware-analysis/native-os20-allocator-checkpoint-audit.json": "ea4de2a1c2d6898c45b4ba545128bbd87e0b2e026c8802913566195890dc6656",
+    "scripts/reduce_storage_followup_v1.py": "1c1c57607b40a3f50cede42a87f5bdb16c3341abe010bee10cba0accbaad62f3",
+    "scripts/publish_storage_followup_v1.py": "e1239f4464fc94ad4cf7f306b13a1f094a39b7365cab03709228017c42c71d41",
+    "staging/garminos-storage-followup-checkpoint-v1/previous-audit.json.gz": "399ae2c2f6e61f4b865fb7b21bb00cbcebf58bcb0321271e1c123a5419fbc5cf",
+    "staging/garminos-storage-followup-checkpoint-v1/previous-web.json.gz": "692725ef77fc28194c4d5ec206c66a2eccb10fc7ee24520ae9e33d3e704f630b",
+    "staging/garminos-storage-followup-checkpoint-v1/previous-state.json.gz": "de1413c0eb91809f790f7ab8bb30810f90087b5ba7f7ab961621eaccb5043ac3",
+    "staging/garminos-storage-followup-checkpoint-v1/previous-task.json.gz": "71d345965e6139c79672580217b03d6af765b5ece08863f09465b1be9db89c50",
+    "staging/garminos-storage-followup-checkpoint-v1/previous-public.json.gz": "1aa448d0e2baa55a4e7daaef69ee0ea2f5d5448f745e83f4a14433163478c36b",
+    "staging/garminos-storage-followup-checkpoint-v1/previous-report.html.gz": "107560254c48eef1cededabf761e6f0793bbc5f50112bad997821d427fd84552"
+  },
+  "prior4696_source_hashes_inherited": true,
+  "full_prior_source_rehash_repeated": false,
+  "backup_full_hash_repeated": false,
+  "device_IO": false,
+  "details": [
+    "追加空間整理：兩份各約135MB的重複地圖輸出以SHA-256確認內容相同後共用唯讀資料，四個原路徑均保持可讀；連同清除可重建下載快取，本輪實際釋放531MB。",
+    "目前可用約7.53GB（7.01GiB），累計整理釋放約7.09GB。唯一完整備份、研究程式、不同測試結果及已安裝工具保留；整理不增加原生App研究百分比。"
+  ]
+}

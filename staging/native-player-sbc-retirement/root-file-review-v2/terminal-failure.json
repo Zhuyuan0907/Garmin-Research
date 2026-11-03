@@ -1,0 +1,523 @@
+{
+  "all_passed": false,
+  "error": "Actual borrowed native frame postpones source retirement",
+  "cases_completed": [
+    {
+      "CPU_stores": 35890,
+      "joint_events": 35927,
+      "tracked_whole_zones": 27,
+      "actual_RW_zones_from_frozen_parent_permission_recipe": 27,
+      "unchanged_RX_return_sentinel_tracked_as_RW": 1,
+      "unique_store_sites": 1033,
+      "ISA_and_store_counts": [
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 3015
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "stm",
+          "hook_bytes": 4,
+          "count": 22
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "stmib",
+          "hook_bytes": 4,
+          "count": 26
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "stmne",
+          "hook_bytes": 4,
+          "count": 320
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "str",
+          "hook_bytes": 4,
+          "count": 15519
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strb",
+          "hook_bytes": 1,
+          "count": 11526
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strbeq",
+          "hook_bytes": 1,
+          "count": 1
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strd",
+          "hook_bytes": 4,
+          "count": 38
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "streq",
+          "hook_bytes": 4,
+          "count": 14
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strgt",
+          "hook_bytes": 4,
+          "count": 2
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strh",
+          "hook_bytes": 2,
+          "count": 1055
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strle",
+          "hook_bytes": 4,
+          "count": 33
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strls",
+          "hook_bytes": 4,
+          "count": 5
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strne",
+          "hook_bytes": 4,
+          "count": 14
+        },
+        {
+          "source": "ELF",
+          "ISA": "Thumb",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 48
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 313
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "stmdb",
+          "hook_bytes": 4,
+          "count": 77
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "stmhs",
+          "hook_bytes": 4,
+          "count": 908
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "str",
+          "hook_bytes": 4,
+          "count": 288
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strb",
+          "hook_bytes": 1,
+          "count": 28
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strbhs",
+          "hook_bytes": 1,
+          "count": 2
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strbls",
+          "hook_bytes": 1,
+          "count": 1
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strhs",
+          "hook_bytes": 4,
+          "count": 20
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 795
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "stm",
+          "hook_bytes": 4,
+          "count": 148
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "str",
+          "hook_bytes": 4,
+          "count": 1114
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "strb",
+          "hook_bytes": 1,
+          "count": 410
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "strh",
+          "hook_bytes": 2,
+          "count": 148
+        }
+      ],
+      "whole_zone_after_sha256": {
+        "0xf00000": "21ae49dc2ee727cced4b7b8b045965a8f8c2234c50ee0e2331078fea2b01a487",
+        "0x34e5000": "ac25f0b6d58a5b3b1a3e91c1948ce02d3f8106e68ed6daf46bddde7bf2ca4b1d",
+        "0x9700000": "13778a962a060fda3478276c1da1b1eff34bb6bc2c804eb686b22872766c94d2",
+        "0x8800000": "36ff29f5b77e437e797a8d7a15fb61fe734887d581da804508dc6e82016553ea",
+        "0x8820000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x8a00000": "17b887e509fbbecad1d9fecbb8ba999e5d715d80b6162e74ca9c35b7121395db",
+        "0x8b00000": "963704709a7f5cbc8d8f39bcc0fd75035f64c1e15a79f246fbb54d2155d516c1",
+        "0x8c00000": "b08b405b1e6f93009cee056dd66134547eb51b424a54c32e22833a166d25f5f7",
+        "0x8d00000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x7011000": "9c259f00336752cc9b223f7665fe115826b33da3b768a2fc56de1508e6706afe",
+        "0x7700000": "16040dc166d39f33e4ffc6af790088e4c2ce1294730ee92a1f8e33cb709880de",
+        "0x7701000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x7702000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x7703000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x7800000": "b5b5b083b2591ffc132830d8438426af5553093d8d004075c4c2c067616a6774",
+        "0x7900000": "16040dc166d39f33e4ffc6af790088e4c2ce1294730ee92a1f8e33cb709880de",
+        "0x7902000": "542c1fe1d41d96104020557bd2b2cb5bed1bf54434625f9fc678d1196ce09022",
+        "0x34e3000": "30587dbc548017d56c5aa2e5cea421b539f71703593ba8e58fd7352613b7dc00",
+        "0x9800000": "a3ece5ec9c5aa7a9bd7084446490cc8ba67287d5f09e2e8ebfe9abce0732b51e",
+        "0x9401000": "3deb09e42a56f9f413db2dcee415e8051c5162674218c76bd46619cd0c768006",
+        "0x9500000": "a8076ad37de775a245482e6becaabb51806a9621161957c609ec9bb45008e7c6",
+        "0x9505000": "443a0f842fd116056191da585da221782f63356b2f4864a5aa6038485229c81a",
+        "0x14b3000": "ab90b0bede1506ffa1a1958e2cf12837988541b99834caca042f0c7969a2daf1",
+        "0x2d22000": "70e31b000e34efe2ef980e7a0a0e826f91bfcf04725ab03cc72d5f1937328033",
+        "0x9600000": "3f96453c2c342021916fd7d25145a8871f3b50de2a99dfbf0dfb48554167f417",
+        "0x9604000": "55cd81e990c750cc7bda3e638d70c42585b728a261a28e7e8fb7f7391ae17e54",
+        "0x9900000": "dc51800717902e0a23a995d5629e71dcccad267413e7af09cd3875f632e5e783"
+      },
+      "name": "Stop_after_real_PCM_playback",
+      "actual_final_RX_zones": 3,
+      "full_original_stop_helpers": 6,
+      "full_original_sync": 2,
+      "full_original_Stop_barriers": 1,
+      "compiled_retirement_full_returns": 1,
+      "native_fullpull_returns": 8,
+      "decoded_PCM_bytes": 186,
+      "actual_output_PCM_bytes": 186,
+      "explicit_silence_bytes": 1606,
+      "output_bytes": 1792,
+      "retired_private_FIFO_slots": 0,
+      "deferred_Stop_returns": 0,
+      "copy_guards": {
+        "exact_compiled_memcpy_source_bytes": 721,
+        "compressed_queue_copied_bytes": 163,
+        "whole_compressed_queue_publications": 1,
+        "FIFO_COPYING_reservations": 1,
+        "PCM_COPYING_bytes": 186,
+        "whole_FIFO_READY_publications": 1,
+        "Mixer_copy_inflight_bytes": 186,
+        "FIFO_free_after_inflight_zero": 1
+      }
+    },
+    {
+      "CPU_stores": 42561,
+      "joint_events": 42602,
+      "tracked_whole_zones": 27,
+      "actual_RW_zones_from_frozen_parent_permission_recipe": 27,
+      "unchanged_RX_return_sentinel_tracked_as_RW": 1,
+      "unique_store_sites": 954,
+      "ISA_and_store_counts": [
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 8165
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "stm",
+          "hook_bytes": 4,
+          "count": 34
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "stmib",
+          "hook_bytes": 4,
+          "count": 26
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "stmne",
+          "hook_bytes": 4,
+          "count": 1440
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "str",
+          "hook_bytes": 4,
+          "count": 10988
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strb",
+          "hook_bytes": 1,
+          "count": 15911
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strbeq",
+          "hook_bytes": 1,
+          "count": 1
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strd",
+          "hook_bytes": 4,
+          "count": 44
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "streq",
+          "hook_bytes": 4,
+          "count": 30
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strgt",
+          "hook_bytes": 4,
+          "count": 19
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strh",
+          "hook_bytes": 2,
+          "count": 1218
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strheq",
+          "hook_bytes": 2,
+          "count": 1024
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strle",
+          "hook_bytes": 4,
+          "count": 4
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strls",
+          "hook_bytes": 4,
+          "count": 21
+        },
+        {
+          "source": "ELF",
+          "ISA": "ARM",
+          "instruction": "strne",
+          "hook_bytes": 4,
+          "count": 20
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 352
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "stmdb",
+          "hook_bytes": 4,
+          "count": 85
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "stmhs",
+          "hook_bytes": 4,
+          "count": 460
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "str",
+          "hook_bytes": 4,
+          "count": 293
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strb",
+          "hook_bytes": 1,
+          "count": 33
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strbhs",
+          "hook_bytes": 1,
+          "count": 2
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strbls",
+          "hook_bytes": 1,
+          "count": 1
+        },
+        {
+          "source": "MAIN",
+          "ISA": "ARM",
+          "instruction": "strhs",
+          "hook_bytes": 4,
+          "count": 20
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "push",
+          "hook_bytes": 4,
+          "count": 666
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "stm",
+          "hook_bytes": 4,
+          "count": 118
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "str",
+          "hook_bytes": 4,
+          "count": 1048
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "strb",
+          "hook_bytes": 1,
+          "count": 390
+        },
+        {
+          "source": "MAIN",
+          "ISA": "Thumb",
+          "instruction": "strh",
+          "hook_bytes": 2,
+          "count": 148
+        }
+      ],
+      "whole_zone_after_sha256": {
+        "0xf00000": "d7d23ede0b152634483d8c7d579df76712954f9901e123ddc7a74bd455a9e262",
+        "0x34e5000": "89ce730f7d4dcde1f94be80ee7a38be48bc3dc53983d978066b2cf7d918a4386",
+        "0x9700000": "13778a962a060fda3478276c1da1b1eff34bb6bc2c804eb686b22872766c94d2",
+        "0x8800000": "36ff29f5b77e437e797a8d7a15fb61fe734887d581da804508dc6e82016553ea",
+        "0x8820000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x8a00000": "17b887e509fbbecad1d9fecbb8ba999e5d715d80b6162e74ca9c35b7121395db",
+        "0x8b00000": "963704709a7f5cbc8d8f39bcc0fd75035f64c1e15a79f246fbb54d2155d516c1",
+        "0x8c00000": "0b19d7d043e03c0d3ffe5a98f438793f53a2d0a423c4665fbb0e8790329b24ff",
+        "0x8d00000": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "0x7011000": "10f74a534619d58238693cc84d2bfeaad2178e9a9d12a50aeecad0d7dc1250b8",
+        "0x7700000": "41e108c880d71fccade6a995f359932375be06c0f97cf408bf5b6cdabbf0d064",
+        "0x7701000": "638540d63ba4113c54c73330daf37ada366757b37b24dcef84b7ebeccc00f138",
+        "0x7702000": "1b5ac24ce29abf12d06ba01d284be2db559ce0ba487f37bfc687019b35284abe",
+        "0x7703000": "eadf5d4e13fd21514d74664e38125977fdff4a88cddc91b8c7aac15014c55b2a",
+        "0x7800000": "96f7b18e8a7e7ce7fa60b551d8c6b9eeffab0586b0ab3bcb1141fd072003646d",
+        "0x7900000": "eadf5d4e13fd21514d74664e38125977fdff4a88cddc91b8c7aac15014c55b2a",
+        "0x7902000": "35dc12cc6b01cacf0c229f2578daa98b1b19dc4eba78602314173f25d381b134",
+        "0x34e3000": "30587dbc548017d56c5aa2e5cea421b539f71703593ba8e58fd7352613b7dc00",
+        "0x9800000": "3eed97c0d4d5f901defb45f453fc3b25f2f8a7c19e833491fdbbd1b011dfedfb",
+        "0x9401000": "3deb09e42a56f9f413db2dcee415e8051c5162674218c76bd46619cd0c768006",
+        "0x9500000": "d6576789fdb89b167ead21092393efa65d50081e0255c55ad58690c786ad0e16",
+        "0x9505000": "443a0f842fd116056191da585da221782f63356b2f4864a5aa6038485229c81a",
+        "0x14b3000": "ab90b0bede1506ffa1a1958e2cf12837988541b99834caca042f0c7969a2daf1",
+        "0x2d22000": "70e31b000e34efe2ef980e7a0a0e826f91bfcf04725ab03cc72d5f1937328033",
+        "0x9600000": "5504496aa72b8d335b80fc11f0ce61494152a12ef19c089aa295f0aaf76bc33f",
+        "0x9604000": "5a6eef366fa7df7d0e4e3d4eea4fb49184b71e563e931502f762c58f8b498341",
+        "0x9900000": "6f0fba73829e37169cbaf1f557310c1b3a8efa591f995ed0f213fc0f26f59d9a"
+      },
+      "name": "Stop_with_full_PCM_and_pending_compressed",
+      "actual_final_RX_zones": 3,
+      "full_original_stop_helpers": 6,
+      "full_original_sync": 2,
+      "full_original_Stop_barriers": 1,
+      "compiled_retirement_full_returns": 1,
+      "native_fullpull_returns": 0,
+      "decoded_PCM_bytes": 2048,
+      "actual_output_PCM_bytes": 0,
+      "explicit_silence_bytes": 0,
+      "output_bytes": 0,
+      "retired_private_FIFO_slots": 4,
+      "deferred_Stop_returns": 0,
+      "copy_guards": {
+        "exact_compiled_memcpy_source_bytes": 5014,
+        "compressed_queue_copied_bytes": 918,
+        "whole_compressed_queue_publications": 6,
+        "FIFO_COPYING_reservations": 4,
+        "PCM_COPYING_bytes": 2048,
+        "whole_FIFO_READY_publications": 4,
+        "Source_FIFO_discard_after_full_retirement": 4
+      }
+    }
+  ],
+  "guest_rerun": false,
+  "device_IO": false
+}

@@ -1,0 +1,16 @@
+{
+  "all_passed": true,
+  "all_complete_file_hashes_match": true,
+  "original_inodes_retained": true,
+  "archive_sha256": "f2e5722e62e33bdd3d551fd76c64be1ee171a62a6a9b8e48f772f6b65c0125ea",
+  "archive_bytes": 706027520,
+  "cold_mount_start_passed": true,
+  "mount": {
+    "target": "/root/garmin/archives/frozen-media-v1",
+    "source": "/dev/loop4",
+    "fstype": "squashfs",
+    "options": "ro,nosuid,nodev,noexec,relatime,errors=continue"
+  },
+  "systemd_unit": "root-garmin-archives-frozen\\x2dmedia\\x2dv1.mount",
+  "unit_text": "[Unit]\nDescription=Garmin frozen map and VPM revisions, lossless compressed view\nAfter=local-fs.target\n\n[Mount]\nWhat=/root/garmin/archives/frozen-media-v1.squashfs\nWhere=/root/garmin/archives/frozen-media-v1\nType=squashfs\nOptions=loop,ro,nodev,nosuid,noexec\nTimeoutSec=30\n\n[Install]\nWantedBy=multi-user.target\n"
+}

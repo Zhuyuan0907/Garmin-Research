@@ -1,0 +1,22 @@
+Garmin nüvi 2565RT 原始 USB 邏輯磁碟備份
+
+唯一實體完整備份：
+  /root/garmin/backups/20261002T154458Z/sda-backup-v1.squashfs
+
+原本的 sda.img 是指向唯讀壓縮視圖的連結，並不是第二份備份：
+  /root/garmin/backups/20261002T154458Z/sda.img
+原本的 files/ 仍是這個映像的唯讀 FAT 檔案視圖。
+兩個掛載服務已啟用，並已測試只啟動 files.mount 會自動建立壓縮視圖。
+研究程式可繼續使用原路徑；需要修改映像時，請先另建工作副本。
+
+不依賴掛載服務的完整解壓方式（目的地需至少 3,879,731,200 bytes）：
+  unsquashfs -cat /root/garmin/backups/20261002T154458Z/sda-backup-v1.squashfs sda.img > /external/destination/sda.img
+請先將 /external/destination 改成你自己的目的地，避免覆蓋既有檔案。
+完成後用 sha256sum 驗證，預期映像 SHA-256：
+  df393136d4d14dd31906c1f161fc354cb097c56e3bf8c2278433d01ca2f1c6e2
+
+壓縮檔 SHA-256：
+  4492a1584adf109f3a2ff65c695f208fd750019098def735491cc22290bb751e
+
+本備份涵蓋原機 USB 暴露的整個邏輯磁碟；不包含未經 USB 暴露的
+bootloader／韌體專用快閃區域或外部攝影機 SD。

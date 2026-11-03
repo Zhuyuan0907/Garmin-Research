@@ -1,0 +1,65 @@
+原廠 CN＋Address Point 地址格式：第一輪只讀結構盤點
+HWID 1352／SW 8.00；資料為已驗證的原廠備份，不是新讀實機。
+
+兩個 DB 都是可直接讀取的 SQLite3。沒有改 DB、圖資、韌體或安裝包；沒有 USB I/O。
+完整 schema、欄位、索引、版本、少量記錄與公共 MDR header 見 stock-address-schema-evidence.json。
+
+一、原廠層與依賴
+主道路 gmapprom.img：CN Taiwan NT 2016.11，FID 4171／PID 1，
+I0533A5C.GMP，MapID 5454428 / 0x533A5C，含 TRE/RGN/LBL/NET/NOD。
+HWM/TWNHWM.db：AdvHWM，class16，version1611，schema_version1，
+map_ids、路標、出口等欄位的 MapID 都對應主道路圖。
+Address Point gmapprom1.img：CN Taiwan NT 2016.10 Address Point，FID 4171／PID 1，
+I053061A.GMP，MapID 5441050 / 0x53061A，只有 TRE/RGN/LBL，沒有 NET/NOD。
+Prefecture/TWNJAI.db：PrefectureAddressIndexing，class18，version1610，schema_version1；
+jai_map_id 對應 Address Point，而不是主道路圖。
+這些是觀察到的原廠 metadata 值；本輪未證明每一欄都是載入器必須的驗證条件。
+
+二、JAI schema 與已驗的連結
+japan_addr_info：id INTEGER PRIMARY KEY、index_record TEXT、record INTEGER。
+record 的最高 nibble 是 1/2/3，分別有 22/343/47853 筆；低28位最大22/343/47870。
+22 筆第一層的低28位 ID1..22 和 info 的 primary key 不同；後者跨1..48154。
+japan_addr_level_one 存1..22；family 存 parent_record 和 the_first_record，沒有直接外鍵宣告。
+family 365筆：18組1→2、4組1→3、343組2→3。四筆原廠 first-child 沒有 info row，
+第三層低28 ID亦有17個缺號。不能自行把原廠資料判為損壞，或亂加「所有 child 必須存在」限制。
+22個 FTS3 虛擬表 japan_addr_index_1..22，欄位 index_record、record_info。
+所有表都已交叉驗證 record_info>>8 精確對應 info.id，沒有 orphan；
+record_info低byte的高nibble，等於 info.record 的高nibble。
+每一縣市表的 info.id 範圍精確覆蓋其第一層记录之後、下一縣市之前的連續區間。
+FTS另含 suffix／變體列；低byte0x10、0x20、0x30、0x31 等數值不能只靠名字猜完整語義。
+
+三、字串與 segments
+48209個 index_record 符合重複 tk＋5個a..p，另外9筆含 rh 等 token；它不是直接中文標籤。
+民權路、民和路、台中、臺中、184 的 literal LIKE 都沒有命中。
+這不能證明地址或184號不存在；需要原廠 query/index codec 與 AP 地址記錄的連結。
+prefix 40筆連到1374個 segment BLOB；只有有限結構觀察，沒有完整格式解碼。
+例如 prefix1 token tkedaea 的 seg45 是22組 little-endian u16配對，首組(1,1)，末組(22,43)。
+seg2的六個17-byte串鏈以info PK231..236為首DWORD，後面byte1、byte0x31，
+next offsets17/34/51/68/85/0與7-byte token suffix；suffix都能對應各 info.index_record。
+這仍未證實其 native builder／完整serialize 規則；不要把此例當成可產生有效資料庫的實作。
+
+四、HWM與位置／路網
+HWM有9表：路標、出口、選擇清單、圖示與 metadata。一般門牌不在明確的 house-number 欄中。
+主要鏈欄 m_map_id、m_link_id、m_org_node_id、m_dst_node_id、m_adj_index，
+路標與出口清單也有整數lat/lon。這些主道路圖內部節點／線段值不能直接用 OSM node/way ID 替換。
+「民權」可直接在路標文字找到「民權東路出口」；這是高速道路出口例，不能當作台中民權路184號。
+本輪沒有驗證座標單位、圖形記錄ABI、OSM新圖節點連結或新記錄能否路由。
+
+五、AP MDR 載體是必要追查對象
+AP整體96739328 bytes，其中MDR92653600、GMP3812824 bytes；不只一個普通地址SQLite。
+原廠主道路 MDR CP950／sort6,1，AP MDR CP950／sort21,2。
+兩者MDR公共header都是772bytes，header+0x1B halfword分別17／16；候選mkgmap為14。
+本輪只讀IMG disk header／目錄／MDR header，兩個IMG總共110092 bytes，沒有读section contents。
+已保留公共header完整hex與offset table，供原native parser對齊欄位。
+直接用 r4924 descriptor layout 試解，到假設的section12就產生超出 component 的值；
+因此不能把 r4924 section number／cursor直接套到原廠。native exact cursor仍待另一份有限原函式證據。
+AP大MDR可能承載專用門牌索引／資料，但本輪沒有解碼而不將「可能」當成確認。
+
+六、哪些部分可重建、哪些還不行
+可重建：SQLite schema、一般SQL index與FTS3容器、已觀察到的分層ID及跨表一致性檢查。
+尚不可產生可用新records：原query/index token codec、完整segment序列化、
+JAI logical record至AP原生feature的解引用、門牌數字／位置載體、
+AP目的地與新版OSM路由圖node/segment的精確連結、載入器版本／格式接受条件。
+没有找到能確認原廠184號的記錄，也沒有證明它不存在；OSM來源184號是另一個資料來源，不能混用證據。
+保留原廠 CN＋AP 互補配置，不用 CP950／version metadata偽裝新Unicode圖資。
+本輪没有產生可安裝的DB或原廠格式地圖；舊v2.1 ZIP仍是installation-only／hold候選。

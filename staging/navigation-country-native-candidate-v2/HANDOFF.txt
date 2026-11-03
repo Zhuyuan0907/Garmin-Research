@@ -1,0 +1,76 @@
+Three-source native address candidate v2 — frozen build handoff
+
+Actual build EXIT 0: session 25216, initial 832e0d, progress a42560, terminal c45485.
+Candidate gmapprom1.img: 128356352 bytes.
+SHA-256: 925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb.
+proof.json: 5c87ea67ad127f981b24a1d6d2f9fb255814695421fa4f915a368157b576ecc3.
+Source: scripts/build_country_native_address_candidate_v2.py, SHA-256 11e6f848ff3b5e28191e2d7d3dc57cac7973d1f20c502b3d64896b250980a44e.
+
+Kept ledger order: country v1 original ledger order skipping one excluded new leaf;
+then Kaohsiung v1 original order; then flat-city v1 original order.
+New houses 130637 = 111607 country + 14530 Kaohsiung + 4500 flat-city.
+Updated original street ranges 18823 = 15679 + 2255 + 889, mutually disjoint.
+Final level4/5/6 counts: 3781594 / 2667573 / 1984066.
+Combined append counts: 1647646 / 326477 / 10750.
+Combined append bit lengths: 210898688 / 41136102 / 731000.
+L5 and L6 are true table-wide significant-bit splices; input byte padding is not concatenated.
+
+The single excluded source leaf is StreetID6676 / 桃園市楊梅區富全街810號,
+level4 previous lowID2382209, payload ffffff0302000000000019ba11141656,
+primary_ref8255, raw24[1161753,5641748]. Its source point is inside its
+complete city, but the exact raw24 quantized point is outside. Its selected
+range count12 becomes11 (new_integer3 becomes2). Original stock records,
+coordinates, flags and labels are preserved. Later country L4 new lowIDs
+shift by -1; all Kaohsiung and flat L4 new lowIDs shift by -1; L5/L6 lowIDs stay.
+See dropped-quantized-city-outlier.json for the original row and membership.
+
+Only existing source ledger keys new_lowID and appended_bit_offset changed.
+Added keys: source_merge, previous_lowID, remap_delta,
+previous_appended_bit_offset, candidate_v2_membership,
+v2_combined_append_bit_offset. All other original source fields are retained.
+In particular original Kaohsiung combined_append_bit_offset and flat-city
+relative_new_lowID/index_base_count_pin remain frozen SOURCE annotations;
+canonical v2 placement is new_lowID/appended_bit_offset and
+v2_combined_append_bit_offset. Selected ranges retain original parent fields,
+plus source_merge and previous fields, with derived starts/counts/offsets and
+group hashes rebased. Selected output is a JSON array with one compact row
+per line for bounded streaming.
+
+Geometry scope: country v1 complete-city membership under original host name
+policy; Kaohsiung exact complete native district membership; flat-city literal
+source district membership while preserving native city-to-street with
+null district/null native_district_record/native_district_verified=false.
+Both source and exact quantized raw24 positions must cover the same geometry.
+The four flat native cities are 台北市, 基隆市, 新竹市, 嘉義市.
+No invented native district hierarchy or complete all-country district claim.
+
+Capacity was bound before emitting merged append files or candidate IMG.
+explicit-container-capacity-plan.json is the authoritative THREE-source plan:
+original 4K block container capacity134217728, new MDR124255307,
+IMG128356352, headroom5861376, 136 directory rows,18 metadata blocks,
+directory_end73728. Original4K header prefix is unchanged. No8K adapter used.
+capacity-preflight.json is the retained HISTORICAL two-source preflight only.
+
+Actual complete scoped readback: all six components, other five unchanged;
+full original L4/L5/L6 byte prefixes unchanged; all47870 L3 fields;
+all18823 selected packed groups; all130637 new payload/ref/raw24/CP950 labels,
+source provenance/remap and membership;1854236 original selected-group
+records directly compared, all significant bits and relative order unchanged.
+Actual new L5 bit shifts0/2/4/6 and L6 shifts0/4 covered. All43 dependency
+stats unchanged. Eleven NEW independent bit-splice controls passed.
+Input seals and original backup were not rewritten. No complete second
+original backup was created. Source read log contains actual bounded/window
+operations plus required streaming component reads.
+
+This is an offline candidate primitive, NOT an installed update, full country
+update, native frontend/query/UI test or route acceptance result. New streets,
+new labels/admins, subnumbers, uncertain ordering, source conflicts and
+incomplete districts remain held. Original exact-house coordinates were not
+broadly refreshed. Native CPU, compact restore, package, physical validation
+and release are separate parent-owned steps. No USB/device/canonical/ZIP,
+installer/report writes or old closed suite reruns occurred here.
+
+sealed-files.json uses workspace-relative paths. For large outputs it inherits
+full streaming hashes from the completed build/readback proof and verifies
+fresh size/readonly stats; small metadata/source are freshly SHA-256 hashed.
+The seal itself is excluded from its list. All files and builder source frozen.

@@ -1,0 +1,65 @@
+{
+  "local_only": true,
+  "device_install_or_sound_actions_performed": false,
+  "not_an_installer": true,
+  "exact_target": "Taiwan nuvi2565RT HWID1352 SW8.00; only original Big5 voice",
+  "candidate": {
+    "local_path": "staging/native-player-inline-fields/marker-package-prep/local-test-bundle-v2/candidate/Chinese_Big5_MeiLing.vpm",
+    "basename": "Chinese_Big5_MeiLing.vpm",
+    "device_relative_path_for_future_review": "Voice/Chinese_Big5_MeiLing.vpm",
+    "bytes": 20136960,
+    "sha256": "736b863344031a6d0e1c59fbcca6448e8b5bb67042b134020bbc3069fd31f891"
+  },
+  "rollback": {
+    "local_path": "staging/native-player-inline-fields/marker-package-prep/local-test-bundle-v2/rollback/Chinese_Big5_MeiLing.vpm",
+    "basename": "Chinese_Big5_MeiLing.vpm",
+    "bytes": 20133888,
+    "sha256": "b5f132ae4b073d6e804f7a7b639a60b1055573f9fbb65144f18f3b2198a5de68",
+    "exact_original_backup": "backups/20261002T154458Z/files/Voice/Chinese_Big5_MeiLing.vpm"
+  },
+  "voice_to_select": {
+    "native_ID": "mei-lingb",
+    "native_language_name": "中文Mei-Ling Big5(TTS)",
+    "single_file_basename": "Chinese_Big5_MeiLing.vpm",
+    "leave_GB_MeiLing_and_Jill_untouched": true
+  },
+  "future_observation_steps": [
+    "Before any replacement, record a fresh Audio Test→Aud Ver Big5 voice row with original2.10. The original page lists all cached voice rows; identify Chinese_Big5_MeiLing path/name, not an unrelated voice.",
+    "In a separately reviewed USB action, replace only Voice/Chinese_Big5_MeiLing.vpm using candidate, read back exact SHA256, safely unmount. No MAIN/BOOT/.GCD flash or other file changes. This has NOT been done.",
+    "Cold restart then choose the Big5 Mei-Ling TTS voice using the ordinary voice-language setting. Actual currentloader guard must match the selected file; changing disk bytes alone does not execute the appended entry.",
+    "After loading/selection, reopen the existing Audio Test page and press Aud Ver. A page opened before the marker has owned copied strings and can retain stale2.10. Inspect that same Big5 voice row for M7Q9. No Play WAV/Play Phrase/navigation sound action is required by the marker experiment.",
+    "For rollback, restore exact original single voice file and verify originalSHA256; safely unmount and cold restart/rebuild. Reopen Aud Ver and verify original2.10, with remaining original voices unchanged."
+  ],
+  "diagnostic_page_contract": {
+    "page": "Original Audio Test / GUI::PageTestSound",
+    "button": "Aud Ver",
+    "button_entry": "673D00 matching page+19A0",
+    "list_constructor": "681720",
+    "list_version_callsite": "6817D2→52C5EC→2744F6",
+    "getter_reads": "native cached opaque record+6B8, five UTF16 units; four displayed chars plusNUL",
+    "main_menu_to_diagnostic_entry_gesture": "Not recovered by this bounded work. Use the original diagnostic entry the user previously reached; no speculative new gesture asserted.",
+    "diagnostic_button_click_or_actual_screen_rendering_verified_here": false
+  },
+  "result_interpretation": {
+    "M7Q9": "Would be positive physical changed-code execution evidence when original DLLINFO/SIG remain byte-identical and correct Big5 row appears after a fresh load. Disk metadata itself contains2.10, notM7Q9.",
+    "2.10": "Ambiguous: skipped optional guard, entry not run, cache rebuilt after entry, stale displayed copy or package/signature rejection. It does not alone prove changed-code rejection.",
+    "failure": "Record exact screen/selection/boot response and restore original file; no reset/format/flash is part of this contract."
+  },
+  "observed_local_native_path": {
+    "metadata_status": 1,
+    "END_compare_result": 0,
+    "metadata_checksum_tag": "0x0CA73F5A",
+    "modified_BIN_byte_sum": "0xca9dc39",
+    "all5_original_filecallbacks": true,
+    "original_bootstrap_and_appended_entry_raw_return": 11,
+    "actual_CPU_marker_stores": 5,
+    "getter_and_consumer_input": "M7Q9NUL"
+  },
+  "physical_higherFAT_SIG_acceptance_currentloader_lifetime_UI_audio_App": false,
+  "source_sha256": {
+    "staging/native-player-inline-fields/marker-package-prep/local-marker-bundle-manifest-v2.json": "20a3728be3046b10b025b25bb2d0cbcc866ab60539bd9f5331ba4eb39c97ae60",
+    "staging/native-player-inline-fields/marker-package-prep/candidate-embedded-reader-metadata-control-v2.json": "fe6eba9335ba1a22ba3409df99d4249d85a966d03b641ea4ad81b1734ddf939a",
+    "/root/garmin/staging/native-player-settings-scope/package-static/passive-code-marker/passive-code-marker-visible-caller-contract.json": "16243e5922c46e4f5dd99c661e5f9c3bcf0ac83ea3858331c09054cb7e22a77f",
+    "/root/garmin/staging/native-player-global-subobject/package-marker/runtime-cache-code-marker-contract.json": "8d59af231a2e24085fd9f69108ab07f9aac2e12415fd61c7704713c154a5a12f"
+  }
+}

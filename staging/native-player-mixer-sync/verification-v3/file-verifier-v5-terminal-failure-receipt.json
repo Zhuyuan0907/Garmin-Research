@@ -1,0 +1,24 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py",
+  "launch_tool_result": {
+    "chunk_id": "c3841e",
+    "wall_time_seconds": 1.001973838,
+    "session_id": 26047,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "tool_result": {
+    "chunk_id": "ee4828",
+    "wall_time_seconds": 0.000017648,
+    "exit_code": 1,
+    "original_token_count": 319,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py\", line 641, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py\", line 580, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py\", line 423, in verify_case\n    sync=verify_sync(d,rp,symbols)\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py\", line 518, in verify_sync\n    require(len(clear)==1,'Originalcondition completion clears actualsourcewaiter field')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Originalcondition completion clears actualsourcewaiter field\n"
+  },
+  "terminal": true,
+  "guest_execution": false,
+  "canonical_write": false,
+  "source_sha256": {
+    "staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v5.py": "78ccda1f317377258c7b0ec882ec559d2f753a90c544822aeaaa43dd5b2ad62b"
+  },
+  "failure_kind": "FILE verifier condition waiter-clear field assumption requires correction from actual serialized addresses and original opcode."
+}

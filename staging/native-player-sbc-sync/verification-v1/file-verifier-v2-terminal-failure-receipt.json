@@ -1,0 +1,13 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py",
+  "started_session_id": 72959,
+  "actual_terminal_tool_result": {
+    "chunk_id": "517372",
+    "wall_time_seconds": 0.000025056,
+    "exit_code": 1,
+    "original_token_count": 381,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py\", line 735, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py\", line 704, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py\", line 443, in verify_case\n    counts.update(verify_sbc_pipeline(d,rp,symbols,reference))\n                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py\", line 605, in verify_sbc_pipeline\n    gp=st['GP16'];size=word(z,gp[13]);raw=get(z,gp[3],size)\n                                          ~~~^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py\", line 40, in get\n    require(len(out)==1,'one whole zone '+hex(address)+' '+str(n));a,b=out[0]\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v2.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: one whole zone 0x7008479 153\n"
+  },
+  "guest_execution": false,
+  "reviewer_premise": "Compressed fixture packet input resides in compiled RX .text/rodata, not in Replay's RW-zone dictionary. Whole RX final bytes were already independently checked. NEW v3 reads exact captured final RX plus replayed RW for callback input; original source/guest unchanged."
+}

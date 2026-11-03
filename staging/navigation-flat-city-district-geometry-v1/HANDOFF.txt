@@ -1,0 +1,51 @@
+Four native flat cities: explicit source district geometry prerequisite
+
+Source counts: 臺北市 12, 基隆市 7, 新竹市 3, 嘉義市 2. All 24 actual city
+subarea relations have complete referenced ways/nodes and closed outer/inner
+rings. Each relation was separately exported from the existing 4,349,834-byte
+admin PBF, with referenced-object tags removed; duplicate district names across
+cities cannot determine feature identity. No source city union was produced.
+24 district geometries, 17,912 vertices, district-geometries.json 476,977 bytes.
+
+Original decoded JAI roster evidence: one L1 and zero L2 rows for each city;
+district=null L3 named streets are 基隆 251 / 台北 889 / 新竹 500 / 嘉義 458.
+This preparation adds source district evidence and does not create or validate
+a native district record. native_district_record=null and native_district_verified
+false remain explicit in the dataset and every API decision.
+
+API: source_district_membership.py, class SourceDistrictMembership().
+assess(city, district, source_latitude, source_longitude) checks the declared
+source district. Exact city names are supported, plus the explicitly bound
+native literal 台北市 for source 臺北市. All district names must match literally.
+No other glyph/name/whitespace aliases or automatic district assignment occur.
+assess_source_and_raw24(city, district, source_latitude, source_longitude,
+                       [latitude_uint24, longitude_uint24]) requires both points
+inside that same declared source district and raw24 exactly rounded from source.
+Native-grid containment uses exact rational cross-products, without rounding the
+quantized point to seven decimal digits. Boundaries are covered; this does not
+resolve shared-boundary or cross-group address conflicts.
+
+An eligible=true result is only a geometry prerequisite; native_merge_eligible
+is always false. A future flat-city writer still requires a unique native
+city/street record, global (nativeStreetID, house_label) collision guard across
+all districts/groups, original house overlap/order/branch checks and numeric
+label encoding. Keep the original city→street structure and source district
+provenance; do not represent these source districts as existing JAI L2 records.
+
+New controls passed: all 24 geometry-derived source/native pairs; 264 source
+signed-winding comparisons; 189 exact rational native-grid comparisons; 24
+actual boundary checks; 21 input guards; 5 dataset/engine identity tamper
+rejections; 9 rational hole/boundary controls. Twenty-one boundary-derived test
+points reject their quantized position: these are new control cases, not
+statistics or evidence from any address ledger. All source data remained
+unchanged, temporary memfd links and identity fixtures were removed.
+
+Existing sealed general geometry engine and Kaohsiung controls are referenced
+by fixed hashes. Their closed suites, the 21-city suite and country review were
+not rerun. No address-ready/full source ledger, original 327MB PBF, native map,
+JAI or device was read or changed. No new address records or ZIP were produced.
+The full Taiwan native address update remains incomplete.
+
+proof.json / membership-test-proof.json retain source hash/stat and new control
+evidence. actual-receipts.json records preparation session 13237 / dc7077 EXIT0
+and new wrapper controls 944f7b EXIT0. sealed-files.json pins these artifacts.

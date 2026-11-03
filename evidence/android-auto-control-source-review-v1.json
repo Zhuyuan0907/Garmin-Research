@@ -1,0 +1,1004 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-08T00:06:52.514767+00:00",
+  "scope": "Public pinned source static review for own Linux-host C dispatcher. No original Garmin execution, imports, device I/O, sound, compiler or protobuf-generator invocation.",
+  "runtime_tests_run": false,
+  "native_tests_run": false,
+  "phone_compatibility_verified": false,
+  "installation_candidate": false,
+  "pins": {
+    "aasdk": "046b3b381595509d0939fa84b14a90978f46ff63",
+    "openauto": "aa90412bf93b5a5078495ea85ac9270c6297d369"
+  },
+  "channel_ids": {
+    "control": 0,
+    "input": 1,
+    "sensor": 2,
+    "video": 3,
+    "media_audio": 4,
+    "speech_audio": 5,
+    "system_audio": 6,
+    "av_input": 7,
+    "bluetooth": 8,
+    "none": 255
+  },
+  "import_closure": {
+    "root_names": [
+      "AuthCompleteIndicationMessage",
+      "ServiceDiscoveryRequestMessage",
+      "ServiceDiscoveryResponseMessage",
+      "ChannelOpenRequestMessage",
+      "ChannelOpenResponseMessage",
+      "PingRequestMessage",
+      "PingResponseMessage",
+      "ShutdownRequestMessage",
+      "ShutdownResponseMessage",
+      "AVChannelSetupRequestMessage",
+      "AVChannelSetupResponseMessage",
+      "AVChannelStartIndicationMessage",
+      "AVChannelStopIndicationMessage",
+      "AVMediaAckIndicationMessage",
+      "VideoFocusRequestMessage",
+      "VideoFocusIndicationMessage",
+      "BindingRequestMessage",
+      "BindingResponseMessage",
+      "InputEventIndicationMessage"
+    ],
+    "count": 52,
+    "missing": [],
+    "sha256_of_sorted_path_hash_manifest": "9912bff001b0d59a5cbba716061fbe14c3057830ea57d0e7916c2a7f2f527b82",
+    "note": "52 is dependency closure for these19 roots, not a proven minimal/current Android Auto handshake schema."
+  },
+  "enums": {
+    "ControlMessageIdsEnum": {
+      "NONE": 0,
+      "VERSION_REQUEST": 1,
+      "VERSION_RESPONSE": 2,
+      "SSL_HANDSHAKE": 3,
+      "AUTH_COMPLETE": 4,
+      "SERVICE_DISCOVERY_REQUEST": 5,
+      "SERVICE_DISCOVERY_RESPONSE": 6,
+      "CHANNEL_OPEN_REQUEST": 7,
+      "CHANNEL_OPEN_RESPONSE": 8,
+      "PING_REQUEST": 11,
+      "PING_RESPONSE": 12,
+      "NAVIGATION_FOCUS_REQUEST": 13,
+      "NAVIGATION_FOCUS_RESPONSE": 14,
+      "SHUTDOWN_REQUEST": 15,
+      "SHUTDOWN_RESPONSE": 16,
+      "VOICE_SESSION_REQUEST": 17,
+      "AUDIO_FOCUS_REQUEST": 18,
+      "AUDIO_FOCUS_RESPONSE": 19
+    },
+    "AVChannelMessageIdsEnum": {
+      "AV_MEDIA_WITH_TIMESTAMP_INDICATION": 0,
+      "AV_MEDIA_INDICATION": 1,
+      "SETUP_REQUEST": 32768,
+      "START_INDICATION": 32769,
+      "STOP_INDICATION": 32770,
+      "SETUP_RESPONSE": 32771,
+      "AV_MEDIA_ACK_INDICATION": 32772,
+      "AV_INPUT_OPEN_REQUEST": 32773,
+      "AV_INPUT_OPEN_RESPONSE": 32774,
+      "VIDEO_FOCUS_REQUEST": 32775,
+      "VIDEO_FOCUS_INDICATION": 32776
+    },
+    "InputChannelMessageIdsEnum": {
+      "NONE": 0,
+      "INPUT_EVENT_INDICATION": 32769,
+      "BINDING_REQUEST": 32770,
+      "BINDING_RESPONSE": 32771
+    },
+    "SensorChannelMessageIdsEnum": {
+      "NONE": 0,
+      "SENSOR_START_REQUEST": 32769,
+      "SENSOR_START_RESPONSE": 32770,
+      "SENSOR_EVENT_INDICATION": 32771
+    },
+    "StatusEnum": {
+      "OK": 0,
+      "FAIL": 1
+    },
+    "AVChannelSetupStatusEnum": {
+      "NONE": 0,
+      "FAIL": 1,
+      "OK": 2
+    }
+  },
+  "schemas": {
+    "AuthCompleteIndicationMessage": {
+      "syntax": "proto2",
+      "fields": [
+        "required enums.Status.Enum status = 1;"
+      ]
+    },
+    "ServiceDiscoveryRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "string device_name = 4;",
+        "string device_brand = 5;"
+      ]
+    },
+    "ServiceDiscoveryResponseMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "repeated data.ChannelDescriptor channels = 1;",
+        "string head_unit_name = 2;",
+        "string car_model = 3;",
+        "string car_year = 4;",
+        "string car_serial = 5;",
+        "bool left_hand_drive_vehicle = 6;",
+        "string headunit_manufacturer = 7;",
+        "string headunit_model = 8;",
+        "string sw_build = 9;",
+        "string sw_version = 10;",
+        "bool can_play_native_media_during_vr = 11;",
+        "bool hide_clock = 12;"
+      ]
+    },
+    "ChannelOpenRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "int32 priority = 1;",
+        "int32 channel_id = 2;"
+      ]
+    },
+    "ChannelOpenResponseMessage": {
+      "syntax": "proto2",
+      "fields": [
+        "required enums.Status.Enum status = 1;"
+      ]
+    },
+    "PingRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "int64 timestamp = 1;"
+      ]
+    },
+    "PingResponseMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "int64 timestamp = 1;"
+      ]
+    },
+    "ShutdownRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "enums.ShutdownReason.Enum reason = 1;"
+      ]
+    },
+    "ShutdownResponseMessage": {
+      "syntax": "proto3",
+      "fields": []
+    },
+    "AVChannelSetupRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "uint32 config_index = 1;"
+      ]
+    },
+    "AVChannelSetupResponseMessage": {
+      "syntax": "proto2",
+      "fields": [
+        "required enums.AVChannelSetupStatus.Enum media_status = 1;",
+        "required uint32 max_unacked = 2;",
+        "repeated uint32 configs = 3;"
+      ]
+    },
+    "AVChannelStartIndicationMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "int32 session = 1;",
+        "uint32 config = 2;"
+      ]
+    },
+    "AVChannelStopIndicationMessage": {
+      "syntax": "proto3",
+      "fields": []
+    },
+    "AVMediaAckIndicationMessage": {
+      "syntax": "proto2",
+      "fields": [
+        "required int32 session = 1;",
+        "required uint32 value = 2;"
+      ]
+    },
+    "VideoFocusRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "int32 disp_index = 1;",
+        "enums.VideoFocusMode.Enum focus_mode = 2;",
+        "enums.VideoFocusReason.Enum focus_reason = 3;"
+      ]
+    },
+    "VideoFocusIndicationMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "enums.VideoFocusMode.Enum focus_mode = 1;",
+        "bool unrequested = 2;"
+      ]
+    },
+    "BindingRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "repeated int32 scan_codes = 1;"
+      ]
+    },
+    "BindingResponseMessage": {
+      "syntax": "proto2",
+      "fields": [
+        "required enums.Status.Enum status = 1;"
+      ]
+    },
+    "InputEventIndicationMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "uint64 timestamp = 1;",
+        "int32 disp_channel = 2;",
+        "data.TouchEvent touch_event = 3;",
+        "data.ButtonEvents button_event = 4;",
+        "data.AbsoluteInputEvents absolute_input_event = 5;",
+        "data.RelativeInputEvents relative_input_event = 6;"
+      ]
+    },
+    "ControlMessageIdsEnum": {
+      "syntax": "proto3",
+      "fields": []
+    },
+    "AVChannelMessageIdsEnum": {
+      "syntax": "proto3",
+      "fields": []
+    },
+    "InputChannelMessageIdsEnum": {
+      "syntax": "proto3",
+      "fields": []
+    },
+    "SensorChannelMessageIdsEnum": {
+      "syntax": "proto3",
+      "fields": []
+    },
+    "AudioFocusRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "enums.AudioFocusType.Enum audio_focus_type = 1;"
+      ]
+    },
+    "AudioFocusResponseMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "enums.AudioFocusState.Enum audio_focus_state = 1;"
+      ]
+    },
+    "NavigationFocusRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "uint32 type = 1;"
+      ]
+    },
+    "NavigationFocusResponseMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "uint32 type = 1;"
+      ]
+    },
+    "SensorStartRequestMessage": {
+      "syntax": "proto3",
+      "fields": [
+        "enums.SensorType.Enum sensor_type = 1;",
+        "int64 refresh_interval = 2;"
+      ]
+    },
+    "SensorStartResponseMessage": {
+      "syntax": "proto2",
+      "fields": [
+        "required enums.Status.Enum status = 1;"
+      ]
+    }
+  },
+  "static_contracts": [
+    {
+      "name": "wire-routing",
+      "finding": "Message ID uint16 and media timestamp uint64 are big-endian; Messenger routes by channel_id, not CONTROL flag. Flags: SPECIFIC=0, CONTROL=4, PLAIN=0, ENCRYPTED=8.",
+      "sources": [
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageId.cpp",
+          "lines": [
+            35,
+            49
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/Timestamp.cpp",
+          "lines": [
+            35,
+            45
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/Messenger.cpp",
+          "lines": [
+            73,
+            84
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/FrameHeader.cpp",
+          "lines": [
+            29,
+            34
+          ]
+        }
+      ]
+    },
+    {
+      "name": "control-outbound-policy",
+      "finding": "Control channel0 version request, SSL handshake, auth complete and ping request are PLAIN+SPECIFIC; service discovery, focus and shutdown replies are ENCRYPTED+SPECIFIC. Do not blanket ban plaintext after handshake.",
+      "sources": [
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/Control/ControlServiceChannel.cpp",
+          "lines": [
+            42,
+            124
+          ]
+        }
+      ]
+    },
+    {
+      "name": "control-receive-policy-limit",
+      "finding": "Pinned control dispatcher accepts incoming version response, handshake, discovery request, audio/navigation focus request, shutdown request/response and ping response. No incoming ping-request branch; it does not enforce input message encryption/type. Symmetric ping responder and strict flags are own policy, not proven upstream sender behavior.",
+      "sources": [
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/Control/ControlServiceChannel.cpp",
+          "lines": [
+            136,
+            171
+          ]
+        }
+      ]
+    },
+    {
+      "name": "channel-open",
+      "finding": "Open request ID7 is dispatched within service channel; response ID8 is ENCRYPTED+CONTROL on that same service channel, not channel0. Request body channel_id matching outer channel is not enforced by upstream; matching is recommended local strict policy. Video/audio response success depends on output open result.",
+      "sources": [
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+          "lines": [
+            55,
+            61
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+          "lines": [
+            113,
+            115
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/AudioServiceChannel.cpp",
+          "lines": [
+            54,
+            60
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/VideoService.cpp",
+          "lines": [
+            56,
+            69
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp",
+          "lines": [
+            91,
+            112
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setup",
+      "finding": "Setup request0x8000; setup response0x8003 ENCRYPTED+SPECIFIC on AV service channel. OpenAuto advertises one config and responds max_unacked=1/configs=[0]. Required media_status uses setup enum OK2, while general Status.OK=0; these enums must not be confused.",
+      "sources": [
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+          "lines": [
+            64,
+            69
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/VideoService.cpp",
+          "lines": [
+            72,
+            87
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp",
+          "lines": [
+            115,
+            132
+          ]
+        }
+      ]
+    },
+    {
+      "name": "media-credit",
+      "finding": "OpenAuto ACKs each complete delivered media indication after invoking output write, with session=current and value=1. This is not ACK per USB fragment, H264 NAL, decoded/displayed frame or byte count; source does not prove actual successful hardware output. ACK0x8004 is ENCRYPTED+SPECIFIC on same AV channel.",
+      "sources": [
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/VideoService.cpp",
+          "lines": [
+            98,
+            125
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp",
+          "lines": [
+            155,
+            170
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+          "lines": [
+            82,
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "name": "media-body",
+      "finding": "Media ID0 body must contain 8-byte big-endian timestamp followed by raw media; ID1 passes raw body without timestamp. These bodies are not protobuf.",
+      "sources": [
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+          "lines": [
+            107,
+            112
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+          "lines": [
+            191,
+            201
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/AudioServiceChannel.cpp",
+          "lines": [
+            165,
+            174
+          ]
+        }
+      ]
+    },
+    {
+      "name": "session-and-stop",
+      "finding": "START0x8001 carries signed int32 session and uint32 config. Audio STOP0x8002 resets session=-1 and suspends output. Pinned VideoService lacks override for pure-virtual onAVChannelStopIndication required by pinned aasdk interface; do not treat repository pair as compile/runtime-compatible or complete lifecycle implementation.",
+      "sources": [
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp",
+          "lines": [
+            135,
+            152
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/include/f1x/openauto/autoapp/Service/VideoService.hpp",
+          "lines": [
+            43,
+            52
+          ]
+        },
+        {
+          "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Channel/AV/IVideoServiceChannelEventHandler.hpp",
+          "lines": [
+            47,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "name": "discovery-features",
+      "finding": "Discovery declares actual service-list channels, identity strings and booleans. Video stream_type3 with one selected video config/margins/dpi; audio stream_type1 and per-service type plus rate/bits/channels; input keys/touch geometry; sensors DRIVING_STATUS and NIGHT_DATA only. Reserved channels capacity256 in OpenAuto is C++ allocation policy, not wire requirement or necessary Garmin RAM allocation. Do not advertise mic/input audio channel7 (user canceled), unsupported codecs, sensors or capabilities as ready.",
+      "sources": [
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AndroidAutoEntity.cpp",
+          "lines": [
+            153,
+            177
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/VideoService.cpp",
+          "lines": [
+            133,
+            151
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp",
+          "lines": [
+            56,
+            88
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/InputService.cpp",
+          "lines": [
+            56,
+            79
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/SensorService.cpp",
+          "lines": [
+            54,
+            64
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ping-default",
+      "finding": "Ping timestamp int64 is proto3 and optional at wire level; OpenAuto creates empty ping request with default0, sends plain. Its pinger counts replies rather than proving timestamp echo matching. Current phone behavior untested.",
+      "sources": [
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AndroidAutoEntity.cpp",
+          "lines": [
+            269,
+            275
+          ]
+        },
+        {
+          "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/Pinger.cpp",
+          "lines": [
+            61,
+            85
+          ]
+        }
+      ]
+    }
+  ],
+  "recommended_local_dispatcher_policy": [
+    "Bound message length, nesting, UTF8/string length and repeated count; do not silently truncate incompatible capability lists.",
+    "Enforce destination service was advertised and successfully opened before setup; setup config index must identify supported advertised config; start must use accepted config; reject media outside active session.",
+    "Encode proto2 required zero-valued status explicitly (ChannelOpenResponse OK: tag1=0); missing required is malformed rather than default success.",
+    "Support protobuf unknown-field skipping and both packed/unpacked repeated scalar encodings; reject invalid wire type, overlong varint, length overflow/truncation.",
+    "Do not confuse zero/default proto3 absence with required proto2 presence. Preserve uint64/int64 timestamps and signed session; int32 negative values use 10-byte sign-extended varint.",
+    "Only commit state after complete successful decode. Reset AV session and outstanding credit on stop/shutdown; no inherited stale session or ACK against former stream.",
+    "Place finite bounds on media queue. ACK one complete accepted media message only after receiver owns its bytes; avoid ACK when queue rejected/full. This queue admission policy is local design, not a verified phone contract.",
+    "Serialize outbound TLS/framing callbacks; preserve channel plus encryption/type flags across fragments and validate minimum2-byte message ID before reading.",
+    "Keep a narrow source-supported plaintext exception for ping/handshake/auth; do not accept arbitrary plaintext service or AV content after authentication.",
+    "Treat unavailable host/video/audio backends as explicit open/setup FAIL, not successful native hardware capability."
+  ],
+  "limitations": [
+    "Upstream sources are independently pinned; build compatibility and current Pixel interoperability are not proven.",
+    "Source sender flag choices are observed static facts; strict receive enforcement/state policy are own recommendations.",
+    "No real USB host, TLS phone handshake, Garmin display/DAC, H264 decoding speed, touchscreen or offline Maps projection test."
+  ],
+  "source_manifest": [
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelData.proto",
+      "sha256": "55a6a41862dda3c8007cae405ddf288484f3cd17ec24c985c3a3d7f2d4793eb1",
+      "bytes": 1136
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelMessageIdsEnum.proto",
+      "sha256": "b9bdadde5cc842bb7fc6fd4621cb7470af1067242a045593f6737041ee0cec9c",
+      "bytes": 1248
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelSetupRequestMessage.proto",
+      "sha256": "ed002f98f6215f54a4c99bbfcfd15a0ae2138e47e196519191c1c1ea4a469240",
+      "bytes": 863
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelSetupResponseMessage.proto",
+      "sha256": "2784b65ebdb882523f9003549427199a6ab155134ff63a7a02afe635b7b08e85",
+      "bytes": 1017
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelSetupStatusEnum.proto",
+      "sha256": "2a3fcb2a0aa8f92f836632875a2ee80391763846ed678e52b51bf6efe4913dc2",
+      "bytes": 904
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelStartIndicationMessage.proto",
+      "sha256": "3b02636852ce3ef1aa3a6cb897a52ea17fe9f733d4266d3f39697ff8d3f4fb79",
+      "bytes": 861
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVChannelStopIndicationMessage.proto",
+      "sha256": "b17e5d4be200cf822e3290025bcfac76308708a3449d28666a4759eb9f5e3290",
+      "bytes": 838
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVInputChannelData.proto",
+      "sha256": "3bc82e2e6061b9e509ac8ae0566630d44901ef059d4b5eac6ebfe0c75f7cacf0",
+      "bytes": 984
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVMediaAckIndicationMessage.proto",
+      "sha256": "e8a38442d7efb6242b5a085b49af48dd1ecfb18563963952ce1279da5fc2c3cb",
+      "bytes": 900
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AVStreamTypeEnum.proto",
+      "sha256": "598b6f3ad27a235cb847deccded071dc256cece8c0f8ed1d7e17599f1b476b04",
+      "bytes": 912
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AbsoluteInputEventData.proto",
+      "sha256": "6745d2e4e49774b85828f86e14f775c9cbf3355996c504d0dcbe774c6995b724",
+      "bytes": 878
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AbsoluteInputEventsData.proto",
+      "sha256": "a7bdec5d35f913f42d1e08e2ec2cc2387789faad60c69a247b330ddca08cd16f",
+      "bytes": 929
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AudioConfigData.proto",
+      "sha256": "f32b763372e8f0e1cbb0309a7552a6b27f8e116bc9d0b8f874c376114ba440e9",
+      "bytes": 882
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AudioFocusRequestMessage.proto",
+      "sha256": "f74338a1abd58280118f40a6972757207de4e0f981753e688d8e915d9e6ad006",
+      "bytes": 896
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AudioFocusResponseMessage.proto",
+      "sha256": "0438bdf806c9c5a874435748dba07296461ceda8cf663c1a3fa6d98ab5eb3c21",
+      "bytes": 900
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AudioTypeEnum.proto",
+      "sha256": "642ef7b38bb930e05f51a61b7595529a5f60a85277ea8e7b5ad8e106cc349b21",
+      "bytes": 919
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/AuthCompleteIndicationMessage.proto",
+      "sha256": "83c0a58b818747683baabf5cac9304a4d0aea73796a0700cb4f08d9bada2df6b",
+      "bytes": 884
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/BindingRequestMessage.proto",
+      "sha256": "2e521f85feed5676a85e90bd6ceb8353d27b8351f3a566a013faf6a594b19668",
+      "bytes": 865
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/BindingResponseMessage.proto",
+      "sha256": "1b12eabe525619fa40fa4e02774938c2b497f1d1ddb3fa85d5db832e9ad237b9",
+      "bytes": 904
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/BluetoothChannelData.proto",
+      "sha256": "817c3fd4d8a9c25a51f7f3d104539fdc1f31ea3e9872db586898c9c0fc4356d9",
+      "bytes": 957
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/BluetoothPairingMethodEnum.proto",
+      "sha256": "b04e8a9753465ec7b84741fc70cc053386b84c15c57f81bf1ba85dc1020a40b3",
+      "bytes": 927
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ButtonEventData.proto",
+      "sha256": "13fb2b68caa380e8dfb57788f0c75e2a51501d0a3135c4133d6cbb094da3cb40",
+      "bytes": 923
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ButtonEventsData.proto",
+      "sha256": "9b7b5928f5f9b715bff42753c2b6b32aec3804ebbde3fb08e40a7d60cb9c48b5",
+      "bytes": 900
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ChannelDescriptorData.proto",
+      "sha256": "bdd444912034178dba92909bf6687b3fd30920ec73bd2fa95462b1cf1dd8bc9a",
+      "bytes": 1375
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ChannelOpenRequestMessage.proto",
+      "sha256": "ba4810b05dee60050d10b1bfc6c28bc66547953b22f9f5264268aa5a64a4f8cd",
+      "bytes": 859
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ChannelOpenResponseMessage.proto",
+      "sha256": "5bc080bf5b018f081425838b8410ec156e9f9643584fc3243c2297dc62099835",
+      "bytes": 881
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ControlMessageIdsEnum.proto",
+      "sha256": "17ece8f10cc2a7632bae0d3170f01d1bcb0b932545ef9862e7b07a1112159079",
+      "bytes": 1488
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/InputChannelData.proto",
+      "sha256": "d5178fa4d103f5d743daf87bfe064e47d3a0720ee494f8dbc0b726b9d4be4985",
+      "bytes": 955
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/InputChannelMessageIdsEnum.proto",
+      "sha256": "f223bdb0e11d268c92f5c7e9d0afaf02efeb2397525017291b8af87a165293bd",
+      "bytes": 964
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/InputEventIndicationMessage.proto",
+      "sha256": "13d3527dd45571ce47a4082b45e78293a4e3decd28fa6b7ef38f62dcebf0784a",
+      "bytes": 1232
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/NavigationChannelData.proto",
+      "sha256": "647937125a0201342fe106d543fe36af1d782d3ec935fe7e83e91e952fb94698",
+      "bytes": 951
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/NavigationFocusRequestMessage.proto",
+      "sha256": "4c083f26b09e6ba1a15c1150059901d9f30a7a1a033a278a668a13c38a0aa292",
+      "bytes": 859
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/NavigationFocusResponseMessage.proto",
+      "sha256": "fe0c29c8ff8e403d384cca6f927c38e351da0d9a74b6aed74b1c82f9c2d46b97",
+      "bytes": 860
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/NavigationImageOptionsData.proto",
+      "sha256": "c71a432021d8ed11a8ea9ba08d9fee06138a3f70799fb0e51c22787a932855cf",
+      "bytes": 885
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/PingRequestMessage.proto",
+      "sha256": "13c1ad5b9c4820686ba5e3dae057db4bcfb526831c01c7e922a5076cec7ed706",
+      "bytes": 827
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/PingResponseMessage.proto",
+      "sha256": "31a7a3f77425df39687dcd54d9b29dc32421293086faaa724e8a706d5029591e",
+      "bytes": 828
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/RelativeInputEventData.proto",
+      "sha256": "8a01a43a13211261200fb9fb9ae2b5b91ee119c53d096891c303b01742e9c09c",
+      "bytes": 878
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/RelativeInputEventsData.proto",
+      "sha256": "dea218cc4c93e9e1c053e2b50937a3e1fd89ee118677ba3a2f9dc88c7f9708c2",
+      "bytes": 929
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/SensorChannelData.proto",
+      "sha256": "45a0556e21afbea798693f22faabe4a26fbc54a878a25b6fd59e7277768a2e3c",
+      "bytes": 861
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/SensorChannelMessageIdsEnum.proto",
+      "sha256": "c8e4785f363808e83ebc03f31bb846c3cf7eafab56768f01735f98c1f0b0bec2",
+      "bytes": 976
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/SensorData.proto",
+      "sha256": "1ab27cdbe1451a64dc86856e82e0f9f38d05c2f4af12e50434cdf0f36106e34a",
+      "bytes": 861
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/SensorStartRequestMessage.proto",
+      "sha256": "c3035abd468301a06eb20932d0be41b60becc4bc66886725d821872927f412a1",
+      "bytes": 951
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/SensorStartResponseMessage.proto",
+      "sha256": "e0aec9141ed80f73b7c0bddbacac0de533682ae7001464777e7e33d2d5c07dac",
+      "bytes": 915
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/SensorTypeEnum.proto",
+      "sha256": "22e21c3b8a316270eb4bac6017ed5c9324d98636f91cbabb163907101952e06b",
+      "bytes": 1307
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ServiceDiscoveryRequestMessage.proto",
+      "sha256": "3719638b7048e5b9fe48fdd66c81a717ed0d1ff70fbc3aa9deadbe52d51ab473",
+      "bytes": 871
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ServiceDiscoveryResponseMessage.proto",
+      "sha256": "ea7a7d14fd35973772b6dc787ee2a66a8c958aba3096e58da4d95f2fa32c6e8f",
+      "bytes": 1246
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ShutdownReasonEnum.proto",
+      "sha256": "2a5176ee915f8102bd2fc2622d56bba14f2065ae4a82127848bbc59b33e828af",
+      "bytes": 881
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ShutdownRequestMessage.proto",
+      "sha256": "12997d58ee6235466efff0cbbc7908711f1dca64f43a3e5f64515a98ac2d1180",
+      "bytes": 911
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/ShutdownResponseMessage.proto",
+      "sha256": "adb0f9140e827529136c1adb6778f98935a1ab4599915ed11084fde7892ec143",
+      "bytes": 831
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/StatusEnum.proto",
+      "sha256": "dfd0724dfef5924b8d37a4b143ce0d5a77672aff1fb5d865864cbda6719e0690",
+      "bytes": 847
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/TouchActionEnum.proto",
+      "sha256": "433acf2af75f19afa1165b9935e7ecb4f3b24bd9e266a15107ac637260b30f9d",
+      "bytes": 913
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/TouchConfigData.proto",
+      "sha256": "b8b8221fa602dffbdacd55ca2e91bed9fb5541ea7cddb1248dd3728ce693e33a",
+      "bytes": 843
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/TouchEventData.proto",
+      "sha256": "a58aa4e103d02818690ad1c6b690b8ed20ccf3e9f06d4749b6b515f9f0aad669",
+      "bytes": 1020
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/TouchLocationData.proto",
+      "sha256": "72d9ad6519e616d0b587887ebd953bc95deb5d4c0aeec1fc8207948934c1109d",
+      "bytes": 881
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VendorExtensionChannelData.proto",
+      "sha256": "77b25dab37facd6064567edc4137f649f369c8d331a3b621b6629101f4ae6196",
+      "bytes": 894
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoConfigData.proto",
+      "sha256": "b216fe1395dc37b005a9c75df1bdbfadb8814eddcc21fd14f0b86a391cc3c43d",
+      "bytes": 1068
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoFPSEnum.proto",
+      "sha256": "1d9d0f1c4c2faf73e8a8cc78b9bab463ebf86babecb00acd1adb2265fdbb60fb",
+      "bytes": 874
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoFocusIndicationMessage.proto",
+      "sha256": "8f92f3fb16b354f200a934e63af4484fdceac74a2ccf9a1096417ce9ca5d1946",
+      "bytes": 947
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoFocusModeEnum.proto",
+      "sha256": "f00e47276a386891753f70e4c5955a3d6934b0830c900cc6f3bb21862d7d0dd3",
+      "bytes": 902
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoFocusReasonEnum.proto",
+      "sha256": "da8266090071f888c9669b02eda97ad9d89d64868b9996c42818a2d9a82cc9f9",
+      "bytes": 898
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoFocusRequestMessage.proto",
+      "sha256": "0a9a4a2ff0ba2016cb1ca55046bdbcfabe8102612e3e376419db1e454ce02951",
+      "bytes": 1033
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/aasdk_proto/VideoResolutionEnum.proto",
+      "sha256": "7f5e849cfd5eb49f0c357deaf66ab765f5ec1d65492aa5be71eb61bdf1f93ec8",
+      "bytes": 904
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Channel/AV/IVideoServiceChannelEventHandler.hpp",
+      "sha256": "faa2be9e063f1eef3ec7f76f1dc23e43e5297f8d5d933b1e878fa2beaf2abf65",
+      "bytes": 2230
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/ChannelId.hpp",
+      "sha256": "5ee9638fa0ab114b01096771e7be5f4f38b200f715bc1e1099f5d87dd7f95777",
+      "bytes": 1045
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/EncryptionType.hpp",
+      "sha256": "dc94c3eb7a8fab0dfe4441b35d098e2746cb097b5db25ba5b7b4692e4f8c8226",
+      "bytes": 868
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/include/f1x/aasdk/Messenger/MessageType.hpp",
+      "sha256": "d7ca72dac3bb4763d36d01792491a2d4288e57d6e4122948f35bbf5d73bd381a",
+      "bytes": 905
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/AudioServiceChannel.cpp",
+      "sha256": "67de7288ebeb9c01b804d87f2dfdc97f387c764b4a811ed3c2a08c15b4d7c2c9",
+      "bytes": 7052
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/AV/VideoServiceChannel.cpp",
+      "sha256": "a608226f0abf02b29c9b0946c774391a21f348f662224b9e709aa73b920a6ac7",
+      "bytes": 8154
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/Control/ControlServiceChannel.cpp",
+      "sha256": "b95ce2abe1c2885d1e9a726e6efd00113b44e47753d2d796b55400fddbd3371d",
+      "bytes": 11317
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/Input/InputServiceChannel.cpp",
+      "sha256": "7218d9908c358c52768c15e707e8d30bca6afe0b5d3c6354eab9974664057cb4",
+      "bytes": 5011
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Channel/Sensor/SensorServiceChannel.cpp",
+      "sha256": "38957927233dab98c16fec701033df6ceec3c265d8f1ef70354c72c4d746b85a",
+      "bytes": 5097
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/FrameHeader.cpp",
+      "sha256": "d2003f03d9ff77d7b3e8b14cc2fdb804040eb2127df08634f41bc155c6ba7fdd",
+      "bytes": 2159
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageId.cpp",
+      "sha256": "87ebae9292e242973dfc922547bc3049a7c3bb9996439c9efce9422429d7510e",
+      "bytes": 2022
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/MessageOutStream.cpp",
+      "sha256": "66aa09b47a12ba4c86cc6b4441df7fe8265d8d8f4becf285f13781c088ef3da5",
+      "bytes": 5266
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/Messenger.cpp",
+      "sha256": "d5338ec3afd094b84fe33c9f506c2f77dcb9e876698dc71b1671b80d31b73961",
+      "bytes": 4828
+    },
+    {
+      "path": "sources/android-auto/aasdk-046b3b381595509d0939fa84b14a90978f46ff63/src/Messenger/Timestamp.cpp",
+      "sha256": "3e708e9c869f68cc76c8c6fcf7d75bf5d542e6000a73e1f9838cc569c1aa48e1",
+      "bytes": 1475
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/include/f1x/openauto/autoapp/Service/VideoService.hpp",
+      "sha256": "8899bb21be10ee8043575b51333aa9d172c827f7671af3ed4ac43cfd96a18d25",
+      "bytes": 2610
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AndroidAutoEntity.cpp",
+      "sha256": "41e55c8fdfc8008b861ff5b29fec0abb4967c0fefc78795c941fe8044a3e5e26",
+      "bytes": 11590
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/AudioService.cpp",
+      "sha256": "4fee958da289ee687015dfa26fe402562c192f209f56ee75123cc2c6177ccae0",
+      "bytes": 7441
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/InputService.cpp",
+      "sha256": "ee9c66e3be9e37eb927bd734607d8eb3b7d7a1e4e8666dd6297f0bc911c75721",
+      "bytes": 7461
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/Pinger.cpp",
+      "sha256": "422d45a069af0d2b94c2cd5faab6b4139b6af27d217e876ca0764ccf165110bf",
+      "bytes": 2495
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/SensorService.cpp",
+      "sha256": "d31e9bc57e4e9856f21850c5f2acd724929acd0ea53ad98506ce3897d01099a3",
+      "bytes": 5288
+    },
+    {
+      "path": "sources/android-auto/openauto-aa90412bf93b5a5078495ea85ac9270c6297d369/src/autoapp/Service/VideoService.cpp",
+      "sha256": "cffcceb3c76e6c9b093548892e28c5f12414b5c879eb1ae23752c263448dfc5c",
+      "bytes": 7085
+    }
+  ]
+}

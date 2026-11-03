@@ -1,0 +1,12 @@
+{
+  "terminal": true,
+  "actual_terminal_result": {
+    "chunk_id": "b8c045",
+    "wall_time_seconds": 0.613771412,
+    "exit_code": 1,
+    "original_token_count": 121,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-avdtp-reply-admission/emulate_reply_admission_v3.py\", line 192, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-avdtp-reply-admission/emulate_reply_admission_v3.py\", line 161, in main\n    assert result['state']==expected,(name,strict,result['state'])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('Configure_lock_failure', True, 2)\n"
+  },
+  "completed_cases": 0,
+  "reason": "Original Config changes state2 before sending reply; byte-witness failure stops acceptance but does not roll back original state. Keep endpoint/app admission closed; no speculative state rollback."
+}

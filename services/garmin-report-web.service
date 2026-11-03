@@ -1,0 +1,28 @@
+[Unit]
+Description=Garmin research report web viewer
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+User=garmin-report-web
+RuntimeDirectory=garmin-report-web
+BindReadOnlyPaths=/root/garmin/reports:/run/garmin-report-web/reports
+ExecStart=/usr/bin/python3 -B -u /usr/local/lib/garmin-report-web/server.py --host 172.16.60.187 --port 8765 --report /run/garmin-report-web/reports/nuvi2565RT.html
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=tmpfs
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_UNIX
+CapabilityBoundingSet=
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

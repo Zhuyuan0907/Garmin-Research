@@ -1,0 +1,4 @@
+#define MH_SOURCE_TCB 0x02fbd0d8u
+#define MH_INITIALIZED 0x02fbd0d0u
+#define MCS_HANDOFF 0x02f9d424u
+#define AAS_GUARD 0x02fb6008u

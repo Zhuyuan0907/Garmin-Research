@@ -1,0 +1,82 @@
+{
+  "schema": "music-diagnostic-source-review-findings/v1",
+  "review_method": "Ordinary source/text/JSON reads and AST parsing only. No reviewed module or test was imported or executed.",
+  "core_reviewed_pins": {
+    "scripts/garmin_phone_audio_bridge.py": "c38fcf1fdf924dd9715017728454581d5d794b1a1f923735c981574609b27617",
+    "scripts/garmin_pcm_meter.py": "a72af1ff7802803555e5555b2dd3661fe0b8e34e17f7b7ca7ff5c8b4f55fa886",
+    "scripts/garmin_host_audio_pipeline.py": "a1e3cc18ec39df317f9cf9449c2f003f120b57e61625da1e2bca510305cabb19",
+    "scripts/garmin_audio_conversion.py": "cfa0391ad6f121f55bc3523873621bcc8403b4837f463d161ffe0af5cb23087f",
+    "scripts/garmin_audio_volume_observer.py": "e942be5c7fab5e0a2d93af4e40e1a02aebaf18c970404c6b9bc7c437fcdaca3e"
+  },
+  "concrete_core_findings": [
+    {
+      "feature": "PCM topology",
+      "source_witness": "bridge.run_audio_pipeline starts volume_observer with critical=False and all three streams DEVNULL, then initializes upstream=None before iterating pipeline_commands.",
+      "conclusion": "Observer is not connected to the linear media pipe. Diagnostic media roles remain capture,input_meter,convert,output_meter,player; default roles remain capture,convert,player."
+    },
+    {
+      "feature": "Optional failure and cleanup",
+      "source_witness": "supervisor.start defaults critical=True; optional input_from is forbidden; optional spawn exceptions return None with fixed class/status. wait and cleanup_boundary only attribute critical natural nonzero exits to audio failure. Teardown iterates all owned children/process groups/handles.",
+      "conclusion": "Missing or failed observer can be nonfatal to the audio pipeline; unreaped optional processes/groups or failed handle cleanup remain cleanup failure. Bridge records process start/returncode separately from volume_observer_data_verified=false."
+    },
+    {
+      "feature": "Offline and plan boundaries",
+      "source_witness": "bridge.main returns from plan-conversion and offline-only before importing dbus or reading private configuration. Observer top-level imports are standard-library only; TraceProvider is selected before LiveProvider construction.",
+      "conclusion": "Reviewed offline/plan paths do not construct live providers. Review itself issued no queries."
+    },
+    {
+      "feature": "Authorized metadata API",
+      "source_witness": "LiveProvider reads two bounded private configuration files, validates address literals and unique Garmin, constructs exact Device selectors, then calls only GetManagedObjects(timeout=...) on org.bluealsa.phone and org.bluealsa. select_candidates also requires A2DP-sink/source or HFP-AG/sink and holds duplicates.",
+      "conclusion": "No PCM Open, property Set, SelectCodec, pairing, connection, phonebook, or playback API is present in observer. Live provider construction and actual D-Bus timing are untested by this review."
+    },
+    {
+      "feature": "Typed scalar and mono decoding",
+      "source_witness": "sanitize_pcm_properties uses an explicit wrapper-class map before casts; decode_properties requires integer uint16 Volume, one/two Channels, actual boolean SoftVolume when present, and known codec tokens. Channel 1 uses high byte; channel 2 uses low byte; mute bit7 and gain bits0..6; mono omits channel 2 without requiring its unused byte to be zero.",
+      "conclusion": "Arbitrary string false does not become a boolean. Unknown codec text becomes other. SoftVolume and Codec can be absent and their absence is not proof of a false control state."
+    },
+    {
+      "feature": "Timing",
+      "source_witness": "Meter records read_begin/read_end/forward_end plus monotonic row time and optional run token. Observer stamps after read_snapshot, which sequentially obtains two role snapshots.",
+      "conclusion": "Intervals include host read waits and forwarding. Neither row timestamps nor shared run tokens establish sample capture, acoustic time, a common boot, atomic metadata sampling, resampled content alignment, or Bluetooth packet loss."
+    },
+    {
+      "feature": "Bounded metadata and shutdown",
+      "source_witness": "Observer BoundedWriter creates a new nofollow file mode0600, limits output to1MiB with1024B final-summary reserve and bounded rows; fixed states replace exception payloads. SIGTERM sets a stop event, collect finishes summary, and main returns0 for backend/output loss.",
+      "conclusion": "Ordinary backend unavailability is nonfatal. Output creation refusal returns2, handled as optional by supervisor. Disk failure or interruption may leave incomplete data; start/exit0 alone does not prove a final summary or complete samples."
+    }
+  ],
+  "initial_analyzer_findings": {
+    "source_sha256": "c7b1aa337aae0ace44efd228ac6eacdf40c4375ea3b886aa4c8d83206b14133b",
+    "owner_notified": true,
+    "issues": [
+      "parse_volume did not read actual observer events_written/events_dropped/polls/output_cap_reached; real cap-drop completeness could be missed.",
+      "safe_volume rejected a nonzero unused mono low byte even though observer test01 explicitly accepts mono0xc2ff.",
+      "safe_volume required SoftVolume despite observer allowing it to be absent; role-specific gain<=15 guard also exceeded observer typed schema.",
+      "Cross-file monotonic binding used sets of present run IDs/clock kinds, allowing rows missing the run or monotonic value to coexist with a true binding label.",
+      "Several set-membership operations on unvalidated stop_reason/role/error_kind could raise TypeError for JSON list/dict values outside main's fixed DataError path."
+    ],
+    "correction_review": {
+      "closed": true,
+      "final_sha256": "0eb165beb3c44f6f02e4577417628651b4681e9cfd6d8ddf336586af363d7b71",
+      "diff_sha256": "5ffff0d5931192084ca415b986f026f490fd2c73471fefad9dcf6db074776d95",
+      "final_AST_witness_sha256": "cc10b1c995f78f0d91a95c460d55a92fa8093d26e09762047de4d843fd4f5886",
+      "actual_function_range_bytes": 9314,
+      "closed_guards": [
+        "real events_dropped/output_cap_reached are reported",
+        "mono unused-byte interpretation separated from channel controls",
+        "optional metadata availability separated from control changes",
+        "garmin gain outside0..15 remains held protocol interpretation",
+        "all rows need supplied run and monotonic values for declared cross-file binding",
+        "safe scalar membership and fixed malformed-shape CLI errors",
+        "bounded integer/numeric checks and nonfinite ratio hold"
+      ],
+      "whole_source_identity_limit": "Final whole source SHA and unchanged-AST completeness inherit owner pins; no final whole-source reread or target execution by reviewer."
+    }
+  },
+  "evidence_limits": [
+    "Meter is an opt-in inline PCM tee and its statistics/report writes can add processing latency; observer alone is outside the PCM chain.",
+    "Existing private debug stderr, supervisor repr strings and legacy pipeline evidence are not claimed deidentified or globally bounded. New scalar observer output and analyzer public output are separate contracts.",
+    "Generic repeated optional start failures are not globally capped by supervisor; the reviewed bridge has one fixed optional role.",
+    "No live backend query, phone packet, current sound, native App/A2DP/ownership/STOP_DONE, or hardware acceptance was proved."
+  ]
+}

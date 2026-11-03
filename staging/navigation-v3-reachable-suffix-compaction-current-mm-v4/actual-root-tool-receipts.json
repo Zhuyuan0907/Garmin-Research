@@ -1,0 +1,30 @@
+{
+  "tool": "exec_command/write_stdin",
+  "actual_initial_chunk": "2b02c2",
+  "actual_session": 50926,
+  "terminal": true,
+  "actual_final_exit_code": 1,
+  "observations": [
+    {
+      "chunk_id": "2b02c2",
+      "wall_time_seconds": 1.001469899,
+      "session_id": 50926,
+      "original_token_count": 21,
+      "output": "{\"stage\": \"allocated bounded field arrays\", \"bytes\": 64175632, \"RSS_KiB\": 83712}\n"
+    },
+    {
+      "chunk_id": "ae2cd3",
+      "wall_time_seconds": 5.000837707,
+      "session_id": 50926,
+      "original_token_count": 73,
+      "output": "{\"stage\": \"single actual table complete\", \"level\": 6, \"records\": 2062771, \"bytes\": 17533554, \"rawflags\": {}, \"RSS_KiB\": 86496}\n{\"stage\": \"single actual table complete\", \"level\": 5, \"records\": 3077845, \"bytes\": 48476059, \"rawflags\": {\"6\": 211336, \"8\": 173830, \"0\": 2692679}, \"RSS_KiB\": 87360}\n"
+    },
+    {
+      "chunk_id": "f176d1",
+      "wall_time_seconds": 0.000022389,
+      "exit_code": 1,
+      "original_token_count": 430,
+      "output": "{\"stage\": \"single actual table complete\", \"level\": 4, \"records\": 4896236, \"bytes\": 78339776, \"rawflags\": {\"6\": 55945, \"8\": 251238, \"0\": 4348123, \"5\": 238394, \"13\": 2536}, \"RSS_KiB\": 86624}\n{\"stage\": \"single actual table complete\", \"level\": 3, \"records\": 47870, \"bytes\": 670180, \"rawflags\": {\"6\": 8710, \"5\": 13424, \"13\": 5629, \"4\": 20107}, \"RSS_KiB\": 86624}\n{\"stage\": \"single actual table complete\", \"level\": 2, \"records\": 343, \"bytes\": 5231, \"rawflags\": {}, \"RSS_KiB\": 86624}\n{\"stage\": \"single actual table complete\", \"level\": 1, \"records\": 22, \"bytes\": 336, \"rawflags\": {}, \"RSS_KiB\": 86624}\n{\"actual_program_failure\": {\"path\": \"staging/navigation-v3-reachable-suffix-compaction-current-mm-v4/actual-failure.json\", \"bytes\": 12968, \"sha256\": \"aa5c75b10c4caa86da2aeb88c552943895c9e56952d03d93cf30e4ea6a3bf5ce\"}, \"actual_phase\": \"exception durable final snapshot\", \"guard_value_KiB\": null, \"actual_IMG_bytes_read\": 149290500, \"source_handle_closed\": true}\nTraceback (most recent call last):\n  File \"/root/garmin/staging/navigation-v3-reachable-suffix-compaction-current-mm-v4/observed_analyzer.py\", line 319, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/staging/navigation-v3-reachable-suffix-compaction-current-mm-v4/observed_analyzer.py\", line 265, in main\n    fields,stream=env['stream_actual'](image,tables,stream_pin)\n                  ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"staging/navigation-v3-reachable-suffix-compaction-feasibility-v1/analyze_reachable.py\", line 156, in stream_actual\n    receipts.append(dict(segment='DIR',start=149220236,bytes=120,sha256=sha(directory)))\n                                                                        ^^^\nNameError: name 'sha' is not defined\n"
+    }
+  ]
+}

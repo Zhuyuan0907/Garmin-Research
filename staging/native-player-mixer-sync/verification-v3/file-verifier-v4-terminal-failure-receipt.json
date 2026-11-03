@@ -1,0 +1,24 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py",
+  "launch_tool_result": {
+    "chunk_id": "87bbdb",
+    "wall_time_seconds": 1.001703291,
+    "session_id": 37090,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "tool_result": {
+    "chunk_id": "279769",
+    "wall_time_seconds": 0.000017649,
+    "exit_code": 1,
+    "original_token_count": 307,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py\", line 642, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py\", line 581, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py\", line 423, in verify_case\n    sync=verify_sync(d,rp,symbols)\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py\", line 474, in verify_sync\n    require(e['GP16'][4]==t,'Original native saver actual r4 outgoingTCB')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Original native saver actual r4 outgoingTCB\n"
+  },
+  "terminal": true,
+  "guest_execution": false,
+  "canonical_write": false,
+  "source_sha256": {
+    "staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v4.py": "975757e83aacd30e545bfa5cea23e8080237c9d6454b826c1b0e69035ed8e8ff"
+  },
+  "failure_kind": "FILE verifier saver-base assumption used r4; actual original300D64 uses r6 and358E9C uses r0, with READY already changed before both saver paths."
+}

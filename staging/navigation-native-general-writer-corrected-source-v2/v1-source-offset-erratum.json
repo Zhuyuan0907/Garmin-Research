@@ -1,0 +1,21 @@
+{
+  "schema": "native-AP-general-writer-v1/source-offset-erratum",
+  "withdrawn_proof": "staging/navigation-native-general-writer-v1/general-writer-focused-proof-v1.json",
+  "withdrawn_proof_sha256": "632dd3a1ef91b55d7100720b17b1a51931564d55265c6fbb22b1b86dcf10d8ef",
+  "cause": "The v1 test read offset91985204 from the original backup AP. That is the supplementary candidate's relocated L3 start, not the original AP's L3 start91983716. The source was wrong by1488bytes.",
+  "invalidated_claims": [
+    "All v1.original_L3 claims that the wrong664197-byte range is the complete original L3 table.",
+    "The v1 category counts46792next4/13next5/12next6 and other categories as original L3 classifications.",
+    "The v1 original tail-value6 claim; it came from the wrong range and must not be reused.",
+    "The overall v1 success summary as evidence of a true original-L3 whole-table conversion."
+  ],
+  "retained_scope": [
+    "The synthetic streaming-container test240to241blocks, directory4096to8192, metadata/logical-component preservation and allocation/tail checks.",
+    "The26 synthetic/producer/path/stream guards and explicitly synthetic selected-range tests.",
+    "The sealed purewriter source remains unchanged. Bitwise equality of the wrong selected data sequence is not original-L3 evidence."
+  ],
+  "history": "All v1 files remain frozen and unchanged; this erratum is additive. No v1 test suite or CPU suite is replayed.",
+  "replacement_scope": "v2 derives the source offset directly from originalMDRheader+600 and its third directory entry, then performs one correct bounded table read and one sealed purewriter invocation with independent known-ID and named-roster checks.",
+  "device_IO": false,
+  "canonical_or_ZIP_mutation": false
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "music-pi-offline-input-guard-controls/v2",
+  "all_assigned_checks_passed": false,
+  "methods": 5,
+  "failures": 1,
+  "errors": 0,
+  "failure_details": [
+    "(<__main__.Tests testMethod=test05_preserved_PCM_math_and_live_defaults_AST>, 'Traceback (most recent call last):\\n  File \"/root/garmin/staging/music-pi-conversion-offline-input-guards-20261007-v2/test_guards.py\", line 71, in test05_preserved_PCM_math_and_live_defaults_AST\\n    self.assertEqual(conversion.raw_ffmpeg_command(conversion.conversion_plan(.5,input_rate=44100,input_channels=2))[19],\\'volume=0.5\\')\\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: \\'-filter:a\\' != \\'volume=0.5\\'\\n- -filter:a\\n+ volume=0.5\\n\\n')"
+  ],
+  "checks": [
+    {
+      "check": "actual_local_FIFO_lstat_reject_before_open",
+      "open_calls": 0,
+      "source_content_bytes": 0,
+      "output_created": false
+    },
+    {
+      "check": "actual_local_symlink_lstat_reject_before_open",
+      "open_calls": 0,
+      "fixture_bytes": 2,
+      "output_created": false
+    },
+    {
+      "check": "actual_10ms_FFmpeg_regular_file_with_flags",
+      "source_open_flags": 35072,
+      "input_bytes": 160,
+      "output_bytes": 238,
+      "output_sha256": "dfbb27ddcc44c624d0153bfefcb208c84661cdf40e12d30627393dada6507849",
+      "temporary_files_removed": true
+    },
+    {
+      "check": "four_actual_argparse_conflict_refusals",
+      "expected_exit_code": 2,
+      "no_device_or_dbus_branch": true
+    }
+  ],
+  "baseline_PCM_suite_replayed": false,
+  "real_device_paths_opened": false,
+  "BlueZ_DBus_PCM_services_playback_guest": false
+}

@@ -1,0 +1,362 @@
+{
+  "updated_utc": "2026-10-02T22:31:04.849733+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": "e8fcdebf4621345081df8512fd1fc9d01326f61309763cd02574a9c66c12ee13",
+  "consumer_elf_sha256": "5fd98a0abb449a8c8bb510e5c76cee4f874ccc4489b55ef7a89f85e1f0a44b07",
+  "consumer_manifest": "staging/native-media-consumer/manifest.json",
+  "dependency_sha256": {
+    "scripts/emulate_native_media_worker.py": "8abbd8c2144d455603d32ccdba4d5dfd8166e3924e324cf9da464a64bfab78fb",
+    "scripts/emulate_native_media_queue.py": "803c916c7c15ae4e62bff2b2f66aef184b8ff43461510b4420890f63e6b7fcb7",
+    "scripts/emulate_native_voice_convert.py": "55b78bf99209addb1eb466c7fd79120515454d9c4e4bfdbe9158c2f1b78c0d8b",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc"
+  },
+  "cases": [
+    {
+      "voice": "backups/20261002T154458Z/files/Voice/Chinese_Big5_MeiLing.vpm",
+      "streams": [
+        {
+          "rate": 16000,
+          "channels": 1,
+          "frames": 1,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "b4969aa5150fb378386a5b34e11052e4b0dc078b8147cd980ca333a3d5bafccb",
+          "seed_plus_pcm_sha256": "2cba95b77cb807bd1441b012983263229db8ba597af79615ededf8e04015e788",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        },
+        {
+          "rate": 44100,
+          "channels": 2,
+          "frames": 15,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "e98d5603eafb049907f3fe2b571b91760d048c1bcdb5f1b19ec8cbbe45648c3c",
+          "seed_plus_pcm_sha256": "ccb972870844dc9e329f5a05683da7d590160e776baa7450d18b232333a66ee6",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        },
+        {
+          "rate": 48000,
+          "channels": 2,
+          "frames": 8,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "7a6fb82c774a8fe8e49a69776b4f96a365d3775413dea669c5296cf98b2861e4",
+          "seed_plus_pcm_sha256": "9380f386fc773a1ae71e645f3b476391fa728f561886f99595f9b914bd6198ac",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        }
+      ],
+      "irq_control": {
+        "rate": 16000,
+        "channels": 1,
+        "frames": 1,
+        "packets": 1,
+        "initial_free_bytes": 8958,
+        "after_first_read_free_bytes": 8960,
+        "after_second_read_free_bytes": 8962,
+        "automatic_notifications": 1,
+        "stock_reader_releases_capacity": true,
+        "no_new_packet_required_to_resume": true,
+        "reference_byte_identical": true,
+        "pcm_sha256": "b4969aa5150fb378386a5b34e11052e4b0dc078b8147cd980ca333a3d5bafccb",
+        "seed_plus_pcm_sha256": "2cba95b77cb807bd1441b012983263229db8ba597af79615ededf8e04015e788",
+        "initial_ring_pcm_fixture_synthetic": true,
+        "irq_marker_branch": true,
+        "actual_interrupt_entry_exit_verified": false,
+        "passed": true
+      },
+      "controls": [
+        {
+          "case": "null_descriptor",
+          "error": -20,
+          "passed": true
+        },
+        {
+          "case": "unaligned_descriptor",
+          "error": -20,
+          "passed": true
+        },
+        {
+          "case": "short_descriptor",
+          "error": -20,
+          "passed": true
+        },
+        {
+          "case": "wrong_source_kind",
+          "error": -27,
+          "passed": true
+        },
+        {
+          "case": "detach_without_attachment",
+          "error": -28,
+          "passed": true
+        },
+        {
+          "case": "duplicate_attachment",
+          "error": -25,
+          "passed": true
+        },
+        {
+          "case": "provider_replaced_reader",
+          "error": -29,
+          "passed": true
+        },
+        {
+          "case": "exact_restore_then_reattach",
+          "passed": true
+        },
+        {
+          "case": "occupied_pcm_but_no_pending_packet_no_notify",
+          "passed": true
+        },
+        {
+          "case": "inactive_original_reader_zero_count_no_notify",
+          "passed": true
+        },
+        {
+          "case": "detach_disables_feedback_reattach_next_read_resumes",
+          "passed": true
+        },
+        {
+          "case": "shutdown_discards_pending_reader_does_not_wake_dead_task",
+          "passed": true
+        }
+      ],
+      "consumer_state": [
+        157286432,
+        0,
+        57,
+        5,
+        4738053,
+        4,
+        0
+      ],
+      "max_call_instructions": 2360260,
+      "stock_paths_visited": [
+        "0x2fce38",
+        "0x2fcea4",
+        "0x2fceec",
+        "0x2fcf44",
+        "0x33f662",
+        "0x35b4f4",
+        "0x437764",
+        "0x484c04"
+      ],
+      "original40_exports_imports_trampolines_and_ram_preserved": true,
+      "all_passed": true
+    },
+    {
+      "voice": "backups/20261002T154458Z/files/Voice/Chinese_GB_MeiLing.vpm",
+      "streams": [
+        {
+          "rate": 16000,
+          "channels": 1,
+          "frames": 1,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "b4969aa5150fb378386a5b34e11052e4b0dc078b8147cd980ca333a3d5bafccb",
+          "seed_plus_pcm_sha256": "2cba95b77cb807bd1441b012983263229db8ba597af79615ededf8e04015e788",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        },
+        {
+          "rate": 44100,
+          "channels": 2,
+          "frames": 15,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "e98d5603eafb049907f3fe2b571b91760d048c1bcdb5f1b19ec8cbbe45648c3c",
+          "seed_plus_pcm_sha256": "ccb972870844dc9e329f5a05683da7d590160e776baa7450d18b232333a66ee6",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        },
+        {
+          "rate": 48000,
+          "channels": 2,
+          "frames": 8,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "7a6fb82c774a8fe8e49a69776b4f96a365d3775413dea669c5296cf98b2861e4",
+          "seed_plus_pcm_sha256": "9380f386fc773a1ae71e645f3b476391fa728f561886f99595f9b914bd6198ac",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        }
+      ],
+      "irq_control": null,
+      "controls": [],
+      "consumer_state": [
+        157286432,
+        0,
+        33,
+        3,
+        4738053,
+        1962,
+        0
+      ],
+      "max_call_instructions": 2360260,
+      "stock_paths_visited": [
+        "0x2fcf44",
+        "0x33f662",
+        "0x35b4f4",
+        "0x437764",
+        "0x484c04"
+      ],
+      "original40_exports_imports_trampolines_and_ram_preserved": true,
+      "all_passed": true
+    },
+    {
+      "voice": "backups/20261002T154458Z/files/Voice/English_American_Jill.vpm",
+      "streams": [
+        {
+          "rate": 16000,
+          "channels": 1,
+          "frames": 1,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "b4969aa5150fb378386a5b34e11052e4b0dc078b8147cd980ca333a3d5bafccb",
+          "seed_plus_pcm_sha256": "2cba95b77cb807bd1441b012983263229db8ba597af79615ededf8e04015e788",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        },
+        {
+          "rate": 44100,
+          "channels": 2,
+          "frames": 15,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "e98d5603eafb049907f3fe2b571b91760d048c1bcdb5f1b19ec8cbbe45648c3c",
+          "seed_plus_pcm_sha256": "ccb972870844dc9e329f5a05683da7d590160e776baa7450d18b232333a66ee6",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        },
+        {
+          "rate": 48000,
+          "channels": 2,
+          "frames": 8,
+          "packets": 1,
+          "initial_free_bytes": 8958,
+          "after_first_read_free_bytes": 8960,
+          "after_second_read_free_bytes": 8962,
+          "automatic_notifications": 1,
+          "stock_reader_releases_capacity": true,
+          "no_new_packet_required_to_resume": true,
+          "reference_byte_identical": true,
+          "pcm_sha256": "7a6fb82c774a8fe8e49a69776b4f96a365d3775413dea669c5296cf98b2861e4",
+          "seed_plus_pcm_sha256": "9380f386fc773a1ae71e645f3b476391fa728f561886f99595f9b914bd6198ac",
+          "initial_ring_pcm_fixture_synthetic": true,
+          "irq_marker_branch": false,
+          "actual_interrupt_entry_exit_verified": false,
+          "passed": true
+        }
+      ],
+      "irq_control": null,
+      "controls": [],
+      "consumer_state": [
+        157286432,
+        0,
+        33,
+        3,
+        4738053,
+        1962,
+        0
+      ],
+      "max_call_instructions": 2360260,
+      "stock_paths_visited": [
+        "0x2fcf44",
+        "0x33f662",
+        "0x35b4f4",
+        "0x437764",
+        "0x484c04"
+      ],
+      "original40_exports_imports_trampolines_and_ram_preserved": true,
+      "all_passed": true
+    }
+  ],
+  "voices": 3,
+  "decoded_converted_stream_frames": 72,
+  "emulator_call_instruction_limit": 6000000,
+  "emulator_call_host_timeout_seconds": 30,
+  "accepted_stream_packets": 9,
+  "additional_control_cases": 13,
+  "all_passed": true,
+  "explicit_factory_instance_capacity_feedback_implemented": true,
+  "stock_factory_and_memzero_unhooked": true,
+  "original_reader_capacity_release_and_auto_event_post_executed": true,
+  "interrupt_marker_post_branch_executed": true,
+  "irq_mode_mask_and_callee_saved_sb_preserved": true,
+  "actual_interrupt_entry_exit_and_preemption_verified": false,
+  "live_registered_audio_instance_wiring_verified": false,
+  "cold_pcm_init_and_navigation_output_ownership_verified": false,
+  "safe_module_unload_verified": false,
+  "native_on_device_verified": false,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Offline companion attaches only to an explicitly created synthetic kind17 factory descriptor and replaces offset20. Factory and memzero, reader and capacity-event post run original instructions. Ring fixture is seeded once; actual reader advances indices and compiled wrapper automatically wakes blocked original-kernel worker without a new packet or explicit test capacity notification. IRQ case sets synthetic marker/mode/banked stack with lower-priority worker, executes the exact ARM alternate branch and restores synthetic normal mode; no true interrupt entry/exit scheduler, higher-priority IRQ preemption or clock. Prior endpoint/ring init/kernel construction/mutex/audio policy controls remain. Navigation ownership, cold init, SEP/UI/phone traffic, physical output/performance, actual registration selecting this wrapped instance, package acceptance, in-flight callback quiescence and safe unload remain unverified. Not merged into DLLIMG/VPM or installed."
+}

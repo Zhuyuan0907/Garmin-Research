@@ -1,0 +1,447 @@
+{
+  "schema": "garmin-native-endpoint-activation-FILE-contract/v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "new_progress": true,
+  "new_concrete_results": [
+    "Entry bootstrap result does not propagate endpoint activation result; partial old activation blocks automatic retry.",
+    "Newer config wrapper supplies explicit helper nonNULL/nonempty/wrap guards; original mapped backing remains external.",
+    "Selected acceptreply witness requires TXresult0 plus reportedwritten2.",
+    "Old constructed callback vs newer required callback names differ; modern activation provider binding must be explicit."
+  ],
+  "records": [
+    {
+      "stage": "base_component_initialization",
+      "provider_kind": "C definition plus external bootstrap/linker providers",
+      "references": [
+        {
+          "path": "native/sbc-prototype/app_component_entry.c",
+          "lines": [
+            8,
+            24
+          ],
+          "whole_sha256": "e7e1605a21a862ee9b3de52499d5251530e1c4c8f1d0e214d890ad6466b08b1f",
+          "read_kind": "fresh saved capture",
+          "function": "native_app_component_entry"
+        }
+      ],
+      "caller": "older outer native_music_component_entry -> native_app_component_entry; no fresh loaded entry caller proven here",
+      "requirements": [
+        "valid linker zero-start/end storage",
+        "original_tts_entry provider",
+        "original decoder reset implementation"
+      ],
+      "return_meaning": "Returns original_tts_entry status regardless decoder reset state;11/6 qualify reset attempt only. This base function has no direct SEP/profile/SDP enable call.",
+      "unknown": [
+        "true loader reachability",
+        "safe module reentry/reload",
+        "external original bootstrap implementation"
+      ]
+    },
+    {
+      "stage": "old_activation_C_caller",
+      "provider_kind": "direct C definition/call chain from inherited exact old source",
+      "references": [
+        {
+          "path": "native/music-continuous/entry.c",
+          "lines": [
+            61,
+            90
+          ],
+          "whole_sha256": "4ed6b45b6c866f4d56ecfaf312fcedeec15c837fee1ba52e477dd3a5fa5104d7",
+          "read_kind": "inherited own closed capture",
+          "function": "native_music_start / native_music_component_entry",
+          "inherited_seal_sha256": "b19be183bf98e1636e682469eb59a52970c71bfe28231f5774020588250f2c22"
+        }
+      ],
+      "sequence": [
+        "requires SDP record0x90007 in slot7 and template-count byte14",
+        "dispatch_install returns successfully",
+        "prepare(native_music_callback,672) positiveSEID",
+        "publish(SEID,samecallback)",
+        "storepublication state, return publish result"
+      ],
+      "return_meaning": "Outer entry always returns original bootstrap status; records start result separately. native_music_start0 means its publish primitive returned0, not phone connection or audio.",
+      "new_progress": "Masked activation error propagation is explicit C dataflow, not simply absence of installation.",
+      "unknown": [
+        "actual declared dispatch-site metadata/providers",
+        "permission/cache/startup serialization",
+        "modern Source READY provider before publication",
+        "actual original SDP initialization"
+      ]
+    },
+    {
+      "stage": "local_SEP_construct_and_claim",
+      "provider_kind": "C implementation + original mutex operation pointers",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            19,
+            46
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "read_kind": "inherited own closed capture",
+          "function": "music_endpoint_prepare",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        },
+        {
+          "path": "native/avdtp-gate/gate.c",
+          "lines": [
+            17,
+            35
+          ],
+          "whole_sha256": "cfbed353aacf9b2a10c7b041676c5974c150f4194b05b782c3e58149c382acb3",
+          "read_kind": "fresh saved capture",
+          "function": "capabilities / music_gate_claim"
+        },
+        {
+          "path": "native/avdtp-gate/gate.h",
+          "lines": [
+            4,
+            12
+          ],
+          "whole_sha256": "65263fdfe7d29f32b328561b8c9d9ddc9dc4714d6e1f1dd10f7e65113ce70a64",
+          "read_kind": "fresh saved capture"
+        }
+      ],
+      "actual_caller": "native_music_start line73",
+      "fields": {
+        "pool": "0x03A88EF0+32*index, index0..2",
+        "descriptor": "0x03A89058+12*index",
+        "unused_guard": [
+          "owner0",
+          "SEP statebyte+12hex0",
+          "callback word0",
+          "SEP word+80",
+          "descriptor word0"
+        ],
+        "constructed": [
+          "callback word+0",
+          "u16MTU+0C",
+          "byte+0E=1",
+          "byte+0F=255",
+          "descriptor word0=capability address",
+          "descriptor byte4=4/byte8=1",
+          "statebyte+12hex=1 last"
+        ]
+      },
+      "return_meaning": "Positive1..3 localSEID on success. music_gate_claim0 only records private callback ownership after field/capability guards; does not register SEP/SDP/profile.",
+      "failure_contract": "Claim failure restores prior SEP/descriptor. Unlock failure -38 after successful construction retains claimed endpoint/code; no unload inferred.",
+      "unknown": [
+        "actual unused pool/exclusive native ownership",
+        "live lock health",
+        "resident callback and descriptor mapping"
+      ]
+    },
+    {
+      "stage": "SDP_Audio_Sink_enable",
+      "provider_kind": "C caller to hard-address original primitive, not recovered profile registration API",
+      "references": [
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            48,
+            67
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "read_kind": "inherited own closed capture",
+          "function": "music_endpoint_publish",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.h",
+          "lines": [
+            4,
+            21
+          ],
+          "whole_sha256": "c63c094c6a4182cbb354c5dd574840588d080c89bd1958fe11a1c167dc551195",
+          "read_kind": "inherited own closed capture",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        }
+      ],
+      "actual_caller": "native_music_start line76",
+      "required_record": {
+        "handle": "0x90007",
+        "slot_address": "0x03A7C108+7*12",
+        "u16_plus4": "must0 before call",
+        "original_enable_pointer": "Thumb0x00607F9D"
+      },
+      "required_fields": [
+        "matchingownedcallback/SEPstate1/pending0",
+        "matchingcapsdescriptor",
+        "publication state0",
+        "serialize exclusive SDP owner",
+        "release AVDTP mutex before enable"
+      ],
+      "return_meaning": "0 records publication1 because original enable primitive returned0.0x2504 records publication2: source says enabled but DB unlock failed, uncertain; neither is Bluetooth media/speaker success.",
+      "unknown": [
+        "live advertisement",
+        "original enable body and actual radio/profile context",
+        "true event registration/provider linkage"
+      ]
+    },
+    {
+      "stage": "partial_activation_and_retry",
+      "provider_kind": "source-level failure state contract",
+      "references": [
+        {
+          "path": "native/music-continuous/entry.c",
+          "lines": [
+            63,
+            78
+          ],
+          "whole_sha256": "4ed6b45b6c866f4d56ecfaf312fcedeec15c837fee1ba52e477dd3a5fa5104d7",
+          "read_kind": "inherited own closed capture",
+          "function": "native_music_start",
+          "inherited_seal_sha256": "b19be183bf98e1636e682469eb59a52970c71bfe28231f5774020588250f2c22"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            36,
+            46
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "read_kind": "inherited own closed capture",
+          "function": "music_endpoint_prepare",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        },
+        {
+          "path": "native/music-endpoint/endpoint.c",
+          "lines": [
+            60,
+            67
+          ],
+          "whole_sha256": "a38c894a81196304df5d772f36742591633c2186961372a6c60c1b97e1356577",
+          "read_kind": "inherited own closed capture",
+          "function": "music_endpoint_publish",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        }
+      ],
+      "behavior": "Dispatch installed before prepare/publish; later negative prepare or nonzero publish returns without rollback. A later native_music_start call rejects if patches_installed or localSEID set. Caller must retain partial state/residency and report stored start result.",
+      "new_progress": "There is no local automatic retry after partial old initialization; bootstrap success does not clear it.",
+      "not_executed_or_failure_injected": true
+    },
+    {
+      "stage": "configuration_provider_and_safe_helper_C_caller",
+      "provider_kind": "newer generated C implementation and direct policy gate calls",
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "lines": [
+            45,
+            83
+          ],
+          "whole_sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "read_kind": "fresh saved capture",
+          "function": "selected / enter / nr_configuration_gate"
+        },
+        {
+          "path": "native/avdtp-gate/gate.c",
+          "lines": [
+            49,
+            100
+          ],
+          "whole_sha256": "cfbed353aacf9b2a10c7b041676c5974c150f4194b05b782c3e58149c382acb3",
+          "read_kind": "fresh saved capture",
+          "function": "music_configuration_gate"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "lines": [
+            55,
+            82
+          ],
+          "whole_sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "read_kind": "inherited own closed capture",
+          "function": "nsg_config_begin / nsg_config_end",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        }
+      ],
+      "actual_calls": [
+        "nr_configuration_gate pointer/length/end-boundguards then nsg_config_begin",
+        "music_configuration_gate local validation then stockhandler0x00574ACD",
+        "nsg_config_end after complete gate return"
+      ],
+      "new_progress": "The previously held helper body[0] nonNULL/nonempty/range prerequisite has a concrete short-circuit guard in this C caller and its fallback gate.",
+      "return_meaning": "Helper0 is not acceptance; appacceptance requires stagedvalid, matchingreplywitness/fullresult, nativeSEPidentity and guardbind.",
+      "still_external": [
+        "actual original dispatcher installation",
+        "readable mapped borrowed buffer backing",
+        "native AVmutex context",
+        "same generated provider image/session"
+      ]
+    },
+    {
+      "stage": "selected_reply_TX_witness",
+      "provider_kind": "generated C wrapper to original TX primitive; original relocated reply external",
+      "references": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/reply_pause_binding_v1.c",
+          "lines": [
+            24,
+            43
+          ],
+          "whole_sha256": "ba882c14da8383f3ccee66bfd96dc0eeba869b6b64dc9f9b31dbe72f18464910",
+          "read_kind": "fresh saved capture",
+          "function": "nr_reply_dispatch"
+        },
+        {
+          "path": "native/avdtp-reply/reply.c",
+          "lines": [
+            4,
+            18
+          ],
+          "whole_sha256": "418b0cb8bbba16ba942a88e9aa999553dcf4707e6e0b2b673def679e2645a780",
+          "read_kind": "fresh saved capture",
+          "function": "music_reply_dispatch"
+        }
+      ],
+      "providers": {
+        "original_TX": "Thumb0x005A7795",
+        "stock_reply_relocated": "extern declaration, body/provider not reviewed here"
+      },
+      "behavior": "Only selected Configure/Start/Suspend acceptreply with matching active scope/channel/transaction/signal takes custom TX; reportedresult0 and written2 required before queuedcounter/witness. Other paths delegate original provider.",
+      "return_meaning": "Witness proves C wrapper saw expected successful TX result/count; outer receive0 alone does not prove native reply queued. No phone delivery acknowledgement or speaker result.",
+      "new_progress": "Exact typed reply count/result guard is concrete source implementation, not callback metadata alone."
+    },
+    {
+      "stage": "callback_identity_across_branches",
+      "provider_kind": "two different source branch requirements; alias/linking unresolved",
+      "references": [
+        {
+          "path": "native/music-continuous/entry.c",
+          "lines": [
+            25,
+            34
+          ],
+          "whole_sha256": "4ed6b45b6c866f4d56ecfaf312fcedeec15c837fee1ba52e477dd3a5fa5104d7",
+          "read_kind": "inherited own closed capture",
+          "function": "native_music_callback",
+          "inherited_seal_sha256": "b19be183bf98e1636e682469eb59a52970c71bfe28231f5774020588250f2c22"
+        },
+        {
+          "path": "native/music-continuous/entry.c",
+          "lines": [
+            73,
+            76
+          ],
+          "whole_sha256": "4ed6b45b6c866f4d56ecfaf312fcedeec15c837fee1ba52e477dd3a5fa5104d7",
+          "read_kind": "inherited own closed capture",
+          "function": "native_music_start",
+          "inherited_seal_sha256": "b19be183bf98e1636e682469eb59a52970c71bfe28231f5774020588250f2c22"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "lines": [
+            33,
+            41
+          ],
+          "whole_sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "read_kind": "inherited own closed capture",
+          "function": "identity",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/remote_pause_binding_v1.c",
+          "lines": [
+            55,
+            60
+          ],
+          "whole_sha256": "cb446dc80d83c8e6f3c88596f8b6f896b98c71cc9761ae89cf73a4be22c44405",
+          "read_kind": "inherited own closed capture",
+          "function": "nsg_config_begin",
+          "inherited_seal_sha256": "489e1c64de068097c6ec547b6f21b74cc6fabc4ec86e5c70c9dcfe99848677d7"
+        }
+      ],
+      "old_constructed_callback": "native_music_callback -> music_stream_callback",
+      "new_required_callback": "nsg_native_callback -> newer accepted-config/Start/Source ingress guards",
+      "new_progress": "Unchanged old start body targets another named callback than newer identity checks require. A modern activation provider/explicit proven alias must supply correct resident callback.",
+      "limits": "Do not assert binary address mismatch or whole newer-image caller absence; selected generated artifact alias/linkage not fresh verified."
+    },
+    {
+      "stage": "original_PSM25_profile_callback",
+      "provider_kind": "inherited closed static metadata; no new original source/instruction read",
+      "metadata": {
+        "original_initializer": "0x4CCC3C",
+        "descriptor_init": "0x50C138",
+        "register": "0x50C150",
+        "PSM": 25,
+        "descriptor_bytes": 52,
+        "callback_descriptor_offset": "0x20",
+        "callback_pointer": "0x50BBB9",
+        "zero_length_wrapper": "0x50BBB8",
+        "original_registration_copy": "0x50C282 -> ARM memcpy 0x39129C, length52",
+        "scope": "Static exact-source only. Prior proofs controlled kernel/PSM transport; new native PSM registration not executed here.",
+        "application_SEP_callback_registration": false
+      },
+      "evidence": [
+        {
+          "path": "staging/native-player-sbc-ingress/static-review/native-receiver-to-compiled-ingress-contract.json",
+          "line": 504,
+          "sha256": "d7fff2d5f3f75c570adad92976c12793831697108537ff31afe16de285b215a9"
+        }
+      ],
+      "historical_matrix": {
+        "path": "staging/native-music-bluetooth-binding-readonly-20261007-v1/binding-matrix.json",
+        "bytes": 28710,
+        "whole_sha256": "bdd5f0fb13096680bab4a7712f4fa22f2bcdc29564d5afdec5184cb49365c7a1",
+        "new_read_scope": "closed small metadata, code evidence inherited"
+      },
+      "separate_from_app_callback": true,
+      "requirement": "Original profile/context registration must already route L2CAP signaling/media into local SEP application callback mechanism. SDP enable and private gate claim alone do not establish this live relation.",
+      "unknown": [
+        "actual original initializer execution",
+        "live driver/transport state",
+        "real receiver to selected registered SEP callback",
+        "profile enable/ownership lifecycle"
+      ]
+    },
+    {
+      "stage": "newer_passive_entry_boundary",
+      "provider_kind": "root inherited closed ledger only; not source re-read",
+      "inherited": {
+        "ledger_path": "staging/native-music-passive-lifetime-readonly-20261007-v1/lifetime-ledger.json",
+        "bytes": 3524,
+        "whole_sha256": "7f2b5746eaa86a9066e174d4e6351eaf1e0822ae73a1955178a8bcd7718e58a4",
+        "resident_source_path": "staging/native-player-loaded-single-image/resident_entry_v1.c",
+        "resident_source_bytes": 2609,
+        "resident_source_whole_sha256": "2fdc2a5899ba0f42485c13af80c09dee0eefc7fba32da6f2b60791b04bd19c3a",
+        "fresh_read": false,
+        "exact_lines": "not provided; not invented"
+      },
+      "behavior": "Root closed source says passive resident entry clears BSS, calls originalTTS and returns originalstatus; boot/ingress/command exports are not entry invocations. Status11/6 is not UMC READY or custom activation.",
+      "not_whole_image_absence": true
+    }
+  ],
+  "required_order": [
+    "Original SDP/profile/context initialization and immutable needed record descriptors",
+    "Single resident original-TTS bootstrap/BSS clear before active callback lifetime",
+    "Actual Source/queue/controller/session READY with pinnedstorage (modern external provider)",
+    "Actual config/Start/reply/native5arg media dispatch binding while admissionclosed",
+    "Correct resident localSEPcallback/MTU/capabilities plus privategateclaim",
+    "Exclusive AudioSinkSDP record enable after AVunlock, report uncertainenable state",
+    "Accepted configuration and fullStart reply/nativeidentity before mediaadmission"
+  ],
+  "order_status": "Only older C prepare/publish caller and newer config/reply wrappers are source implemented here; no combined modern activation invocation or hardware success demonstrated.",
+  "fresh_source_content_bytes": 15540,
+  "fresh_files": 5,
+  "inherited_source_capture_bytes": 19556,
+  "inherited_files": 4,
+  "historical_small_metadata_bytes": 28710,
+  "fresh_source_cap": 98304,
+  "historical_single_cap": 32768,
+  "limits": {
+    "scope": "bounded selected family, not whole-project absence",
+    "namedmetadata_not_original_API_recovery": true,
+    "stocktemplate_AVDTP_A2DP_version": "static metadata only; no liveadvertisement/version claim",
+    "build_v2_v3_manifest_reads": 0,
+    "original_ASM_MAIN_ELF_liveRAM_reads": 0,
+    "target_import_compile_tests_guest_emulator": 0,
+    "device_BT_DBUS_audio_privatephone": 0,
+    "shared_source_report_changes": 0,
+    "system_risk_guest_retry": 0,
+    "runtime_hardware_phone_acceptance": false
+  }
+}

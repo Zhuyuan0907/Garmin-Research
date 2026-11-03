@@ -1,0 +1,140 @@
+{
+  "schema": "read-only held-name artifact review/v1",
+  "started_utc": "2026-10-07T05:55:15.605303+00:00",
+  "finished_utc": "2026-10-07T05:55:15.608111+00:00",
+  "normal_file_review_complete": true,
+  "status": "cannot-assess_individual_held_names_due_missing_saved_fields",
+  "prior_scope_seal_verified": true,
+  "prior_actual_data_terminal": "1b4ead EXIT0",
+  "prior_actual_seal_terminal": "567067 EXIT0",
+  "prior_artifacts_opened_only": [
+    "HANDOFF.md",
+    "actual-data-tool-receipt.json",
+    "analyze_v1.py",
+    "prefix-read-counters.json",
+    "proof.json",
+    "source-examples.json",
+    "source-pins.json",
+    "SEAL.json",
+    "post-seal-tool-receipt.json"
+  ],
+  "source_dependency_paths_seen_in_old_manifest_only": 15,
+  "referenced_source_dependencies_not_opened": true,
+  "large_source_or_compressed_files_read_bytes": 0,
+  "PBF_IMG_original_DB_or_stock_roster_reopened": false,
+  "missing_name_retention": {
+    "reported_distinct_missing_literals": 28,
+    "saved_complete_missing_literal_list": false,
+    "identifiable_saved_literal_names": [
+      "敦富六街"
+    ],
+    "unidentified_remaining_distinct_literals": 27,
+    "new_complete_source_samples": 0,
+    "saved_group_IDs_coordinates_house_encoding_intersections_for_new_held_samples": false,
+    "stock_nearby_name_witness_lists_for_held_samples": false
+  },
+  "aggregate_evidence": {
+    "same_admin_groups": 548,
+    "exact_stock_street_group_count": 446,
+    "exact_missing_group_count": 102,
+    "distinct_missing_literal_count": 28,
+    "hold_reason_group_counts_overlapping": {
+      "exact_stock_street_present": 446,
+      "not_conservative_flat_road_or_street_literal": 97,
+      "coordinate_conflict_or_unready": 10,
+      "possible_spelling_or_prefix_alias_relation": 97,
+      "CP950_roundtrip_failure": 1,
+      "already_closed_six_street_excluded": 1,
+      "not_literal_positive_integer_house": 83,
+      "floor_unit_metadata_present": 16
+    },
+    "derived_single_guard_pass_counts_only": {
+      "name_shape_guard": 5,
+      "plain_integer_house_guard": 19,
+      "CP950_street_and_house_combined_guard": 101,
+      "coordinate_selection_metadata_guard": 92,
+      "no_floor_unit_metadata_guard": 86,
+      "ID_metadata_guard": 102,
+      "no_stock_edit_or_prefix_relation_guard": 5
+    },
+    "per_group_intersections_not_saved": true,
+    "coordinate_values_and_global_precision_not_validated_for_held_groups": true,
+    "only_near_or_prefix_hold_count": "cannot-assess",
+    "do_not_infer_verified_aliases_from_near_or_prefix_count": true
+  },
+  "mapping": [
+    {
+      "candidate_literal": "敦富六街",
+      "identification_basis": "Only preserved literal from reused_capture_check plus already_closed_six_street_excluded counter1.",
+      "stock_nearby_names": "not saved in this scope",
+      "hold_reasons": [
+        "already_closed_six_street_excluded"
+      ],
+      "additional_per_group_hold_reasons": "cannot-assess; full row/reasons not retained here",
+      "saved_complete_source_in_this_scope": false,
+      "saved_reference_only": {
+        "group_id": 37506,
+        "prior_capture": "staging/navigation-native-new-street-source-example-v1/final-bounded-taichung-shortlist.json"
+      },
+      "usable_as_new_candidate": false
+    },
+    {
+      "candidate_literal": null,
+      "aggregate_unidentified_distinct_literals": 27,
+      "stock_nearby_names": "not saved",
+      "hold_reasons": "Only overlapping global counters available; individual mapping cannot-assess",
+      "saved_complete_source_in_this_scope": false,
+      "usable_as_new_candidate": "cannot-assess"
+    }
+  ],
+  "static_findings": [
+    {
+      "id": "missing_literal_roster_and_witnesses",
+      "conclusion": "The runtime missing-name set is persisted only as len=28. Per-name/group reasons and near/prefix stock witness lists were not serialized for rejected groups.",
+      "impact": "Cannot provide all28 real literal names or their hold mapping from the frozen outputs."
+    },
+    {
+      "id": "near_prefix_capture_gate",
+      "conclusion": "Any nonempty edit/prefix relation adds a rejection reason, then continue executes before selected.append. Held source rows are therefore not retained even when all other guards pass.",
+      "impact": "An empty source-examples list cannot establish zero otherwise-qualified near/prefix-only cases. Near/prefix relation remains pending review, never a proven alias."
+    },
+    {
+      "id": "sectioned_names",
+      "conclusion": "Names ending in a section marker fail the required 路/街 final suffix; any 段 character also fails the single-character blacklist.",
+      "impact": "This is a scope restriction for flat names, not evidence a sectioned road literal is false or invalid. Actual excluded section names were not retained, so individual misclassification cannot-assess."
+    },
+    {
+      "id": "single_character_blacklist_is_broad",
+      "conclusion": "The character class rejects every occurrence of 巷弄之段村里鄰交叉口 individually, including 交, 叉 and 口, rather than recognizing an entire intersection expression.",
+      "impact": "A name containing any such character can be held without evidence it is a lane/intersection or invalid name. No current actual literal witness was saved, so actual wrongly held names cannot-assess."
+    },
+    {
+      "id": "CJK_length_and_suffix_scope",
+      "conclusion": "The fullmatch requires2..14 CJK characters followed by路 or街, total3..15 characters. It excludes other character ranges, shorter/longer names and section suffixes regardless of official naming.",
+      "impact": "Conservative eligibility only; cannot infer legal/official authenticity or nonexistence."
+    },
+    {
+      "id": "aggregate_reasons_overlap",
+      "conclusion": "Reasons are counted independently;97 nonflat and97 near/prefix groups need not be the same groups. No per-row intersections are preserved.",
+      "impact": "Cannot derive which plain-integer/CP950/complete-ID/coordinate-ready group was held only for a stock relation."
+    }
+  ],
+  "otherwise_qualified_only_stock_near_relation_cases": {
+    "existence_in_original_scanned_data": "cannot-assess",
+    "available_saved_complete_cases": 0,
+    "max_requested": 2,
+    "cannot_assert_true_case_count_zero": true,
+    "not_self_released": true
+  },
+  "next_real_road_contrast_candidates_from_saved_new_sources": [],
+  "next_step_prerequisite": "No available complete new held source in this frozen namespace. Any later investigation needs separately supplied/captured actual complete groups; no reread or new map analysis is performed here.",
+  "source_pins": "input-artifact-pins.json",
+  "policy_source_excerpts": "policy-source-excerpts.json",
+  "native_CPU_execution": false,
+  "guest_or_compile_execution": false,
+  "device_IO": false,
+  "audio_execution": false,
+  "original_artifacts_modified": false,
+  "new_IMG_JAI_bundle_created": false,
+  "navigation_App_music_install_fullgoal_flags": false
+}

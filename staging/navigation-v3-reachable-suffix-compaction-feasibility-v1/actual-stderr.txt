@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-feasibility-v1/analyze_reachable.py", line 423, in <module>
+    try:main()
+        ~~~~^^
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-feasibility-v1/analyze_reachable.py", line 371, in main
+    fields,stream=stream_actual(image,tables,stream_pin)
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-feasibility-v1/analyze_reachable.py", line 92, in stream_actual
+    print(json.dumps(dict(stage='allocated bounded field arrays',bytes=fixed_bytes,RSS_KiB=rss())),flush=True)
+                                                                                           ~~~^^
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-feasibility-v1/analyze_reachable.py", line 45, in rss
+    need(value<=RSS_CAP_KIB,'Bounded RSS guard')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/garmin/staging/navigation-v3-reachable-suffix-compaction-feasibility-v1/analyze_reachable.py", line 31, in need
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Bounded RSS guard

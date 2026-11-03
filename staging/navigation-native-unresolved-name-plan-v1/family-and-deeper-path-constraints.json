@@ -1,0 +1,2198 @@
+{
+  "schema": "unresolved-name-family-and-deeper-path-constraints/v1",
+  "created_utc": "2026-10-06T18:38:33.801149+00:00",
+  "all_assigned_checks_passed": true,
+  "script_sha256": "282f76d3fcb741f83530fac20314619a0be4414eaa09d7d68e7474058bd837fd",
+  "small_inputs": [
+    {
+      "path": "staging/navigation-native-unresolved-name-plan-v1/unresolved-name-plan.json",
+      "bytes": 471265,
+      "sha256": "3c4d84b8527ecbe02ae87ee7c032a82ccfcbc8ba17b1ebe70d10a7bd78386e19",
+      "stat_unchanged": true
+    },
+    {
+      "path": "staging/navigation-stock-address-schema-v1/stock-address-schema-evidence.json",
+      "bytes": 227490,
+      "sha256": "8111d750106255d91becf7254e8a8ead8c4ad1c2562cf83df3ddd64cafeef21d",
+      "stat_unchanged": true
+    },
+    {
+      "path": "staging/navigation-native-deeper-address-plan-v1/semantic-path-plan.json",
+      "bytes": 28476,
+      "sha256": "9c9e944388fb649a73623d8eb8683fdfd0d02eaa96b2ca175ad06a5f8177deda",
+      "stat_unchanged": true
+    },
+    {
+      "path": "staging/navigation-taiwan-address-ingestion-v1/native-hierarchy.jsonl.gz",
+      "bytes": 1210093,
+      "sha256": "45333390cec4996db40b4a4a987eb421641fec352203bb318aedfd6a6fce2776",
+      "stat_unchanged": true
+    },
+    {
+      "path": "staging/navigation-native-unresolved-name-plan-v1/bounded-name-samples.jsonl.gz",
+      "bytes": 242714,
+      "sha256": "3171b85bacb3817bd6de5dec9d69287c1fa1352d52caed593b1a9fd56d042401",
+      "stat_unchanged": true
+    }
+  ],
+  "original_japan_addr_family_SQL": "CREATE TABLE japan_addr_family (parent_record INTEGER UNIQUE, the_first_record INTEGER PRIMARY KEY)",
+  "family_constraint_implication": "parent_record UNIQUE prevents simply appending a second disjoint family row for the same parent. New full JAI street entries require a coherent parent/range/index design; any needed L3/MDR/JAI remapping is not implemented or proven here.",
+  "full_street_name_not_match_is_not_a_new_road_count": true,
+  "sample_numeric_prefix_counts": {
+    "unique_city_district_street_classification_keys": 3196,
+    "observed_prepared_sample_groups": 18600,
+    "total_sample_keys": 3784,
+    "total_sample_groups": 20029,
+    "bounded_sample_only_no_country_extrapolation": true
+  },
+  "additional_named_lane_alley_prefix_matches_in_sample": 67,
+  "additional_named_suffix_examples": [
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段6之16巷",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "6之16巷",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 90,
+      "source_group_examples": [
+        {
+          "group_id": 38657,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段6之16巷",
+            "48號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 31,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38658,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段6之16巷",
+            "49號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38659,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段6之16巷",
+            "50號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38660,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段6之16巷",
+            "51號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "五權南路248之1巷",
+      "nativeStreetID": 16325,
+      "native_street": "五權南路",
+      "literal_source_suffix": "248之1巷",
+      "original_next_level": 4,
+      "original_first_child": 882230,
+      "original_child_count": 561,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 55,
+      "source_group_examples": [
+        {
+          "group_id": 43872,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "五權南路248之1巷",
+            "12號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 43873,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "五權南路248之1巷",
+            "12之3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 43874,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "五權南路248之1巷",
+            "12之4號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 46489,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "五權南路248之1巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之5巷",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之5巷",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 37,
+      "source_group_examples": [
+        {
+          "group_id": 65349,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之5巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65367,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之5巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65379,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之5巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65427,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之5巷",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之43巷3弄",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之43巷3弄",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 36,
+      "source_group_examples": [
+        {
+          "group_id": 65374,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷3弄",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65376,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷3弄",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65378,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷3弄",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65381,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷3弄",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "桃園市",
+      "source_district": "大園區",
+      "source_street": "中正東路三段52巷",
+      "nativeStreetID": 8005,
+      "native_street": "中正東路",
+      "literal_source_suffix": "三段52巷",
+      "original_next_level": 4,
+      "original_first_child": 517800,
+      "original_child_count": 262,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 36,
+      "source_group_examples": [
+        {
+          "group_id": 23362,
+          "raw_address": [
+            "桃園市",
+            "大園區",
+            "中正東路三段52巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 23363,
+          "raw_address": [
+            "桃園市",
+            "大園區",
+            "中正東路三段52巷",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 23364,
+          "raw_address": [
+            "桃園市",
+            "大園區",
+            "中正東路三段52巷",
+            "7號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 23365,
+          "raw_address": [
+            "桃園市",
+            "大園區",
+            "中正東路三段52巷",
+            "9號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街一段257之7巷",
+      "nativeStreetID": 16347,
+      "native_street": "大慶街一段",
+      "literal_source_suffix": "257之7巷",
+      "original_next_level": 4,
+      "original_first_child": 883771,
+      "original_child_count": 177,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 31,
+      "source_group_examples": [
+        {
+          "group_id": 62311,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之7巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62313,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之7巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62315,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之7巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62318,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之7巷",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街一段259之11巷",
+      "nativeStreetID": 16347,
+      "native_street": "大慶街一段",
+      "literal_source_suffix": "259之11巷",
+      "original_next_level": 4,
+      "original_first_child": 883771,
+      "original_child_count": 177,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 21,
+      "source_group_examples": [
+        {
+          "group_id": 62380,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段259之11巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62381,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段259之11巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62382,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段259之11巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62383,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段259之11巷",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街一段257之5巷",
+      "nativeStreetID": 16347,
+      "native_street": "大慶街一段",
+      "literal_source_suffix": "257之5巷",
+      "original_next_level": 4,
+      "original_first_child": 883771,
+      "original_child_count": 177,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 20,
+      "source_group_examples": [
+        {
+          "group_id": 62312,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之5巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62314,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之5巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62316,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之5巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62317,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段257之5巷",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街一段248之1巷",
+      "nativeStreetID": 16347,
+      "native_street": "大慶街一段",
+      "literal_source_suffix": "248之1巷",
+      "original_next_level": 4,
+      "original_first_child": 883771,
+      "original_child_count": 177,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 19,
+      "source_group_examples": [
+        {
+          "group_id": 62281,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段248之1巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62282,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段248之1巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62283,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段248之1巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 62284,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街一段248之1巷",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之63巷3弄",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之63巷3弄",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 16,
+      "source_group_examples": [
+        {
+          "group_id": 65375,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷3弄",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65377,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷3弄",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65380,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷3弄",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65382,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷3弄",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之63巷1弄",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之63巷1弄",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 15,
+      "source_group_examples": [
+        {
+          "group_id": 65347,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷1弄",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65351,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷1弄",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65352,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷1弄",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65353,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷1弄",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "屏東縣",
+      "source_district": "恆春鎮",
+      "source_street": "南灣路信義巷4弄",
+      "nativeStreetID": 40260,
+      "native_street": "南灣路",
+      "literal_source_suffix": "信義巷4弄",
+      "original_next_level": 4,
+      "original_first_child": 1914763,
+      "original_child_count": 247,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 13,
+      "source_group_examples": [
+        {
+          "group_id": 24339,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷4弄",
+            "1"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24340,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷4弄",
+            "2"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24341,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷4弄",
+            "3"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24342,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷4弄",
+            "4"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之63巷6弄",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之63巷6弄",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 12,
+      "source_group_examples": [
+        {
+          "group_id": 65428,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷6弄",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65429,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷6弄",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65430,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷6弄",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65431,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷6弄",
+            "5號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "忠孝路92之1巷",
+      "nativeStreetID": 16395,
+      "native_street": "忠孝路",
+      "literal_source_suffix": "92之1巷",
+      "original_next_level": 4,
+      "original_first_child": 887625,
+      "original_child_count": 250,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 12,
+      "source_group_examples": [
+        {
+          "group_id": 55123,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "忠孝路92之1巷",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 55124,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "忠孝路92之1巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 55125,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "忠孝路92之1巷",
+            "3號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 55126,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "忠孝路92之1巷",
+            "4號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "屏東縣",
+      "source_district": "恆春鎮",
+      "source_street": "南灣路信義巷1弄",
+      "nativeStreetID": 40260,
+      "native_street": "南灣路",
+      "literal_source_suffix": "信義巷1弄",
+      "original_next_level": 4,
+      "original_first_child": 1914763,
+      "original_child_count": 247,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 11,
+      "source_group_examples": [
+        {
+          "group_id": 24328,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷1弄",
+            "6"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24329,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷1弄",
+            "1"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24330,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷1弄",
+            "2"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24331,
+          "raw_address": [
+            "屏東縣",
+            "恆春鎮",
+            "南灣路信義巷1弄",
+            "3"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新北市",
+      "source_district": "林口區",
+      "source_street": "文化三路一段39巷",
+      "nativeStreetID": 3484,
+      "native_street": "文化三路",
+      "literal_source_suffix": "一段39巷",
+      "original_next_level": 5,
+      "original_first_child": 433747,
+      "original_child_count": 1,
+      "original_full_flags": 13,
+      "observed_sample_group_count": 7,
+      "source_group_examples": [
+        {
+          "group_id": 38444,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化三路一段39巷",
+            "179"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 12,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38445,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化三路一段39巷",
+            "177"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 13,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38446,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化三路一段39巷",
+            "181"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 14,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38447,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化三路一段39巷",
+            "185"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 13,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之63巷2弄",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之63巷2弄",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 6,
+      "source_group_examples": [
+        {
+          "group_id": 65368,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷2弄",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65369,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷2弄",
+            "6號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65370,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷2弄",
+            "8號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65371,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之63巷2弄",
+            "10號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段11之43巷1弄",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "11之43巷1弄",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 4,
+      "source_group_examples": [
+        {
+          "group_id": 65348,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷1弄",
+            "1號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65350,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷1弄",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65354,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷1弄",
+            "6號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 65358,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段11之43巷1弄",
+            "8號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台北市",
+      "source_district": "中正區",
+      "source_street": "中華路二段307巷",
+      "nativeStreetID": 397,
+      "native_street": "中華路",
+      "literal_source_suffix": "二段307巷",
+      "original_next_level": 5,
+      "original_first_child": 67014,
+      "original_child_count": 6,
+      "original_full_flags": 5,
+      "observed_sample_group_count": 3,
+      "source_group_examples": [
+        {
+          "group_id": 14575,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段307巷",
+            "46"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 4,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 22664,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段307巷",
+            "17"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24215,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段307巷",
+            "20"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 4,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "中區",
+      "source_street": "中華路一段97之1巷",
+      "nativeStreetID": 16697,
+      "native_street": "中華路一段",
+      "literal_source_suffix": "97之1巷",
+      "original_next_level": 4,
+      "original_first_child": 902513,
+      "original_child_count": 358,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 2,
+      "source_group_examples": [
+        {
+          "group_id": 40336,
+          "raw_address": [
+            "臺中市",
+            "中區",
+            "中華路一段97之1巷",
+            "2號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 40337,
+          "raw_address": [
+            "臺中市",
+            "中區",
+            "中華路一段97之1巷",
+            "6號"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新北市",
+      "source_district": "林口區",
+      "source_street": "文化三路一段39巷116弄",
+      "nativeStreetID": 3484,
+      "native_street": "文化三路",
+      "literal_source_suffix": "一段39巷116弄",
+      "original_next_level": 5,
+      "original_first_child": 433747,
+      "original_child_count": 1,
+      "original_full_flags": 13,
+      "observed_sample_group_count": 2,
+      "source_group_examples": [
+        {
+          "group_id": 38336,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化三路一段39巷116弄",
+            "1"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 16,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 38337,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化三路一段39巷116弄",
+            "5"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 16,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台北市",
+      "source_district": "萬華區",
+      "source_street": "中華路一段114巷",
+      "nativeStreetID": 397,
+      "native_street": "中華路",
+      "literal_source_suffix": "一段114巷",
+      "original_next_level": 5,
+      "original_first_child": 67014,
+      "original_child_count": 6,
+      "original_full_flags": 5,
+      "observed_sample_group_count": 2,
+      "source_group_examples": [
+        {
+          "group_id": 2547,
+          "raw_address": [
+            "臺北市",
+            "萬華區",
+            "中華路一段114巷",
+            "17"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 46,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 19690,
+          "raw_address": [
+            "台北市",
+            "萬華區",
+            "中華路一段114巷",
+            "18"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台北市",
+      "source_district": "中正區",
+      "source_street": "中華路二段309巷",
+      "nativeStreetID": 397,
+      "native_street": "中華路",
+      "literal_source_suffix": "二段309巷",
+      "original_next_level": 5,
+      "original_first_child": 67014,
+      "original_child_count": 6,
+      "original_full_flags": 5,
+      "observed_sample_group_count": 2,
+      "source_group_examples": [
+        {
+          "group_id": 14572,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段309巷",
+            "9"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 3,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24214,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段309巷",
+            "5"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 4,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台北市",
+      "source_district": "中正區",
+      "source_street": "中華路二段311巷",
+      "nativeStreetID": 397,
+      "native_street": "中華路",
+      "literal_source_suffix": "二段311巷",
+      "original_next_level": 5,
+      "original_first_child": 67014,
+      "original_child_count": 6,
+      "original_full_flags": 5,
+      "observed_sample_group_count": 2,
+      "source_group_examples": [
+        {
+          "group_id": 14574,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段311巷",
+            "1"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 4,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 24217,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "中華路二段311巷",
+            "2"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 3,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台北市",
+      "source_district": "北投區",
+      "source_street": "大度路三段296巷",
+      "nativeStreetID": 347,
+      "native_street": "大度路",
+      "literal_source_suffix": "三段296巷",
+      "original_next_level": 4,
+      "original_first_child": 48103,
+      "original_child_count": 22,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 2,
+      "source_group_examples": [
+        {
+          "group_id": 23,
+          "raw_address": [
+            "台北市",
+            "北投區",
+            "大度路三段296巷",
+            "51"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 4,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        {
+          "group_id": 30163,
+          "raw_address": [
+            "台北市",
+            "北投區",
+            "大度路三段296巷",
+            "45"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 8,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "沙鹿區",
+      "source_street": "鎮南路福嘉巷永福巷",
+      "nativeStreetID": 16013,
+      "native_street": "鎮南路福嘉巷",
+      "literal_source_suffix": "永福巷",
+      "original_next_level": 5,
+      "original_first_child": 982166,
+      "original_child_count": 38,
+      "original_full_flags": 5,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 17619,
+          "raw_address": [
+            "臺中市",
+            "沙鹿區",
+            "鎮南路福嘉巷永福巷",
+            "7"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "大里區",
+      "source_street": "中興路一段298-9巷",
+      "nativeStreetID": 13441,
+      "native_street": "中興路一段",
+      "literal_source_suffix": "298-9巷",
+      "original_next_level": 4,
+      "original_first_child": 702777,
+      "original_child_count": 524,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 15944,
+          "raw_address": [
+            "台中市",
+            "大里區",
+            "中興路一段298-9巷",
+            "13"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "大里區",
+      "source_street": "中興路二段祥興3巷10弄",
+      "nativeStreetID": 13445,
+      "native_street": "中興路二段",
+      "literal_source_suffix": "祥興3巷10弄",
+      "original_next_level": 4,
+      "original_first_child": 703301,
+      "original_child_count": 937,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 21760,
+          "raw_address": [
+            "臺中市",
+            "大里區",
+            "中興路二段祥興3巷10弄",
+            "34"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新竹市",
+      "source_district": "香山區",
+      "source_street": "中華路五段五段323巷13弄",
+      "nativeStreetID": 8849,
+      "native_street": "中華路五段",
+      "literal_source_suffix": "五段323巷13弄",
+      "original_next_level": 4,
+      "original_first_child": 546593,
+      "original_child_count": 458,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 35170,
+          "raw_address": [
+            "新竹市",
+            "香山區",
+            "中華路五段五段323巷13弄",
+            "27"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "南區",
+      "source_street": "大慶街二段6-16巷",
+      "nativeStreetID": 16348,
+      "native_street": "大慶街二段",
+      "literal_source_suffix": "6-16巷",
+      "original_next_level": 4,
+      "original_first_child": 883948,
+      "original_child_count": 252,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 26541,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "大慶街二段6-16巷",
+            "9"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "西屯區",
+      "source_street": "西屯路二段268-8巷",
+      "nativeStreetID": 13725,
+      "native_street": "西屯路二段",
+      "literal_source_suffix": "268-8巷",
+      "original_next_level": 4,
+      "original_first_child": 724442,
+      "original_child_count": 900,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 6119,
+          "raw_address": [
+            "臺中市",
+            "西屯區",
+            "西屯路二段268-8巷",
+            "16"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "桃園市",
+      "source_district": "大園區",
+      "source_street": "中正東路三段336巷",
+      "nativeStreetID": 8005,
+      "native_street": "中正東路",
+      "literal_source_suffix": "三段336巷",
+      "original_next_level": 4,
+      "original_first_child": 517800,
+      "original_child_count": 262,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 26700,
+          "raw_address": [
+            "桃園市",
+            "大園區",
+            "中正東路三段336巷",
+            "79"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 9,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新北市",
+      "source_district": "林口區",
+      "source_street": "文化二路一段260巷",
+      "nativeStreetID": 3481,
+      "native_street": "文化二路",
+      "literal_source_suffix": "一段260巷",
+      "original_next_level": 5,
+      "original_first_child": 433497,
+      "original_child_count": 1,
+      "original_full_flags": 13,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 37926,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化二路一段260巷",
+            "2"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 11,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新北市",
+      "source_district": "林口區",
+      "source_street": "文化二路一段68巷",
+      "nativeStreetID": 3481,
+      "native_street": "文化二路",
+      "literal_source_suffix": "一段68巷",
+      "original_next_level": 5,
+      "original_first_child": 433497,
+      "original_child_count": 1,
+      "original_full_flags": 13,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 29891,
+          "raw_address": [
+            "新北市",
+            "林口區",
+            "文化二路一段68巷",
+            "62之5"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "彰化縣",
+      "source_district": "員林市",
+      "source_street": "中山路二段131巷",
+      "nativeStreetID": 18628,
+      "native_street": "中山路",
+      "literal_source_suffix": "二段131巷",
+      "original_next_level": 4,
+      "original_first_child": 1023986,
+      "original_child_count": 1,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 38432,
+          "raw_address": [
+            "彰化縣",
+            "員林市",
+            "中山路二段131巷",
+            "28"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "宜蘭縣",
+      "source_district": "蘇澳鎮",
+      "source_street": "中山路二段162巷",
+      "nativeStreetID": 43164,
+      "native_street": "中山路",
+      "literal_source_suffix": "二段162巷",
+      "original_next_level": 5,
+      "original_first_child": 2207808,
+      "original_child_count": 1,
+      "original_full_flags": 13,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 34580,
+          "raw_address": [
+            "宜蘭縣",
+            "蘇澳鎮",
+            "中山路二段162巷",
+            "2"
+          ],
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "source_node_count": 1,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新北市",
+      "source_district": "淡水區",
+      "source_street": "中正路一段62巷",
+      "nativeStreetID": 2714,
+      "native_street": "中正路",
+      "literal_source_suffix": "一段62巷",
+      "original_next_level": 4,
+      "original_first_child": 293919,
+      "original_child_count": 489,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 5152,
+          "raw_address": [
+            "新北市",
+            "淡水區",
+            "中正路一段62巷",
+            "8"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 7,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "新北市",
+      "source_district": "新莊區",
+      "source_street": "中正路新建巷15弄",
+      "nativeStreetID": 1520,
+      "native_street": "中正路",
+      "literal_source_suffix": "新建巷15弄",
+      "original_next_level": 4,
+      "original_first_child": 192166,
+      "original_child_count": 1468,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 37890,
+          "raw_address": [
+            "新北市",
+            "新莊區",
+            "中正路新建巷15弄",
+            "40"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 2,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台中市",
+      "source_district": "西屯區",
+      "source_street": "中清路二段1250巷125弄",
+      "nativeStreetID": 13863,
+      "native_street": "中清路",
+      "literal_source_suffix": "二段1250巷125弄",
+      "original_next_level": 4,
+      "original_first_child": 729595,
+      "original_child_count": 20,
+      "original_full_flags": 4,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 13727,
+          "raw_address": [
+            "臺中市",
+            "西屯區",
+            "中清路二段1250巷125弄",
+            "9"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 6,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": true,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    },
+    {
+      "source_city": "台北市",
+      "source_district": "萬華區",
+      "source_street": "中華路一段76巷",
+      "nativeStreetID": 397,
+      "native_street": "中華路",
+      "literal_source_suffix": "一段76巷",
+      "original_next_level": 5,
+      "original_first_child": 67014,
+      "original_child_count": 6,
+      "original_full_flags": 5,
+      "observed_sample_group_count": 1,
+      "source_group_examples": [
+        {
+          "group_id": 33434,
+          "raw_address": [
+            "台北市",
+            "萬華區",
+            "中華路一段76巷",
+            "11"
+          ],
+          "coordinate_status": "source_coordinate_conflict",
+          "source_node_count": 7,
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        }
+      ],
+      "source_district_verified": false,
+      "actual_child_labels_compared": false,
+      "branch_exists_or_matches_proved": false,
+      "name_alias_applied": false
+    }
+  ],
+  "inherited_actual_original_deeper_path_example": {
+    "path_labels": [
+      "民權路",
+      "186巷",
+      "3弄"
+    ],
+    "path_packed_IDs": [
+      {
+        "level": 3,
+        "one_based_ID": 16707
+      },
+      {
+        "level": 4,
+        "one_based_ID": 904781
+      },
+      {
+        "level": 5,
+        "one_based_ID": 1021924
+      }
+    ],
+    "last_parent_record": {
+      "level": 5,
+      "one_based_ID": 1021924,
+      "logical_offset": 37063573,
+      "initial_bit_offset": 2,
+      "span_hex": "fdff7f4a03484a190103192b1135d055",
+      "mapordinal": 1,
+      "secondary_ref": null,
+      "primary_ref": 3369,
+      "first_child": 828708,
+      "child_count": 4,
+      "child_level_and_flags": 6,
+      "raw_location_a": 1125145,
+      "raw_location_b": 5623861,
+      "next_level": 6,
+      "primary_label": {
+        "reference": 3369,
+        "label": "3弄",
+        "GMP_logical_offset": 33518,
+        "bytes_through_NUL_hex": "33a7cb00",
+        "label_class": "contains_lane_alley_text_marker_only"
+      },
+      "secondary_label": null
+    },
+    "complete_level6_children": [
+      {
+        "level": 6,
+        "one_based_ID": 828708,
+        "logical_offset": 11239109,
+        "initial_bit_offset": 4,
+        "span_hex": "750200192b1135d055",
+        "mapordinal": 1,
+        "secondary_ref": null,
+        "primary_ref": 19,
+        "first_child": 0,
+        "child_count": 0,
+        "child_level_and_flags": 0,
+        "raw_location_a": 1125145,
+        "raw_location_b": 5623861,
+        "next_level": 0,
+        "primary_label": {
+          "reference": 19,
+          "label": "2號",
+          "GMP_logical_offset": 6718,
+          "bytes_through_NUL_hex": "32b8b900",
+          "label_class": "numeric_integer_house"
+        },
+        "secondary_label": null
+      },
+      {
+        "level": 6,
+        "one_based_ID": 828709,
+        "logical_offset": 11239118,
+        "initial_bit_offset": 0,
+        "span_hex": "2b0070b11261035df5",
+        "mapordinal": 1,
+        "secondary_ref": null,
+        "primary_ref": 21,
+        "first_child": 0,
+        "child_count": 0,
+        "child_level_and_flags": 0,
+        "raw_location_a": 1125143,
+        "raw_location_b": 5623862,
+        "next_level": 0,
+        "primary_label": {
+          "reference": 21,
+          "label": "4號",
+          "GMP_logical_offset": 6734,
+          "bytes_through_NUL_hex": "34b8b900",
+          "label_class": "numeric_integer_house"
+        },
+        "secondary_label": null
+      },
+      {
+        "level": 6,
+        "one_based_ID": 828710,
+        "logical_offset": 11239126,
+        "initial_bit_offset": 4,
+        "span_hex": "f50200162b1138d055",
+        "mapordinal": 1,
+        "secondary_ref": null,
+        "primary_ref": 23,
+        "first_child": 0,
+        "child_count": 0,
+        "child_level_and_flags": 0,
+        "raw_location_a": 1125142,
+        "raw_location_b": 5623864,
+        "next_level": 0,
+        "primary_label": {
+          "reference": 23,
+          "label": "6號",
+          "GMP_logical_offset": 6750,
+          "bytes_through_NUL_hex": "36b8b900",
+          "label_class": "numeric_integer_house"
+        },
+        "secondary_label": null
+      },
+      {
+        "level": 6,
+        "one_based_ID": 828711,
+        "logical_offset": 11239135,
+        "initial_bit_offset": 0,
+        "span_hex": "330050b11291035d15",
+        "mapordinal": 1,
+        "secondary_ref": null,
+        "primary_ref": 25,
+        "first_child": 0,
+        "child_count": 0,
+        "child_level_and_flags": 0,
+        "raw_location_a": 1125141,
+        "raw_location_b": 5623865,
+        "next_level": 0,
+        "primary_label": {
+          "reference": 25,
+          "label": "8號",
+          "GMP_logical_offset": 6766,
+          "bytes_through_NUL_hex": "38b8b900",
+          "label_class": "numeric_integer_house"
+        },
+        "secondary_label": null
+      }
+    ]
+  },
+  "inherited_deeper_evidence_scope": "Only this Minquan 186巷/3弄 path and finite houses were actually decoded from original stock bytes in the earlier bounded scope. Its existence does not prove any other sampled source suffix branch exists.",
+  "required_deeper_path_resolution": [
+    "Confirm source normalized city/district/full street identity and preserve original raw names.",
+    "Select an exact old JAI street prefix within the already-matched city/district, or city-only scope with source district unverified.",
+    "Read the actual old parent child group and match the next literal lane/alley component exactly; do not infer a branch from a prefix string.",
+    "Continue through actual next_level/first_child/count for every component; preserve intersection branches, raw full flags and old record IDs.",
+    "Only an exact complete path permits later labelled-house overlap/coordinate/merge analysis at its true child level.",
+    "If an exact child label is absent, keep the path unresolved and design an explicit new branch/entry. Do not map to nearest branch, swap Chinese characters or fabricate a JAI range."
+  ],
+  "limits": [
+    "No automatic street/admin aliases or solved names; literal prefixes are candidate directions only.",
+    "No all-country deeper-path scan, source group/node/PBF reread, original DB/image read or mutation in this scope.",
+    "No full unresolved-key file hash/pass; original prefix was393226 compressed bytes /20000 rows.",
+    "No claim all1996063+277514 missing street groups need new physical roads or JAI entries."
+  ],
+  "name_alias_applied": false,
+  "actual_new_native_streets_determined": false,
+  "native_CPU_executed": false,
+  "device_IO": false,
+  "full_Taiwan_native_update_complete": false
+}

@@ -1,0 +1,69 @@
+{
+  "control": 0,
+  "name": "strict_marker",
+  "symbols": {
+    "__combined_ram_bytes": 2298964,
+    "original_tts_entry": 47556920,
+    "cache_marker_entry": 49792564,
+    "call": 49794696,
+    "same": 49794708,
+    "original_version": 49794764,
+    "id": 49794836,
+    "_GLOBAL_OFFSET_TABLE_": 49794888,
+    "__marker_bss_start": 49794912,
+    "marker_state": 49794912,
+    "__marker_bss_end": 49795016
+  },
+  "combined_file": "staging/native-player-warm-probe/strict_marker/combined-emulation-only.bin",
+  "combined_ram": 2298964,
+  "original_ram": 2296496,
+  "original_entry": 47556920,
+  "original_binary": "evidence/firmware-analysis/voice-modules/Chinese_Big5_MeiLing/DLLIMG.BIN",
+  "original_sha256": "a1e8f473c5cf87f5cdc364b402229f6222ce657fe779582dea62b8423cacec44",
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-Os",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-DCONTROL=0",
+      "-Wl,-T,/root/garmin/staging/native-player-warm-probe/strict_marker/entry.ld",
+      "-Wl,--build-id=none,-Map=/root/garmin/staging/native-player-warm-probe/strict_marker/entry.map",
+      "/root/garmin/staging/native-player-warm-probe/warm_cache_marker_entry_v1.c",
+      "-o",
+      "/root/garmin/staging/native-player-warm-probe/strict_marker/marker-emulation.elf"
+    ],
+    [
+      "arm-linux-gnueabi-objcopy",
+      "-O",
+      "binary",
+      "/root/garmin/staging/native-player-warm-probe/strict_marker/marker-emulation.elf",
+      "/root/garmin/staging/native-player-warm-probe/strict_marker/marker-emulation.bin"
+    ]
+  ],
+  "header_only_original_mutations": [
+    0,
+    4,
+    8
+  ],
+  "original_postheader_file_unchanged": true,
+  "source_sha256": {
+    "staging/native-player-warm-probe/warm_cache_marker_entry_v1.c": "4a592452b2ca2ad71d494240e8fb2fc15e935925cac883747dcac5775135e1b8",
+    "staging/native-player-warm-probe/build_warm_probe_v1.py": "68926cb35fa99d719ea57d2a8f5e647e8d8a8c227a5a67d9fdfc11c9c2364d5e",
+    "staging/native-player-warm-probe/strict_marker/entry.ld": "ca92cf30225f4326ee4f79adec7022dd643bc3fc6a8681e5ad8343457c1d3a84"
+  },
+  "binary_sha256": "6d629a56015b1b281375e10ef46238a53ec2d3a09bfd43e4209ca704169ecb93",
+  "elf_sha256": "a9424044723b6480e00b9704fc4973d99944be8b1cc623a84d8f1eaae38f043f",
+  "emulation_only": true,
+  "device_install_candidate": false,
+  "VPM_or_SIG_generated": false
+}

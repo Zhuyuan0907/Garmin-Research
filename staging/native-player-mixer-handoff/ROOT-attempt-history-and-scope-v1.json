@@ -1,0 +1,91 @@
+{
+  "updated_utc": "2026-10-04T20:45:53.747150+00:00",
+  "kind": "frozen ROOT attempt history, no guest re-execution",
+  "attempts": [
+    {
+      "version": 1,
+      "session": 35278,
+      "actual_chunk": "da7cf0",
+      "actual_exit_code": 1,
+      "receipt": "staging/native-player-mixer-handoff/guest-v1-terminal-tool-receipt.json",
+      "receipt_sha256": "4d3d725e2391aaf9b23b67ac8945cc89ff5eaeaafb56be8373812b4931b9f4da",
+      "runtime_evidence": "staging/native-player-mixer-handoff/guest-v1/terminal-failure.json",
+      "runtime_evidence_sha256": "f0c6613fcfa859a217927d01a39d80adaf800a75fd22d0b8cd0b4eb91b7d3d1e",
+      "error": "scheduled mixer PCM differs for command 1",
+      "completed_cases": []
+    },
+    {
+      "version": 2,
+      "session": 27958,
+      "actual_chunk": "7c4293",
+      "actual_exit_code": 1,
+      "receipt": "staging/native-player-mixer-handoff/guest-v2-terminal-tool-receipt.json",
+      "receipt_sha256": "2c7b953cc83054977504eb58e8f0fdeeba9d66d9d5cc77c713c44784f570be71",
+      "runtime_evidence": "staging/native-player-mixer-handoff/guest-v2/terminal-failure.json",
+      "runtime_evidence_sha256": "ed27b88b95909978ef6436bb883f8f8494391d2b05b527f3b6cefddc5fb1b921",
+      "error": "unexpected original message queue target",
+      "completed_cases": []
+    },
+    {
+      "version": 3,
+      "session": 43253,
+      "actual_chunk": "5a13e1",
+      "actual_exit_code": 1,
+      "receipt": "staging/native-player-mixer-handoff/guest-v3-terminal-tool-receipt.json",
+      "receipt_sha256": "d24ca362690f622c65e886fe2fe981c2f6efd71d618b1c93557a8b24c5543e89",
+      "runtime_evidence": "staging/native-player-mixer-handoff/guest-v3/terminal-failure.json",
+      "runtime_evidence_sha256": "883bb31b248e275d16b17a257e5d39e1c9b973e4fde7e2c55dd70609f67c3072",
+      "error": "RX changed during guest",
+      "completed_cases": []
+    },
+    {
+      "version": 4,
+      "session": 35445,
+      "actual_chunk": "37dd23",
+      "actual_exit_code": 1,
+      "receipt": "staging/native-player-mixer-handoff/guest-v4-terminal-tool-receipt.json",
+      "receipt_sha256": "109e4b806ff145fe2aaf64b4cc4940e7980c16de6f8f694cf1eba87e1ae7d2d8",
+      "runtime_evidence": "staging/native-player-mixer-handoff/guest-v4/terminal-failure.json",
+      "runtime_evidence_sha256": "a8e000adffa75b6272f5a48b4b8564a69b2d3f10558ed066971b9aac94c2d22a",
+      "error": "revoked/stopped source continued publishing PCM",
+      "completed_cases": [
+        {
+          "name": "normal_reuse_reselection_reset",
+          "path": "staging/native-player-mixer-handoff/guest-v4/normal_reuse_reselection_reset.json",
+          "sha256": "b1182f6f6c3c2e76601edab3bffdb3eacefdb36b9855e5f0e88bc75dfe07d2bd",
+          "passed": true
+        },
+        {
+          "name": "Stop_revokes_new_original_pulls",
+          "path": "staging/native-player-mixer-handoff/guest-v4/Stop_revokes_new_original_pulls.json",
+          "sha256": "dbdf711919e3ca62ae53d479a70cc812605f5355e275586c43ba376c3b544e21",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "version": 5,
+      "session": 3366,
+      "actual_chunk": "317e2a",
+      "actual_exit_code": 0,
+      "receipt": "staging/native-player-mixer-handoff/guest-v5-terminal-tool-receipt.json",
+      "receipt_sha256": "5606f11cb90b25f3a6c814bdb443eadfe61b27672480e630134c5ca782c709b5",
+      "runtime_evidence": "staging/native-player-mixer-handoff/guest-v5/inputs-at-run.json",
+      "runtime_evidence_sha256": "2f2a72b90eae8abfb1e7cb5a980b78f6c850ecc49b393165e803efe901660836"
+    }
+  ],
+  "scope": {
+    "v1": "Observed source/mixer handoff and eight full normal pulls; check incorrectly expected512 total. Actual512PCM then1280underrun silence was preserved. Suitefailed.",
+    "v2": "Correct continuous output check,24full normal returns including native reselection; new reset path reached uninitialized hardwarebackendqueue. Suitefailed.",
+    "v3": "Exact hardware reset request transport declared;32full returns andboth originalcall sites; RXassertionfailed afterdescriptorhostwritesinsideidleRXpage. No complete-case file saved.",
+    "v4": "Descriptors movedtodistinctRWpage;normal32 andStop8full-return casespassed. Thirdrevocationcontrolfailed because sameprofile uses cached branch and doesnot rewrite callback. Suitefailed,two completedcasespreserved.",
+    "v5": "Newcompiledsource makes realoriginalprofile1(return10) thenprofile0(return0) transition. All3cases actualpassed with48fullreturns,42368CPUstores,42499jointevents,72wholeRWreplays."
+  },
+  "limitations": [
+    "Only offline guest MAIN callsites and veneers modified; exact disk MAIN untouched.",
+    "Original46CC7A syncwait remains explicit policyfixture; original1D8C8D resetrequest transport externalstub, no backend/ack/DMA.",
+    "Opaquealloc/query/release, genericmutex, hardwareactivation/ringconsumer andscratch are fixtures.",
+    "RawPCMsource notSBCdecoder; no livephone, speaker, installedApp, nativeexclusiveownership,STOP_DONE,unloadorGoogleMaps proof.",
+    "Fullnative andoutermixer return GP16/SP/CPSR are serialized; ordinarycontrollerreturn endpoint notserialized becauseemu end sentinel bypassesobserver."
+  ]
+}

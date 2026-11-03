@@ -1,0 +1,10 @@
+{
+  "tool_result": {
+    "chunk_id": "74b6d9",
+    "wall_time_seconds": 0.106953177,
+    "exit_code": 1,
+    "original_token_count": 240,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mmu-software/emulate_mapping_v1.py\", line 173, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-mmu-software/emulate_mapping_v1.py\", line 158, in main\n    m=MappingCase(stock,spec);row=m.run();p=runtime/(spec['name']+'.json');dump(p,row)\n                                  ~~~~~^^\n  File \"/root/garmin/staging/native-player-mmu-software/emulate_mapping_v1.py\", line 100, in run\n    require(self.uc.reg_read(UC_ARM_REG_CPSR)==self.entry_CPSR,'Original IRQ/flags not restored')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mmu-software/emulate_mapping_v1.py\", line 37, in require\n    if not value:raise ValueError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Original IRQ/flags not restored\n"
+  },
+  "scope": "Actual root failed v1 software test; harness compared ARM initialization flags with Thumb return. Original mapping success not claimed."
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "saved-template-and-Android-capability-choice-FILE/v1",
+  "updated_utc": "2026-10-07T12:32:51.861609+00:00",
+  "inputs": [
+    {
+      "path": "sdp-metadata-capture.json.gz",
+      "bytes": 4264,
+      "sha256": "6df8913ab5b6b5019184d301de6180024a7be71b100a17885dbd3d4dd5ac1336"
+    },
+    {
+      "path": "aosp-observations.json",
+      "bytes": 985,
+      "sha256": "8ea03f1fcb6d2fd523a81974f2a35b1c10b57c63b7177df2abc1957c96cfac83"
+    },
+    {
+      "path": "aosp-signals-actual-tool-receipt.json",
+      "bytes": 1207,
+      "sha256": "eefde71e4a7a6a06b5028de5ab916cd76aab833a00eec893713b775bde8d80f7"
+    },
+    {
+      "path": "aosp-versions-actual-tool-receipt.json",
+      "bytes": 1383,
+      "sha256": "56f3cfa4d055a4b7125ebb622104daf15ee8a27e421ffa70b46e22ee74739bd2"
+    }
+  ],
+  "sdp_template": {
+    "handle": "0x90007",
+    "class": "Audio Sink",
+    "L2CAP_PSM": 25,
+    "AVDTP_version_uint16": 256,
+    "A2DP_profile_version_uint16": 256,
+    "source_metadata_sha256": "1863ae6815194a99dec9aa225a6015c5c0abbe7f9cc6174e1030147a82f4396c",
+    "source_metadata_bytes": 82724,
+    "actual_device_service_activation_or_advertisement_verified": false
+  },
+  "public_Android": {
+    "sources": [
+      {
+        "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/a5a1f4f32268a9bdff15978dcf6126825a8e0c44/system/bta/av/bta_av_aact.cc",
+        "whole_source_bytes": 127315,
+        "whole_source_sha256": "30020c37b73982f676aa4ecf794d165e74b57528deb684900d1d6165ed9585e1",
+        "facts": {
+          "function": "bta_av_next_getcap",
+          "condition_line": 336,
+          "GetAllCapabilities_requires_peer_and_local_version_at_least": "1.3"
+        },
+        "firmware_or_Pixel_OS_build": false
+      },
+      {
+        "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/7d9992990d914ac0531344060a355c85f041043c/system/stack/avdt/avdt_api.cc",
+        "whole_source_bytes": 37091,
+        "whole_source_sha256": "544c5a6eabf43d68a93b8c0fce7acb523dd3584adffcdeb6221632c3b23b4aae",
+        "facts": {
+          "function": "AVDT_GetCapReq",
+          "choice_line": 374,
+          "true_choice": "GET_ALLCAP",
+          "false_choice": "GETCAP"
+        },
+        "firmware_or_Pixel_OS_build": false
+      }
+    ],
+    "signal_definitions_source": {
+      "url": "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/7d9992990d914ac0531344060a355c85f041043c/system/stack/avdt/avdt_defs.h",
+      "bytes": 7876,
+      "sha256": "35c80621cb4c1ffbecb665ea67cddad5cf47853bcfdc2db51363757956d3b455",
+      "line_numbers": {
+        "AVDT_SIG_GETCAP": 46,
+        "AVDT_SIG_GETCONFIG": 48,
+        "AVDT_SIG_GET_ALLCAP": 56
+      }
+    },
+    "identifiers": {
+      "AVDT_SIG_GETCAP": 2,
+      "AVDT_SIG_GETCONFIG": 4,
+      "AVDT_SIG_GET_ALLCAP": 12
+    },
+    "exact_Pixel_OS_build_or_live_traffic_inspected": false,
+    "whole_AOSP_build_identity_across_two_commits_claimed": false
+  },
+  "conditional_inference": {
+    "if_unchanged_template_advertised_and_phone_follows_reviewed_branch": "peer AVDTP 1.0 fails the >=1.3 condition; request uses GetCapabilities (2)",
+    "GetConfiguration_4_is_GetAllCapabilities": false,
+    "all_capabilities_12_proven_required_for_this_Pixel_or_this_device": false,
+    "physical_A2DP_endpoint_or_negotiation_proven": false
+  },
+  "next_action": "Verify actual service-version advertisement and ordinary GetCapabilities/SetConfiguration bindings before treating unreviewed signal12 as the cause. Do not advertise a higher version without its handlers.",
+  "activity": {
+    "original_firmware_ASM_MAIN_ELF_RAM_read": false,
+    "native_compile_import_guest": false,
+    "native_source_or_call_site_changed": false,
+    "device_BT_DBUS_audio": false,
+    "interrupted_guest_retry": false
+  },
+  "root_accounting_scope": {
+    "SDP_source_body_reads": 2,
+    "SDP_source_body_bytes": 165448,
+    "public_source_decoded_body_bytes": 206756,
+    "entire_network_or_filesystem_IO_total_claimed": false,
+    "prior_stat_cap_observation": {
+      "chunk_id": "07f66b",
+      "exit_code": 1,
+      "body_read": false,
+      "observed_metadata_size": 82724,
+      "cap": 65536
+    },
+    "later_fixed_metadata_cap": 98304,
+    "whole_turn_all_commands_passed": false
+  },
+  "native_install_ready": false,
+  "full_goal_complete": false
+}

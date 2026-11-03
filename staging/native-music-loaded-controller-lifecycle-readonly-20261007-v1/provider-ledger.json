@@ -1,0 +1,555 @@
+{
+  "schema": "loaded-controller-lifecycle-file-review-v1",
+  "scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1",
+  "review_only": true,
+  "conclusion": "The loaded-v2 path has real controller C and a direct umc_adapters initializer. Start/scoped admission/copied FIFO/full-frame guards exist at source level. Cancel/stop observation deliberately remain unsupported (-200), later Source service/token/cleanup caller wiring is not established in this selected set, and native ownership/lifetime/GUI acceptance remains unproved.",
+  "source_body_bytes": 79152,
+  "source_files": 12,
+  "ops_initializer": {
+    "evidence": {
+      "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+      "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+      "line": 35,
+      "function": "cfg / ops"
+    },
+    "members": [
+      {
+        "member": "context",
+        "provider": "0 (callbacks ignore context)",
+        "line": 36,
+        "classification": "actual C initializer; not a native ownership provider"
+      },
+      {
+        "member": "metadata_enter",
+        "provider": "irq_enter",
+        "line": 16,
+        "original_target": "0x0021b6cc",
+        "classification": "compiled-source original-address call, not executed in this review"
+      },
+      {
+        "member": "metadata_leave",
+        "provider": "irq_leave",
+        "line": 18,
+        "original_target": "0x0021b6dc",
+        "classification": "compiled-source original-address call, not executed in this review"
+      },
+      {
+        "member": "current_actor",
+        "provider": "current_actor",
+        "line": 20,
+        "original_target": "0x00358d25 (Thumb)",
+        "classification": "compiled-source original-address call, not a captured live TCB"
+      },
+      {
+        "member": "wake_source",
+        "provider": "wake_native",
+        "line": 22,
+        "original_target": "0x002fcf44 (ARM)",
+        "classification": "owner/event validation then void POST; return0 is local invocation return, not wake/service completion"
+      },
+      {
+        "member": "prepare_start",
+        "provider": "prepare_scoped",
+        "line": 25,
+        "classification": "route8/cookie1352 guard then scoped software reservation"
+      },
+      {
+        "member": "request_cancel",
+        "provider": "unavailable_cancel",
+        "line": 28,
+        "classification": "explicit unsupported; returns -200"
+      },
+      {
+        "member": "observe_stop",
+        "provider": "unavailable_stop",
+        "line": 30,
+        "classification": "explicit unsupported; returns -200 without writing evidence"
+      }
+    ]
+  },
+  "baseline": {
+    "name": "loaded-v2",
+    "image_manifest_inherited_from_parent": "staging/native-player-loaded-single-image/build-v2.json",
+    "manifest_bytes": 75903,
+    "manifest_full_sha256_not_supplied_to_this_review": true,
+    "parent_receipts": [
+      "5c7f2e EXIT0"
+    ],
+    "parent_metadata": "Controller unit and reused source-build-v2/18-ui_music_control.o linked in one image; no old native_adapter.c unit. These selected body hashes are independently read, but compiled-object identity is not independently rehashed.",
+    "newer_build_v3": "Parent reports a later build-v3 and selected passive entry/outputowner consistency. This review does not claim v2 is globally latest or extrapolate all providers to v3."
+  },
+  "rows": [
+    {
+      "id": "real-controller-provider",
+      "classification": "implemented direct controller/glue",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 13,
+          "function": "aas_control / aas_guard"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 33,
+          "function": "aas_initialize"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 27,
+          "function": "umc_init"
+        }
+      ],
+      "actual_C": "Driver constructs the eight-member umc_adapters table and directly invokes controller C functions. It does not need the older umcn_control_functions table for these calls.",
+      "condition": "cfg uses current_actor(0), route8, cookie0x1352, resident_storage_confirmed=1. IRQ/current/POST address calls are C source statements, not execution evidence here.",
+      "held": "Final loaded binary/image residency and physical Source TCB/ownership, decoder readiness and installation remain unverified.",
+      "next_file_evidence": "Exact loaded-v2 source registry/object mapping and resident caller contract; production pin/owner provider rather than a generic 'no core' assertion."
+    },
+    {
+      "id": "init-and-ready",
+      "classification": "implemented local init and caller-asserted READY",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 40,
+          "function": "aas_pcm_initialize / umc_init / mcs_init"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 50,
+          "function": "umc_runtime_ready"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 50,
+          "function": "umc_runtime_ready"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 41,
+          "function": "initialize_stage1"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c",
+          "sha256": "d3a2982365b48b98883cb0e994877fb662ff64e77d4c7a1e7e95f46e50ab3fe0",
+          "line": 13,
+          "function": "aas_pcm_initialize"
+        }
+      ],
+      "actual_C": "Initialize private output/queue, controller and guard, set bridge context, then READY. Source invokes stage1 before WAIT loop.",
+      "condition": "umc_runtime_ready validates controller/Source owner/BOOTING only; its comment says caller must already have observed complete native initializer/decoder readiness. Driver does not gather that complete evidence. Stage1 resets global queues and all 18 mappings and configures channel8; it is expressly a cold test caller.",
+      "held": "Cannot treat warm resident code ingress/passive-ready as safe warm Source initialization or cross-channel readiness. mh_initialized=1 is also set after a failing stage1, so mh_initialize_result must be checked.",
+      "next_file_evidence": "Warm-system complete initializer/publication record with result/owner/readiness and a non-resetting original caller path."
+    },
+    {
+      "id": "first-start-and-service",
+      "classification": "implemented software start/admission",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 51,
+          "function": "aas_initialize start/service"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 25,
+          "function": "prepare_scoped"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 66,
+          "function": "umc_request_start"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 148,
+          "function": "umc_service"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 34,
+          "function": "mcs_reserve_scoped"
+        }
+      ],
+      "actual_C": "request_start increments nonwrapping generation/admission_epoch and queues/wakes. First service calls prepare_scoped on Source owner; successful software reserve arms admission. Queue callback is installed afterwards.",
+      "condition": "Reserve checks Source owner, normal context, no conflicting local borrow/mutation, current generation and ARMED/ARMING/ACTIVE state. It increments scoped guard epoch without certifying native channel ownership.",
+      "held": "Successful prepare is not actual AVDTP START, phone/session coherence, SEP publication or an all-writer witness.",
+      "next_file_evidence": "Same-image coherent phone-session provider and native ownership grant with explicit token/TCB/epoch provenance before admission."
+    },
+    {
+      "id": "later-service-wiring",
+      "classification": "bounded caller gap",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 53,
+          "function": "sole selected umc_service call"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 128,
+          "function": "mh_source_entry"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 188,
+          "function": "STOPPING service branch"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 265,
+          "function": "lease-release wake"
+        }
+      ],
+      "actual_C": "Within these twelve files, umc_service is called only during aas_initialize. Source's later WAIT loop processes commands and drains copied media; it does not service controller state. Lease releases can POST a stopping wake but do not themselves call service.",
+      "condition": "If an external caller later invokes service in STOPPING, request_cancel returns -200 and controller enters ERROR_PINNED. Without another caller it can remain STOPPING.",
+      "held": "This selected-set gap is not an assertion that no unreviewed image/provider could call service.",
+      "next_file_evidence": "Concrete Source-owner wake/iteration glue calling umc_service, retaining original scheduler/full-return semantics; unsupported cancel provider must still be addressed."
+    },
+    {
+      "id": "copied-ingress-and-consumer",
+      "classification": "implemented typed leases and FIFO publication guards",
+      "evidence": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c",
+          "sha256": "d3a2982365b48b98883cb0e994877fb662ff64e77d4c7a1e7e95f46e50ab3fe0",
+          "line": 24,
+          "function": "aas_media_ingress"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+          "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+          "line": 74,
+          "function": "owned_media_consume"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+          "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+          "line": 163,
+          "function": "continuous_media_read"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 336,
+          "function": "mcs_event_begin"
+        }
+      ],
+      "actual_C": "Ingress validates initialized Source TCB/record callback and acquires media+callback leases, calls copying queue callback, rechecks admission, releases leases, then POSTs. Consumer requires Source owner, same callback bridge and CONSUMER admission, rechecks queue epoch before and after submit, and discards a speculative output ticket if invalidated.",
+      "condition": "Media identity is controller generation/admission_epoch/cookie. FIFO identity is its independent queue epoch/ticket. First request must use actual retained copied bytes; packet/temporary handle is not retained beyond copy.",
+      "held": "Callback leases end before POST/full foreign callback return. Residency is the explicit lifetime assumption; this is not future-callback quiescence or an unload barrier. The queue/decoder implementation bodies were not read this scope; headers alone are not additional runtime proof.",
+      "next_file_evidence": "Bind real receiver phone epoch and Source/controller/FIFO epoch domains through explicit coherent provider; retain module/context through complete foreign callback returns."
+    },
+    {
+      "id": "source-and-mixer-session-identity",
+      "classification": "implemented scoped identity/descriptor guards",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 81,
+          "function": "mcs_register_begin/end"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 181,
+          "function": "mcs_handoff_source_to_mixer"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 167,
+          "function": "mixer_capability_current"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 231,
+          "function": "mcs_capture_selected"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/native_context_v4.c",
+          "sha256": "27df8d4a944b749267261ef49c1302be7d7d388c7f277b025b7c29b3723fc4c2",
+          "line": 3,
+          "function": "mcs_native_normal_context"
+        }
+      ],
+      "actual_C": "Native-session identity uses guard epoch/controller generation; registration_ticket is an immutable bootstrap token, not current FIFO ownership. Handoff requires Source owner, CONFIG admission, distinct original M+78 mixer TCB, queue/stack/descriptor identity and bounded 8 KiB stack. Mismatch in generation/admission epoch/record callback/descriptor revokes capability.",
+      "condition": "Normal CPSR System/SVC and zero IRQ marker required. Selected provider/anchor/kind/format and reader are checked; this guards the declared Source/mixer scope.",
+      "held": "ms_validate_completed_sync implementation and its invocation of handoff were not read; matching descriptor/provider does not prove exclusive native ownership or all external writers.",
+      "next_file_evidence": "Actual same-image handoff caller/descriptor publication and provider provenance; distinct software scope and native reservation evidence."
+    },
+    {
+      "id": "whole-pull-return-chain",
+      "classification": "implemented C admission/return bookkeeping; hook integration held",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 203,
+          "function": "mcs_mixer_selector_begin/after_original"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 250,
+          "function": "mcs_pull_begin"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 284,
+          "function": "mcs_pull_end"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 296,
+          "function": "mcs_reader_admit"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+          "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+          "line": 1,
+          "function": "guest-only bridge contract"
+        }
+      ],
+      "actual_C": "Selector requires LR0x2fa299 and actual mixer capability. Pull permits LR0x2fa577 or0x2fa53b, binds a frame to actor/generation/epoch/session/instance, and holds media+callback leases through the declared full original pull return. Matching frame/actor alone records original_returned and releases leases.",
+      "condition": "Original-return result alone does not certify stop. Reader requires the current matching borrowed frame and media admission. Header requires three guest-only BL redirections; assembly/call-site bodies were not read/run here.",
+      "held": "No installed production bridges, original instruction/full-return runtime execution, whole callback quiescence, hardware mute or STOP_DONE in this review.",
+      "next_file_evidence": "A separately authorized same-image original caller/complete return bridge contract and provenance; no guest execution requested or performed."
+    },
+    {
+      "id": "stop-request-command-and-pause",
+      "classification": "implemented local stop/request; no native completion",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 57,
+          "function": "aas_stop"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 92,
+          "function": "process_command"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 128,
+          "function": "mh_source_entry"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 153,
+          "function": "mh_request_command"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 97,
+          "function": "umc_request_stop"
+        }
+      ],
+      "actual_C": "Stop closes armed admission, increments admission epoch without wrap, sets STOPPING and POSTs. aas_stop calls media_queue_stop only for UMC_PENDING. Source command5 invokes it then may send mixer16/17/18 and returns local0. Pause/resume8/9 use separate pause_epoch and leave software queue running.",
+      "condition": "mh_request_command rejects an occupied mailbox (no coalescing), then writes command and POSTs; return0 is acceptance, not command completion. WAIT loop clears mailbox, processes command before data and separately records result/completed-command. Queue stop implementation was not read; its actual epoch behavior is not newly proved by this source call.",
+      "held": "Sending reset/reset-done/read messages is not actual reset hardware ACK or stop completion; message-send failures are ignored in several command paths. Pause is not instantaneous hardware mute.",
+      "next_file_evidence": "Concrete Source cancel provider and separate accepted/process-return/native-complete state, with original cleanup/full-return evidence."
+    },
+    {
+      "id": "native-stop-completion-predicate",
+      "classification": "implemented core predicate; providers unsupported",
+      "evidence": [
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 125,
+          "function": "stop_complete"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 188,
+          "function": "umc_service stop branch"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.h",
+          "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+          "line": 30,
+          "function": "umc_stop_evidence"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 28,
+          "function": "unavailable_cancel / unavailable_stop"
+        }
+      ],
+      "actual_C": "Core requires matching generation/route/cookie; owned cancellation complete, native idle, zero nodes/methods/providers/mixer/driver/native calls/reader/coordinator/anchor/FIFO/queue refs. Published Source additionally needs matching token, cleanup_seen, node-removal/anchor-release/FIFO-discard full returns; never-published needs its explicit barrier.",
+      "condition": "Only a successful observe_stop plus all predicates transitions STOPPED and sets completed_generation. Both driver callbacks return -200, so this driver cannot supply that evidence.",
+      "held": "No all-writer/foreign callback exclusion, complete cleanup/retirement or STOP_DONE is produced by local queue stop, pull_return or empty counts.",
+      "next_file_evidence": "Owner-bound request_cancel and observe_stop implementations populated solely from serialized full original-return observations."
+    },
+    {
+      "id": "publication-token-cleanup-and-status",
+      "classification": "APIs implemented; selected callers unbound",
+      "evidence": [
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 313,
+          "function": "umc_source_started"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 334,
+          "function": "umc_cleanup_returned"
+        },
+        {
+          "path": "native/ui-music-control-prototype/ui_music_control.c",
+          "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+          "line": 229,
+          "function": "umc_status_read"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+          "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+          "line": 67,
+          "function": "aas_status"
+        },
+        {
+          "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+          "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+          "line": 178,
+          "function": "mh_status"
+        }
+      ],
+      "actual_C": "source_started requires nonzero token and matching route/generation/cookie/state, retains token and can set ACTIVE. cleanup_returned requires source_seen and exact token before setting cleanup_seen. status_read is IRQ-protected; aas_status/mh_status are direct diagnostic field arrays with a smaller set of controller fields.",
+      "condition": "Neither source_started nor cleanup_returned has a caller in the selected external C bodies. Diagnostic arrays are not the complete owner-serialized stop-evidence provider.",
+      "held": "Native record identity to controller source token, original cleanup full return to cleanup_seen, and GUI status/error handling remain unbound in this selected evidence.",
+      "next_file_evidence": "Exact publication callback and whole original cleanup return callback supplying the same native record token/generation/cookie; concrete GUI routing/status consumer."
+    },
+    {
+      "id": "fifo-retirement-helper",
+      "classification": "real local helper with caller-only preconditions",
+      "evidence": [
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+          "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+          "line": 140,
+          "function": "owned_media_release"
+        },
+        {
+          "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+          "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+          "line": 231,
+          "function": "continuous_media_cancel_ready"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 49,
+          "function": "mcs_release_scoped"
+        }
+      ],
+      "actual_C": "Finite owned_media_release is unsupported (-25). cancel_ready checks busy/reader/active-ticket then each READY ticket/in-flight state and discards at most four FIFO slots. release_scoped requires Source owner/normal context and STOPPED, no borrow/native/output/references before releasing guard.",
+      "condition": "cancel_ready's comment requires Source actor after native cleanup/removal/anchor release, but its body does not verify actor, record/token/epoch or those native-return predicates. No selected caller binds it to that chain; selected release_scoped has no caller either.",
+      "held": "A local FIFO discard result is not native anchor/list retirement. Caller preconditions cannot be relabeled self-enforced ownership proof.",
+      "next_file_evidence": "A serialized Source cleanup caller that establishes complete native returns, then invokes local discard and observes each result before final stop evidence."
+    },
+    {
+      "id": "native-ownership-provider",
+      "classification": "explicit uncertified provider",
+      "evidence": [
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+          "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+          "line": 356,
+          "function": "mcs_native_ownership_snapshot"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+          "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+          "line": 5,
+          "function": "scoped reservation scope"
+        }
+      ],
+      "actual_C": "Ownership snapshot leaves witness untouched and returns MCS_UNCERTIFIED=-200. Software CONFIG reserve and mixer capability are separate admission mechanisms.",
+      "condition": "Source/anchor/generation/descriptor matches scope permitted accesses but cannot exclude unredirected queue paths, independent native writers, future callbacks or provider allocation.",
+      "held": "Native owner, all-writer barrier, STOP_DONE, hardware readiness, App/direct-phone/speaker/installable all false.",
+      "next_file_evidence": "Exact all-writer inventory, reservation/epoch provider and future callback barrier before any native live acceptance; no live test proposed by this task."
+    }
+  ],
+  "dependencies_only": [
+    {
+      "path": "native/sbc-prototype/memory_output.h",
+      "sha256": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+      "scope": "declarations/private metadata only; implementation not read or executed this scope"
+    },
+    {
+      "path": "native/sbc-prototype/media_queue.h",
+      "sha256": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+      "scope": "declarations/private metadata only; implementation not read or executed this scope"
+    },
+    {
+      "path": "native/sbc-prototype/decoder.h",
+      "sha256": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+      "scope": "declarations/private metadata only; implementation not read or executed this scope"
+    }
+  ],
+  "source_stale_comments": [
+    {
+      "evidence": {
+        "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+        "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+        "line": 1,
+        "function": "file comment"
+      },
+      "note": "'single actor/not native mixer' is copied stale documentation relative to later mixer/Source guard and source event code; not corrected in shared source and not treated as runtime evidence."
+    },
+    {
+      "evidence": {
+        "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+        "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+        "line": 1,
+        "function": "file comment"
+      },
+      "note": "copied v3 wording on v4 filename is not an artifact identity witness; actual bytes are independently pinned."
+    }
+  ],
+  "limitations": [
+    "No producer/target import, compile/test, guest/native/original instruction execution, binary/firmware/RAM, DBus/device/audio or shared edits.",
+    "Source-only actual C is not actual runtime/native acceptance. Parent metadata is inherited and explicitly separated from fresh source body pins.",
+    "No existing closed suite or interrupted guest was rerun.",
+    "Selected-set absence is not global whole-project absence. External mixer sync/output-owner/entry/remote/session bodies were assigned to root/peer and not reopened.",
+    "Static original addresses and assertions are not a physical API/residency/ownership certificate."
+  ],
+  "acceptance_flags": {
+    "native_owner": false,
+    "STOP_DONE": false,
+    "native_App": false,
+    "direct_phone_A2DP": false,
+    "speaker": false,
+    "installable": false
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "loaded-controller-lifecycle-file-review-proof-v1",
+  "scope": "native-music-loaded-controller-lifecycle-readonly-20261007-v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "review_only": true,
+  "no_execution_of_reviewed_sources": true,
+  "conclusion": "Real direct controller/glue C exists in the loaded-v2 Source path. Cancel/stop observers return -200; later Source wake→service and publication/cleanup→controller callers are not established in the selected twelve files. FIFO/pull/source guards are local lifetime/admission mechanisms, not native ownership or STOP_DONE.",
+  "source_content_bytes": 79152,
+  "source_files": 12,
+  "source_content_limit": 153600,
+  "per_file_limit": 65536,
+  "source_read_receipts": [
+    {
+      "chunk_id": "cbf88a",
+      "exit_code": 0,
+      "terminal": true,
+      "source_bytes": 36520
+    },
+    {
+      "chunk_id": "6122dd",
+      "exit_code": 0,
+      "terminal": true,
+      "source_bytes": 42632
+    }
+  ],
+  "key_source_pins": {
+    "staging/native-player-mixer-handoff/audio_session_driver_v4.c": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+    "staging/native-player-remote-pause/mixer_source_pause_v1.c": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+    "native/ui-music-control-prototype/ui_music_control.c": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+    "staging/native-player-mixer-handoff/music_session_guard_v4.c": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+    "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+    "staging/native-player-loaded-single-image/build-v2/sbc_fifo_loaded_v1.c": "d3a2982365b48b98883cb0e994877fb662ff64e77d4c7a1e7e95f46e50ab3fe0"
+  },
+  "checks": {
+    "source_files": 12,
+    "bytes": 79152,
+    "ops_members": 8,
+    "provider_rows": 12,
+    "cancel_is_minus200": true,
+    "source_loop_no_service": true,
+    "selected_publication_and_cleanup_callers": 0
+  },
+  "baseline_identity": {
+    "selected_baseline": "loaded-v2",
+    "root_source_registry_and_reused_controller_object_claim": "inherited from parent ordinary metadata audit",
+    "compiled_artifacts_reopened": false,
+    "source_registry_full_independent_comparison": false,
+    "newer_v3_all_provider_equivalence_claimed": false
+  },
+  "closed_findings": [
+    "Direct umc_adapters initializer/core/start/service implementation distinguished from the separate older adapter.",
+    "READY caller assertion/residency literal/cold global initialization boundaries identified.",
+    "Source-only software generation/admission epoch/FIFO tickets/pause epoch and mixer TCB/descriptor/full-frame guards identified.",
+    "Unsupported cancel and observe_stop kept -200; complete stop predicate not relabeled as observed completion.",
+    "Selected-set missing subsequent service/token/cleanup/retirement call sites stated without global absence claim.",
+    "cancel_ready caller-only actor/cleanup preconditions and limited local checks stated."
+  ],
+  "target_acceptance": {
+    "native_owner": false,
+    "STOP_DONE": false,
+    "native_App": false,
+    "direct_phone_A2DP": false,
+    "speaker": false,
+    "installable": false
+  },
+  "limitations": [
+    "No producer/native imports, compile/test, guest/native instructions, firmware/ELF/RAM/device/audio or shared/canonical edits.",
+    "C source implementation is actual file evidence, not executed native behavior.",
+    "Parent/peer metadata and unreviewed mixer sync/outputowner/entry/session interfaces remain external; this review does not invent their bindings.",
+    "Original all-writer/future-callback barrier, warm ready ABI and physical package/current code residency remain unknown.",
+    "Final source stat validation uses no extra content reads. Output hashes bind exact emitted bytes/size/stat, without independent full output readback."
+  ]
+}

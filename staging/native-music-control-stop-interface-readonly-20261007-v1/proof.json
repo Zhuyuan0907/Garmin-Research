@@ -1,0 +1,71 @@
+{
+ "schema": "native-control-stop-interface-readonly-proof-v1",
+ "scope": "native-music-control-stop-interface-readonly-20261007-v1",
+ "all_assigned_checks_passed": true,
+ "STOP": true,
+ "review_only": true,
+ "no_execution_of_reviewed_sources": true,
+ "no_native_implementation": true,
+ "conclusion": "The generic controller can be reused through explicit typed symbol bindings and proven identity/notification providers. Neither public-table casting nor same-size coordinator-view casting establishes integration.",
+ "findings": {
+  "public_table": "ARM32 source model: ABI-version word plus 8 pointers = 36B; old adapter core role table 10 pointers = 40B. Role order differs. Both complete signatures and ordinal mapping are in comparison.json.",
+  "coordinator": "15 identical four-byte fields give 60B ARM32 source model in old view, finite coordinator and continuous coordinator. Storage equality does not establish finite/continuous ticket, rearm, source retirement or counter semantics.",
+  "identity": "Controller generation/admission epoch, software session epoch, native ownership witness epoch, ownership cookie, Source actor and recyclable FIFO tickets remain separate identity domains.",
+  "persistent_token": "Old publication requires coordinator.ticket = output.active_ticket with a live matching slot. Current registration_ticket is a bootstrap audit seed while FIFO slots may be released/reused. A durable native anchor/node-generation token and its publication/cleanup mapping remain unbound.",
+  "notifications": "Typed source_started and cleanup_returned APIs exist. Current Source publication and complete original cleanup return need exact same route/generation/cookie/persistent token; their actual production notification ingress is not established by this review.",
+  "stop": "Cancel accepted/process-returned/native cleanup-completed/STOP_DONE are distinct. Core complete predicate and old observer strategy are reusable; current provider storage, ownership/witness epoch, causal iteration, wake-to-service loop and full-return provenance require rebinding.",
+  "lifetime": "Distinct cleanup, pull and event frames carry different identities and leases. Do not cast/overlay frames or remove leases. Module/context residency and future callback exclusion remain required."
+ },
+ "file_model_limits": {
+  "architecture": "ARM32",
+  "pointer_bytes": 4,
+  "uint32_int32_bytes": 4,
+  "natural_alignment_assumption": 4,
+  "compiler_ABI_verified": false,
+  "device_ABI_verified": false,
+  "same_size_not_whole_family_compatibility": true
+ },
+ "evidence": {
+  "comparison": "comparison.json",
+  "source_pins": "source-pins.json",
+  "actual_reads": "actual-read-receipts.json",
+  "fresh_files": 3,
+  "fresh_content_bytes": 17119,
+  "reused_prior_capture_files": 10,
+  "reused_content_bytes": 113290,
+  "reused_content_fresh_read_bytes": 0,
+  "filename_index_io_separate_unmeasured": true,
+  "comparison_rows": 12
+ },
+ "scope_limits": {
+  "fresh_files": 8,
+  "fresh_total_content_bytes": 122880,
+  "per_file_bytes": 65536,
+  "fresh_plan_fixed_before_read": true,
+  "no_more_source_reads_planned": true,
+  "absence_claims": "Limited to reviewed source family/captures; not a whole-project caller, symbol-retention or hook absence claim."
+ },
+ "closure_method": "Hash closure of exactly emitted small artifacts and their final size/mode/stat. Fresh three source stats rechecked without body reread. No independent candidate/native/whole-image readback.",
+ "guard_sync_answer": {
+  "base_C_included": false,
+  "includes_base_H_at_line": 5,
+  "pin_journal": "staging/native-music-source-wake-service-references-readonly-20261007-v1/source-pins.json",
+  "source_sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+  "new_source_reads": 0
+ },
+ "prohibited_actions_performed": false,
+ "reviewed_source_imports": 0,
+ "compiler_tests": 0,
+ "guest_emulator_runs": 0,
+ "binary_firmware_RAM_reads": 0,
+ "device_DBUS_BT_audio_service_operations": 0,
+ "shared_source_or_callsite_edits": 0,
+ "acceptance_flags": {
+  "native_owner": false,
+  "STOP_DONE": false,
+  "native_App": false,
+  "direct_phone_A2DP": false,
+  "speaker": false,
+  "installable": false
+ }
+}

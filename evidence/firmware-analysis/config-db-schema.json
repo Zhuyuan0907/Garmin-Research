@@ -1,0 +1,48 @@
+{
+  "system.db": [
+    {
+      "name": "system",
+      "schema": "CREATE TABLE system ( _id INTEGER PRIMARY KEY, database_class INTEGER NOT NULL, part_number TEXT, version INTEGER NOT NULL, description TEXT, copyright TEXT, file_path TEXT NOT NULL, schema_version INTEGER NOT NULL, create_time INTEGER)"
+    }
+  ],
+  "pre.db": [
+    {
+      "name": "schema_version",
+      "schema": "CREATE TABLE schema_version( _id INTEGER PRIMARY KEY, schema_version_num INTEGER NOT NULL)"
+    },
+    {
+      "name": "history",
+      "schema": "CREATE TABLE history( _id INTEGER PRIMARY KEY, start_time INTEGER NOT NULL, start_lat INTEGER NOT NULL, start_lon INTEGER NOT NULL, end_lat INTEGER, end_lon INTEGER, end_name TEXT, end_time INTEGER)"
+    },
+    {
+      "name": "prediction",
+      "schema": "CREATE TABLE prediction( _id INTEGER PRIMARY KEY, create_time INTEGER NOT NULL, start_day_of_week INTEGER NOT NULL, start_tod INTEGER NOT NULL, start_lat INTEGER NOT NULL, start_lon INTEGER NOT NULL, start_time_range INTEGER NOT NULL, start_dist_range INTEGER NOT NULL, end_lat INTEGER NOT NULL, end_lon INTEGER NOT NULL, end_name TEXT NOT NULL, destination_success INTEGER DEFAULT 0 NOT NULL, route_success INTEGER DEFAULT 0 NOT NULL)"
+    },
+    {
+      "name": "history_rtree",
+      "schema": "CREATE VIRTUAL TABLE history_rtree USING RTREE( _id INTEGER PRIMARY KEY, lat_min INTEGER NOT NULL, lat_max INTEGER NOT NULL, lon_min INTEGER NOT NULL, lon_max INTEGER NOT NULL, start_min_tod INTEGER NOT NULL, start_max_tod INTEGER NOT NULL)"
+    },
+    {
+      "name": "history_rtree_node",
+      "schema": "CREATE TABLE \"history_rtree_node\"(nodeno INTEGER PRIMARY KEY, data BLOB)"
+    },
+    {
+      "name": "history_rtree_rowid",
+      "schema": "CREATE TABLE \"history_rtree_rowid\"(rowid INTEGER PRIMARY KEY, nodeno INTEGER)"
+    },
+    {
+      "name": "history_rtree_parent",
+      "schema": "CREATE TABLE \"history_rtree_parent\"(nodeno INTEGER PRIMARY KEY, parentnode INTEGER)"
+    }
+  ],
+  "custom_mm_icons.db": [
+    {
+      "name": "garmin_metadata",
+      "schema": "CREATE TABLE garmin_metadata( _id INTEGER PRIMARY KEY, part_number TEXT, database_class INTEGER, version INTEGER, description TEXT, copyright TEXT, schema_version INTEGER, create_timestamp TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP )"
+    },
+    {
+      "name": "custom_table",
+      "schema": "CREATE TABLE custom_table ( id INTEGER PRIMARY KEY, icon INTEGER, size INTEGER )"
+    }
+  ]
+}

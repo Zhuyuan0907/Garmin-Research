@@ -1,0 +1,178 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-media-worker/media_queue.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+ .text          0x00000000        0x0 /root/garmin/staging/native-media-worker/media_worker.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-media-worker/media_worker.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-media-worker/media_worker.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-media-worker/media_worker.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-media-worker/media_worker.o
+ .text          0x00000000        0x0 /root/garmin/staging/native-media-worker/runtime.o
+ .data          0x00000000        0x0 /root/garmin/staging/native-media-worker/runtime.o
+ .bss           0x00000000        0x0 /root/garmin/staging/native-media-worker/runtime.o
+ .text.prototype_arena_reset
+                0x00000000       0x14 /root/garmin/staging/native-media-worker/runtime.o
+ .text.prototype_arena_used
+                0x00000000       0x10 /root/garmin/staging/native-media-worker/runtime.o
+ .text.malloc   0x00000000       0x48 /root/garmin/staging/native-media-worker/runtime.o
+ .text.free     0x00000000        0x4 /root/garmin/staging/native-media-worker/runtime.o
+ .text.unlikely.__aeabi_idiv0
+                0x00000000        0x4 /root/garmin/staging/native-media-worker/runtime.o
+ .text.unlikely.__aeabi_ldiv0
+                0x00000000        0x4 /root/garmin/staging/native-media-worker/runtime.o
+ .bss.used      0x00000000        0x4 /root/garmin/staging/native-media-worker/runtime.o
+ .bss.arena     0x00000000     0x4000 /root/garmin/staging/native-media-worker/runtime.o
+ .comment       0x00000000       0x20 /root/garmin/staging/native-media-worker/runtime.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-media-worker/runtime.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08300000                        . = 0x8300000
+
+.text           0x08300000      0x7b4
+ *(.text*)
+ .text.lock     0x08300000       0x14 /root/garmin/staging/native-media-worker/media_queue.o
+ .text.unlock   0x08300014        0xc /root/garmin/staging/native-media-worker/media_queue.o
+ .text.discard_pending
+                0x08300020       0x34 /root/garmin/staging/native-media-worker/media_queue.o
+ .text.media_queue_begin
+                0x08300054       0xc8 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08300054                media_queue_begin
+ .text.media_queue_stop
+                0x0830011c       0x48 /root/garmin/staging/native-media-worker/media_queue.o
+                0x0830011c                media_queue_stop
+ .text.media_queue_step
+                0x08300164      0x1e0 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08300164                media_queue_step
+ .text.media_queue_init
+                0x08300344       0x74 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08300344                media_queue_init
+ .text.media_queue_callback
+                0x083003b8      0x174 /root/garmin/staging/native-media-worker/media_queue.o
+                0x083003b8                media_queue_callback
+ .text.post     0x0830052c       0x1c /root/garmin/staging/native-media-worker/media_worker.o
+ .text.media_worker_notify_capacity
+                0x08300548       0x44 /root/garmin/staging/native-media-worker/media_worker.o
+                0x08300548                media_worker_notify_capacity
+ .text.media_worker_entry
+                0x0830058c       0xa4 /root/garmin/staging/native-media-worker/media_worker.o
+                0x0830058c                media_worker_entry
+ .text.media_worker_init
+                0x08300630       0x34 /root/garmin/staging/native-media-worker/media_worker.o
+                0x08300630                media_worker_init
+ .text.media_worker_callback
+                0x08300664       0x54 /root/garmin/staging/native-media-worker/media_worker.o
+                0x08300664                media_worker_callback
+ .text.media_worker_shutdown
+                0x083006b8       0x3c /root/garmin/staging/native-media-worker/media_worker.o
+                0x083006b8                media_worker_shutdown
+ .text.media_worker_boot
+                0x083006f4       0x8c /root/garmin/staging/native-media-worker/media_worker.o
+                0x083006f4                media_worker_boot
+ .text.memset   0x08300780       0x18 /root/garmin/staging/native-media-worker/runtime.o
+                0x08300780                memset
+ .text.memcpy   0x08300798       0x1c /root/garmin/staging/native-media-worker/runtime.o
+                0x08300798                memcpy
+
+.glue_7         0x083007b4        0x0
+ .glue_7        0x083007b4        0x0 linker stubs
+
+.glue_7t        0x083007b4        0x0
+ .glue_7t       0x083007b4        0x0 linker stubs
+
+.vfp11_veneer   0x083007b4        0x0
+ .vfp11_veneer  0x083007b4        0x0 linker stubs
+
+.v4_bx          0x083007b4        0x0
+ .v4_bx         0x083007b4        0x0 linker stubs
+
+.iplt           0x083007b4        0x0
+ .iplt          0x083007b4        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+
+.rodata         0x083007b4       0x2c
+ *(.queue_api)
+ .queue_api     0x083007b4       0x14 /root/garmin/staging/native-media-worker/media_queue.o
+                0x083007b4                media_queue_api
+ *(.worker_api)
+ .worker_api    0x083007c8       0x18 /root/garmin/staging/native-media-worker/media_worker.o
+                0x083007c8                media_worker_api
+ *(.rodata*)
+                0x083007e0                        __queue_code_end = .
+
+.rel.dyn        0x083007e0        0x0
+ .rel.iplt      0x083007e0        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08301000                        . = ALIGN (0x1000)
+                0x08301000                        __queue_state_start = .
+
+.data
+ *(.data*)
+
+.igot.plt       0x08301000        0x0
+ .igot.plt      0x08301000        0x0 /root/garmin/staging/native-media-worker/media_queue.o
+
+.bss            0x08301000       0x8c
+ *(.bss*)
+ .bss.lengths   0x08301000       0x10 /root/garmin/staging/native-media-worker/media_queue.o
+ .bss.media_queue_stats
+                0x08301010       0x24 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08301010                media_queue_stats
+ .bss.media_queue_control
+                0x08301034       0x24 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08301034                media_queue_control
+ .bss.descriptor
+                0x08301058       0x14 /root/garmin/staging/native-media-worker/media_worker.o
+ .bss.media_worker_state
+                0x0830106c       0x20 /root/garmin/staging/native-media-worker/media_worker.o
+                0x0830106c                media_worker_state
+ *(COMMON)
+                0x0830108c                        __queue_state_end = .
+                0x08303000                        . = (ALIGN (0x1000) + 0x1000)
+
+.queue_payload  0x08303000     0x4000
+                0x08303000                        __queue_payload_start = .
+ *(.queue_payload)
+ .queue_payload
+                0x08303000     0x4000 /root/garmin/staging/native-media-worker/media_queue.o
+                0x08307000                        __queue_payload_end = .
+                0x08308000                        . = (ALIGN (0x1000) + 0x1000)
+
+.worker_stack   0x08308000     0x4000
+                0x08308000                        __worker_stack_start = .
+ *(.worker_stack)
+ .worker_stack  0x08308000     0x4000 /root/garmin/staging/native-media-worker/media_worker.o
+                0x0830c000                        __worker_stack_end = .
+                0x00000001                        ASSERT (((__queue_payload_end - __queue_payload_start) == 0x4000), Payload size differs)
+                0x00000001                        ASSERT (((__worker_stack_end - __worker_stack_start) == 0x4000), Stack size differs)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /root/garmin/staging/native-media-worker/media_queue.o
+LOAD /root/garmin/staging/native-media-worker/media_worker.o
+LOAD /root/garmin/staging/native-media-worker/runtime.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-media-worker/worker-armv6.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-media-worker/media_queue.o
+ .ARM.attributes
+                0x0000002f       0x2f /root/garmin/staging/native-media-worker/media_worker.o
+ .ARM.attributes
+                0x0000005e       0x2f /root/garmin/staging/native-media-worker/runtime.o

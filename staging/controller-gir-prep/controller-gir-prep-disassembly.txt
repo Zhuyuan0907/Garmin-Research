@@ -1,0 +1,645 @@
+
+/root/garmin/staging/controller-gir-prep/controller-gir-prep-armv6.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0ea00000 <in_range>:
+ ea00000:	e1530002 	cmp	r3, r2
+ ea00004:	e1a0c000 	mov	ip, r0
+ ea00008:	3a00000d 	bcc	ea00044 <in_range+0x44>
+ ea0000c:	e1520000 	cmp	r2, r0
+ ea00010:	e0433002 	sub	r3, r3, r2
+ ea00014:	83a00000 	movhi	r0, #0
+ ea00018:	93a00001 	movls	r0, #1
+ ea0001c:	e1530001 	cmp	r3, r1
+ ea00020:	33a00000 	movcc	r0, #0
+ ea00024:	e3500000 	cmp	r0, #0
+ ea00028:	012fff1e 	bxeq	lr
+ ea0002c:	e04cc002 	sub	ip, ip, r2
+ ea00030:	e0433001 	sub	r3, r3, r1
+ ea00034:	e15c0003 	cmp	ip, r3
+ ea00038:	83a00000 	movhi	r0, #0
+ ea0003c:	93a00001 	movls	r0, #1
+ ea00040:	e12fff1e 	bx	lr
+ ea00044:	e3a00000 	mov	r0, #0
+ ea00048:	e12fff1e 	bx	lr
+
+0ea0004c <cg_controller_prepare>:
+ ea0004c:	e92d41ff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+ ea00050:	e3510000 	cmp	r1, #0
+ ea00054:	13500000 	cmpne	r0, #0
+ ea00058:	e3a04001 	mov	r4, #1
+ ea0005c:	e3a05000 	mov	r5, #0
+ ea00060:	e3e03033 	mvn	r3, #51	@ 0x33
+ ea00064:	e1cd40f8 	strd	r4, [sp, #8]
+ ea00068:	e5cd3007 	strb	r3, [sp, #7]
+ ea0006c:	0a00006b 	beq	ea00220 <cg_controller_prepare+0x1d4>
+ ea00070:	e1803001 	orr	r3, r0, r1
+ ea00074:	e3130003 	tst	r3, #3
+ ea00078:	e1a05000 	mov	r5, r0
+ ea0007c:	e1a04001 	mov	r4, r1
+ ea00080:	1a000066 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea00084:	e5902000 	ldr	r2, [r0]
+ ea00088:	e59f37c0 	ldr	r3, [pc, #1984]	@ ea00850 <cg_controller_prepare+0x804>
+ ea0008c:	e1520003 	cmp	r2, r3
+ ea00090:	1a000062 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea00094:	e5903004 	ldr	r3, [r0, #4]
+ ea00098:	e3530044 	cmp	r3, #68	@ 0x44
+ ea0009c:	1a00005f 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea000a0:	e5903008 	ldr	r3, [r0, #8]
+ ea000a4:	e353000f 	cmp	r3, #15
+ ea000a8:	1a00005c 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea000ac:	e590300c 	ldr	r3, [r0, #12]
+ ea000b0:	e3530000 	cmp	r3, #0
+ ea000b4:	0a000059 	beq	ea00220 <cg_controller_prepare+0x1d4>
+ ea000b8:	e5902018 	ldr	r2, [r0, #24]
+ ea000bc:	e352052e 	cmp	r2, #192937984	@ 0xb800000
+ ea000c0:	1a000056 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea000c4:	e590601c 	ldr	r6, [r0, #28]
+ ea000c8:	e3a01020 	mov	r1, #32
+ ea000cc:	e1a00002 	mov	r0, r2
+ ea000d0:	e286352e 	add	r3, r6, #192937984	@ 0xb800000
+ ea000d4:	ebffffc9 	bl	ea00000 <in_range>
+ ea000d8:	e2200001 	eor	r0, r0, #1
+ ea000dc:	e3560401 	cmp	r6, #16777216	@ 0x1000000
+ ea000e0:	83800001 	orrhi	r0, r0, #1
+ ea000e4:	e3100001 	tst	r0, #1
+ ea000e8:	1a00004c 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea000ec:	e1c522d4 	ldrd	r2, [r5, #36]	@ 0x24
+ ea000f0:	e1520003 	cmp	r2, r3
+ ea000f4:	2a000049 	bcs	ea00220 <cg_controller_prepare+0x1d4>
+ ea000f8:	e1c522dc 	ldrd	r2, [r5, #44]	@ 0x2c
+ ea000fc:	e1520003 	cmp	r2, r3
+ ea00100:	2a000046 	bcs	ea00220 <cg_controller_prepare+0x1d4>
+ ea00104:	e5952034 	ldr	r2, [r5, #52]	@ 0x34
+ ea00108:	e59f3744 	ldr	r3, [pc, #1860]	@ ea00854 <cg_controller_prepare+0x808>
+ ea0010c:	e1520003 	cmp	r2, r3
+ ea00110:	1a000042 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea00114:	e5952038 	ldr	r2, [r5, #56]	@ 0x38
+ ea00118:	e59f3738 	ldr	r3, [pc, #1848]	@ ea00858 <cg_controller_prepare+0x80c>
+ ea0011c:	e1520003 	cmp	r2, r3
+ ea00120:	1a00003e 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea00124:	e595303c 	ldr	r3, [r5, #60]	@ 0x3c
+ ea00128:	e353000c 	cmp	r3, #12
+ ea0012c:	1a00003b 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea00130:	e5953040 	ldr	r3, [r5, #64]	@ 0x40
+ ea00134:	e3530000 	cmp	r3, #0
+ ea00138:	1a000038 	bne	ea00220 <cg_controller_prepare+0x1d4>
+ ea0013c:	e59f3718 	ldr	r3, [pc, #1816]	@ ea0085c <cg_controller_prepare+0x810>
+ ea00140:	e5932000 	ldr	r2, [r3]
+ ea00144:	e3520000 	cmp	r2, #0
+ ea00148:	13e0600b 	mvnne	r6, #11
+ ea0014c:	1a000034 	bne	ea00224 <cg_controller_prepare+0x1d8>
+ ea00150:	e3a01001 	mov	r1, #1
+ ea00154:	e5831000 	str	r1, [r3]
+ ea00158:	e2443004 	sub	r3, r4, #4
+ ea0015c:	e284104c 	add	r1, r4, #76	@ 0x4c
+ ea00160:	e5a32004 	str	r2, [r3, #4]!
+ ea00164:	e1510003 	cmp	r1, r3
+ ea00168:	1afffffc 	bne	ea00160 <cg_controller_prepare+0x114>
+ ea0016c:	e3a01001 	mov	r1, #1
+ ea00170:	e3a00050 	mov	r0, #80	@ 0x50
+ ea00174:	e1c400f0 	strd	r0, [r4]
+ ea00178:	e59f06e0 	ldr	r0, [pc, #1760]	@ ea00860 <cg_controller_prepare+0x814>
+ ea0017c:	eb0001bf 	bl	ea00880 <cg_read32>
+ ea00180:	e5840010 	str	r0, [r4, #16]
+ ea00184:	eb0001cc 	bl	ea008bc <cg_current_sp>
+ ea00188:	e5942010 	ldr	r2, [r4, #16]
+ ea0018c:	e595300c 	ldr	r3, [r5, #12]
+ ea00190:	e1a07000 	mov	r7, r0
+ ea00194:	e1520003 	cmp	r2, r3
+ ea00198:	e5840018 	str	r0, [r4, #24]
+ ea0019c:	0a000002 	beq	ea001ac <cg_controller_prepare+0x160>
+ ea001a0:	e3e06001 	mvn	r6, #1
+ ea001a4:	e584600c 	str	r6, [r4, #12]
+ ea001a8:	ea00001d 	b	ea00224 <cg_controller_prepare+0x1d8>
+ ea001ac:	eb0001c4 	bl	ea008c4 <cg_current_cpsr>
+ ea001b0:	e200001f 	and	r0, r0, #31
+ ea001b4:	e350001f 	cmp	r0, #31
+ ea001b8:	1afffff8 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea001bc:	e59f06a0 	ldr	r0, [pc, #1696]	@ ea00864 <cg_controller_prepare+0x818>
+ ea001c0:	eb0001ae 	bl	ea00880 <cg_read32>
+ ea001c4:	e2506000 	subs	r6, r0, #0
+ ea001c8:	1afffff4 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea001cc:	e1c521d0 	ldrd	r2, [r5, #16]
+ ea001d0:	e3a01008 	mov	r1, #8
+ ea001d4:	e1a00007 	mov	r0, r7
+ ea001d8:	ebffff88 	bl	ea00000 <in_range>
+ ea001dc:	e3500000 	cmp	r0, #0
+ ea001e0:	1a000001 	bne	ea001ec <cg_controller_prepare+0x1a0>
+ ea001e4:	e3e06002 	mvn	r6, #2
+ ea001e8:	eaffffed 	b	ea001a4 <cg_controller_prepare+0x158>
+ ea001ec:	e59f0674 	ldr	r0, [pc, #1652]	@ ea00868 <cg_controller_prepare+0x81c>
+ ea001f0:	eb0001ab 	bl	ea008a4 <cg_read8>
+ ea001f4:	e3500001 	cmp	r0, #1
+ ea001f8:	13e06003 	mvnne	r6, #3
+ ea001fc:	1affffe8 	bne	ea001a4 <cg_controller_prepare+0x158>
+ ea00200:	e5950018 	ldr	r0, [r5, #24]
+ ea00204:	e2800014 	add	r0, r0, #20
+ ea00208:	eb00019c 	bl	ea00880 <cg_read32>
+ ea0020c:	e595301c 	ldr	r3, [r5, #28]
+ ea00210:	e1500003 	cmp	r0, r3
+ ea00214:	0a000005 	beq	ea00230 <cg_controller_prepare+0x1e4>
+ ea00218:	e3e03000 	mvn	r3, #0
+ ea0021c:	e584300c 	str	r3, [r4, #12]
+ ea00220:	e3e06000 	mvn	r6, #0
+ ea00224:	e1a00006 	mov	r0, r6
+ ea00228:	e28dd010 	add	sp, sp, #16
+ ea0022c:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
+ ea00230:	e5950018 	ldr	r0, [r5, #24]
+ ea00234:	e280001c 	add	r0, r0, #28
+ ea00238:	eb000190 	bl	ea00880 <cg_read32>
+ ea0023c:	e5953020 	ldr	r3, [r5, #32]
+ ea00240:	e1500003 	cmp	r0, r3
+ ea00244:	1afffff3 	bne	ea00218 <cg_controller_prepare+0x1cc>
+ ea00248:	e3a03002 	mov	r3, #2
+ ea0024c:	e3a02004 	mov	r2, #4
+ ea00250:	e5843004 	str	r3, [r4, #4]
+ ea00254:	e28d1008 	add	r1, sp, #8
+ ea00258:	e1a03006 	mov	r3, r6
+ ea0025c:	e59f0608 	ldr	r0, [pc, #1544]	@ ea0086c <cg_controller_prepare+0x820>
+ ea00260:	eb000199 	bl	ea008cc <cg_settings_set>
+ ea00264:	e584001c 	str	r0, [r4, #28]
+ ea00268:	e59f05f0 	ldr	r0, [pc, #1520]	@ ea00860 <cg_controller_prepare+0x814>
+ ea0026c:	eb000183 	bl	ea00880 <cg_read32>
+ ea00270:	e595300c 	ldr	r3, [r5, #12]
+ ea00274:	e5840014 	str	r0, [r4, #20]
+ ea00278:	e1500003 	cmp	r0, r3
+ ea0027c:	1affffc7 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00280:	eb00018f 	bl	ea008c4 <cg_current_cpsr>
+ ea00284:	e200001f 	and	r0, r0, #31
+ ea00288:	e350001f 	cmp	r0, #31
+ ea0028c:	1affffc3 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00290:	e59f05cc 	ldr	r0, [pc, #1484]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00294:	eb000179 	bl	ea00880 <cg_read32>
+ ea00298:	e3500000 	cmp	r0, #0
+ ea0029c:	1affffbf 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea002a0:	eb000185 	bl	ea008bc <cg_current_sp>
+ ea002a4:	e1500007 	cmp	r0, r7
+ ea002a8:	1affffcd 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea002ac:	e5943008 	ldr	r3, [r4, #8]
+ ea002b0:	e3833004 	orr	r3, r3, #4
+ ea002b4:	e5843008 	str	r3, [r4, #8]
+ ea002b8:	e594301c 	ldr	r3, [r4, #28]
+ ea002bc:	e3530000 	cmp	r3, #0
+ ea002c0:	13e06004 	mvnne	r6, #4
+ ea002c4:	1affffb6 	bne	ea001a4 <cg_controller_prepare+0x158>
+ ea002c8:	e3a03003 	mov	r3, #3
+ ea002cc:	e28d100c 	add	r1, sp, #12
+ ea002d0:	e5843004 	str	r3, [r4, #4]
+ ea002d4:	e59f0590 	ldr	r0, [pc, #1424]	@ ea0086c <cg_controller_prepare+0x820>
+ ea002d8:	eb000181 	bl	ea008e4 <cg_settings_read>
+ ea002dc:	e59d300c 	ldr	r3, [sp, #12]
+ ea002e0:	e5840020 	str	r0, [r4, #32]
+ ea002e4:	e5843024 	str	r3, [r4, #36]	@ 0x24
+ ea002e8:	e59f0570 	ldr	r0, [pc, #1392]	@ ea00860 <cg_controller_prepare+0x814>
+ ea002ec:	eb000163 	bl	ea00880 <cg_read32>
+ ea002f0:	e595300c 	ldr	r3, [r5, #12]
+ ea002f4:	e5840014 	str	r0, [r4, #20]
+ ea002f8:	e1500003 	cmp	r0, r3
+ ea002fc:	1affffa7 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00300:	eb00016f 	bl	ea008c4 <cg_current_cpsr>
+ ea00304:	e200001f 	and	r0, r0, #31
+ ea00308:	e350001f 	cmp	r0, #31
+ ea0030c:	1affffa3 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00310:	e59f054c 	ldr	r0, [pc, #1356]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00314:	eb000159 	bl	ea00880 <cg_read32>
+ ea00318:	e3500000 	cmp	r0, #0
+ ea0031c:	1affff9f 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00320:	eb000165 	bl	ea008bc <cg_current_sp>
+ ea00324:	e1500007 	cmp	r0, r7
+ ea00328:	1affffad 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea0032c:	e5943008 	ldr	r3, [r4, #8]
+ ea00330:	e5941020 	ldr	r1, [r4, #32]
+ ea00334:	e3833008 	orr	r3, r3, #8
+ ea00338:	e3510004 	cmp	r1, #4
+ ea0033c:	e5843008 	str	r3, [r4, #8]
+ ea00340:	0a000001 	beq	ea0034c <cg_controller_prepare+0x300>
+ ea00344:	e3e06005 	mvn	r6, #5
+ ea00348:	eaffff95 	b	ea001a4 <cg_controller_prepare+0x158>
+ ea0034c:	e59d600c 	ldr	r6, [sp, #12]
+ ea00350:	e1c522dc 	ldrd	r2, [r5, #44]	@ 0x2c
+ ea00354:	e1a00006 	mov	r0, r6
+ ea00358:	ebffff28 	bl	ea00000 <in_range>
+ ea0035c:	e3500000 	cmp	r0, #0
+ ea00360:	0afffff7 	beq	ea00344 <cg_controller_prepare+0x2f8>
+ ea00364:	e1a00006 	mov	r0, r6
+ ea00368:	eb000144 	bl	ea00880 <cg_read32>
+ ea0036c:	e3500001 	cmp	r0, #1
+ ea00370:	1afffff3 	bne	ea00344 <cg_controller_prepare+0x2f8>
+ ea00374:	e3a03004 	mov	r3, #4
+ ea00378:	e5843004 	str	r3, [r4, #4]
+ ea0037c:	eb00015b 	bl	ea008f0 <cg_widget_init>
+ ea00380:	e59f04d8 	ldr	r0, [pc, #1240]	@ ea00860 <cg_controller_prepare+0x814>
+ ea00384:	eb00013d 	bl	ea00880 <cg_read32>
+ ea00388:	e595300c 	ldr	r3, [r5, #12]
+ ea0038c:	e5840014 	str	r0, [r4, #20]
+ ea00390:	e1500003 	cmp	r0, r3
+ ea00394:	1affff81 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00398:	eb000149 	bl	ea008c4 <cg_current_cpsr>
+ ea0039c:	e200001f 	and	r0, r0, #31
+ ea003a0:	e350001f 	cmp	r0, #31
+ ea003a4:	1affff7d 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea003a8:	e59f04b4 	ldr	r0, [pc, #1204]	@ ea00864 <cg_controller_prepare+0x818>
+ ea003ac:	eb000133 	bl	ea00880 <cg_read32>
+ ea003b0:	e3500000 	cmp	r0, #0
+ ea003b4:	1affff79 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea003b8:	eb00013f 	bl	ea008bc <cg_current_sp>
+ ea003bc:	e1500007 	cmp	r0, r7
+ ea003c0:	1affff87 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea003c4:	e5943008 	ldr	r3, [r4, #8]
+ ea003c8:	e3833010 	orr	r3, r3, #16
+ ea003cc:	e5843008 	str	r3, [r4, #8]
+ ea003d0:	e3a03005 	mov	r3, #5
+ ea003d4:	e5843004 	str	r3, [r4, #4]
+ ea003d8:	eb000147 	bl	ea008fc <cg_display_init>
+ ea003dc:	e59f047c 	ldr	r0, [pc, #1148]	@ ea00860 <cg_controller_prepare+0x814>
+ ea003e0:	eb000126 	bl	ea00880 <cg_read32>
+ ea003e4:	e595300c 	ldr	r3, [r5, #12]
+ ea003e8:	e5840014 	str	r0, [r4, #20]
+ ea003ec:	e1500003 	cmp	r0, r3
+ ea003f0:	1affff6a 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea003f4:	eb000132 	bl	ea008c4 <cg_current_cpsr>
+ ea003f8:	e200001f 	and	r0, r0, #31
+ ea003fc:	e350001f 	cmp	r0, #31
+ ea00400:	1affff66 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00404:	e59f0458 	ldr	r0, [pc, #1112]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00408:	eb00011c 	bl	ea00880 <cg_read32>
+ ea0040c:	e3500000 	cmp	r0, #0
+ ea00410:	1affff62 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00414:	eb000128 	bl	ea008bc <cg_current_sp>
+ ea00418:	e1500007 	cmp	r0, r7
+ ea0041c:	1affff70 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea00420:	e5943008 	ldr	r3, [r4, #8]
+ ea00424:	e3833020 	orr	r3, r3, #32
+ ea00428:	e5843008 	str	r3, [r4, #8]
+ ea0042c:	e3a03006 	mov	r3, #6
+ ea00430:	e5843004 	str	r3, [r4, #4]
+ ea00434:	eb000133 	bl	ea00908 <cg_platform_hash>
+ ea00438:	e5840028 	str	r0, [r4, #40]	@ 0x28
+ ea0043c:	e59f041c 	ldr	r0, [pc, #1052]	@ ea00860 <cg_controller_prepare+0x814>
+ ea00440:	eb00010e 	bl	ea00880 <cg_read32>
+ ea00444:	e595300c 	ldr	r3, [r5, #12]
+ ea00448:	e5840014 	str	r0, [r4, #20]
+ ea0044c:	e1500003 	cmp	r0, r3
+ ea00450:	1affff52 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00454:	eb00011a 	bl	ea008c4 <cg_current_cpsr>
+ ea00458:	e200001f 	and	r0, r0, #31
+ ea0045c:	e350001f 	cmp	r0, #31
+ ea00460:	1affff4e 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00464:	e59f03f8 	ldr	r0, [pc, #1016]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00468:	eb000104 	bl	ea00880 <cg_read32>
+ ea0046c:	e3500000 	cmp	r0, #0
+ ea00470:	1affff4a 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00474:	eb000110 	bl	ea008bc <cg_current_sp>
+ ea00478:	e1500007 	cmp	r0, r7
+ ea0047c:	1affff58 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea00480:	e5943008 	ldr	r3, [r4, #8]
+ ea00484:	e5950018 	ldr	r0, [r5, #24]
+ ea00488:	e3833040 	orr	r3, r3, #64	@ 0x40
+ ea0048c:	e5843008 	str	r3, [r4, #8]
+ ea00490:	e280000c 	add	r0, r0, #12
+ ea00494:	e5946028 	ldr	r6, [r4, #40]	@ 0x28
+ ea00498:	eb0000f8 	bl	ea00880 <cg_read32>
+ ea0049c:	e1560000 	cmp	r6, r0
+ ea004a0:	13e06006 	mvnne	r6, #6
+ ea004a4:	1affff3e 	bne	ea001a4 <cg_controller_prepare+0x158>
+ ea004a8:	e3a03007 	mov	r3, #7
+ ea004ac:	e5950018 	ldr	r0, [r5, #24]
+ ea004b0:	e08d1003 	add	r1, sp, r3
+ ea004b4:	e5843004 	str	r3, [r4, #4]
+ ea004b8:	eb000115 	bl	ea00914 <cg_gir_register>
+ ea004bc:	e5dd3007 	ldrb	r3, [sp, #7]
+ ea004c0:	e584002c 	str	r0, [r4, #44]	@ 0x2c
+ ea004c4:	e5843030 	str	r3, [r4, #48]	@ 0x30
+ ea004c8:	e59f0390 	ldr	r0, [pc, #912]	@ ea00860 <cg_controller_prepare+0x814>
+ ea004cc:	eb0000eb 	bl	ea00880 <cg_read32>
+ ea004d0:	e595300c 	ldr	r3, [r5, #12]
+ ea004d4:	e5840014 	str	r0, [r4, #20]
+ ea004d8:	e1500003 	cmp	r0, r3
+ ea004dc:	1affff2f 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea004e0:	eb0000f7 	bl	ea008c4 <cg_current_cpsr>
+ ea004e4:	e200001f 	and	r0, r0, #31
+ ea004e8:	e350001f 	cmp	r0, #31
+ ea004ec:	1affff2b 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea004f0:	e59f036c 	ldr	r0, [pc, #876]	@ ea00864 <cg_controller_prepare+0x818>
+ ea004f4:	eb0000e1 	bl	ea00880 <cg_read32>
+ ea004f8:	e3500000 	cmp	r0, #0
+ ea004fc:	1affff27 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00500:	eb0000ed 	bl	ea008bc <cg_current_sp>
+ ea00504:	e1500007 	cmp	r0, r7
+ ea00508:	1affff35 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea0050c:	e5943008 	ldr	r3, [r4, #8]
+ ea00510:	e3833080 	orr	r3, r3, #128	@ 0x80
+ ea00514:	e5843008 	str	r3, [r4, #8]
+ ea00518:	e594302c 	ldr	r3, [r4, #44]	@ 0x2c
+ ea0051c:	e3530001 	cmp	r3, #1
+ ea00520:	13e06007 	mvnne	r6, #7
+ ea00524:	1affff1e 	bne	ea001a4 <cg_controller_prepare+0x158>
+ ea00528:	e3a03008 	mov	r3, #8
+ ea0052c:	e5843004 	str	r3, [r4, #4]
+ ea00530:	eb0000fa 	bl	ea00920 <cg_gir_catalog>
+ ea00534:	e5840034 	str	r0, [r4, #52]	@ 0x34
+ ea00538:	e1a06000 	mov	r6, r0
+ ea0053c:	e59f031c 	ldr	r0, [pc, #796]	@ ea00860 <cg_controller_prepare+0x814>
+ ea00540:	eb0000ce 	bl	ea00880 <cg_read32>
+ ea00544:	e595300c 	ldr	r3, [r5, #12]
+ ea00548:	e5840014 	str	r0, [r4, #20]
+ ea0054c:	e1500003 	cmp	r0, r3
+ ea00550:	1affff12 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00554:	eb0000da 	bl	ea008c4 <cg_current_cpsr>
+ ea00558:	e200001f 	and	r0, r0, #31
+ ea0055c:	e350001f 	cmp	r0, #31
+ ea00560:	1affff0e 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00564:	e59f02f8 	ldr	r0, [pc, #760]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00568:	eb0000c4 	bl	ea00880 <cg_read32>
+ ea0056c:	e3500000 	cmp	r0, #0
+ ea00570:	1affff0a 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00574:	eb0000d0 	bl	ea008bc <cg_current_sp>
+ ea00578:	e1500007 	cmp	r0, r7
+ ea0057c:	1affff18 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea00580:	e5943008 	ldr	r3, [r4, #8]
+ ea00584:	e3833c01 	orr	r3, r3, #256	@ 0x100
+ ea00588:	e5843008 	str	r3, [r4, #8]
+ ea0058c:	e59f32dc 	ldr	r3, [pc, #732]	@ ea00870 <cg_controller_prepare+0x824>
+ ea00590:	e1560003 	cmp	r6, r3
+ ea00594:	0a000001 	beq	ea005a0 <cg_controller_prepare+0x554>
+ ea00598:	e3e06008 	mvn	r6, #8
+ ea0059c:	eaffff00 	b	ea001a4 <cg_controller_prepare+0x158>
+ ea005a0:	e1a00006 	mov	r0, r6
+ ea005a4:	eb0000b5 	bl	ea00880 <cg_read32>
+ ea005a8:	e1a08000 	mov	r8, r0
+ ea005ac:	e59f02c0 	ldr	r0, [pc, #704]	@ ea00874 <cg_controller_prepare+0x828>
+ ea005b0:	eb0000b2 	bl	ea00880 <cg_read32>
+ ea005b4:	e1a06000 	mov	r6, r0
+ ea005b8:	e59f02b8 	ldr	r0, [pc, #696]	@ ea00878 <cg_controller_prepare+0x82c>
+ ea005bc:	eb0000af 	bl	ea00880 <cg_read32>
+ ea005c0:	e3180003 	tst	r8, #3
+ ea005c4:	e5848038 	str	r8, [r4, #56]	@ 0x38
+ ea005c8:	1afffff2 	bne	ea00598 <cg_controller_prepare+0x54c>
+ ea005cc:	e1560000 	cmp	r6, r0
+ ea005d0:	91580006 	cmpls	r8, r6
+ ea005d4:	8affffef 	bhi	ea00598 <cg_controller_prepare+0x54c>
+ ea005d8:	e0466008 	sub	r6, r6, r8
+ ea005dc:	e3560018 	cmp	r6, #24
+ ea005e0:	1affffec 	bne	ea00598 <cg_controller_prepare+0x54c>
+ ea005e4:	e1c522d4 	ldrd	r2, [r5, #36]	@ 0x24
+ ea005e8:	e0401008 	sub	r1, r0, r8
+ ea005ec:	e1a00008 	mov	r0, r8
+ ea005f0:	ebfffe82 	bl	ea00000 <in_range>
+ ea005f4:	e2506000 	subs	r6, r0, #0
+ ea005f8:	0affffe6 	beq	ea00598 <cg_controller_prepare+0x54c>
+ ea005fc:	e1a00008 	mov	r0, r8
+ ea00600:	eb0000a7 	bl	ea008a4 <cg_read8>
+ ea00604:	e5dd3007 	ldrb	r3, [sp, #7]
+ ea00608:	e1530000 	cmp	r3, r0
+ ea0060c:	1affffe1 	bne	ea00598 <cg_controller_prepare+0x54c>
+ ea00610:	e2880001 	add	r0, r8, #1
+ ea00614:	eb0000a2 	bl	ea008a4 <cg_read8>
+ ea00618:	e3500001 	cmp	r0, #1
+ ea0061c:	1affffdd 	bne	ea00598 <cg_controller_prepare+0x54c>
+ ea00620:	e288000c 	add	r0, r8, #12
+ ea00624:	eb000095 	bl	ea00880 <cg_read32>
+ ea00628:	e5953018 	ldr	r3, [r5, #24]
+ ea0062c:	e1500003 	cmp	r0, r3
+ ea00630:	1affffd8 	bne	ea00598 <cg_controller_prepare+0x54c>
+ ea00634:	e2880010 	add	r0, r8, #16
+ ea00638:	eb000090 	bl	ea00880 <cg_read32>
+ ea0063c:	e5953020 	ldr	r3, [r5, #32]
+ ea00640:	e1500003 	cmp	r0, r3
+ ea00644:	1affffd3 	bne	ea00598 <cg_controller_prepare+0x54c>
+ ea00648:	e3a03009 	mov	r3, #9
+ ea0064c:	e5843004 	str	r3, [r4, #4]
+ ea00650:	eb0000b5 	bl	ea0092c <cg_static_fonts_init>
+ ea00654:	e59f0204 	ldr	r0, [pc, #516]	@ ea00860 <cg_controller_prepare+0x814>
+ ea00658:	eb000088 	bl	ea00880 <cg_read32>
+ ea0065c:	e595300c 	ldr	r3, [r5, #12]
+ ea00660:	e5840014 	str	r0, [r4, #20]
+ ea00664:	e1500003 	cmp	r0, r3
+ ea00668:	1afffecc 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea0066c:	eb000094 	bl	ea008c4 <cg_current_cpsr>
+ ea00670:	e200001f 	and	r0, r0, #31
+ ea00674:	e350001f 	cmp	r0, #31
+ ea00678:	1afffec8 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea0067c:	e59f01e0 	ldr	r0, [pc, #480]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00680:	eb00007e 	bl	ea00880 <cg_read32>
+ ea00684:	e3500000 	cmp	r0, #0
+ ea00688:	1afffec4 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea0068c:	eb00008a 	bl	ea008bc <cg_current_sp>
+ ea00690:	e1500007 	cmp	r0, r7
+ ea00694:	1afffed2 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea00698:	e5943008 	ldr	r3, [r4, #8]
+ ea0069c:	e3a00001 	mov	r0, #1
+ ea006a0:	e3833c02 	orr	r3, r3, #512	@ 0x200
+ ea006a4:	e5843008 	str	r3, [r4, #8]
+ ea006a8:	e3a0300a 	mov	r3, #10
+ ea006ac:	e5843004 	str	r3, [r4, #4]
+ ea006b0:	eb0000a0 	bl	ea00938 <cg_external_fonts_init>
+ ea006b4:	e584003c 	str	r0, [r4, #60]	@ 0x3c
+ ea006b8:	e59f01a0 	ldr	r0, [pc, #416]	@ ea00860 <cg_controller_prepare+0x814>
+ ea006bc:	eb00006f 	bl	ea00880 <cg_read32>
+ ea006c0:	e595300c 	ldr	r3, [r5, #12]
+ ea006c4:	e5840014 	str	r0, [r4, #20]
+ ea006c8:	e1500003 	cmp	r0, r3
+ ea006cc:	1afffeb3 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea006d0:	eb00007b 	bl	ea008c4 <cg_current_cpsr>
+ ea006d4:	e200001f 	and	r0, r0, #31
+ ea006d8:	e350001f 	cmp	r0, #31
+ ea006dc:	1afffeaf 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea006e0:	e59f017c 	ldr	r0, [pc, #380]	@ ea00864 <cg_controller_prepare+0x818>
+ ea006e4:	eb000065 	bl	ea00880 <cg_read32>
+ ea006e8:	e3500000 	cmp	r0, #0
+ ea006ec:	1afffeab 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea006f0:	eb000071 	bl	ea008bc <cg_current_sp>
+ ea006f4:	e1500007 	cmp	r0, r7
+ ea006f8:	1afffeb9 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea006fc:	e5943008 	ldr	r3, [r4, #8]
+ ea00700:	e3833b01 	orr	r3, r3, #1024	@ 0x400
+ ea00704:	e5843008 	str	r3, [r4, #8]
+ ea00708:	e594303c 	ldr	r3, [r4, #60]	@ 0x3c
+ ea0070c:	e3530000 	cmp	r3, #0
+ ea00710:	13e06009 	mvnne	r6, #9
+ ea00714:	1afffea2 	bne	ea001a4 <cg_controller_prepare+0x158>
+ ea00718:	e3a0300b 	mov	r3, #11
+ ea0071c:	e5843004 	str	r3, [r4, #4]
+ ea00720:	eb000087 	bl	ea00944 <cg_menu_signals_init>
+ ea00724:	e59f0134 	ldr	r0, [pc, #308]	@ ea00860 <cg_controller_prepare+0x814>
+ ea00728:	eb000054 	bl	ea00880 <cg_read32>
+ ea0072c:	e595300c 	ldr	r3, [r5, #12]
+ ea00730:	e5840014 	str	r0, [r4, #20]
+ ea00734:	e1500003 	cmp	r0, r3
+ ea00738:	1afffe98 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea0073c:	eb000060 	bl	ea008c4 <cg_current_cpsr>
+ ea00740:	e200001f 	and	r0, r0, #31
+ ea00744:	e350001f 	cmp	r0, #31
+ ea00748:	1afffe94 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea0074c:	e59f0110 	ldr	r0, [pc, #272]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00750:	eb00004a 	bl	ea00880 <cg_read32>
+ ea00754:	e3500000 	cmp	r0, #0
+ ea00758:	1afffe90 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea0075c:	eb000056 	bl	ea008bc <cg_current_sp>
+ ea00760:	e1500007 	cmp	r0, r7
+ ea00764:	1afffe9e 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea00768:	e5943008 	ldr	r3, [r4, #8]
+ ea0076c:	e59f0108 	ldr	r0, [pc, #264]	@ ea0087c <cg_controller_prepare+0x830>
+ ea00770:	e3833b02 	orr	r3, r3, #2048	@ 0x800
+ ea00774:	e5843008 	str	r3, [r4, #8]
+ ea00778:	e3a0300c 	mov	r3, #12
+ ea0077c:	e5843004 	str	r3, [r4, #4]
+ ea00780:	eb00003e 	bl	ea00880 <cg_read32>
+ ea00784:	e5951034 	ldr	r1, [r5, #52]	@ 0x34
+ ea00788:	e2403001 	sub	r3, r0, #1
+ ea0078c:	e373001f 	cmn	r3, #31
+ ea00790:	e5840040 	str	r0, [r4, #64]	@ 0x40
+ ea00794:	e5841044 	str	r1, [r4, #68]	@ 0x44
+ ea00798:	8a000001 	bhi	ea007a4 <cg_controller_prepare+0x758>
+ ea0079c:	e2108003 	ands	r8, r0, #3
+ ea007a0:	0a000001 	beq	ea007ac <cg_controller_prepare+0x760>
+ ea007a4:	e3e0600a 	mvn	r6, #10
+ ea007a8:	eafffe7d 	b	ea001a4 <cg_controller_prepare+0x158>
+ ea007ac:	e2800018 	add	r0, r0, #24
+ ea007b0:	eb00003d 	bl	ea008ac <cg_write32>
+ ea007b4:	e5940040 	ldr	r0, [r4, #64]	@ 0x40
+ ea007b8:	e3a01001 	mov	r1, #1
+ ea007bc:	e280001c 	add	r0, r0, #28
+ ea007c0:	eb00003b 	bl	ea008b4 <cg_write8>
+ ea007c4:	e1a01008 	mov	r1, r8
+ ea007c8:	e5950034 	ldr	r0, [r5, #52]	@ 0x34
+ ea007cc:	eb000036 	bl	ea008ac <cg_write32>
+ ea007d0:	e3a0300d 	mov	r3, #13
+ ea007d4:	e5951038 	ldr	r1, [r5, #56]	@ 0x38
+ ea007d8:	e5940040 	ldr	r0, [r4, #64]	@ 0x40
+ ea007dc:	e5843004 	str	r3, [r4, #4]
+ ea007e0:	e1c523dc 	ldrd	r2, [r5, #60]	@ 0x3c
+ ea007e4:	eb000059 	bl	ea00950 <cg_db_set_cell>
+ ea007e8:	e59f0070 	ldr	r0, [pc, #112]	@ ea00860 <cg_controller_prepare+0x814>
+ ea007ec:	eb000023 	bl	ea00880 <cg_read32>
+ ea007f0:	e595300c 	ldr	r3, [r5, #12]
+ ea007f4:	e5840014 	str	r0, [r4, #20]
+ ea007f8:	e1500003 	cmp	r0, r3
+ ea007fc:	1afffe67 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00800:	eb00002f 	bl	ea008c4 <cg_current_cpsr>
+ ea00804:	e200001f 	and	r0, r0, #31
+ ea00808:	e350001f 	cmp	r0, #31
+ ea0080c:	1afffe63 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00810:	e59f004c 	ldr	r0, [pc, #76]	@ ea00864 <cg_controller_prepare+0x818>
+ ea00814:	eb000019 	bl	ea00880 <cg_read32>
+ ea00818:	e3500000 	cmp	r0, #0
+ ea0081c:	1afffe5f 	bne	ea001a0 <cg_controller_prepare+0x154>
+ ea00820:	eb000025 	bl	ea008bc <cg_current_sp>
+ ea00824:	e1500007 	cmp	r0, r7
+ ea00828:	1afffe6d 	bne	ea001e4 <cg_controller_prepare+0x198>
+ ea0082c:	e5943008 	ldr	r3, [r4, #8]
+ ea00830:	e3a0200e 	mov	r2, #14
+ ea00834:	e3833a02 	orr	r3, r3, #8192	@ 0x2000
+ ea00838:	e5843008 	str	r3, [r4, #8]
+ ea0083c:	e3a03001 	mov	r3, #1
+ ea00840:	e5842004 	str	r2, [r4, #4]
+ ea00844:	e5843048 	str	r3, [r4, #72]	@ 0x48
+ ea00848:	e584300c 	str	r3, [r4, #12]
+ ea0084c:	eafffe74 	b	ea00224 <cg_controller_prepare+0x1d8>
+ ea00850:	13520800 	.word	0x13520800
+ ea00854:	084c0000 	.word	0x084c0000
+ ea00858:	7f135201 	.word	0x7f135201
+ ea0085c:	0ea01000 	.word	0x0ea01000
+ ea00860:	00f09090 	.word	0x00f09090
+ ea00864:	00f09094 	.word	0x00f09094
+ ea00868:	00f06ef7 	.word	0x00f06ef7
+ ea0086c:	0000019b 	.word	0x0000019b
+ ea00870:	034f7730 	.word	0x034f7730
+ ea00874:	034f7734 	.word	0x034f7734
+ ea00878:	034f7738 	.word	0x034f7738
+ ea0087c:	00f11e0c 	.word	0x00f11e0c
+
+0ea00880 <cg_read32>:
+ ea00880:	e5d02000 	ldrb	r2, [r0]
+ ea00884:	e5d01001 	ldrb	r1, [r0, #1]
+ ea00888:	e5d03002 	ldrb	r3, [r0, #2]
+ ea0088c:	e5d00003 	ldrb	r0, [r0, #3]
+ ea00890:	e1a03803 	lsl	r3, r3, #16
+ ea00894:	e1833401 	orr	r3, r3, r1, lsl #8
+ ea00898:	e1833002 	orr	r3, r3, r2
+ ea0089c:	e1830c00 	orr	r0, r3, r0, lsl #24
+ ea008a0:	e12fff1e 	bx	lr
+
+0ea008a4 <cg_read8>:
+ ea008a4:	e5d00000 	ldrb	r0, [r0]
+ ea008a8:	e12fff1e 	bx	lr
+
+0ea008ac <cg_write32>:
+ ea008ac:	e5801000 	str	r1, [r0]
+ ea008b0:	e12fff1e 	bx	lr
+
+0ea008b4 <cg_write8>:
+ ea008b4:	e5c01000 	strb	r1, [r0]
+ ea008b8:	e12fff1e 	bx	lr
+
+0ea008bc <cg_current_sp>:
+ ea008bc:	e1a0000d 	mov	r0, sp
+ ea008c0:	e12fff1e 	bx	lr
+
+0ea008c4 <cg_current_cpsr>:
+ ea008c4:	e10f0000 	mrs	r0, CPSR
+ ea008c8:	e12fff1e 	bx	lr
+
+0ea008cc <cg_settings_set>:
+ ea008cc:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+ ea008d0:	e59fe008 	ldr	lr, [pc, #8]	@ ea008e0 <cg_settings_set+0x14>
+ ea008d4:	e1a0c00e 	mov	ip, lr
+ ea008d8:	e49de004 	pop	{lr}		@ (ldr lr, [sp], #4)
+ ea008dc:	e12fff1c 	bx	ip
+ ea008e0:	002ca82d 	.word	0x002ca82d
+
+0ea008e4 <cg_settings_read>:
+ ea008e4:	e59f3000 	ldr	r3, [pc]	@ ea008ec <cg_settings_read+0x8>
+ ea008e8:	e12fff13 	bx	r3
+ ea008ec:	002cabbd 	.word	0x002cabbd
+
+0ea008f0 <cg_widget_init>:
+ ea008f0:	e59f3000 	ldr	r3, [pc]	@ ea008f8 <cg_widget_init+0x8>
+ ea008f4:	e12fff13 	bx	r3
+ ea008f8:	00395981 	.word	0x00395981
+
+0ea008fc <cg_display_init>:
+ ea008fc:	e59f3000 	ldr	r3, [pc]	@ ea00904 <cg_display_init+0x8>
+ ea00900:	e12fff13 	bx	r3
+ ea00904:	002db541 	.word	0x002db541
+
+0ea00908 <cg_platform_hash>:
+ ea00908:	e59f3000 	ldr	r3, [pc]	@ ea00910 <cg_platform_hash+0x8>
+ ea0090c:	e12fff13 	bx	r3
+ ea00910:	0025dc81 	.word	0x0025dc81
+
+0ea00914 <cg_gir_register>:
+ ea00914:	e59f3000 	ldr	r3, [pc]	@ ea0091c <cg_gir_register+0x8>
+ ea00918:	e12fff13 	bx	r3
+ ea0091c:	0041cc47 	.word	0x0041cc47
+
+0ea00920 <cg_gir_catalog>:
+ ea00920:	e59f3000 	ldr	r3, [pc]	@ ea00928 <cg_gir_catalog+0x8>
+ ea00924:	e12fff13 	bx	r3
+ ea00928:	0041b15b 	.word	0x0041b15b
+
+0ea0092c <cg_static_fonts_init>:
+ ea0092c:	e59f3000 	ldr	r3, [pc]	@ ea00934 <cg_static_fonts_init+0x8>
+ ea00930:	e12fff13 	bx	r3
+ ea00934:	004df249 	.word	0x004df249
+
+0ea00938 <cg_external_fonts_init>:
+ ea00938:	e59f3000 	ldr	r3, [pc]	@ ea00940 <cg_external_fonts_init+0x8>
+ ea0093c:	e12fff13 	bx	r3
+ ea00940:	004de237 	.word	0x004de237
+
+0ea00944 <cg_menu_signals_init>:
+ ea00944:	e59f3000 	ldr	r3, [pc]	@ ea0094c <cg_menu_signals_init+0x8>
+ ea00948:	e12fff13 	bx	r3
+ ea0094c:	004a388b 	.word	0x004a388b
+
+0ea00950 <cg_db_set_cell>:
+ ea00950:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+ ea00954:	e59fe008 	ldr	lr, [pc, #8]	@ ea00964 <cg_db_set_cell+0x14>
+ ea00958:	e1a0c00e 	mov	ip, lr
+ ea0095c:	e49de004 	pop	{lr}		@ (ldr lr, [sp], #4)
+ ea00960:	e12fff1c 	bx	ip
+ ea00964:	00316277 	.word	0x00316277

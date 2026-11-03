@@ -1,0 +1,52 @@
+{
+  "all_checks_passed": true,
+  "created_utc": "2026-10-08T02:26:33.778217+00:00",
+  "scope": "Root current own Java integration/source review plus actual API35 build and host policies; no Android runtime",
+  "build_proof_sha256": "65e3ced7c70b083e680ca935ce9435789ad7899895e9a48d94a7905fb0a76972",
+  "actual_build_terminal_chunk": "487063",
+  "command_results_count": 12,
+  "host_test_cases": 40,
+  "host_only": true,
+  "device_IO": false,
+  "original_Garmin_execution": false,
+  "phone_call_or_route_or_speaker_verified": false,
+  "whole_goal_complete": false,
+  "source_pins_verified": 18,
+  "unchanged_v4_Java_and_existing_tests": [
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/AsyncPlayer.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/CallForegroundService.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/EndpointGarminConnection.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/EventLog.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/GarminConnection.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/GarminConnectionService.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/MainActivity.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlaybackGate.java",
+    "android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlayerLoadLease.java",
+    "android/garmin-hfp-player/host-tests/PlaybackGateTest.java",
+    "android/garmin-hfp-player/host-tests/PlayerLoadLeaseTest.java"
+  ],
+  "original_TestSession_snapshot_matches_v4_build": true,
+  "root_java_initialization_fix": {
+    "before_sha256": "1c27f0e97e9ea5f3e86c188442b3691e02331df0e8639bd82ec2c5a1ed99111f",
+    "after_sha256": "90da25f3c9dcb0a75693be18b97c29785c113f396fe5a41454cc4bbc4156f788",
+    "exact_delta_reconstruction_verified": true,
+    "change": "Anonymous Runnable.run defers blank-final ticket access; behavior preserved. Initial ECJ failure retained."
+  },
+  "integration_source_review": {
+    "only_Telecom_incoming_site_guarded_by_fresh_preflight": true,
+    "selected_identity_token_current_request_required": true,
+    "proxy_close_queries_on_background_worker": true,
+    "unknown_pending_or_failed_close_prevents_new_request_in_source": true,
+    "extra_distinct_proxy_conservatively_faults_process_in_source": true,
+    "strict_SCO_and_endpoint_classes_unchanged": true,
+    "before_call_snapshot_not_continuous_connection_or_atomic_profile_observation": true
+  },
+  "limitations": [
+    "Host controls execute Android-free production policy, not proxy callbacks or Binder.",
+    "No public pending proxy cancellation or future callback quiescence guarantee.",
+    "Snapshot permission/profile reads are sequential and do not prove continued connection.",
+    "Timeout does not impose a hard Android UI or Binder deadline.",
+    "Current Pixel route/device address and Garmin speaker, direct A2DP, native App and AA/Maps remain unverified."
+  ],
+  "SCO_registration_review_sha256": "336be487132ec6ff55e46f4527e53c48feea13e05f37fc51310d08b502299241"
+}

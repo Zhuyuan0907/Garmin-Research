@@ -1,0 +1,29 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mthumb",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pie",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--build-id=none,-T,/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v1.ld",
+    "/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v1.c",
+    "-o",
+    "/root/garmin/staging/native-os20-mixer-allocator-v1/build/allocator-supply-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v1.c: In function \u2018allocator_supply_failure_v1\u2019:\n/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v1.c:17:72: error: implicit declaration of function \u2018__asm__volatile\u2019 [-Wimplicit-function-declaration]\n   17 | __attribute__((noinline))void allocator_supply_failure_v1(void){for(;;)__asm__volatile(\"\":::\"memory\");}\n      |                                                                        ^~~~~~~~~~~~~~~\n/root/garmin/staging/native-os20-mixer-allocator-v1/allocator_supply_v1.c:17:90: error: expected \u2018)\u2019 before \u2018:\u2019 token\n   17 | __attribute__((noinline))void allocator_supply_failure_v1(void){for(;;)__asm__volatile(\"\":::\"memory\");}\n      |                                                                                       ~  ^\n      |                                                                                          )\n"
+}

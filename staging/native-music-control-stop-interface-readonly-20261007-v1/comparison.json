@@ -1,0 +1,986 @@
+{
+ "schema": "native-music-control-stop-interface-file-comparison-v1",
+ "scope": "native-music-control-stop-interface-readonly-20261007-v1",
+ "review_only": true,
+ "no_native_implementation": true,
+ "conclusion": "Controller state/generation/lease and complete-stop predicate logic can be reused through explicit typed bindings. Public36B API/old40B table, transient FIFO ticket/durable source token, software/native ownership epochs, Source storage and finite/continuous coordinator semantics require separate mappings; no cast or native glue was created.",
+ "layout_basis": {
+  "architecture": "ARM32 source model",
+  "pointer_bytes": 4,
+  "uint32_int32_bytes": 4,
+  "natural_alignment_assumed": 4,
+  "compiled_or_device_ABI_verified_this_scope": false,
+  "no_host_pointer_layout_applied": true
+ },
+ "table_comparison": {
+  "public_source": {
+   "path": "native/ui-music-control-prototype/ui_music_control.h",
+   "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+   "line": 133,
+   "function": "umc_exports",
+   "fresh_this_scope": false
+  },
+  "public_abi_scalar": {
+   "name": "abi_version",
+   "offset": 0,
+   "value_macro": "UMC_ABI_VERSION1"
+  },
+  "public_function_roles": [
+   {
+    "ordinal": 0,
+    "role": "init",
+    "symbol": "umc_init",
+    "byte_offset": 4,
+    "signature": "int (struct umc_controller *, const struct umc_config *, const struct umc_adapters *)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 135,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 1,
+    "role": "start",
+    "symbol": "umc_request_start",
+    "byte_offset": 8,
+    "signature": "int (struct umc_controller *, uint32_t *generation)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 136,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 2,
+    "role": "stop",
+    "symbol": "umc_request_stop",
+    "byte_offset": 12,
+    "signature": "int (struct umc_controller *, uint32_t *generation)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 137,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 3,
+    "role": "service",
+    "symbol": "umc_service",
+    "byte_offset": 16,
+    "signature": "int (struct umc_controller *)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 138,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 4,
+    "role": "status",
+    "symbol": "umc_status_read",
+    "byte_offset": 20,
+    "signature": "int (struct umc_controller *, struct umc_status *)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 139,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 5,
+    "role": "admission",
+    "symbol": "umc_admission",
+    "byte_offset": 24,
+    "signature": "int (struct umc_controller *, uint32_t generation, uint32_t gate)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 140,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 6,
+    "role": "source_started",
+    "symbol": "umc_source_started",
+    "byte_offset": 28,
+    "signature": "int (struct umc_controller *, uint32_t route, uint32_t generation, uint32_t ownership_cookie, uint32_t source_token)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 141,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 7,
+    "role": "cleanup_returned",
+    "symbol": "umc_cleanup_returned",
+    "byte_offset": 32,
+    "signature": "int (struct umc_controller *, uint32_t route, uint32_t generation, uint32_t ownership_cookie, uint32_t source_token)",
+    "evidence": {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 142,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    }
+   }
+  ],
+  "public_model_bytes": 36,
+  "old_source": {
+   "path": "native/ui-music-native-adapter/native_adapter.h",
+   "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+   "line": 97,
+   "function": "umcn_control_functions",
+   "fresh_this_scope": false
+  },
+  "old_function_roles": [
+   {
+    "ordinal": 0,
+    "role": "init",
+    "symbol": "umc_init",
+    "byte_offset": 0,
+    "signature": "int (struct umc_controller *, const struct umc_config *, const struct umc_adapters *)",
+    "matching_public_role": "init",
+    "matching_public_offset": 4,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 98,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 1,
+    "role": "ready",
+    "symbol": "umc_runtime_ready",
+    "byte_offset": 4,
+    "signature": "int (struct umc_controller *)",
+    "matching_public_role": null,
+    "matching_public_offset": null,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 99,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 2,
+    "role": "service",
+    "symbol": "umc_service",
+    "byte_offset": 8,
+    "signature": "int (struct umc_controller *)",
+    "matching_public_role": "service",
+    "matching_public_offset": 16,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 100,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 3,
+    "role": "status",
+    "symbol": "umc_status_read",
+    "byte_offset": 12,
+    "signature": "int (struct umc_controller *, struct umc_status *)",
+    "matching_public_role": "status",
+    "matching_public_offset": 20,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 101,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 4,
+    "role": "gate",
+    "symbol": "umc_admission",
+    "byte_offset": 16,
+    "signature": "int (struct umc_controller *, uint32_t generation, uint32_t gate)",
+    "matching_public_role": "admission",
+    "matching_public_offset": 24,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 102,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 5,
+    "role": "started",
+    "symbol": "umc_source_started",
+    "byte_offset": 20,
+    "signature": "int (struct umc_controller *, uint32_t route, uint32_t generation, uint32_t ownership_cookie, uint32_t source_token)",
+    "matching_public_role": "source_started",
+    "matching_public_offset": 28,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 103,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 6,
+    "role": "cleaned",
+    "symbol": "umc_cleanup_returned",
+    "byte_offset": 24,
+    "signature": "int (struct umc_controller *, uint32_t route, uint32_t generation, uint32_t ownership_cookie, uint32_t source_token)",
+    "matching_public_role": "cleanup_returned",
+    "matching_public_offset": 32,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 104,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 7,
+    "role": "callback_acquire",
+    "symbol": "umc_callback_acquire",
+    "byte_offset": 28,
+    "signature": "int (struct umc_controller *, struct umc_lease *)",
+    "matching_public_role": null,
+    "matching_public_offset": null,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 105,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 8,
+    "role": "callback_release",
+    "symbol": "umc_callback_release",
+    "byte_offset": 32,
+    "signature": "int (struct umc_controller *, struct umc_lease *)",
+    "matching_public_role": null,
+    "matching_public_offset": null,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 106,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   },
+   {
+    "ordinal": 9,
+    "role": "kick",
+    "symbol": "umc_kick",
+    "byte_offset": 36,
+    "signature": "int (struct umc_controller *)",
+    "matching_public_role": null,
+    "matching_public_offset": null,
+    "evidence": {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 107,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    }
+   }
+  ],
+  "old_model_bytes": 40,
+  "cast_compatible": false,
+  "typed_symbol_binding": "Conditionally possible by named/signature-matched functions after final symbols, mode/addresses and residency are proved. Missing public-table roles require separately retained symbols; their final image availability is not established here."
+ },
+ "coordinator_field_comparison": {
+  "source_view": {
+   "path": "native/ui-music-native-adapter/native_adapter.h",
+   "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+   "line": 29,
+   "function": "umcn_coordinator_view",
+   "fresh_this_scope": false
+  },
+  "continuous": {
+   "path": "native/music-continuous/media_coordinator.c",
+   "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+   "line": 17,
+   "function": "coordinator_state",
+   "fresh_this_scope": true
+  },
+  "finite": {
+   "path": "native/sbc-prototype/media_coordinator.c",
+   "sha256": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+   "line": 16,
+   "function": "coordinator_state",
+   "fresh_this_scope": true
+  },
+  "all_fields_equal": true,
+  "model_bytes": 60,
+  "fields": [
+   {
+    "type": "uint32_t",
+    "name": "initialized",
+    "offset": 0
+   },
+   {
+    "type": "uint32_t",
+    "name": "owner_tcb",
+    "offset": 4
+   },
+   {
+    "type": "uint32_t",
+    "name": "busy",
+    "offset": 8
+   },
+   {
+    "type": "uint32_t",
+    "name": "ticket",
+    "offset": 12
+   },
+   {
+    "type": "uint32_t",
+    "name": "cancel_pending",
+    "offset": 16
+   },
+   {
+    "type": "uint32_t",
+    "name": "stop_sent",
+    "offset": 20
+   },
+   {
+    "type": "uint32_t",
+    "name": "starts",
+    "offset": 24
+   },
+   {
+    "type": "uint32_t",
+    "name": "completed",
+    "offset": 28
+   },
+   {
+    "type": "uint32_t",
+    "name": "cancelled",
+    "offset": 32
+   },
+   {
+    "type": "uint32_t",
+    "name": "discarded",
+    "offset": 36
+   },
+   {
+    "type": "uint32_t",
+    "name": "remove_calls",
+    "offset": 40
+   },
+   {
+    "type": "uint32_t",
+    "name": "pump_calls",
+    "offset": 44
+   },
+   {
+    "type": "uint32_t",
+    "name": "cancel_calls",
+    "offset": 48
+   },
+   {
+    "type": "uint32_t",
+    "name": "failures",
+    "offset": 52
+   },
+   {
+    "type": "int32_t",
+    "name": "last_result",
+    "offset": 56
+   }
+  ],
+  "semantics_equivalent": false,
+  "compiler_layout_verified": false
+ },
+ "comparison_rows": [
+  {
+   "topic": "core state logic and typed ops",
+   "can_share": "umc_init/ready/service/status/admission and nonwrapping generation/state/lease logic. Both driver and older adapter supply the same struct umc_adapters signatures and both refer to the captured ui_music_control.h ABI version1.",
+   "must_rebind": "Actual context, Source owner/current/IRQ/POST, prepare/cancel/observe providers and final symbol/image lifetime. Header inclusion is not implementation linkage.",
+   "evidence": [
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 51,
+     "function": "umc_adapters",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 77,
+     "function": "umc_config",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 27,
+     "function": "umc_init",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+     "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+     "line": 33,
+     "function": "aas_initialize",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 165,
+     "function": "umcn_init",
+     "fresh_this_scope": false
+    }
+   ],
+   "limits": "C source compatibility only; no current binary/compiler/runtime ABI proof."
+  },
+  {
+   "topic": "public export table versus old ten-role table",
+   "can_share": "Per-symbol function semantics and matching named signatures in the two tables. Explicit typed symbol binding is possible for the six shared roles when final retained symbols are proved.",
+   "must_rebind": "Construct/verify the ten-role table by named functions, including READY, callback acquire/release and KICK. Public start/stop roles have no old-table slot. No pointer cast/import patch is valid.",
+   "evidence": [
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 133,
+     "function": "umc_exports",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 97,
+     "function": "umcn_control_functions",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 349,
+     "function": "ui_music_control_api",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "ARM32 model: public table=4-byte abi_version+8 function pointers=36B; old table=10 function pointers=40B. Different offsets/order/parameters. Final retained symbols for roles absent from public table are not verified here."
+  },
+  {
+   "topic": "generation and admission epoch",
+   "can_share": "Controller generation advances per accepted start with overflow rejection; stop invalidates armed admission and admission_epoch. Media lease currentness checks generation/cookie/admission_epoch.",
+   "must_rebind": "Associate all new Source/publish/cleanup callbacks with this exact controller generation. Do not substitute command ID, pause epoch, FIFO ticket or ownership witness epoch even if uint32_t values coincide.",
+   "evidence": [
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 66,
+     "function": "umc_request_start",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 97,
+     "function": "umc_request_stop",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 255,
+     "function": "umc_media_current",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+     "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+     "line": 27,
+     "function": "mcs_guard",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "generation and admission_epoch are separate uint32_t fields; native record token and ownership epoch are external identity domains."
+  },
+  {
+   "topic": "software session epoch versus native ownership epoch",
+   "can_share": "mcs_reserve_scoped validates owner/normal context/current controller generation and increments local guard epoch; descriptor mismatch revocation logic can remain a scoped admission check.",
+   "must_rebind": "Old witnessed() requires an external nonzero ownership epoch plus all native-writer/future borrowing-callback exclusion. mcs_guard.epoch is not that witness, and cannot populate ownership_confirmed merely by equality.",
+   "evidence": [
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+     "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+     "line": 34,
+     "function": "mcs_reserve_scoped",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+     "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+     "line": 167,
+     "function": "mixer_capability_current",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 33,
+     "function": "witnessed",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 63,
+     "function": "umcn_ownership_witness",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "Both values are uint32_t but denote different authorities/lifetimes. No cast/automatic epoch translation defined."
+  },
+  {
+   "topic": "ownership cookie and Source TCB",
+   "can_share": "Controller route/cookie/Source-owner equality guards and old adapter's repeated current-actor checks.",
+   "must_rebind": "Old adapter accepts a caller cookie and exact runtime/source/decoder/coordinator views. New driver supplies literal0x1352/resident1 and current Source actor, while mh_* globals and mcs_guard are different storage/state. Literal cookie is identity tagging, not ownership proof.",
+   "evidence": [
+    {
+     "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+     "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+     "line": 35,
+     "function": "cfg / ops",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 183,
+     "function": "umcn_init config",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 20,
+     "function": "runtime_ready",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 17,
+     "function": "umcn_source_view",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+     "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+     "line": 23,
+     "function": "mh_* globals",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "Old Source view52B/runtime40B cannot be overlaid on unrelated mh_* globals or mcs_guard merely because fields include uint32_t TCBs."
+  },
+  {
+   "topic": "persistent source token versus recyclable registration ticket",
+   "can_share": "Core source_started/cleanup_returned enforce a nonzero token with the same route/generation/cookie; they can represent a durable source registration if a real provider supplies it.",
+   "must_rebind": "Old note_owned_publication reads coordinator.ticket, equals output.active_ticket and a still-held matching slot; new registration_ticket is a bootstrap/audit seed and the slot can be freed/recycled. Rework publication identity/provider and observers around actual persistent anchor/node generation; no arbitrary token supplied by UI or record address alone.",
+   "evidence": [
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 204,
+     "function": "umcn_note_owned_publication",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+     "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+     "line": 32,
+     "function": "registration_ticket contract",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+     "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+     "line": 231,
+     "function": "mcs_capture_selected",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 313,
+     "function": "umc_source_started",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+     "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+     "line": 195,
+     "function": "FIFO release/reuse",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "The core token remains an opaque uint32_t; old ticket-backed capture preconditions cannot be silently dropped. Current g.selected_session is a scoped epoch, not a recovered native source-token ABI."
+  },
+  {
+   "topic": "started/cleanup notification endpoints",
+   "can_share": "Old publication helper's before-START notification order and old cleanup helper's after-full-original-return identity checks; core notifications themselves are generic.",
+   "must_rebind": "Concrete hooks/callbacks into current Source publication and whole native cleanup with current persistent token, route/generation/cookie. Preserve foreign-record original completion forwarding and the callback lease through any POST/preemption.",
+   "evidence": [
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 228,
+     "function": "core.started",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 246,
+     "function": "umcn_cleanup_begin",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 262,
+     "function": "umcn_cleanup_after_original",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 334,
+     "function": "umc_cleanup_returned",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 124,
+     "function": "notification contracts",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "core notifications take controller+4 uint32_t values (5 args). Native completion callback takes bound context+record pointer; those signatures and their meaning are not interchangeable. Cleanup notification is not STOP_DONE."
+  },
+  {
+   "topic": "cancel request, process return and native completion",
+   "can_share": "Source-owner cancellation request/loop/pump architecture and zero/pending/error distinctions, with cancellation requested outside IRQ exclusion.",
+   "must_rebind": "Typed request_cancel(context,route,generation,cookie) cannot be a cast of media_coordinator_cancel(void). Queue command acceptance0 and mh_last_result0 are not full cancellation. Wrapper must preserve actor/session/token, schedule persistent Source and observe actual returned cancellation iteration.",
+   "evidence": [
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 66,
+     "function": "request_cancel signature/acceptance",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 86,
+     "function": "adapter_cancel",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 230,
+     "function": "umcn_after_native_iteration",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/music-continuous/media_coordinator.c",
+     "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+     "line": 111,
+     "function": "media_coordinator_cancel",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+     "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+     "line": 153,
+     "function": "mh_request_command",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "Coordinator cancel/pump signatures are int(void); return0 can mean its cancel_step finished, 1 means pending, negative error. request_cancel0 means request accepted. Controller/service success has a third context."
+  },
+  {
+   "topic": "observe_stop evidence and service iteration",
+   "can_share": "Core's complete umc_stop_evidence predicate and the old adapter's baseline/counter/full-return observation concept.",
+   "must_rebind": "Provide nonblocking owner-serialized observe_stop tied to current durable token and actual coordinator/output/FIFO lifetime. Call umc_service on subsequent Source wakes/iterations; a wake or callback-release POST alone does not run it. Driver's current unsupported callbacks do not map the old observer automatically.",
+   "evidence": [
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 125,
+     "function": "stop_complete",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.c",
+     "sha256": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+     "line": 188,
+     "function": "stop service",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 103,
+     "function": "adapter_observe",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 199,
+     "function": "umcn_service_owner",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/audio_session_driver_v4.c",
+     "sha256": "013f91c366fb5e7fe5f838770ac43a98231a4408c02bc81f1c9072e0b4bec960",
+     "line": 28,
+     "function": "unavailable_cancel/stop",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-remote-pause/mixer_source_pause_v1.c",
+     "sha256": "7a4de55660c627105a7727a73530e641ae30e2ca37d12bc02e9f9441a0bdd30c",
+     "line": 128,
+     "function": "mh_source_entry",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "ARM32 scalar model stop-evidence29uint32_t=116B. Old observer needs ownership witness before/after, cancel iteration return, remove/release baselines and all empty/native-idle/ref predicates; local zero counts alone do not supply them."
+  },
+  {
+   "topic": "same coordinator view layout, different API lifetimes",
+   "can_share": "The fifteen fields/signs/offsets (60B ARM32 model), Source-owner serialization and native_calls held across the original blocking node removal.",
+   "must_rebind": "Select the continuous lifetime implementation, not the finite one by same table name/layout. Finite pump completes/releases per FIFO ticket; continuous pump retains one registered source/anchor and explicit cancel removes/releases anchor then discards READY FIFO. Bind exact final functions/addresses and counters to their own generation.",
+   "evidence": [
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 29,
+     "function": "umcn_coordinator_view",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/music-continuous/media_coordinator.c",
+     "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+     "line": 17,
+     "function": "coordinator_state",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/sbc-prototype/media_coordinator.c",
+     "sha256": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+     "line": 16,
+     "function": "coordinator_state",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/music-continuous/media_coordinator.c",
+     "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+     "line": 72,
+     "function": "remove_stopped",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/music-continuous/media_coordinator.c",
+     "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+     "line": 88,
+     "function": "continuous cancel_step",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/sbc-prototype/media_coordinator.c",
+     "sha256": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+     "line": 87,
+     "function": "finite cancel_step",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/music-continuous/media_coordinator.c",
+     "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+     "line": 122,
+     "function": "continuous pump",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/sbc-prototype/media_coordinator.c",
+     "sha256": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+     "line": 141,
+     "function": "finite pump",
+     "fresh_this_scope": true
+    }
+   ],
+   "type_fact": "Both coordinator_api arrays contain init,pump,cancel (int(void) functions) but do not implement umc_adapters or ten-role core table. Counter increments have no built-in controller generation stamp/wrap guard."
+  },
+  {
+   "topic": "rearm and FIFO/output field semantics",
+   "can_share": "Bounds/callback/resident PCM protection and independent unlocked-copy slot in_flight discipline.",
+   "must_rebind": "Old playback_rearm requires ACTIVE slot4→QUEUED3 and same live buffer ticket. Current continuous reader uses READY2→FREE0, may recycle the old slot while native registration remains. Shared output48B/slot24B declarations do not make finite rearm/release semantics compatible.",
+   "evidence": [
+    {
+     "path": "native/sbc-prototype/playback_control.c",
+     "sha256": "23e339fd62a6476aeaaa6eef26ce9464c5123319191000c8d255ca360739d0c1",
+     "line": 10,
+     "function": "private output/slot assertions",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "native/sbc-prototype/playback_control.c",
+     "sha256": "23e339fd62a6476aeaaa6eef26ce9464c5123319191000c8d255ca360739d0c1",
+     "line": 61,
+     "function": "playback_rearm",
+     "fresh_this_scope": true
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+     "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+     "line": 32,
+     "function": "bootstrap ticket",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+     "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+     "line": 163,
+     "function": "continuous_media_read",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-loaded-single-image/build-v2/owned_media_loaded_v1.c",
+     "sha256": "58a665ddbc4f827acc72fd2723b5fda697a5091305a328d3ec78fc6e5579fbb5",
+     "line": 140,
+     "function": "owned_media_release",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "A finite owned_media_release or rearm function cannot replace persistent anchor retirement by identical integer ticket arguments."
+  },
+  {
+   "topic": "whole-return lease/frame ABI",
+   "can_share": "Core umc_lease field/role logic and the principle that a borrowed native return frame pins state through original body and post/preemption before release.",
+   "must_rebind": "Keep separate original cleanup, mixer pull and short event wrappers; enforce each record/actor/generation/session/token/full-return provenance. Ingress event leases end before POST and rely on residency, so they are not a module unload barrier.",
+   "evidence": [
+    {
+     "path": "native/ui-music-control-prototype/ui_music_control.h",
+     "sha256": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+     "line": 89,
+     "function": "umc_lease",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.h",
+     "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+     "line": 126,
+     "function": "umcn_cleanup_frame",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+     "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+     "line": 21,
+     "function": "mcs_borrow_frame",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+     "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+     "line": 26,
+     "function": "mcs_event_frame",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "native/ui-music-native-adapter/native_adapter.c",
+     "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+     "line": 280,
+     "function": "original completion forwarding then release",
+     "fresh_this_scope": false
+    },
+    {
+     "path": "staging/native-player-mixer-handoff/music_session_guard_v4.c",
+     "sha256": "13563196ebb7b8c22bb8b1d4b50d2209849465b78e9b6ece5565ec4e79034706",
+     "line": 284,
+     "function": "mcs_pull_end",
+     "fresh_this_scope": false
+    }
+   ],
+   "type_fact": "ARM32 model lease20B; cleanup frame64B(one callback lease plus record/token/context identity); full pull72B(two leases plus actor/session/instance); event48B(two leases+generation/gate). No frame/table pointer overlay/copy/cast."
+  }
+ ],
+ "guard_sync_include_answer": {
+  "path": "staging/native-player-mixer-sync/music_session_guard_sync_v1.c",
+  "sha256": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984",
+  "bytes": 17824,
+  "include_lines": [
+   {
+    "line": 5,
+    "text": "#include \"music_session_guard_v4.h\""
+   },
+   {
+    "line": 6,
+    "text": "#include \"memory_output.h\""
+   }
+  ],
+  "includes_base_guard_c": false,
+  "new_filesystem_reads": 0,
+  "evidence_basis": "Complete source captured in earlier closed wake-reference scope; no fresh read/stat this scope",
+  "saved_pin_journal": "staging/native-music-source-wake-service-references-readonly-20261007-v1/source-pins.json",
+  "saved_pin_journal_sha256": "1f8b401af67e95bb61571e5f4c0ca1b101918a0a4945c0a992da3e00084ed93d"
+ },
+ "safe_mapping_sequence": [
+  "Select one exact image/Source/storage lifetime and retain final named symbols; bind same core interfaces by their explicit signatures.",
+  "Map Source/controller generation, local guard epoch, native ownership witness epoch, FIFO epoch/tickets and phone session epoch as separate domains.",
+  "Derive one persistent published native source token and notify source_started before original START; record the same token in full cleanup-return notification.",
+  "Provide typed cancel/observe callbacks and Source service iteration, with full returned original removal/anchor release/FIFO discard evidence before STOPPED.",
+  "Retain callback/module/anchor storage until all declared full original returns and future callback exclusion are proved."
+ ],
+ "not_performed": [
+  "No implementation/typed initializer/patch/import table was generated.",
+  "No producer/native import, compiler/test/guest/emulator/original-instruction/ASM/MAIN/binary/liveRAM/device/DBus/BT/audio operation.",
+  "No source, call-site, shared/canonical/report changes; no interrupted guest retry.",
+  "No arbitrary relocation, pointer/frame cast or callback/command-return reclassification."
+ ],
+ "acceptance_flags": {
+  "native_owner": false,
+  "STOP_DONE": false,
+  "native_App": false,
+  "direct_phone_A2DP": false,
+  "speaker": false,
+  "installable": false
+ }
+}

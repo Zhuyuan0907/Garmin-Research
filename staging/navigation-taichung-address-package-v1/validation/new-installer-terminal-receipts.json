@@ -1,0 +1,64 @@
+{
+  "scope": "New Taichung variable-size installer source, real bundled read-only loader, and new small synthetic filesystem transactions; no physical discovery/operations",
+  "helper_copy_preparation": {
+    "actual_exit_code": 0,
+    "chunk_id": "72466b"
+  },
+  "installer_preparation": {
+    "actual_exit_code": 0,
+    "chunk_id": "1c326b"
+  },
+  "real_bundle_load_manifest": {
+    "actual_exit_code": 0,
+    "chunk_id": "dd8110",
+    "candidate_bytes": 100945920,
+    "recipe_bytes": 864491,
+    "original_full_reconstruction_hash_verified": true,
+    "USB_discovery_called": false
+  },
+  "runs": [
+    {
+      "actual_exit_code": 1,
+      "chunk_id": "d8f8e4",
+      "reason": "Synthetic fixture declared protected-license bytes 17 while payload length was 18; inherited exact protection check correctly refused it. Fixture size corrected; installer source not weakened."
+    },
+    {
+      "actual_exit_code": 0,
+      "chunk_id": "37b87a",
+      "controls_passed": 33
+    },
+    {
+      "actual_exit_code": 0,
+      "chunk_id": "5b31bf",
+      "controls_passed": 35,
+      "new_checks": "Add postcommit full-readback corruption and midcopy ENOSPC controls"
+    },
+    {
+      "actual_exit_code": 0,
+      "chunk_id": "352c38",
+      "controls_passed": 35,
+      "reason": "Final fixture keeps previous accepted synthetic change inside MDR, matching target component scope"
+    }
+  ],
+  "prior_incremental_proofs": [
+    {
+      "proof_name": "new-transaction-results-initial33.json",
+      "bytes": 9329,
+      "sha256": "b048c88bf683a65230191aed7cbd64ecb5ef0cc23e0e9506fb9aac253c16842b",
+      "controls_passed": 33,
+      "retained_as_terminal_receipt_only": true
+    },
+    {
+      "proof_name": "new-transaction-results-first35.json",
+      "bytes": 9855,
+      "sha256": "f767cb494f584bad390c346274d5496f04a7840fd64ab0a7d814e7e5a65c6f14",
+      "controls_passed": 35,
+      "retained_as_terminal_receipt_only": true
+    }
+  ],
+  "formal_proof": "new-transaction-results.json",
+  "formal_source_hash": "8f05a589310d277b60a2c0b1dddfacdc535cddc26894a6a45639b37cf3993121",
+  "final_test_source_hash": "9d3585cfce29d6e6e79436876998747997aaff797de82bfc44e7e7d5d77613c5",
+  "old_61_suite_rerun": false,
+  "device_IO": false
+}

@@ -1,0 +1,133 @@
+{
+  "started_utc": "2026-10-05T13:56:37.295749+00:00",
+  "state": "compiled_candidate_not_device_verified",
+  "family_id": 7052,
+  "map_id_start": 70520001,
+  "tile_count": 36,
+  "sort_id1": 19,
+  "sort_id2": 7052,
+  "code_page": 65001,
+  "osm_data_timestamp": "2026-10-01T20:22:06Z",
+  "original_split_inputs_reused": true,
+  "candidate": true,
+  "device_installed": false,
+  "device_search_verified": false,
+  "device_routing_verified": false,
+  "stock_maps_modified": false,
+  "map_description": "OSM TW 2026-10-01 Search v1",
+  "changes": [
+    "Serialize existing implicit BMP sort weights in SRT",
+    "Use a consistent new LBL/MDR/SRT sort identity",
+    "Assign Taiwan cities using administrative boundaries",
+    "Normalize selected administrative 台/臺 name variants",
+    "Disable nearest-place city inference"
+  ],
+  "commands": [
+    [
+      "nice",
+      "-n",
+      "10",
+      "java",
+      "-Xmx2200m",
+      "-cp",
+      "/root/garmin/sources/maps/mkgmap-r4924/mkgmap.jar",
+      "uk.me.parabola.mkgmap.reader.osm.boundary.BoundaryPreprocessor",
+      "/root/garmin/staging/navigation-repair-v1/taiwan-admin-selected-from-source.osm.pbf",
+      "/root/garmin/staging/navigation-repair-v1/taiwan-bounds"
+    ],
+    [
+      "nice",
+      "-n",
+      "10",
+      "java",
+      "-Xmx2800m",
+      "-cp",
+      "/root/garmin/staging/navigation-search-encoding-v1/writer-patch-classes:/root/garmin/staging/navigation-search-encoding-v1/sort-id-resource:/root/garmin/sources/maps/mkgmap-r4924/mkgmap.jar",
+      "uk.me.parabola.mkgmap.main.Main",
+      "--max-jobs=2",
+      "--route",
+      "--index",
+      "--housenumbers",
+      "--gmapsupp",
+      "--code-page=65001",
+      "--name-tag-list=name:zh-Hant,name:zh,name,int_name",
+      "--drive-on=right",
+      "--country-name=Taiwan",
+      "--country-abbr=TWN",
+      "--region-name=Taiwan",
+      "--region-abbr=TW",
+      "--location-autofill=is_in",
+      "--bounds=/root/garmin/staging/navigation-repair-v1/taiwan-bounds",
+      "--style-file=/root/garmin/staging/navigation-repair-v1/style",
+      "--family-id=7052",
+      "--product-id=1",
+      "--family-name=OSM TW 2026-10-01 Search v1",
+      "--series-name=OSM Taiwan Search v1",
+      "--description=OSM TW 2026-10-01 Search v1",
+      "--copyright-file=/root/garmin/staging/navigation-repair-v1/copyright.txt",
+      "--license-file=/root/garmin/staging/navigation-repair-v1/license.txt",
+      "--output-dir=/root/garmin/staging/navigation-repair-v1/compiled",
+      "-c",
+      "/root/garmin/staging/navigation-repair-v1/tiles.args"
+    ]
+  ],
+  "pinned_compiler_inputs": {
+    "/root/garmin/staging/navigation-search-encoding-v1/writer-patch-src/uk/me/parabola/imgfmt/app/srt/SRTFile.java": "98b3a515c11c8eedcc3374ae5ffff56e343d856e5f615d24717bc12f40126b68",
+    "/root/garmin/staging/navigation-search-encoding-v1/writer-patch-classes/uk/me/parabola/imgfmt/app/srt/SRTFile.class": "70f59492d7a3d399911454f05267cc52852762f71d1ab3531fe165c7562a5085",
+    "/root/garmin/staging/navigation-search-encoding-v1/sort-id-resource/sort/cp65001.txt": "7a03161eb7b419666f5bb690e4d105d070feb447fe4c2a7a70e5d619e026a715"
+  },
+  "boundary_selection": {
+    "source": "/root/garmin/staging/navigation-repair-v1/taiwan-admin-selected-from-source.osm.pbf",
+    "sha256": "5b8cd8d1de51a55446abc2d42164244c909e1bc70cadc55fe20fd9808e949c7d",
+    "selection_log": "/root/garmin/staging/navigation-repair-v1/taiwan-admin-source-selection.log",
+    "selection_exit_code": 1,
+    "explicitly_accepted_missing_way_ids": [
+      284788564,
+      654482084
+    ],
+    "root_closure_proof": "staging/navigation-road-coverage-v1/native-root-closure-proof.json",
+    "complete_root_geometries": 21,
+    "total_roots": 22,
+    "limitation": "Kaohsiung relation contains two absent outer ways in the original Geofabrik extract; no invented geometry added"
+  },
+  "command_results": [
+    {
+      "log": "taiwan-bounds-build.log",
+      "exit_code": 0
+    },
+    {
+      "log": "mkgmap-build.log",
+      "exit_code": 0
+    }
+  ],
+  "boundary_roots": [
+    "臺北市",
+    "基隆市",
+    "新北市",
+    "高雄市",
+    "臺南市",
+    "桃園市",
+    "嘉義市",
+    "新竹市",
+    "臺中市",
+    "南投縣",
+    "屏東縣",
+    "嘉義縣",
+    "新竹縣",
+    "宜蘭縣",
+    "苗栗縣",
+    "雲林縣",
+    "彰化縣",
+    "臺東縣",
+    "花蓮縣",
+    "金門縣",
+    "澎湖縣",
+    "連江縣"
+  ],
+  "style_address_sha256": "f58397ec9f0a542026e024101df4ba5f2e5688b7622960fba7df23e286658510",
+  "taiwan_boundary_source_sha256": "5b8cd8d1de51a55446abc2d42164244c909e1bc70cadc55fe20fd9808e949c7d",
+  "image": "/root/garmin/staging/navigation-repair-v1/compiled/gmapsupp.img",
+  "image_bytes": 131829760,
+  "image_sha256": "e88f10b81b887285e075a206c329f2451fc2fc9cf953ea261193f93f2791b217",
+  "finished_utc": "2026-10-05T14:05:25.431431+00:00"
+}

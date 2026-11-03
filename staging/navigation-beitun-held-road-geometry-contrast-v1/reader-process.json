@@ -1,0 +1,140 @@
+{
+  "schema": "one-ordinary-Java-selected-tile-process/v1",
+  "argv": [
+    "/usr/bin/strace",
+    "-f",
+    "-qq",
+    "-yy",
+    "-s",
+    "0",
+    "-P",
+    "/root/garmin/staging/navigation-repair-v2/compiled/70530020.img",
+    "-e",
+    "trace=openat,read,pread64,lseek,mmap,close",
+    "-o",
+    "/root/garmin/staging/navigation-beitun-held-road-geometry-contrast-v1/java-tile-IO.trace",
+    "/usr/bin/java",
+    "-Xmx384m",
+    "--class-path",
+    "/root/garmin/sources/maps/mkgmap-r4924/mkgmap.jar:/root/garmin/sources/maps/mkgmap-r4924/lib/*",
+    "/root/garmin/staging/navigation-beitun-held-road-geometry-contrast-v1/ReadRoadGeometryV2.java",
+    "/root/garmin/staging/navigation-repair-v2/compiled/70530020.img"
+  ],
+  "start_unix_ns": 1791353839350345804,
+  "finish_unix_ns": 1791353841784723157,
+  "elapsed_seconds": 2.4343760379124433,
+  "exit_code": 0,
+  "input_hash_read_receipts": [
+    {
+      "path": "staging/navigation-repair-v2/compiled/70530020.img",
+      "byte_range": [
+        0,
+        2953216
+      ],
+      "bytes": 2953216,
+      "sha256": "632307e20760308382ec903945abc7059bfcc344911ddeb005a391c5674b1f08",
+      "stat": [
+        45826,
+        524067,
+        2953216,
+        1791212306411831358,
+        1791212306411831358
+      ],
+      "purpose": "selected-tile or dependency immutable hash verification; host read separate from Java parser"
+    },
+    {
+      "path": "sources/maps/mkgmap-r4924/mkgmap.jar",
+      "byte_range": [
+        0,
+        2421451
+      ],
+      "bytes": 2421451,
+      "sha256": "8f1ebdc44e83ef147d6cef4d38f00001366e89e57b3a92623110689622bde527",
+      "stat": [
+        45826,
+        525573,
+        2421451,
+        1790965085232898001,
+        1790965085232898001
+      ],
+      "purpose": "selected-tile or dependency immutable hash verification; host read separate from Java parser"
+    },
+    {
+      "path": "sources/maps/mkgmap-r4924/lib/fastutil-6.5.15-mkg.1b.jar",
+      "byte_range": [
+        0,
+        475284
+      ],
+      "bytes": 475284,
+      "sha256": "0c750f3a0cff8d5c533d73795211ee5b7f828948f01769617f3c997833a80835",
+      "stat": [
+        45826,
+        525623,
+        475284,
+        1790965085247178909,
+        1790965085247178909
+      ],
+      "purpose": "selected-tile or dependency immutable hash verification; host read separate from Java parser"
+    },
+    {
+      "path": "sources/maps/mkgmap-r4924/lib/osmpbf-1.3.3.jar",
+      "byte_range": [
+        0,
+        132654
+      ],
+      "bytes": 132654,
+      "sha256": "a329c9498c62fab7b23f6400c073e53f37d8b482101bc33918bf78ca27be647d",
+      "stat": [
+        45826,
+        525624,
+        132654,
+        1790965085251225914,
+        1790965085251225914
+      ],
+      "purpose": "selected-tile or dependency immutable hash verification; host read separate from Java parser"
+    },
+    {
+      "path": "sources/maps/mkgmap-r4924/lib/protobuf-java-2.5.0.jar",
+      "byte_range": [
+        0,
+        533455
+      ],
+      "bytes": 533455,
+      "sha256": "e0c1c64575c005601725e7c6a02cebf9e1285e888f756b2a1d73ffa8d725cc74",
+      "stat": [
+        45826,
+        525625,
+        533455,
+        1790965085252898209,
+        1790965085252898209
+      ],
+      "purpose": "selected-tile or dependency immutable hash verification; host read separate from Java parser"
+    },
+    {
+      "path": "staging/navigation-beitun-held-road-geometry-contrast-v1/ReadRoadGeometryV2.java",
+      "byte_range": [
+        0,
+        3433
+      ],
+      "bytes": 3433,
+      "sha256": "4a03569e8d4c136c3c885c470a5f865706e8530420c77bbc318795fbbc457448",
+      "stat": [
+        45826,
+        539291,
+        3433,
+        1791353726621479105,
+        1791353726621479105
+      ],
+      "purpose": "selected-tile or dependency immutable hash verification; host read separate from Java parser"
+    }
+  ],
+  "parser_kind": "mkgmap ordinary Java NET/RGN/LBL MapReader; no original ARM guest",
+  "maximum_tiles": 1,
+  "actual_invocations": 1,
+  "whole_Search_IMG_hash_or_read": false,
+  "full_source_or_PBF_read": false,
+  "geometry_ineligible_Rongxing_road_targets_excluded": true,
+  "original_reader_only_filter_changed": true,
+  "parser_result_or_IO_hooks": false,
+  "handles_closed": true
+}

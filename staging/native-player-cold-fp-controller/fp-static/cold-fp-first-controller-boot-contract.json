@@ -1,0 +1,2599 @@
+{
+  "updated_utc": "2026-10-04T11:47:45.491332+00:00",
+  "static_only": true,
+  "guest_executed": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "frozen_source_proof_or_canonical_modified": false,
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "staging/native-player-cold-fp-controller/fp-static/prepare_cold_fp_first_controller_contract.py": "8717551e87a4cc327da2d6442adfdfa1004bc3a92660ce11726e55c71a42afda",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-cache-declared-followup/fp-static/native-multiowner-fp-input-and-journal-recipe.json": "87db585fdcdda4d7c84969a429c46d2c3efdd932428316757e25fd815c6803a3",
+    "staging/native-player-cache-declared-followup/fp-static/controller-terminal14246-fp-recipe-supplement.json": "e43f27fcce376174cf39eea85b5b97ae0f77cfccfbd6bb533da33ff7f89b15cb",
+    "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json": "19fc548d527d4ebb363a30e9910e1913e679f6bc5fbbc9fc4eabbdce651f08b6",
+    "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json": "c2b7da27512b0f73ad22cf25179fbe9e605bab406fdced877433639be906fe35",
+    "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json": "3fa1f71ecc3d8454de931ad8637631f7d1e732ea4e261b6dfa158f7990df37bb",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "scripts/probe_native_settings_lazy_vfp_v2.py": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/emulate_native_player_widget.py": "c7375c9cc2d7298c6890cf4904fc9c88f5f2636de06ea1cfd572cd0ee0ffdd6a",
+    "scripts/probe_native_controller_gir_cache_declared.py": "3b190aa2cd832191863815c083572273fc4c99279ef019e0d5425df7e83d70b8",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/outer-observer-at-run.py": "3b190aa2cd832191863815c083572273fc4c99279ef019e0d5425df7e83d70b8"
+  },
+  "rechecked_existing_source_registry": {
+    "staging/native-player-cache-declared-followup/fp-static/prepare_native_multiowner_fp_recipe.py": "f561fb3d4294b8bbe309a4a7ab333d4f1ad54069aca505db2d18507799d87a16",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-controller-gir-integration/fp-static/cold-controller-fp-recipe.json": "874f6ff0ab614526feafe7a6426ed5a468abc691b9b09e4e036119a7ca9389ac",
+    "staging/native-player-controller-gir-integration/fp-static/new-dispatcher-followup/dispatcher-body-next-call-contract.json": "b00ce6979410dcf9dadbeb2f1588d4fe9414d41462a2c389841bf7fdd67dbc50",
+    "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json": "19fc548d527d4ebb363a30e9910e1913e679f6bc5fbbc9fc4eabbdce651f08b6",
+    "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json": "c2b7da27512b0f73ad22cf25179fbe9e605bab406fdced877433639be906fe35",
+    "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json": "3fa1f71ecc3d8454de931ad8637631f7d1e732ea4e261b6dfa158f7990df37bb",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/probe_native_condition_timer_owner.py": "a059681919d850ba5f1e56dd8243fa16dab20505b608070368536b1d01fd3c68",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "scripts/probe_native_settings_lazy_vfp_v2.py": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "scripts/emulate_native_player_widget.py": "c7375c9cc2d7298c6890cf4904fc9c88f5f2636de06ea1cfd572cd0ee0ffdd6a",
+    "scripts/probe_native_mainmenu_controller.py": "d9f3c1ce76e362515a2a410dd39f01b5d87e8195b94f53bc304e820c34bd9d15",
+    "scripts/emulate_native_independent_signal.py": "3b2852bf0e0a205a7083048f0393e230a2bdf04088672241f8f430d1de0035d0",
+    "evidence/firmware-analysis/native-settings-lazy-vfp-emulation.json": "4e6df5d4f306db2fe208af414b032db2e98edc1bc79b727b98f84dcb496826c4",
+    "staging/native-player-controller-gir-integration/runtime/terminal-metadata.json": "962f7116e2f1c2aa8190161662295ee956b1b3de08bc2667fe081162c6e7725b",
+    "staging/native-player-controller-gir-integration/runtime/terminal-probe.json": "cfe5a33ea97955fef82f8104627844df43ebc8d0f096eea6a30a29a3c9ac3e68",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_gui_worker_boot.py": "4c9f1002b0b496953156ffa4b95f2a8103fc30c42eca52f693898184dd975d74",
+    "staging/native-player-cache-declared-followup/fp-static/controller-descriptor20.bin": "4b07da0aff09fa5749bb386d0df26e5d1ce599afc7954fd6583c6db76bc823ce",
+    "staging/native-player-cache-declared-followup/fp-static/controller-metadata40.bin": "b441ed1ad9a6f93881d2a034f8d5ae6e3fdb32af6853fb257a676d96f890a3ef",
+    "staging/native-player-cache-declared-followup/fp-static/controller-name17.bin": "b5f6d31352e75df2187bda3a8b03c67d358b3cb4cbda4070f9fd1c4e250cf859",
+    "staging/controller-gir-prep-stock-v2/verification.json": "952d0dd5c26c66cade123e61cbc84fdb87e8420f6faaa98896c1f9427a7cd785",
+    "staging/native-player-settings-vfp-context/runtime-v2/terminal-metadata.json": "2edaf744c9bdcaab636cb0cf446855c79e95a2b7590a48e52261f541724118c9",
+    "staging/native-player-settings-vfp-context/runtime-v2/heap-settings-terminal-probe.json": "521c4a75cfd414731a60946c4d03a40f8fa01dfac96b0e593607b00f7ed46f08",
+    "staging/native-player-settings-vfp-context/runtime-v2/native-lazy-vfp-state.json": "b72687894cf61f194c871fa04af8666b878ed0c100f00c8b29c8c70ce2c5d8eb",
+    "staging/controller-gir-prep-stock-v2/controller-gir-prep-disassembly.txt": "6da84e1f23d93a06b8fbef00859aebe9065b0d28ad8dc90f02d5cf9f62dc3924",
+    "staging/controller-gir-prep-stock-v2/controller-gir-prep-armv6.bin": "6bf50fcdec9ed9bd3868d56c8af478b8fa8632a3d66ff6627ec3fcdcc66cfd37",
+    "staging/controller-gir-prep-stock-v2/controller_gir_prep-armv6.su": "a19033b8283035128e690f12c4d83eca1af6c38cdb3a0e1cf28d2855acdee50f",
+    "staging/controller-gir-prep-stock-v2/exact_abi-armv6.su": "f8f4abeccf8ef95b8a8c5e9f2e030d991dfe852288db43bf33389c0dca3e0c7a",
+    "native/controller-gir-prep/stock-gir-v2/controller_gir_prep.c": "395f7f7d78f0047b2ecb2256f61e12a9d3355abd3f60de797f3b643e774ecedd",
+    "native/controller-gir-prep/stock-gir-v2/exact_abi.c": "d347251700b46b6ad84ce294c193964a20330cc23fce9cc9d0ab3909a4b3a0fd",
+    "native/controller-gir-prep/stock-gir-v2/controller_gir_prep.h": "af86c54edce2847253e68b8da2fea8464e9a24d205ebd0569c4eaf4f168f52eb",
+    "native/controller-gir-prep/stock-gir-v2/README.md": "d72c48b72efef6c330749a7374a36051a40bc00f811b39c6b63463d02dda978d",
+    "staging/native-player-controller-gir-integration/fp-static/new-dispatcher-followup/analyze_dispatcher_followup.py": "51d8ed5f392852385b7f48fe869fd30f4e451e5949b077a1cc47aa5655208737",
+    "staging/native-player-task-runtime-full/gui-foreground-boot-preflight.json": "adb75ebb292e6b9aeb898269d87dc63c0822f5316e35f4064390e735a2e4725e",
+    "staging/native-player-task-runtime-full/dispatcher-mainmenu-callback-static-preflight.json": "fa8061c2102e3139e362b359b8695f773f268312de5888f150e7a31de9494353",
+    "staging/native-player-independent-signal/mainmenu-controller-prerequisites-static.json": "5881d18c9103b0b48636d53632bfc5b92667d119e04835a6c755aead5d76def5",
+    "evidence/firmware-analysis/native-independent-signal-emulation.json": "0fe4fe2314f75932e68e6768517d1830ab5d2db8bb22b4d58c5f0c83d9d85582",
+    "staging/native-player-controller-gir-integration/runtime/runner-at-run.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "staging/native-player-controller-gir-integration/runtime/inputs-before-run.json": "32349be8f96205127f7c1714cf0f079f33c4643056431f15938f0b9b9d9b9c6b",
+    "scripts/probe_native_controller_gir_component.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "scripts/probe_mainmenu_native_settings_journal.py": "1034c6157923dafe44d5f7ea952c87543c3125db4cfd8d5ccd0c744f266bfde3",
+    "scripts/probe_native_dispatcher_condition.py": "7969f8609694ac0f062eab1a91f4024aeb4c298a1848ffdf629b8620a2c73c45",
+    "scripts/probe_native_signal_dispatch.py": "a2255b6dd901f6ef2345dca00dd20d4b50f5d95e02a38dec5c44b633ed1a592b",
+    "scripts/probe_native_pool_clock.py": "35d29ecaab8a16bea38ddf6005529c0a72062c8613ae7293e8b079be0d5a8093",
+    "scripts/emulate_native_voice_outer.py": "f6691a09db57998fbfd1cd53db7e107f5dd0cbb91270580163a2944b9ec650d1",
+    "scripts/probe_native_player_mainmenu.py": "e9fc9c84fa518e5cd2ead7eb6d6d0cc60a2af2e0cd3521e99c56f5c4459a5280",
+    "scripts/analyze_native_gui_foreground_boot.py": "fc43a67f7c23401ffdf0f654853e7644092421ccd8552822caa68b843891d81e",
+    "scripts/analyze_native_task_mutex_static.py": "6614da71ab4c0d5d298e602c50559c2a356e754c8cefb74ac7d4a176e44fe5ca",
+    "staging/native-player-mainmenu-controller/controller-static-preflight.json": "9d78d7b93bc831cac33e81da592d60a367254187eb4b37ddddf10ab139cb780b",
+    "staging/native-player-mainmenu/MainMenu-root-settings-preflight.json": "844089c654c815dd2bfa2f6bd3a247972ddac9478f667a7764d7b6617b8b2444",
+    "staging/native-player-controller-gir-integration/resource-static/font-stream-owner-supplement.json": "83f420f6ec9ca00c9749496e1596ba3455d44cd60306478af7a82bc80e64cf44",
+    "backups/20261002T154458Z/files/.System/SQLite/custom_mm_icons.db": "1ae4071e1d93496cac562edf74093f5054f3f72497f4a5c40405a52df2ba2e99",
+    "evidence/firmware-analysis/voice-modules/Chinese_Big5_MeiLing/DLLIMG.BIN": "a1e8f473c5cf87f5cdc364b402229f6222ce657fe779582dea62b8423cacec44",
+    "native/player-menu-loaded/entry.c": "f821a782f281e1116356bba3a9ecf198e03c44df2a7b4cd08a09839d28445b75",
+    "native/player-resources/player_menu.c": "097dd7267b859bddc7e7114938727926bea52f0357335d769aca23116d309eae",
+    "native/sbc-prototype/app_component_entry.c": "e7e1605a21a862ee9b3de52499d5251530e1c4c8f1d0e214d890ad6466b08b1f",
+    "native/sbc-prototype/decoder.c": "b82ae30f71cd5c5a61120aff9435164bcc375397a90a775d2e0255db78e28661",
+    "native/sbc-prototype/decoder.h": "babf159dc179f502f6c89b2aa6c75ed5dec5b98b6feb345ee50814df413eebaf",
+    "native/sbc-prototype/media_coordinator.c": "57785867d91f8c003e0bc9b20a590da808195eeadcc03c19f1125117eb7a63f7",
+    "native/sbc-prototype/media_queue.c": "746df3204fd1c5d8bce1ee3878fa7ec13e6bf6de7915be2dc32efd9df51eb867",
+    "native/sbc-prototype/media_queue.h": "a2280f75cffdc8e243f32a86342fa1d7ae11ecf8d12558686045db87b49edc63",
+    "native/sbc-prototype/media_worker.c": "be69e2096232d93cf6517df72ac600657b161f62fb080ad209cc8bfff26acbad",
+    "native/sbc-prototype/media_worker.h": "f942220caf544fd6c4db4dbd2607c6c923772ca822e6436234a35112774353ab",
+    "native/sbc-prototype/memory_output.c": "0a20c1d7a9d4dca5147b49054542f5ed1c57701a3ed1b440c94ef086186cc770",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "native/sbc-prototype/owned_media.c": "d6e53fac4bb3f1d50c7712045a3b0d8592e1505b48f29e66fba3717a6961b4f1",
+    "native/sbc-prototype/pcm_converter.c": "bc719bcda623adf1e786c50fe826deded5124c66786347f6a3af60ebd7e69a70",
+    "native/sbc-prototype/pcm_converter.h": "8f183e510d47f7b0ebb19d044c56c2933b29d8870ee0c5395f5de7fd1b84fa07",
+    "native/sbc-prototype/playback_control.c": "23e339fd62a6476aeaaa6eef26ce9464c5123319191000c8d255ca360739d0c1",
+    "native/sbc-prototype/playback_hook.S": "3a7602fdb6007c8c4ac86e7c5d16a61584cdcbddeaddc2c1480565b46c664197",
+    "native/sbc-prototype/runtime.c": "6f806016955d2e6fcc967a0d028ca6b47259e75cc3f9385ea467c88e460174fc",
+    "native/sbc-prototype/source_event_hooks.S": "845730e6ecca4aa9941772d35a67979a2f0cd64b8c3d4b5b5e17ff9adef6ced2",
+    "native/sbc-prototype/source_worker.c": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+    "native/sbc-prototype/voice_media.c": "ec53e3eff695d26d9117dedadfcddfb88755a4de8f4cbc6b6a82c78f7f8868f0",
+    "scripts/analyze_native_loader.py": "4f83c8e1c9f1aa12e350db7238a78ee557259fbf1123662fb3e52a5496a072b1",
+    "scripts/analyze_native_player_resources.py": "0743f0a65bf09e7fa8b668af3f1d7f92908b2b5717ee970006cee243d81a2e2e",
+    "scripts/analyze_native_usb_transition.py": "5deb660142324f8c07287055c02b748a97540330024600a2cf00d3041d878b3b",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+    "scripts/analyze_tts_vpm.py": "e8a0ec9640493af2f32a81891ee5cab38eb13cd7cd147ae21cd9546693c7fdc7",
+    "scripts/build_native_app_component.py": "f3c2ac1daa220b9a4d93c8a552bb5170e11efb1896078d37ae8fd532813539c6",
+    "scripts/build_native_media_coordinator.py": "f9d46fa6600886c1a093711930965270b8307cdfe01d06b1b58e0228b1ec37af",
+    "scripts/build_native_owned_media.py": "3970b93ee5ee784ddbce0990f4e4cb4b804aa394307498f0e869de8eef64b8c4",
+    "scripts/build_native_playback_control.py": "89f93f3bf271827dfde86c40237fbeef7bf651cb7c037cbf9652ad260a4e644d",
+    "scripts/build_native_player_resources.py": "43adbdf3db6963c5e2501f72f66efc69198a2bc75f9f3775272bdb463895b2be",
+    "scripts/build_native_source_worker.py": "9de9fb2ec5dd530967ce2b715de7d8aefb4ac1d71065c3ff83dc9ea5987b7d5a",
+    "scripts/build_native_voice_package_fixture.py": "15cbac97e82aafeff6cb8709e6d43ca25380ee67dc572cd7191390ef7ba4aa57",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/emulate_native_kernel_context.py": "14071090f7d97794b2e174a773642bbcc38c3905177a29d50905d3fc33bba36d",
+    "scripts/emulate_native_loader.py": "88f02fc748aa5aa98926bc343ebf4633a22b708a7bd85a0bc1598891c055168d",
+    "scripts/emulate_native_mainmenu_constructor.py": "c79f097883f9c4c66b1f1344210d10f5ab0e6296a6d4dd2fcd7b4377cc8193a5",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_player_external_fonts.py": "1add15de2352b50e16f8aa41359e00c52071cef825473e3bc8249210201ce470",
+    "scripts/emulate_native_player_grid.py": "a0bbc29098fe048d42382e1914582f6f48c67c79bb75b1001dca9a069c5649f2",
+    "scripts/emulate_native_player_menu.py": "1cce0562d944a03cf39b1a38a4d671528db14f72c2b2810d94aac32a04aa3029",
+    "scripts/emulate_native_player_menu_loaded.py": "eb54cee452d9551aa84e6485524d01b6a04d7a4369ca1d2f3fc9bd4899f91ce8",
+    "scripts/emulate_native_player_menu_selection.py": "f5c7cfe4985db564717dc9655d42765a708eb2def59561e715ed47e00d027b16",
+    "scripts/emulate_native_player_page.py": "39e4550a50de13da4fc4d47e862808ec66e6d7b77972ec583d40bb78ca5b6a63",
+    "scripts/emulate_native_player_text.py": "97bdaa55db989bc30f2fda4bf3b959d6dbb1fdaf9d82e06ab43c8bf900d78f4d",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/emulate_native_sbc_component.py": "ab81b6471be88ffdf77537e8ceea1380f2906fb58bf1214e59feaea6a328707e",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_voice_metadata.py": "a20c99ee2cb81b3bb5974485f676cc1434abec76cd3ba154e588853be24ce810",
+    "scripts/emulate_native_voice_registry.py": "2d114b9befcf47e5e7a1cc9ec779bee56c6edc20d126c2c08e3b2e07d3c5c74b",
+    "scripts/emulate_native_voice_selection.py": "0c438f0deb96ba4675df5f88cd5152454b3f2143455609473739c460d6e1cc61",
+    "scripts/emulate_native_vpm_filesystem.py": "326855842ad9081b68f76b8d4cd7eb77340dd196976384140f3c3616f6c26da2",
+    "scripts/probe_native_dispatcher_kernel_context.py": "099e5bd7d08d4d33781d03ffd8bad6de739679f936027424e68238f1eff00e9c",
+    "scripts/probe_native_dispatcher_owner.py": "4faf2c65b75bfbb8cdbe73d1049a07111c977c796c7e0caf70f99bcd53ad252f",
+    "scripts/probe_native_dispatcher_reacquire.py": "9506aee35d51a0be8d8d94fa5bbafe686bd8c38e9f40bcf85899c34d41a6795d",
+    "scripts/probe_native_gui_runtime_bootstrap.py": "26d218c054b8249b0ee465a2dc166b84544d626fd9e30a37d6f05b203b3d5ff7",
+    "scripts/probe_native_heap_callback.py": "3894abe78bd40fc17500e3e9fc58b0189cacda7cd5b5e4711ed85577d01556a8",
+    "scripts/probe_native_mainmenu_context.py": "36e825681ca5978fe41e05e960b97128d69578bfb8fcde2e26ba911db1c17c5f",
+    "scripts/probe_native_mainmenu_metadata.py": "6a7478b8e44ca6d613187a040c4d2fd25d629ed407b1f5374f6cb6b088f6e909",
+    "scripts/probe_native_mutex_owner.py": "71a13cc2c8a1f3147dd31fa2c30a69c89845a9a3d4224d2d117b4d8a473f523a",
+    "scripts/probe_native_player_rendering.py": "14577423e656847ec806f96261b51cee40af2f06c3f6025ce56406db29504c3f",
+    "scripts/probe_native_player_resource_cache.py": "d7e0c7833ade1580957d9b9f9a5f1e8509214150a55e4eebd1a730a70e721943",
+    "scripts/probe_native_player_resources.py": "08bf031c451a20dd0b7d935cac1835e608621023a93067c3367ade532fa2ec6b",
+    "scripts/probe_native_settings_writer.py": "c317ac2e33ad36a1e25f2b59bfb0885c961a264fc7c1d4c3941ecef6246c981c",
+    "sources/deep-research/sbc-2.1/sbc/sbc.c": "42d16642f3eebf51f7f9e84a03f62a1d722c03414ed3265ba183bdaa0d9dccc4",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/app_component.ld": "b9825e1b659da432cd8e8e8d741203ac0bec7c221052e66aa6e8baaf56ce9dd1",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/manifest.json": "555055661866aa13d49746816405a47e26b3b416c2a54a4a8003271fb1ab7f26",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+    "staging/native-app-component-emulation/Chinese_Big5_MeiLing/source_worker_imports.h": "2147d9dc725638a4dda8861d8f390245d6ae08cabc3905f963064aa8d017bdf0",
+    "staging/native-media-coordinator/coordinator.ld": "32556c11456bfb65911e4e9658eea07a16519df1b192ec77efb406dc9cf25e61",
+    "staging/native-media-coordinator/manifest.json": "f8a8cf87e2e99fd6b95166a203b4969a8ac9cbf7ae5c37114a7facd0ddf4e97f",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844",
+    "staging/native-owned-media/owned.ld": "4fb15e019df4048f9cc689aaf82a1a051837131c2a656d0a5a168f22d7efc542",
+    "staging/native-owned-media/owned_queue.c": "db1deed241cea130f66cfbf29e232a2131be71ebe8b6451313bff0eba970359e",
+    "staging/native-pcm-converter/coefficients.json": "772279ec0dfee105de3aa47345328081b2030d46297899e46112a052659978bc",
+    "staging/native-pcm-converter/pcm_converter_tables.h": "9608e31285d91e7c0c96b11eb497effbde4ab8cd4bd27c580da4258c3140d488",
+    "staging/native-playback-control/manifest.json": "8e5cb718e3b6ca93706481333ed4f12418ca24be1db341614acf7830109affed",
+    "staging/native-playback-control/playback.ld": "fcae768fa1919150c3dff5ebc1eca7a4582c438953e668d707f716dff11bb840",
+    "staging/native-playback-control/playback_imports.h": "5dce5d671888faf35935a20cdc6ba9e5ea1595b4cd1945181f56d7315a675486",
+    "staging/native-player-menu/build.json": "af29534c2fc3cbed20b0db0b4c092d61dc10e2f3d4a65be75bbd77aa1792bea4",
+    "staging/native-player-resources/combined-voice-player-EMULATION-ONLY.bin": "e5693728fe645a67a38d6f320d2e57cfa551a48cc632a8bc9cab23b7d624ea6a",
+    "staging/native-player-resources/manifest.json": "f3365f39ca17cc6b19a5d0f67fd3d9c04d4195071937e0cb289fc77f07e91d68",
+    "staging/native-player-resources/playback_imports.h": "4018309c337f73f2f135e1f00f7c009a7ed97eb859bc1c0fbaaa17a6f6e6b993",
+    "staging/native-player-resources/player-component-EMULATION-ONLY.bin": "9ba8682d38ec7822dca8060d8816fd656b250db9c60c1da30343e6f9338ba6d4",
+    "staging/native-player-resources/player-component-EMULATION-ONLY.elf": "64b120faf0209d21c552dd73c3977ffe76a301e433736e2614f403969b7e61fd",
+    "staging/native-player-resources/player-menu-EMULATION-ONLY.vpm": "f452d466bcbb700ede6bef166add99c7badc3a005857c296043e3526d25e71c7",
+    "staging/native-player-resources/player_component.ld": "bcd0957f9dfbcbc8eee111abe25313d6077389160ea1ab1a1f61b704fb90f111",
+    "staging/native-player-resources/source_worker_imports.h": "69202bb97b0fcb2ee3c1e610c5bedd06738b01297ec24ae2f834c38d88ed2470",
+    "staging/native-source-worker/manifest.json": "402344f58453955af85e96b1c77ceaf226ad031af073dee46c770f85bd47f660",
+    "staging/native-source-worker/source_worker.ld": "1b3f445283cb33622580e1f7b9e803c3dee127df876ccaecdec79b26b7b0bdb6",
+    "staging/native-source-worker/source_worker_imports.h": "874b26207a99d2261356fbd47a3501b5de01c453cade84fccc0c80cb3a2bfb08",
+    "scripts/probe_mainmenu_native_settings_prep.py": "beee865dfce0e1c0bddd2895c723a4d5100fc0b0ed7b76cd243db7204e2e990c",
+    "staging/native-player-mainmenu-native-prep/mutex-static/mainmenu-native-settings-mutex-preflight.json": "a2a6b1f38f4b6903f25c142a834dadc04e653b82c6c8fbc0dbb77f1a166ba377",
+    "staging/native-player-task-mutex/gui-worker-boot-preflight.json": "dfb39b1beaf8587206fa43f95ae1029699cba5133058b1bd737ad694c1e13087",
+    "staging/native-player-task-mutex/gui-worker-boot-erratum-and-inputs.json": "4a54d4470370a731f98b195fe4970317f74dbe891ead0d516a07612f4ab5ac6d",
+    "staging/native-player-task-mutex/runtime-crosscheck4903.json": "dfcda053e01e82eb87f1628ff5bc3887cb9cc2f634e4f7f387262f1530864915",
+    "scripts/analyze_native_gui_dispatcher_callback_candidate.py": "22f7461adb7e2c4128ea988ecd3d0f463e08a6bb7be62b71cd507edb19f83352",
+    "evidence/firmware-analysis/native-task-runtime-full-emulation.json": "0dff2284ec443a4135a030e6f778f8129bd9da3cbd73231937ed3687b2988e0d",
+    "staging/native-player-task-runtime-full/post-guard-background-development-probe.json": "3308bde61d48e6dba37596972a6c07cdc9f37849eb3f8f57e6c033327c1edfef",
+    "scripts/probe_native_mainmenu_controller_bootstrap.py": "a7f6b40ba00fe824b8924bbcdbf629effb1b063cc891815afe5357c5ae01f959",
+    "scripts/analyze_native_dispatcher_mainmenu_preconditions.py": "edfa4db8e72f2b44161b29acef7171b3bdf5a01dffc2933c48edca324132938a",
+    "evidence/firmware-analysis/native-mainmenu-constructor-emulation.json": "7130daae246b2da853aae497b1ed8101cc04fd2a7f8fc5cbd4af7b60836881b8",
+    "scripts/emulate_native_task_creation.py": "cd9dd7494c472b0131c8d367d1362416122cadbc8261123b1682d3273455328a",
+    "staging/native-player-heap-settings-boot/heap-settings-terminal-probe.json": "280e25a54dbb90a41b8c6134e857e0d6e1ce1f199570bbec327816df285d60c1",
+    "staging/native-player-task-runtime-full/gui-stack-fill-preflight.json": "063345227562d4ae7c55a857be4b21d133e43a22a1d079bcd9de29abe10ca380",
+    "staging/native-player-settings-vfp-context/vfp-static/lazy-settings-v2-peer-review.json": "ea1fef00b115e9af72665d8f3555bdaa8ec4215557c917d769a20fe32a3cf7ce",
+    "staging/native-player-settings-vfp-context/micro/original-lazy-vfp-micro-probe.json": "91efaef3e9ec4c285c67859d6054894e410526770e738107c1be380a59d146c7",
+    "staging/native-player-heap-settings-boot/runner-at-run.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-heap-settings-boot/inputs-before-run.json": "8ef0c0fc4af8b1e7037fc6c6462c40a56af27210a0c809403afd855e3b117675",
+    "staging/native-player-heap-settings-boot/terminal-metadata.json": "f87ec4745417b9858892ea381c44745164a957b185ca177e3098d73a45e06b7a",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "scripts/emulate_native_task_lifecycle.py": "f80f7935b0d6c2e51ce650462238f4bb7b95206adfe42672383a7cb80ff5c9ad",
+    "evidence/firmware-analysis/native-task-lifecycle-emulation.json": "54b861e4a3b91bf11d2912be14fb1fd47440744f62c7edae45ae537a04b47411",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/analyze_mainmenu_native_heap_mutex.py": "b117f74000b99b8719e39ce8baeb36fc2b52b39a700a608318e0825f3a6ff12d",
+    "staging/native-player-mainmenu-native-prep/journal-runtime/settings-native-prep-terminal-probe.json": "ca12033aa9428fa9e81f187931356412befc02abdb8870b5941fa1ab48339210",
+    "staging/native-player-mainmenu-native-prep/journal-runtime/terminal-metadata.json": "157e3926f7b24c19459008485c308cf6b42b819a8f35d55e03c11d88361ca4b5",
+    "staging/native-player-mainmenu-native-prep/journal-runtime/runner-at-run.py": "1034c6157923dafe44d5f7ea952c87543c3125db4cfd8d5ccd0c744f266bfde3",
+    "scripts/analyze_native_heap_callback.py": "1169bef5f63beb18099f5fb7e88f817dca736e853b7742047d53e27bb1c01438",
+    "scripts/analyze_native_heap_release.py": "2d8eb47327e11a4680052f97f2c4e241b3d803b839baf10c6b264b55b22480f5",
+    "staging/native-player-cache-declared-followup/fp-static/native-multiowner-fp-input-and-journal-recipe.json": "87db585fdcdda4d7c84969a429c46d2c3efdd932428316757e25fd815c6803a3",
+    "evidence/firmware-analysis/native-controller-gir-cache-declared-emulation.json": "22806ae2805df8c59f5521b7a2fdcaef10b6371f6e055355f82b1454797f9121",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/terminal-metadata.json": "c96782475c3e3d9d1b774cb968d078cc8375766183bde32a86d22d85c82d55c0",
+    "staging/native-player-cache-declared-followup/fp-static/seal_current_controller_fp_endpoint.py": "d309b4e9a717f42f6dd93c1e8208060f8504a268954a8bf8fd83f214211fcee5",
+    "scripts/probe_native_controller_gir_cache_declared.py": "3b190aa2cd832191863815c083572273fc4c99279ef019e0d5425df7e83d70b8",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/outer-observer-at-run.py": "3b190aa2cd832191863815c083572273fc4c99279ef019e0d5425df7e83d70b8",
+    "scripts/probe_native_controller_gir_component_contiguous.py": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/observer-at-run.py": "738b46d3a4254370f8c1a27875b71620a1c4625a4bf091bdc5654beaea54d541",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/runner-at-run.py": "024714df092fd98d1817b774456b94ff039c58219bc47b6e0e358b259879e63f",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/outer-observer-inputs-before-run.json": "3bc77397d507876c7fa1a295405e153250f1b07856b5bd64a2f8928f153f54fe",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/observer-inputs-before-run.json": "8836b23a27f965c4dab19d47824b404dec84fe1da1ee52e59074e16521a41317",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/inputs-before-run.json": "f0cce944096b0b8c80a0950476a4355187c96a79500795be87b3d5a40b6074dc",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/terminal-probe.json": "a0e0c8f46058234f2d0d8231f41d3bc637afd8cc2b0d3e228856ca7c2239f48b",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/actual-observer-state.json": "98ebf88c6e32cc26328ecb81fdf1e78a9db3ceaabe08ed2334cfdc677f0a97bd",
+    "staging/native-player-controller-gir-integration/runtime-cache-declared/declared-cache-observer-state.json": "b3656ac88d2b61063c00ba5bae218c4f878a93e12a7d2b3b9a5c790885172be8",
+    "scripts/analyze_native_mutex_owner.py": "64042f37ab348e030bab13cab62a2e50e40a546f88f5bd64eb2297c7b378f13f",
+    "scripts/analyze_native_kernel_context.py": "62325fba9af6338f5289af927faf81b723a04d3a0a89d6d4cba8a8a28dd4aab2"
+  },
+  "new_CFG_count": 0,
+  "complete_recursive_kernel_CFG": false,
+  "exact_instruction_evidence": [
+    {
+      "address": "0x20ed68",
+      "mode": "ARM",
+      "opcode_hex": "00402de9",
+      "instruction": "stmdb sp!, {lr}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed6c",
+      "mode": "ARM",
+      "opcode_hex": "04d04de2",
+      "instruction": "sub sp, sp, #4",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed70",
+      "mode": "ARM",
+      "opcode_hex": "30101fe5",
+      "instruction": "ldr r1, [pc, #-0x30]",
+      "literal_address": "0x20ed48",
+      "literal_value": "0x3ab1038",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed74",
+      "mode": "ARM",
+      "opcode_hex": "0000a0e3",
+      "instruction": "mov r0, #0",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed78",
+      "mode": "ARM",
+      "opcode_hex": "000081e5",
+      "instruction": "str r0, [r1]",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed7c",
+      "mode": "ARM",
+      "opcode_hex": "0304a0e3",
+      "instruction": "mov r0, #0x3000000",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed80",
+      "mode": "ARM",
+      "opcode_hex": "100ae1ee",
+      "instruction": "vmsr fpscr, r0",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed84",
+      "mode": "ARM",
+      "opcode_hex": "0000a0e3",
+      "instruction": "mov r0, #0",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed88",
+      "mode": "ARM",
+      "opcode_hex": "00008de5",
+      "instruction": "str r0, [sp]",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed8c",
+      "mode": "ARM",
+      "opcode_hex": "34001fe5",
+      "instruction": "ldr r0, [pc, #-0x34]",
+      "literal_address": "0x20ed60",
+      "literal_value": "0x2d226b4",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed90",
+      "mode": "ARM",
+      "opcode_hex": "34101fe5",
+      "instruction": "ldr r1, [pc, #-0x34]",
+      "literal_address": "0x20ed64",
+      "literal_value": "0x3ab1028",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed94",
+      "mode": "ARM",
+      "opcode_hex": "0221e0e3",
+      "instruction": "mvn r2, #0x80000000",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed98",
+      "mode": "ARM",
+      "opcode_hex": "0c309fe5",
+      "instruction": "ldr r3, [pc, #0xc]",
+      "literal_address": "0x20edac",
+      "literal_value": "0x20edb1",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed9c",
+      "mode": "ARM",
+      "opcode_hex": "07f606fb",
+      "instruction": "blx #0x3cc5c2",
+      "direct_call": "0x3cc5c2",
+      "target_mode": "Thumb",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20eda0",
+      "mode": "ARM",
+      "opcode_hex": "04d08de2",
+      "instruction": "add sp, sp, #4",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20eda4",
+      "mode": "ARM",
+      "opcode_hex": "0040bde8",
+      "instruction": "ldm sp!, {lr}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20eda8",
+      "mode": "ARM",
+      "opcode_hex": "1eff2fe1",
+      "instruction": "bx lr",
+      "resolved_native_return": true,
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ed68",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20edb0",
+      "mode": "Thumb",
+      "opcode_hex": "024a",
+      "instruction": "ldr r2, [pc, #8]",
+      "literal_address": "0x20edbc",
+      "literal_value": "0x3ab1038",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20edb0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20edb2",
+      "mode": "Thumb",
+      "opcode_hex": "1168",
+      "instruction": "ldr r1, [r2]",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20edb0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20edb4",
+      "mode": "Thumb",
+      "opcode_hex": "401a",
+      "instruction": "subs r0, r0, r1",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20edb0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20edb6",
+      "mode": "Thumb",
+      "opcode_hex": "00d1",
+      "instruction": "bne #0x20edba",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20edb0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20edb8",
+      "mode": "Thumb",
+      "opcode_hex": "1060",
+      "instruction": "str r0, [r2]",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20edb0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20edba",
+      "mode": "Thumb",
+      "opcode_hex": "7047",
+      "instruction": "bx lr",
+      "resolved_native_return": true,
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20edb0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ebe0",
+      "mode": "ARM",
+      "opcode_hex": "1f102de9",
+      "instruction": "push {r0, r1, r2, r3, r4, ip}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ec78",
+      "mode": "ARM",
+      "opcode_hex": "20402de9",
+      "instruction": "push {r5, lr}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ec80",
+      "mode": "ARM",
+      "opcode_hex": "100ae8ee",
+      "instruction": "vmsr fpexc, r0",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ec98",
+      "mode": "ARM",
+      "opcode_hex": "000081e5",
+      "instruction": "str r0, [r1]",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ecd8",
+      "mode": "ARM",
+      "opcode_hex": "200b80ec",
+      "instruction": "vstmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ecf8",
+      "mode": "ARM",
+      "opcode_hex": "0e1080e8",
+      "instruction": "stm r0, {r1, r2, r3, ip}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed0c",
+      "mode": "ARM",
+      "opcode_hex": "200b90ec",
+      "instruction": "vldmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}",
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x20ed3c",
+      "mode": "ARM",
+      "opcode_hex": "0ef0b0e1",
+      "instruction": "movs pc, lr",
+      "resolved_native_return": true,
+      "reused_CFG": "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json",
+      "containing_function": "0x20ebe0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c84",
+      "mode": "Thumb",
+      "instruction": "adds r0, r0, r5",
+      "opcode_hex": "4019",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c86",
+      "mode": "Thumb",
+      "instruction": "bl #0x3008a0",
+      "direct_call": "0x3008a0",
+      "call_target_mode": "Thumb",
+      "opcode_hex": "a7f70bfe",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c8a",
+      "mode": "Thumb",
+      "instruction": "ldr r0, [r4, #0x10]",
+      "opcode_hex": "2069",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c8c",
+      "mode": "Thumb",
+      "instruction": "str r0, [r5, #0x1c]",
+      "opcode_hex": "e861",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c8e",
+      "mode": "Thumb",
+      "instruction": "cmp r0, #0",
+      "opcode_hex": "0028",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c90",
+      "mode": "Thumb",
+      "instruction": "beq #0x358c98",
+      "opcode_hex": "02d0",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c92",
+      "mode": "Thumb",
+      "instruction": "ldr r1, [r0]",
+      "opcode_hex": "0168",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c94",
+      "mode": "Thumb",
+      "instruction": "str r1, [r5, #0x48]",
+      "opcode_hex": "a964",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x358c96",
+      "mode": "Thumb",
+      "instruction": "str r1, [r5, #0x60]",
+      "opcode_hex": "2966",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x358bf8",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f26",
+      "mode": "Thumb",
+      "instruction": "movs r3, r1",
+      "opcode_hex": "0b00",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f28",
+      "mode": "Thumb",
+      "instruction": "movs r1, r2",
+      "opcode_hex": "1100",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f2a",
+      "mode": "Thumb",
+      "instruction": "push {r4, lr}",
+      "opcode_hex": "10b5",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f2c",
+      "mode": "Thumb",
+      "instruction": "cmp r0, #0",
+      "opcode_hex": "0028",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f2e",
+      "mode": "Thumb",
+      "instruction": "beq #0xf6f3c",
+      "opcode_hex": "05d0",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f30",
+      "mode": "Thumb",
+      "instruction": "ldr r0, [r0, #0x10]",
+      "opcode_hex": "0069",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f32",
+      "mode": "Thumb",
+      "instruction": "cmp r0, #0",
+      "opcode_hex": "0028",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f34",
+      "mode": "Thumb",
+      "instruction": "beq #0xf6f3c",
+      "opcode_hex": "02d0",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f36",
+      "mode": "Thumb",
+      "instruction": "ldr r3, [r0, #8]",
+      "opcode_hex": "8368",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f38",
+      "mode": "Thumb",
+      "instruction": "ldr r0, [r0, #0xc]",
+      "opcode_hex": "c068",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f3a",
+      "mode": "Thumb",
+      "instruction": "lsls r1, r0, #2",
+      "opcode_hex": "8100",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f3c",
+      "mode": "Thumb",
+      "instruction": "cmp r3, #0",
+      "opcode_hex": "002b",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f3e",
+      "mode": "Thumb",
+      "instruction": "beq #0xf6f48",
+      "opcode_hex": "03d0",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f40",
+      "mode": "Thumb",
+      "instruction": "movs r2, #0xff",
+      "opcode_hex": "ff22",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f42",
+      "mode": "Thumb",
+      "instruction": "movs r0, r3",
+      "opcode_hex": "1800",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f44",
+      "mode": "Thumb",
+      "instruction": "blx #0x3794f0",
+      "direct_call": "0x3794f0",
+      "call_target_mode": "ARM",
+      "opcode_hex": "82f2d4ea",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f48",
+      "mode": "Thumb",
+      "instruction": "pop {r4}",
+      "opcode_hex": "10bc",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f4a",
+      "mode": "Thumb",
+      "instruction": "pop {r3}",
+      "opcode_hex": "08bc",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f4c",
+      "mode": "Thumb",
+      "instruction": "bx r3",
+      "resolved_terminal": "original_LR_return",
+      "opcode_hex": "1847",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6f26",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f02",
+      "mode": "Thumb",
+      "opcode_hex": "2160",
+      "instruction": "str r1, [r4]",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6edc",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f10",
+      "mode": "Thumb",
+      "opcode_hex": "6160",
+      "instruction": "str r1, [r4, #4]",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6edc",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6f18",
+      "mode": "Thumb",
+      "opcode_hex": "6160",
+      "instruction": "str r1, [r4, #4]",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6edc",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6e2e",
+      "mode": "Thumb",
+      "opcode_hex": "4ec0",
+      "instruction": "stm r0!, {r1, r2, r3, r6}",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6e08",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6e32",
+      "mode": "Thumb",
+      "opcode_hex": "4ec0",
+      "instruction": "stm r0!, {r1, r2, r3, r6}",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6e08",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6e36",
+      "mode": "Thumb",
+      "opcode_hex": "06c0",
+      "instruction": "stm r0!, {r1, r2}",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6e08",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6e3c",
+      "mode": "Thumb",
+      "opcode_hex": "0171",
+      "instruction": "strb r1, [r0, #4]",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6e08",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0xf6e40",
+      "mode": "Thumb",
+      "opcode_hex": "e861",
+      "instruction": "str r0, [r5, #0x1c]",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0xf6e08",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x6e0858",
+      "mode": "ARM",
+      "opcode_hex": "1c4080e5",
+      "instruction": "str r4, [r0, #0x1c]",
+      "reused_CFG": "staging/native-player-settings-vfp-context/tcb-fp-static/native-tcb-fp-metadata-preflight.json",
+      "containing_function": "0x6e0830",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc57c",
+      "mode": "Thumb",
+      "bytes_hex": "10b5",
+      "load_address": "0x3cc57c",
+      "instruction": "push {r4, lr}",
+      "opcode_hex": "10b5",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc57e",
+      "mode": "Thumb",
+      "bytes_hex": "0400",
+      "load_address": "0x3cc57e",
+      "instruction": "movs r4, r0",
+      "opcode_hex": "0400",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc580",
+      "mode": "Thumb",
+      "bytes_hex": "0020",
+      "load_address": "0x3cc580",
+      "instruction": "movs r0, #0",
+      "opcode_hex": "0020",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc582",
+      "mode": "Thumb",
+      "bytes_hex": "2060",
+      "load_address": "0x3cc582",
+      "instruction": "str r0, [r4]",
+      "opcode_hex": "2060",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc584",
+      "mode": "Thumb",
+      "bytes_hex": "201d",
+      "load_address": "0x3cc584",
+      "instruction": "adds r0, r4, #4",
+      "opcode_hex": "201d",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc586",
+      "mode": "Thumb",
+      "bytes_hex": "34f78bf9",
+      "load_address": "0x3cc586",
+      "instruction": "bl #0x3008a0",
+      "direct_call": "0x3008a0",
+      "opcode_hex": "34f78bf9",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc58a",
+      "mode": "Thumb",
+      "bytes_hex": "35a0",
+      "load_address": "0x3cc58a",
+      "instruction": "adr r0, #0xd4",
+      "address_value": "0x3cc660",
+      "opcode_hex": "35a0",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc58c",
+      "mode": "Thumb",
+      "bytes_hex": "6061",
+      "load_address": "0x3cc58c",
+      "instruction": "str r0, [r4, #0x14]",
+      "opcode_hex": "6061",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc58e",
+      "mode": "Thumb",
+      "bytes_hex": "10bc",
+      "load_address": "0x3cc58e",
+      "instruction": "pop {r4}",
+      "opcode_hex": "10bc",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc590",
+      "mode": "Thumb",
+      "bytes_hex": "08bc",
+      "load_address": "0x3cc590",
+      "instruction": "pop {r3}",
+      "opcode_hex": "08bc",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc592",
+      "mode": "Thumb",
+      "bytes_hex": "1847",
+      "load_address": "0x3cc592",
+      "instruction": "bx r3",
+      "terminal": "original_saved_LR_popped_to_r3_return",
+      "opcode_hex": "1847",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc57c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5c2",
+      "mode": "Thumb",
+      "bytes_hex": "ffb5",
+      "load_address": "0x3cc5c2",
+      "instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}",
+      "opcode_hex": "ffb5",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5c4",
+      "mode": "Thumb",
+      "bytes_hex": "0600",
+      "load_address": "0x3cc5c4",
+      "instruction": "movs r6, r0",
+      "opcode_hex": "0600",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5c6",
+      "mode": "Thumb",
+      "bytes_hex": "0c00",
+      "load_address": "0x3cc5c6",
+      "instruction": "movs r4, r1",
+      "opcode_hex": "0c00",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5c8",
+      "mode": "Thumb",
+      "bytes_hex": "1700",
+      "load_address": "0x3cc5c8",
+      "instruction": "movs r7, r2",
+      "opcode_hex": "1700",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5ca",
+      "mode": "Thumb",
+      "bytes_hex": "0025",
+      "load_address": "0x3cc5ca",
+      "instruction": "movs r5, #0",
+      "opcode_hex": "0025",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5cc",
+      "mode": "Thumb",
+      "bytes_hex": "001d",
+      "load_address": "0x3cc5cc",
+      "instruction": "adds r0, r0, #4",
+      "opcode_hex": "001d",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5ce",
+      "mode": "Thumb",
+      "bytes_hex": "81b0",
+      "load_address": "0x3cc5ce",
+      "instruction": "sub sp, #4",
+      "opcode_hex": "81b0",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5d0",
+      "mode": "Thumb",
+      "bytes_hex": "34f7e6f9",
+      "load_address": "0x3cc5d0",
+      "instruction": "bl #0x3009a0",
+      "direct_call": "0x3009a0",
+      "opcode_hex": "34f7e6f9",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5d4",
+      "mode": "Thumb",
+      "bytes_hex": "3268",
+      "load_address": "0x3cc5d4",
+      "instruction": "ldr r2, [r6]",
+      "opcode_hex": "3268",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5d6",
+      "mode": "Thumb",
+      "bytes_hex": "0021",
+      "load_address": "0x3cc5d6",
+      "instruction": "movs r1, #0",
+      "opcode_hex": "0021",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5d8",
+      "mode": "Thumb",
+      "bytes_hex": "3000",
+      "load_address": "0x3cc5d8",
+      "instruction": "movs r0, r6",
+      "opcode_hex": "3000",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5da",
+      "mode": "Thumb",
+      "bytes_hex": "002a",
+      "load_address": "0x3cc5da",
+      "instruction": "cmp r2, #0",
+      "opcode_hex": "002a",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5dc",
+      "mode": "Thumb",
+      "bytes_hex": "0fd0",
+      "load_address": "0x3cc5dc",
+      "instruction": "beq #0x3cc5fe",
+      "opcode_hex": "0fd0",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5de",
+      "mode": "Thumb",
+      "bytes_hex": "a242",
+      "load_address": "0x3cc5de",
+      "instruction": "cmp r2, r4",
+      "opcode_hex": "a242",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5e0",
+      "mode": "Thumb",
+      "bytes_hex": "01d1",
+      "load_address": "0x3cc5e0",
+      "instruction": "bne #0x3cc5e6",
+      "opcode_hex": "01d1",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5e2",
+      "mode": "Thumb",
+      "bytes_hex": "0025",
+      "load_address": "0x3cc5e2",
+      "instruction": "movs r5, #0",
+      "opcode_hex": "0025",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5e4",
+      "mode": "Thumb",
+      "bytes_hex": "ed43",
+      "load_address": "0x3cc5e4",
+      "instruction": "mvns r5, r5",
+      "opcode_hex": "ed43",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5e6",
+      "mode": "Thumb",
+      "bytes_hex": "0029",
+      "load_address": "0x3cc5e6",
+      "instruction": "cmp r1, #0",
+      "opcode_hex": "0029",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5e8",
+      "mode": "Thumb",
+      "bytes_hex": "03d1",
+      "load_address": "0x3cc5e8",
+      "instruction": "bne #0x3cc5f2",
+      "opcode_hex": "03d1",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5ea",
+      "mode": "Thumb",
+      "bytes_hex": "5368",
+      "load_address": "0x3cc5ea",
+      "instruction": "ldr r3, [r2, #4]",
+      "opcode_hex": "5368",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5ec",
+      "mode": "Thumb",
+      "bytes_hex": "bb42",
+      "load_address": "0x3cc5ec",
+      "instruction": "cmp r3, r7",
+      "opcode_hex": "bb42",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5ee",
+      "mode": "Thumb",
+      "bytes_hex": "00dd",
+      "load_address": "0x3cc5ee",
+      "instruction": "ble #0x3cc5f2",
+      "opcode_hex": "00dd",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5f0",
+      "mode": "Thumb",
+      "bytes_hex": "0100",
+      "load_address": "0x3cc5f0",
+      "instruction": "movs r1, r0",
+      "opcode_hex": "0100",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5f2",
+      "mode": "Thumb",
+      "bytes_hex": "1000",
+      "load_address": "0x3cc5f2",
+      "instruction": "movs r0, r2",
+      "opcode_hex": "1000",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5f4",
+      "mode": "Thumb",
+      "bytes_hex": "1268",
+      "load_address": "0x3cc5f4",
+      "instruction": "ldr r2, [r2]",
+      "opcode_hex": "1268",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5f6",
+      "mode": "Thumb",
+      "bytes_hex": "002a",
+      "load_address": "0x3cc5f6",
+      "instruction": "cmp r2, #0",
+      "opcode_hex": "002a",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5f8",
+      "mode": "Thumb",
+      "bytes_hex": "f1d1",
+      "load_address": "0x3cc5f8",
+      "instruction": "bne #0x3cc5de",
+      "opcode_hex": "f1d1",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5fa",
+      "mode": "Thumb",
+      "bytes_hex": "0029",
+      "load_address": "0x3cc5fa",
+      "instruction": "cmp r1, #0",
+      "opcode_hex": "0029",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5fc",
+      "mode": "Thumb",
+      "bytes_hex": "00d1",
+      "load_address": "0x3cc5fc",
+      "instruction": "bne #0x3cc600",
+      "opcode_hex": "00d1",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc5fe",
+      "mode": "Thumb",
+      "bytes_hex": "0100",
+      "load_address": "0x3cc5fe",
+      "instruction": "movs r1, r0",
+      "opcode_hex": "0100",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc600",
+      "mode": "Thumb",
+      "bytes_hex": "002d",
+      "load_address": "0x3cc600",
+      "instruction": "cmp r5, #0",
+      "opcode_hex": "002d",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc602",
+      "mode": "Thumb",
+      "bytes_hex": "07d1",
+      "load_address": "0x3cc602",
+      "instruction": "bne #0x3cc614",
+      "opcode_hex": "07d1",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc604",
+      "mode": "Thumb",
+      "bytes_hex": "0868",
+      "load_address": "0x3cc604",
+      "instruction": "ldr r0, [r1]",
+      "opcode_hex": "0868",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc606",
+      "mode": "Thumb",
+      "bytes_hex": "2200",
+      "load_address": "0x3cc606",
+      "instruction": "movs r2, r4",
+      "opcode_hex": "2200",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc608",
+      "mode": "Thumb",
+      "bytes_hex": "81c2",
+      "load_address": "0x3cc608",
+      "instruction": "stm r2!, {r0, r7}",
+      "opcode_hex": "81c2",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc60a",
+      "mode": "Thumb",
+      "bytes_hex": "0498",
+      "load_address": "0x3cc60a",
+      "instruction": "ldr r0, [sp, #0x10]",
+      "opcode_hex": "0498",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc60c",
+      "mode": "Thumb",
+      "bytes_hex": "a060",
+      "load_address": "0x3cc60c",
+      "instruction": "str r0, [r4, #8]",
+      "opcode_hex": "a060",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc60e",
+      "mode": "Thumb",
+      "bytes_hex": "0a98",
+      "load_address": "0x3cc60e",
+      "instruction": "ldr r0, [sp, #0x28]",
+      "opcode_hex": "0a98",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc610",
+      "mode": "Thumb",
+      "bytes_hex": "e060",
+      "load_address": "0x3cc610",
+      "instruction": "str r0, [r4, #0xc]",
+      "opcode_hex": "e060",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc612",
+      "mode": "Thumb",
+      "bytes_hex": "0c60",
+      "load_address": "0x3cc612",
+      "instruction": "str r4, [r1]",
+      "opcode_hex": "0c60",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc614",
+      "mode": "Thumb",
+      "bytes_hex": "301d",
+      "load_address": "0x3cc614",
+      "instruction": "adds r0, r6, #4",
+      "opcode_hex": "301d",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc616",
+      "mode": "Thumb",
+      "bytes_hex": "34f74bf9",
+      "load_address": "0x3cc616",
+      "instruction": "bl #0x3008b0",
+      "direct_call": "0x3008b0",
+      "opcode_hex": "34f74bf9",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc61a",
+      "mode": "Thumb",
+      "bytes_hex": "2800",
+      "load_address": "0x3cc61a",
+      "instruction": "movs r0, r5",
+      "opcode_hex": "2800",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc61c",
+      "mode": "Thumb",
+      "bytes_hex": "05b0",
+      "load_address": "0x3cc61c",
+      "instruction": "add sp, #0x14",
+      "opcode_hex": "05b0",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc61e",
+      "mode": "Thumb",
+      "bytes_hex": "f0bc",
+      "load_address": "0x3cc61e",
+      "instruction": "pop {r4, r5, r6, r7}",
+      "opcode_hex": "f0bc",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc620",
+      "mode": "Thumb",
+      "bytes_hex": "08bc",
+      "load_address": "0x3cc620",
+      "instruction": "pop {r3}",
+      "opcode_hex": "08bc",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3cc622",
+      "mode": "Thumb",
+      "bytes_hex": "1847",
+      "load_address": "0x3cc622",
+      "instruction": "bx r3",
+      "terminal": "original_saved_LR_popped_to_r3_return",
+      "opcode_hex": "1847",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x3cc5c2",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bca",
+      "mode": "Thumb",
+      "bytes_hex": "3d48",
+      "load_address": "0x388bca",
+      "instruction": "ldr r0, [pc, #0xf4]",
+      "literal_address": "0x388cc0",
+      "literal_value": "0x3a7f18c",
+      "opcode_hex": "3d48",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bcc",
+      "mode": "Thumb",
+      "bytes_hex": "77f768fe",
+      "load_address": "0x388bcc",
+      "instruction": "bl #0x3008a0",
+      "direct_call": "0x3008a0",
+      "opcode_hex": "77f768fe",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bd0",
+      "mode": "Thumb",
+      "bytes_hex": "4ba0",
+      "load_address": "0x388bd0",
+      "instruction": "adr r0, #0x12c",
+      "address_value": "0x388d00",
+      "opcode_hex": "4ba0",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bd2",
+      "mode": "Thumb",
+      "bytes_hex": "e862",
+      "load_address": "0x388bd2",
+      "instruction": "str r0, [r5, #0x2c]",
+      "opcode_hex": "e862",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bd4",
+      "mode": "Thumb",
+      "bytes_hex": "0022",
+      "load_address": "0x388bd4",
+      "instruction": "movs r2, #0",
+      "opcode_hex": "0022",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bd6",
+      "mode": "Thumb",
+      "bytes_hex": "0092",
+      "load_address": "0x388bd6",
+      "instruction": "str r2, [sp]",
+      "opcode_hex": "0092",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bd8",
+      "mode": "Thumb",
+      "bytes_hex": "0122",
+      "load_address": "0x388bd8",
+      "instruction": "movs r2, #1",
+      "opcode_hex": "0122",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bda",
+      "mode": "Thumb",
+      "bytes_hex": "4f49",
+      "load_address": "0x388bda",
+      "instruction": "ldr r1, [pc, #0x13c]",
+      "literal_address": "0x388d18",
+      "literal_value": "0x3a7f150",
+      "opcode_hex": "4f49",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bdc",
+      "mode": "Thumb",
+      "bytes_hex": "4f48",
+      "load_address": "0x388bdc",
+      "instruction": "ldr r0, [pc, #0x13c]",
+      "literal_address": "0x388d1c",
+      "literal_value": "0x2d226b4",
+      "opcode_hex": "4f48",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bde",
+      "mode": "Thumb",
+      "bytes_hex": "504b",
+      "load_address": "0x388bde",
+      "instruction": "ldr r3, [pc, #0x140]",
+      "literal_address": "0x388d20",
+      "literal_value": "0x388b57",
+      "opcode_hex": "504b",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388be0",
+      "mode": "Thumb",
+      "bytes_hex": "1206",
+      "load_address": "0x388be0",
+      "instruction": "lsls r2, r2, #0x18",
+      "opcode_hex": "1206",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388be2",
+      "mode": "Thumb",
+      "bytes_hex": "43f0eefc",
+      "load_address": "0x388be2",
+      "instruction": "bl #0x3cc5c2",
+      "direct_call": "0x3cc5c2",
+      "opcode_hex": "43f0eefc",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388be6",
+      "mode": "Thumb",
+      "bytes_hex": "0022",
+      "load_address": "0x388be6",
+      "instruction": "movs r2, #0",
+      "opcode_hex": "0022",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388be8",
+      "mode": "Thumb",
+      "bytes_hex": "0092",
+      "load_address": "0x388be8",
+      "instruction": "str r2, [sp]",
+      "opcode_hex": "0092",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bea",
+      "mode": "Thumb",
+      "bytes_hex": "0322",
+      "load_address": "0x388bea",
+      "instruction": "movs r2, #3",
+      "opcode_hex": "0322",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bec",
+      "mode": "Thumb",
+      "bytes_hex": "4d49",
+      "load_address": "0x388bec",
+      "instruction": "ldr r1, [pc, #0x134]",
+      "literal_address": "0x388d24",
+      "literal_value": "0x3a7f160",
+      "opcode_hex": "4d49",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bee",
+      "mode": "Thumb",
+      "bytes_hex": "4b48",
+      "load_address": "0x388bee",
+      "instruction": "ldr r0, [pc, #0x12c]",
+      "literal_address": "0x388d1c",
+      "literal_value": "0x2d226b4",
+      "opcode_hex": "4b48",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bf0",
+      "mode": "Thumb",
+      "bytes_hex": "4d4b",
+      "load_address": "0x388bf0",
+      "instruction": "ldr r3, [pc, #0x134]",
+      "literal_address": "0x388d28",
+      "literal_value": "0x388b37",
+      "opcode_hex": "4d4b",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bf2",
+      "mode": "Thumb",
+      "bytes_hex": "1206",
+      "load_address": "0x388bf2",
+      "instruction": "lsls r2, r2, #0x18",
+      "opcode_hex": "1206",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bf4",
+      "mode": "Thumb",
+      "bytes_hex": "43f0e5fc",
+      "load_address": "0x388bf4",
+      "instruction": "bl #0x3cc5c2",
+      "direct_call": "0x3cc5c2",
+      "opcode_hex": "43f0e5fc",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x388bf8",
+      "mode": "Thumb",
+      "bytes_hex": "0ae0",
+      "load_address": "0x388bf8",
+      "instruction": "b #0x388c10",
+      "opcode_hex": "0ae0",
+      "reused_CFG": "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json",
+      "containing_function": "0x388b6c",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008a0",
+      "mode": "Thumb",
+      "instruction": "movs r1, #0",
+      "opcode_hex": "0021",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008a2",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0]",
+      "opcode_hex": "0160",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008a4",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0, #4]",
+      "opcode_hex": "4160",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008a6",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0, #8]",
+      "opcode_hex": "8160",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008a8",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0, #0xc]",
+      "opcode_hex": "c160",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008aa",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0, #0x10]",
+      "opcode_hex": "0161",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008ac",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0, #0x14]",
+      "opcode_hex": "4161",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008ae",
+      "mode": "Thumb",
+      "instruction": "bx lr",
+      "resolved_terminal": "original_LR_return",
+      "opcode_hex": "7047",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3009a0",
+      "mode": "Thumb",
+      "instruction": "push {lr}",
+      "opcode_hex": "00b5",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3009a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3009a2",
+      "mode": "Thumb",
+      "instruction": "sub sp, #4",
+      "opcode_hex": "81b0",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3009a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3009ca",
+      "mode": "Thumb",
+      "instruction": "str r2, [r0, #8]",
+      "opcode_hex": "8260",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3009a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3009d0",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0]",
+      "opcode_hex": "0160",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3009a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3009d2",
+      "mode": "Thumb",
+      "instruction": "str r2, [r0, #4]",
+      "opcode_hex": "4260",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3009a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3009d4",
+      "mode": "Thumb",
+      "instruction": "str r0, [r2]",
+      "opcode_hex": "1060",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3009a0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008b0",
+      "mode": "Thumb",
+      "instruction": "push {r4, lr}",
+      "opcode_hex": "10b5",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008b0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008b2",
+      "mode": "Thumb",
+      "instruction": "sub sp, #8",
+      "opcode_hex": "82b0",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008b0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008f2",
+      "mode": "Thumb",
+      "instruction": "str r1, [r0, #8]",
+      "opcode_hex": "8160",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008b0",
+      "exact_original_MAIN_rechecked": true
+    },
+    {
+      "address": "0x3008f8",
+      "mode": "Thumb",
+      "instruction": "str r2, [r1]",
+      "opcode_hex": "0a60",
+      "reused_CFG": "staging/native-player-task-mutex/task-mutex-static-preflight.json",
+      "containing_function": "0x3008b0",
+      "exact_original_MAIN_rechecked": true
+    }
+  ],
+  "existing_recipe_preserved": {
+    "path": "staging/native-player-cache-declared-followup/fp-static/native-multiowner-fp-input-and-journal-recipe.json",
+    "sha256": "87db585fdcdda4d7c84969a429c46d2c3efdd932428316757e25fd815c6803a3",
+    "supplement": "staging/native-player-cache-declared-followup/fp-static/controller-terminal14246-fp-recipe-supplement.json",
+    "supplement_sha256": "e43f27fcce376174cf39eea85b5b97ae0f77cfccfbd6bb533da33ff7f89b15cb"
+  },
+  "contract_stage": "Freshcold-controller/newsource; first/samecontroller FP only, before future actualDispatcherFP admission.",
+  "typed_inputs": [
+    {
+      "path": "staging/native-player-cache-declared-followup/fp-static/controller-descriptor20.bin",
+      "address": "0x9400820",
+      "bytes": 20,
+      "raw_hex": "0400400900000000004050090000100000094009",
+      "sha256": "4b07da0aff09fa5749bb386d0df26e5d1ce599afc7954fd6583c6db76bc823ce",
+      "provenance": "cold input; native builder reads descriptor+16",
+      "installable_or_device_input": false,
+      "before_first_original_builder_only": true
+    },
+    {
+      "path": "staging/native-player-cache-declared-followup/fp-static/controller-metadata40.bin",
+      "address": "0x9400900",
+      "bytes": 40,
+      "raw_hex": "80094009010000000000500900100000000000000000000000000000000000000000000000000000",
+      "sha256": "b441ed1ad9a6f93881d2a034f8d5ae6e3fdb32af6853fb257a676d96f890a3ef",
+      "provenance": "cold input; original521E9A-shaped writable metadata",
+      "installable_or_device_input": false,
+      "before_first_original_builder_only": true
+    },
+    {
+      "path": "staging/native-player-cache-declared-followup/fp-static/controller-name17.bin",
+      "address": "0x9400980",
+      "bytes": 17,
+      "raw_hex": "4e6174697665436f6e74726f6c6c657200",
+      "sha256": "b5f6d31352e75df2187bda3a8b03c67d358b3cb4cbda4070f9fd1c4e250cf859",
+      "provenance": "new explicit cold task name, not physical descriptor recovery",
+      "installable_or_device_input": false,
+      "before_first_original_builder_only": true
+    }
+  ],
+  "original_exitlist_ctor": {
+    "entry": "0x3cc57c",
+    "Thumb_API": "0x3cc57d",
+    "r0": "0x2d226b4",
+    "input": {
+      "start": "0x2d226b4",
+      "end_exclusive": "0x2d226d0",
+      "bytes": 28
+    },
+    "pre_hex": "00000000000000000000000000000000000000000000000000000000",
+    "original_current_task": "0x9503f90",
+    "caller": "Declaredtop-levelRETURN=10000; actualincomingLR10001 withThumbinterworkfixture",
+    "stack": "Original3CC57Cpush8 at[C-8,C);3008A0has no frame.",
+    "native_head_zero": {
+      "PC": "0x3cc582",
+      "range": {
+        "start": "0x2d226b4",
+        "end_exclusive": "0x2d226b8",
+        "bytes": 4
+      },
+      "value": 0
+    },
+    "native_backend_call": {
+      "call": "0x3cc586",
+      "entry": "0x3008a0",
+      "mode": "Thumb",
+      "actual_LR": "0x3cc58b",
+      "continuation": "0x3cc58a",
+      "r0": "0x2d226b8",
+      "range": {
+        "start": "0x2d226b8",
+        "end_exclusive": "0x2d226d0",
+        "bytes": 24
+      },
+      "zero_stores": [
+        {
+          "PC": "0x3008a2",
+          "relative_offset": 0,
+          "size": 4,
+          "value": 0,
+          "target": "0x2d226b8",
+          "instruction": "str r1,[r0+offset]"
+        },
+        {
+          "PC": "0x3008a4",
+          "relative_offset": 4,
+          "size": 4,
+          "value": 0,
+          "target": "0x2d226bc",
+          "instruction": "str r1,[r0+offset]"
+        },
+        {
+          "PC": "0x3008a6",
+          "relative_offset": 8,
+          "size": 4,
+          "value": 0,
+          "target": "0x2d226c0",
+          "instruction": "str r1,[r0+offset]"
+        },
+        {
+          "PC": "0x3008a8",
+          "relative_offset": 12,
+          "size": 4,
+          "value": 0,
+          "target": "0x2d226c4",
+          "instruction": "str r1,[r0+offset]"
+        },
+        {
+          "PC": "0x3008aa",
+          "relative_offset": 16,
+          "size": 4,
+          "value": 0,
+          "target": "0x2d226c8",
+          "instruction": "str r1,[r0+offset]"
+        },
+        {
+          "PC": "0x3008ac",
+          "relative_offset": 20,
+          "size": 4,
+          "value": 0,
+          "target": "0x2d226cc",
+          "instruction": "str r1,[r0+offset]"
+        }
+      ]
+    },
+    "native_retag": {
+      "PC": "0x3cc58c",
+      "range": {
+        "start": "0x2d226c8",
+        "end_exclusive": "0x2d226cc",
+        "bytes": 4
+      },
+      "value": "0x3cc660"
+    },
+    "post_head": 0,
+    "post_backend_words": [
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x3cc660",
+      "0x0"
+    ],
+    "post28_hex": "000000000000000000000000000000000000000060c63c0000000000",
+    "original_return": "3CC592BX savedr3/LR; r0=3CC660tag, notret0status.",
+    "once": true,
+    "refuse_initialized_or_nonempty_input": true,
+    "preserve_later_settings_ctor": "Settings2CBD88->3CC57C148E680 still executes once with exactcaller2CBD8E; do not skip it.",
+    "later_exitlist_rector_forbidden": true
+  },
+  "original_FPboot": {
+    "entry": "0x20ed68",
+    "mode": "ARM",
+    "original_SP": "0x9503f90",
+    "actual_incoming_LR": "0x10001",
+    "prerequisites": [
+      "Actualcontroller/nativeTCB exists; ready/currentheadF09090=runningcontroller;F09094=0.",
+      "Before first358EC4restore/POSTtimer and before FPownerlive; metadata40/name17declared beforefirstbuilder.",
+      "ActualreadbackCPACRF00000/FPEXC40000000; originalowner3AB1038=0 andFPnode16coldzero.",
+      "Originalexitlistctorreturned; L.head0/B24=[0,0,0,0,3CC660,0]; C.ownedhead0; noordinarylock/pendingwait/FP trap.",
+      "BootCPUjournals captured beforector/boot, notafter registration."
+    ],
+    "owner_zero": {
+      "PC": "0x20ed78",
+      "range": {
+        "start": "0x3ab1038",
+        "end_exclusive": "0x3ab103c",
+        "bytes": 4
+      },
+      "value": 0
+    },
+    "FPSCR": {
+      "PC": "0x20ed80",
+      "register": "FPSCR",
+      "value": "0x03000000",
+      "memory_range": null,
+      "FPEXC_unchanged": true,
+      "FPSCR_differs_from_legacy_startup_zero": true
+    },
+    "native_argument_zero": {
+      "PC": "0x20ed88",
+      "range": {
+        "start": "0x9503f88",
+        "end_exclusive": "0x9503f8c",
+        "bytes": 4
+      },
+      "value": 0
+    },
+    "registration": {
+      "entry": "0x3cc5c2",
+      "mode": "Thumb",
+      "call": "0x20ed9c",
+      "actual_LR": "0x20eda0",
+      "continuation": "0x20eda0",
+      "caller_mode": "ARM",
+      "r0": "0x2d226b4",
+      "r1": "0x3ab1028",
+      "r2": "0x7fffffff",
+      "r3": "0x20edb1",
+      "stack_argument_address": "0x9503f88",
+      "stack_argument": 0,
+      "outer_result_at20EDA0": 0,
+      "no_duplicate_node_allowed": true
+    },
+    "node16_store_table": [
+      {
+        "PC": "0x3cc608",
+        "range": {
+          "start": "0x3ab1028",
+          "end_exclusive": "0x3ab1030",
+          "bytes": 8
+        },
+        "values": [
+          "0x0",
+          "0x7fffffff"
+        ],
+        "note": "STM two4B registers; actualcallbackwidth/address journal required."
+      },
+      {
+        "PC": "0x3cc60c",
+        "range": {
+          "start": "0x3ab1030",
+          "end_exclusive": "0x3ab1034",
+          "bytes": 4
+        },
+        "value": "0x20edb1"
+      },
+      {
+        "PC": "0x3cc610",
+        "range": {
+          "start": "0x3ab1034",
+          "end_exclusive": "0x3ab1038",
+          "bytes": 4
+        },
+        "value": 0
+      },
+      {
+        "PC": "0x3cc612",
+        "range": {
+          "start": "0x2d226b4",
+          "end_exclusive": "0x2d226b8",
+          "bytes": 4
+        },
+        "value": "0x3ab1028"
+      }
+    ],
+    "raw_mutex_calls": [
+      {
+        "entry": "0x3009a0",
+        "continuation": "0x3cc5d4",
+        "call": "0x3cc5d0",
+        "pointer": "0x2d226b8",
+        "list_head": "0x2d226b4",
+        "tag": "0x3cc660",
+        "tag_ascii": "&p_list->smphr",
+        "classification_byte": 0,
+        "bytes": 24,
+        "containing_function": "0x3cc5c2",
+        "scope": "reviewed original generic-list API with exact instance gate",
+        "original_list_argument_must_match_instance": true,
+        "static_callsite_not_a_claim_this_instance_executed": true
+      },
+      {
+        "entry": "0x3008b0",
+        "continuation": "0x3cc61a",
+        "call": "0x3cc616",
+        "pointer": "0x2d226b8",
+        "list_head": "0x2d226b4",
+        "tag": "0x3cc660",
+        "tag_ascii": "&p_list->smphr",
+        "classification_byte": 0,
+        "bytes": 24,
+        "containing_function": "0x3cc5c2",
+        "scope": "reviewed original generic-list API with exact instance gate",
+        "original_list_argument_must_match_instance": true,
+        "static_callsite_not_a_claim_this_instance_executed": true
+      }
+    ],
+    "raw_return_contract": "Lock3CC5D4r0=0; no-waiterunlock3CC61Ar0=B, then originalMOVr0,r5 makes registerresult0. Neitherhostret0norstatusassumption.",
+    "owned_field_stores": [
+      {
+        "PC": "0x3009ca",
+        "range": {
+          "start": "0x2d226c0",
+          "end_exclusive": "0x2d226c4",
+          "bytes": 4
+        },
+        "value": "0x9503f90"
+      },
+      {
+        "PC": "0x3009d0",
+        "range": {
+          "start": "0x2d226b8",
+          "end_exclusive": "0x2d226bc",
+          "bytes": 4
+        },
+        "value": 0
+      },
+      {
+        "PC": "0x3009d2",
+        "range": {
+          "start": "0x2d226bc",
+          "end_exclusive": "0x2d226c0",
+          "bytes": 4
+        },
+        "value": "0x9503fb0"
+      },
+      {
+        "PC": "0x3009d4",
+        "range": {
+          "start": "0x9503fb0",
+          "end_exclusive": "0x9503fb4",
+          "bytes": 4
+        },
+        "value": "0x2d226b8"
+      },
+      {
+        "PC": "0x3008f2",
+        "range": {
+          "start": "0x2d226c0",
+          "end_exclusive": "0x2d226c4",
+          "bytes": 4
+        },
+        "value": 0
+      },
+      {
+        "PC": "0x3008f8",
+        "range": {
+          "start": "0x9503fb0",
+          "end_exclusive": "0x9503fb4",
+          "bytes": 4
+        },
+        "value": 0
+      }
+    ],
+    "post_backend_words": [
+      "0x0",
+      "0x9503fb0",
+      "0x0",
+      "0x0",
+      "0x3cc660",
+      "0x0"
+    ],
+    "stale_prev_link_exact_value": "0x9503fb0",
+    "stale_links_must_not_be_cleared": true,
+    "post_FPnode_words": [
+      "0x0",
+      "0x7fffffff",
+      "0x20edb1",
+      "0x0"
+    ],
+    "post_FPnode16_hex": "00000000ffffff7fb1ed200000000000",
+    "final_return": "20EDA0ADDsp4/20EDA4LDMlr/20EDA8BXLR; r0=0 derivedoriginalregistration, SP=C.",
+    "after_boot_before_firstrestore": {
+      "owner": 0,
+      "FPEXC": "0x40000000",
+      "FPSCR": "0x03000000",
+      "TCB108_unchanged_from_preboot": true,
+      "metadata40_unchanged": true,
+      "FPslot": 0,
+      "pool256": "allFF"
+    },
+    "does_not_enable_FPEXC": true,
+    "rerun_after_live_owner_forbidden": true
+  },
+  "boot_stack_recipe": {
+    "range": {
+      "start": "0x9503f50",
+      "end_exclusive": "0x9503f90",
+      "bytes": 64
+    },
+    "all_range_highs_exclusive": true,
+    "original_layer_bytes": [
+      {
+        "entry": "0x20ed68 ARM",
+        "push": 4,
+        "local": 4
+      },
+      {
+        "entry": "0x3cc5c2 Thumb",
+        "push": 36,
+        "local": 4
+      },
+      {
+        "entry": "0x3009a0 Thumb",
+        "push": 4,
+        "local": 4
+      },
+      {
+        "entry": "0x3008b0 Thumb",
+        "push": 8,
+        "local": 8
+      }
+    ],
+    "normal_no_waiter_deepest": "0x9503f50",
+    "range_not_UND_stack": true,
+    "separate_ctor_range": {
+      "start": "0x9503f88",
+      "end_exclusive": "0x9503f90",
+      "bytes": 8
+    },
+    "normal_list_no_contention_required": true,
+    "hook_gate": "OriginalMAINopcode, actualmode/SP/registersnapshot andeachstoreaddress/value. ARM20ED68pushLR, Thumb3CC57C/3CC5C2/rawpushesneedexplicitpushsupport; genericfrozenstr/stm journal rejectsThumbpush.",
+    "no_recursive_callee_stack_bound_claim": true
+  },
+  "later_heap_listener_guard": {
+    "listhead": "0x2d226b4",
+    "nodes": [
+      {
+        "address": "0x3a7f150",
+        "next": "0x3a7f160",
+        "order": "0x01000000",
+        "callback": "0x388b57",
+        "argument": 0,
+        "call": "0x388be2",
+        "actual_LR": "0x388be7",
+        "continuation": "0x388be6",
+        "result": 0
+      },
+      {
+        "address": "0x3a7f160",
+        "next": "0x3ab1028",
+        "order": "0x03000000",
+        "callback": "0x388b37",
+        "argument": 0,
+        "call": "0x388bf4",
+        "actual_LR": "0x388bf9",
+        "continuation": "0x388bf8",
+        "result": 0
+      },
+      {
+        "address": "0x3ab1028",
+        "next": 0,
+        "order": "0x7fffffff",
+        "callback": "0x20edb1",
+        "argument": 0
+      }
+    ],
+    "register_generic_writes": "3CC608node+0/+4;3CC60C+8;3CC610+12;3CC612 predecessorlink. FirstheapnodechangesL.head,secondchanges150.next; FPnode16unchangedafterboot.",
+    "registered_node_intervals": [
+      {
+        "start": "0x3a7f150",
+        "end_exclusive": "0x3a7f160",
+        "bytes": 16
+      },
+      {
+        "start": "0x3a7f160",
+        "end_exclusive": "0x3a7f170",
+        "bytes": 16
+      },
+      {
+        "start": "0x3ab1028",
+        "end_exclusive": "0x3ab1038",
+        "bytes": 16
+      }
+    ],
+    "no_late_exitlist_ctor": true,
+    "no_node_seed_or_reset": true,
+    "heap_workspace96_extent8192_recipe_unchanged": true,
+    "list_count": "Originalexitlistctor + originalsettingslistctor remain2constructorrecords; FPregistration adds thirdlistener, notanotherctor.",
+    "ancestor_verify_heap_two_node_chain_must_be_replaced": true
+  },
+  "metadata_pool_VSTM_spans": {
+    "typed_metadata": {
+      "start": "0x9400900",
+      "end_exclusive": "0x9400928",
+      "bytes": 40
+    },
+    "immutable_name": {
+      "start": "0x9400980",
+      "end_exclusive": "0x9400991",
+      "bytes": 17
+    },
+    "descriptor": {
+      "start": "0x9400820",
+      "end_exclusive": "0x9400834",
+      "bytes": 20
+    },
+    "native_construction": [
+      {
+        "PC": "0x358c8c",
+        "range": {
+          "start": "0x9503fac",
+          "end_exclusive": "0x9503fb0",
+          "bytes": 4
+        },
+        "value": "0x9400900"
+      },
+      {
+        "PC": "0x358c94",
+        "range": {
+          "start": "0x9503fd8",
+          "end_exclusive": "0x9503fdc",
+          "bytes": 4
+        },
+        "value": "0x9400980"
+      },
+      {
+        "PC": "0x358c96",
+        "range": {
+          "start": "0x9503ff0",
+          "end_exclusive": "0x9503ff4",
+          "bytes": 4
+        },
+        "value": "0x9400980"
+      }
+    ],
+    "cold_native_fill": {
+      "entry": "0x3794f0 ARM",
+      "call": "0xf6f44 ThumbBLX",
+      "actual_LR": "0xf6f49",
+      "continuation": "0xf6f48",
+      "range": {
+        "start": "0x9500000",
+        "end_exclusive": "0x9504000",
+        "bytes": 16384
+      },
+      "byte": 255,
+      "verify_before_native_TCB_frame_stores": true
+    },
+    "wholeTCB": {
+      "start": "0x9503f90",
+      "end_exclusive": "0x9503ffc",
+      "bytes": 108
+    },
+    "initial_integer_frame": {
+      "start": "0x9503f5c",
+      "end_exclusive": "0x9503f90",
+      "bytes": 52
+    },
+    "first_same_controller_pool": {
+      "start": "0x9500000",
+      "end_exclusive": "0x9500100",
+      "bytes": 256
+    },
+    "first_same_expected_pool": "allFF; no magic/cursor/contextallocation yet",
+    "future_save_only": {
+      "request_bytes": 148,
+      "advance_bytes": 152,
+      "context": {
+        "start": "0x9500008",
+        "end_exclusive": "0x950009c",
+        "bytes": 148
+      },
+      "magic_store": {
+        "PC": "0xf6f02",
+        "range": {
+          "start": "0x9500000",
+          "end_exclusive": "0x9500004",
+          "bytes": 4
+        },
+        "value": "0xfce3e2ca"
+      },
+      "initial_cursor_store": {
+        "PC": "0xf6f10",
+        "range": {
+          "start": "0x9500004",
+          "end_exclusive": "0x9500008",
+          "bytes": 4
+        },
+        "value": "0x9500008"
+      },
+      "bump_cursor_store": {
+        "PC": "0xf6f18",
+        "range": {
+          "start": "0x9500004",
+          "end_exclusive": "0x9500008",
+          "bytes": 4
+        },
+        "value": "0x95000a0"
+      },
+      "FPslot_store": {
+        "PC": "0x6e0858",
+        "range": {
+          "start": "0x940091c",
+          "end_exclusive": "0x9400920",
+          "bytes": 4
+        },
+        "value": "0x9500008"
+      },
+      "VSTM": {
+        "PC": "0x20ecd8",
+        "range": {
+          "start": "0x9500008",
+          "end_exclusive": "0x9500088",
+          "bytes": 128
+        },
+        "source": "actualpreinstructionD0-D15; callbackwidthunknownstatically"
+      },
+      "control_STM": {
+        "PC": "0x20ecf8",
+        "range": {
+          "start": "0x950008c",
+          "end_exclusive": "0x950009c",
+          "bytes": 16
+        },
+        "source": "actualr1,r2,r3,ip; FPEXCafterhandlerenable, notfaultFPEXC"
+      },
+      "holes": [
+        {
+          "start": "0x9500088",
+          "end_exclusive": "0x950008c",
+          "bytes": 4
+        },
+        {
+          "start": "0x950009c",
+          "end_exclusive": "0x95000a0",
+          "bytes": 4
+        }
+      ],
+      "these_writers_not_admitted_by_first_same_scope": true
+    },
+    "future_clone": "GUIreadonlyM40requiresnativecopy40/F6E3C/F6E40 onfuturefirstsave; controllerM.byte4=1 skipsclone. Futurecaller/range recipe remainspreviousartifact.",
+    "native_allocator_no_capacity_check": true,
+    "first_same_runtime_pools_untouched_including_Dispatcher_Thread": true
+  },
+  "first_same_full_endpoint_delta": {
+    "architecture": "OriginalFPbootFPSCR03000000 replaceslegacy0; everyfirst/samefaultretry comparedtoactualbeforeD16/FPSCR, notconstantprior14246bank.",
+    "owner": "Bootowner0; originalfirsthandler20EC98assignsC; subsequentcontrollerfaultsameowner noexchange. EndpointownerC/FPEXC40000000.",
+    "unchanged_M40_and_slot0": true,
+    "unchanged_named_descriptor_and_input_guards": true,
+    "whole_controller_pool256_FF": true,
+    "no_FPalloc_clone_VSTM_VLDM": true,
+    "kernelrestore_disable_remains_original": true,
+    "controller_raw108": "Atsamecoldphaseonly+28=M,+72=N,+96=N versusNULLoldfixture; latercompareactualnewcoldbaseline plusnativeTimerhead/internalstale links. +36no relaxation.",
+    "controller_leading64": "Replace frozenFullTaskVM A5controllerpredicate with witnessednativeFF64; keepidleA5_64/TimerA5_24/twoGUIFF64 exact. Do nothostrewritecanary to callparentguard.",
+    "GUI_stack_canary_count_stays2": "Storecontrollercoldfillrowseparately; parentGUIcount2 remains.",
+    "TCB_internal_tags": "OriginalbuilderwritesN atC+72/+96; preoperationinternal56/80native tagsmustuseactualnewTCB snapshot. No hostretag.",
+    "old_controller_WAIT_frame_consumed": "Do notassertoldcontroller+12raw52resumable; backgroundfourframes52 andThreadnode20 compareexactendpoint.",
+    "retained_Timer_dual_condition_chain_unchanged": true,
+    "ALL_ready_priorities_unchanged_except_original_phase_history": true,
+    "component": "Freshnewsource must complete11helperreturns/result20/full19zones/cache193typedzeroinputs/wholecacheCPUwrites/rawreads/frees/SQL/fontstreams/inputhistories plus allvoice/API/GUI/F0/heap/storage/code guards. Old14246proofdoesnottransfer to newcoldconfiguration.",
+    "file_lifetime": "Original eightfontstreams stayresident as declared; retainexactnative ownership, notforcecloseallfonts.",
+    "blocked_scope": "AnyothernativeTCB FPowner/exchange orF6EDC/contextwriter is failclosed inthisfirst/sameendpoint; futuremultiownerrequirespreviousrecipe.",
+    "no_final_background_foreground_physical_App_claim": true
+  },
+  "journal_phases": {
+    "construction": "Tracewhole16384nativefill frombeforefirstbuilder; verifyF6F48allFF, thenactualTCB/contextnativewrites. Initialreadyfixturehoststores remainexplicitone-timedeclaredinputs, notCPUstores.",
+    "boot": "CaptureL/backend/node16/ownerpage/TCB108/activecontrollerstack beforeexitctor; supportexactARMandThumbpushpayload. No baseline reset before verifyingboot.",
+    "runtime": "Keepownerpage4096 inclnode16, M40/name17/descriptor+canaries, pool256 andimmutableFF64, liveTCB108/backgroundframes/Threadnode20, F0/GUI/componentjournals active. Laterjournalbaseline includesonly separatelysealednativebootbytes.",
+    "owner_page": {
+      "start": "0x3ab1000",
+      "end_exclusive": "0x3ab2000",
+      "bytes": 4096
+    },
+    "FPnode": {
+      "start": "0x3ab1028",
+      "end_exclusive": "0x3ab1038",
+      "bytes": 16
+    },
+    "FPowner": {
+      "start": "0x3ab1038",
+      "end_exclusive": "0x3ab103c",
+      "bytes": 4
+    },
+    "fresh_unused_CODE_subrange_guards": "Recheck existing exactguardintervals inpreviousrecipe;M/nameoutsideS16KBfill.",
+    "disjoint_journal_zone_intervals": true,
+    "native_store_hooks_plus_whole_net_replay_required": true,
+    "double_count_or_missed_overlapping_region_replay_forbidden": true,
+    "virtualclock0_andtimednode20_unchanged": true
+  },
+  "original_exit_callback": {
+    "entry": "0x20edb0 Thumb",
+    "callback": "0x20edb1",
+    "r0": "exitingTCB",
+    "r1": 0,
+    "native_owner_clear_PC": "0x20edb8",
+    "onlymatchingowner": true,
+    "context_metadata_andstack_not_freed": true,
+    "taskexit_callback_not_run_here": true
+  },
+  "first_source_review_checklist": [
+    "TypedD/M/namebeforefirstbuilder; neverhotpatchTCB orinvokeoriginalbuilderagainonalivetask.",
+    "Correctbeforefirstrestorebootreadbacks; exitlistctoronce; actualARM20EDA0r0=0 andfinalbootSP.",
+    "ReleasedlistbackendstaleprevC+32; original2heapreturn0 andexact3nodechain; noresetlisteners.",
+    "ControllerFFguard andM40/slot0/wholeTCB108nativeNtag baseline; nofirst/samepoolwriteorcontextallocation.",
+    "Bootstack64originalpushjournals distinctfromUND32; fulljournalscapturedbeforewriters andclosedbeforefuturebaselines.",
+    "Repeat11helper/fullcache/19zones andalloldnativeguards; preserveclock/timednode/fourbackgroundframes/twoTimerconditions.",
+    "CrossownerFP remainsrejecteduntilseparatenewsource/ranges/allocator/context/VSTM/UND72scope."
+  ],
+  "assertions_passed": true,
+  "limits": "PurestaticreusedboundedCFG/unchangedMAIN/sourcehashreview. No rootnewrunnerreview yet, no guest execution/newcoldFPboot/metadata/fullcomponentendpoint/multiownerproof; no physicalboot/IRQ/foreground/acceptedpackage/directphoneaudio/safeunload. Nativecaller success requiresactualreturn andoriginalfield/store evidence."
+}

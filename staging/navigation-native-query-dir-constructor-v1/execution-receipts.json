@@ -1,0 +1,22 @@
+{
+  "schema": "garmin-native-query-dir-constructor-execution-receipts/v1",
+  "all_assigned_checks_passed": true,
+  "new_MAIN_bytes_read": 8192,
+  "new_IMG_bytes_read": 0,
+  "logical_constructor_cases": 1,
+  "execution_attempts": 2,
+  "old_cases_or_suites_replayed": false,
+  "actual_runs": [
+    {"terminal": "c81e3c", "exit_code": 0, "action": "Create new namespace and small capture helper based on sealed predecessor; no original source read"},
+    {"terminal": "a6d5c0", "exit_code": 0, "script": "capture_constructor_windows.py", "args": ["0x00173000"], "actual_MAIN_bytes": 4096},
+    {"terminal": "60919c", "exit_code": 0, "script": "capture_constructor_windows.py", "args": ["0x002E3000"], "actual_MAIN_bytes": 4096},
+    {"terminal": "7da119", "exit_code": 1, "script": "probe_constructor_frontier_initial_stack_fixture.py", "result": "UC_ERR_WRITE_UNMAPPED; malformed banked SP preparation, failed instruction count/trace not saved", "actual_original_MAIN_bytes": 0, "actual_IMG_bytes": 0, "unknown_returns_faked": false},
+    {"terminal": "759eb2", "exit_code": 0, "action": "Save initial source/failure receipt; zero-guest-instruction banked-SP preparation observation, correct CPSR/SP write order in same logical case", "guest_instructions": 0, "original_source_bytes": 0},
+    {"terminal": "b575b6", "exit_code": 0, "script": "probe_constructor_frontier.py", "all_assigned_checks_passed": true, "successful_frontier_instructions": 31, "exact_stop": "0038854A before BL3009A0", "handle_after": 0, "full_native_constructor_return": false, "actual_original_MAIN_bytes": 0, "actual_IMG_bytes": 0},
+    {"terminal": "6ea62f", "exit_code": 0, "script": "analyze_constructor.py", "witness_count": 5, "guest_cases_executed": 0, "actual_original_MAIN_bytes": 0, "actual_IMG_bytes": 0, "all_assigned_checks_passed": true}
+  ],
+  "all_original_source_handles_closed": true,
+  "unknown_original_callee_returns_faked": false,
+  "original_MAIN_patched": false,
+  "device_IO": false
+}

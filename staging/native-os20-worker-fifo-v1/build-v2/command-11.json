@@ -1,0 +1,28 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mfloat-abi=soft",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--no-undefined,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/worker-fifo.map",
+    "-Wl,-T,/root/garmin/staging/native-os20-worker-fifo-v1/worker_fifo_v1.ld",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/00-entry_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/01-worker_fifo_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/02-decoder_bind_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/03-runtime_v1.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/04-memory_output.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/05-owned_media.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/06-owned_queue.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/07-pcm_converter.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/08-voice_media.o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/09-media_worker.o",
+    "-lgcc",
+    "-o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v2/worker-fifo-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "/usr/lib/gcc-cross/arm-linux-gnueabi/14/../../../../arm-linux-gnueabi/bin/ld: /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a(_dvmd_lnx.o): in function `__aeabi_ldiv0':\n(.text+0x8): undefined reference to `raise'\ncollect2: error: ld returned 1 exit status\n"
+}

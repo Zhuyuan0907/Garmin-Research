@@ -1,0 +1,839 @@
+{
+  "updated_utc": "2026-10-03T00:48:56.923699+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "script_sha256": "de632b58b75527a9dc5724f819cf5d7f59ef64f4a35f0b8d9ad054e9f2bb9431",
+  "dependency_sha256": {
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f"
+  },
+  "static_only": true,
+  "tasks": {
+    "output_driver": {
+      "readonly_descriptor": "0xa0a694",
+      "raw_hex": "656c4300382e4e03382e4e0338141601a8a6a000",
+      "entry": "0x436c65",
+      "message_storage": "0x34e2e38",
+      "stack_end": "0x34e2e38",
+      "message_bytes": 56,
+      "message_slots": 20,
+      "kernel_priority": 22,
+      "descriptor_byte15": 1,
+      "argument_field": "0xa0a6a8",
+      "runtime_handle_global": "0xf29320",
+      "initializer": "0x40ca80",
+      "task_executed_here": false
+    },
+    "source_controller": {
+      "readonly_descriptor": "0xacb324",
+      "raw_hex": "37a03b002cb44e032cb44e030c0f5c014cb3ac00",
+      "entry": "0x3ba037",
+      "message_storage": "0x34eb42c",
+      "stack_end": "0x34eb42c",
+      "message_bytes": 12,
+      "message_slots": 15,
+      "kernel_priority": 92,
+      "descriptor_byte15": 1,
+      "argument_field": "0xacb34c",
+      "runtime_handle_global": "0xf29360",
+      "initializer": "0x30ee62",
+      "task_executed_here": false
+    },
+    "notice_dispatcher": {
+      "readonly_descriptor": "0xacb338",
+      "raw_hex": "435c4500e0bc4e03e0bc4e03141e5d0174b3ac00",
+      "entry": "0x455c43",
+      "message_storage": "0x34ebce0",
+      "stack_end": "0x34ebce0",
+      "message_bytes": 20,
+      "message_slots": 30,
+      "kernel_priority": 93,
+      "descriptor_byte15": 1,
+      "argument_field": "0xacb374",
+      "runtime_handle_global": "0xf2936c",
+      "initializer": "0x30ee62",
+      "task_executed_here": false
+    }
+  },
+  "driver_channel_table": {
+    "runtime_base": "0x34e32bc",
+    "stride_bytes": 84,
+    "slots": 19
+  },
+  "driver_command_request": "0x1d8c60",
+  "driver_command_dispatcher": "0x1d9084",
+  "driver_command_table": "0x1d90a4",
+  "driver_command_table_hex": "30120a0e0630301722272c",
+  "driver_command_cases": [
+    {
+      "opcode": 0,
+      "table_offset": 48,
+      "dispatch_target": "0x1d9104",
+      "direct_calls_in_first10_bytes": [
+        "0x3008b0"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d9104",
+          "instruction": "ldr r0, [pc, #0x34]"
+        },
+        {
+          "address": "0x1d9106",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "address": "0x1d910a",
+          "instruction": "cmp r6, #0"
+        },
+        {
+          "address": "0x1d910c",
+          "instruction": "beq #0x1d9124"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 1,
+      "table_offset": 18,
+      "dispatch_target": "0x1d90c8",
+      "direct_calls_in_first10_bytes": [
+        "0x1d8de2"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90c8",
+          "instruction": "adds r1, r4, #4"
+        },
+        {
+          "address": "0x1d90ca",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0x1d90cc",
+          "instruction": "bl #0x1d8de2"
+        },
+        {
+          "address": "0x1d90d0",
+          "instruction": "b #0x1d90f8"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 2,
+      "table_offset": 10,
+      "dispatch_target": "0x1d90b8",
+      "direct_calls_in_first10_bytes": [
+        "0x1d903e"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90b8",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0x1d90ba",
+          "instruction": "bl #0x1d903e"
+        },
+        {
+          "address": "0x1d90be",
+          "instruction": "b #0x1d90f8"
+        },
+        {
+          "address": "0x1d90c0",
+          "instruction": "movs r0, r5"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 3,
+      "table_offset": 14,
+      "dispatch_target": "0x1d90c0",
+      "direct_calls_in_first10_bytes": [
+        "0x1d8f2c"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90c0",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0x1d90c2",
+          "instruction": "bl #0x1d8f2c"
+        },
+        {
+          "address": "0x1d90c6",
+          "instruction": "b #0x1d90f8"
+        },
+        {
+          "address": "0x1d90c8",
+          "instruction": "adds r1, r4, #4"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 4,
+      "table_offset": 6,
+      "dispatch_target": "0x1d90b0",
+      "direct_calls_in_first10_bytes": [
+        "0x1d8d24"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90b0",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0x1d90b2",
+          "instruction": "bl #0x1d8d24"
+        },
+        {
+          "address": "0x1d90b6",
+          "instruction": "b #0x1d90f8"
+        },
+        {
+          "address": "0x1d90b8",
+          "instruction": "movs r0, r5"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 5,
+      "table_offset": 48,
+      "dispatch_target": "0x1d9104",
+      "direct_calls_in_first10_bytes": [
+        "0x3008b0"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d9104",
+          "instruction": "ldr r0, [pc, #0x34]"
+        },
+        {
+          "address": "0x1d9106",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "address": "0x1d910a",
+          "instruction": "cmp r6, #0"
+        },
+        {
+          "address": "0x1d910c",
+          "instruction": "beq #0x1d9124"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 6,
+      "table_offset": 48,
+      "dispatch_target": "0x1d9104",
+      "direct_calls_in_first10_bytes": [
+        "0x3008b0"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d9104",
+          "instruction": "ldr r0, [pc, #0x34]"
+        },
+        {
+          "address": "0x1d9106",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "address": "0x1d910a",
+          "instruction": "cmp r6, #0"
+        },
+        {
+          "address": "0x1d910c",
+          "instruction": "beq #0x1d9124"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 7,
+      "table_offset": 23,
+      "dispatch_target": "0x1d90d2",
+      "direct_calls_in_first10_bytes": [
+        "0x30ed10"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90d2",
+          "instruction": "ldr r0, [r4, #0x34]"
+        },
+        {
+          "address": "0x1d90d4",
+          "instruction": "bl #0x30ed10"
+        },
+        {
+          "address": "0x1d90d8",
+          "instruction": "ldr r0, [r4, #0x34]"
+        },
+        {
+          "address": "0x1d90da",
+          "instruction": "movs r1, #4"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 8,
+      "table_offset": 34,
+      "dispatch_target": "0x1d90e8",
+      "direct_calls_in_first10_bytes": [
+        "0x1d8e26"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90e8",
+          "instruction": "adds r1, r4, #4"
+        },
+        {
+          "address": "0x1d90ea",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0x1d90ec",
+          "instruction": "bl #0x1d8e26"
+        },
+        {
+          "address": "0x1d90f0",
+          "instruction": "b #0x1d90f8"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 9,
+      "table_offset": 39,
+      "dispatch_target": "0x1d90f2",
+      "direct_calls_in_first10_bytes": [
+        "0x1d8cf4"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90f2",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0x1d90f4",
+          "instruction": "bl #0x1d8cf4"
+        },
+        {
+          "address": "0x1d90f8",
+          "instruction": "movs r6, r0"
+        },
+        {
+          "address": "0x1d90fa",
+          "instruction": "b #0x1d9104"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    },
+    {
+      "opcode": 10,
+      "table_offset": 44,
+      "dispatch_target": "0x1d90fc",
+      "direct_calls_in_first10_bytes": [
+        "0x1d8cd8"
+      ],
+      "instructions": [
+        {
+          "address": "0x1d90fc",
+          "instruction": "ldr r0, [r4, #0x28]"
+        },
+        {
+          "address": "0x1d90fe",
+          "instruction": "bl #0x1d8cd8"
+        },
+        {
+          "address": "0x1d9102",
+          "instruction": "movs r6, r0"
+        },
+        {
+          "address": "0x1d9104",
+          "instruction": "ldr r0, [pc, #0x34]"
+        }
+      ],
+      "semantics_not_fully_executed_or_proved": true
+    }
+  ],
+  "driver_outcomes": {
+    "wrapper11": "0x1d9140",
+    "wrapper12": "0x1d9160",
+    "target_handle_global": "0xf29360",
+    "target_is_central_source_controller_not_per_channel_mixer": true,
+    "native_controller_requests": "0x30edfe"
+  },
+  "controller_wait_get_loop": "0x3ba036",
+  "controller_message_dispatcher": "0x3b9f84",
+  "traces": {
+    "driver_initializer": [
+      {
+        "address": "0x40ca80",
+        "instruction": "push {r3, r4, r5, r6, r7, lr}"
+      },
+      {
+        "address": "0x40ca82",
+        "instruction": "movs r1, #0"
+      },
+      {
+        "address": "0x40ca84",
+        "instruction": "ldr r6, [pc, #0x64]"
+      },
+      {
+        "address": "0x40ca86",
+        "instruction": "movs r5, r1"
+      },
+      {
+        "address": "0x40ca88",
+        "instruction": "subs r4, r1, #1"
+      },
+      {
+        "address": "0x40ca8a",
+        "instruction": "movs r7, #0xb"
+      },
+      {
+        "address": "0x40ca8c",
+        "instruction": "movs r2, #0x54"
+      },
+      {
+        "address": "0x40ca8e",
+        "instruction": "muls r2, r1, r2"
+      },
+      {
+        "address": "0x40ca90",
+        "instruction": "adds r1, r1, #1"
+      },
+      {
+        "address": "0x40ca92",
+        "instruction": "adds r0, r2, r6"
+      },
+      {
+        "address": "0x40ca94",
+        "instruction": "strb r4, [r0, #0x14]"
+      },
+      {
+        "address": "0x40ca96",
+        "instruction": "strh r5, [r6, r2]"
+      },
+      {
+        "address": "0x40ca98",
+        "instruction": "strh r7, [r0, #4]"
+      },
+      {
+        "address": "0x40ca9a",
+        "instruction": "str r5, [r0, #0xc]"
+      },
+      {
+        "address": "0x40ca9c",
+        "instruction": "str r5, [r0, #8]"
+      },
+      {
+        "address": "0x40ca9e",
+        "instruction": "adds r0, #0x40"
+      },
+      {
+        "address": "0x40caa0",
+        "instruction": "cmp r1, #0x13"
+      },
+      {
+        "address": "0x40caa2",
+        "instruction": "strb r5, [r0]"
+      },
+      {
+        "address": "0x40caa4",
+        "instruction": "blt #0x40ca8c"
+      },
+      {
+        "address": "0x40caa6",
+        "instruction": "ldr r0, [pc, #0x48]"
+      },
+      {
+        "address": "0x40caa8",
+        "instruction": "bl #0x358bf8"
+      },
+      {
+        "address": "0x40caac",
+        "instruction": "ldr r4, [pc, #0x44]"
+      },
+      {
+        "address": "0x40caae",
+        "instruction": "str r0, [r4]"
+      },
+      {
+        "address": "0x40cab0",
+        "instruction": "ldr r0, [pc, #0x3c]"
+      },
+      {
+        "address": "0x40cab2",
+        "instruction": "bl #0x2fbbbe"
+      },
+      {
+        "address": "0x40cab6",
+        "instruction": "ldr r0, [pc, #0x40]"
+      },
+      {
+        "address": "0x40cab8",
+        "instruction": "bl #0x3008a0"
+      },
+      {
+        "address": "0x40cabc",
+        "instruction": "ldr r1, [pc, #0x38]"
+      },
+      {
+        "address": "0x40cabe",
+        "instruction": "adr r0, #0x3c"
+      },
+      {
+        "address": "0x40cac0",
+        "instruction": "str r0, [r1, #0x10]"
+      },
+      {
+        "address": "0x40cac2",
+        "instruction": "bl #0x1fbab6"
+      },
+      {
+        "address": "0x40cac6",
+        "instruction": "cmp r0, #2"
+      },
+      {
+        "address": "0x40cac8",
+        "instruction": "bne #0x40cad2"
+      },
+      {
+        "address": "0x40caca",
+        "instruction": "ldr r0, [r4]"
+      },
+      {
+        "address": "0x40cacc",
+        "instruction": "movs r1, #0x10"
+      },
+      {
+        "address": "0x40cace",
+        "instruction": "blx #0x2fcf44"
+      },
+      {
+        "address": "0x40cad2",
+        "instruction": "bl #0x277054"
+      },
+      {
+        "address": "0x40cad6",
+        "instruction": "bl #0x33fa3c"
+      },
+      {
+        "address": "0x40cada",
+        "instruction": "pop {r3, r4, r5, r6, r7, pc}"
+      }
+    ],
+    "controller_notifier_initializer": [
+      {
+        "address": "0x30ee62",
+        "instruction": "push {r4, lr}"
+      },
+      {
+        "address": "0x30ee64",
+        "instruction": "ldr r0, [pc, #0x2c]"
+      },
+      {
+        "address": "0x30ee66",
+        "instruction": "bl #0x358bf8"
+      },
+      {
+        "address": "0x30ee6a",
+        "instruction": "ldr r1, [pc, #0x24]"
+      },
+      {
+        "address": "0x30ee6c",
+        "instruction": "str r0, [r1]"
+      },
+      {
+        "address": "0x30ee6e",
+        "instruction": "ldr r0, [pc, #0x24]"
+      },
+      {
+        "address": "0x30ee70",
+        "instruction": "bl #0x2fbbbe"
+      },
+      {
+        "address": "0x30ee74",
+        "instruction": "ldr r0, [pc, #0x20]"
+      },
+      {
+        "address": "0x30ee76",
+        "instruction": "bl #0x358bf8"
+      },
+      {
+        "address": "0x30ee7a",
+        "instruction": "ldr r1, [pc, #0x20]"
+      },
+      {
+        "address": "0x30ee7c",
+        "instruction": "str r0, [r1]"
+      },
+      {
+        "address": "0x30ee7e",
+        "instruction": "ldr r0, [pc, #0x18]"
+      },
+      {
+        "address": "0x30ee80",
+        "instruction": "bl #0x2fbbbe"
+      }
+    ],
+    "controller_wait_get_loop": [
+      {
+        "address": "0x3ba036",
+        "instruction": "push {lr}"
+      },
+      {
+        "address": "0x3ba038",
+        "instruction": "movs r0, #0"
+      },
+      {
+        "address": "0x3ba03a",
+        "instruction": "sub sp, #0x14"
+      },
+      {
+        "address": "0x3ba03c",
+        "instruction": "str r0, [sp, #0x10]"
+      },
+      {
+        "address": "0x3ba03e",
+        "instruction": "bl #0x2fd034"
+      },
+      {
+        "address": "0x3ba042",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x3ba044",
+        "instruction": "ldrb r1, [r3, #0x10]"
+      },
+      {
+        "address": "0x3ba046",
+        "instruction": "cmp r1, #0"
+      },
+      {
+        "address": "0x3ba048",
+        "instruction": "bne #0x3ba076"
+      },
+      {
+        "address": "0x3ba04a",
+        "instruction": "lsls r0, r0, #0x1e"
+      },
+      {
+        "address": "0x3ba04c",
+        "instruction": "bpl #0x3ba06a"
+      },
+      {
+        "address": "0x3ba04e",
+        "instruction": "add r0, sp, #4"
+      },
+      {
+        "address": "0x3ba050",
+        "instruction": "bl #0x37bc00"
+      },
+      {
+        "address": "0x3ba054",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x3ba056",
+        "instruction": "beq #0x3ba06a"
+      },
+      {
+        "address": "0x3ba058",
+        "instruction": "add r1, sp, #0x10"
+      },
+      {
+        "address": "0x3ba05a",
+        "instruction": "add r0, sp, #4"
+      },
+      {
+        "address": "0x3ba05c",
+        "instruction": "bl #0x3b9f84"
+      },
+      {
+        "address": "0x3ba060",
+        "instruction": "add r0, sp, #4"
+      },
+      {
+        "address": "0x3ba062",
+        "instruction": "bl #0x37bc00"
+      },
+      {
+        "address": "0x3ba066",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x3ba068",
+        "instruction": "bne #0x3ba058"
+      },
+      {
+        "address": "0x3ba06a",
+        "instruction": "bl #0x2fd034"
+      },
+      {
+        "address": "0x3ba06e",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x3ba070",
+        "instruction": "ldrb r1, [r3, #0x10]"
+      },
+      {
+        "address": "0x3ba072",
+        "instruction": "cmp r1, #0"
+      },
+      {
+        "address": "0x3ba074",
+        "instruction": "beq #0x3ba04a"
+      },
+      {
+        "address": "0x3ba076",
+        "instruction": "ldr r0, [pc, #0x14]"
+      },
+      {
+        "address": "0x3ba078",
+        "instruction": "ldr r0, [r0]"
+      },
+      {
+        "address": "0x3ba07a",
+        "instruction": "bl #0x30ee56"
+      },
+      {
+        "address": "0x3ba07e",
+        "instruction": "add sp, #0x14"
+      }
+    ],
+    "driver_outcome_wrappers": [
+      {
+        "address": "0x1d9140",
+        "instruction": "push {r4, lr}"
+      },
+      {
+        "address": "0x1d9142",
+        "instruction": "sub sp, #0x10"
+      },
+      {
+        "address": "0x1d9144",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x1d9146",
+        "instruction": "strb r0, [r3, #5]"
+      },
+      {
+        "address": "0x1d9148",
+        "instruction": "movs r0, #0xb"
+      },
+      {
+        "address": "0x1d914a",
+        "instruction": "strb r0, [r3, #4]"
+      },
+      {
+        "address": "0x1d914c",
+        "instruction": "ldr r0, [pc, #0x50]"
+      },
+      {
+        "address": "0x1d914e",
+        "instruction": "movs r4, #0"
+      },
+      {
+        "address": "0x1d9150",
+        "instruction": "str r4, [sp, #0xc]"
+      },
+      {
+        "address": "0x1d9152",
+        "instruction": "ldr r0, [r0]"
+      },
+      {
+        "address": "0x1d9154",
+        "instruction": "add r1, sp, #4"
+      },
+      {
+        "address": "0x1d9156",
+        "instruction": "bl #0x37bce4"
+      },
+      {
+        "address": "0x1d915a",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x1d915c",
+        "instruction": "add sp, #0x10"
+      },
+      {
+        "address": "0x1d915e",
+        "instruction": "pop {r4, pc}"
+      },
+      {
+        "address": "0x1d9160",
+        "instruction": "push {r4, lr}"
+      },
+      {
+        "address": "0x1d9162",
+        "instruction": "sub sp, #0x10"
+      },
+      {
+        "address": "0x1d9164",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x1d9166",
+        "instruction": "strb r0, [r3, #5]"
+      },
+      {
+        "address": "0x1d9168",
+        "instruction": "movs r0, #0xc"
+      },
+      {
+        "address": "0x1d916a",
+        "instruction": "strb r0, [r3, #4]"
+      },
+      {
+        "address": "0x1d916c",
+        "instruction": "ldr r0, [pc, #0x30]"
+      },
+      {
+        "address": "0x1d916e",
+        "instruction": "movs r4, #0"
+      },
+      {
+        "address": "0x1d9170",
+        "instruction": "str r4, [sp, #0xc]"
+      },
+      {
+        "address": "0x1d9172",
+        "instruction": "ldr r0, [r0]"
+      },
+      {
+        "address": "0x1d9174",
+        "instruction": "add r1, sp, #4"
+      },
+      {
+        "address": "0x1d9176",
+        "instruction": "bl #0x37bce4"
+      },
+      {
+        "address": "0x1d917a",
+        "instruction": "movs r0, r4"
+      },
+      {
+        "address": "0x1d917c",
+        "instruction": "add sp, #0x10"
+      },
+      {
+        "address": "0x1d917e",
+        "instruction": "pop {r4, pc}"
+      }
+    ]
+  },
+  "all_checks_passed": true,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Static exact HWID1352/software8.00 MAIN only. Descriptor pointer literals/fields, initializer/kernel-create call sites, computed Thumb command table and outcome target literal decoded. Physical BSS/TCBs are not read and none of these driver/controller/notifier tasks execute here. Generic source-controller requests, priority changes, shared pool/list exclusion, actual driver allocation/format/mixing/start/end/DMA and completion lifetime still require execution. Default ROM priorities22/92/93 do not prove all live priorities or mutual exclusion. Driver outcomes11/12 target central controller global0xF29360, not mixer START14 directly; meaning and follow-up must be traced before automatic adapter design. No driver/SBC integration, real navigation/phone/UI/SEP/loading/speaker/Google Maps or install candidate."
+}

@@ -1,0 +1,1032 @@
+{
+  "updated_utc": "2026-10-04T15:11:22.270590+00:00",
+  "source_sha256": {
+    "staging/native-player-settings-scope/gui-static/record_settings_global_subobject_next_writer.py": "dd819b4c29760c8be3c2ec52beae55f498e61106d976dbb0568b029b06e6b36c",
+    "staging/native-player-settings-scope/previous-audit.json": "dd3f1c3ea6743f6801d9bbb3edff3e0556dbfc1332243c6ee149b86999664f39",
+    "staging/native-player-settings-scope/gui-static/settings_actor_observer.py": "009cee2eee03684a2a95a70d92cada3e9dba94795bfc4a0270dc74262bd32513",
+    "staging/native-player-settings-scope/gui-static/settings-actor-observer-contract.json": "48a1095ffac9db683b871134550d2b11e830f365566b185cd5ef4c6399585754",
+    "staging/native-player-settings-scope/runtime/terminal-metadata.json": "8f2cd377fba294b3000308a9126a7214c0918f619b0c26ed404f0fa4260b272d",
+    "scripts/probe_native_dispatcher_settings.py": "cbd72f3786b058d38894ae1339d47fd49f1367c4850c208a8dfd40aeebd32312",
+    "staging/native-player-settings-scope/runtime/runner-at-run.py": "cbd72f3786b058d38894ae1339d47fd49f1367c4850c208a8dfd40aeebd32312",
+    "staging/native-player-settings-scope/runtime/inputs-before-run.json": "c68e4167ebfbf0e78509845e91b3df2c318761141e3ac2240432b18f20816b61",
+    "staging/native-player-settings-scope/runtime/terminal-probe.json": "35f4d91c942b5049658ad5213552d24398ccbb41afa1dce2cfb0c806af907b7e",
+    "staging/native-player-settings-scope/runtime/terminal-tool-receipt.json": "52e75ce48a5aab1cf2f17e0eedfb8dd6296e1752e049a41b0871de342d1c6a4d",
+    "staging/native-player-settings-scope/runtime/cold-prefix-sealed.json": "7b871ef2a6710c53ca0e4bf2a95f04af84d67c489967136b6d761d03a7ce9036",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "exact_target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "analysis": "new independent file-only bounded next-writer contract",
+  "guest_execution": false,
+  "VM_import_or_instantiation": false,
+  "authoritative_terminal": {
+    "session_id": 39489,
+    "exit_code": 1,
+    "actual_chunk": "4446d3",
+    "registers": {
+      "r0": "0xc035f8",
+      "r1": "0x1",
+      "r2": "0x8824320",
+      "r3": "0x3",
+      "lr": "0x11eabb",
+      "pc": "0x26de42",
+      "sp": "0x8804090"
+    },
+    "native_store_observed_and_committed_under_root_whole_page_replay": {
+      "PC": "0x26de42",
+      "load_PC": "0x26de42",
+      "Thumb": true,
+      "address": "0x3aaf844",
+      "size": 4,
+      "value": 12596728,
+      "before_hex": "00000000",
+      "opcode_hex": "2060",
+      "original_instruction": "str r0, [r4]",
+      "running_task": "0x8804fb8",
+      "processor_mode": 31
+    },
+    "observer_boundary": {
+      "PC": "0x26de42",
+      "reason": "Unreviewed writer in bounded native SFS page",
+      "running_task": "0x8804fb8",
+      "SP": "0x8804090",
+      "actual_target": "0x3aaf844",
+      "span_bytes": 4,
+      "is_mapped": true,
+      "before_hex": "00000000"
+    },
+    "firmware_fault_proven": false
+  },
+  "preserved_negative_scope": {
+    "settings_raw_executed": false,
+    "settings_default_executed": false,
+    "settings_zero_executed": false,
+    "settings_full_native_closure": false,
+    "fullbody": false,
+    "foreground": false,
+    "physicalApp": false,
+    "older44634_partial_settings_boundary_valid_with_its_original_six_page_scope": true,
+    "new_guard_reports_previously_unjournaled_global_page_writer": true
+  },
+  "independent_file_checks": {
+    "protected_files": 1078,
+    "metadata_source_hashes_verified": 1082,
+    "whole_body_pages_and_stacks": [
+      {
+        "start": "0x9500000",
+        "bytes": 16384,
+        "CPU_store_count": 98,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "659829d53dda713aca14c23331756ff06ce97cbef1ec85c7b83fc648ca438211"
+      },
+      {
+        "start": "0x8801024",
+        "bytes": 16384,
+        "CPU_store_count": 10599,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "3e43efa8cf7329faba35a2cc998bd9b1e2fbe8a1ece0eb2ad079ff56c5c62d26"
+      },
+      {
+        "start": "0x34f9000",
+        "bytes": 4096,
+        "CPU_store_count": 17,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "ea7b28a7042c4929a23a6ab808be7eab6dd05670ea51e31f7055715425b5b6e0"
+      },
+      {
+        "start": "0x3aae000",
+        "bytes": 4096,
+        "CPU_store_count": 1,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "b5b16ea57375584bc7c65738acefb2893924d67c88a34edf0320d4a34311ea80"
+      },
+      {
+        "start": "0x2d16000",
+        "bytes": 4096,
+        "CPU_store_count": 6,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "b1b46e56f171ef26d457ade4b3c441fe129d4e6a85ebf1f3322cc1a35480a85e"
+      },
+      {
+        "start": "0x2d1f000",
+        "bytes": 4096,
+        "CPU_store_count": 6,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "71855d80591b119eea4e1c362886af98a7cc600ffc75f00ead7f8d0369abfc27"
+      },
+      {
+        "start": "0x3aaf000",
+        "bytes": 4096,
+        "CPU_store_count": 1,
+        "independent_before_value_replay_matches_recorded_runtime_after_sha256": true,
+        "after_sha256": "50480f2a2036a95a7888b04b034a5b7d50a92b08dc112184bc138b75caa6d86b"
+      }
+    ],
+    "total_stores": 10728,
+    "initialized_bank": {
+      "start": "0xf00000",
+      "bytes": 467532,
+      "stores": 47,
+      "initial_before_sha256": "f27c107ad41fe94c7117860b47d00cbd77ab7ceb2820c4dbe034a267d93c966b",
+      "replayed_after_sha256": "d66068e52b0028db50aad73979d18a38aa37bca54b7b25cd39c2061847c15cb2",
+      "matches_runtime_after_sha256": true
+    },
+    "native_once_store": {
+      "PC": "0x385450",
+      "address": "0xf701fc",
+      "size": 4,
+      "before_hex": "00000000",
+      "value": 1,
+      "running_task": "0x8804fb8",
+      "Thumb": true,
+      "original_instruction": "str r1, [r0]",
+      "original_opcode_hex": "0160"
+    }
+  },
+  "object_provenance": {
+    "storage": "0x3aaf844",
+    "bounded_base_subobject_bytes": 8,
+    "storage_kind": "Original global startup-zero storage, not an allocated MainMenu field or the old551C804 conditional-copy object",
+    "root_page_fixture": "Only-if-unmapped3AAF000 original startup-zero mapping; existing mapped bytes preserved, no physical beforeRAM claim",
+    "original_global_literal": {
+      "instruction": "0x11462a",
+      "literal": "0x114688",
+      "value": "0x3aaf844"
+    },
+    "actual_D": "0x8804fb8",
+    "actual_Current": "Must equalF09090/D at every admitted constructor boundary/store",
+    "observed_call_stack": [
+      {
+        "function": "0x114612",
+        "entry_SP": "0x8804100",
+        "saved_LR": "0x1152d3",
+        "body_SP": "entry-24"
+      },
+      {
+        "function": "0x11eab2",
+        "entry_SP": "0x88040e8",
+        "saved_LR": "0x114631",
+        "body_SP": "entry-80"
+      },
+      {
+        "function": "0x26de3c",
+        "entry_SP": "0x8804098",
+        "saved_LR": "0x11eabb",
+        "body_SP": "entry-8"
+      }
+    ],
+    "entry_argument_chain": "11462A native literal R0=3AAF844 →11462C BL11EAB2; no argument-changing instruction before11EAB6 BL26DE3C; native26DE3E R4=R0",
+    "terminal_R4": "Not separately serialized; effective R4 target is derived from original STR2060 address plus original entry/copy chain",
+    "outer_once": "F701FC actual original385450 wrote0→1 under D before ctor; flag1 alone does not prove ctor completion",
+    "inner_once": "F701F8 native385448/385450 gate for3AAED08 SFS constructor is prospective after this terminal",
+    "base_exit_registration": "26DE60 original3896F8(R0=3AAED08 returned from SFS,R1=26DCB1,R2=C7F980), prospective",
+    "derived_exit_registration": "114634 original3896F8(R0=3AAF844 returned from11EAB2,R1=11EA69,R2=C7F980), prospective",
+    "destructor_vtable_sources": {
+      "base_C035F8": [
+        "0x5747a9",
+        "0x5747a9",
+        "0x26de73",
+        "0x26de75"
+      ],
+      "derived_C12D50": [
+        "0x11ee89",
+        "0x11f05b",
+        "0x11ea69",
+        "0x11f3b1"
+      ]
+    },
+    "global_lifetime_inference": "Once-gated global constructor plus registered original exit destructors; neither constructor return nor destructor execution proved by39489"
+  },
+  "minimal_next_observer_contract": {
+    "entry_frames": "Capture actual114612 and11EAB2/currentD/caller1152D2/114630, then26DE3C exactcaller11EABA; all original call/prologue bytes unchanged",
+    "before": "Capture whole8-byte global subobject plus whole4096 page actualbefore; do not reset or require allzero on replay/reentry",
+    "write_order": [
+      {
+        "PC": "0x26de42",
+        "target": "object+0=3AAF844",
+        "value": "0xc035f8",
+        "size": 4,
+        "original_opcode": "2060",
+        "mode": "Thumb",
+        "SP": "captured26DE3Centry-8",
+        "binding": "R4=object,R0=literalC035F8"
+      },
+      {
+        "PC": "0x26de6c",
+        "target": "object+4=3AAF848",
+        "value": "0x3aaed08",
+        "size": 4,
+        "mode": "Thumb",
+        "SP": "captured26DE3Centry-8",
+        "binding": "R4=object,R0=literal3AAED08; after real nested SFS return or exact native once-skip branch"
+      },
+      {
+        "PC": "0x11eabe",
+        "target": "object+0=3AAF844",
+        "value": "0xc12d50",
+        "size": 4,
+        "original_opcode": "0160",
+        "mode": "Thumb",
+        "SP": "captured11EAB2entry-80",
+        "binding": "actual26DE3C return R0=object at11EABA, nativeR1=literalC12D50"
+      }
+    ],
+    "closure": "Exact native26DE3C return11EABA with SPentrysame/R0object, then real11EAB2 return114630 with entrySP/R0object; preserve SFS/settings/raw/zero closure separately",
+    "non_generic": "Only this global object and this captured dynamic caller; no blanket original-vtable writer permission or reuse of551C8047writer whitelist",
+    "first_additional_page_scope": {
+      "call": "0x11eb28",
+      "entry": "0x362a2c",
+      "continuation": "0x11eb2c",
+      "R0": "globalobject+8=3AAF84C from original11EAC2 stack+28",
+      "R1": "captured11EAB2bodySP+18",
+      "R2": "captured11EAB2bodySP+10 native heap8 functor pointer, not host-seeded",
+      "entry_SP": "captured11EAB2entrySP-80",
+      "body_SP": "entrySP-40",
+      "next_writes": [
+        {
+          "PC": "0x362a36",
+          "target": "3AAF84C",
+          "value": 0,
+          "opcode": "02c0"
+        },
+        {
+          "PC": "0x362a38",
+          "target": "3AAF850",
+          "value": 0,
+          "opcode": "0160"
+        }
+      ],
+      "admission": false,
+      "reason": "Separate bounded container construction/actual allocator and native return provenance required; whole-page scope must reject it until admitted"
+    },
+    "remaining_allocation_or_callback": "11EAC6 native3954CC size8; later362A3C native3954CC size3C and callbacks/containers require actual returned pointers, live allocations and exact call frames; no invented defaults"
+  },
+  "original_bounded_evidence": [
+    {
+      "start": "0x1152c8",
+      "end_exclusive": "0x1152d6",
+      "bytes_sha256": "b7609689da33b640c7fd1544a4c389a61994656effa3c903bd8dcf93dad2e3aa",
+      "instructions": [
+        {
+          "PC": "0x1152c8",
+          "opcode_hex": "33f82900",
+          "instruction": "ldrh.w r0, [r3, sb, lsl #2]"
+        },
+        {
+          "PC": "0x1152cc",
+          "opcode_hex": "2000",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "PC": "0x1152ce",
+          "opcode_hex": "fff7a0f9",
+          "instruction": "bl #0x114612"
+        },
+        {
+          "PC": "0x1152d2",
+          "opcode_hex": "3800",
+          "instruction": "movs r0, r7"
+        },
+        {
+          "PC": "0x1152d4",
+          "opcode_hex": "25ad",
+          "instruction": "add r5, sp, #0x94"
+        }
+      ]
+    },
+    {
+      "start": "0x114612",
+      "end_exclusive": "0x114652",
+      "bytes_sha256": "3a6ff0d185dfc471069767cd124231fcb0c57205ae1fbbd0f4c56d4b837ce598",
+      "instructions": [
+        {
+          "PC": "0x114612",
+          "opcode_hex": "10b5",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "PC": "0x114614",
+          "opcode_hex": "1b48",
+          "instruction": "ldr r0, [pc, #0x6c]",
+          "literal": "0x114684",
+          "literal_value": "0xf701fc"
+        },
+        {
+          "PC": "0x114616",
+          "opcode_hex": "0c00",
+          "instruction": "movs r4, r1"
+        },
+        {
+          "PC": "0x114618",
+          "opcode_hex": "0068",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "PC": "0x11461a",
+          "opcode_hex": "84b0",
+          "instruction": "sub sp, #0x10"
+        },
+        {
+          "PC": "0x11461c",
+          "opcode_hex": "c007",
+          "instruction": "lsls r0, r0, #0x1f"
+        },
+        {
+          "PC": "0x11461e",
+          "opcode_hex": "0ed1",
+          "instruction": "bne #0x11463e"
+        },
+        {
+          "PC": "0x114620",
+          "opcode_hex": "1848",
+          "instruction": "ldr r0, [pc, #0x60]",
+          "literal": "0x114684",
+          "literal_value": "0xf701fc"
+        },
+        {
+          "PC": "0x114622",
+          "opcode_hex": "70f211ff",
+          "instruction": "bl #0x385448"
+        },
+        {
+          "PC": "0x114626",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "PC": "0x114628",
+          "opcode_hex": "09d0",
+          "instruction": "beq #0x11463e"
+        },
+        {
+          "PC": "0x11462a",
+          "opcode_hex": "1748",
+          "instruction": "ldr r0, [pc, #0x5c]",
+          "literal": "0x114688",
+          "literal_value": "0x3aaf844"
+        },
+        {
+          "PC": "0x11462c",
+          "opcode_hex": "0af041fa",
+          "instruction": "bl #0x11eab2"
+        },
+        {
+          "PC": "0x114630",
+          "opcode_hex": "164a",
+          "instruction": "ldr r2, [pc, #0x58]",
+          "literal": "0x11468c",
+          "literal_value": "0xc7f980"
+        },
+        {
+          "PC": "0x114632",
+          "opcode_hex": "1749",
+          "instruction": "ldr r1, [pc, #0x5c]",
+          "literal": "0x114690",
+          "literal_value": "0x11ea69"
+        },
+        {
+          "PC": "0x114634",
+          "opcode_hex": "75f260f8",
+          "instruction": "bl #0x3896f8"
+        },
+        {
+          "PC": "0x114638",
+          "opcode_hex": "1248",
+          "instruction": "ldr r0, [pc, #0x48]",
+          "literal": "0x114684",
+          "literal_value": "0xf701fc"
+        },
+        {
+          "PC": "0x11463a",
+          "opcode_hex": "c046",
+          "instruction": "mov r8, r8"
+        },
+        {
+          "PC": "0x11463c",
+          "opcode_hex": "c046",
+          "instruction": "mov r8, r8"
+        },
+        {
+          "PC": "0x11463e",
+          "opcode_hex": "1249",
+          "instruction": "ldr r1, [pc, #0x48]",
+          "literal": "0x114688",
+          "literal_value": "0x3aaf844"
+        },
+        {
+          "PC": "0x114640",
+          "opcode_hex": "2200",
+          "instruction": "movs r2, r4"
+        },
+        {
+          "PC": "0x114642",
+          "opcode_hex": "01a8",
+          "instruction": "add r0, sp, #4"
+        },
+        {
+          "PC": "0x114644",
+          "opcode_hex": "0af064fe",
+          "instruction": "bl #0x11f310"
+        },
+        {
+          "PC": "0x114648",
+          "opcode_hex": "01a8",
+          "instruction": "add r0, sp, #4"
+        },
+        {
+          "PC": "0x11464a",
+          "opcode_hex": "81f206fa",
+          "instruction": "bl #0x395a5a"
+        },
+        {
+          "PC": "0x11464e",
+          "opcode_hex": "04b0",
+          "instruction": "add sp, #0x10"
+        },
+        {
+          "PC": "0x114650",
+          "opcode_hex": "10bd",
+          "instruction": "pop {r4, pc}"
+        }
+      ]
+    },
+    {
+      "start": "0x11eab2",
+      "end_exclusive": "0x11eb32",
+      "bytes_sha256": "78037b88e9add9225008ccae30b254b4bc154037ca836b5412866b221389ce6e",
+      "instructions": [
+        {
+          "PC": "0x11eab2",
+          "opcode_hex": "f0b5",
+          "instruction": "push {r4, r5, r6, r7, lr}"
+        },
+        {
+          "PC": "0x11eab4",
+          "opcode_hex": "8fb0",
+          "instruction": "sub sp, #0x3c"
+        },
+        {
+          "PC": "0x11eab6",
+          "opcode_hex": "4ff1c1f9",
+          "instruction": "bl #0x26de3c"
+        },
+        {
+          "PC": "0x11eaba",
+          "opcode_hex": "9b49",
+          "instruction": "ldr r1, [pc, #0x26c]",
+          "literal": "0x11ed28",
+          "literal_value": "0xc12d50"
+        },
+        {
+          "PC": "0x11eabc",
+          "opcode_hex": "0400",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "PC": "0x11eabe",
+          "opcode_hex": "0160",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "PC": "0x11eac0",
+          "opcode_hex": "0830",
+          "instruction": "adds r0, #8"
+        },
+        {
+          "PC": "0x11eac2",
+          "opcode_hex": "0a90",
+          "instruction": "str r0, [sp, #0x28]"
+        },
+        {
+          "PC": "0x11eac4",
+          "opcode_hex": "0820",
+          "instruction": "movs r0, #8"
+        },
+        {
+          "PC": "0x11eac6",
+          "opcode_hex": "76f202ed",
+          "instruction": "blx #0x3954cc"
+        },
+        {
+          "PC": "0x11eaca",
+          "opcode_hex": "984d",
+          "instruction": "ldr r5, [pc, #0x260]",
+          "literal": "0x11ed2c",
+          "literal_value": "0xc1c104"
+        },
+        {
+          "PC": "0x11eacc",
+          "opcode_hex": "08ab",
+          "instruction": "add r3, sp, #0x20"
+        },
+        {
+          "PC": "0x11eace",
+          "opcode_hex": "0560",
+          "instruction": "str r5, [r0]"
+        },
+        {
+          "PC": "0x11ead0",
+          "opcode_hex": "197e",
+          "instruction": "ldrb r1, [r3, #0x18]"
+        },
+        {
+          "PC": "0x11ead2",
+          "opcode_hex": "06ae",
+          "instruction": "add r6, sp, #0x18"
+        },
+        {
+          "PC": "0x11ead4",
+          "opcode_hex": "07af",
+          "instruction": "add r7, sp, #0x1c"
+        },
+        {
+          "PC": "0x11ead6",
+          "opcode_hex": "0171",
+          "instruction": "strb r1, [r0, #4]"
+        },
+        {
+          "PC": "0x11ead8",
+          "opcode_hex": "04a9",
+          "instruction": "add r1, sp, #0x10"
+        },
+        {
+          "PC": "0x11eada",
+          "opcode_hex": "0391",
+          "instruction": "str r1, [sp, #0xc]"
+        },
+        {
+          "PC": "0x11eadc",
+          "opcode_hex": "0490",
+          "instruction": "str r0, [sp, #0x10]"
+        },
+        {
+          "PC": "0x11eade",
+          "opcode_hex": "187d",
+          "instruction": "ldrb r0, [r3, #0x14]"
+        },
+        {
+          "PC": "0x11eae0",
+          "opcode_hex": "6b46",
+          "instruction": "mov r3, sp"
+        },
+        {
+          "PC": "0x11eae2",
+          "opcode_hex": "0590",
+          "instruction": "str r0, [sp, #0x14]"
+        },
+        {
+          "PC": "0x11eae4",
+          "opcode_hex": "187d",
+          "instruction": "ldrb r0, [r3, #0x14]"
+        },
+        {
+          "PC": "0x11eae6",
+          "opcode_hex": "0290",
+          "instruction": "str r0, [sp, #8]"
+        },
+        {
+          "PC": "0x11eae8",
+          "opcode_hex": "0020",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "PC": "0x11eaea",
+          "opcode_hex": "0690",
+          "instruction": "str r0, [sp, #0x18]"
+        },
+        {
+          "PC": "0x11eaec",
+          "opcode_hex": "0298",
+          "instruction": "ldr r0, [sp, #8]"
+        },
+        {
+          "PC": "0x11eaee",
+          "opcode_hex": "0190",
+          "instruction": "str r0, [sp, #4]"
+        },
+        {
+          "PC": "0x11eaf0",
+          "opcode_hex": "01a8",
+          "instruction": "add r0, sp, #4"
+        },
+        {
+          "PC": "0x11eaf2",
+          "opcode_hex": "42f263ff",
+          "instruction": "bl #0x3619bc"
+        },
+        {
+          "PC": "0x11eaf6",
+          "opcode_hex": "72f218fc",
+          "instruction": "bl #0x39132a"
+        },
+        {
+          "PC": "0x11eafa",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "PC": "0x11eafc",
+          "opcode_hex": "0cd1",
+          "instruction": "bne #0x11eb18"
+        },
+        {
+          "PC": "0x11eafe",
+          "opcode_hex": "0198",
+          "instruction": "ldr r0, [sp, #4]"
+        },
+        {
+          "PC": "0x11eb00",
+          "opcode_hex": "3900",
+          "instruction": "movs r1, r7"
+        },
+        {
+          "PC": "0x11eb02",
+          "opcode_hex": "0090",
+          "instruction": "str r0, [sp]"
+        },
+        {
+          "PC": "0x11eb04",
+          "opcode_hex": "0120",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "PC": "0x11eb06",
+          "opcode_hex": "62f265ff",
+          "instruction": "bl #0x3819d4"
+        },
+        {
+          "PC": "0x11eb0a",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "PC": "0x11eb0c",
+          "opcode_hex": "02d0",
+          "instruction": "beq #0x11eb14"
+        },
+        {
+          "PC": "0x11eb0e",
+          "opcode_hex": "6b46",
+          "instruction": "mov r3, sp"
+        },
+        {
+          "PC": "0x11eb10",
+          "opcode_hex": "1978",
+          "instruction": "ldrb r1, [r3]"
+        },
+        {
+          "PC": "0x11eb12",
+          "opcode_hex": "0170",
+          "instruction": "strb r1, [r0]"
+        },
+        {
+          "PC": "0x11eb14",
+          "opcode_hex": "0120",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "PC": "0x11eb16",
+          "opcode_hex": "00e0",
+          "instruction": "b #0x11eb1a"
+        },
+        {
+          "PC": "0x11eb18",
+          "opcode_hex": "0020",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "PC": "0x11eb1a",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "PC": "0x11eb1c",
+          "opcode_hex": "00d0",
+          "instruction": "beq #0x11eb20"
+        },
+        {
+          "PC": "0x11eb1e",
+          "opcode_hex": "8448",
+          "instruction": "ldr r0, [pc, #0x210]",
+          "literal": "0x11ed30",
+          "literal_value": "0xf720a4"
+        },
+        {
+          "PC": "0x11eb20",
+          "opcode_hex": "039a",
+          "instruction": "ldr r2, [sp, #0xc]"
+        },
+        {
+          "PC": "0x11eb22",
+          "opcode_hex": "0690",
+          "instruction": "str r0, [sp, #0x18]"
+        },
+        {
+          "PC": "0x11eb24",
+          "opcode_hex": "0a98",
+          "instruction": "ldr r0, [sp, #0x28]"
+        },
+        {
+          "PC": "0x11eb26",
+          "opcode_hex": "3100",
+          "instruction": "movs r1, r6"
+        },
+        {
+          "PC": "0x11eb28",
+          "opcode_hex": "43f280ff",
+          "instruction": "bl #0x362a2c"
+        },
+        {
+          "PC": "0x11eb2c",
+          "opcode_hex": "0700",
+          "instruction": "movs r7, r0"
+        },
+        {
+          "PC": "0x11eb2e",
+          "opcode_hex": "0698",
+          "instruction": "ldr r0, [sp, #0x18]"
+        },
+        {
+          "PC": "0x11eb30",
+          "opcode_hex": "0026",
+          "instruction": "movs r6, #0"
+        }
+      ]
+    },
+    {
+      "start": "0x26de32",
+      "end_exclusive": "0x26de72",
+      "bytes_sha256": "ba560a2b1f21ee18590b096c1d7fafe7401df278ebb4092577a90a32a8ffc760",
+      "instructions": [
+        {
+          "PC": "0x26de32",
+          "opcode_hex": "c046",
+          "instruction": "mov r8, r8"
+        },
+        {
+          "PC": "0x26de34",
+          "opcode_hex": "af48",
+          "instruction": "ldr r0, [pc, #0x2bc]",
+          "literal": "0x26e0f4",
+          "literal_value": "0x3aaed08"
+        },
+        {
+          "PC": "0x26de36",
+          "opcode_hex": "fff7b3ff",
+          "instruction": "bl #0x26dda0"
+        },
+        {
+          "PC": "0x26de3a",
+          "opcode_hex": "10bd",
+          "instruction": "pop {r4, pc}"
+        },
+        {
+          "PC": "0x26de3c",
+          "opcode_hex": "10b5",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "PC": "0x26de3e",
+          "opcode_hex": "0400",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "PC": "0x26de40",
+          "opcode_hex": "af48",
+          "instruction": "ldr r0, [pc, #0x2bc]",
+          "literal": "0x26e100",
+          "literal_value": "0xc035f8"
+        },
+        {
+          "PC": "0x26de42",
+          "opcode_hex": "2060",
+          "instruction": "str r0, [r4]"
+        },
+        {
+          "PC": "0x26de44",
+          "opcode_hex": "aa48",
+          "instruction": "ldr r0, [pc, #0x2a8]",
+          "literal": "0x26e0f0",
+          "literal_value": "0xf701f8"
+        },
+        {
+          "PC": "0x26de46",
+          "opcode_hex": "0068",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "PC": "0x26de48",
+          "opcode_hex": "c007",
+          "instruction": "lsls r0, r0, #0x1f"
+        },
+        {
+          "PC": "0x26de4a",
+          "opcode_hex": "0ed1",
+          "instruction": "bne #0x26de6a"
+        },
+        {
+          "PC": "0x26de4c",
+          "opcode_hex": "a848",
+          "instruction": "ldr r0, [pc, #0x2a0]",
+          "literal": "0x26e0f0",
+          "literal_value": "0xf701f8"
+        },
+        {
+          "PC": "0x26de4e",
+          "opcode_hex": "17f1fbfa",
+          "instruction": "bl #0x385448"
+        },
+        {
+          "PC": "0x26de52",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "PC": "0x26de54",
+          "opcode_hex": "09d0",
+          "instruction": "beq #0x26de6a"
+        },
+        {
+          "PC": "0x26de56",
+          "opcode_hex": "a748",
+          "instruction": "ldr r0, [pc, #0x29c]",
+          "literal": "0x26e0f4",
+          "literal_value": "0x3aaed08"
+        },
+        {
+          "PC": "0x26de58",
+          "opcode_hex": "fff746ff",
+          "instruction": "bl #0x26dce8"
+        },
+        {
+          "PC": "0x26de5c",
+          "opcode_hex": "a64a",
+          "instruction": "ldr r2, [pc, #0x298]",
+          "literal": "0x26e0f8",
+          "literal_value": "0xc7f980"
+        },
+        {
+          "PC": "0x26de5e",
+          "opcode_hex": "a749",
+          "instruction": "ldr r1, [pc, #0x29c]",
+          "literal": "0x26e0fc",
+          "literal_value": "0x26dcb1"
+        },
+        {
+          "PC": "0x26de60",
+          "opcode_hex": "1bf14afc",
+          "instruction": "bl #0x3896f8"
+        },
+        {
+          "PC": "0x26de64",
+          "opcode_hex": "a248",
+          "instruction": "ldr r0, [pc, #0x288]",
+          "literal": "0x26e0f0",
+          "literal_value": "0xf701f8"
+        },
+        {
+          "PC": "0x26de66",
+          "opcode_hex": "c046",
+          "instruction": "mov r8, r8"
+        },
+        {
+          "PC": "0x26de68",
+          "opcode_hex": "c046",
+          "instruction": "mov r8, r8"
+        },
+        {
+          "PC": "0x26de6a",
+          "opcode_hex": "a248",
+          "instruction": "ldr r0, [pc, #0x288]",
+          "literal": "0x26e0f4",
+          "literal_value": "0x3aaed08"
+        },
+        {
+          "PC": "0x26de6c",
+          "opcode_hex": "6060",
+          "instruction": "str r0, [r4, #4]"
+        },
+        {
+          "PC": "0x26de6e",
+          "opcode_hex": "2000",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "PC": "0x26de70",
+          "opcode_hex": "10bd",
+          "instruction": "pop {r4, pc}"
+        }
+      ]
+    },
+    {
+      "start": "0x385448",
+      "end_exclusive": "0x38545a",
+      "bytes_sha256": "6ebdc399c137cab71a4d5d6ffb46847068d2d7d88aaefd573d6dc567d64e7963",
+      "instructions": [
+        {
+          "PC": "0x385448",
+          "opcode_hex": "0168",
+          "instruction": "ldr r1, [r0]"
+        },
+        {
+          "PC": "0x38544a",
+          "opcode_hex": "0029",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "PC": "0x38544c",
+          "opcode_hex": "03d1",
+          "instruction": "bne #0x385456"
+        },
+        {
+          "PC": "0x38544e",
+          "opcode_hex": "0121",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "PC": "0x385450",
+          "opcode_hex": "0160",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "PC": "0x385452",
+          "opcode_hex": "0800",
+          "instruction": "movs r0, r1"
+        },
+        {
+          "PC": "0x385454",
+          "opcode_hex": "7047",
+          "instruction": "bx lr"
+        },
+        {
+          "PC": "0x385456",
+          "opcode_hex": "0020",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "PC": "0x385458",
+          "opcode_hex": "7047",
+          "instruction": "bx lr"
+        }
+      ]
+    },
+    {
+      "start": "0x362a2c",
+      "end_exclusive": "0x362a40",
+      "bytes_sha256": "6e2a7b4bafbb5ebc6457c8017e134db6e7275b844ca601649f3004c69543678d",
+      "instructions": [
+        {
+          "PC": "0x362a2c",
+          "opcode_hex": "f7b5",
+          "instruction": "push {r0, r1, r2, r4, r5, r6, r7, lr}"
+        },
+        {
+          "PC": "0x362a2e",
+          "opcode_hex": "0f00",
+          "instruction": "movs r7, r1"
+        },
+        {
+          "PC": "0x362a30",
+          "opcode_hex": "0400",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "PC": "0x362a32",
+          "opcode_hex": "0021",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "PC": "0x362a34",
+          "opcode_hex": "82b0",
+          "instruction": "sub sp, #8"
+        },
+        {
+          "PC": "0x362a36",
+          "opcode_hex": "02c0",
+          "instruction": "stm r0!, {r1}"
+        },
+        {
+          "PC": "0x362a38",
+          "opcode_hex": "0160",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "PC": "0x362a3a",
+          "opcode_hex": "3c20",
+          "instruction": "movs r0, #0x3c"
+        },
+        {
+          "PC": "0x362a3c",
+          "opcode_hex": "32f046ed",
+          "instruction": "blx #0x3954cc"
+        }
+      ]
+    }
+  ],
+  "bounded_instruction_count": 136,
+  "no_existing_source_or_canonical_modified": true
+}

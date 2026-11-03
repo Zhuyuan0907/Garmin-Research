@@ -1,0 +1,1765 @@
+{
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "emulator": "Unicorn",
+  "module_version": "2.1.0",
+  "cpu_model": "ARM1176",
+  "discover_handler": "0x5747b4",
+  "handler_code_sha256": "bd43c9f7c681ca4694762126df22549997c7456d8583556c1d4685e7c6edd7a0",
+  "dispatch_table": "0xba6f6c",
+  "signal_1_pointer": "0x5747b5",
+  "state_table": {
+    "base": "0x3a88ef0",
+    "slots": 3,
+    "stride": 32,
+    "state_offset": 18,
+    "pending_use_offset": 19,
+    "initial_state": "Zeroed by 0x4ccc3c AVDTP initialization"
+  },
+  "descriptor_table": {
+    "base": "0x3a89058",
+    "stride": 12,
+    "media_type_offset": 5,
+    "source_sink_offset": 8
+  },
+  "l2cap_send_hook": "0x5a7794",
+  "device_io": false,
+  "firmware_modified": false,
+  "cases": [
+    {
+      "slots": [
+        {},
+        {},
+        {}
+      ],
+      "synthetic_sdp_sink_enabled": false,
+      "send": {
+        "channel": 4660,
+        "buffer_length": 6,
+        "reserved_prefix_hex": "00000000",
+        "avdtp_frame_hex": "1201"
+      },
+      "instructions_executed": 65,
+      "name": "all_slots_inactive",
+      "expected_frame_hex": "1201",
+      "passed": true
+    },
+    {
+      "slots": [
+        {},
+        {},
+        {}
+      ],
+      "synthetic_sdp_sink_enabled": true,
+      "send": {
+        "channel": 4660,
+        "buffer_length": 6,
+        "reserved_prefix_hex": "00000000",
+        "avdtp_frame_hex": "1201"
+      },
+      "instructions_executed": 65,
+      "name": "sdp_enabled_without_sep",
+      "expected_frame_hex": "1201",
+      "passed": true
+    },
+    {
+      "slots": [
+        {
+          "state": 1,
+          "sink": 1
+        },
+        {},
+        {}
+      ],
+      "synthetic_sdp_sink_enabled": false,
+      "send": {
+        "channel": 4660,
+        "buffer_length": 8,
+        "reserved_prefix_hex": "00000000",
+        "avdtp_frame_hex": "12010408"
+      },
+      "instructions_executed": 88,
+      "name": "first_audio_sink_available",
+      "expected_frame_hex": "12010408",
+      "passed": true
+    },
+    {
+      "slots": [
+        {
+          "state": 2,
+          "sink": 1
+        },
+        {},
+        {}
+      ],
+      "synthetic_sdp_sink_enabled": false,
+      "send": {
+        "channel": 4660,
+        "buffer_length": 8,
+        "reserved_prefix_hex": "00000000",
+        "avdtp_frame_hex": "12010608"
+      },
+      "instructions_executed": 91,
+      "name": "first_audio_sink_in_use",
+      "expected_frame_hex": "12010608",
+      "passed": true
+    },
+    {
+      "slots": [
+        {},
+        {},
+        {
+          "state": 1,
+          "sink": 1
+        }
+      ],
+      "synthetic_sdp_sink_enabled": false,
+      "send": {
+        "channel": 4660,
+        "buffer_length": 8,
+        "reserved_prefix_hex": "00000000",
+        "avdtp_frame_hex": "12010c08"
+      },
+      "instructions_executed": 88,
+      "name": "third_audio_sink_available",
+      "expected_frame_hex": "12010c08",
+      "passed": true
+    },
+    {
+      "slots": [
+        {
+          "state": 1
+        },
+        {
+          "state": 2,
+          "sink": 1
+        },
+        {
+          "state": 1,
+          "media_type": 1,
+          "sink": 1
+        }
+      ],
+      "synthetic_sdp_sink_enabled": false,
+      "send": {
+        "channel": 4660,
+        "buffer_length": 12,
+        "reserved_prefix_hex": "00000000",
+        "avdtp_frame_hex": "120104000a080c18"
+      },
+      "instructions_executed": 137,
+      "name": "three_slots_media_and_use_bits",
+      "expected_frame_hex": "120104000a080c18",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "handler_instructions": {
+    "instructions": [
+      {
+        "address": "0x5747b4",
+        "instruction": "push {r4, r5, r6, r7, lr}"
+      },
+      {
+        "address": "0x5747b6",
+        "instruction": "sub sp, #0x24"
+      },
+      {
+        "address": "0x5747b8",
+        "instruction": "mov ip, r0"
+      },
+      {
+        "address": "0x5747ba",
+        "instruction": "lsls r0, r2, #4"
+      },
+      {
+        "address": "0x5747bc",
+        "instruction": "adds r0, r0, #2"
+      },
+      {
+        "address": "0x5747be",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x5747c0",
+        "instruction": "strb r0, [r3, #8]"
+      },
+      {
+        "address": "0x5747c2",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x5747c4",
+        "instruction": "strb r0, [r3, #9]"
+      },
+      {
+        "address": "0x5747c6",
+        "instruction": "ldr r6, [pc, #0x8c]",
+        "literal_address": "0x574854",
+        "literal_value": "0x3a88ef0"
+      },
+      {
+        "address": "0x5747c8",
+        "instruction": "ldr r0, [pc, #0x8c]",
+        "literal_address": "0x574858",
+        "literal_value": "0x3a89058"
+      },
+      {
+        "address": "0x5747ca",
+        "instruction": "movs r1, #6"
+      },
+      {
+        "address": "0x5747cc",
+        "instruction": "movs r2, #0"
+      },
+      {
+        "address": "0x5747ce",
+        "instruction": "add r5, sp, #4"
+      },
+      {
+        "address": "0x5747d0",
+        "instruction": "lsls r3, r2, #5"
+      },
+      {
+        "address": "0x5747d2",
+        "instruction": "adds r4, r3, r6"
+      },
+      {
+        "address": "0x5747d4",
+        "instruction": "ldrb r7, [r4, #0x12]"
+      },
+      {
+        "address": "0x5747d6",
+        "instruction": "cmp r7, #0"
+      },
+      {
+        "address": "0x5747d8",
+        "instruction": "beq #0x57480e"
+      },
+      {
+        "address": "0x5747da",
+        "instruction": "adds r3, r2, #1"
+      },
+      {
+        "address": "0x5747dc",
+        "instruction": "lsls r3, r3, #0x1a"
+      },
+      {
+        "address": "0x5747de",
+        "instruction": "lsrs r3, r3, #0x18"
+      },
+      {
+        "address": "0x5747e0",
+        "instruction": "strb r3, [r5, r1]"
+      },
+      {
+        "address": "0x5747e2",
+        "instruction": "ldrb r4, [r4, #0x13]"
+      },
+      {
+        "address": "0x5747e4",
+        "instruction": "cmp r4, #0"
+      },
+      {
+        "address": "0x5747e6",
+        "instruction": "bne #0x5747ec"
+      },
+      {
+        "address": "0x5747e8",
+        "instruction": "cmp r7, #1"
+      },
+      {
+        "address": "0x5747ea",
+        "instruction": "beq #0x5747f2"
+      },
+      {
+        "address": "0x5747ec",
+        "instruction": "movs r4, #2"
+      },
+      {
+        "address": "0x5747ee",
+        "instruction": "orrs r3, r4"
+      },
+      {
+        "address": "0x5747f0",
+        "instruction": "strb r3, [r5, r1]"
+      },
+      {
+        "address": "0x5747f2",
+        "instruction": "lsls r3, r2, #1"
+      },
+      {
+        "address": "0x5747f4",
+        "instruction": "adds r3, r3, r2"
+      },
+      {
+        "address": "0x5747f6",
+        "instruction": "lsls r3, r3, #2"
+      },
+      {
+        "address": "0x5747f8",
+        "instruction": "adds r3, r3, r0"
+      },
+      {
+        "address": "0x5747fa",
+        "instruction": "ldrb r4, [r3, #5]"
+      },
+      {
+        "address": "0x5747fc",
+        "instruction": "ldrb r3, [r3, #8]"
+      },
+      {
+        "address": "0x5747fe",
+        "instruction": "adds r7, r5, r1"
+      },
+      {
+        "address": "0x574800",
+        "instruction": "lsls r4, r4, #4"
+      },
+      {
+        "address": "0x574802",
+        "instruction": "lsls r3, r3, #3"
+      },
+      {
+        "address": "0x574804",
+        "instruction": "orrs r4, r3"
+      },
+      {
+        "address": "0x574806",
+        "instruction": "adds r1, r1, #2"
+      },
+      {
+        "address": "0x574808",
+        "instruction": "lsls r1, r1, #0x10"
+      },
+      {
+        "address": "0x57480a",
+        "instruction": "lsrs r1, r1, #0x10"
+      },
+      {
+        "address": "0x57480c",
+        "instruction": "strb r4, [r7, #1]"
+      },
+      {
+        "address": "0x57480e",
+        "instruction": "adds r2, r2, #1"
+      },
+      {
+        "address": "0x574810",
+        "instruction": "lsls r2, r2, #0x18"
+      },
+      {
+        "address": "0x574812",
+        "instruction": "lsrs r2, r2, #0x18"
+      },
+      {
+        "address": "0x574814",
+        "instruction": "cmp r2, #3"
+      },
+      {
+        "address": "0x574816",
+        "instruction": "blo #0x5747d0"
+      },
+      {
+        "address": "0x574818",
+        "instruction": "mov r0, ip"
+      },
+      {
+        "address": "0x57481a",
+        "instruction": "lsls r3, r0, #3"
+      },
+      {
+        "address": "0x57481c",
+        "instruction": "ldr r2, [pc, #0x3c]",
+        "literal_address": "0x57485c",
+        "literal_value": "0x3a88eb8"
+      },
+      {
+        "address": "0x57481e",
+        "instruction": "subs r0, r3, r0"
+      },
+      {
+        "address": "0x574820",
+        "instruction": "lsls r0, r0, #2"
+      },
+      {
+        "address": "0x574822",
+        "instruction": "adds r0, r0, r2"
+      },
+      {
+        "address": "0x574824",
+        "instruction": "ldrb r0, [r0, #0x13]"
+      },
+      {
+        "address": "0x574826",
+        "instruction": "ldr r2, [pc, #0x38]",
+        "literal_address": "0x574860",
+        "literal_value": "0x3a88f50"
+      },
+      {
+        "address": "0x574828",
+        "instruction": "mov r3, sp"
+      },
+      {
+        "address": "0x57482a",
+        "instruction": "lsls r0, r0, #3"
+      },
+      {
+        "address": "0x57482c",
+        "instruction": "ldrh r0, [r2, r0]"
+      },
+      {
+        "address": "0x57482e",
+        "instruction": "add r2, sp, #4"
+      },
+      {
+        "address": "0x574830",
+        "instruction": "bl #0x5a7794",
+        "direct_call": "0x5a7794"
+      },
+      {
+        "address": "0x574834",
+        "instruction": "movs r4, r0"
+      },
+      {
+        "address": "0x574836",
+        "instruction": "beq #0x57484a"
+      },
+      {
+        "address": "0x574838",
+        "instruction": "movs r2, #0x98"
+      },
+      {
+        "address": "0x57483a",
+        "instruction": "adr r1, #0x28",
+        "address_value": "0x574864",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x57483c",
+        "instruction": "adr r0, #0x58",
+        "address_value": "0x574898",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x57483e",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x574842",
+        "instruction": "movs r1, r4"
+      },
+      {
+        "address": "0x574844",
+        "instruction": "adr r0, #0x6c",
+        "address_value": "0x5748b4",
+        "string": "[AVDTP] L2CAP Data Write FAILED. Reason 0x%04X\n"
+      },
+      {
+        "address": "0x574846",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x57484a",
+        "instruction": "add sp, #0x24"
+      },
+      {
+        "address": "0x57484c",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x57484e",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x574850",
+        "instruction": "bx r3"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "dispatcher_instructions": {
+    "instructions": [
+      {
+        "address": "0x5247fc",
+        "instruction": "push {r0, r1, r2, r4, r5, r6, r7, lr}"
+      },
+      {
+        "address": "0x5247fe",
+        "instruction": "movs r0, #0"
+      },
+      {
+        "address": "0x524800",
+        "instruction": "sub sp, #0x18"
+      },
+      {
+        "address": "0x524802",
+        "instruction": "str r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x524804",
+        "instruction": "str r0, [sp, #0x10]"
+      },
+      {
+        "address": "0x524806",
+        "instruction": "str r0, [sp, #8]"
+      },
+      {
+        "address": "0x524808",
+        "instruction": "ldr r0, [sp, #0x1c]"
+      },
+      {
+        "address": "0x52480a",
+        "instruction": "movs r7, r2"
+      },
+      {
+        "address": "0x52480c",
+        "instruction": "ldrb r0, [r0]"
+      },
+      {
+        "address": "0x52480e",
+        "instruction": "lsls r1, r0, #0x1e"
+      },
+      {
+        "address": "0x524810",
+        "instruction": "lsrs r1, r1, #0x1e"
+      },
+      {
+        "address": "0x524812",
+        "instruction": "cmp r1, #1"
+      },
+      {
+        "address": "0x524814",
+        "instruction": "bne #0x524834"
+      },
+      {
+        "address": "0x524816",
+        "instruction": "movs r2, #0x79"
+      },
+      {
+        "address": "0x524818",
+        "instruction": "lsls r2, r2, #4"
+      },
+      {
+        "address": "0x52481a",
+        "instruction": "adr r1, #0x258",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x52481c",
+        "instruction": "adr r0, #0x288",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x52481e",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524822",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524824",
+        "instruction": "movs r2, #1"
+      },
+      {
+        "address": "0x524826",
+        "instruction": "adr r0, #0x29c",
+        "address_value": "0x524ac4",
+        "string": "[AVDTP SIGCH %d] Invalid Message Type 0x%02X. Dropping\n"
+      },
+      {
+        "address": "0x524828",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x52482c",
+        "instruction": "add sp, #0x24"
+      },
+      {
+        "address": "0x52482e",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x524830",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x524832",
+        "instruction": "bx r3"
+      },
+      {
+        "address": "0x524834",
+        "instruction": "movs r1, #0xf3"
+      },
+      {
+        "address": "0x524836",
+        "instruction": "movs r6, r0"
+      },
+      {
+        "address": "0x524838",
+        "instruction": "ands r6, r1"
+      },
+      {
+        "address": "0x52483a",
+        "instruction": "movs r1, #0xc"
+      },
+      {
+        "address": "0x52483c",
+        "instruction": "ands r0, r1"
+      },
+      {
+        "address": "0x52483e",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524840",
+        "instruction": "ldr r2, [pc, #0x2b8]",
+        "literal_address": "0x524afc",
+        "literal_value": "0x3a88eb8"
+      },
+      {
+        "address": "0x524842",
+        "instruction": "lsls r3, r1, #3"
+      },
+      {
+        "address": "0x524844",
+        "instruction": "subs r1, r3, r1"
+      },
+      {
+        "address": "0x524846",
+        "instruction": "lsls r1, r1, #2"
+      },
+      {
+        "address": "0x524848",
+        "instruction": "subs r5, r7, #1"
+      },
+      {
+        "address": "0x52484a",
+        "instruction": "adds r4, r1, r2"
+      },
+      {
+        "address": "0x52484c",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x52484e",
+        "instruction": "str r0, [sp, #0xc]"
+      },
+      {
+        "address": "0x524850",
+        "instruction": "beq #0x524856"
+      },
+      {
+        "address": "0x524852",
+        "instruction": "cmp r0, #4"
+      },
+      {
+        "address": "0x524854",
+        "instruction": "bne #0x52491e"
+      },
+      {
+        "address": "0x524856",
+        "instruction": "ldr r0, [sp, #0x18]"
+      },
+      {
+        "address": "0x524858",
+        "instruction": "bl #0x52510c",
+        "direct_call": "0x52510c"
+      },
+      {
+        "address": "0x52485c",
+        "instruction": "ldr r0, [sp, #0xc]"
+      },
+      {
+        "address": "0x52485e",
+        "instruction": "cmp r0, #4"
+      },
+      {
+        "address": "0x524860",
+        "instruction": "bne #0x5248ce"
+      },
+      {
+        "address": "0x524862",
+        "instruction": "cmp r7, #3"
+      },
+      {
+        "address": "0x524864",
+        "instruction": "bhs #0x524876"
+      },
+      {
+        "address": "0x524866",
+        "instruction": "ldr r2, [pc, #0x298]",
+        "literal_address": "0x524b00",
+        "literal_value": "0x7b3"
+      },
+      {
+        "address": "0x524868",
+        "instruction": "adr r1, #0x208",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x52486a",
+        "instruction": "adr r0, #0x23c",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x52486c",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524870",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524872",
+        "instruction": "adr r0, #0x290",
+        "address_value": "0x524b04",
+        "string": "[AVDTP SIGCH %d] Invalid Data Length. Dropping\n"
+      },
+      {
+        "address": "0x524874",
+        "instruction": "b #0x5248be"
+      },
+      {
+        "address": "0x524876",
+        "instruction": "ldr r0, [sp, #0x1c]"
+      },
+      {
+        "address": "0x524878",
+        "instruction": "ldrb r0, [r0, #1]"
+      },
+      {
+        "address": "0x52487a",
+        "instruction": "strb r0, [r4, #0x10]"
+      },
+      {
+        "address": "0x52487c",
+        "instruction": "strb r6, [r4, #0x11]"
+      },
+      {
+        "address": "0x52487e",
+        "instruction": "ldrb r0, [r4, #0x10]"
+      },
+      {
+        "address": "0x524880",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x524882",
+        "instruction": "bne #0x52489c"
+      },
+      {
+        "address": "0x524884",
+        "instruction": "ldr r2, [pc, #0x2ac]",
+        "literal_address": "0x524b34",
+        "literal_value": "0x7cb"
+      },
+      {
+        "address": "0x524886",
+        "instruction": "adr r1, #0x1ec",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x524888",
+        "instruction": "adr r0, #0x21c",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x52488a",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x52488e",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524890",
+        "instruction": "adr r0, #0x2a4",
+        "address_value": "0x524b38",
+        "string": "[AVDTP SIGCH %d] Invalid NOSP. Dropping\n"
+      },
+      {
+        "address": "0x524892",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524896",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x524898",
+        "instruction": "str r0, [sp, #8]"
+      },
+      {
+        "address": "0x52489a",
+        "instruction": "b #0x5248ca"
+      },
+      {
+        "address": "0x52489c",
+        "instruction": "lsls r1, r5, #0x10"
+      },
+      {
+        "address": "0x52489e",
+        "instruction": "lsrs r1, r1, #0x10"
+      },
+      {
+        "address": "0x5248a0",
+        "instruction": "muls r0, r1, r0"
+      },
+      {
+        "address": "0x5248a2",
+        "instruction": "subs r0, r0, #2"
+      },
+      {
+        "address": "0x5248a4",
+        "instruction": "strh r1, [r4, #0xe]"
+      },
+      {
+        "address": "0x5248a6",
+        "instruction": "bl #0x5524da",
+        "direct_call": "0x5524da"
+      },
+      {
+        "address": "0x5248aa",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x5248ac",
+        "instruction": "str r0, [r4, #8]"
+      },
+      {
+        "address": "0x5248ae",
+        "instruction": "bne #0x5248ca"
+      },
+      {
+        "address": "0x5248b0",
+        "instruction": "ldr r2, [pc, #0x2b0]",
+        "literal_address": "0x524b64",
+        "literal_value": "0x7e5"
+      },
+      {
+        "address": "0x5248b2",
+        "instruction": "adr r1, #0x1c0",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x5248b4",
+        "instruction": "adr r0, #0x1f0",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x5248b6",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x5248ba",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x5248bc",
+        "instruction": "adr r0, #0x2a8",
+        "address_value": "0x524b68",
+        "string": "[AVDTP SIGCH %d] Memory Allocation Failed\n"
+      },
+      {
+        "address": "0x5248be",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x5248c2",
+        "instruction": "add sp, #0x24"
+      },
+      {
+        "address": "0x5248c4",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x5248c6",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x5248c8",
+        "instruction": "bx r3"
+      },
+      {
+        "address": "0x5248ca",
+        "instruction": "movs r5, #3"
+      },
+      {
+        "address": "0x5248cc",
+        "instruction": "b #0x5248ea"
+      },
+      {
+        "address": "0x5248ce",
+        "instruction": "cmp r7, #2"
+      },
+      {
+        "address": "0x5248d0",
+        "instruction": "bhs #0x5248e2"
+      },
+      {
+        "address": "0x5248d2",
+        "instruction": "ldr r2, [pc, #0x2c0]",
+        "literal_address": "0x524b94",
+        "literal_value": "0x802"
+      },
+      {
+        "address": "0x5248d4",
+        "instruction": "adr r1, #0x19c",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x5248d6",
+        "instruction": "adr r0, #0x1d0",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x5248d8",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x5248dc",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x5248de",
+        "instruction": "adr r0, #0x224",
+        "address_value": "0x524b04",
+        "string": "[AVDTP SIGCH %d] Invalid Data Length. Dropping\n"
+      },
+      {
+        "address": "0x5248e0",
+        "instruction": "b #0x5248be"
+      },
+      {
+        "address": "0x5248e2",
+        "instruction": "ldr r0, [sp, #0x1c]"
+      },
+      {
+        "address": "0x5248e4",
+        "instruction": "movs r5, #2"
+      },
+      {
+        "address": "0x5248e6",
+        "instruction": "str r7, [sp, #0x10]"
+      },
+      {
+        "address": "0x5248e8",
+        "instruction": "str r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x5248ea",
+        "instruction": "ldr r0, [sp, #0xc]"
+      },
+      {
+        "address": "0x5248ec",
+        "instruction": "ldr r1, [sp, #0x1c]"
+      },
+      {
+        "address": "0x5248ee",
+        "instruction": "lsrs r0, r0, #2"
+      },
+      {
+        "address": "0x5248f0",
+        "instruction": "adds r0, r0, r1"
+      },
+      {
+        "address": "0x5248f2",
+        "instruction": "ldrb r0, [r0, #1]"
+      },
+      {
+        "address": "0x5248f4",
+        "instruction": "lsls r0, r0, #0x1a"
+      },
+      {
+        "address": "0x5248f6",
+        "instruction": "lsrs r0, r0, #0x1a"
+      },
+      {
+        "address": "0x5248f8",
+        "instruction": "strb r0, [r4, #0x12]"
+      },
+      {
+        "address": "0x5248fa",
+        "instruction": "subs r0, r0, #1"
+      },
+      {
+        "address": "0x5248fc",
+        "instruction": "cmp r0, #0xb"
+      },
+      {
+        "address": "0x5248fe",
+        "instruction": "blo #0x52497e"
+      },
+      {
+        "address": "0x524900",
+        "instruction": "ldr r2, [pc, #0x294]",
+        "literal_address": "0x524b98",
+        "literal_value": "0x824"
+      },
+      {
+        "address": "0x524902",
+        "instruction": "adr r1, #0x170",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x524904",
+        "instruction": "adr r0, #0x1a0",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x524906",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x52490a",
+        "instruction": "ldrb r2, [r4, #0x12]"
+      },
+      {
+        "address": "0x52490c",
+        "instruction": "ldr r0, [pc, #0x28c]",
+        "literal_address": "0x524b9c",
+        "literal_value": "0xbb4c3c"
+      },
+      {
+        "address": "0x52490e",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524910",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524914",
+        "instruction": "movs r0, #0"
+      },
+      {
+        "address": "0x524916",
+        "instruction": "strb r0, [r4, #0x12]"
+      },
+      {
+        "address": "0x524918",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x52491a",
+        "instruction": "str r0, [sp, #8]"
+      },
+      {
+        "address": "0x52491c",
+        "instruction": "b #0x524984"
+      },
+      {
+        "address": "0x52491e",
+        "instruction": "ldr r0, [r4, #8]"
+      },
+      {
+        "address": "0x524920",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x524922",
+        "instruction": "beq #0x52492a"
+      },
+      {
+        "address": "0x524924",
+        "instruction": "ldrb r0, [r4, #0x10]"
+      },
+      {
+        "address": "0x524926",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x524928",
+        "instruction": "bne #0x52493a"
+      },
+      {
+        "address": "0x52492a",
+        "instruction": "ldr r2, [pc, #0x274]",
+        "literal_address": "0x524ba0",
+        "literal_value": "0x845"
+      },
+      {
+        "address": "0x52492c",
+        "instruction": "adr r1, #0x144",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x52492e",
+        "instruction": "adr r0, #0x178",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x524930",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524934",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524936",
+        "instruction": "adr r0, #0x26c",
+        "address_value": "0x524ba4",
+        "string": "[AVDTP SIGCH %d] Unexpected Packet. Dropping\n"
+      },
+      {
+        "address": "0x524938",
+        "instruction": "b #0x5248be"
+      },
+      {
+        "address": "0x52493a",
+        "instruction": "ldrb r0, [r4, #0x11]"
+      },
+      {
+        "address": "0x52493c",
+        "instruction": "cmp r0, r6"
+      },
+      {
+        "address": "0x52493e",
+        "instruction": "bne #0x524950"
+      },
+      {
+        "address": "0x524940",
+        "instruction": "ldrh r0, [r4, #0xe]"
+      },
+      {
+        "address": "0x524942",
+        "instruction": "cmp r0, r5"
+      },
+      {
+        "address": "0x524944",
+        "instruction": "blt #0x524950"
+      },
+      {
+        "address": "0x524946",
+        "instruction": "ldr r1, [sp, #0xc]"
+      },
+      {
+        "address": "0x524948",
+        "instruction": "cmp r1, #8"
+      },
+      {
+        "address": "0x52494a",
+        "instruction": "bne #0x52497a"
+      },
+      {
+        "address": "0x52494c",
+        "instruction": "cmp r0, r5"
+      },
+      {
+        "address": "0x52494e",
+        "instruction": "beq #0x52497a"
+      },
+      {
+        "address": "0x524950",
+        "instruction": "ldr r2, [pc, #0x280]",
+        "literal_address": "0x524bd4",
+        "literal_value": "0x85f"
+      },
+      {
+        "address": "0x524952",
+        "instruction": "adr r1, #0x120",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x524954",
+        "instruction": "adr r0, #0x150",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x524956",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x52495a",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x52495c",
+        "instruction": "adr r0, #0x278",
+        "address_value": "0x524bd8",
+        "string": "[AVDTP SIGCH %d] End/Continue Packet Header not as Expected "
+      },
+      {
+        "address": "0x52495e",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524962",
+        "instruction": "ldr r2, [pc, #0x2b4]",
+        "literal_address": "0x524c18",
+        "literal_value": "0x863"
+      },
+      {
+        "address": "0x524964",
+        "instruction": "adr r1, #0x10c",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x524966",
+        "instruction": "adr r0, #0x140",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x524968",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x52496c",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x52496e",
+        "instruction": "adr r0, #0x2ac",
+        "address_value": "0x524c1c",
+        "string": "[AVDTP SIGCH %d]Dropping previous packet\n"
+      },
+      {
+        "address": "0x524970",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524974",
+        "instruction": "movs r0, #1"
+      },
+      {
+        "address": "0x524976",
+        "instruction": "str r0, [sp, #8]"
+      },
+      {
+        "address": "0x524978",
+        "instruction": "b #0x524984"
+      },
+      {
+        "address": "0x52497a",
+        "instruction": "movs r5, #1"
+      },
+      {
+        "address": "0x52497c",
+        "instruction": "b #0x5249ac"
+      },
+      {
+        "address": "0x52497e",
+        "instruction": "ldr r0, [sp, #8]"
+      },
+      {
+        "address": "0x524980",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x524982",
+        "instruction": "beq #0x5249a6"
+      },
+      {
+        "address": "0x524984",
+        "instruction": "str r0, [sp]"
+      },
+      {
+        "address": "0x524986",
+        "instruction": "ldrb r2, [r4, #0x12]"
+      },
+      {
+        "address": "0x524988",
+        "instruction": "ldrb r0, [r4, #0x13]"
+      },
+      {
+        "address": "0x52498a",
+        "instruction": "lsrs r1, r6, #4"
+      },
+      {
+        "address": "0x52498c",
+        "instruction": "movs r3, #0"
+      },
+      {
+        "address": "0x52498e",
+        "instruction": "bl #0x5756ac",
+        "direct_call": "0x5756ac"
+      },
+      {
+        "address": "0x524992",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x524994",
+        "instruction": "beq #0x524a64"
+      },
+      {
+        "address": "0x524996",
+        "instruction": "ldr r2, [pc, #0x2b0]",
+        "literal_address": "0x524c48",
+        "literal_value": "0x883"
+      },
+      {
+        "address": "0x524998",
+        "instruction": "adr r1, #0xd8",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x52499a",
+        "instruction": "adr r0, #0x10c",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x52499c",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x5249a0",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x5249a2",
+        "instruction": "adr r0, #0x2a8",
+        "address_value": "0x524c4c",
+        "string": "[AVDTP SIGCH %d] -> FAILED to sent AVDTP Response\n"
+      },
+      {
+        "address": "0x5249a4",
+        "instruction": "b #0x524a60"
+      },
+      {
+        "address": "0x5249a6",
+        "instruction": "ldr r0, [r4, #8]"
+      },
+      {
+        "address": "0x5249a8",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x5249aa",
+        "instruction": "beq #0x5249e8"
+      },
+      {
+        "address": "0x5249ac",
+        "instruction": "cmp r7, #1"
+      },
+      {
+        "address": "0x5249ae",
+        "instruction": "bls #0x5249c0"
+      },
+      {
+        "address": "0x5249b0",
+        "instruction": "ldrh r1, [r4, #0xc]"
+      },
+      {
+        "address": "0x5249b2",
+        "instruction": "ldr r0, [r4, #8]"
+      },
+      {
+        "address": "0x5249b4",
+        "instruction": "subs r2, r7, r5"
+      },
+      {
+        "address": "0x5249b6",
+        "instruction": "adds r0, r0, r1"
+      },
+      {
+        "address": "0x5249b8",
+        "instruction": "ldr r1, [sp, #0x1c]"
+      },
+      {
+        "address": "0x5249ba",
+        "instruction": "adds r1, r1, r5"
+      },
+      {
+        "address": "0x5249bc",
+        "instruction": "bl #0x5524f6",
+        "direct_call": "0x5524f6"
+      },
+      {
+        "address": "0x5249c0",
+        "instruction": "ldrb r0, [r4, #0x10]"
+      },
+      {
+        "address": "0x5249c2",
+        "instruction": "subs r2, r7, r5"
+      },
+      {
+        "address": "0x5249c4",
+        "instruction": "subs r0, r0, #1"
+      },
+      {
+        "address": "0x5249c6",
+        "instruction": "lsls r0, r0, #0x18"
+      },
+      {
+        "address": "0x5249c8",
+        "instruction": "lsrs r0, r0, #0x18"
+      },
+      {
+        "address": "0x5249ca",
+        "instruction": "strb r0, [r4, #0x10]"
+      },
+      {
+        "address": "0x5249cc",
+        "instruction": "ldrh r1, [r4, #0xc]"
+      },
+      {
+        "address": "0x5249ce",
+        "instruction": "adds r1, r1, r2"
+      },
+      {
+        "address": "0x5249d0",
+        "instruction": "lsls r1, r1, #0x10"
+      },
+      {
+        "address": "0x5249d2",
+        "instruction": "lsrs r1, r1, #0x10"
+      },
+      {
+        "address": "0x5249d4",
+        "instruction": "strh r1, [r4, #0xc]"
+      },
+      {
+        "address": "0x5249d6",
+        "instruction": "ldr r2, [sp, #0xc]"
+      },
+      {
+        "address": "0x5249d8",
+        "instruction": "cmp r2, #0xc"
+      },
+      {
+        "address": "0x5249da",
+        "instruction": "bne #0x5249e8"
+      },
+      {
+        "address": "0x5249dc",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x5249de",
+        "instruction": "bne #0x5249e8"
+      },
+      {
+        "address": "0x5249e0",
+        "instruction": "ldr r0, [r4, #8]"
+      },
+      {
+        "address": "0x5249e2",
+        "instruction": "movs r5, #0"
+      },
+      {
+        "address": "0x5249e4",
+        "instruction": "str r1, [sp, #0x10]"
+      },
+      {
+        "address": "0x5249e6",
+        "instruction": "str r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x5249e8",
+        "instruction": "ldr r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x5249ea",
+        "instruction": "cmp r0, #0"
+      },
+      {
+        "address": "0x5249ec",
+        "instruction": "bne #0x5249f0"
+      },
+      {
+        "address": "0x5249ee",
+        "instruction": "b #0x5248c2"
+      },
+      {
+        "address": "0x5249f0",
+        "instruction": "lsls r0, r6, #0x1e"
+      },
+      {
+        "address": "0x5249f2",
+        "instruction": "bne #0x524a18"
+      },
+      {
+        "address": "0x5249f4",
+        "instruction": "ldr r0, [sp, #0x10]"
+      },
+      {
+        "address": "0x5249f6",
+        "instruction": "subs r0, r0, r5"
+      },
+      {
+        "address": "0x5249f8",
+        "instruction": "lsls r2, r0, #0x18"
+      },
+      {
+        "address": "0x5249fa",
+        "instruction": "lsrs r2, r2, #0x18"
+      },
+      {
+        "address": "0x5249fc",
+        "instruction": "str r2, [sp]"
+      },
+      {
+        "address": "0x5249fe",
+        "instruction": "ldr r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x524a00",
+        "instruction": "ldrb r1, [r4, #0x12]"
+      },
+      {
+        "address": "0x524a02",
+        "instruction": "ldr r4, [pc, #0x27c]",
+        "literal_address": "0x524c80",
+        "literal_value": "0xba6f6c"
+      },
+      {
+        "address": "0x524a04",
+        "instruction": "adds r3, r0, r5"
+      },
+      {
+        "address": "0x524a06",
+        "instruction": "lsls r0, r1, #2"
+      },
+      {
+        "address": "0x524a08",
+        "instruction": "adds r0, r0, r4"
+      },
+      {
+        "address": "0x524a0a",
+        "instruction": "subs r0, #0x40"
+      },
+      {
+        "address": "0x524a0c",
+        "instruction": "ldr r4, [r0, #0x3c]"
+      },
+      {
+        "address": "0x524a0e",
+        "instruction": "ldr r0, [sp, #0x18]"
+      },
+      {
+        "address": "0x524a10",
+        "instruction": "lsrs r2, r6, #4"
+      },
+      {
+        "address": "0x524a12",
+        "instruction": "bl #0x427588",
+        "direct_call": "0x427588"
+      },
+      {
+        "address": "0x524a16",
+        "instruction": "b #0x524a64"
+      },
+      {
+        "address": "0x524a18",
+        "instruction": "lsls r0, r6, #0x1e"
+      },
+      {
+        "address": "0x524a1a",
+        "instruction": "lsrs r0, r0, #0x1e"
+      },
+      {
+        "address": "0x524a1c",
+        "instruction": "cmp r0, #2"
+      },
+      {
+        "address": "0x524a1e",
+        "instruction": "bne #0x524a36"
+      },
+      {
+        "address": "0x524a20",
+        "instruction": "ldr r0, [sp, #0x10]"
+      },
+      {
+        "address": "0x524a22",
+        "instruction": "ldrb r1, [r4, #0x12]"
+      },
+      {
+        "address": "0x524a24",
+        "instruction": "subs r0, r0, r5"
+      },
+      {
+        "address": "0x524a26",
+        "instruction": "lsls r3, r0, #0x18"
+      },
+      {
+        "address": "0x524a28",
+        "instruction": "ldr r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x524a2a",
+        "instruction": "lsrs r3, r3, #0x18"
+      },
+      {
+        "address": "0x524a2c",
+        "instruction": "adds r2, r0, r5"
+      },
+      {
+        "address": "0x524a2e",
+        "instruction": "lsrs r0, r6, #4"
+      },
+      {
+        "address": "0x524a30",
+        "instruction": "bl #0x543f58",
+        "direct_call": "0x543f58"
+      },
+      {
+        "address": "0x524a34",
+        "instruction": "b #0x524a64"
+      },
+      {
+        "address": "0x524a36",
+        "instruction": "mvns r0, r6"
+      },
+      {
+        "address": "0x524a38",
+        "instruction": "lsls r0, r0, #0x1e"
+      },
+      {
+        "address": "0x524a3a",
+        "instruction": "bne #0x524a52"
+      },
+      {
+        "address": "0x524a3c",
+        "instruction": "ldr r0, [sp, #0x10]"
+      },
+      {
+        "address": "0x524a3e",
+        "instruction": "ldrb r1, [r4, #0x12]"
+      },
+      {
+        "address": "0x524a40",
+        "instruction": "subs r0, r0, r5"
+      },
+      {
+        "address": "0x524a42",
+        "instruction": "lsls r3, r0, #0x18"
+      },
+      {
+        "address": "0x524a44",
+        "instruction": "ldr r0, [sp, #0x14]"
+      },
+      {
+        "address": "0x524a46",
+        "instruction": "lsrs r3, r3, #0x18"
+      },
+      {
+        "address": "0x524a48",
+        "instruction": "adds r2, r0, r5"
+      },
+      {
+        "address": "0x524a4a",
+        "instruction": "lsrs r0, r6, #4"
+      },
+      {
+        "address": "0x524a4c",
+        "instruction": "bl #0x544470",
+        "direct_call": "0x544470"
+      },
+      {
+        "address": "0x524a50",
+        "instruction": "b #0x524a64"
+      },
+      {
+        "address": "0x524a52",
+        "instruction": "ldr r2, [pc, #0x230]",
+        "literal_address": "0x524c84",
+        "literal_value": "0x8f7"
+      },
+      {
+        "address": "0x524a54",
+        "instruction": "adr r1, #0x1c",
+        "address_value": "0x524a74",
+        "string": "../../../private/protocols/avdtp/avdtp_incoming.c"
+      },
+      {
+        "address": "0x524a56",
+        "instruction": "adr r0, #0x50",
+        "address_value": "0x524aa8",
+        "string": "\n[** ERR **]:[%s]:[%d]: "
+      },
+      {
+        "address": "0x524a58",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524a5c",
+        "instruction": "ldr r1, [sp, #0x18]"
+      },
+      {
+        "address": "0x524a5e",
+        "instruction": "adr r0, #0x228",
+        "address_value": "0x524c88",
+        "string": "[AVDTP SIGCH %d] Message Type is RFD; Packet Ignored\n"
+      },
+      {
+        "address": "0x524a60",
+        "instruction": "bl #0x5525bc",
+        "direct_call": "0x5525bc"
+      },
+      {
+        "address": "0x524a64",
+        "instruction": "ldr r0, [sp, #0x18]"
+      },
+      {
+        "address": "0x524a66",
+        "instruction": "bl #0x52510c",
+        "direct_call": "0x52510c"
+      },
+      {
+        "address": "0x524a6a",
+        "instruction": "add sp, #0x24"
+      },
+      {
+        "address": "0x524a6c",
+        "instruction": "pop {r4, r5, r6, r7}"
+      },
+      {
+        "address": "0x524a6e",
+        "instruction": "pop {r3}"
+      },
+      {
+        "address": "0x524a70",
+        "instruction": "bx r3"
+      }
+    ],
+    "unresolved_exits": [],
+    "instruction_limit_reached": false
+  },
+  "sources": [
+    "https://www.bluetooth.org/docman/handlers/DownloadDoc.ashx?doc_id=8241"
+  ],
+  "limitations": "Synthetic RAM and intercepted L2CAP only. Reproducing an empty frame in emulation does not prove live RAM contents or that a functional endpoint can be registered. Synthetic Sink descriptors do not provide codecs, stream callbacks, decoding or speaker playback."
+}

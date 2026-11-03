@@ -1,0 +1,102 @@
+{
+  "updated_utc": "2026-10-04T09:35:23.553434+00:00",
+  "static_peer_review": true,
+  "new_guest_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "source_or_existing_evidence_modified": false,
+  "source_sha256": {
+    "scripts/probe_native_settings_lazy_vfp_v2.py": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+    "scripts/probe_native_settings_lazy_vfp.py": "b2d3ff0e303fbc91ad6b15e32c87ec29c6e26729abb65ac61c711c3cf4c49d38",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-settings-vfp-context/runtime/declared-mapping-preflight-v2.json": "565899e30f27f9368e9362e0841df2cbcbea06d25c8d3367fc0b9b0c6f30231a",
+    "staging/native-player-settings-vfp-context/runtime/declared-mapping-preflight.json": "aa11775ed119e042175be16c9ba553e0a7f0f18b244d10abb701907d8b164454",
+    "staging/native-player-settings-vfp-context/runtime/constructor-terminal.json": "d081063e9cc6508d7d809aa041bb2eea9353a8f774aa5695f89a64902cbbe69d",
+    "staging/native-player-settings-vfp-context/vfp-static/lazy-settings-runner-peer-review.json": "88da84d5701fd7f29406fa1fd286bf25688c4e7e2709484e7389a65cdb5e43cc",
+    "staging/native-player-settings-vfp-context/runtime/runner-at-run.py": "b2d3ff0e303fbc91ad6b15e32c87ec29c6e26729abb65ac61c711c3cf4c49d38",
+    "staging/native-player-settings-vfp-context/micro/source-at-run.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "staging/native-player-settings-vfp-context/micro/original-lazy-vfp-micro-probe.json": "91efaef3e9ec4c285c67859d6054894e410526770e738107c1be380a59d146c7",
+    "staging/native-player-heap-settings-boot/vfp-static/native-vfp-context-preflight.json": "c2b7da27512b0f73ad22cf25179fbe9e605bab406fdced877433639be906fe35"
+  },
+  "reviewed_runner_sha256": "c462a52c20a77066dcad13be8559f5214e969a9071f15f3d677964938142d4e8",
+  "exact_delta": {
+    "parent_b2_sha256": "b2d3ff0e303fbc91ad6b15e32c87ec29c6e26729abb65ac61c711c3cf4c49d38",
+    "new_TRAPSTACK": "0x18310000",
+    "new_STAGE": "staging/native-player-settings-vfp-context/runtime-v2",
+    "import_no_longer_takes_old_TRAPSTACK_constant": true,
+    "after_normalizing_only_import_constant_and_STAGE_new_source_equals_b2_byte_for_byte": true,
+    "all_function_bodies_and_existing_push_journal_guards_unchanged": true
+  },
+  "mapping_review": {
+    "authority": "staging/native-player-settings-vfp-context/runtime/declared-mapping-preflight-v2.json",
+    "memory_region_count": 35,
+    "region_high_addresses_are_inclusive": true,
+    "overlap_formula": "region.low <= candidate+4096-1 and candidate <= region.high",
+    "new_stack_full_page": [
+      "0x18310000",
+      "0x18310fff"
+    ],
+    "selected_page_overlaps_recomputed": [],
+    "stack_top": "0x18310fe0",
+    "guarded_interior": [
+      "0x18310020",
+      "0x18310fe0"
+    ],
+    "interior_high_is_exclusive": true,
+    "native32byte_frame": [
+      "0x18310fc0",
+      "0x18310fe0"
+    ],
+    "leading_and_trailing_canary_bytes": 32,
+    "heap_extent_parent_mapping": [
+      "0x18300000",
+      "0x18303fff"
+    ],
+    "no_overlap_with_parent_heap_extent_or_old_regions": true,
+    "live_constructor_overlap_check_remains_required": true,
+    "preflight_is_constructor_inventory_not_physical_memory_or_future_mapping_proof": true
+  },
+  "preserved_failure_and_correction": {
+    "b2_terminal": "staging/native-player-settings-vfp-context/runtime/constructor-terminal.json",
+    "phase": "constructor_before_load",
+    "exit_code": 1,
+    "error": "Declared undefined stack overlaps previous storage",
+    "stock_pipeline_load_reached": false,
+    "full_scoped_final_guards_passed": false,
+    "original_b2_stack": "0xec00000",
+    "actual_b2_overlaps": [
+      {
+        "low": "0xe800000",
+        "high": "0xeffffff",
+        "permissions": 3
+      }
+    ],
+    "earlier_candidate": "0x18400000",
+    "actual_earlier_candidate_overlaps": [
+      {
+        "low": "0x18400000",
+        "high": "0x18400fff",
+        "permissions": 3
+      }
+    ],
+    "original_artifact": "staging/native-player-settings-vfp-context/runtime/declared-mapping-preflight.json",
+    "original_empty_candidate_overlaps_is_not_relied_on": true,
+    "correction_preserved_in_distinct_v2_preflight": true,
+    "b2_not_restarted_by_this_review": true
+  },
+  "conclusion": {
+    "concrete_blocking_issues_found_for_v2_constructor_or_reviewed_first_same_controller_scope": [],
+    "original_two_ARM_push_journal_fix_remains_intact": true,
+    "no_native_runtime_pass_claim": true
+  },
+  "scope_preserved": [
+    "Original kernel restore still disables FPEXC; original handler enables/retries.",
+    "CPACR startup and undefinedentry/stack are explicitly declared fixtures.",
+    "Only first/same FPowner permitted; metadata/save/restore exchange between different tasks is refused.",
+    "OriginalFPboot20ED68/exitlistener not executed/registered.",
+    "No edits to frozen b2/helper/driver/static/proofs; old fullheap/settings/TCB/frame/store guards remain inherited.",
+    "Full settings runtime/finalguards/foreground/physicalApp remain unverified by this static review."
+  ],
+  "assertions_passed": true
+}

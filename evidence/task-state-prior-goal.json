@@ -1,0 +1,67 @@
+{
+  "time": "2026-10-02T16:49:48.158542+00:00",
+  "goal_status": "complete",
+  "device_state": "Normal mode; user confirmed connected. Live BlueZ properties confirm Paired, Bonded, Connected, ServicesResolved. Garmin USB currently absent.",
+  "backup_completed": true,
+  "device_identity": {
+    "model": "nüvi 2565 / Taiwan 2565RT bundle",
+    "HWID": 1352,
+    "version": "8.00"
+  },
+  "verified_findings": [
+    "Actual update payload byte-identical to official Taiwan v8.00",
+    "GarminOS/OS20 markers in matching firmware",
+    "GPX, GPI, voice and supplemental map file interfaces",
+    "Map themes editable XML; high-contrast theme prepared locally",
+    "New Pi Contrast theme installed and independently read from raw FAT; original theme and device XML unchanged",
+    "Bluetooth WAV resource identified in exact matching firmware; ringtone playback still requires normal-mode test",
+    "User confirmed Pi Contrast renders correctly in normal mode",
+    "Successful live Bluetooth pairing and service resolution; SDP lists HFP 1.5, SPP, PBAP PCE, and no A2DP Audio Sink",
+    "eSCO/CVSD transport established and short melody playback completed; speaker audibility awaiting user",
+    "User confirmed phone UI and audible melody after HFP call-active indicators; SCO/CVSD mono 8 kHz playback works."
+  ],
+  "next_actions": [],
+  "unverified": [
+    "Exact CPU and RAM",
+    "Video connector pinout and signal standard",
+    "Camera SD content",
+    "Immediate GPS data from Bluetooth SPP"
+  ],
+  "backup_status": "Internal image and all 1402 exposed files verified",
+  "backup_image": "/root/garmin/backups/20261002T154458Z/sda.img",
+  "backup_sha256": "df393136d4d14dd31906c1f161fc354cb097c56e3bf8c2278433d01ca2f1c6e2",
+  "sd_status": "Zero-capacity SD LUN: no readable media, not a failure of internal disk backup",
+  "file_backup": "/root/garmin/backups/20261002T154458Z/files",
+  "report": "/root/garmin/reports/nuvi2565RT.html",
+  "theme_prepared": "/root/garmin/staging/Themes/Map/Pi_Contrast.kmtf",
+  "theme_installed": true,
+  "filesystem_check": "Free-cluster summary differs by 7 clusters; fsck.fat -n did not modify source or image; all accessible files extracted",
+  "bluetooth_mass_storage_scan": "No discovered device identifiable by Garmin/nuvi name; active profiles still unverified",
+  "usb_source_modified": true,
+  "source_modifications": [
+    "Added Themes/Map/Pi_Contrast.kmtf; read-back SHA-256 matches staged file; original theme and device XML unchanged"
+  ],
+  "theme_ui_verified": true,
+  "last_goal_turn": {
+    "classification": "progress",
+    "evidence": [
+      "evidence/nuvi-live-connection.json",
+      "evidence/nuvi-sdp-paired.json",
+      "evidence/third-sco-audio-test.json",
+      "evidence/theme-installation.json",
+      "AGENTS.md"
+    ],
+    "remaining_physical_dependency": null
+  },
+  "bluetooth_pairing_session": 58519,
+  "theme_ui_status": "User selected Pi Contrast in normal mode and confirmed correct display.",
+  "updated_utc": "2026-10-02T16:41:23.614400+00:00",
+  "remaining_physical_dependency": null,
+  "pending": [],
+  "pairing_priority": "Whenever user initiates pairing, handle connection first and defer unrelated work. Persisted in AGENTS.md.",
+  "audio_test_evidence": "evidence/call-state-audio-test.json",
+  "audio_audible_verified": true,
+  "required_work_remaining": false,
+  "research_completed": true,
+  "report_options": 18
+}

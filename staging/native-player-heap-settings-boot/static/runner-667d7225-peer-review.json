@@ -1,0 +1,570 @@
+{
+  "updated_utc": "2026-10-04T09:02:25.839406+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "reviewed_source_sha256": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+  "inputs_sha256": {
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-heap-settings-boot/static/peer-heap-settings-guard-fields.json": "8bf160b16b7d29b32a76ea7426c0675e1036716c1c231530bf6401c9e94bb90b",
+    "staging/native-player-mainmenu-native-prep/heap-static/mainmenu-native-heap-mutex-preflight.json": "3fa1f71ecc3d8454de931ad8637631f7d1e732ea4e261b6dfa158f7990df37bb",
+    "staging/native-player-mainmenu-native-prep/mutex-static/mainmenu-native-settings-mutex-preflight.json": "a2a6b1f38f4b6903f25c142a834dadc04e653b82c6c8fbc0dbb77f1a166ba377",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_dispatcher_condition.py": "7969f8609694ac0f062eab1a91f4024aeb4c298a1848ffdf629b8620a2c73c45",
+    "scripts/probe_native_heap_callback.py": "3894abe78bd40fc17500e3e9fc58b0189cacda7cd5b5e4711ed85577d01556a8",
+    "scripts/probe_mainmenu_native_settings_journal.py": "1034c6157923dafe44d5f7ea952c87543c3125db4cfd8d5ccd0c744f266bfde3",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/emulate_native_independent_signal.py": "3b2852bf0e0a205a7083048f0393e230a2bdf04088672241f8f430d1de0035d0",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_gui_worker_boot.py": "4c9f1002b0b496953156ffa4b95f2a8103fc30c42eca52f693898184dd975d74",
+    "scripts/analyze_native_gui_foreground_boot.py": "fc43a67f7c23401ffdf0f654853e7644092421ccd8552822caa68b843891d81e",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "concrete_blocking_error_found": false,
+  "conclusion": "No concrete blocker found for the exact empty-list/cold-one-extent/native-settings endpoint scope in the reviewed source. Runtime outcomes remain unverified by this peer review.",
+  "reviewed_source_frozen_by_root_for_session": 46928,
+  "peer_did_not_run_or_change_source": true,
+  "checked_native_initializers": {
+    "heap": {
+      "caller": "0x388bd0",
+      "pointer": "0x3a7f18c",
+      "tag": "0x388d00",
+      "class_byte": 0
+    },
+    "list": {
+      "caller": "0x3cc58a",
+      "active_instances": {
+        "0x2d226b4": "0x2d226b8",
+        "0x148e680": "0x148e684"
+      },
+      "tag": "0x3cc660",
+      "class_byte": 0,
+      "constructor_requires_zero28_before_and_native_zero24_after": true,
+      "nonempty_initialized_old_chain_rejected_not_reset": true
+    }
+  },
+  "checked_guard_consistency": [
+    "Whole8192 privateextent matches original4096-byte prefixclear/header27/tableptr and unchangedCC secondpage exceptfreeheader8bytes.",
+    "Whole96 heapworkspace at coldctor return contains only six exact nonzero fields; later settings heapsem stale links accepted only by actual CPUjournal and nativeepilog.",
+    "Both original3CC5C2 registration returns are0, and final16byte nodes have exact order01000000/03000000, callbacks388B57/388B37, args0.",
+    "All5 originalsettings initializers/sixzero stores/retags plus originalcondition ctorlock/Timertransfer/return and twoTimer tokens are required.",
+    "Originalraw11/list12 exactentry-caller-pointer-tag-class gates; internalTCB+56 tag compared with before snapshot, not self-comparison.",
+    "TCB108 wholebytes differ only by Timer+32 retainedhead and observed controllerinternal56 stale next/prev; TCB+36 remains before exactly.",
+    "Raw24 releasedsems compare with last originalepilog; owner/waiter/depth0; stale next/prev do not needzero or active backreference.",
+    "All pendingmutex/wait/fullrelease/lowerwait/notification/condition/list/backend constructors empty, and all scopedraw operations reachedoriginalepilog.",
+    "ALL/ready beforeorder, effective/baseflags/metadatainternalfields preserved; finalownedheads allzero except exactTimer settings->GUI chain.",
+    "Four blocked/resident background52byte frames and Thread timednode20 are snapshot-compared and CPU-journaled; activecontroller oldsavedframe deliberatelynot treatedas resumable.",
+    "Originalmutable467532-byte bank, heapBSS128, exitBSS64, settingsBSS148E680..148E944, fullTCB108/backgroundframes/timednode, extent8192 CPUstore journals plus oldwholeguards are retained."
+  ],
+  "precise_TCB36_sources": {
+    "query388804": "No directTCB+36 writer; originalmutex temporarily altersTCB+32. Reads descriptor+4 and masks low3 bits for returnedpayload.",
+    "register388AF4": "No directTCB+36 writer; writesdescriptor+12 and OR2 into descriptor+4. Initialfixtureflags4 become6 and remain outside ownedheap bits0&2 gate.",
+    "release388746": "Calls real1C0600 currentTCB+56 helper, heaplock/validator/unlock, optionalflags&6==6 callback, relock/core388676/unlock, optional1C0624. Actualentry/body/return needed beforeclaim.",
+    "core388676_owned_unlink": "If(5 & ~descriptorword4)==0 (lowflags5 or7):3886F2 updates next.prev;388702 storesnext into descriptor.prev_link&~1, which can beTCB+36. Fixtureflags4/6 skip this unlink.",
+    "owned_handoff388A20": "Originalr1 supplies targetTCB:388A86 writesdescriptor into targetTCB+36;388A80 unlinks prior prevcell;388A98 updates successorbacklink. Requires originaldescriptor ownedflags5/7.",
+    "allow_TCB36_deltas_in_this_scope": false,
+    "opaque32byte_fixture_not_true_adjacent_heap_extent_descriptor": true,
+    "native388676_must_not_be_enabled_on_opaque_fixture_without_additional_adjacency_and_physical_service_contract": true
+  },
+  "current_internal_chain": {
+    "entry1C0600": "SelectedwordF09090+56; ifownedbyselectedTCB return0 withoutnewlock; otherwise original3009A0 caller1C0618 thenhelperreturns1.",
+    "entry1C0624": "Original3008B0 caller1C0634 for samecurrentTCB+56;388746 onlycallsit ifpriorhelperresultnonzero.",
+    "normal_entry_selectedTCB_equals_actualrunningcontroller_required": true,
+    "borrowed_already_owned_lock_not_released_by_helper": true,
+    "both_internal56_and80_finalclass_tag_owner_waiter_depth_and_full24_covered": true,
+    "distinct_from_stacklocal_class1_join1C0640": true
+  },
+  "unrequired_for_this_scope": [
+    "Actual388746/388676 release execution, descriptorownedheap association, allocatorpayload services and physicalpages remain separate; table presence is not execution evidence.",
+    "Existing zero96 workspace with originalBSS provenance is a valid coldctor precondition. Original388B24 reset is not mandatory when workspace is already guardedzero; neverreset a liveheap.",
+    "Existing nonemptyexitlist requires a separate preserve-and-insert scope, since this runner rejects allnonzero28 rather than resetting it.",
+    "No nativeApp/foreground/render/touch/on-device BT/audio/physicalallocator/IRQtimer or cleanup/unload conclusion follows from a futurepass."
+  ],
+  "additional_static_CFG": {
+    "original_owned_heap_handoff": {
+      "entry": "0x388a20",
+      "allowed_code_segments": [
+        {
+          "start": "0x388a20",
+          "end": "0x388ab0"
+        }
+      ],
+      "instructions": [
+        {
+          "address": "0x388a20",
+          "mode": "Thumb",
+          "bytes_hex": "f7b5",
+          "load_address": "0x388a20",
+          "instruction": "push {r0, r1, r2, r4, r5, r6, r7, lr}"
+        },
+        {
+          "address": "0x388a22",
+          "mode": "Thumb",
+          "bytes_hex": "0c00",
+          "load_address": "0x388a22",
+          "instruction": "movs r4, r1"
+        },
+        {
+          "address": "0x388a24",
+          "mode": "Thumb",
+          "bytes_hex": "1700",
+          "load_address": "0x388a24",
+          "instruction": "movs r7, r2"
+        },
+        {
+          "address": "0x388a26",
+          "mode": "Thumb",
+          "bytes_hex": "37f6ebfd",
+          "load_address": "0x388a26",
+          "instruction": "bl #0x1c0600",
+          "direct_call": "0x1c0600"
+        },
+        {
+          "address": "0x388a2a",
+          "mode": "Thumb",
+          "bytes_hex": "0500",
+          "load_address": "0x388a2a",
+          "instruction": "movs r5, r0"
+        },
+        {
+          "address": "0x388a2c",
+          "mode": "Thumb",
+          "bytes_hex": "a448",
+          "load_address": "0x388a2c",
+          "instruction": "ldr r0, [pc, #0x290]",
+          "literal_address": "0x388cc0",
+          "literal_value": "0x3a7f18c"
+        },
+        {
+          "address": "0x388a2e",
+          "mode": "Thumb",
+          "bytes_hex": "0600",
+          "load_address": "0x388a2e",
+          "instruction": "movs r6, r0"
+        },
+        {
+          "address": "0x388a30",
+          "mode": "Thumb",
+          "bytes_hex": "77f7b6ff",
+          "load_address": "0x388a30",
+          "instruction": "bl #0x3009a0",
+          "direct_call": "0x3009a0"
+        },
+        {
+          "address": "0x388a34",
+          "mode": "Thumb",
+          "bytes_hex": "a07d",
+          "load_address": "0x388a34",
+          "instruction": "ldrb r0, [r4, #0x16]"
+        },
+        {
+          "address": "0x388a36",
+          "mode": "Thumb",
+          "bytes_hex": "8028",
+          "load_address": "0x388a36",
+          "instruction": "cmp r0, #0x80"
+        },
+        {
+          "address": "0x388a38",
+          "mode": "Thumb",
+          "bytes_hex": "0ed1",
+          "load_address": "0x388a38",
+          "instruction": "bne #0x388a58"
+        },
+        {
+          "address": "0x388a3a",
+          "mode": "Thumb",
+          "bytes_hex": "3000",
+          "load_address": "0x388a3a",
+          "instruction": "movs r0, r6"
+        },
+        {
+          "address": "0x388a3c",
+          "mode": "Thumb",
+          "bytes_hex": "77f738ff",
+          "load_address": "0x388a3c",
+          "instruction": "bl #0x3008b0",
+          "direct_call": "0x3008b0"
+        },
+        {
+          "address": "0x388a40",
+          "mode": "Thumb",
+          "bytes_hex": "002d",
+          "load_address": "0x388a40",
+          "instruction": "cmp r5, #0"
+        },
+        {
+          "address": "0x388a42",
+          "mode": "Thumb",
+          "bytes_hex": "01d0",
+          "load_address": "0x388a42",
+          "instruction": "beq #0x388a48"
+        },
+        {
+          "address": "0x388a44",
+          "mode": "Thumb",
+          "bytes_hex": "37f6eefd",
+          "load_address": "0x388a44",
+          "instruction": "bl #0x1c0624",
+          "direct_call": "0x1c0624"
+        },
+        {
+          "address": "0x388a48",
+          "mode": "Thumb",
+          "bytes_hex": "0799",
+          "load_address": "0x388a48",
+          "instruction": "ldr r1, [sp, #0x1c]"
+        },
+        {
+          "address": "0x388a4a",
+          "mode": "Thumb",
+          "bytes_hex": "6846",
+          "load_address": "0x388a4a",
+          "instruction": "mov r0, sp"
+        },
+        {
+          "address": "0x388a4c",
+          "mode": "Thumb",
+          "bytes_hex": "fff77bfe",
+          "load_address": "0x388a4c",
+          "instruction": "bl #0x388746",
+          "direct_call": "0x388746"
+        },
+        {
+          "address": "0x388a50",
+          "mode": "Thumb",
+          "bytes_hex": "03b0",
+          "load_address": "0x388a50",
+          "instruction": "add sp, #0xc"
+        },
+        {
+          "address": "0x388a52",
+          "mode": "Thumb",
+          "bytes_hex": "f0bc",
+          "load_address": "0x388a52",
+          "instruction": "pop {r4, r5, r6, r7}"
+        },
+        {
+          "address": "0x388a54",
+          "mode": "Thumb",
+          "bytes_hex": "08bc",
+          "load_address": "0x388a54",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0x388a56",
+          "mode": "Thumb",
+          "bytes_hex": "1847",
+          "load_address": "0x388a56",
+          "instruction": "bx r3",
+          "terminal": "original_saved_LR_popped_to_r3_return"
+        },
+        {
+          "address": "0x388a58",
+          "mode": "Thumb",
+          "bytes_hex": "0098",
+          "load_address": "0x388a58",
+          "instruction": "ldr r0, [sp]"
+        },
+        {
+          "address": "0x388a5a",
+          "mode": "Thumb",
+          "bytes_hex": "3900",
+          "load_address": "0x388a5a",
+          "instruction": "movs r1, r7"
+        },
+        {
+          "address": "0x388a5c",
+          "mode": "Thumb",
+          "bytes_hex": "00f019fa",
+          "load_address": "0x388a5c",
+          "instruction": "bl #0x388e92",
+          "direct_call": "0x388e92"
+        },
+        {
+          "address": "0x388a60",
+          "mode": "Thumb",
+          "bytes_hex": "4268",
+          "load_address": "0x388a60",
+          "instruction": "ldr r2, [r0, #4]"
+        },
+        {
+          "address": "0x388a62",
+          "mode": "Thumb",
+          "bytes_hex": "0521",
+          "load_address": "0x388a62",
+          "instruction": "movs r1, #5"
+        },
+        {
+          "address": "0x388a64",
+          "mode": "Thumb",
+          "bytes_hex": "9143",
+          "load_address": "0x388a64",
+          "instruction": "bics r1, r2"
+        },
+        {
+          "address": "0x388a66",
+          "mode": "Thumb",
+          "bytes_hex": "18d1",
+          "load_address": "0x388a66",
+          "instruction": "bne #0x388a9a"
+        },
+        {
+          "address": "0x388a68",
+          "mode": "Thumb",
+          "bytes_hex": "4169",
+          "load_address": "0x388a68",
+          "instruction": "ldr r1, [r0, #0x14]"
+        },
+        {
+          "address": "0x388a6a",
+          "mode": "Thumb",
+          "bytes_hex": "0029",
+          "load_address": "0x388a6a",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x388a6c",
+          "mode": "Thumb",
+          "bytes_hex": "02d0",
+          "load_address": "0x388a6c",
+          "instruction": "beq #0x388a74"
+        },
+        {
+          "address": "0x388a6e",
+          "mode": "Thumb",
+          "bytes_hex": "0269",
+          "load_address": "0x388a6e",
+          "instruction": "ldr r2, [r0, #0x10]"
+        },
+        {
+          "address": "0x388a70",
+          "mode": "Thumb",
+          "bytes_hex": "0a61",
+          "load_address": "0x388a70",
+          "instruction": "str r2, [r1, #0x10]"
+        },
+        {
+          "address": "0x388a72",
+          "mode": "Thumb",
+          "bytes_hex": "01e0",
+          "load_address": "0x388a72",
+          "instruction": "b #0x388a78"
+        },
+        {
+          "address": "0x388a74",
+          "mode": "Thumb",
+          "bytes_hex": "0169",
+          "load_address": "0x388a74",
+          "instruction": "ldr r1, [r0, #0x10]"
+        },
+        {
+          "address": "0x388a76",
+          "mode": "Thumb",
+          "bytes_hex": "c907",
+          "load_address": "0x388a76",
+          "instruction": "lsls r1, r1, #0x1f"
+        },
+        {
+          "address": "0x388a78",
+          "mode": "Thumb",
+          "bytes_hex": "0269",
+          "load_address": "0x388a78",
+          "instruction": "ldr r2, [r0, #0x10]"
+        },
+        {
+          "address": "0x388a7a",
+          "mode": "Thumb",
+          "bytes_hex": "4169",
+          "load_address": "0x388a7a",
+          "instruction": "ldr r1, [r0, #0x14]"
+        },
+        {
+          "address": "0x388a7c",
+          "mode": "Thumb",
+          "bytes_hex": "5208",
+          "load_address": "0x388a7c",
+          "instruction": "lsrs r2, r2, #1"
+        },
+        {
+          "address": "0x388a7e",
+          "mode": "Thumb",
+          "bytes_hex": "5200",
+          "load_address": "0x388a7e",
+          "instruction": "lsls r2, r2, #1"
+        },
+        {
+          "address": "0x388a80",
+          "mode": "Thumb",
+          "bytes_hex": "1160",
+          "load_address": "0x388a80",
+          "instruction": "str r1, [r2]"
+        },
+        {
+          "address": "0x388a82",
+          "mode": "Thumb",
+          "bytes_hex": "616a",
+          "load_address": "0x388a82",
+          "instruction": "ldr r1, [r4, #0x24]"
+        },
+        {
+          "address": "0x388a84",
+          "mode": "Thumb",
+          "bytes_hex": "4161",
+          "load_address": "0x388a84",
+          "instruction": "str r1, [r0, #0x14]"
+        },
+        {
+          "address": "0x388a86",
+          "mode": "Thumb",
+          "bytes_hex": "6062",
+          "load_address": "0x388a86",
+          "instruction": "str r0, [r4, #0x24]"
+        },
+        {
+          "address": "0x388a88",
+          "mode": "Thumb",
+          "bytes_hex": "2434",
+          "load_address": "0x388a88",
+          "instruction": "adds r4, #0x24"
+        },
+        {
+          "address": "0x388a8a",
+          "mode": "Thumb",
+          "bytes_hex": "0121",
+          "load_address": "0x388a8a",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x388a8c",
+          "mode": "Thumb",
+          "bytes_hex": "0c43",
+          "load_address": "0x388a8c",
+          "instruction": "orrs r4, r1"
+        },
+        {
+          "address": "0x388a8e",
+          "mode": "Thumb",
+          "bytes_hex": "0461",
+          "load_address": "0x388a8e",
+          "instruction": "str r4, [r0, #0x10]"
+        },
+        {
+          "address": "0x388a90",
+          "mode": "Thumb",
+          "bytes_hex": "4169",
+          "load_address": "0x388a90",
+          "instruction": "ldr r1, [r0, #0x14]"
+        },
+        {
+          "address": "0x388a92",
+          "mode": "Thumb",
+          "bytes_hex": "0029",
+          "load_address": "0x388a92",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x388a94",
+          "mode": "Thumb",
+          "bytes_hex": "01d0",
+          "load_address": "0x388a94",
+          "instruction": "beq #0x388a9a"
+        },
+        {
+          "address": "0x388a96",
+          "mode": "Thumb",
+          "bytes_hex": "1430",
+          "load_address": "0x388a96",
+          "instruction": "adds r0, #0x14"
+        },
+        {
+          "address": "0x388a98",
+          "mode": "Thumb",
+          "bytes_hex": "0861",
+          "load_address": "0x388a98",
+          "instruction": "str r0, [r1, #0x10]"
+        },
+        {
+          "address": "0x388a9a",
+          "mode": "Thumb",
+          "bytes_hex": "3000",
+          "load_address": "0x388a9a",
+          "instruction": "movs r0, r6"
+        },
+        {
+          "address": "0x388a9c",
+          "mode": "Thumb",
+          "bytes_hex": "77f708ff",
+          "load_address": "0x388a9c",
+          "instruction": "bl #0x3008b0",
+          "direct_call": "0x3008b0"
+        },
+        {
+          "address": "0x388aa0",
+          "mode": "Thumb",
+          "bytes_hex": "002d",
+          "load_address": "0x388aa0",
+          "instruction": "cmp r5, #0"
+        },
+        {
+          "address": "0x388aa2",
+          "mode": "Thumb",
+          "bytes_hex": "d5d0",
+          "load_address": "0x388aa2",
+          "instruction": "beq #0x388a50"
+        },
+        {
+          "address": "0x388aa4",
+          "mode": "Thumb",
+          "bytes_hex": "37f6befd",
+          "load_address": "0x388aa4",
+          "instruction": "bl #0x1c0624",
+          "direct_call": "0x1c0624"
+        },
+        {
+          "address": "0x388aa8",
+          "mode": "Thumb",
+          "bytes_hex": "03b0",
+          "load_address": "0x388aa8",
+          "instruction": "add sp, #0xc"
+        },
+        {
+          "address": "0x388aaa",
+          "mode": "Thumb",
+          "bytes_hex": "f0bc",
+          "load_address": "0x388aaa",
+          "instruction": "pop {r4, r5, r6, r7}"
+        },
+        {
+          "address": "0x388aac",
+          "mode": "Thumb",
+          "bytes_hex": "08bc",
+          "load_address": "0x388aac",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0x388aae",
+          "mode": "Thumb",
+          "bytes_hex": "1847",
+          "load_address": "0x388aae",
+          "instruction": "bx r3",
+          "terminal": "original_saved_LR_popped_to_r3_return"
+        }
+      ],
+      "returns": [
+        "0x388a56",
+        "0x388aae"
+      ],
+      "indirect_calls": [],
+      "unresolved_exits": [],
+      "instruction_limit_reached": false,
+      "local_CFG_complete": true,
+      "callees_not_recursively_executed": true,
+      "static_only": true
+    },
+    "complete_recursive_callees": false
+  },
+  "static_only": true,
+  "device_io": false,
+  "sounds_emitted": false,
+  "frozen_sources_proofs_or_canonical_modified": false,
+  "runtime_pass_or_failure_claim": false
+}

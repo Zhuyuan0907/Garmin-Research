@@ -1,0 +1,63 @@
+{
+  "all_passed": true,
+  "source_sha256": {
+    "staging/native-player-route-entries/prepare_route_entries_v2.py": "c0a81a44fa28c1436d6310741b9d9fa309c6192be7f2e03dbc61e0585e71d38f",
+    "staging/native-player-route-entries/route-entry-derivation-v1.json": "cb48f5e07a6c02069c96ca67f30fe631cbbadfba23e89b06cf71adbbc52219bc",
+    "staging/native-player-route-entries/route_original_entries_v2.S": "2bb36a1b64d561b32a782e86d4b354e89fd58144ef1bb9534d93291ffc3d0d7c",
+    "staging/native-player-route-entries/route_original_entries_v3.S": "3d7edffc640e73d019a0aa90fd0eab4d57b332f2ab88e232a013d2b8536279ad",
+    "staging/native-player-route-entries/guest-v4/terminal-failure.json": "d074d7ea3bdc46e2f1e2cca4106e93f945d0997876257591207e666d853efe63",
+    "staging/native-player-route-entries/guest-v4-terminal-tool-receipt.json": "ad55b9bfc73feaad0134413b6935c0de9c27b7724a5164eff1410770dbd5acfe",
+    "staging/native-player-route-entries/guest-v4-allocator-loop-erratum.json": "6edefaa8475737fa1d9a8c81b7f8da3621b20b50ec4c657fc388f51cfbdf414a",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "patches": [
+    {
+      "name": "profile",
+      "address": 2587942,
+      "patch_bytes": 10,
+      "before_hex": "f7b500200f0084b0002a",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "queue",
+      "address": 2587754,
+      "patch_bytes": 10,
+      "before_hex": "ffb50500002083b00190",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "selector",
+      "address": 3120942,
+      "patch_bytes": 10,
+      "before_hex": "f3b595b015980d008301",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "prepare",
+      "address": 4422100,
+      "patch_bytes": 16,
+      "before_hex": "ffb505001900f43081b0fff7c1fe2c00",
+      "restore_r3_and_SP_in_ARM_shim": true,
+      "original_native_body_return_preserved": true
+    },
+    {
+      "name": "allocate",
+      "address": 4779624,
+      "patch_bytes": 8,
+      "before_hex": "30b404003248314a",
+      "restore_r3_and_SP_in_ARM_shim": false,
+      "original_native_body_return_preserved": true,
+      "one_argument_r0_preserved": true,
+      "patch_direct_ARM_C_gate": true,
+      "original_loop_header_and_back_edge_preserved": true,
+      "relocated_prefix_return": 4779633
+    }
+  ],
+  "VM_only": true,
+  "device_IO": false,
+  "durable_ownership": false
+}

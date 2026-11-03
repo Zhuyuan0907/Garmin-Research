@@ -1,0 +1,43 @@
+Kaohsiung explicit-district geometry prerequisite — prepared, not merged or installed
+
+This new scope used only the existing 4,349,834-byte admin PBF, pinned closure evidence,
+selected-admin context, and the original native city/district hierarchy. It read no house
+ledgers and created no IMG, USB transaction, ZIP, new PBF data copy or city union.
+
+Actual source parent r2127079 has 38 relation/subarea members. All 38 names match the
+original native 高雄市 district hierarchy exactly. 37 children have complete_reference_closed_geometry
+and were exported individually (39 outer rings, 0 holes, 38,427 vertices).
+旗津區 r2106668 and parent 高雄市 r2127079 remain incomplete: ways 284788564 and 654482084
+are missing in the pinned source extract. Never treat the other 37 as a complete 高雄市 boundary.
+selected-admin.json contains 4 other selected roots and does not contain 高雄市; actual source
+parent subarea membership, not an invented selected-admin entry, is the membership authority.
+
+For later root-approved merge, import district_membership.py and construct DistrictMembership().
+Use assess(city, district, latitude, longitude) or covers(city, district, latitude, longitude).
+Only exact city 高雄市 and the explicit, exact district attached to the native street may be
+supplied. No alias normalization, city-only acceptance, nearest district search or geometry union
+exists. Only status inside_verified_district / eligible true passes. 旗津 always holds; an unknown
+or absent district rejects. Global WGS84 bounds and original OSM 7-decimal coordinate precision
+are required. Boundaries are covered; a shared boundary does not assign or disambiguate a district.
+The class also pins the sealed dataset, source membership proof and previously tested CityGeometry
+engine. It does not perform the source street/native district join itself.
+
+Readback used a separate unbucketed exact-rational ray reference for 925 actual district grid
+points (38 covered, 887 outside). Every one of 37 districts had a covered grid point.
+78 real geometry vertex boundaries and their wrong-city rejections passed. 17 new guards cover
+incomplete/unknown/missing district, exact names, malformed/nonfinite/global/precision coordinates,
+and changed/truncated pinned inputs. This is geometry integration evidence, not address, road
+entrance, native frontend comparator, route, GPS, hardware or device acceptance.
+
+Input geometry coordinates derive from the existing 2026-10-01 Taiwan OSM/Geofabrik source.
+© OpenStreetMap contributors; ODbL. Original map authors, license text and other map files are untouched.
+The existing 21-city geometry dataset and previous country merge artifacts are unchanged.
+Earlier producer/export setup failures and their actual receipts are retained. Osmium export type_id
+is an assembled area identifier, so the final code associates each unique district name with its
+actual selected source relation; no unverified area-ID arithmetic is used.
+
+Data: district-geometries.json / source-membership.json
+Proof: proof.json / membership-test-proof.json / actual-receipts.json
+Sources: prepare_district_geometry.py / district_membership.py / test_district_membership.py
+All files are sealed below sealed-files.json. Preparation is complete; stop here pending root's
+separate decision on extending country address merge. Parent city and 旗津 still held.

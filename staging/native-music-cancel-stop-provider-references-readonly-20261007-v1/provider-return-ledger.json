@@ -1,0 +1,362 @@
+{
+  "schema": "garmin-native-cancel-stop-provider-file-review/v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "review_kind": "normal saved FILE content analysis only",
+  "source_content_bytes": 105421,
+  "fresh_files": 10,
+  "source_content_limit": 122880,
+  "max_single_file_bytes": 55116,
+  "records": [
+    {
+      "id": "request_chain",
+      "implementation": "direct C caller exists",
+      "references": [
+        {
+          "path": "native/music-continuous/stream.c",
+          "sha256": "fbd9f0e1e1be7fe9541574961d5354e20a42250c427791dbbecd50c6780757c9",
+          "lines": [
+            153,
+            190
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "music_stream_callback"
+        },
+        {
+          "path": "native/music-continuous/runtime.c",
+          "sha256": "a9662f36330cf55b11206703c8ebab0f51f3c41a4c12c3c41dd95c728279eceb",
+          "lines": [
+            98,
+            102
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "music_runtime_cancel"
+        },
+        {
+          "path": "native/sbc-prototype/source_worker.c",
+          "sha256": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+          "lines": [
+            106,
+            111
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "source_worker_cancel"
+        }
+      ],
+      "behavior": "F2 or successful event19 stops queue; after AV unlock calls runtime cancel, which stops queue and delegates to Source flag+POST. return0 is accepted request, not finished stop.",
+      "identity": "Request API has no generation/ownership epoch arguments; Source TCB existence/finished flag are guards.",
+      "unproven": [
+        "live AV lock/session ownership",
+        "request processing by actual native scheduler",
+        "native STOP_DONE"
+      ]
+    },
+    {
+      "id": "actor_cancel",
+      "implementation": "direct C actor path exists",
+      "references": [
+        {
+          "path": "native/sbc-prototype/source_worker.c",
+          "sha256": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+          "lines": [
+            44,
+            81
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "source_worker_entry"
+        },
+        {
+          "path": "native/music-continuous/media_coordinator.c",
+          "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+          "lines": [
+            44,
+            66
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "enter / media_coordinator_init"
+        },
+        {
+          "path": "native/music-continuous/media_coordinator.c",
+          "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+          "lines": [
+            88,
+            120
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "cancel_step / media_coordinator_cancel"
+        }
+      ],
+      "behavior": "Owner Source actor processes cancel and records counters after return; clears request only when result0 and coordinator pending0. Coordinator requires current TCB==owner and serializes busy state.",
+      "identity": "Actor identity is current task bound at coordinator init, not durable channel ownership; no UMC generation/epoch carried by these APIs.",
+      "unproven": [
+        "controller observe_stop callback bound to this actor",
+        "runtime native scheduling",
+        "source/app lifecycle completion"
+      ]
+    },
+    {
+      "id": "native_remove_release",
+      "implementation": "C full-call-return ordering exists",
+      "references": [
+        {
+          "path": "native/music-continuous/media_coordinator.c",
+          "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+          "lines": [
+            32,
+            42
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "native_idle"
+        },
+        {
+          "path": "native/music-continuous/media_coordinator.c",
+          "sha256": "40a6f0586b7d7a3f9fb5846b6b30911371ca18e9e53f0685fc69ba5cad9d36a4",
+          "lines": [
+            72,
+            110
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "remove_stopped / cancel_step"
+        }
+      ],
+      "behavior": "Waits for native idle and no reader borrow; optional native stop request returns before retry. Holds native_calls through original list-removal return; checks unique node/ticket/in-flight then node disappearance; release return0 and private-ready cancellation precede pending0.",
+      "identity": "Native idle predicates and private ticket/counters, not a new hardware exclusivity certificate.",
+      "unproven": [
+        "actual original functions reach same production state",
+        "actual stop acknowledgement",
+        "full hardware/renderer/audio return"
+      ]
+    },
+    {
+      "id": "completion_receiver",
+      "implementation": "C receiver exists; no caller found in selected C set",
+      "references": [
+        {
+          "path": "native/sbc-prototype/source_worker.c",
+          "sha256": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+          "lines": [
+            100,
+            105
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "source_worker_completed"
+        },
+        {
+          "path": "native/sbc-prototype/source_worker.c",
+          "sha256": "dd17839297733dbf5bfa379e34e5be2a1a26c31807d8e584d7e7438d7399333e",
+          "lines": [
+            118,
+            123
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "source_worker_api"
+        },
+        {
+          "path": "staging/native-music-continuous/manifest.json",
+          "sha256": "50a2dd7f312b2aa34ae9cd3283a20968840fa32edb7667bde0d62b1d73afaabe",
+          "lines": null,
+          "read_scope": "fresh_saved_capture"
+        }
+      ],
+      "selected_C_occurrences": [
+        {
+          "path": "native/sbc-prototype/source_worker.c",
+          "line": 100
+        }
+      ],
+      "metadata_symbols": {
+        "source_worker_completed": {
+          "address": 49816036,
+          "type": "T"
+        },
+        "source_completion_hook": {
+          "address": 49816192,
+          "type": "T"
+        },
+        "source_completion_after_original": {
+          "address": 49816208,
+          "type": "T"
+        },
+        "source_completion_original": {
+          "address": 49816240,
+          "type": "T"
+        }
+      },
+      "behavior": "Matching actual source-record address/channel posts completion notification; does not accept generation, epoch or original full-return witness. Assembly glue is named in extern/API and manifest symbols but body/installation are not examined.",
+      "unproven": [
+        "original cleanup continuation really calls this receiver after complete return on device",
+        "assembly frame semantics",
+        "installed production call site",
+        "native callback quiescence"
+      ]
+    },
+    {
+      "id": "old_adapter_contract",
+      "implementation": "typed C/H contract fresh; body inherited conditional observer",
+      "references": [
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "lines": [
+            63,
+            80
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "umcn_bindings"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "lines": [
+            109,
+            150
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "umcn_trace / cleanup frame / hook declarations"
+        }
+      ],
+      "behavior": "Explicit opaque runtime_cancel and original_source_completed providers; separate witness generation/source token/ownership epoch and cancel/remove/release/pump baselines. Header demands Source-after-iteration and original3B9DFC full-return wrapper hooks; declarations are not installation.",
+      "inherited_body": {
+        "path": "native/ui-music-native-adapter/native_adapter.c",
+        "sha256": "f49969bfe55f746e97f2183c9ec6a3a85c6e55ff355cd8333859039dc67d2f21",
+        "references": [
+          {
+            "function": "adapter_cancel",
+            "line": 86
+          },
+          {
+            "function": "adapter_observe",
+            "line": 103
+          },
+          {
+            "function": "umcn_after_native_iteration",
+            "line": 230
+          },
+          {
+            "function": "umcn_cleanup_begin",
+            "line": 246
+          },
+          {
+            "function": "umcn_cleanup_after_original",
+            "line": 262
+          }
+        ],
+        "read_by_this_scope": false,
+        "scope": "root message plus closed UI integration matrix; conditional observations/baselines; actual hook sites not installed"
+      },
+      "unproven": [
+        "native ownership_snapshot/prepare_session providers",
+        "full-return caller installation",
+        "same newer generated-image provider"
+      ]
+    },
+    {
+      "id": "exact_old_image_binding",
+      "implementation": "fresh generated metadata source identity only",
+      "references": [
+        {
+          "path": "staging/native-music-continuous/manifest.json",
+          "sha256": "50a2dd7f312b2aa34ae9cd3283a20968840fa32edb7667bde0d62b1d73afaabe",
+          "lines": null,
+          "read_scope": "fresh_saved_capture"
+        },
+        {
+          "path": "native/ui-music-native-adapter/native_adapter.h",
+          "sha256": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153",
+          "lines": [
+            154,
+            157
+          ],
+          "read_scope": "fresh_saved_capture",
+          "function": "umcn_fill_exact_continuous_bindings contract"
+        }
+      ],
+      "source_pin_match_count": 7,
+      "behavior": "Seven captured old C/H source hashes match older continuous manifest. Symbol locations and API arrays establish named old-image metadata, not execution/installation or compatibility of newer loaded-pause/shared-core state.",
+      "inherited_wrapper_reference": {
+        "path": "native/ui-music-native-adapter/original_imports.c",
+        "line": 21,
+        "source_whole_sha256": "not re-read in this scope; exact whole pin is inherited through closed UI matrix",
+        "matrix_sha256": "1d50527ca431d3995cf671a1320dc224ad32d4d2970f368e9c2e3bd2cf49117e"
+      },
+      "unproven": [
+        "binary content",
+        "installed original imports",
+        "relocation/state mapping to newer loaded-v2/v3 image"
+      ]
+    },
+    {
+      "id": "shared_core_distinction",
+      "implementation": "newer typed header read; real driver bodies inherited",
+      "references": [
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+          "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+          "lines": [
+            1,
+            8
+          ],
+          "read_scope": "fresh_saved_capture"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+          "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+          "lines": [
+            21,
+            42
+          ],
+          "read_scope": "fresh_saved_capture"
+        },
+        {
+          "path": "staging/native-player-mixer-handoff/music_session_guard_v4.h",
+          "sha256": "57b99cfc6f55a4be2a5c94997c977c9574ec5dfe32d5616efc5a10ffbb99b8e6",
+          "lines": [
+            65,
+            82
+          ],
+          "read_scope": "fresh_saved_capture"
+        }
+      ],
+      "behavior": "New family uses scoped session epoch/controller generation, true mixer actor/stack/descriptor admission and full-pull borrow frames. FIFO ticket alone is insufficient. Existing newer driver contains real UMC init/ready/start/service ops; cancel/observe_stop specifically remain uncertified (-200), not whole core absence. Old runtime/adapter pointer map and observation baselines are not automatically this provider.",
+      "unproven": [
+        "same generated-image cancel/observer implementation",
+        "production installed full-pull hooks",
+        "native exclusive-owner/STOP_DONE"
+      ]
+    },
+    {
+      "id": "source_wake_cross_reference",
+      "implementation": "separate closed peer FILE review, inherited only",
+      "references": [],
+      "peer": {
+        "path": "staging/native-music-source-wake-service-references-readonly-20261007-v1/call-reference-ledger.json",
+        "sha256": "25117cbeca084630a4fc0c782ebe12038baaf0b6c90b77cfc7392d366b472e59",
+        "proof_sha256": "41096c3aa7c79db1e9a60de36030d1e6282b33ffe6feca82e6800ef4954ac34d",
+        "seal_sha256": "098c23307efdd6ac96c4bfaa0e9378acfa37f616ea4dc1d99a7d1aafe19b9d9f",
+        "read_by_this_scope": false
+      },
+      "behavior": "Peer four selected Source/sync C files give descriptor entry, original initialize delegation, pre-sync grant and post-init flag/pull gate. No core-token/cancel-observer C caller found there; task stop delegates aas_stop to mixer16/17/18. This is family-limited, not project-wide absence.",
+      "unproven": [
+        "assembly glue and other callers",
+        "current live source ownership",
+        "actual cleanup notification to shared core"
+      ]
+    }
+  ],
+  "inherited_controller_lifecycle": {
+    "ledger_sha256": "545e37dd0bd1a0ff2ddd77179648dc175cd9a2983ac33727b81d7fca238cace5",
+    "read_by_this_scope": false
+  },
+  "limits": {
+    "selected_family_only": true,
+    "original_instruction_or_ASM_body_read": false,
+    "target_import_compile_execution": false,
+    "guest_or_emulator": false,
+    "MAIN_binary_RAM": false,
+    "device_DBUS_BT_audio": false,
+    "shared_source_or_canonical_edit": false,
+    "hardware_or_phone_music_success": false,
+    "system_risk_guest_retry": false
+  },
+  "next_missing_binding": "A newer same-image provider and installed caller must bind actual actor/session generation+epoch and original-complete-return observation to core cancellation; old C request0 or method counters alone do not establish STOP_DONE."
+}

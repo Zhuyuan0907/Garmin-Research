@@ -1,0 +1,60 @@
+[
+  {
+    "argv": [
+      "java",
+      "-jar",
+      "/root/garmin/staging/android-hfp-typecheck-tools-v1/ecj-3.41.0.jar",
+      "-source",
+      "8",
+      "-target",
+      "8",
+      "-proc:none",
+      "-encoding",
+      "UTF-8",
+      "-d",
+      "/root/garmin/staging/android-hfp-preflight-v5/host-classes",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlaybackGate.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlayerLoadLease.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflightLease.java",
+      "/root/garmin/android/garmin-hfp-player/host-tests/PlaybackGateTest.java",
+      "/root/garmin/android/garmin-hfp-player/host-tests/PlayerLoadLeaseTest.java",
+      "/root/garmin/android/garmin-hfp-player/host-tests/HfpPreflightLeaseTest.java"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "java",
+      "-cp",
+      "/root/garmin/staging/android-hfp-preflight-v5/host-classes",
+      "org.garmin.hfpprototype.PlaybackGateTest"
+    ],
+    "returncode": 0,
+    "stdout": "{\"all_passed\":true,\"host_cases\":18,\"cases\":[\"play-before-answer-denied\",\"answered-without-selected-call-route-denied\",\"unrelated-initial-call-route-not-authority\",\"actual-player-route-required-before-unmute\",\"actual-player-mismatch-terminal\",\"call-route-loss-stops-audible-playback\",\"player-route-loss-stops-audible-playback\",\"sixty-second-unanswered-deadline-inclusive\",\"twenty-second-route-deadline-inclusive\",\"answered-but-never-played-call-expires\",\"media-prepare-timeout\",\"muted-route-verification-two-second-bound\",\"ten-second-limit-does-not-slide-on-route-callbacks\",\"explicit-stop-idempotent-and-late-prepare-denied\",\"stale-session-events-cannot-alter-new-call\",\"stopped-token-cannot-be-reused\",\"second-play-button-cannot-start-another-player\",\"hold-or-error-stop-cannot-be-undone-by-route-update\"],\"Android_runtime\":false,\"device_IO\":false}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "java",
+      "-cp",
+      "/root/garmin/staging/android-hfp-preflight-v5/host-classes",
+      "org.garmin.hfpprototype.PlayerLoadLeaseTest"
+    ],
+    "returncode": 0,
+    "stdout": "{\"all_passed\":true,\"host_cases\":12,\"cases\":[\"empty-session-id-rejected\",\"one-outstanding-load-only\",\"session-and-player-identity-both-required\",\"loading-deadline-inclusive\",\"cancel-denies-all-later-load-and-player-results\",\"cancel-keeps-slot-busy-until-real-cleanup\",\"stale-cleanup-cannot-free-new-owner\",\"foreign-cleanup-cannot-cancel-another-lease\",\"concurrent-acquisition-has-one-winner\",\"stop-remains-processable-while-controlled-provider-is-blocked\",\"prepare-timeout-cancels-pending-load-before-late-result\",\"new-session-gate-is-unchanged-by-old-ticket-result\"],\"Android_runtime\":false,\"device_IO\":false}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "java",
+      "-cp",
+      "/root/garmin/staging/android-hfp-preflight-v5/host-classes",
+      "org.garmin.hfpprototype.HfpPreflightLeaseTest"
+    ],
+    "returncode": 0,
+    "stdout": "{\"all_passed\":true,\"host_cases\":9,\"cases\":[\"selected-connected-snapshot-is-one-shot\",\"never-callback-timeout-retains-one-request-owner\",\"cancel-then-late-close-allows-new-session-without-old-call\",\"token-device-and-ticket-identities-all-required\",\"bonded-or-other-connected-device-is-insufficient\",\"permission-denial-never-admits-or-frees-a-proxy\",\"snapshot-age-future-time-and-request-deadline-are-separate\",\"cancel-while-controlled-profile-query-waits-denies-late-admission\",\"failed-close-keeps-process-busy-even-after-a-late-extra-proxy\"],\"Android_runtime\":false,\"device_IO\":false}\n",
+    "stderr": ""
+  }
+]

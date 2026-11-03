@@ -1,0 +1,32 @@
+{
+  "schema": "new-node-semantics-preparation-failure/v1",
+  "preparation": {
+    "tool_chunk": "999348",
+    "exit_code": 1,
+    "unbacked_saved_page_literal": "0x32c184",
+    "MAIN_reads": 0,
+    "IMG_reads": 0,
+    "saved_page_local_read_bytes": 8192
+  },
+  "dependent_guest_invocation": {
+    "tool_chunk": "81cb7a",
+    "exit_code": 1,
+    "reason": "reused-windows.json had not been produced",
+    "guest_started": false,
+    "MAIN_reads": 0,
+    "IMG_reads": 0
+  },
+  "executed_sources": [
+    {
+      "source": "prepare_reused_windows.py",
+      "snapshot": "prepare_reused_windows_initial_preparation_failure.py",
+      "sha256": "b63f86984bdaa87e49ec2eb47c01304b69346b733856b7d71e7689720ea79ed6"
+    },
+    {
+      "source": "run_new_state_cases.py",
+      "snapshot": "run_new_state_cases_initial_preparation_failure.py",
+      "sha256": "7b95618a958d41ce273d15896a1579c307e430383fd1f3e005cac6eea6f7fe6e"
+    }
+  ],
+  "correction_rule": "Preserve the unresolved peer-page literal, not a fabricated pointer; rerun only preparation and the previously unstarted new cases."
+}

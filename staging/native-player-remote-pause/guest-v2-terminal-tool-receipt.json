@@ -1,0 +1,13 @@
+{
+  "terminal": true,
+  "session_id": 91184,
+  "actual_terminal_result": {
+    "chunk_id": "b8905b",
+    "wall_time_seconds": 0.000023611,
+    "exit_code": 1,
+    "original_token_count": 498,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-remote-pause/emulate_remote_pause_v2.py\", line 126, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-remote-pause/emulate_remote_pause_v2.py\", line 113, in main\n    m=PauseVM(R.NativeImage(),e,source,remote,reference);run_case(m,name);row=m.result(name);p=runtime/(name+'.json');dump(p,row)\n                                                         ~~~~~~~~^^^^^^^^\n  File \"/root/garmin/staging/native-player-remote-pause/emulate_remote_pause_v2.py\", line 74, in run_case\n    pause(m);silence_cycle(m);resume_start(m);m.media(m.packet(5));music(m,list(range(6)))\n                                                                   ~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-remote-pause/emulate_remote_pause_v2.py\", line 47, in music\n    raw=m.cycle(kick);expected=b''.join(m.expected(i)for i in indices);m.compare(raw,expected)\n  File \"/root/garmin/staging/native-player-sbc-ingress/emulate_sbc_ingress_v4.py\", line 167, in cycle\n    else:self.park()\n         ~~~~~~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/emulate_mixer_sync_v3.py\", line 324, in park\n    self.invoke_kernel(WAIT | 1, phase='original controller wait schedules ready actors')\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/emulate_mixer_sync_v3.py\", line 318, in invoke_kernel\n    require(self.uc.reg_read(UC_ARM_REG_PC) in (old.RETURN, IDLE), 'kernel call missed return/idle endpoint')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/emulate_queue_call.py\", line 33, in require\n    if not x:raise ValueError(reason)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: kernel call missed return/idle endpoint\n"
+  },
+  "completed_cases": 0,
+  "scope": "Actual guest script terminal after inherited 1.5M instruction call ceiling during final pcm_converter_process. Do not poll/restart this terminal handle. New v3 harness slices continuation within each live VM without context_restore."
+}

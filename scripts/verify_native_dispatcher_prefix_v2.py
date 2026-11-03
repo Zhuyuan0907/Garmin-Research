@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""Verify per-run sealed cold prefix and exact prior-cache event difference."""
+from pathlib import Path
+from datetime import datetime,timezone
+import hashlib,json
+from analyze_native_sections import ROOT,NativeImage
+BASE='staging/native-player-dispatcher-native-body/runtime/'
+OUT='evidence/firmware-analysis/native-dispatcher-cold-prefix-emulation.json'
+def read(p):return json.loads((ROOT/p).read_text())
+def sha(p):return hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
+def main():
+    assert not (ROOT/OUT).exists(),'Preserve independently verified prefix'
+    meta=read(BASE+'terminal-metadata.json');terminal=read(meta['probe']);prefix=read(meta['cold_prefix']);stock=NativeImage()
+    assert meta['authoritative_terminal_result_received_from_exec'] and meta['terminal_exit_code'] in [0,1]
+    for p,s in meta['source_sha256'].items():assert sha(p)==s,p
+    for k in ['runner','runner_snapshot','inputs','probe','FP_helper','GUI_observer','cold_prefix','sealer']:
+        assert sha(meta[k])==meta[k+'_sha256'],k
+    assert prefix['cold_prefix_full_guards_passed'] and meta['cold_prefix_full_guards_passed'] and terminal['cold_prefix_full_guards_passed']
+    assert prefix['completed'] is False and prefix['body_full_guards_passed'] is False,'Prefix must not pretend the body completed'
+    boot=prefix['cold_boot'];assert boot['original_FP_boot_executed'] and boot['original_listener_registered']
+    assert boot['whole_TCB108_unchanged'] and boot['released_list_backend24_checked'] and boot['FPSCR']=='0x03000000' and boot['FPowner']==0
+    assert boot['cold_controller_fill']['whole16384_FF_checked'] and not boot['cold_controller_fill']['host_filled_stack']
+    boot_replays=[]
+    for zone in boot['whole_boot_zones'].values():
+        expected=bytearray.fromhex(zone['before_hex']);start=int(zone['start'],16)
+        for store in zone['stores']:
+            offset=int(store['address'],16)-start;n=store['size'];assert 0<=offset and offset+n<=len(expected)
+            assert expected[offset:offset+n].hex()==store['before_hex']
+            if store['kind']=='original_MAIN_CPU_store':
+                op=bytes.fromhex(store['opcode_hex']);assert stock.read(int(store['load_PC'],16),len(op))==op
+            else:
+                assert store['kind']=='declared_initial_ready_membership_input' and (int(store['address'],16),n,store['value']) in [(0x9503f90,4,0x9508f90),(0x9503fa6,1,1)]
+            expected[offset:offset+n]=store['value'].to_bytes(n,'little')
+        assert zone['whole_zone_replayed'] and hashlib.sha256(expected).hexdigest()==zone['after_sha256']
+        boot_replays.append(dict(start=zone['start'],bytes=len(expected),events=len(zone['stores']),independently_replayed=True))
+    comp=read('staging/controller-gir-prep-stock-v2/verification.json');binary=(ROOT/comp['flat_binary']).read_bytes();component_replays=[]
+    for zone in prefix['extra_zones']:
+        expected=bytearray.fromhex(zone['before_hex']);start=int(zone['start'],16)
+        for store in zone['stores']:
+            offset=int(store['address'],16)-start;n=store['size'];assert 0<=offset and offset+n<=len(expected)
+            assert expected[offset:offset+n].hex()==store['before_hex'];op=bytes.fromhex(store['opcode_hex']);pc=int(store['PC'],16)
+            if store.get('writer_kind')=='frozen_ARM_companion':assert binary[pc-0xea10000:pc-0xea10000+len(op)]==op
+            else:assert stock.read(pc,len(op))==op
+            expected[offset:offset+n]=store['value'].to_bytes(n,'little')
+        assert zone['whole_net_zone_matches_original_stores'] and hashlib.sha256(expected).hexdigest()==zone['after_sha256']
+        component_replays.append(dict(start=zone['start'],bytes=len(expected),events=len(zone['stores']),independently_replayed=True))
+    assert len(boot_replays)==5 and len(component_replays)==22
+    cache=bytearray(786432);cpu=raw=0
+    for event in prefix['whole_cache_journal']:
+        offset=event['address']-0x34fa3bc;n=event['bytes'];assert 0<=offset and offset+n<=len(cache)
+        assert cache[offset:offset+n].hex()==event['before_hex'];payload=bytes.fromhex(event['after_hex']);info=event['metadata']
+        assert len(payload)==n
+        if info['kind']=='exact_original_MAIN_CPU_store':
+            opcode=bytes.fromhex(info['opcode_hex']);assert stock.read(int(info['load_PC'],16),len(opcode))==opcode
+            assert info['running_task']=='0x9503f90' and n==event['events']*info['width'];cpu+=event['events']
+        else:
+            assert info['kind']=='raw_exact_backup_file_input' and event['events']==1
+            data=(ROOT/'backups/20261002T154458Z/files'/info['path'][3:]).read_bytes()
+            assert data[info['file_offset']:info['file_offset']+n]==payload and hashlib.sha256(payload).hexdigest()==info['input_sha256'];raw+=1
+        cache[offset:offset+n]=payload
+    assert cpu==prefix['native_cache_CPU_store_count']==356834 and raw==112
+    old_path='staging/native-player-cold-fp-controller/runtime/terminal-probe.json'
+    old=read(old_path);prior_cache=bytearray(786432)
+    for event in old['whole_cache_journal']:
+        offset=event['address']-0x34fa3bc;n=event['bytes']
+        assert prior_cache[offset:offset+n].hex()==event['before_hex']
+        prior_cache[offset:offset+n]=bytes.fromhex(event['after_hex'])
+    assert cache==prior_cache, 'The extra same-byte journal event must not change final cache bytes'
+    a,b=old['whole_cache_journal'],prefix['whole_cache_journal']
+    assert len(a)==8400 and len(b)==8401 and a[:7715]==b[:7715] and a[7718:]==b[7719:]
+    old_part,new_part=a[7715:7718],b[7715:7719]
+    assert all(e['metadata']==old_part[0]['metadata'] for e in old_part+new_part)
+    assert old_part[0]['metadata']['PC']=='0x1409ae'
+    assert sum(e['events'] for e in old_part)==9920 and sum(e['events'] for e in new_part)==9921
+    assert new_part[1]['address']==new_part[0]['address']+new_part[0]['bytes']-1==0x3571016
+    assert bytes.fromhex(new_part[0]['after_hex'])[-1:]==bytes.fromhex(new_part[1]['before_hex'])[:1]==bytes.fromhex(new_part[1]['after_hex'])[:1]==bytes([0x32])
+    assert new_part[2]['address']==new_part[1]['address']+new_part[1]['bytes']
+    assert new_part[3]['address']==new_part[2]['address']+new_part[2]['bytes']
+    event_difference=dict(prior_CPU_events=old['native_cache_CPU_store_count'],current_CPU_events=cpu,
+        extra_same_byte_original_store_address='0x3571016',original_PC='0x1409ae',byte_value='32',
+        whole_cache_final_bytes_equal=True,whole_cache_sha256=hashlib.sha256(cache).hexdigest(),
+        exact_unchanged_prefix_rows=7715,exact_unchanged_suffix_rows=len(a)-7718,
+        timing_or_resume_cause_not_independently_proven=True)
+    assert len(prefix['component_calls'])==11 and all(c['returned'] for c in prefix['component_calls'])
+    assert prefix['component_return']=='0x1' and prefix['component_result20'][2:4]==[0x2ffc,1]
+    assert prefix['memory']['all_scoped_memory_guards_passed'] and prefix['memory']['all_SQL_statements_closed']
+    assert prefix['memory']['whole_original_shared_font_cache_replayed'] and prefix['memory']['whole_original_cache_bytes']==786432
+    assert len(prefix['native_cache_allocations'])==280 and sum(c['freed'] for c in prefix['native_cache_allocations'])==59
+    assert len(prefix['native_cache_read_bindings'])==112 and all(c['actual_caller_return_observed'] for c in prefix['native_cache_read_bindings'])
+    deps=dict(meta['source_sha256']);verifier=str(Path(__file__).resolve().relative_to(ROOT));deps[verifier]=sha(verifier)
+    result=dict(updated_utc=datetime.now(timezone.utc).isoformat(),all_passed=True,case_count=1,
+        cases=[dict(name='complete_cold_component_prefix_before_actual_Dispatcher_attempt',passed=True,session_id=meta['session_id'],
+            native_helpers_returned=11,full_cold_prefix_scoped_guards_passed=True)],source_sha256=deps,
+        artifacts_sha256={p:sha(p) for p in [BASE+'terminal-metadata.json',meta['probe'],meta['cold_prefix']]},
+        independent_cold_boot_zone_replays=boot_replays,independent_component_zone_replays=component_replays,
+        whole_cache_replay_sha256=hashlib.sha256(cache).hexdigest(),native_cache_CPU_store_events=cpu,exact_raw_backup_input_chunks=raw,
+        exact_prior_cache_event_difference=event_difference,prior_verifier_assertion_failure_preserved='staging/native-player-dispatcher-native-body/prefix-verifier-v1-failure/failure.json',
+        subsequent_body_terminal_exit_code=meta['terminal_exit_code'],subsequent_body_error=meta['error'],
+        subsequent_Dispatcher_body_or_multiowner_scheduling_or_foreground_verified=False,
+        guest_execution_by_verifier=False,device_io=False,sounds_emitted=False,
+        scope='Complete cold-controller boot/component prefix is independently sealed before later native queued Dispatcher work. Its5boot/22component/cache histories cannot gain later body events. Later terminal outcome is preserved separately; this prefix is not a full Dispatcher/foreground/App/scheduler FP or hardware music proof.')
+    with (ROOT/OUT).open('x') as f:json.dump(result,f,ensure_ascii=False,indent=2);f.write('\n')
+    print(json.dumps(dict(all_passed=True,case_count=1,cold_zones=5,component_zones=22,cache_CPU_events=cpu,terminal_exit_code=meta['terminal_exit_code'])))
+if __name__=='__main__':main()

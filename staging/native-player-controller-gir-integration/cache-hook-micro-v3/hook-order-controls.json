@@ -1,0 +1,87 @@
+{
+  "updated_utc": "2026-10-04T10:56:22.619966+00:00",
+  "all_passed": true,
+  "case_count": 3,
+  "cases": [
+    {
+      "mode": "native_invalid_mapping_only",
+      "passed": true,
+      "events": [
+        {
+          "event": "CPU_write_callback",
+          "address": "0x34fa3c0",
+          "size": 4,
+          "value": 98304,
+          "target_already_mapped": false
+        },
+        {
+          "event": "native_unmapped_callback",
+          "address": "0x34fa3c0",
+          "access": 20
+        }
+      ],
+      "observed_error": null,
+      "native_stored_bytes_hex": "00800100"
+    },
+    {
+      "mode": "read_before_native_invalid_mapping",
+      "passed": true,
+      "events": [
+        {
+          "event": "CPU_write_callback",
+          "address": "0x34fa3c0",
+          "size": 4,
+          "value": 98304,
+          "target_already_mapped": false
+        },
+        {
+          "event": "host_before_read_UcError",
+          "errno": 6,
+          "message": "Invalid memory read (UC_ERR_READ_UNMAPPED)"
+        },
+        {
+          "event": "native_unmapped_callback",
+          "address": "0x34fa3c0",
+          "access": 20
+        }
+      ],
+      "observed_error": {
+        "errno": 6,
+        "message": "Invalid memory read (UC_ERR_READ_UNMAPPED)"
+      },
+      "native_stored_bytes_hex": "00800100"
+    },
+    {
+      "mode": "verified_zero_mapping_declared_before_emulation",
+      "passed": true,
+      "events": [
+        {
+          "event": "CPU_write_callback",
+          "address": "0x34fa3c0",
+          "size": 4,
+          "value": 98304,
+          "target_already_mapped": true
+        },
+        {
+          "event": "host_before_read",
+          "before_hex": "00000000"
+        }
+      ],
+      "observed_error": null,
+      "native_stored_bytes_hex": "00800100"
+    }
+  ],
+  "source_sha256": {
+    "scripts/probe_native_font_cache_hook_order_v3.py": "510c9b257e9c0e5a12dc2bdd2c6d4d795ca6046b997c5eb64fdc0a21c47e4881",
+    "staging/native-player-controller-gir-integration/cache-hook-micro-v3/source-at-run.py": "510c9b257e9c0e5a12dc2bdd2c6d4d795ca6046b997c5eb64fdc0a21c47e4881",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "original_single_instruction_PC": "0x263fce",
+  "original_opcode_hex": "4160",
+  "registers_and_mapping_are_explicit_micro_fixtures": true,
+  "native_controller_allocator_or_fonts_endpoint_not_executed": true,
+  "old85428_underlying_UcError_was_not_captured": true,
+  "old_failure_cause_is_inference_from_matching_PC_and_source_not_retroactive_observation": true,
+  "device_io": false,
+  "sounds_emitted": false
+}

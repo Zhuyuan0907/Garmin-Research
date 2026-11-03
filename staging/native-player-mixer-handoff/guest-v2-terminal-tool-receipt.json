@@ -1,0 +1,14 @@
+{
+  "kind": "actual_ROOT_exec_and_poll_receipt",
+  "started_session_id": 27958,
+  "start_chunk": "e0fc83",
+  "actual_terminal_result": {
+    "chunk_id": "7c4293",
+    "wall_time_seconds": 0.000023148,
+    "exit_code": 1,
+    "original_token_count": 544,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-handoff/emulate_mixer_handoff_v2.py\", line 454, in <module>\n    if __name__ == '__main__': main()\n                               ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-handoff/emulate_mixer_handoff_v2.py\", line 427, in main\n    results = [m.command(c) for c in commands]\n               ~~~~~~~~~^^^\n  File \"/root/garmin/staging/native-player-mixer-handoff/emulate_mixer_handoff_v2.py\", line 338, in command\n    self.park()\n    ~~~~~~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-handoff/emulate_mixer_handoff_v2.py\", line 286, in park\n    self.invoke_kernel(WAIT | 1, phase='original controller wait schedules ready actors')\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-handoff/emulate_mixer_handoff_v2.py\", line 280, in invoke_kernel\n    self.uc.emu_start(entry, old.RETURN, count=1500000, timeout=15000000)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 769, in emu_start\n    raise self._hook_exception\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 363, in wrapper\n    return func(uc, *args, **kwargs)\n  File \"/root/garmin/staging/unicorn-stream-venv/lib/python3.13/site-packages/unicorn/unicorn_py3/unicorn.py\", line 1063, in __hook_code_cb\n    callback(uc, address, size, user_data)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-handoff/emulate_mixer_handoff_v2.py\", line 215, in code\n    require(target == self.mixer_tcb and target, 'unexpected original message queue target')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/emulate_queue_call.py\", line 33, in require\n    if not x:raise ValueError(reason)\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: unexpected original message queue target\n"
+  },
+  "terminal": true,
+  "retry_or_rerun_forbidden": true
+}

@@ -1,0 +1,31 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mthumb",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pie",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I/root/garmin/staging/native-os20-worker-fifo-v1/build-v3",
+    "-I/root/garmin/native/sbc-prototype",
+    "-I/root/garmin/staging/native-pcm-converter",
+    "-c",
+    "/root/garmin/native/sbc-prototype/pcm_converter.c",
+    "-o",
+    "/root/garmin/staging/native-os20-worker-fifo-v1/build-v3/07-pcm_converter.o"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

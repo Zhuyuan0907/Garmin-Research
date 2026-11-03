@@ -1,0 +1,6955 @@
+{
+  "updated_utc": "2026-10-02T21:31:50.354920+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "unicorn_version": "2.1.0",
+  "cpu_model": "ARM1176",
+  "source_sha256": "f80f7935b0d6c2e51ce650462238f4bb7b95206adfe42672383a7cb80ff5c9ad",
+  "dependencies_sha256": {
+    "scripts/emulate_native_task_creation.py": "cd9dd7494c472b0131c8d367d1362416122cadbc8261123b1682d3273455328a",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f"
+  },
+  "restore_entry": "0x358ec4",
+  "restore_entry_mode": "ARM",
+  "exit_shim": "0x358fa4",
+  "kernel_self_exit": "0x1c06a4",
+  "exit_listener_register": "0x3cc5c2",
+  "exit_listener_remove": "0x3cc624",
+  "exit_listener_registration_abi": [
+    "list",
+    "node",
+    "order",
+    "callback",
+    "stack:argument"
+  ],
+  "all_task_list": "0xf0908c",
+  "ready_task_list": "0xf09090",
+  "runtime_restore_cases": [
+    {
+      "case": "initial_created_context",
+      "interface": "direct",
+      "requested_stack_bytes": 2048,
+      "logical_priority": 0,
+      "occupied_slots": 0,
+      "argument": "0x10203040",
+      "wrapper_handle": "0x3a1b294",
+      "kernel_tcb": "0x8103f90",
+      "original_context_words": [
+        "0x3f",
+        "0x521e45",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x8103f90",
+        "0x358fa5"
+      ],
+      "original_context_builder_executed": true,
+      "context_format_flag": 0,
+      "entry_called_explicitly": false,
+      "original_restore_executed": true,
+      "original_vfp_disable_executed": true,
+      "original_dispatch_argument_preserved": true,
+      "returned_to_original_exit_shim": true,
+      "exit_shim_executed": false,
+      "stages": [
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x1f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0xde00000c"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x3f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x10000",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x80000013"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x521e44",
+          "cpsr": "0x3f",
+          "sp": "0x8103f90",
+          "lr": "0x358fa5",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x8200000",
+          "cpsr": "0x3f",
+          "sp": "0x8103f88",
+          "lr": "0x521e57",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x10203040",
+            "0x8200001",
+            "0x3a1b294",
+            "0xde000003",
+            "0x3a1b294",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "endpoint": {
+        "pc": "0x358fa4",
+        "cpsr": "0x4000003f",
+        "sp": "0x8103f90",
+        "lr": "0x521e5d",
+        "ready_task_list_head": "0x8103f90",
+        "all_task_list_head": "0x8103f90",
+        "registers_r0_r12": [
+          "0x10203040",
+          "0x8200800",
+          "0x3a1b294",
+          "0xde000003",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0"
+        ]
+      },
+      "instructions": [
+        {
+          "pc": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "pc": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce"
+        },
+        {
+          "pc": "0x20b8ce",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "pc": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "pc": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "pc": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "pc": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc"
+        },
+        {
+          "pc": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4"
+        },
+        {
+          "pc": "0x20ebd4",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "pc": "0x20ebd8",
+          "mode": "ARM",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "pc": "0x20ebdc",
+          "mode": "ARM",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "pc": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "pc": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "pc": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "pc": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "pc": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "pc": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "pc": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "pc": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "pc": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr"
+        },
+        {
+          "pc": "0x521e44",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x521e46",
+          "mode": "Thumb",
+          "instruction": "bl #0x358d24"
+        },
+        {
+          "pc": "0x358d24",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x358d26",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xc]"
+        },
+        {
+          "pc": "0x358d28",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x358d2a",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x358d2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "pc": "0x358d2e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358d30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358d32",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e4a",
+          "mode": "Thumb",
+          "instruction": "bl #0x521d7c"
+        },
+        {
+          "pc": "0x521d7c",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x300]"
+        },
+        {
+          "pc": "0x521d7e",
+          "mode": "Thumb",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "pc": "0x521d80",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x521d82",
+          "mode": "Thumb",
+          "instruction": "lsls r3, r1, #6"
+        },
+        {
+          "pc": "0x521d84",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "pc": "0x521d86",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r3, #0x30]"
+        },
+        {
+          "pc": "0x521d88",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x521d8a",
+          "mode": "Thumb",
+          "instruction": "bne #0x521d92"
+        },
+        {
+          "pc": "0x521d8c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r1, #6"
+        },
+        {
+          "pc": "0x521d8e",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "pc": "0x521d90",
+          "mode": "Thumb",
+          "instruction": "pop {r3, pc}"
+        },
+        {
+          "pc": "0x521e4e",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "pc": "0x521e50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x521e52",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "pc": "0x521e54",
+          "mode": "Thumb",
+          "instruction": "blx r1"
+        },
+        {
+          "pc": "0x8200000",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #4]"
+        },
+        {
+          "pc": "0x8200002",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x8200004",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x8200006",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e56",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x10]"
+        },
+        {
+          "pc": "0x521e58",
+          "mode": "Thumb",
+          "instruction": "bl #0x521e42"
+        },
+        {
+          "pc": "0x521e42",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e5c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        }
+      ],
+      "creation_hooks": [
+        {
+          "hook": "calloc",
+          "args": [
+            "0x1",
+            "0x64",
+            "0x898",
+            "0x0"
+          ]
+        },
+        {
+          "hook": "malloc",
+          "args": [
+            "0x898",
+            "0x64",
+            "0x898",
+            "0x0"
+          ]
+        },
+        {
+          "hook": "diagnostic_task_metadata",
+          "args": [
+            "0x8200900",
+            "0x4e4",
+            "0x28",
+            "0x8000fd8"
+          ]
+        },
+        {
+          "hook": "kernel_bookkeeping",
+          "args": [
+            "0x8000f9c",
+            "0xed1a247",
+            "0x28",
+            "0x8000fd8"
+          ]
+        },
+        {
+          "hook": "wake_request",
+          "args": [
+            "0x8103f90",
+            "0x8",
+            "0x898",
+            "0x521ebf"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "initial_created_context",
+      "interface": "generic",
+      "requested_stack_bytes": 4096,
+      "logical_priority": 12,
+      "occupied_slots": 7,
+      "argument": "0x50607080",
+      "wrapper_handle": "0x3a1b454",
+      "kernel_tcb": "0x8103f90",
+      "original_context_words": [
+        "0x3f",
+        "0x521e45",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x8103f90",
+        "0x358fa5"
+      ],
+      "original_context_builder_executed": true,
+      "context_format_flag": 0,
+      "entry_called_explicitly": false,
+      "original_restore_executed": true,
+      "original_vfp_disable_executed": true,
+      "original_dispatch_argument_preserved": true,
+      "returned_to_original_exit_shim": true,
+      "exit_shim_executed": false,
+      "stages": [
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x1f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0xde00000c"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x3f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x10000",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x80000013"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x521e44",
+          "cpsr": "0x3f",
+          "sp": "0x8103f90",
+          "lr": "0x358fa5",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x8200000",
+          "cpsr": "0x3f",
+          "sp": "0x8103f88",
+          "lr": "0x521e57",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x50607080",
+            "0x8200001",
+            "0x3a1b294",
+            "0xde000003",
+            "0x3a1b454",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "endpoint": {
+        "pc": "0x358fa4",
+        "cpsr": "0x4000003f",
+        "sp": "0x8103f90",
+        "lr": "0x521e5d",
+        "ready_task_list_head": "0x8103f90",
+        "all_task_list_head": "0x8103f90",
+        "registers_r0_r12": [
+          "0x50607080",
+          "0x8200800",
+          "0x3a1b294",
+          "0xde000003",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0"
+        ]
+      },
+      "instructions": [
+        {
+          "pc": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "pc": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce"
+        },
+        {
+          "pc": "0x20b8ce",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "pc": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "pc": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "pc": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "pc": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc"
+        },
+        {
+          "pc": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4"
+        },
+        {
+          "pc": "0x20ebd4",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "pc": "0x20ebd8",
+          "mode": "ARM",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "pc": "0x20ebdc",
+          "mode": "ARM",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "pc": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "pc": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "pc": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "pc": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "pc": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "pc": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "pc": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "pc": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "pc": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr"
+        },
+        {
+          "pc": "0x521e44",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x521e46",
+          "mode": "Thumb",
+          "instruction": "bl #0x358d24"
+        },
+        {
+          "pc": "0x358d24",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x358d26",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xc]"
+        },
+        {
+          "pc": "0x358d28",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x358d2a",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x358d2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "pc": "0x358d2e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358d30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358d32",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e4a",
+          "mode": "Thumb",
+          "instruction": "bl #0x521d7c"
+        },
+        {
+          "pc": "0x521d7c",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x300]"
+        },
+        {
+          "pc": "0x521d7e",
+          "mode": "Thumb",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "pc": "0x521d80",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x521d82",
+          "mode": "Thumb",
+          "instruction": "lsls r3, r1, #6"
+        },
+        {
+          "pc": "0x521d84",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "pc": "0x521d86",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r3, #0x30]"
+        },
+        {
+          "pc": "0x521d88",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x521d8a",
+          "mode": "Thumb",
+          "instruction": "bne #0x521d92"
+        },
+        {
+          "pc": "0x521d92",
+          "mode": "Thumb",
+          "instruction": "adds r1, r1, #1"
+        },
+        {
+          "pc": "0x521d94",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0xf"
+        },
+        {
+          "pc": "0x521d96",
+          "mode": "Thumb",
+          "instruction": "blo #0x521d82"
+        },
+        {
+          "pc": "0x521d8c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r1, #6"
+        },
+        {
+          "pc": "0x521d8e",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "pc": "0x521d90",
+          "mode": "Thumb",
+          "instruction": "pop {r3, pc}"
+        },
+        {
+          "pc": "0x521e4e",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "pc": "0x521e50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x521e52",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "pc": "0x521e54",
+          "mode": "Thumb",
+          "instruction": "blx r1"
+        },
+        {
+          "pc": "0x8200000",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #4]"
+        },
+        {
+          "pc": "0x8200002",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x8200004",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x8200006",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e56",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x10]"
+        },
+        {
+          "pc": "0x521e58",
+          "mode": "Thumb",
+          "instruction": "bl #0x521e42"
+        },
+        {
+          "pc": "0x521e42",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e5c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        }
+      ],
+      "creation_hooks": [
+        {
+          "hook": "calloc",
+          "args": [
+            "0x1",
+            "0x64",
+            "0x1098",
+            "0xc"
+          ]
+        },
+        {
+          "hook": "malloc",
+          "args": [
+            "0x1098",
+            "0x64",
+            "0x1098",
+            "0xc"
+          ]
+        },
+        {
+          "hook": "diagnostic_task_metadata",
+          "args": [
+            "0x8200900",
+            "0x4e4",
+            "0x28",
+            "0x8000fd8"
+          ]
+        },
+        {
+          "hook": "kernel_bookkeeping",
+          "args": [
+            "0x8000f9c",
+            "0xed1a247",
+            "0x28",
+            "0x8000fd8"
+          ]
+        },
+        {
+          "hook": "wake_request",
+          "args": [
+            "0x8103f90",
+            "0x8",
+            "0x1098",
+            "0x521ebf"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "initial_created_context",
+      "interface": "generic",
+      "requested_stack_bytes": 8192,
+      "logical_priority": 15,
+      "occupied_slots": 14,
+      "argument": "0x0",
+      "wrapper_handle": "0x3a1b614",
+      "kernel_tcb": "0x8103f90",
+      "original_context_words": [
+        "0x3f",
+        "0x521e45",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x8103f90",
+        "0x358fa5"
+      ],
+      "original_context_builder_executed": true,
+      "context_format_flag": 0,
+      "entry_called_explicitly": false,
+      "original_restore_executed": true,
+      "original_vfp_disable_executed": true,
+      "original_dispatch_argument_preserved": true,
+      "returned_to_original_exit_shim": true,
+      "exit_shim_executed": false,
+      "stages": [
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x1f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0xde00000c"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x3f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x10000",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x80000013"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x521e44",
+          "cpsr": "0x3f",
+          "sp": "0x8103f90",
+          "lr": "0x358fa5",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x8200000",
+          "cpsr": "0x3f",
+          "sp": "0x8103f88",
+          "lr": "0x521e57",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x0",
+            "0x8200001",
+            "0x3a1b294",
+            "0xde000003",
+            "0x3a1b614",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "endpoint": {
+        "pc": "0x358fa4",
+        "cpsr": "0x4000003f",
+        "sp": "0x8103f90",
+        "lr": "0x521e5d",
+        "ready_task_list_head": "0x8103f90",
+        "all_task_list_head": "0x8103f90",
+        "registers_r0_r12": [
+          "0x0",
+          "0x8200800",
+          "0x3a1b294",
+          "0xde000003",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0"
+        ]
+      },
+      "instructions": [
+        {
+          "pc": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "pc": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce"
+        },
+        {
+          "pc": "0x20b8ce",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "pc": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "pc": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "pc": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "pc": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc"
+        },
+        {
+          "pc": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4"
+        },
+        {
+          "pc": "0x20ebd4",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "pc": "0x20ebd8",
+          "mode": "ARM",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "pc": "0x20ebdc",
+          "mode": "ARM",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "pc": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "pc": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "pc": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "pc": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "pc": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "pc": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "pc": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "pc": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "pc": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr"
+        },
+        {
+          "pc": "0x521e44",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x521e46",
+          "mode": "Thumb",
+          "instruction": "bl #0x358d24"
+        },
+        {
+          "pc": "0x358d24",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x358d26",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xc]"
+        },
+        {
+          "pc": "0x358d28",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x358d2a",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x358d2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "pc": "0x358d2e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358d30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358d32",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e4a",
+          "mode": "Thumb",
+          "instruction": "bl #0x521d7c"
+        },
+        {
+          "pc": "0x521d7c",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x300]"
+        },
+        {
+          "pc": "0x521d7e",
+          "mode": "Thumb",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "pc": "0x521d80",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x521d82",
+          "mode": "Thumb",
+          "instruction": "lsls r3, r1, #6"
+        },
+        {
+          "pc": "0x521d84",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "pc": "0x521d86",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r3, #0x30]"
+        },
+        {
+          "pc": "0x521d88",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x521d8a",
+          "mode": "Thumb",
+          "instruction": "bne #0x521d92"
+        },
+        {
+          "pc": "0x521d92",
+          "mode": "Thumb",
+          "instruction": "adds r1, r1, #1"
+        },
+        {
+          "pc": "0x521d94",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0xf"
+        },
+        {
+          "pc": "0x521d96",
+          "mode": "Thumb",
+          "instruction": "blo #0x521d82"
+        },
+        {
+          "pc": "0x521d8c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r1, #6"
+        },
+        {
+          "pc": "0x521d8e",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "pc": "0x521d90",
+          "mode": "Thumb",
+          "instruction": "pop {r3, pc}"
+        },
+        {
+          "pc": "0x521e4e",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "pc": "0x521e50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x521e52",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "pc": "0x521e54",
+          "mode": "Thumb",
+          "instruction": "blx r1"
+        },
+        {
+          "pc": "0x8200000",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #4]"
+        },
+        {
+          "pc": "0x8200002",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x8200004",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x8200006",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e56",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x10]"
+        },
+        {
+          "pc": "0x521e58",
+          "mode": "Thumb",
+          "instruction": "bl #0x521e42"
+        },
+        {
+          "pc": "0x521e42",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e5c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        }
+      ],
+      "creation_hooks": [
+        {
+          "hook": "calloc",
+          "args": [
+            "0x1",
+            "0x64",
+            "0x2098",
+            "0xf"
+          ]
+        },
+        {
+          "hook": "malloc",
+          "args": [
+            "0x2098",
+            "0x64",
+            "0x2098",
+            "0xf"
+          ]
+        },
+        {
+          "hook": "diagnostic_task_metadata",
+          "args": [
+            "0x8200900",
+            "0x4e4",
+            "0x28",
+            "0x8000fd8"
+          ]
+        },
+        {
+          "hook": "kernel_bookkeeping",
+          "args": [
+            "0x8000f9c",
+            "0xed1a247",
+            "0x28",
+            "0x8000fd8"
+          ]
+        },
+        {
+          "hook": "wake_request",
+          "args": [
+            "0x8103f90",
+            "0x8",
+            "0x2098",
+            "0x521ebf"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "synthetic_extended_saved_context",
+      "context_format_flag": 1,
+      "saved_context_words": [
+        "0xa000003f",
+        "0x521e45",
+        "0x12340000",
+        "0x12340001",
+        "0x12340002",
+        "0x12340003",
+        "0x12340004",
+        "0x12340005",
+        "0x12340006",
+        "0x12340007",
+        "0x12340008",
+        "0x12340009",
+        "0x1234000a",
+        "0x1234000b",
+        "0x1234000c",
+        "0x8103f90",
+        "0x358fa5"
+      ],
+      "suspended_context_created_by_stock_save_routine": false,
+      "original_restore_executed": true,
+      "all_r0_r12_and_cpsr_restored": true,
+      "original_dispatch_argument_preserved": true,
+      "returned_to_original_exit_shim": true,
+      "stages": [
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x1f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0xde00000c"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x3f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x6000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x1",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f54",
+            "0xa000003f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x6000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f54",
+            "0xa000003f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x60000013",
+          "sp": "0x900e000",
+          "lr": "0x10000",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x12340000",
+            "0x12340001",
+            "0x12340002",
+            "0x12340003",
+            "0x8103f64",
+            "0xa000003f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x60000013"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x60000013",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x12340000",
+            "0x12340001",
+            "0x12340002",
+            "0x12340003",
+            "0x12340004",
+            "0x12340005",
+            "0x12340006",
+            "0x12340007",
+            "0x12340008",
+            "0x12340009",
+            "0x1234000a",
+            "0x1234000b",
+            "0x1234000c"
+          ]
+        },
+        {
+          "pc": "0x521e44",
+          "cpsr": "0xa000003f",
+          "sp": "0x8103f90",
+          "lr": "0x358fa5",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x12340000",
+            "0x12340001",
+            "0x12340002",
+            "0x12340003",
+            "0x12340004",
+            "0x12340005",
+            "0x12340006",
+            "0x12340007",
+            "0x12340008",
+            "0x12340009",
+            "0x1234000a",
+            "0x1234000b",
+            "0x1234000c"
+          ]
+        },
+        {
+          "pc": "0x8200000",
+          "cpsr": "0x3f",
+          "sp": "0x8103f88",
+          "lr": "0x521e57",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x90abcdef",
+            "0x8200001",
+            "0x3a1b294",
+            "0x12340003",
+            "0x3a1b294",
+            "0x12340005",
+            "0x12340006",
+            "0x12340007",
+            "0x12340008",
+            "0x12340009",
+            "0x1234000a",
+            "0x1234000b",
+            "0x1234000c"
+          ]
+        }
+      ],
+      "instructions": [
+        {
+          "pc": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "pc": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce"
+        },
+        {
+          "pc": "0x20b8ce",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "pc": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "pc": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "pc": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "pc": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc"
+        },
+        {
+          "pc": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4"
+        },
+        {
+          "pc": "0x20ebd4",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "pc": "0x20ebd8",
+          "mode": "ARM",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "pc": "0x20ebdc",
+          "mode": "ARM",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "pc": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "pc": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "pc": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "pc": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "pc": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "pc": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "pc": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "pc": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "pc": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr"
+        },
+        {
+          "pc": "0x521e44",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x521e46",
+          "mode": "Thumb",
+          "instruction": "bl #0x358d24"
+        },
+        {
+          "pc": "0x358d24",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x358d26",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xc]"
+        },
+        {
+          "pc": "0x358d28",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x358d2a",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x358d2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "pc": "0x358d2e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358d30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358d32",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e4a",
+          "mode": "Thumb",
+          "instruction": "bl #0x521d7c"
+        },
+        {
+          "pc": "0x521d7c",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x300]"
+        },
+        {
+          "pc": "0x521d7e",
+          "mode": "Thumb",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "pc": "0x521d80",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x521d82",
+          "mode": "Thumb",
+          "instruction": "lsls r3, r1, #6"
+        },
+        {
+          "pc": "0x521d84",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "pc": "0x521d86",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r3, #0x30]"
+        },
+        {
+          "pc": "0x521d88",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x521d8a",
+          "mode": "Thumb",
+          "instruction": "bne #0x521d92"
+        },
+        {
+          "pc": "0x521d8c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r1, #6"
+        },
+        {
+          "pc": "0x521d8e",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "pc": "0x521d90",
+          "mode": "Thumb",
+          "instruction": "pop {r3, pc}"
+        },
+        {
+          "pc": "0x521e4e",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "pc": "0x521e50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x521e52",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "pc": "0x521e54",
+          "mode": "Thumb",
+          "instruction": "blx r1"
+        },
+        {
+          "pc": "0x8200000",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #4]"
+        },
+        {
+          "pc": "0x8200002",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x8200004",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x8200006",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e56",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x10]"
+        },
+        {
+          "pc": "0x521e58",
+          "mode": "Thumb",
+          "instruction": "bl #0x521e42"
+        },
+        {
+          "pc": "0x521e42",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e5c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "kernel_self_exit_cases": [
+    {
+      "case": "self_exit_empty_listener_and_wait_lists",
+      "original_context_builders_executed": 2,
+      "kernel_tcb": "0x8103f90",
+      "successor_tcb": "0x8403f90",
+      "all_task_list_from_original_builders": true,
+      "ready_list_manually_supplied": true,
+      "original_exit_shim_executed": true,
+      "original_mutex_and_priority_operations_executed": true,
+      "contended_mutex_tested": false,
+      "original_kernel_self_exit_executed": true,
+      "exit_state": "0x80",
+      "all_and_ready_task_lists_unlinked": true,
+      "successor_context_restored": true,
+      "successor_entry_executed": false,
+      "exit_listener_node_storage_synthetic": false,
+      "original_listener_register_and_remove_executed": false,
+      "listener_registration": null,
+      "exit_listener_calls": 0,
+      "listener_runs_before_unlink_on_exiting_stack": false,
+      "timed_wait_nodes_synthetic": false,
+      "matching_timed_waits_removed": 0,
+      "unrelated_timed_wait_preserved": false,
+      "wrapper_slot_released": false,
+      "wrapper_handle_still_points_to_tcb": "0x3a1b294",
+      "stack_and_descriptor_freed": false,
+      "no_hooks_during_restore_and_self_exit": true,
+      "stages": [
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x1f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0xde00000c"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x3f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x10000",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x80000013"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x521e44",
+          "cpsr": "0x3f",
+          "sp": "0x8103f90",
+          "lr": "0x358fa5",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x8200000",
+          "cpsr": "0x3f",
+          "sp": "0x8103f88",
+          "lr": "0x521e57",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x10203040",
+            "0x8200001",
+            "0x3a1b294",
+            "0xde000003",
+            "0x3a1b294",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x358fa4",
+          "cpsr": "0x4000003f",
+          "sp": "0x8103f90",
+          "lr": "0x521e5d",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x10203040",
+            "0x8200800",
+            "0x3a1b294",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x1c06a4",
+          "cpsr": "0x4000003f",
+          "sp": "0x8103f90",
+          "lr": "0x358fad",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x8200800",
+            "0x3a1b294",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x1c070c",
+          "cpsr": "0x600000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c070d",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0xf0909c",
+            "0x0",
+            "0x1c0707",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x1c0714",
+          "cpsr": "0x200000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c070d",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0xf0908c",
+            "0x0",
+            "0x1c0707",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x1c0730",
+          "cpsr": "0x600000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c070d",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0xf09090",
+            "0xf09090",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x6000009f",
+          "sp": "0x8103f70",
+          "lr": "0x1c0735",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0xf09090",
+            "0xf09090",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x600000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c0735",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0xf09090",
+            "0xf09090",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000009f",
+          "sp": "0x8103f70",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8403f64",
+            "0x3f",
+            "0x8200041",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000009f",
+          "sp": "0x8103f70",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8403f64",
+            "0x3f",
+            "0x8200041",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000093",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8403f64",
+            "0x3f",
+            "0x8200041",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x80000093"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000093",
+          "sp": "0x900e000",
+          "lr": "0x8200040",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "endpoint": {
+        "pc": "0x8200040",
+        "cpsr": "0x3f",
+        "sp": "0x8403f90",
+        "lr": "0x358fa5",
+        "ready_task_list_head": "0x8403f90",
+        "all_task_list_head": "0x8403f90",
+        "registers_r0_r12": [
+          "0x8403f90",
+          "0x0",
+          "0x8103f90",
+          "0x8403f90",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0"
+        ]
+      },
+      "instructions": [
+        {
+          "pc": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "pc": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce"
+        },
+        {
+          "pc": "0x20b8ce",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "pc": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "pc": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "pc": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "pc": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc"
+        },
+        {
+          "pc": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4"
+        },
+        {
+          "pc": "0x20ebd4",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "pc": "0x20ebd8",
+          "mode": "ARM",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "pc": "0x20ebdc",
+          "mode": "ARM",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "pc": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "pc": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "pc": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "pc": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "pc": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "pc": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "pc": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "pc": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "pc": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr"
+        },
+        {
+          "pc": "0x521e44",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x521e46",
+          "mode": "Thumb",
+          "instruction": "bl #0x358d24"
+        },
+        {
+          "pc": "0x358d24",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x358d26",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xc]"
+        },
+        {
+          "pc": "0x358d28",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x358d2a",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x358d2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "pc": "0x358d2e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358d30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358d32",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e4a",
+          "mode": "Thumb",
+          "instruction": "bl #0x521d7c"
+        },
+        {
+          "pc": "0x521d7c",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x300]"
+        },
+        {
+          "pc": "0x521d7e",
+          "mode": "Thumb",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "pc": "0x521d80",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x521d82",
+          "mode": "Thumb",
+          "instruction": "lsls r3, r1, #6"
+        },
+        {
+          "pc": "0x521d84",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "pc": "0x521d86",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r3, #0x30]"
+        },
+        {
+          "pc": "0x521d88",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x521d8a",
+          "mode": "Thumb",
+          "instruction": "bne #0x521d92"
+        },
+        {
+          "pc": "0x521d8c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r1, #6"
+        },
+        {
+          "pc": "0x521d8e",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "pc": "0x521d90",
+          "mode": "Thumb",
+          "instruction": "pop {r3, pc}"
+        },
+        {
+          "pc": "0x521e4e",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "pc": "0x521e50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x521e52",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "pc": "0x521e54",
+          "mode": "Thumb",
+          "instruction": "blx r1"
+        },
+        {
+          "pc": "0x8200000",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #4]"
+        },
+        {
+          "pc": "0x8200002",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x8200004",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x8200006",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e56",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x10]"
+        },
+        {
+          "pc": "0x521e58",
+          "mode": "Thumb",
+          "instruction": "bl #0x521e42"
+        },
+        {
+          "pc": "0x521e42",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e5c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        },
+        {
+          "pc": "0x358fa4",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358fa6",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358fa8",
+          "mode": "Thumb",
+          "instruction": "bl #0x1c06a4"
+        },
+        {
+          "pc": "0x1c06a4",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, r7, lr}"
+        },
+        {
+          "pc": "0x1c06a6",
+          "mode": "Thumb",
+          "instruction": "sub sp, #0xc"
+        },
+        {
+          "pc": "0x1c06a8",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #0"
+        },
+        {
+          "pc": "0x1c06aa",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0x38"
+        },
+        {
+          "pc": "0x1c06ac",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r4"
+        },
+        {
+          "pc": "0x1c06ae",
+          "mode": "Thumb",
+          "instruction": "str r0, [sp, #4]"
+        },
+        {
+          "pc": "0x1c06b0",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0"
+        },
+        {
+          "pc": "0x3009a0",
+          "mode": "Thumb",
+          "instruction": "push {lr}"
+        },
+        {
+          "pc": "0x3009a2",
+          "mode": "Thumb",
+          "instruction": "sub sp, #4"
+        },
+        {
+          "pc": "0x3009a4",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x3009a6",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3009a8",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "pc": "0x3009ac",
+          "mode": "ARM",
+          "instruction": "orr r3, r1, #0x80"
+        },
+        {
+          "pc": "0x3009b0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x3009b4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x3009b8",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3009bc",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp]"
+        },
+        {
+          "pc": "0x3009be",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x3009c0",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "pc": "0x3009c2",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #8]"
+        },
+        {
+          "pc": "0x3009c4",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3009c6",
+          "mode": "Thumb",
+          "instruction": "bne #0x3009de"
+        },
+        {
+          "pc": "0x3009c8",
+          "mode": "Thumb",
+          "instruction": "movs r3, #0"
+        },
+        {
+          "pc": "0x3009ca",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0, #8]"
+        },
+        {
+          "pc": "0x3009cc",
+          "mode": "Thumb",
+          "instruction": "adds r2, #0x20"
+        },
+        {
+          "pc": "0x3009ce",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r2]"
+        },
+        {
+          "pc": "0x3009d0",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "pc": "0x3009d2",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0, #4]"
+        },
+        {
+          "pc": "0x3009d4",
+          "mode": "Thumb",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "pc": "0x3009d6",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3009d8",
+          "mode": "Thumb",
+          "instruction": "beq #0x3009f2"
+        },
+        {
+          "pc": "0x3009f2",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [sp]"
+        },
+        {
+          "pc": "0x3009f4",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "pc": "0x3009f6",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x3009f8",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r1"
+        },
+        {
+          "pc": "0x3009fc",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300a00",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300a04",
+          "mode": "Thumb",
+          "instruction": "adds r0, r3, #0"
+        },
+        {
+          "pc": "0x300a06",
+          "mode": "Thumb",
+          "instruction": "add sp, #4"
+        },
+        {
+          "pc": "0x300a08",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x300a0a",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06b4",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [pc, #0xa0]"
+        },
+        {
+          "pc": "0x1c06b6",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [r5]"
+        },
+        {
+          "pc": "0x1c06b8",
+          "mode": "Thumb",
+          "instruction": "ldrb r6, [r5, #0x10]"
+        },
+        {
+          "pc": "0x1c06ba",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #0"
+        },
+        {
+          "pc": "0x1c06bc",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0x10"
+        },
+        {
+          "pc": "0x1c06be",
+          "mode": "Thumb",
+          "instruction": "bl #0x358e18"
+        },
+        {
+          "pc": "0x358e18",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, lr}"
+        },
+        {
+          "pc": "0x358e1a",
+          "mode": "Thumb",
+          "instruction": "sub sp, #4"
+        },
+        {
+          "pc": "0x358e1c",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x358e1e",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r4]"
+        },
+        {
+          "pc": "0x358e20",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x358e22",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x358e24",
+          "mode": "ARM",
+          "instruction": "mrs r2, apsr"
+        },
+        {
+          "pc": "0x358e28",
+          "mode": "ARM",
+          "instruction": "orr r3, r2, #0x80"
+        },
+        {
+          "pc": "0x358e2c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x358e30",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x358e34",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x358e38",
+          "mode": "Thumb",
+          "instruction": "str r2, [sp]"
+        },
+        {
+          "pc": "0x358e3a",
+          "mode": "Thumb",
+          "instruction": "ldrb r5, [r0, #0x10]"
+        },
+        {
+          "pc": "0x358e3c",
+          "mode": "Thumb",
+          "instruction": "cmp r1, r5"
+        },
+        {
+          "pc": "0x358e3e",
+          "mode": "Thumb",
+          "instruction": "beq #0x358e4c"
+        },
+        {
+          "pc": "0x358e40",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r0, #0x10]"
+        },
+        {
+          "pc": "0x358e42",
+          "mode": "Thumb",
+          "instruction": "bl #0x358f74"
+        },
+        {
+          "pc": "0x358f74",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x358f76",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #0"
+        },
+        {
+          "pc": "0x358f78",
+          "mode": "Thumb",
+          "instruction": "bl #0x300b90"
+        },
+        {
+          "pc": "0x300b90",
+          "mode": "Thumb",
+          "instruction": "adds r1, r0, #0"
+        },
+        {
+          "pc": "0x300b92",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0xff"
+        },
+        {
+          "pc": "0x300b94",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1, #0x18]"
+        },
+        {
+          "pc": "0x300b96",
+          "mode": "Thumb",
+          "instruction": "lsrs r2, r2, #0x1d"
+        },
+        {
+          "pc": "0x300b98",
+          "mode": "Thumb",
+          "instruction": "blo #0x300bb4"
+        },
+        {
+          "pc": "0x300bb4",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358f7c",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r4, #0x10]"
+        },
+        {
+          "pc": "0x358f7e",
+          "mode": "Thumb",
+          "instruction": "cmp r0, r1"
+        },
+        {
+          "pc": "0x358f80",
+          "mode": "Thumb",
+          "instruction": "bls #0x358f84"
+        },
+        {
+          "pc": "0x358f82",
+          "mode": "Thumb",
+          "instruction": "adds r0, r1, #0"
+        },
+        {
+          "pc": "0x358f84",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r4, #0x11]"
+        },
+        {
+          "pc": "0x358f86",
+          "mode": "Thumb",
+          "instruction": "cmp r0, r1"
+        },
+        {
+          "pc": "0x358f88",
+          "mode": "Thumb",
+          "instruction": "beq #0x358f9a"
+        },
+        {
+          "pc": "0x358f8a",
+          "mode": "Thumb",
+          "instruction": "adds r1, r0, #0"
+        },
+        {
+          "pc": "0x358f8c",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x358f8e",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [pc, #0x10]"
+        },
+        {
+          "pc": "0x358f90",
+          "mode": "Thumb",
+          "instruction": "pop {r4}"
+        },
+        {
+          "pc": "0x358f92",
+          "mode": "Thumb",
+          "instruction": "mov ip, r3"
+        },
+        {
+          "pc": "0x358f94",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x358f96",
+          "mode": "Thumb",
+          "instruction": "mov lr, r3"
+        },
+        {
+          "pc": "0x358f98",
+          "mode": "Thumb",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358f14",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r0, #0x11]"
+        },
+        {
+          "pc": "0x358f16",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r0, #0x16]"
+        },
+        {
+          "pc": "0x358f18",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #1"
+        },
+        {
+          "pc": "0x358f1a",
+          "mode": "Thumb",
+          "instruction": "bne #0x358f60"
+        },
+        {
+          "pc": "0x358f1c",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x358f1e",
+          "mode": "Thumb",
+          "instruction": "mov ip, r3"
+        },
+        {
+          "pc": "0x358f20",
+          "mode": "Thumb",
+          "instruction": "adds r2, r3, #0"
+        },
+        {
+          "pc": "0x358f22",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r2]"
+        },
+        {
+          "pc": "0x358f24",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x358f26",
+          "mode": "Thumb",
+          "instruction": "bne #0x358f20"
+        },
+        {
+          "pc": "0x358f28",
+          "mode": "Thumb",
+          "instruction": "cmp r2, ip"
+        },
+        {
+          "pc": "0x358f2a",
+          "mode": "Thumb",
+          "instruction": "beq #0x358f32"
+        },
+        {
+          "pc": "0x358f32",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r0]"
+        },
+        {
+          "pc": "0x358f34",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "pc": "0x358f36",
+          "mode": "Thumb",
+          "instruction": "beq #0x358f68"
+        },
+        {
+          "pc": "0x358f38",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r3, #0x11]"
+        },
+        {
+          "pc": "0x358f3a",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r1"
+        },
+        {
+          "pc": "0x358f3c",
+          "mode": "Thumb",
+          "instruction": "bhs #0x358f68"
+        },
+        {
+          "pc": "0x358f68",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358e46",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x358e48",
+          "mode": "Thumb",
+          "instruction": "bl #0x358e70"
+        },
+        {
+          "pc": "0x358e70",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x358e72",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "pc": "0x358e74",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r0"
+        },
+        {
+          "pc": "0x358e76",
+          "mode": "Thumb",
+          "instruction": "beq #0x358ebc"
+        },
+        {
+          "pc": "0x358ebc",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358e4c",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp]"
+        },
+        {
+          "pc": "0x358e4e",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "pc": "0x358e50",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x358e54",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "pc": "0x358e58",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x358e5c",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x358e60",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #0"
+        },
+        {
+          "pc": "0x358e62",
+          "mode": "Thumb",
+          "instruction": "add sp, #4"
+        },
+        {
+          "pc": "0x358e64",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5}"
+        },
+        {
+          "pc": "0x358e66",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x358e68",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06c2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [sp, #4]"
+        },
+        {
+          "pc": "0x1c06c4",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "pc": "0x3008b0",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x3008b2",
+          "mode": "Thumb",
+          "instruction": "sub sp, #8"
+        },
+        {
+          "pc": "0x3008b4",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x3008b6",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3008b8",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "pc": "0x3008bc",
+          "mode": "ARM",
+          "instruction": "orr r3, r1, #0x80"
+        },
+        {
+          "pc": "0x3008c0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x3008c4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x3008c8",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3008cc",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp, #4]"
+        },
+        {
+          "pc": "0x3008ce",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #8]"
+        },
+        {
+          "pc": "0x3008d0",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3008d2",
+          "mode": "Thumb",
+          "instruction": "bne #0x3008e0"
+        },
+        {
+          "pc": "0x3008e0",
+          "mode": "Thumb",
+          "instruction": "ldrh r1, [r0, #0x14]"
+        },
+        {
+          "pc": "0x3008e2",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3008e4",
+          "mode": "Thumb",
+          "instruction": "beq #0x3008ec"
+        },
+        {
+          "pc": "0x3008ec",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #0xc]"
+        },
+        {
+          "pc": "0x3008ee",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3008f0",
+          "mode": "Thumb",
+          "instruction": "bne #0x300902"
+        },
+        {
+          "pc": "0x3008f2",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0, #8]"
+        },
+        {
+          "pc": "0x3008f4",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #4]"
+        },
+        {
+          "pc": "0x3008f6",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r0]"
+        },
+        {
+          "pc": "0x3008f8",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1]"
+        },
+        {
+          "pc": "0x3008fa",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x3008fc",
+          "mode": "Thumb",
+          "instruction": "beq #0x300910"
+        },
+        {
+          "pc": "0x300910",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "pc": "0x300912",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "pc": "0x300914",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300918",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "pc": "0x30091c",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300920",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300924",
+          "mode": "Thumb",
+          "instruction": "add sp, #8"
+        },
+        {
+          "pc": "0x300926",
+          "mode": "Thumb",
+          "instruction": "pop {r4}"
+        },
+        {
+          "pc": "0x300928",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x30092a",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06c8",
+          "mode": "Thumb",
+          "instruction": "cmp r4, r5"
+        },
+        {
+          "pc": "0x1c06ca",
+          "mode": "Thumb",
+          "instruction": "beq #0x1c06dc"
+        },
+        {
+          "pc": "0x1c06dc",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x80]"
+        },
+        {
+          "pc": "0x1c06de",
+          "mode": "Thumb",
+          "instruction": "adds r1, r4, #0"
+        },
+        {
+          "pc": "0x1c06e0",
+          "mode": "Thumb",
+          "instruction": "bl #0x3cc594"
+        },
+        {
+          "pc": "0x3cc594",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "pc": "0x3cc596",
+          "mode": "Thumb",
+          "instruction": "movs r5, r0"
+        },
+        {
+          "pc": "0x3cc598",
+          "mode": "Thumb",
+          "instruction": "movs r6, r1"
+        },
+        {
+          "pc": "0x3cc59a",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, #4"
+        },
+        {
+          "pc": "0x3cc59c",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0"
+        },
+        {
+          "pc": "0x3cc5a0",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r5]"
+        },
+        {
+          "pc": "0x3cc5a2",
+          "mode": "Thumb",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "pc": "0x3cc5a4",
+          "mode": "Thumb",
+          "instruction": "beq #0x3cc5b6"
+        },
+        {
+          "pc": "0x3cc5b6",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #4"
+        },
+        {
+          "pc": "0x3cc5b8",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "pc": "0x3cc5bc",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "pc": "0x3cc5be",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x3cc5c0",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06e4",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x1c06e6",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06e8",
+          "mode": "ARM",
+          "instruction": "mrs r0, apsr"
+        },
+        {
+          "pc": "0x1c06ec",
+          "mode": "ARM",
+          "instruction": "orr r3, r0, #0x80"
+        },
+        {
+          "pc": "0x1c06f0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x1c06f4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x1c06f8",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06fc",
+          "mode": "Thumb",
+          "instruction": "str r0, [sp, #8]"
+        },
+        {
+          "pc": "0x1c06fe",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x1c0700",
+          "mode": "Thumb",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "pc": "0x1c0702",
+          "mode": "Thumb",
+          "instruction": "bl #0x300c2c"
+        },
+        {
+          "pc": "0x300c2c",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "pc": "0x300c2e",
+          "mode": "Thumb",
+          "instruction": "sub sp, #8"
+        },
+        {
+          "pc": "0x300c30",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "pc": "0x300c32",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300c34",
+          "mode": "ARM",
+          "instruction": "mrs r3, apsr"
+        },
+        {
+          "pc": "0x300c38",
+          "mode": "ARM",
+          "instruction": "orr r2, r3, #0x80"
+        },
+        {
+          "pc": "0x300c3c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r2"
+        },
+        {
+          "pc": "0x300c40",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300c44",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300c48",
+          "mode": "Thumb",
+          "instruction": "str r3, [sp, #4]"
+        },
+        {
+          "pc": "0x300c4a",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #0"
+        },
+        {
+          "pc": "0x300c4c",
+          "mode": "Thumb",
+          "instruction": "adds r6, r1, #0"
+        },
+        {
+          "pc": "0x300c4e",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [r4, #0x20]"
+        },
+        {
+          "pc": "0x300c50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x60]"
+        },
+        {
+          "pc": "0x300c52",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x300c54",
+          "mode": "Thumb",
+          "instruction": "cmp r4, r1"
+        },
+        {
+          "pc": "0x300c56",
+          "mode": "Thumb",
+          "instruction": "bne #0x300c6e"
+        },
+        {
+          "pc": "0x300c58",
+          "mode": "Thumb",
+          "instruction": "cmp r6, #1"
+        },
+        {
+          "pc": "0x300c5a",
+          "mode": "Thumb",
+          "instruction": "beq #0x300c6e"
+        },
+        {
+          "pc": "0x300c6e",
+          "mode": "Thumb",
+          "instruction": "cmp r5, #0"
+        },
+        {
+          "pc": "0x300c70",
+          "mode": "Thumb",
+          "instruction": "bne #0x300c60"
+        },
+        {
+          "pc": "0x300c72",
+          "mode": "Thumb",
+          "instruction": "ldrb r0, [r4, #0x16]"
+        },
+        {
+          "pc": "0x300c74",
+          "mode": "Thumb",
+          "instruction": "subs r0, #4"
+        },
+        {
+          "pc": "0x300c76",
+          "mode": "Thumb",
+          "instruction": "bne #0x300c9a"
+        },
+        {
+          "pc": "0x300c9a",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "pc": "0x300c9c",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "pc": "0x300c9e",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300ca0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "pc": "0x300ca4",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300ca8",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300cac",
+          "mode": "Thumb",
+          "instruction": "add sp, #8"
+        },
+        {
+          "pc": "0x300cae",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "pc": "0x300cb0",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x300cb2",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c0706",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x1c0708",
+          "mode": "Thumb",
+          "instruction": "bl #0x353df4"
+        },
+        {
+          "pc": "0x353df4",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x18]"
+        },
+        {
+          "pc": "0x353df6",
+          "mode": "Thumb",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "pc": "0x353df8",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "pc": "0x353dfa",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x353dfc",
+          "mode": "Thumb",
+          "instruction": "beq #0x353e0c"
+        },
+        {
+          "pc": "0x353e0c",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x1c070c",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0x80"
+        },
+        {
+          "pc": "0x1c070e",
+          "mode": "Thumb",
+          "instruction": "strb r0, [r4, #0x16]"
+        },
+        {
+          "pc": "0x1c0710",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x28]"
+        },
+        {
+          "pc": "0x1c0712",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0x2c]"
+        },
+        {
+          "pc": "0x1c0714",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x1c0716",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0, #0x2c]"
+        },
+        {
+          "pc": "0x1c0718",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x1c071a",
+          "mode": "Thumb",
+          "instruction": "adds r2, r0, #0"
+        },
+        {
+          "pc": "0x1c071c",
+          "mode": "Thumb",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "pc": "0x1c071e",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "pc": "0x1c0720",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x1c0722",
+          "mode": "Thumb",
+          "instruction": "beq #0x1c0734"
+        },
+        {
+          "pc": "0x1c0724",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r4"
+        },
+        {
+          "pc": "0x1c0726",
+          "mode": "Thumb",
+          "instruction": "bne #0x1c071c"
+        },
+        {
+          "pc": "0x1c0728",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r4]"
+        },
+        {
+          "pc": "0x1c072a",
+          "mode": "Thumb",
+          "instruction": "str r3, [r1]"
+        },
+        {
+          "pc": "0x1c072c",
+          "mode": "Thumb",
+          "instruction": "cmp r4, r5"
+        },
+        {
+          "pc": "0x1c072e",
+          "mode": "Thumb",
+          "instruction": "bne #0x1c0734"
+        },
+        {
+          "pc": "0x1c0730",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "self_exit_with_listener_and_waiters",
+      "original_context_builders_executed": 2,
+      "kernel_tcb": "0x8103f90",
+      "successor_tcb": "0x8403f90",
+      "all_task_list_from_original_builders": true,
+      "ready_list_manually_supplied": true,
+      "original_exit_shim_executed": true,
+      "original_mutex_and_priority_operations_executed": true,
+      "contended_mutex_tested": false,
+      "original_kernel_self_exit_executed": true,
+      "exit_state": "0x80",
+      "all_and_ready_task_lists_unlinked": true,
+      "successor_context_restored": true,
+      "successor_entry_executed": false,
+      "exit_listener_node_storage_synthetic": true,
+      "original_listener_register_and_remove_executed": true,
+      "listener_registration": {
+        "register_return": 0,
+        "duplicate_return": "0xffffffff",
+        "duplicate_kept_original_argument": true,
+        "unregister_return": 0,
+        "missing_return": "0xffffffff",
+        "node_unlinked": true
+      },
+      "exit_listener_calls": 1,
+      "listener_runs_before_unlink_on_exiting_stack": true,
+      "timed_wait_nodes_synthetic": true,
+      "matching_timed_waits_removed": 2,
+      "unrelated_timed_wait_preserved": true,
+      "wrapper_slot_released": false,
+      "wrapper_handle_still_points_to_tcb": "0x3a1b294",
+      "stack_and_descriptor_freed": false,
+      "no_hooks_during_restore_and_self_exit": true,
+      "stages": [
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x1f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0xde00000c"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x3f",
+          "sp": "0x900f000",
+          "lr": "0x10001",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0xde000000",
+            "0xde000001",
+            "0xde000002",
+            "0xde000003",
+            "0xde000004",
+            "0xde000005",
+            "0xde000006",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000001f",
+          "sp": "0x900f000",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x10000",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x8103f64",
+            "0x3f",
+            "0x521e45",
+            "0xde000007",
+            "0xde000008",
+            "0xde000009",
+            "0xde00000a",
+            "0xde00000b",
+            "0x80000013"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000013",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x521e44",
+          "cpsr": "0x3f",
+          "sp": "0x8103f90",
+          "lr": "0x358fa5",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x0",
+            "0xde000002",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x8200000",
+          "cpsr": "0x3f",
+          "sp": "0x8103f88",
+          "lr": "0x521e57",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x10203040",
+            "0x8200001",
+            "0x3a1b294",
+            "0xde000003",
+            "0x3a1b294",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x358fa4",
+          "cpsr": "0x4000003f",
+          "sp": "0x8103f90",
+          "lr": "0x521e5d",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x10203040",
+            "0x8200800",
+            "0x3a1b294",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x1c06a4",
+          "cpsr": "0x4000003f",
+          "sp": "0x8103f90",
+          "lr": "0x358fad",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x8200800",
+            "0x3a1b294",
+            "0xde000003",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        },
+        {
+          "pc": "0x8200080",
+          "cpsr": "0x2000003f",
+          "sp": "0x8103f60",
+          "lr": "0x3cc5b1",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0xaabbccdd",
+            "0x8200081",
+            "0x3cc5a1",
+            "0x8200c00",
+            "0x2d226b4",
+            "0x8103f90",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x1c070c",
+          "cpsr": "0x600000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c070d",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8103f90",
+            "0x8200b08",
+            "0x0",
+            "0x8103f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x1c0714",
+          "cpsr": "0x200000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c070d",
+          "ready_task_list_head": "0x8103f90",
+          "all_task_list_head": "0x8103f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0xf0908c",
+            "0x0",
+            "0x8103f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x1c0730",
+          "cpsr": "0x600000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c070d",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0xf09090",
+            "0xf09090",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x358ec4",
+          "cpsr": "0x6000009f",
+          "sp": "0x8103f70",
+          "lr": "0x1c0735",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0xf09090",
+            "0xf09090",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0xf09090"
+          ]
+        },
+        {
+          "pc": "0x358ecc",
+          "cpsr": "0x600000bf",
+          "sp": "0x8103f70",
+          "lr": "0x1c0735",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0xf09090",
+            "0xf09090",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8103f90",
+            "0x8103f90",
+            "0x24",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ee0",
+          "cpsr": "0x8000009f",
+          "sp": "0x8103f70",
+          "lr": "0x358ed1",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8403f64",
+            "0x3f",
+            "0x8200041",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x20ebd8",
+          "cpsr": "0x8000009f",
+          "sp": "0x8103f70",
+          "lr": "0x358ee4",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8403f64",
+            "0x3f",
+            "0x8200041",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x358ecd"
+          ]
+        },
+        {
+          "pc": "0x358ef8",
+          "cpsr": "0x80000093",
+          "sp": "0x900e000",
+          "lr": "0x521e44",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x8403f64",
+            "0x3f",
+            "0x8200041",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x80000093"
+          ]
+        },
+        {
+          "pc": "0x358f08",
+          "cpsr": "0x80000093",
+          "sp": "0x900e000",
+          "lr": "0x8200040",
+          "ready_task_list_head": "0x8403f90",
+          "all_task_list_head": "0x8403f90",
+          "registers_r0_r12": [
+            "0x8403f90",
+            "0x0",
+            "0x8103f90",
+            "0x8403f90",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0",
+            "0x0"
+          ]
+        }
+      ],
+      "endpoint": {
+        "pc": "0x8200040",
+        "cpsr": "0x3f",
+        "sp": "0x8403f90",
+        "lr": "0x358fa5",
+        "ready_task_list_head": "0x8403f90",
+        "all_task_list_head": "0x8403f90",
+        "registers_r0_r12": [
+          "0x8403f90",
+          "0x0",
+          "0x8103f90",
+          "0x8403f90",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x0"
+        ]
+      },
+      "instructions": [
+        {
+          "pc": "0x3cc5c2",
+          "mode": "Thumb",
+          "instruction": "push {r0, r1, r2, r3, r4, r5, r6, r7, lr}"
+        },
+        {
+          "pc": "0x3cc5c4",
+          "mode": "Thumb",
+          "instruction": "movs r6, r0"
+        },
+        {
+          "pc": "0x3cc5c6",
+          "mode": "Thumb",
+          "instruction": "movs r4, r1"
+        },
+        {
+          "pc": "0x3cc5c8",
+          "mode": "Thumb",
+          "instruction": "movs r7, r2"
+        },
+        {
+          "pc": "0x3cc5ca",
+          "mode": "Thumb",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "pc": "0x3cc5cc",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, #4"
+        },
+        {
+          "pc": "0x3cc5ce",
+          "mode": "Thumb",
+          "instruction": "sub sp, #4"
+        },
+        {
+          "pc": "0x3cc5d0",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0"
+        },
+        {
+          "pc": "0x3009a0",
+          "mode": "Thumb",
+          "instruction": "push {lr}"
+        },
+        {
+          "pc": "0x3009a2",
+          "mode": "Thumb",
+          "instruction": "sub sp, #4"
+        },
+        {
+          "pc": "0x3009a4",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x3009a6",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3009a8",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "pc": "0x3009ac",
+          "mode": "ARM",
+          "instruction": "orr r3, r1, #0x80"
+        },
+        {
+          "pc": "0x3009b0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x3009b4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x3009b8",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3009bc",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp]"
+        },
+        {
+          "pc": "0x3009be",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x3009c0",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "pc": "0x3009c2",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #8]"
+        },
+        {
+          "pc": "0x3009c4",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3009c6",
+          "mode": "Thumb",
+          "instruction": "bne #0x3009de"
+        },
+        {
+          "pc": "0x3009c8",
+          "mode": "Thumb",
+          "instruction": "movs r3, #0"
+        },
+        {
+          "pc": "0x3009ca",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0, #8]"
+        },
+        {
+          "pc": "0x3009cc",
+          "mode": "Thumb",
+          "instruction": "adds r2, #0x20"
+        },
+        {
+          "pc": "0x3009ce",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r2]"
+        },
+        {
+          "pc": "0x3009d0",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "pc": "0x3009d2",
+          "mode": "Thumb",
+          "instruction": "str r2, [r0, #4]"
+        },
+        {
+          "pc": "0x3009d4",
+          "mode": "Thumb",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "pc": "0x3009d6",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3009d8",
+          "mode": "Thumb",
+          "instruction": "beq #0x3009f2"
+        },
+        {
+          "pc": "0x3009f2",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [sp]"
+        },
+        {
+          "pc": "0x3009f4",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "pc": "0x3009f6",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x3009f8",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r1"
+        },
+        {
+          "pc": "0x3009fc",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300a00",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300a04",
+          "mode": "Thumb",
+          "instruction": "adds r0, r3, #0"
+        },
+        {
+          "pc": "0x300a06",
+          "mode": "Thumb",
+          "instruction": "add sp, #4"
+        },
+        {
+          "pc": "0x300a08",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x300a0a",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3cc5d4",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r6]"
+        },
+        {
+          "pc": "0x3cc5d6",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x3cc5d8",
+          "mode": "Thumb",
+          "instruction": "movs r0, r6"
+        },
+        {
+          "pc": "0x3cc5da",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x3cc5dc",
+          "mode": "Thumb",
+          "instruction": "beq #0x3cc5fe"
+        },
+        {
+          "pc": "0x3cc5fe",
+          "mode": "Thumb",
+          "instruction": "movs r1, r0"
+        },
+        {
+          "pc": "0x3cc600",
+          "mode": "Thumb",
+          "instruction": "cmp r5, #0"
+        },
+        {
+          "pc": "0x3cc602",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc614"
+        },
+        {
+          "pc": "0x3cc604",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r1]"
+        },
+        {
+          "pc": "0x3cc606",
+          "mode": "Thumb",
+          "instruction": "movs r2, r4"
+        },
+        {
+          "pc": "0x3cc608",
+          "mode": "Thumb",
+          "instruction": "stm r2!, {r0, r7}"
+        },
+        {
+          "pc": "0x3cc60a",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [sp, #0x10]"
+        },
+        {
+          "pc": "0x3cc60c",
+          "mode": "Thumb",
+          "instruction": "str r0, [r4, #8]"
+        },
+        {
+          "pc": "0x3cc60e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [sp, #0x28]"
+        },
+        {
+          "pc": "0x3cc610",
+          "mode": "Thumb",
+          "instruction": "str r0, [r4, #0xc]"
+        },
+        {
+          "pc": "0x3cc612",
+          "mode": "Thumb",
+          "instruction": "str r4, [r1]"
+        },
+        {
+          "pc": "0x3cc614",
+          "mode": "Thumb",
+          "instruction": "adds r0, r6, #4"
+        },
+        {
+          "pc": "0x3cc616",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "pc": "0x3008b0",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x3008b2",
+          "mode": "Thumb",
+          "instruction": "sub sp, #8"
+        },
+        {
+          "pc": "0x3008b4",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x3008b6",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3008b8",
+          "mode": "ARM",
+          "instruction": "mrs r1, apsr"
+        },
+        {
+          "pc": "0x3008bc",
+          "mode": "ARM",
+          "instruction": "orr r3, r1, #0x80"
+        },
+        {
+          "pc": "0x3008c0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x3008c4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x3008c8",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3008cc",
+          "mode": "Thumb",
+          "instruction": "str r1, [sp, #4]"
+        },
+        {
+          "pc": "0x3008ce",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #8]"
+        },
+        {
+          "pc": "0x3008d0",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3008d2",
+          "mode": "Thumb",
+          "instruction": "bne #0x3008e0"
+        },
+        {
+          "pc": "0x3008e0",
+          "mode": "Thumb",
+          "instruction": "ldrh r1, [r0, #0x14]"
+        },
+        {
+          "pc": "0x3008e2",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3008e4",
+          "mode": "Thumb",
+          "instruction": "beq #0x3008ec"
+        },
+        {
+          "pc": "0x3008ec",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #0xc]"
+        },
+        {
+          "pc": "0x3008ee",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3008f0",
+          "mode": "Thumb",
+          "instruction": "bne #0x300902"
+        },
+        {
+          "pc": "0x3008f2",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0, #8]"
+        },
+        {
+          "pc": "0x3008f4",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r0, #4]"
+        },
+        {
+          "pc": "0x3008f6",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r0]"
+        },
+        {
+          "pc": "0x3008f8",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1]"
+        },
+        {
+          "pc": "0x3008fa",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x3008fc",
+          "mode": "Thumb",
+          "instruction": "beq #0x300910"
+        },
+        {
+          "pc": "0x300910",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "pc": "0x300912",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "pc": "0x300914",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300918",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "pc": "0x30091c",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300920",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300924",
+          "mode": "Thumb",
+          "instruction": "add sp, #8"
+        },
+        {
+          "pc": "0x300926",
+          "mode": "Thumb",
+          "instruction": "pop {r4}"
+        },
+        {
+          "pc": "0x300928",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x30092a",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3cc61a",
+          "mode": "Thumb",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "pc": "0x3cc61c",
+          "mode": "Thumb",
+          "instruction": "add sp, #0x14"
+        },
+        {
+          "pc": "0x3cc61e",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6, r7}"
+        },
+        {
+          "pc": "0x3cc620",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x3cc622",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3cc5de",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r4"
+        },
+        {
+          "pc": "0x3cc5e0",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc5e6"
+        },
+        {
+          "pc": "0x3cc5e2",
+          "mode": "Thumb",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "pc": "0x3cc5e4",
+          "mode": "Thumb",
+          "instruction": "mvns r5, r5"
+        },
+        {
+          "pc": "0x3cc5e6",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3cc5e8",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc5f2"
+        },
+        {
+          "pc": "0x3cc5ea",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r2, #4]"
+        },
+        {
+          "pc": "0x3cc5ec",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r7"
+        },
+        {
+          "pc": "0x3cc5ee",
+          "mode": "Thumb",
+          "instruction": "ble #0x3cc5f2"
+        },
+        {
+          "pc": "0x3cc5f2",
+          "mode": "Thumb",
+          "instruction": "movs r0, r2"
+        },
+        {
+          "pc": "0x3cc5f4",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "pc": "0x3cc5f6",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x3cc5f8",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc5de"
+        },
+        {
+          "pc": "0x3cc5fa",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x3cc5fc",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc600"
+        },
+        {
+          "pc": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1"
+        },
+        {
+          "pc": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce"
+        },
+        {
+          "pc": "0x20b8ce",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]"
+        },
+        {
+          "pc": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]"
+        },
+        {
+          "pc": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}"
+        },
+        {
+          "pc": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1"
+        },
+        {
+          "pc": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc"
+        },
+        {
+          "pc": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4"
+        },
+        {
+          "pc": "0x20ebd4",
+          "mode": "ARM",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "pc": "0x20ebd8",
+          "mode": "ARM",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "pc": "0x20ebdc",
+          "mode": "ARM",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}"
+        },
+        {
+          "pc": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr"
+        },
+        {
+          "pc": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f"
+        },
+        {
+          "pc": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13"
+        },
+        {
+          "pc": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip"
+        },
+        {
+          "pc": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5"
+        },
+        {
+          "pc": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1"
+        },
+        {
+          "pc": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^"
+        },
+        {
+          "pc": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0"
+        },
+        {
+          "pc": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr"
+        },
+        {
+          "pc": "0x521e44",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x521e46",
+          "mode": "Thumb",
+          "instruction": "bl #0x358d24"
+        },
+        {
+          "pc": "0x358d24",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x358d26",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0xc]"
+        },
+        {
+          "pc": "0x358d28",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x358d2a",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "pc": "0x358d2c",
+          "mode": "Thumb",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "pc": "0x358d2e",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358d30",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358d32",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e4a",
+          "mode": "Thumb",
+          "instruction": "bl #0x521d7c"
+        },
+        {
+          "pc": "0x521d7c",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x300]"
+        },
+        {
+          "pc": "0x521d7e",
+          "mode": "Thumb",
+          "instruction": "push {r3, lr}"
+        },
+        {
+          "pc": "0x521d80",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "pc": "0x521d82",
+          "mode": "Thumb",
+          "instruction": "lsls r3, r1, #6"
+        },
+        {
+          "pc": "0x521d84",
+          "mode": "Thumb",
+          "instruction": "adds r3, r3, r2"
+        },
+        {
+          "pc": "0x521d86",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r3, #0x30]"
+        },
+        {
+          "pc": "0x521d88",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x521d8a",
+          "mode": "Thumb",
+          "instruction": "bne #0x521d92"
+        },
+        {
+          "pc": "0x521d8c",
+          "mode": "Thumb",
+          "instruction": "lsls r0, r1, #6"
+        },
+        {
+          "pc": "0x521d8e",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r2"
+        },
+        {
+          "pc": "0x521d90",
+          "mode": "Thumb",
+          "instruction": "pop {r3, pc}"
+        },
+        {
+          "pc": "0x521e4e",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "pc": "0x521e50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x521e52",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0, #0x10]"
+        },
+        {
+          "pc": "0x521e54",
+          "mode": "Thumb",
+          "instruction": "blx r1"
+        },
+        {
+          "pc": "0x8200000",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #4]"
+        },
+        {
+          "pc": "0x8200002",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x8200004",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "pc": "0x8200006",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e56",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x10]"
+        },
+        {
+          "pc": "0x521e58",
+          "mode": "Thumb",
+          "instruction": "bl #0x521e42"
+        },
+        {
+          "pc": "0x521e42",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x521e5c",
+          "mode": "Thumb",
+          "instruction": "pop {r4, pc}"
+        },
+        {
+          "pc": "0x358fa4",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #8]"
+        },
+        {
+          "pc": "0x358fa6",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x358fa8",
+          "mode": "Thumb",
+          "instruction": "bl #0x1c06a4"
+        },
+        {
+          "pc": "0x1c06a4",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, r7, lr}"
+        },
+        {
+          "pc": "0x1c06a6",
+          "mode": "Thumb",
+          "instruction": "sub sp, #0xc"
+        },
+        {
+          "pc": "0x1c06a8",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #0"
+        },
+        {
+          "pc": "0x1c06aa",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0x38"
+        },
+        {
+          "pc": "0x1c06ac",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, r4"
+        },
+        {
+          "pc": "0x1c06ae",
+          "mode": "Thumb",
+          "instruction": "str r0, [sp, #4]"
+        },
+        {
+          "pc": "0x1c06b0",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0"
+        },
+        {
+          "pc": "0x1c06b4",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [pc, #0xa0]"
+        },
+        {
+          "pc": "0x1c06b6",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [r5]"
+        },
+        {
+          "pc": "0x1c06b8",
+          "mode": "Thumb",
+          "instruction": "ldrb r6, [r5, #0x10]"
+        },
+        {
+          "pc": "0x1c06ba",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #0"
+        },
+        {
+          "pc": "0x1c06bc",
+          "mode": "Thumb",
+          "instruction": "movs r1, #0x10"
+        },
+        {
+          "pc": "0x1c06be",
+          "mode": "Thumb",
+          "instruction": "bl #0x358e18"
+        },
+        {
+          "pc": "0x358e18",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, lr}"
+        },
+        {
+          "pc": "0x358e1a",
+          "mode": "Thumb",
+          "instruction": "sub sp, #4"
+        },
+        {
+          "pc": "0x358e1c",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x358e1e",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r4]"
+        },
+        {
+          "pc": "0x358e20",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x358e22",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x358e24",
+          "mode": "ARM",
+          "instruction": "mrs r2, apsr"
+        },
+        {
+          "pc": "0x358e28",
+          "mode": "ARM",
+          "instruction": "orr r3, r2, #0x80"
+        },
+        {
+          "pc": "0x358e2c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x358e30",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x358e34",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x358e38",
+          "mode": "Thumb",
+          "instruction": "str r2, [sp]"
+        },
+        {
+          "pc": "0x358e3a",
+          "mode": "Thumb",
+          "instruction": "ldrb r5, [r0, #0x10]"
+        },
+        {
+          "pc": "0x358e3c",
+          "mode": "Thumb",
+          "instruction": "cmp r1, r5"
+        },
+        {
+          "pc": "0x358e3e",
+          "mode": "Thumb",
+          "instruction": "beq #0x358e4c"
+        },
+        {
+          "pc": "0x358e40",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r0, #0x10]"
+        },
+        {
+          "pc": "0x358e42",
+          "mode": "Thumb",
+          "instruction": "bl #0x358f74"
+        },
+        {
+          "pc": "0x358f74",
+          "mode": "Thumb",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "pc": "0x358f76",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #0"
+        },
+        {
+          "pc": "0x358f78",
+          "mode": "Thumb",
+          "instruction": "bl #0x300b90"
+        },
+        {
+          "pc": "0x300b90",
+          "mode": "Thumb",
+          "instruction": "adds r1, r0, #0"
+        },
+        {
+          "pc": "0x300b92",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0xff"
+        },
+        {
+          "pc": "0x300b94",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1, #0x18]"
+        },
+        {
+          "pc": "0x300b96",
+          "mode": "Thumb",
+          "instruction": "lsrs r2, r2, #0x1d"
+        },
+        {
+          "pc": "0x300b98",
+          "mode": "Thumb",
+          "instruction": "blo #0x300bb4"
+        },
+        {
+          "pc": "0x300bb4",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358f7c",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r4, #0x10]"
+        },
+        {
+          "pc": "0x358f7e",
+          "mode": "Thumb",
+          "instruction": "cmp r0, r1"
+        },
+        {
+          "pc": "0x358f80",
+          "mode": "Thumb",
+          "instruction": "bls #0x358f84"
+        },
+        {
+          "pc": "0x358f82",
+          "mode": "Thumb",
+          "instruction": "adds r0, r1, #0"
+        },
+        {
+          "pc": "0x358f84",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r4, #0x11]"
+        },
+        {
+          "pc": "0x358f86",
+          "mode": "Thumb",
+          "instruction": "cmp r0, r1"
+        },
+        {
+          "pc": "0x358f88",
+          "mode": "Thumb",
+          "instruction": "beq #0x358f9a"
+        },
+        {
+          "pc": "0x358f8a",
+          "mode": "Thumb",
+          "instruction": "adds r1, r0, #0"
+        },
+        {
+          "pc": "0x358f8c",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x358f8e",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [pc, #0x10]"
+        },
+        {
+          "pc": "0x358f90",
+          "mode": "Thumb",
+          "instruction": "pop {r4}"
+        },
+        {
+          "pc": "0x358f92",
+          "mode": "Thumb",
+          "instruction": "mov ip, r3"
+        },
+        {
+          "pc": "0x358f94",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x358f96",
+          "mode": "Thumb",
+          "instruction": "mov lr, r3"
+        },
+        {
+          "pc": "0x358f98",
+          "mode": "Thumb",
+          "instruction": "bx ip"
+        },
+        {
+          "pc": "0x358f14",
+          "mode": "Thumb",
+          "instruction": "strb r1, [r0, #0x11]"
+        },
+        {
+          "pc": "0x358f16",
+          "mode": "Thumb",
+          "instruction": "ldrb r2, [r0, #0x16]"
+        },
+        {
+          "pc": "0x358f18",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #1"
+        },
+        {
+          "pc": "0x358f1a",
+          "mode": "Thumb",
+          "instruction": "bne #0x358f60"
+        },
+        {
+          "pc": "0x358f1c",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x358f1e",
+          "mode": "Thumb",
+          "instruction": "mov ip, r3"
+        },
+        {
+          "pc": "0x358f20",
+          "mode": "Thumb",
+          "instruction": "adds r2, r3, #0"
+        },
+        {
+          "pc": "0x358f22",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r2]"
+        },
+        {
+          "pc": "0x358f24",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x358f26",
+          "mode": "Thumb",
+          "instruction": "bne #0x358f20"
+        },
+        {
+          "pc": "0x358f28",
+          "mode": "Thumb",
+          "instruction": "cmp r2, ip"
+        },
+        {
+          "pc": "0x358f2a",
+          "mode": "Thumb",
+          "instruction": "beq #0x358f32"
+        },
+        {
+          "pc": "0x358f32",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r0]"
+        },
+        {
+          "pc": "0x358f34",
+          "mode": "Thumb",
+          "instruction": "cmp r3, #0"
+        },
+        {
+          "pc": "0x358f36",
+          "mode": "Thumb",
+          "instruction": "beq #0x358f68"
+        },
+        {
+          "pc": "0x358f38",
+          "mode": "Thumb",
+          "instruction": "ldrb r3, [r3, #0x11]"
+        },
+        {
+          "pc": "0x358f3a",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r1"
+        },
+        {
+          "pc": "0x358f3c",
+          "mode": "Thumb",
+          "instruction": "bhs #0x358f68"
+        },
+        {
+          "pc": "0x358f68",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358e46",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x358e48",
+          "mode": "Thumb",
+          "instruction": "bl #0x358e70"
+        },
+        {
+          "pc": "0x358e70",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x4c]"
+        },
+        {
+          "pc": "0x358e72",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "pc": "0x358e74",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r0"
+        },
+        {
+          "pc": "0x358e76",
+          "mode": "Thumb",
+          "instruction": "beq #0x358ebc"
+        },
+        {
+          "pc": "0x358ebc",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x358e4c",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp]"
+        },
+        {
+          "pc": "0x358e4e",
+          "mode": "Thumb",
+          "instruction": "adr r2, #4"
+        },
+        {
+          "pc": "0x358e50",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x358e54",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "pc": "0x358e58",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x358e5c",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x358e60",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #0"
+        },
+        {
+          "pc": "0x358e62",
+          "mode": "Thumb",
+          "instruction": "add sp, #4"
+        },
+        {
+          "pc": "0x358e64",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5}"
+        },
+        {
+          "pc": "0x358e66",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x358e68",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06c2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [sp, #4]"
+        },
+        {
+          "pc": "0x1c06c4",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "pc": "0x1c06c8",
+          "mode": "Thumb",
+          "instruction": "cmp r4, r5"
+        },
+        {
+          "pc": "0x1c06ca",
+          "mode": "Thumb",
+          "instruction": "beq #0x1c06dc"
+        },
+        {
+          "pc": "0x1c06dc",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x80]"
+        },
+        {
+          "pc": "0x1c06de",
+          "mode": "Thumb",
+          "instruction": "adds r1, r4, #0"
+        },
+        {
+          "pc": "0x1c06e0",
+          "mode": "Thumb",
+          "instruction": "bl #0x3cc594"
+        },
+        {
+          "pc": "0x3cc594",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "pc": "0x3cc596",
+          "mode": "Thumb",
+          "instruction": "movs r5, r0"
+        },
+        {
+          "pc": "0x3cc598",
+          "mode": "Thumb",
+          "instruction": "movs r6, r1"
+        },
+        {
+          "pc": "0x3cc59a",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, #4"
+        },
+        {
+          "pc": "0x3cc59c",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0"
+        },
+        {
+          "pc": "0x3cc5a0",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r5]"
+        },
+        {
+          "pc": "0x3cc5a2",
+          "mode": "Thumb",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "pc": "0x3cc5a4",
+          "mode": "Thumb",
+          "instruction": "beq #0x3cc5b6"
+        },
+        {
+          "pc": "0x3cc5a6",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r4, #8]"
+        },
+        {
+          "pc": "0x3cc5a8",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0xc]"
+        },
+        {
+          "pc": "0x3cc5aa",
+          "mode": "Thumb",
+          "instruction": "movs r0, r6"
+        },
+        {
+          "pc": "0x3cc5ac",
+          "mode": "Thumb",
+          "instruction": "bl #0x427584"
+        },
+        {
+          "pc": "0x427584",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x8200080",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #4]"
+        },
+        {
+          "pc": "0x8200082",
+          "mode": "Thumb",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "pc": "0x8200084",
+          "mode": "Thumb",
+          "instruction": "str r1, [r2, #4]"
+        },
+        {
+          "pc": "0x8200086",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x3cc5b0",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r4]"
+        },
+        {
+          "pc": "0x3cc5b2",
+          "mode": "Thumb",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "pc": "0x3cc5b4",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc5a6"
+        },
+        {
+          "pc": "0x3cc5b6",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #4"
+        },
+        {
+          "pc": "0x3cc5b8",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "pc": "0x3cc5bc",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "pc": "0x3cc5be",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x3cc5c0",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06e4",
+          "mode": "Thumb",
+          "instruction": "adr r3, #0"
+        },
+        {
+          "pc": "0x1c06e6",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06e8",
+          "mode": "ARM",
+          "instruction": "mrs r0, apsr"
+        },
+        {
+          "pc": "0x1c06ec",
+          "mode": "ARM",
+          "instruction": "orr r3, r0, #0x80"
+        },
+        {
+          "pc": "0x1c06f0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r3"
+        },
+        {
+          "pc": "0x1c06f4",
+          "mode": "ARM",
+          "instruction": "add r3, pc, #1"
+        },
+        {
+          "pc": "0x1c06f8",
+          "mode": "ARM",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c06fc",
+          "mode": "Thumb",
+          "instruction": "str r0, [sp, #8]"
+        },
+        {
+          "pc": "0x1c06fe",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x1c0700",
+          "mode": "Thumb",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "pc": "0x1c0702",
+          "mode": "Thumb",
+          "instruction": "bl #0x300c2c"
+        },
+        {
+          "pc": "0x300c2c",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "pc": "0x300c2e",
+          "mode": "Thumb",
+          "instruction": "sub sp, #8"
+        },
+        {
+          "pc": "0x300c30",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "pc": "0x300c32",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300c34",
+          "mode": "ARM",
+          "instruction": "mrs r3, apsr"
+        },
+        {
+          "pc": "0x300c38",
+          "mode": "ARM",
+          "instruction": "orr r2, r3, #0x80"
+        },
+        {
+          "pc": "0x300c3c",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, r2"
+        },
+        {
+          "pc": "0x300c40",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300c44",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300c48",
+          "mode": "Thumb",
+          "instruction": "str r3, [sp, #4]"
+        },
+        {
+          "pc": "0x300c4a",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #0"
+        },
+        {
+          "pc": "0x300c4c",
+          "mode": "Thumb",
+          "instruction": "adds r6, r1, #0"
+        },
+        {
+          "pc": "0x300c4e",
+          "mode": "Thumb",
+          "instruction": "ldr r5, [r4, #0x20]"
+        },
+        {
+          "pc": "0x300c50",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x60]"
+        },
+        {
+          "pc": "0x300c52",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "pc": "0x300c54",
+          "mode": "Thumb",
+          "instruction": "cmp r4, r1"
+        },
+        {
+          "pc": "0x300c56",
+          "mode": "Thumb",
+          "instruction": "bne #0x300c6e"
+        },
+        {
+          "pc": "0x300c58",
+          "mode": "Thumb",
+          "instruction": "cmp r6, #1"
+        },
+        {
+          "pc": "0x300c5a",
+          "mode": "Thumb",
+          "instruction": "beq #0x300c6e"
+        },
+        {
+          "pc": "0x300c6e",
+          "mode": "Thumb",
+          "instruction": "cmp r5, #0"
+        },
+        {
+          "pc": "0x300c70",
+          "mode": "Thumb",
+          "instruction": "bne #0x300c60"
+        },
+        {
+          "pc": "0x300c72",
+          "mode": "Thumb",
+          "instruction": "ldrb r0, [r4, #0x16]"
+        },
+        {
+          "pc": "0x300c74",
+          "mode": "Thumb",
+          "instruction": "subs r0, #4"
+        },
+        {
+          "pc": "0x300c76",
+          "mode": "Thumb",
+          "instruction": "bne #0x300c9a"
+        },
+        {
+          "pc": "0x300c9a",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [sp, #4]"
+        },
+        {
+          "pc": "0x300c9c",
+          "mode": "Thumb",
+          "instruction": "adr r2, #0"
+        },
+        {
+          "pc": "0x300c9e",
+          "mode": "Thumb",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300ca0",
+          "mode": "ARM",
+          "instruction": "msr cpsr_fsxc, r3"
+        },
+        {
+          "pc": "0x300ca4",
+          "mode": "ARM",
+          "instruction": "add r2, pc, #1"
+        },
+        {
+          "pc": "0x300ca8",
+          "mode": "ARM",
+          "instruction": "bx r2"
+        },
+        {
+          "pc": "0x300cac",
+          "mode": "Thumb",
+          "instruction": "add sp, #8"
+        },
+        {
+          "pc": "0x300cae",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "pc": "0x300cb0",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x300cb2",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x1c0706",
+          "mode": "Thumb",
+          "instruction": "adds r0, r4, #0"
+        },
+        {
+          "pc": "0x1c0708",
+          "mode": "Thumb",
+          "instruction": "bl #0x353df4"
+        },
+        {
+          "pc": "0x353df4",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [pc, #0x18]"
+        },
+        {
+          "pc": "0x353df6",
+          "mode": "Thumb",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "pc": "0x353df8",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "pc": "0x353dfa",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x353dfc",
+          "mode": "Thumb",
+          "instruction": "beq #0x353e0c"
+        },
+        {
+          "pc": "0x353dfe",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r2, #4]"
+        },
+        {
+          "pc": "0x353e00",
+          "mode": "Thumb",
+          "instruction": "cmp r3, r0"
+        },
+        {
+          "pc": "0x353e02",
+          "mode": "Thumb",
+          "instruction": "bne #0x353df6"
+        },
+        {
+          "pc": "0x353e04",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r2]"
+        },
+        {
+          "pc": "0x353e06",
+          "mode": "Thumb",
+          "instruction": "str r2, [r1]"
+        },
+        {
+          "pc": "0x353e08",
+          "mode": "Thumb",
+          "instruction": "adds r2, r1, #0"
+        },
+        {
+          "pc": "0x353e0a",
+          "mode": "Thumb",
+          "instruction": "b #0x353df6"
+        },
+        {
+          "pc": "0x353e0c",
+          "mode": "Thumb",
+          "instruction": "bx lr"
+        },
+        {
+          "pc": "0x1c070c",
+          "mode": "Thumb",
+          "instruction": "movs r0, #0x80"
+        },
+        {
+          "pc": "0x1c070e",
+          "mode": "Thumb",
+          "instruction": "strb r0, [r4, #0x16]"
+        },
+        {
+          "pc": "0x1c0710",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4, #0x28]"
+        },
+        {
+          "pc": "0x1c0712",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [r4, #0x2c]"
+        },
+        {
+          "pc": "0x1c0714",
+          "mode": "Thumb",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "pc": "0x1c0716",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0, #0x2c]"
+        },
+        {
+          "pc": "0x1c0718",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]"
+        },
+        {
+          "pc": "0x1c071a",
+          "mode": "Thumb",
+          "instruction": "adds r2, r0, #0"
+        },
+        {
+          "pc": "0x1c071c",
+          "mode": "Thumb",
+          "instruction": "adds r1, r2, #0"
+        },
+        {
+          "pc": "0x1c071e",
+          "mode": "Thumb",
+          "instruction": "ldr r2, [r1]"
+        },
+        {
+          "pc": "0x1c0720",
+          "mode": "Thumb",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "pc": "0x1c0722",
+          "mode": "Thumb",
+          "instruction": "beq #0x1c0734"
+        },
+        {
+          "pc": "0x1c0724",
+          "mode": "Thumb",
+          "instruction": "cmp r2, r4"
+        },
+        {
+          "pc": "0x1c0726",
+          "mode": "Thumb",
+          "instruction": "bne #0x1c071c"
+        },
+        {
+          "pc": "0x1c0728",
+          "mode": "Thumb",
+          "instruction": "ldr r3, [r4]"
+        },
+        {
+          "pc": "0x1c072a",
+          "mode": "Thumb",
+          "instruction": "str r3, [r1]"
+        },
+        {
+          "pc": "0x1c072c",
+          "mode": "Thumb",
+          "instruction": "cmp r4, r5"
+        },
+        {
+          "pc": "0x1c072e",
+          "mode": "Thumb",
+          "instruction": "bne #0x1c0734"
+        },
+        {
+          "pc": "0x1c0730",
+          "mode": "Thumb",
+          "instruction": "blx #0x358ec4"
+        },
+        {
+          "pc": "0x3cc624",
+          "mode": "Thumb",
+          "instruction": "push {r3, r4, r5, r6, r7, lr}"
+        },
+        {
+          "pc": "0x3cc626",
+          "mode": "Thumb",
+          "instruction": "movs r5, r0"
+        },
+        {
+          "pc": "0x3cc628",
+          "mode": "Thumb",
+          "instruction": "movs r6, r1"
+        },
+        {
+          "pc": "0x3cc62a",
+          "mode": "Thumb",
+          "instruction": "movs r7, #0"
+        },
+        {
+          "pc": "0x3cc62c",
+          "mode": "Thumb",
+          "instruction": "adds r0, r0, #4"
+        },
+        {
+          "pc": "0x3cc62e",
+          "mode": "Thumb",
+          "instruction": "bl #0x3009a0"
+        },
+        {
+          "pc": "0x3cc632",
+          "mode": "Thumb",
+          "instruction": "movs r4, r5"
+        },
+        {
+          "pc": "0x3cc634",
+          "mode": "Thumb",
+          "instruction": "b #0x3cc638"
+        },
+        {
+          "pc": "0x3cc638",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r4]"
+        },
+        {
+          "pc": "0x3cc63a",
+          "mode": "Thumb",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "pc": "0x3cc63c",
+          "mode": "Thumb",
+          "instruction": "beq #0x3cc642"
+        },
+        {
+          "pc": "0x3cc63e",
+          "mode": "Thumb",
+          "instruction": "cmp r0, r6"
+        },
+        {
+          "pc": "0x3cc640",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc636"
+        },
+        {
+          "pc": "0x3cc642",
+          "mode": "Thumb",
+          "instruction": "cmp r0, r6"
+        },
+        {
+          "pc": "0x3cc644",
+          "mode": "Thumb",
+          "instruction": "bne #0x3cc64c"
+        },
+        {
+          "pc": "0x3cc646",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "pc": "0x3cc648",
+          "mode": "Thumb",
+          "instruction": "str r0, [r4]"
+        },
+        {
+          "pc": "0x3cc64a",
+          "mode": "Thumb",
+          "instruction": "b #0x3cc650"
+        },
+        {
+          "pc": "0x3cc650",
+          "mode": "Thumb",
+          "instruction": "adds r0, r5, #4"
+        },
+        {
+          "pc": "0x3cc652",
+          "mode": "Thumb",
+          "instruction": "bl #0x3008b0"
+        },
+        {
+          "pc": "0x3cc656",
+          "mode": "Thumb",
+          "instruction": "movs r0, r7"
+        },
+        {
+          "pc": "0x3cc658",
+          "mode": "Thumb",
+          "instruction": "pop {r3, r4, r5, r6, r7}"
+        },
+        {
+          "pc": "0x3cc65a",
+          "mode": "Thumb",
+          "instruction": "pop {r3}"
+        },
+        {
+          "pc": "0x3cc65c",
+          "mode": "Thumb",
+          "instruction": "bx r3"
+        },
+        {
+          "pc": "0x3cc64c",
+          "mode": "Thumb",
+          "instruction": "movs r7, #0"
+        },
+        {
+          "pc": "0x3cc64e",
+          "mode": "Thumb",
+          "instruction": "mvns r7, r7"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "device_io": false,
+  "device_install_candidate": false,
+  "original_context_restore_executed": true,
+  "original_kernel_self_exit_executed": true,
+  "live_scheduler_or_interrupt_timing_verified": false,
+  "cross_task_cancellation_verified": false,
+  "wrapper_slot_and_allocation_reclamation_verified": false,
+  "real_exit_listener_registration_verified": false,
+  "exit_listener_is_safe_immediate_stack_or_module_free_point": false,
+  "limitations": "Offline exact-firmware execution only. Allocation, creation bookkeeping and wake remain the prior explicit hooks; restore and self-exit require no additional hooks. Initial contexts are built by original code; the flag1 suspended frame is deliberately synthetic. Ready-list membership and timed-wait nodes are synthetic; the optional listener uses synthetic storage but is registered/removed by original code, including duplicate/missing-node guards. Successor context restoration occurs through original exit code, but no IRQ clock, live wakeup/priority policy, concurrent locking, preemption workload or physical task is tested. Kernel self-exit leaves the wrapper slot pointing at its TCB in both observed paths; safe wrapper/heap/module reclamation and cancellation remain unverified. No queue, real Bluetooth endpoint, loaded App or speaker playback is provided."
+}

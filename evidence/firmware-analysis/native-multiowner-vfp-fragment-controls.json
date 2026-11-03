@@ -1,0 +1,145 @@
+{
+  "updated_utc": "2026-10-04T12:34:29.885066+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "all_passed": true,
+  "case_count": 5,
+  "cases": [
+    {
+      "name": "first_controller_owner",
+      "passed": true,
+      "actual_result_bits": "0x44ccc000",
+      "task": "0x9503f90"
+    },
+    {
+      "name": "first_C_to_D_save_C_without_D_restore",
+      "passed": true,
+      "actual_result_bits": "0x42280000",
+      "task": "0x8804fb8"
+    },
+    {
+      "name": "D_to_C_save_D_clone40_restore_C",
+      "passed": true,
+      "actual_result_bits": "0x40e00000",
+      "task": "0x9503f90"
+    },
+    {
+      "name": "C_to_D_reuse_C_context_restore_D",
+      "passed": true,
+      "actual_result_bits": "0x41100000",
+      "task": "0x8804fb8"
+    },
+    {
+      "name": "same_D_owner_no_context_exchange",
+      "passed": true,
+      "actual_result_bits": "0x41300000",
+      "task": "0x8804fb8"
+    }
+  ],
+  "source_sha256": {
+    "scripts/probe_native_multiowner_vfp.py": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+    "scripts/probe_native_lazy_vfp.py": "ece96af88a411bbaca92715c45595a20d59b0f26e928f5961f9026f6acf3ca24",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-dispatcher-fp/micro-vfp/source-at-run.py": "8fc0a2bcf6319f9a2b5a00c15c1f9c213b1717f6c55105b0785433e594a4cab4",
+    "staging/native-player-dispatcher-fp/micro-vfp/terminal-probe.json": "4643d6837a72a71100cda5967a16bf4f2555c2990405bbdedab43d668a91db9d",
+    "staging/native-player-dispatcher-fp/micro-vfp/inputs-before-run.json": "59cacf3bddad9bbec2c610d7e768e55f63e92e7ccf3729cd189084534a6cddc3",
+    "staging/native-player-dispatcher-fp/micro-vfp/terminal-metadata.json": "49708d1c387df7b3b8329203f8b57f9723299078728c2f8a8a785c6b50e02929",
+    "scripts/verify_native_multiowner_vfp_micro.py": "9f83f16fc7ab6800a524d6a5a73949dfe439e903b23ce55ea9f71f9b530abf3e"
+  },
+  "independent_guest_execution": false,
+  "independent_whole_zone_replays": [
+    {
+      "start": "0x3ab1000",
+      "bytes": 4096,
+      "events": 4,
+      "independently_replayed": true,
+      "after_sha256": "c4d9730f00ddc3eb78f6fa6a0b708abebd1ad31f20bc13702c4b1744b0244e95"
+    },
+    {
+      "start": "0x8800fe0",
+      "bytes": 40,
+      "events": 0,
+      "independently_replayed": true,
+      "after_sha256": "fff63c9a334123f9b8eff4eb820b783aabb47b6d510a7eba1463de6c19e0d6e8"
+    },
+    {
+      "start": "0x8801024",
+      "bytes": 320,
+      "events": 36,
+      "independently_replayed": true,
+      "after_sha256": "c44d1cc141f2914d452861b8167795a466fdece6e44d1ac4d4ec5e774162c98d"
+    },
+    {
+      "start": "0x8804fb8",
+      "bytes": 108,
+      "events": 1,
+      "independently_replayed": true,
+      "after_sha256": "935347027b7fdd31bc4c1919cce23c49bc0ca65f3650ea488c3f17a59a8400bc"
+    },
+    {
+      "start": "0x9400900",
+      "bytes": 40,
+      "events": 1,
+      "independently_replayed": true,
+      "after_sha256": "0d7b34ef5a66287ff53d12a16b4e21e5f6d96da2cbcd52347d81f32818478c15"
+    },
+    {
+      "start": "0x9500000",
+      "bytes": 320,
+      "events": 43,
+      "independently_replayed": true,
+      "after_sha256": "629e7543a58e820d1b18dfe7798fbdc9a42d52531f07d5db0aed375b637fe72a"
+    },
+    {
+      "start": "0x9503f90",
+      "bytes": 108,
+      "events": 0,
+      "independently_replayed": true,
+      "after_sha256": "c052339639db30a9282393983042ca006565c383ab2d78e4016d46c3fd7119e0"
+    },
+    {
+      "start": "0x18310000",
+      "bytes": 4096,
+      "events": 60,
+      "independently_replayed": true,
+      "after_sha256": "c94e5311befea6fcb17d1d8776d6fccd15411109689bd0ed8edbd344888a2395"
+    }
+  ],
+  "exact_original_CPU_store_events": 145,
+  "independent_VSTM128_coverage": [
+    {
+      "row": 1,
+      "context": "0x9500008",
+      "bytes": 128,
+      "actual_callback_widths": [
+        8
+      ],
+      "complete": true
+    },
+    {
+      "row": 2,
+      "context": "0x8801030",
+      "bytes": 128,
+      "actual_callback_widths": [
+        8
+      ],
+      "complete": true
+    },
+    {
+      "row": 3,
+      "context": "0x9500008",
+      "bytes": 128,
+      "actual_callback_widths": [
+        8
+      ],
+      "complete": true
+    }
+  ],
+  "original_fragment_controls": true,
+  "complete_cold_boot_or_Dispatcher_integration_scenario": false,
+  "original_save148_advance152_clone40_and_saved_owner_restore_verified_under_declared_inputs": true,
+  "device_io": false,
+  "sounds_emitted": false,
+  "physical_App_or_direct_music_or_accepted_package_verified": false,
+  "limits": "Five fragment controls execute unchanged original handler/allocator/clone/disable/conversion code. Two TCBs/metadata/native-filled-like FF pools, task selection, CPACR and architectural UND entry are explicit virtual fixtures. Complete cold-controller preparation still has its separate frozen proof. No native scheduler switch, actual Dispatcher foreground, visible menu App, package acceptance or hardware music claim."
+}

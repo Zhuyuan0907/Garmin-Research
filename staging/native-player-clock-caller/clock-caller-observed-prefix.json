@@ -1,0 +1,76 @@
+{
+  "updated_utc": "2026-10-04T18:14:13.268608+00:00",
+  "all_passed": true,
+  "source_sha256": {
+    "scripts/verify_native_clock_caller_observed_prefix.py": "22d17b0c8c36be7b7df0a5637e7826b219ce3352158b9256e435a8e42a1f22a8",
+    "staging/native-player-clock-caller/runtime/terminal-metadata.json": "b98c0b509ba2e6c390251409d6c70076e9453cad9b14589e119aa1a6a7f73221",
+    "staging/native-player-clock-caller/runtime/terminal-probe.json": "2045dfe86fe55b439b583a943989063689df79971657dba3ee485aad7d28782b",
+    "staging/native-player-clock-caller/runtime/independent-partial-journals.json": "323d6075b3573030b3739b7952e0fb02f966e0f43c71a452d8210ce9badd943a",
+    "staging/native-player-clock-caller/terminal-receipt.json": "5597d7f9ffe96929e6e76143ecb054dff253bc5453d78ef8893816c562030fe4",
+    "staging/native-player-clock-caller/gui-static/clock_caller_observer_v2.py": "1a3253998dbdee390aa99fadf53e9c2bdc1de806b417d7e3258372ad7780a0b1",
+    "staging/native-player-clock-caller/gui-static/clock-caller-observer-v2-contract.json": "cd0872dfd50eb5a39a70a1f2c2736c30ef160ff9fa733b7637dc1aa0a32faf1d",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "actual_guest_session": 5264,
+  "actual_guest_terminal_exit_code": 1,
+  "actual_guest_terminal_chunk": "3bd84b",
+  "actual_original_frame_pushes": [
+    {
+      "frame": "wrapper",
+      "stores": 6,
+      "actual_SP": "0x8804048",
+      "push_after_hex": "0100000008edaa0328f8aa030000000008f8aa0361dd2600"
+    },
+    {
+      "frame": "constructor",
+      "stores": 9,
+      "actual_SP": "0x8804030",
+      "push_after_hex": "70408008541781085840800860ea000060ea0000704080085840800801000000b7573900"
+    }
+  ],
+  "actual_native_push_CPU_stores": 15,
+  "actual_original_clock_instructions": 3,
+  "clock_value": 0,
+  "clock_is_original_initialized_data": true,
+  "host_clock_seeded_or_reset": false,
+  "native_clock_actual_return_and_result_store_verified": true,
+  "original_result_store": {
+    "PC": "0x39552c",
+    "load_PC": "0x39552c",
+    "Thumb": true,
+    "address": "0x8803fec",
+    "size": 4,
+    "value": 0,
+    "before_hex": "00000000",
+    "opcode_hex": "0f90",
+    "original_instruction": "str r0, [sp, #0x3c]",
+    "running_task": "0x8804fb8"
+  },
+  "next_unadmitted_allocator": {
+    "entry": "0x3954cc",
+    "native_caller": "0x395534",
+    "LR": "0x395535",
+    "SP": "0x8803fb0",
+    "requested_bytes": 48,
+    "running_task": "0x8804fb8",
+    "original_call": {
+      "call": "0x395530",
+      "opcode_hex": "fff7ccef",
+      "instruction": "blx #0x3954cc",
+      "caller_Thumb": true,
+      "target_register": null
+    },
+    "original_gate_opcode": "00c09fe51cff2fe1",
+    "host_allocator_return_allowed": false,
+    "admitted": false
+  },
+  "actual_native_allocator_executed": false,
+  "containing_constructor_return_verified": false,
+  "callback_return_or_foreground_or_physical_App_verified": false,
+  "independent_whole_stack_and_bank_replay_referenced": "staging/native-player-clock-caller/runtime/independent-partial-journals.json",
+  "guest_execution_by_verifier": false,
+  "VM_instantiated": false,
+  "device_io": false,
+  "sounds_emitted": false
+}

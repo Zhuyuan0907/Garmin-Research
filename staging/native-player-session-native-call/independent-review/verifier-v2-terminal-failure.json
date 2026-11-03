@@ -1,0 +1,15 @@
+{
+  "kind": "Independent file-only verifier v2 failure; no original guest failure",
+  "source_path": "staging/native-player-session-native-call/independent-review/verify_native_queue_call_files_v2.py",
+  "source_sha256": "92218205b2d32fc24f5384b8ef7e3ddf3cf12b4bbc4f9db0eda9f009ffebe7e1",
+  "actual_exec_result": {
+    "chunk_id": "c342ae",
+    "wall_time_seconds": 0.058113612,
+    "exit_code": 1,
+    "original_token_count": 267,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-session-native-call/independent-review/verify_native_queue_call_files_v2.py\", line 433, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/staging/native-player-session-native-call/independent-review/verify_native_queue_call_files_v2.py\", line 386, in main\n    fixture = check_fixture_boundaries(case, final, lower_count)\n  File \"/root/garmin/staging/native-player-session-native-call/independent-review/verify_native_queue_call_files_v2.py\", line 245, in check_fixture_boundaries\n    require(region_read(final, pointer + 12, 0x20c) == region_read(final, PARAMS, 0x20c), 'Original memcpy copied owned request payload')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-session-native-call/independent-review/verify_native_queue_call_files_v2.py\", line 38, in require\n    raise ValueError(reason)\nValueError: Original memcpy copied owned request payload\n"
+  },
+  "finding": "Verifier v2 used decimal12 for payload offset. Original277CD4 opcode1230 is ADD r0,#0x12 (18 decimal). Frozen native payload and copy are consistent.",
+  "guest_execution": false,
+  "frozen_successful_input_mutation": false
+}

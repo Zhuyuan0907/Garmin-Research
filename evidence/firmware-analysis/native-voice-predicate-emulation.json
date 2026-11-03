@@ -1,0 +1,165 @@
+{
+  "updated_utc": "2026-10-03T04:04:57.464125+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/emulate_native_voice_predicate.py": "2586769e2e4be6796c9078c9b867018512dec28174062b015320a23d0277221c",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_sdp_activation.py": "272a78505a282f35d1576625f92f27632b00d94e83f1145ca058ce6fad25c44f",
+    "scripts/emulate_native_sbc.py": "4e2a001476d0ed1226b4a8bb6e3f9f4a8599c005deae30554895772de09dd490",
+    "scripts/analyze_native_loader.py": "4f83c8e1c9f1aa12e350db7238a78ee557259fbf1123662fb3e52a5496a072b1",
+    "scripts/emulate_native_loader.py": "88f02fc748aa5aa98926bc343ebf4633a22b708a7bd85a0bc1598891c055168d",
+    "scripts/emulate_native_sbc_component.py": "ab81b6471be88ffdf77537e8ceea1380f2906fb58bf1214e59feaea6a328707e",
+    "scripts/emulate_native_sbc_pcm.py": "4146ad27b2660cfaa670c5d749bee6bbde8752779eeca2b8bc002c4b39e2e580",
+    "scripts/emulate_native_pcm_flow_control.py": "83fc86b3a1a18a5284cec0cf9df0a4a7dba43b2dff08955b2494d9e1bdb0793c",
+    "scripts/emulate_native_audio_registration.py": "bddcd41dbdee777607d2c17e24a8c73a3699841f7e5a2a9666898660cf87328e",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/analyze_tts_vpm.py": "e8a0ec9640493af2f32a81891ee5cab38eb13cd7cd147ae21cd9546693c7fdc7",
+    "scripts/emulate_native_vpm_filesystem.py": "326855842ad9081b68f76b8d4cd7eb77340dd196976384140f3c3616f6c26da2"
+  },
+  "cases": [
+    {
+      "case": "cached_nonmatching_identifier",
+      "cached_u16_fixture": 4660,
+      "storage_u16_fixture": null,
+      "config_byte20_fixture": 76,
+      "result": 1,
+      "native_cache_after": 4660,
+      "storage_reads": [],
+      "native_visits": {
+        "0x278194": 1,
+        "0x102d32": 1,
+        "0x462b28": 0,
+        "0x4400054": 0,
+        "0x4400542": 0,
+        "0x44004fc": 0
+      },
+      "original_code_unchanged": true,
+      "all_passed": true
+    },
+    {
+      "case": "cached_matching_identifier_and_L",
+      "cached_u16_fixture": 2590,
+      "storage_u16_fixture": null,
+      "config_byte20_fixture": 76,
+      "result": 0,
+      "native_cache_after": 2590,
+      "storage_reads": [],
+      "native_visits": {
+        "0x278194": 1,
+        "0x102d32": 1,
+        "0x462b28": 1,
+        "0x4400054": 1,
+        "0x4400542": 1,
+        "0x44004fc": 1
+      },
+      "original_code_unchanged": true,
+      "all_passed": true
+    },
+    {
+      "case": "cached_matching_identifier_and_other",
+      "cached_u16_fixture": 2590,
+      "storage_u16_fixture": null,
+      "config_byte20_fixture": 0,
+      "result": 1,
+      "native_cache_after": 2590,
+      "storage_reads": [],
+      "native_visits": {
+        "0x278194": 1,
+        "0x102d32": 1,
+        "0x462b28": 1,
+        "0x4400054": 1,
+        "0x4400542": 1,
+        "0x44004fc": 1
+      },
+      "original_code_unchanged": true,
+      "all_passed": true
+    },
+    {
+      "case": "uncached_matching_storage_and_L",
+      "cached_u16_fixture": 0,
+      "storage_u16_fixture": 2590,
+      "config_byte20_fixture": 76,
+      "result": 0,
+      "native_cache_after": 2590,
+      "storage_reads": [
+        {
+          "key": 314,
+          "bytes": 2,
+          "fixture_value": 2590,
+          "return": 0
+        }
+      ],
+      "native_visits": {
+        "0x278194": 1,
+        "0x102d32": 1,
+        "0x462b28": 1,
+        "0x4400054": 1,
+        "0x4400542": 1,
+        "0x44004fc": 1
+      },
+      "original_code_unchanged": true,
+      "all_passed": true
+    },
+    {
+      "case": "uncached_other_storage_and_L",
+      "cached_u16_fixture": 0,
+      "storage_u16_fixture": 4660,
+      "config_byte20_fixture": 76,
+      "result": 1,
+      "native_cache_after": 4660,
+      "storage_reads": [
+        {
+          "key": 314,
+          "bytes": 2,
+          "fixture_value": 4660,
+          "return": 0
+        }
+      ],
+      "native_visits": {
+        "0x278194": 1,
+        "0x102d32": 1,
+        "0x462b28": 0,
+        "0x4400054": 0,
+        "0x4400542": 0,
+        "0x44004fc": 0
+      },
+      "original_code_unchanged": true,
+      "all_passed": true
+    },
+    {
+      "case": "uncached_storage_read_failure",
+      "cached_u16_fixture": 0,
+      "storage_u16_fixture": null,
+      "config_byte20_fixture": 76,
+      "result": 1,
+      "native_cache_after": 0,
+      "storage_reads": [
+        {
+          "key": 314,
+          "bytes": 2,
+          "fixture_value": null,
+          "return": 4294967295
+        }
+      ],
+      "native_visits": {
+        "0x278194": 1,
+        "0x102d32": 1,
+        "0x462b28": 0,
+        "0x4400054": 0,
+        "0x4400542": 0,
+        "0x44004fc": 0
+      },
+      "original_code_unchanged": true,
+      "all_passed": true
+    }
+  ],
+  "all_passed": true,
+  "cached_and_uncached_primary_query_executed": true,
+  "secondary_ARM_veneer_and_cached_Thumb_provider_executed": true,
+  "secondary_lazy_initialization_executed": false,
+  "actual_unit_storage_fields_or_predicate_result_verified": false,
+  "no_inference_that_key13A_is_HWID": true,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limits": "Six fresh ARM1176 offline VMs run original278194/102D32, secondary ARM veneer462B28 and exact startup-backed conditional Thumb routines. Synthetic primary cache or read-only storage key13A values and cached platform byte20 isolate both predicate outcomes and storage failure. Original code fills the primary cache; secondary cached branch only, not its lazy initializer. Field semantic meaning/live unit data are unknown;1234 is an arbitrary control identifier, not HWID1352. This does not execute either outer enumerator, perform real storage I/O, verify modified VPM acceptance or install an App."
+}

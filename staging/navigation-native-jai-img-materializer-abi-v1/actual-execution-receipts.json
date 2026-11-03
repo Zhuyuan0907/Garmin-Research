@@ -1,0 +1,49 @@
+{
+  "schema": "actual-query-materializer-container-finite-run-receipt/v1",
+  "all_assigned_checks_passed": true,
+  "actual_exit_code": 0,
+  "actual_terminal_chunk": "d103bd",
+  "all_source_handles_closed": true,
+  "source_at_run_sha256": "ccc50a5c263622104fcb56d717b06c227d3195ca54939296a186bcdfbba34912",
+  "proof_sha256": "da1b342b0e6af5081b07d46e9d14d6209563d8f09779e983bb746950986a44ad",
+  "source_read_trace": {
+    "path": "staging/navigation-native-jai-img-materializer-abi-v1/actual-source-IO.strace",
+    "bytes": 217694,
+    "sha256": "8ae62821f4d5595c958cd3e42b3ec1d1f318bebaadf870760030a115e72dd491",
+    "options": "strace -qq -f -yy -s 0 -e trace=openat,read,pread64,close,newfstatat",
+    "payload_strings_suppressed": true
+  },
+  "exact_named_source_reads": {
+    "staging/navigation-new-street-v2-4k-offline-prototype-v2/new-street-v2-original4k-experiment.img.disabled": {
+      "open_syscalls": 1,
+      "close_syscalls": 1,
+      "actual_read_syscalls": 12,
+      "actual_bytes_read": 75956,
+      "all_opens_readonly": true
+    },
+    "evidence/firmware-analysis/main_02bd.bin": {
+      "open_syscalls": 1,
+      "close_syscalls": 1,
+      "actual_read_syscalls": 14,
+      "actual_bytes_read": 57344,
+      "all_opens_readonly": true
+    },
+    "staging/navigation-native-jai-full-db-adapter-prototype-v1/TWNJAI-offline-prototype.sqlite": {
+      "open_syscalls": 1,
+      "close_syscalls": 1,
+      "actual_read_syscalls": 78,
+      "actual_bytes_read": 77721,
+      "all_opens_readonly": true
+    }
+  },
+  "initial_MAIN_page_capture": {
+    "actual_exit_code": 0,
+    "terminal_chunk": "e5d4e5",
+    "bytes": 4096,
+    "receipt": "initial-code-capture-receipt.json"
+  },
+  "repeated_full_IMG_MAIN_or_DB_hash": false,
+  "old_cases_or_suites_replayed": false,
+  "native_return_status_note": "Observed return0 is the genuine 0x04425726 caller after executing 0x04425304 materializer/vectorcopy; no original return hook.",
+  "no_mutation_of_source_IMG_or_SQLite_or_firmware_or_report_or_device": true
+}

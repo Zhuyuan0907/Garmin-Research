@@ -1,0 +1,13 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v1.py",
+  "started_session_id": 15940,
+  "actual_terminal_tool_result": {
+    "chunk_id": "6cbf53",
+    "wall_time_seconds": 0.000025425,
+    "exit_code": 1,
+    "original_token_count": 372,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v1.py\", line 722, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v1.py\", line 691, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v1.py\", line 267, in verify_case\n    counts=rp.run();z=rp.final;g=rp.guard;c=rp.control\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v1.py\", line 234, in run\n    require(not any(sec['flags']&3==3 and a<sec['address']+sec['size'] and a+len(after)>sec['address'] for sec in self.elf.sections if sec['size']),'Fixture seeded compiled data/payload/capability state')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v1.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Fixture seeded compiled data/payload/capability state\n"
+  },
+  "guest_execution": false,
+  "reviewer_premise": "Deny-all writable ELF sections incorrectly denied a declared native opaque allocation handle output cell on Source stack. Original frozen ROOT source/guest remains unchanged. NEW v2 permits only exact captured original38853C/3887A2 service 4-byte caller stack cell; all other compiled metadata/PCM/packet writes remain CPU-only."
+}

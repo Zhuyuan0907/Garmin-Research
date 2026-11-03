@@ -1,0 +1,286 @@
+{
+  "updated_utc": "2026-10-04T07:34:50.293287+00:00",
+  "review": "Static read-only review of live session66913 source; no runtime execution or terminal result assumed",
+  "exact_target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "review_source_sha256": "3b2852bf0e0a205a7083048f0393e230a2bdf04088672241f8f430d1de0035d0",
+  "inputs_sha256": {
+    "scripts/emulate_native_independent_signal.py": "3b2852bf0e0a205a7083048f0393e230a2bdf04088672241f8f430d1de0035d0",
+    "scripts/probe_native_signal_dispatch.py": "a2255b6dd901f6ef2345dca00dd20d4b50f5d95e02a38dec5c44b633ed1a592b",
+    "scripts/emulate_native_task_runtime_full.py": "188548b1690cfd3def83cb5f1b0979c94d858f7ac0ccb7ccbf39c2a2bdddd8e0",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/probe_native_mainmenu_controller.py": "d9f3c1ce76e362515a2a410dd39f01b5d87e8195b94f53bc304e820c34bd9d15",
+    "scripts/analyze_native_task_mutex_static.py": "6614da71ab4c0d5d298e602c50559c2a356e754c8cefb74ac7d4a176e44fe5ca",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "staging/native-player-task-mutex/gui-worker-boot-preflight.json": "dfb39b1beaf8587206fa43f95ae1029699cba5133058b1bd737ad694c1e13087",
+    "staging/native-player-task-mutex/auxiliary-mutex-wrapper-preflight.json": "60a33a3ae453fa150c7fd395e7ee4c388536dbd5adef6baf4d3bb03c4dca4467",
+    "staging/native-player-signal-dispatch/native-signal-resident-join-guard-note.json": "19feb4fed2903171ae9622b5401339b30763ae342c5ab98e28766b99a20cd9ea",
+    "staging/native-player-task-runtime-full/background-native-waits-review.json": "636e6a1ecfde40cf86b247a35eae5b9a32cfc1aef647b45fbab6491dd36598ec"
+  },
+  "all106_prior_positive_frozen_dependencies_match": true,
+  "concrete_ABI_or_field_or_active_frame_error_found": false,
+  "original_constructor": {
+    "entry": "0x57458c Thumb",
+    "object_bytes": 80,
+    "local_CFG": {
+      "entry": "0x57458c",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x57458c",
+          "mode": "Thumb",
+          "instruction": "push {r4, r5, lr}"
+        },
+        {
+          "address": "0x57458e",
+          "mode": "Thumb",
+          "instruction": "ldr r1, [pc, #0x44]",
+          "literal_address": "0x5745d4",
+          "literal_value": "0xc1b59c"
+        },
+        {
+          "address": "0x574590",
+          "mode": "Thumb",
+          "instruction": "sub sp, #0xc"
+        },
+        {
+          "address": "0x574592",
+          "mode": "Thumb",
+          "instruction": "adds r4, r0, #4"
+        },
+        {
+          "address": "0x574594",
+          "mode": "Thumb",
+          "instruction": "str r1, [r0]"
+        },
+        {
+          "address": "0x574596",
+          "mode": "Thumb",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "address": "0x574598",
+          "mode": "Thumb",
+          "instruction": "add r0, sp, #8"
+        },
+        {
+          "address": "0x57459a",
+          "mode": "Thumb",
+          "instruction": "bl #0x616ad8",
+          "direct_call": "0x616ad8",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x57459e",
+          "mode": "Thumb",
+          "instruction": "movs r1, r0"
+        },
+        {
+          "address": "0x5745a0",
+          "mode": "Thumb",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0x5745a2",
+          "mode": "Thumb",
+          "instruction": "bl #0x616ad6",
+          "direct_call": "0x616ad6",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x5745a6",
+          "mode": "Thumb",
+          "instruction": "str r5, [r0]"
+        },
+        {
+          "address": "0x5745a8",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": "0x5745aa",
+          "mode": "Thumb",
+          "instruction": "str r5, [r0, #4]"
+        },
+        {
+          "address": "0x5745ac",
+          "mode": "Thumb",
+          "instruction": "str r5, [r0, #8]"
+        },
+        {
+          "address": "0x5745ae",
+          "mode": "Thumb",
+          "instruction": "adds r4, #0xc"
+        },
+        {
+          "address": "0x5745b0",
+          "mode": "Thumb",
+          "instruction": "add r0, sp, #4"
+        },
+        {
+          "address": "0x5745b2",
+          "mode": "Thumb",
+          "instruction": "bl #0x5aed2a",
+          "direct_call": "0x5aed2a",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x5745b6",
+          "mode": "Thumb",
+          "instruction": "movs r1, r0"
+        },
+        {
+          "address": "0x5745b8",
+          "mode": "Thumb",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0x5745ba",
+          "mode": "Thumb",
+          "instruction": "bl #0x5e4bbc",
+          "direct_call": "0x5e4bbc",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x5745be",
+          "mode": "Thumb",
+          "instruction": "str r5, [r0]"
+        },
+        {
+          "address": "0x5745c0",
+          "mode": "Thumb",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": "0x5745c2",
+          "mode": "Thumb",
+          "instruction": "str r5, [r0, #4]"
+        },
+        {
+          "address": "0x5745c4",
+          "mode": "Thumb",
+          "instruction": "str r5, [r0, #8]"
+        },
+        {
+          "address": "0x5745c6",
+          "mode": "Thumb",
+          "instruction": "subs r4, #0x10"
+        },
+        {
+          "address": "0x5745c8",
+          "mode": "Thumb",
+          "instruction": "adds r0, #0xc"
+        },
+        {
+          "address": "0x5745ca",
+          "mode": "Thumb",
+          "instruction": "bl #0x46c274",
+          "direct_call": "0x46c274",
+          "call_target_mode": "Thumb"
+        },
+        {
+          "address": "0x5745ce",
+          "mode": "Thumb",
+          "instruction": "subs r0, #0x1c"
+        },
+        {
+          "address": "0x5745d0",
+          "mode": "Thumb",
+          "instruction": "add sp, #0xc"
+        },
+        {
+          "address": "0x5745d2",
+          "mode": "Thumb",
+          "instruction": "pop {r4, r5, pc}",
+          "resolved_terminal": "original_LR_return"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x5745d2"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    },
+    "vector_ranges": [
+      [
+        4,
+        16
+      ],
+      [
+        16,
+        28
+      ]
+    ],
+    "recursive_wrapper_offset": 28,
+    "base_CPP_native_mutex_offset": 32,
+    "base_CPP_tag_offset": 48,
+    "active_recursive_native_mutex_offset": 56,
+    "active_recursive_tag_offset": 72,
+    "constructor_expected20_words": [
+      "0xc1b59c",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0xc1b5c4",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x31041c",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x0",
+      "0x46c2c8",
+      "0x0"
+    ],
+    "field_writers": "574594 signalvtable;5745A6/AA/AC firstvectorzero;5745BE/C2/C4 secondvectorzero;5745CA original46C274 wrapper sets vtableC1B5C4 plusnativeS+32 zero/tag31041C andS+56 zero/tag46C2C8",
+    "constructor_80word_image_is_future_runtime_guard_not_static_memory_result": true,
+    "recursive_callees": "616AD8/616AD6/5AED2A/5E4BBC callee bodies not recursivelycompleted inthisnote; native46C274/3103D8/3008A0 bodies already bounded in frozenpreflight"
+  },
+  "correct_endpoint_assumptions": {
+    "typed_holders": "C1B5848bytes function+4;C1B56C16bytes context+4/membertarget+8/adjustment+12. Independentsignal registersonlyfree405341, stock80-byteSignal/memberholder inventoryretained.",
+    "native_owned_chain": "Snew+56→D+AEC→0; prevlink DispatcherTCB+32 thenSnew+56; bothownersDispatcher; extradepth1 then0; logicalordinarycounts2 then1; timertoken separate.",
+    "active_callback_frame": "SP8804F78/LR60935D matches52353C/609338 push frames and574760 tail; DRAII8804F9C,outerSRAII8804F88,innerSRAII8804F78; originalworkerrecord8804FA0/4FA4=[Snew,0].",
+    "current_dispatcher_frame": "Its TCB+12 oldframeconsumed; sourceexplicitly doesnotrequire itresumable.",
+    "Thread_timed_node": "node=savedSP+4,20bytes;next0/ThreadTCB/deadline/typeBYTE2. Bytes13..15padding and+16parameter observed notassumedzero orprevlink; equalitywithpriorfull52frame/raw20/currentclock is meaningful unchanged fixture check.",
+    "queue_consumption": "Original37BCE4 copies8byte recordandPOSTevent2;37BC00 advancesreadcursorTCB+18 towritecursor+21 andclearsmailboxbit2 whenqueueempty.",
+    "static_ready_and_state_prediction": "OriginalindependentSignal has no stockThreadjoin sideeffect; nativeALLfive unchanged,readyDispatcher→idle,states Thread8/Dispatcher1/timer2/controller2/idle1 andpriorities92/92/1/16/240 are consistent withlocaloriginal paths."
+  },
+  "narrow_guard_coverage": {
+    "idle_POST": "Checks TCB+12 matchescapturedpointer, savedPC2FD016/systemmode/live52bytebacking; doesnotcompare all52bytes topre-dispatchsnapshot orassertsavedSP/LR exact. Exactcontinuationframe anticipated9508F54,SP9508F88,LR10001 inprior46388.",
+    "controller_WAIT": "Checks savedPC2FD0AC/systemmode/live52bytebacking; doesnotassertcurrent13wordSP/LR/CPSRflagmask. NativefreshWAIT expectedSP9503F88/LR10001 underthisfixture.",
+    "condition_tag": "Expectedtag suppliedas self.word(condition+16), so tagcomparisonreportscurrentvalueratherthanassertingfixedretainedtag0.",
+    "mutex_classification": "Ownedsemaphores guard values[5]&FFFF validatesdepth only; nativebyte22 classification andreservedbyte23 are notasserted. Both normalownedCPP/nativeSignal andretainedtoken constructors initializehighhalf0.",
+    "task_flags": "Callbackstate/priority/internalmutex/backing guarded; TCBflagsmagic/metadata are notexplicitlyasserted inendpointmethod, although initialsingleton verifycheckedthem and wholeinitializedregion/storageguards remain.",
+    "not_observed_corruption_or_concrete_ABI_error": true,
+    "source_should_not_be_edited_during_live_run": true
+  },
+  "limits": {
+    "new_Runtime_or_terminal_evidence": false,
+    "physical_IRQ_or_clock": false,
+    "idle_API_event1_and_lower_aligned_heap_are_explicit_fixtures": true,
+    "callback_body_execution": false,
+    "foreground_root_rendering_touch_device_App": false,
+    "direct_phone_music": false,
+    "safe_cleanup_or_unload": false,
+    "independent_signal_holder_vectors_Dmutex_active_callstack_resident": true,
+    "original_stock_cleanup_signal_not_skipped_or_rewritten": true
+  },
+  "device_io": false,
+  "sounds_emitted": false,
+  "source_proofs_canonical_report_modified": false,
+  "install_candidate": false
+}

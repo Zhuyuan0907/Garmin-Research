@@ -1,0 +1,154 @@
+{
+  "updated_utc": "2026-10-03T01:40:40.093355+00:00",
+  "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "load_base": 144703488,
+  "elf": "staging/native-playback-control/playback-armv6.elf",
+  "elf_sha256": "9db159adef905bf928835b72bf49974cb77cb8f5101689363d58bcb61daa48a0",
+  "flat_binary": "staging/native-playback-control/playback-armv6.bin",
+  "flat_binary_sha256": "3307570a2605b406b0ad82bbcfa1a3be2f172ad1f206f26705b3bb5e23dcd53c",
+  "flat_binary_bytes": 836,
+  "symbols": {
+    "memory_output_after_selection": {
+      "address": 142617852,
+      "type": "A"
+    },
+    "memory_output_slots": {
+      "address": 142885152,
+      "type": "A"
+    },
+    "memory_output_control": {
+      "address": 142885248,
+      "type": "A"
+    },
+    "playback_api": {
+      "address": 144703488,
+      "type": "T"
+    },
+    "playback_rearm": {
+      "address": 144703496,
+      "type": "T"
+    },
+    "playback_before_start": {
+      "address": 144704056,
+      "type": "T"
+    },
+    "playback_callback_hook": {
+      "address": 144704220,
+      "type": "T"
+    },
+    "playback_callback_original": {
+      "address": 144704276,
+      "type": "T"
+    },
+    "playback_pcm_pages": {
+      "address": 144704308,
+      "type": "t"
+    },
+    "__playback_code_end": {
+      "address": 144704324,
+      "type": "T"
+    },
+    "__playback_state_start": {
+      "address": 144711680,
+      "type": "B"
+    },
+    "playback_state": {
+      "address": 144711680,
+      "type": "B"
+    },
+    "__playback_state_end": {
+      "address": 144711712,
+      "type": "B"
+    }
+  },
+  "commands": [
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/root/garmin/native/sbc-prototype",
+      "-I/root/garmin/staging/native-playback-control",
+      "-c",
+      "/root/garmin/native/sbc-prototype/playback_control.c",
+      "-o",
+      "/root/garmin/staging/native-playback-control/playback_control.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-fno-unwind-tables",
+      "-fno-asynchronous-unwind-tables",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I/root/garmin/native/sbc-prototype",
+      "-I/root/garmin/staging/native-playback-control",
+      "-c",
+      "/root/garmin/native/sbc-prototype/playback_hook.S",
+      "-o",
+      "/root/garmin/staging/native-playback-control/playback_hook.o"
+    ],
+    [
+      "arm-linux-gnueabi-gcc",
+      "-mcpu=arm1176jzf-s",
+      "-marm",
+      "-mfloat-abi=soft",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,--gc-sections,--build-id=none,-Map=/root/garmin/staging/native-playback-control/playback.map",
+      "-Wl,-T,/root/garmin/staging/native-playback-control/playback.ld",
+      "/root/garmin/staging/native-playback-control/playback_control.o",
+      "/root/garmin/staging/native-playback-control/playback_hook.o",
+      "-o",
+      "/root/garmin/staging/native-playback-control/playback-armv6.elf"
+    ]
+  ],
+  "attributes": "Attribute Section: aeabi\nFile Attributes\n  Tag_CPU_name: \"6KZ\"\n  Tag_CPU_arch: v6KZ\n  Tag_ARM_ISA_use: Yes\n  Tag_THUMB_ISA_use: Thumb-1\n  Tag_ABI_PCS_wchar_t: 4\n  Tag_ABI_FP_denormal: Needed\n  Tag_ABI_FP_exceptions: Needed\n  Tag_ABI_FP_number_model: IEEE 754\n  Tag_ABI_align_needed: 8-byte\n  Tag_ABI_enum_size: int\n  Tag_ABI_optimization_goals: Aggressive Size\n  Tag_CPU_unaligned_access: v6\n  Tag_Virtualization_use: TrustZone\n",
+  "segments": "\nElf file type is EXEC (Executable file)\nEntry point 0x8a002dc\nThere are 2 program headers, starting at offset 52\n\nProgram Headers:\n  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align\n  LOAD           0x010000 0x08a00000 0x08a00000 0x00344 0x02020 RWE 0x10000\n  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RW  0x10\n\n Section to Segment mapping:\n  Segment Sections...\n   00     .text .bss \n   01     \n",
+  "absolute_private_imports": {
+    "memory_output_control": 142885248,
+    "memory_output_slots": 142885152,
+    "memory_output_after_selection": 142617852
+  },
+  "source_sha256": {
+    "native/sbc-prototype/playback_control.c": "23e339fd62a6476aeaaa6eef26ce9464c5123319191000c8d255ca360739d0c1",
+    "native/sbc-prototype/playback_hook.S": "3a7602fdb6007c8c4ac86e7c5d16a61584cdcbddeaddc2c1480565b46c664197",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "staging/native-playback-control/playback_imports.h": "5dce5d671888faf35935a20cdc6ba9e5ea1595b4cd1945181f56d7315a675486",
+    "staging/native-playback-control/playback.ld": "fcae768fa1919150c3dff5ebc1eca7a4582c438953e668d707f716dff11bb840",
+    "scripts/build_native_playback_control.py": "89f93f3bf271827dfde86c40237fbeef7bf651cb7c037cbf9652ad260a4e644d",
+    "staging/native-owned-media/manifest.json": "ea5bdae97d4d3e05cf057b46a725e94f60736d47bb58f89751e634fe4437b844"
+  },
+  "owned_elf_sha256_required": "eb5f93ca2656c6b9130778d53ef960ef925d9e61e84177a6a5259feaa7cb8262",
+  "owned_artifact_private_abi_not_public_garmin_imports": true,
+  "hook_address": "0x2f998e",
+  "displaced_thumb_hex": "30b5020000255057ff21",
+  "original_resume": "0x2f9999",
+  "emulator_hook_only_not_loader_mounted_or_installed": true,
+  "device_io": false,
+  "device_install_candidate": false,
+  "limitations": "Exact unchanged owned-media private ABI and HWID1352/software8.00 stock entry. New C/ARM shim aligns only its C call stack then replays displaced Thumb semantics/resumes original callback before START14. Before-start attachment and guarded ACTIVE->QUEUED rearm require serialized exclusive source ownership/pinned modules/PCM. Rearm does not clear native state or release PCM; state checks/IRQ exclusion do not prove future-callback quiescence or cross-channel reservation. Failure rejects owned START but retains native allocations pending explicit reconciliation; not complete cancellation. Hook exists only in emulator RAM, no accepted loader package/App/UI/SEP/SDP/phone/speaker/navigation/realtime/DAC/DMA/IRQ/safe unload/Google Maps."
+}

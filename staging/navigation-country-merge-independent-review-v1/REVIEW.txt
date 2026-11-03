@@ -1,0 +1,35 @@
+Independent country merge review, completed read-only
+
+111,608 new integer house records were decoded from actual candidate packed bytes:
+L4 74,455; L5 35,183; L6 1,970. All payload positions, original GMP CP950
+house refs, raw24 values with independently rounded source strings, exact native
+city/district/street roster identities, and all 111,608 embedded source members
+(352,541 positive unique OSM IDs) matched. The three appended tables match the
+sealed producer binaries; L5 final padding is 2 zero high bits, L6 is 4.
+
+The independent signed-winding check used 21 complete city geometries, with
+16 cities actually receiving new records; Kaohsiung receives zero. Every source
+coordinate lies within its expected complete city. One quantized native point
+crosses the city boundary: Taoyuan nativeStreetID 6676, L4 new_lowID 2382209,
+810號, source 24.9285209 / 121.058782, raw24 [1161753, 5641748]. This extra
+native-grid check is explicitly separate from the producer source-point policy.
+
+30 original street groups (10 per level), 5,242 old records were directly read:
+their significant bits and relative order are unchanged, including 145 nonnumeric
+labels, 128 nested branches, 101 raw flag8 and 16 raw flag13 records. These flag
+values are preserved observations; this review does not establish their semantics.
+The sample covers original/output bit shifts and checks its 30 actual L3 parents.
+All selected range metadata matches the original decoded roster; complete L3 and
+old-prefix preservation use the root's separately sealed full readback evidence.
+
+Actual image reads: original 3,939,336 B (includes bounded 3,805,432 B label pool),
+candidate 25,130,930 B; peak RSS 424,240 KiB. Review exited 0 in 19.650932 seconds.
+No full IMG hash, PBF, full source groups/node ledger or ready ledgers were reread.
+The ready inputs' complete EOF/SHA provenance and candidate complete SHA are
+explicitly inherited from their sealed producer/root readback evidence.
+No IMG, CPU, device, canonical source, report or ZIP was modified in this scope.
+District geographic membership, source address authenticity and physical UI/route
+acceptance are not proved here. The full Taiwan native update remains incomplete.
+
+proof.json contains actual source hashes/stats, bounded physical read ranges and
+SHA receipts; execution-receipt.json ties it to session 24160 / terminal f7eb5e.

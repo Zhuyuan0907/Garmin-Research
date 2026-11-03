@@ -1,0 +1,442 @@
+{
+  "error": "Original virtual unlock or output/fixture mutex balance differs",
+  "completed_cases": [
+    {
+      "name": "original_backend_initializer_clears_six_words_in_poisoned_guarded_storage",
+      "passed": true,
+      "original_entry": "0x3008a0",
+      "native_zero_bytes": 24,
+      "native_zero_stores": [
+        {
+          "PC": "0x3008a2",
+          "address": "0x8800320",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a4",
+          "address": "0x8800324",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a6",
+          "address": "0x8800328",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a8",
+          "address": "0x880032c",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008aa",
+          "address": "0x8800330",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008ac",
+          "address": "0x8800334",
+          "size": 4,
+          "value": 0
+        }
+      ],
+      "remaining_payload_and_outer_canaries_unchanged": true,
+      "host_seeded_backend_fields": false
+    },
+    {
+      "name": "original_zero_BSS_mutex_is_unconstructed_and_singleton_absent",
+      "passed": true,
+      "mutex": "0x34a59a8",
+      "mutex_bytes": 28,
+      "original_vtable_before": 0,
+      "singleton_pointer_before": 0,
+      "original_zero_fill_page_materialized_for_inspection_only": true,
+      "host_seeded_mutex_or_singleton": false
+    },
+    {
+      "name": "original_bootstrap_constructs_mutex_and_registers_diagnostic_without_running_it",
+      "passed": true,
+      "original_entry": "0x5d2f7c",
+      "original_return": 0,
+      "native_mutex_words": [
+        "0xc1b5dc",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "original_vtable": "0xc1b5dc",
+      "original_virtual_lock": "0x310400",
+      "original_virtual_unlock": "0x31040c",
+      "diagnostic_registry": "0x8800420",
+      "diagnostic_record": "0x88005e0",
+      "registered_callback": "0x5d29df",
+      "diagnostic_key": "Dispatcher::DispatcherTest::testDispatcher",
+      "diagnostic_or_UI_event_delivery_executed": false,
+      "true_boot_sequence_kernel_thread_owner_or_safe_dtor_lifetime_verified": false
+    }
+  ],
+  "all_final_guards_passed": false,
+  "recent": [
+    "0x3008c8",
+    "0x3008cc",
+    "0x3008ce",
+    "0x3008d0",
+    "0x3008d2",
+    "0x3008e0",
+    "0x3008e2",
+    "0x3008e4",
+    "0x3008ec",
+    "0x3008ee",
+    "0x3008f0",
+    "0x3008f2",
+    "0x3008f4",
+    "0x3008f6",
+    "0x3008f8",
+    "0x3008fa",
+    "0x3008fc",
+    "0x300910",
+    "0x300912",
+    "0x300914",
+    "0x300918",
+    "0x30091c",
+    "0x300920",
+    "0x300924",
+    "0x300926",
+    "0x300928",
+    "0x30092a",
+    "0x310414",
+    "0x310416",
+    "0x351bee",
+    "0x351bf0",
+    "0x10000"
+  ],
+  "invalid_accesses": [],
+  "bootstrap_entries": [
+    {
+      "entry": "0x3008a0",
+      "arguments": [
+        "0x105e628",
+        "0x105e624",
+        "0x0",
+        "0x0"
+      ],
+      "caller": "0x2d3296"
+    },
+    {
+      "entry": "0x3008a0",
+      "arguments": [
+        "0x105e628",
+        "0x105e624",
+        "0x0",
+        "0x0"
+      ],
+      "caller": "0x2d3296"
+    },
+    {
+      "entry": "0x3008a0",
+      "arguments": [
+        "0x105e628",
+        "0x105e624",
+        "0x0",
+        "0x0"
+      ],
+      "caller": "0x2d3296"
+    },
+    {
+      "entry": "0x5d2f7c",
+      "arguments": [
+        "0x8800320",
+        "0x0",
+        "0x32",
+        "0x2"
+      ],
+      "caller": "0x10000"
+    },
+    {
+      "entry": "0x3103d8",
+      "arguments": [
+        "0x34a59a8",
+        "0x0",
+        "0x32",
+        "0x2"
+      ],
+      "caller": "0x5d2f84"
+    },
+    {
+      "entry": "0x3896f8",
+      "arguments": [
+        "0x34a59a8",
+        "0x3103ef",
+        "0xc7f980",
+        "0x2"
+      ],
+      "caller": "0x5d2f8c"
+    },
+    {
+      "entry": "0x2c0a1e",
+      "arguments": [
+        "0x0",
+        "0x34a59a8",
+        "0x3103ef",
+        "0xc7f980"
+      ],
+      "caller": "0x5d2f90"
+    },
+    {
+      "entry": "0x2c0e9a",
+      "arguments": [
+        "0x8800420",
+        "0x5d3008",
+        "0x5d29df",
+        "0xc7f980"
+      ],
+      "caller": "0x5d2f98"
+    },
+    {
+      "entry": "0x2c0a1e",
+      "arguments": [
+        "0x0",
+        "0xf11c8c",
+        "0x0",
+        "0xfffffff4"
+      ],
+      "caller": "0x10000"
+    },
+    {
+      "entry": "0x351bd0",
+      "arguments": [
+        "0x9700820",
+        "0x34a59a8",
+        "0x0",
+        "0xfffffff4"
+      ],
+      "caller": "0x10000"
+    },
+    {
+      "entry": "0x310400",
+      "arguments": [
+        "0x34a59a8",
+        "0x34a59a8",
+        "0x310401",
+        "0xfffffff4"
+      ],
+      "caller": "0x351bde"
+    },
+    {
+      "entry": "0x351be2",
+      "arguments": [
+        "0x9700820",
+        "0x1d3",
+        "0x300a05",
+        "0x310409"
+      ],
+      "caller": "0x10000"
+    },
+    {
+      "entry": "0x31040c",
+      "arguments": [
+        "0x34a59a8",
+        "0x31040d",
+        "0x300a05",
+        "0x310409"
+      ],
+      "caller": "0x351bee"
+    }
+  ],
+  "native_fatal_entries": [],
+  "native_mutex_operations": [
+    {
+      "original_entry": "0x3009a0",
+      "pointer": "0x34a59ac",
+      "native_caller": "0x310408",
+      "operation": "lock",
+      "before_words": [
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "fixture_thread": "0x8800260",
+      "native_body_returned": true,
+      "semaphore_fields_written_by_original_only": true,
+      "real_kernel_scheduler_verified": false,
+      "scope": "original_Cpp_mutex",
+      "original_return_branch_reached": true,
+      "after_words": [
+        "0x0",
+        "0x8800280",
+        "0x8800260",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "native_owner": "0x8800260",
+      "native_recursion_count": 0,
+      "thread_owned_list_head": "0x34a59ac"
+    },
+    {
+      "original_entry": "0x3008b0",
+      "pointer": "0x34a59ac",
+      "native_caller": "0x310414",
+      "operation": "unlock",
+      "before_words": [
+        "0x0",
+        "0x8800280",
+        "0x8800260",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "fixture_thread": "0x8800260",
+      "native_body_returned": true,
+      "semaphore_fields_written_by_original_only": true,
+      "real_kernel_scheduler_verified": false,
+      "scope": "original_Cpp_mutex",
+      "original_return_branch_reached": true,
+      "after_words": [
+        "0x0",
+        "0x8800280",
+        "0x0",
+        "0x0",
+        "0x31041c",
+        "0x0"
+      ],
+      "native_owner": "0x0",
+      "native_recursion_count": 0,
+      "thread_owned_list_head": "0x0"
+    }
+  ],
+  "native_condition_waits": [],
+  "native_full_releases": [],
+  "native_lower_wait_operations": [],
+  "active_wait": null,
+  "active_native_release": null,
+  "active_lower_wait": null,
+  "backend_initializations": [
+    {
+      "original_entry": "0x3008a0",
+      "pointer": "0x8800320",
+      "native_caller": "0x10000",
+      "bytes": 24,
+      "storage_boundary": "guarded_raw_allocation",
+      "before_hex": "a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5a5",
+      "native_zero_writes": [
+        {
+          "PC": "0x3008a2",
+          "address": "0x8800320",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a4",
+          "address": "0x8800324",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a6",
+          "address": "0x8800328",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a8",
+          "address": "0x880032c",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008aa",
+          "address": "0x8800330",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008ac",
+          "address": "0x8800334",
+          "size": 4,
+          "value": 0
+        }
+      ],
+      "original_body_executed": true,
+      "host_seeded_backend_bytes": false,
+      "after_hex": "000000000000000000000000000000000000000000000000"
+    },
+    {
+      "original_entry": "0x3008a0",
+      "pointer": "0x34a59ac",
+      "native_caller": "0x3103e6",
+      "bytes": 24,
+      "storage_boundary": "original_zero_BSS",
+      "before_hex": "000000000000000000000000000000000000000000000000",
+      "native_zero_writes": [
+        {
+          "PC": "0x3008a2",
+          "address": "0x34a59ac",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a4",
+          "address": "0x34a59b0",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a6",
+          "address": "0x34a59b4",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008a8",
+          "address": "0x34a59b8",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008aa",
+          "address": "0x34a59bc",
+          "size": 4,
+          "value": 0
+        },
+        {
+          "PC": "0x3008ac",
+          "address": "0x34a59c0",
+          "size": 4,
+          "value": 0
+        }
+      ],
+      "original_body_executed": true,
+      "host_seeded_backend_bytes": false,
+      "after_hex": "000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "condition_constructor_runs": [],
+  "active_condition": null,
+  "retained_condition_tokens": [],
+  "mutex_inventory": {
+    "0x3a7f18c": 0,
+    "0x105eaa4": 0,
+    "0x8019038": 0,
+    "0x8021020": 0,
+    "0x8020028": 0,
+    "0x8024038": 0,
+    "0xf7b3dc": 0,
+    "0x105e628": 0,
+    "0x344cf00": 0,
+    "0x80240b8": 0,
+    "0x8024138": 0,
+    "0x34a59ac": 0
+  },
+  "conditional_writes": []
+}

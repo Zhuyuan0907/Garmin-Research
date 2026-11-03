@@ -1,0 +1,13 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v3.py",
+  "started_session_id": 43116,
+  "actual_terminal_tool_result": {
+    "chunk_id": "d7d8d2",
+    "wall_time_seconds": 0.00002463,
+    "exit_code": 1,
+    "original_token_count": 357,
+    "output": "{\"case\": \"joint44_Stop_rejects_compressed_input\", \"CPU_stores\": 36570, \"joint_events\": 36609, \"decoder_full_returns\": 2, \"native_full_returns\": 8, \"FILE_only\": true}\nTraceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v3.py\", line 735, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v3.py\", line 704, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v3.py\", line 409, in verify_case\n    require(sites['0x2fa536']>0 and sites['0x2fa572']>0 and final_status[5]==0 and final_status[48]==(16 if normal_case else 8),'Both original fullcallroutes/current FIFO ticket')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-sync/verification-v1/verify_sbc_sync_v1_files_v3.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Both original fullcallroutes/current FIFO ticket\n"
+  },
+  "guest_execution": false,
+  "reviewer_premise": "Inherited two-call-site requirement was incorrectly applied to CRC recovery case without command16 reset. Four cases independently passed before this premise failure; actual CRC case uses only original2FA572. NEW v4 requires both actual2FA536/572 only in reset cases, records CRC actual sole2FA572, and adds exact memcpy source-byte and per-copy lease/publication guards. No ROOT/guest changes."
+}

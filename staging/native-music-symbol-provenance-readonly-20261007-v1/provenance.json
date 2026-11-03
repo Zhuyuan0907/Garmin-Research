@@ -1,0 +1,80 @@
+{
+  "scope": "finite C/H snapshots and JSON metadata; official toolchain documentation; host-only JSON guard",
+  "native_branch": "FILE-only; no native binaries, producer imports, compile, guest, device, Bluetooth, D-Bus, or audio",
+  "new_original_input_bytes_read_for_capture": 95145,
+  "earlier_same_turn_original_metadata_bytes_read": 64601,
+  "source_provenance_checks": [
+    "v2 source declarations agree with compile-stage input hashes",
+    "v3 source declarations agree with compile-stage input hashes",
+    "source-link.json historical successful link command uses --gc-sections",
+    "loaded-v2-link.json historical successful link command uses --gc-sections",
+    "loaded-v3-link.json historical successful link command uses --gc-sections",
+    "controller compile command separates function and data sections",
+    "public API is a const struct object, with used and a named section, not a getter"
+  ],
+  "missing_declared_entries_by_stage": {
+    "source-build-v2": [
+      "umc_status_read",
+      "umc_source_started",
+      "umc_cleanup_returned",
+      "umc_kick",
+      "ui_music_control_api"
+    ],
+    "v2": [
+      "umc_status_read",
+      "umc_source_started",
+      "umc_cleanup_returned",
+      "umc_kick",
+      "ui_music_control_api"
+    ],
+    "v3": [
+      "umc_status_read",
+      "umc_source_started",
+      "umc_cleanup_returned",
+      "umc_kick",
+      "ui_music_control_api"
+    ]
+  },
+  "API_label_erratum": {
+    "name": "ui_music_control_api",
+    "previous_label": "getter",
+    "correct_kind": "const struct umc_exports object",
+    "ARM32_source_layout_bytes": 36,
+    "fresh_ELF_kind_verified": false
+  },
+  "source_hashes_match_declarations_and_snapshots": true,
+  "fresh_reused_object_contents_verified": false,
+  "source_stage_already_missing_public_table_and_four_functions": true,
+  "compiler_sections_and_link_gc_declared": true,
+  "retention_explanation": "Section GC is consistent with the missing unrooted export table. The C used attribute causes compiler emission, not a proven linker root. Full linker script, map, input object, and ELF were not read; exact deletion cause remains unproven.",
+  "exact_linker_GC_cause_proven": false,
+  "current_same_image_metadata_contract_satisfied": false,
+  "host_guard_controls_passed": 16,
+  "actual_existing_candidates_refused": [
+    "v2",
+    "v3"
+  ],
+  "official_sources": [
+    {
+      "url": "https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Common-Variable-Attributes.html",
+      "support": "used guarantees compiler emission; retain separately protects from linker GC on supported targets"
+    },
+    {
+      "url": "https://sourceware.org/binutils/docs/ld/Input-Section-Keep.html",
+      "support": "KEEP protects input sections under GC"
+    },
+    {
+      "url": "https://sourceware.org/binutils/docs/ld/Options.html",
+      "support": "--gc-sections traces symbols and relocations from roots"
+    }
+  ],
+  "next_action": "Preserve an explicitly rooted public object and required helpers in a future reviewed build, then require the metadata contract. This turn does not modify the native source or authorize a build or install.",
+  "native_menu_App_direct_A2DP_speaker_install_or_ownership_verified": false,
+  "device_IO": false,
+  "full_goal_complete": false,
+  "host_guard_source_pins": {
+    "scripts/check_native_music_control_metadata.py": "b9c25c836c93b6f7d879518599c9fa38620df863bbfb2b37bb7e3079937e4a6d",
+    "scripts/test_native_music_control_metadata.py": "4d2c4b560da0c402c579e503c26d119a9d36cb038a45ee5b9d426e92e9ca421a"
+  },
+  "actual_final_guard_receipt": "actual-final-guard-tool-receipts.json"
+}

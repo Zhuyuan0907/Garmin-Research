@@ -1,0 +1,98 @@
+{
+  "schema": "final-source-delta-identity/v1",
+  "first20_source_sha256": "c7b1aa337aae0ace44efd228ac6eacdf40c4375ea3b886aa4c8d83206b14133b",
+  "final_source": {
+    "path": "scripts/analyze_garmin_music_diagnostics.py",
+    "bytes": 32748,
+    "sha256": "0eb165beb3c44f6f02e4577417628651b4681e9cfd6d8ddf336586af363d7b71"
+  },
+  "changed_functions": [
+    {
+      "function": "integer",
+      "new_byte_begin": 774,
+      "new_byte_end_exclusive": 964,
+      "new_function_sha256": "3d60fd386775d56e65d982d36ee848cbedd762aa3bb479c40f68b57b8d40994c"
+    },
+    {
+      "function": "numeric",
+      "new_byte_begin": 966,
+      "new_byte_end_exclusive": 1108,
+      "new_function_sha256": "1d67d86ab2e131de1feac97d3ec19361f6591cfb6a44eae78e20b3deb4a3a5e0"
+    },
+    {
+      "function": "clock_summary",
+      "new_byte_begin": 4251,
+      "new_byte_end_exclusive": 5707,
+      "new_function_sha256": "ae18a96276016291fc8969ed629b7a36bb1b8a6dc81535087c3336b8487137f8"
+    },
+    {
+      "function": "parse_meter",
+      "new_byte_begin": 5709,
+      "new_byte_end_exclusive": 11351,
+      "new_function_sha256": "db5fdf53c2240880f07583782f2ef425ec8148e85485eb1afdf3e204046e303e"
+    },
+    {
+      "function": "safe_volume",
+      "new_byte_begin": 11353,
+      "new_byte_end_exclusive": 13046,
+      "new_function_sha256": "3b650872e66099801a389ec5c17ba539a1a3d9c825b71c7502ae79699ad8e158"
+    },
+    {
+      "function": "parse_volume",
+      "new_byte_begin": 13048,
+      "new_byte_end_exclusive": 17495,
+      "new_function_sha256": "d5b8db62c053ffb9d7f4b7e71bcf9bac90bc05ac3044f6a4e6416d4b7bc3f75f"
+    },
+    {
+      "function": "ratios",
+      "new_byte_begin": 18879,
+      "new_byte_end_exclusive": 22226,
+      "new_function_sha256": "aec807fd02e493b8fa62555aadb16747e97de20bbeacf9926fb1b7f3fc088f6a"
+    },
+    {
+      "function": "pipeline_summary",
+      "new_byte_begin": 22228,
+      "new_byte_end_exclusive": 25196,
+      "new_function_sha256": "e6047f76c651f01d042df0a216caaa38e9d290b7d5e2cc560a065c2f57aa96ac"
+    },
+    {
+      "function": "analyze",
+      "new_byte_begin": 25198,
+      "new_byte_end_exclusive": 30343,
+      "new_function_sha256": "1ba3a5d33f9cfb93803d17438489a2cd1c8585e98d6a5730f2b0bdb76253ce1a"
+    },
+    {
+      "function": "main",
+      "new_byte_begin": 31306,
+      "new_byte_end_exclusive": 32692,
+      "new_function_sha256": "33dd7af39af514ef18f9e0abafbf6062178b8709cdb327e6bb1afdf71e36c1ca"
+    }
+  ],
+  "unchanged_functions_AST_equal": [
+    "DataError",
+    "no_duplicates",
+    "parse_json",
+    "stat_key",
+    "read_input",
+    "utc_ns",
+    "nearby",
+    "write_new"
+  ],
+  "other_module_nodes_AST_equal": false,
+  "minimal_exact_diff": {
+    "path": "staging/music-diagnostic-timeline-analyzer-20261007-v1/final-source-correction-review.diff",
+    "bytes": 6773,
+    "sha256": "5ffff0d5931192084ca415b986f026f490fd2c73471fefad9dcf6db074776d95"
+  },
+  "method": "ast.dump without location attributes, plus exact textual diff from archived first20 source; no targetcode execution",
+  "changed_nonfunction_nodes": [
+    {
+      "position": 19,
+      "old_kind": "Assign",
+      "new_kind": "Assign",
+      "assignment_names": [
+        "KNOWN_CODECS"
+      ]
+    }
+  ]
+}

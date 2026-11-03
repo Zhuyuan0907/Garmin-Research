@@ -1,0 +1,32 @@
+{
+  "command": [
+    "arm-linux-gnueabi-gcc",
+    "-mcpu=arm1176jzf-s",
+    "-mthumb",
+    "-mfloat-abi=soft",
+    "-Os",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-pie",
+    "-fno-stack-protector",
+    "-fno-unwind-tables",
+    "-fno-asynchronous-unwind-tables",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I/root/garmin/staging/native-os20-source-media-v1/build",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,--build-id=none,-T,/root/garmin/staging/native-os20-source-media-v1/media_case_v1.ld",
+    "/root/garmin/staging/native-os20-source-media-v1/media_case_v1.c",
+    "-o",
+    "/root/garmin/staging/native-os20-source-media-v1/build/source-media-EMULATION-ONLY.elf"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

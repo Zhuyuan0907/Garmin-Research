@@ -1,0 +1,36 @@
+[
+  {
+    "argv": [
+      "java",
+      "-jar",
+      "/root/garmin/staging/android-hfp-typecheck-tools-v1/ecj-3.41.0.jar",
+      "-source",
+      "8",
+      "-target",
+      "8",
+      "-proc:none",
+      "-warn:none",
+      "-encoding",
+      "UTF-8",
+      "-bootclasspath",
+      "/root/garmin/staging/android-hfp-typecheck-tools-v1/android-35.jar:/root/garmin/staging/android-hfp-typecheck-tools-v1/core-lambda-stubs.jar",
+      "-d",
+      "/root/garmin/staging/android-hfp-prototype-apk-v5/classes",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/AsyncPlayer.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/CallForegroundService.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/EndpointGarminConnection.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/EventLog.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/GarminConnection.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/GarminConnectionService.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflight.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflightLease.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/MainActivity.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlaybackGate.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/PlayerLoadLease.java",
+      "/root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/TestSession.java"
+    ],
+    "returncode": 255,
+    "stdout": "",
+    "stderr": "----------\n1. ERROR in /root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflight.java (at line 211)\n\tticket.cancel();\n\t^^^^^^\nThe blank final field ticket may not have been initialized\n----------\n2. ERROR in /root/garmin/android/garmin-hfp-player/app/src/main/java/org/garmin/hfpprototype/HfpPreflight.java (at line 213)\n\tif (!started) LEASE.releaseAfterCleanup(ticket);\n\t                                        ^^^^^^\nThe blank final field ticket may not have been initialized\n----------\n2 problems (2 errors)\n"
+  }
+]

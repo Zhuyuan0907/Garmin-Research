@@ -1,0 +1,22 @@
+{
+  "terminal": true,
+  "started_session_id": 48645,
+  "actual_launch_result": {
+    "chunk_id": "6e4219",
+    "wall_time_seconds": 1.001016681,
+    "session_id": 48645,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "actual_terminal_result": {
+    "chunk_id": "39d69e",
+    "wall_time_seconds": 0.000022537,
+    "exit_code": 1,
+    "original_token_count": 231,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-retirement/verify_retirement_files_root_v1.py\", line 200, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/verify_retirement_files_root_v1.py\", line 182, in main\n    row=verify_case(e,d,n,elf,sy,reference);rows.append(row)\n  File \"/root/garmin/staging/native-player-sbc-retirement/verify_retirement_files_root_v1.py\", line 96, in verify_case\n    require(native(e,rp,ez,sy)==row['native_before'],'Exact pre-store held metadata')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-retirement/verify_retirement_files_root_v1.py\", line 23, in require\n    if not v:raise AssertionError(m)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Exact pre-store held metadata\n"
+  },
+  "failure_kind": "Whole CPU/fixture/RW/RX replay passed; reviewer compared pre-store native metadata with after-store checkpoint of same journal ordinal. Need ordinal-1 memory checkpoint.",
+  "VM_execution": false,
+  "guest_rerun": false,
+  "device_IO": false
+}

@@ -1,0 +1,21 @@
+本範圍已完成兩個 held 來源 group 的唯讀地理對照，沒有產生地圖或地址寫入候選。
+
+景賢六街19號：原 group36096、唯一 source node7867809101，完整 prepared group／原 addr: 子集合／全部 sourceIDs／first coordinate／flags／原分類與 hold 均保留。來源點24.1653132,120.7117887及 raw24 [1126185,5625577] 都在 frozen 北屯區 relation2959946 完整 polygon 內。
+
+只讀 Searchv2 compiled tile70530020。原 sealed Dunfu6 Java reader 獨立複本只改 exact-label filter，普通 Java NET/RGN/LBL MapReader 實際執行一次。這個 tile 沒解出精確景賢六街；這不是不存在證明。解出同原北屯 stock family 已列 held 的景賢六路及景賢北街各一 NET row、一 RGN polyline；原 city label 都是臺中市。兩條 polyline 共15 vertices、13邊，逐邊以完整 polygon 邊界的 exact rational intersections 分段，各 interval midpoint 與端點皆在北屯區內；不是只檢查道路端點，也沒有跨區匹配。
+
+景賢六路：sourcepoint 到已證明境內線段的近線距離16.806806400665888公尺；raw24point16.980989500622453公尺。
+景賢北街：sourcepoint373.5382588426177公尺；raw24point373.872552948835公尺。
+距離是 local equirectangular projection 的資料地理關係，非路由距離、門牌/官方名稱或 alias 證明；nearest 不用來改名。景賢六街原 held_alias_relation、official_name_and_historical_alias_unverified 全部維持。
+
+榮興街32號：原 group33650、唯一 source node7170215615、first coordinate24.187833,120.7018367、raw24 [1127235,5625113] 兩點都在北屯區外。保留原完整 group/hold 並增加 geometry hold。依上游要求停止這個 roads 候選：沒有把榮興街或北興街／平興街／江興街送入 Java target，也不推定它應改成其他區或其他路名。
+
+來源只用已封存18,867-byte corrected capture；本次 preparation 驗 compressed/plain SHA、EOF/CRC及102完整 rows，保留其中兩條完整 plaintext capture lines。前置 exploratory host lookup 一度使用錯誤頂層 key 得空結果，後改讀 nested original_prepared_group；沒有候選/裝置寫入。包含兩次前置 host inspection，small capture 共讀三次，不能稱整體只讀一次；未開137MB planning ledger 或 PBF。原 prepared capture 未提供 per-node 完整 tags/version/alternate coords 等欄位，保持 unavailable，沒有補造。
+
+Java process EXIT0；selected tile2953216B host hash 一次，加 Java strace1584個成功 read、3224791B（重複讀範圍另存 java-tile-read-receipt.json）。總 host hash＋Java實際要求讀取6178007B；只一 tile，未讀或 hash 全 Search IMG。trace有4個 JVM SIGSEGV事件，Java 後續完成 EXIT0；不推定事件原因，不當 ARM guest、實機或硬體證據。mmap tile0。Java -Xmx384m 是 heap上限，RSS未測量。
+
+新 pure segment algorithm 六項 synthetic controls 通過（inside、holes crossing、outside endpoint、boundary、diagonal through hole、repeated point）。沒有重跑舊368／崇德 point controls、native guest、MAIN、renderer或裝置。最終 audit只查輸出與 immutable input stats，沒有重讀 tile/重跑 Java/geometry/distance。
+
+analyze_contrast.executed.py 是實際執行版本；分析後只把 distance_method 描述的 source latitude 改成 each assessed point latitude，數學未改也未重跑。原輸出 wording 的 raw24 距離描述更正見 source-run-edit-history.json；差異完整保留。
+
+proof.json、contrast-results.json、candidate-groups.json、actual-tool-receipts.json及所有 source/trace/receipts 一起封存。handles 全部关闭。官方街名/歷史 alias／精確門牌道路关系／原native UI或實機 route未驗；write/install ready=false，全台更新未完成。停止本有限 scope。

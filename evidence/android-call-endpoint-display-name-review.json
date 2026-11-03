@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-07T15:14:59.244203+00:00",
+  "review": "API34+ endpoint display name matching against bonded Bluetooth devices",
+  "decision": "No v4 alias change is warranted by Android15 r1: keep getName-based endpoint matching and getName-based uniqueness checks.",
+  "scope": {
+    "official_source_files": 3,
+    "decoded_source_bytes": 96623,
+    "decoded_source_limit_bytes": 262144,
+    "fixed_tag": "android-15.0.0_r1",
+    "repository_commit": "ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2",
+    "full_call_graph": false,
+    "search_scope": "Official SDK API docs; fixed Telecomm directory metadata; only the three source files listed below. Initial official search queries returned no hits. No fourth source file, master/latest branch, native execution, or device query was used."
+  },
+  "sources": [
+    {
+      "repository": "platform/packages/services/Telecomm",
+      "fixed_tag": "android-15.0.0_r1",
+      "commit": "ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2",
+      "path": "src/com/android/server/telecom/CallEndpointController.java",
+      "url": "https://android.googlesource.com/platform/packages/services/Telecomm/+/ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2/src/com/android/server/telecom/CallEndpointController.java",
+      "snapshot_path": "staging/android-call-endpoint-display-name/android-15.0.0_r1/CallEndpointController.java",
+      "extent": "full unmodified decoded source",
+      "complete": true,
+      "decoded_bytes": 19264,
+      "decoded_sha256": "cc6b2d73c6701cc490e8db74ea424ae98267f8a45decc1bb073bc03d9da51326",
+      "line_count": 454,
+      "inspected_line_ranges": [
+        [
+          287,
+          335
+        ],
+        [
+          346,
+          375
+        ],
+        [
+          404,
+          418
+        ],
+        [
+          421,
+          451
+        ]
+      ],
+      "whole_file_search": {
+        "getAlias_occurrences": 0,
+        "getName_occurrences": 1,
+        "new_CallEndpoint_occurrences": 3
+      }
+    },
+    {
+      "repository": "platform/packages/services/Telecomm",
+      "fixed_tag": "android-15.0.0_r1",
+      "commit": "ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2",
+      "path": "src/com/android/server/telecom/AudioRoute.java",
+      "url": "https://android.googlesource.com/platform/packages/services/Telecomm/+/ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2/src/com/android/server/telecom/AudioRoute.java",
+      "snapshot_path": "staging/android-call-endpoint-display-name/android-15.0.0_r1/AudioRoute.java",
+      "extent": "full unmodified decoded source",
+      "complete": true,
+      "decoded_bytes": 19024,
+      "decoded_sha256": "e13791e4840b4362541bd0b723d4072dfd7b0d2cea5dd77fd97cbcddb7c4b40d",
+      "line_count": 396,
+      "inspected_line_ranges": [
+        [
+          50,
+          106
+        ],
+        [
+          134,
+          142
+        ],
+        [
+          318,
+          337
+        ]
+      ],
+      "whole_file_search": {
+        "getAlias_occurrences": 0,
+        "getName_occurrences": 0,
+        "new_CallEndpoint_occurrences": 0
+      }
+    },
+    {
+      "repository": "platform/packages/services/Telecomm",
+      "fixed_tag": "android-15.0.0_r1",
+      "commit": "ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2",
+      "path": "src/com/android/server/telecom/CallAudioRouteController.java",
+      "url": "https://android.googlesource.com/platform/packages/services/Telecomm/+/ab6428db8d29c88b1d8c8ad5d19b9c75408ff3e2/src/com/android/server/telecom/CallAudioRouteController.java",
+      "snapshot_path": "staging/android-call-endpoint-display-name/android-15.0.0_r1/CallAudioRouteController.java",
+      "extent": "full unmodified decoded source",
+      "complete": true,
+      "decoded_bytes": 58335,
+      "decoded_sha256": "2751fc9b397f4fb94866736d78b1e08c916e1324c5264cb2cabad3da0f99c548",
+      "line_count": 1322,
+      "inspected_line_ranges": [
+        [
+          950,
+          975
+        ],
+        [
+          985,
+          999
+        ]
+      ],
+      "whole_file_search": {
+        "getAlias_occurrences": 0,
+        "getName_occurrences": 0,
+        "new_CallEndpoint_occurrences": 0
+      }
+    }
+  ],
+  "sdk_documents": [
+    {
+      "url": "https://developer.android.com/reference/android/bluetooth/BluetoothDevice#getAlias()",
+      "api_added": 30,
+      "paraphrase": "Returns the locally modifiable alias; if no alias, returns the friendly device name; may return null on problems. Apps targeting S or newer require BLUETOOTH_CONNECT."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/bluetooth/BluetoothDevice#getName()",
+      "api_added": 5,
+      "paraphrase": "Returns the cached friendly remote Bluetooth device name, possibly null. Apps targeting S or newer require BLUETOOTH_CONNECT."
+    },
+    {
+      "url": "https://developer.android.com/reference/android/telecom/CallEndpoint#getEndpointName()",
+      "api_added": 34,
+      "paraphrase": "Provides an endpoint name; the public API does not promise that all OEM implementations derive it from BluetoothDevice.getName."
+    }
+  ],
+  "findings": [
+    {
+      "id": "actual-bluetooth-endpoint-name",
+      "evidence": [
+        "CallEndpointController.java:301-308"
+      ],
+      "result": "The Bluetooth branch iterates CallAudioState.getSupportedBluetoothDevices, calls device.getName(), and creates CallEndpoint(deviceName != null ? deviceName : empty-string, TYPE_BLUETOOTH). It does not call getAlias or substitute the generic Bluetooth label here."
+    },
+    {
+      "id": "generic-label-is-other-path",
+      "evidence": [
+        "CallEndpointController.java:319-323",
+        "CallEndpointController.java:404-418"
+      ],
+      "result": "A generic Bluetooth resource exists in getEndpointName, but the inspected Bluetooth endpoint-construction branch directly uses getName and does not call that helper. The helper labels other endpoint types."
+    },
+    {
+      "id": "endpoint-identity-is-internal-address-map",
+      "evidence": [
+        "CallEndpointController.java:303-311",
+        "CallEndpointController.java:346-356"
+      ],
+      "result": "Telecom retains its private endpoint UUID to Bluetooth address map and can reuse an existing endpoint for the same device address. The app-facing display name does not expose this address map. A reused endpoint may retain the name originally copied during creation."
+    },
+    {
+      "id": "audio-route-does-not-rename",
+      "evidence": [
+        "AudioRoute.java:134-136",
+        "AudioRoute.java:318-321",
+        "CallAudioRouteController.java:950-975",
+        "CallAudioRouteController.java:985-999"
+      ],
+      "result": "AudioRoute stores type/address/AudioDeviceInfo. The new route controller packages BluetoothDevice instances into CallAudioState and notifies CallsManager; neither file constructs CallEndpoint or calls getAlias/getName to replace its display name."
+    },
+    {
+      "id": "v4-matches-reviewed-source",
+      "evidence": [
+        "local TestSession.java:110",
+        "local TestSession.java:282-293",
+        "local EndpointGarminConnection.java:44-54",
+        "local EndpointGarminConnection.java:94-105"
+      ],
+      "result": "v4 captures chosen.getName, checks that it remains unchanged, and compares that same getName string across all bonded devices. Its available endpoint match and endpoint UUID checks align with the selected fixed-tag implementation."
+    }
+  ],
+  "uniqueness_rule": {
+    "for_reviewed_android15_r1": "Compare the selected nonempty getName string with getName of every bonded device, using exact string equality. Also require one matching TYPE_BLUETOOTH endpoint in the currently supplied endpoint list, then retain existing identifier/callback and actual-SCO checks.",
+    "do_not_mix_alias_and_name": true,
+    "examples_are_hypothetical_not_device_observations": [
+      {
+        "remote_name": "Garmin",
+        "local_alias": "My navigation",
+        "reviewed_endpoint_name": "Garmin",
+        "implication": "Switching the app comparison to getAlias would cause a false endpoint-name mismatch."
+      },
+      {
+        "two_remote_names": [
+          "Garmin",
+          "Garmin"
+        ],
+        "two_local_aliases": [
+          "Navigation A",
+          "Navigation B"
+        ],
+        "implication": "Alias uniqueness does not remove duplicate getName endpoint ambiguity; the existing bonded-name rejection should remain."
+      }
+    ],
+    "null_or_blank_name": "Remain refused; do not substitute alias or generic label as identity.",
+    "oem_alias_endpoint_variant": "Not established by this review. Do not add an alias fallback based on an assumed OEM behavior."
+  },
+  "next_step": "Keep v4 name matching unchanged. This is source compatibility evidence, not new playback progress or actual Pixel/Garmin verification.",
+  "limits": {
+    "actual_pixel_os_or_oem_builder_verified": false,
+    "live_alias_or_name_observed": false,
+    "endpoint_to_mac_public_contract_guaranteed": false,
+    "garmin_hfp_audio_verified": false,
+    "native_a2dp_goal_achieved": false
+  },
+  "activity_flags": {
+    "android_source_modified": false,
+    "native_source_modified": false,
+    "apk_modified": false,
+    "host_tests_rerun": false,
+    "native_producer_binary_guest_execution": false,
+    "native_retry_or_bypass": false,
+    "live_bt_dbus_phone_device_query": false,
+    "pairing_call_or_audio": false,
+    "only_new_evidence_and_unmodified_source_snapshots": true
+  }
+}

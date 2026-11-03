@@ -1,0 +1,53 @@
+{
+  "updated_utc": "2026-10-04T03:22:41.981050+00:00",
+  "source_static_evidence": "staging/native-player-mainmenu/MainMenu-root-settings-preflight.json",
+  "source_static_evidence_sha256": "844089c654c815dd2bfa2f6bd3a247972ddac9478f667a7764d7b6617b8b2444",
+  "failure_probe": "staging/native-player-mainmenu-controller/clock-argument-failure.json",
+  "failure_probe_sha256": "e88226fb322b077156384063f5c04fb49e8b771a9284c693c2c4a603c568bb11",
+  "native_instructions": [
+    {
+      "address": "0x3b4bac",
+      "instruction": "bl #0x353a9c",
+      "direct_call": "0x353a9c"
+    },
+    {
+      "address": "0x3b4bb0",
+      "instruction": "movs r4, r0"
+    },
+    {
+      "address": "0x3b4bb8",
+      "instruction": "movs r0, #0x7d"
+    },
+    {
+      "address": "0x3b4bba",
+      "instruction": "lsls r0, r0, #3"
+    },
+    {
+      "address": "0x3b4bbe",
+      "instruction": "adds r0, r4, r0"
+    },
+    {
+      "address": "0x3b4bc0",
+      "instruction": "str r0, [sp, #4]"
+    },
+    {
+      "address": "0x3b4c0e",
+      "instruction": "ldr r2, [sp, #4]"
+    },
+    {
+      "address": "0x3b4c10",
+      "instruction": "bl #0x3ec6aa",
+      "direct_call": "0x3ec6aa"
+    }
+  ],
+  "original_clock_call": "0x353a9c",
+  "constant_native_125_shift3": 1000,
+  "native_wait_argument_equals_original_clock_result_plus1000": true,
+  "observed_virtual_clock_word": 180,
+  "observed_native_wait_argument": 1180,
+  "full_controller_constructor_or_root_final_guards_verified": false,
+  "real_kernel_time_units_owner_or_wait_semantics_verified": false,
+  "next": "New subclass: observe original clock result at3B4BB0, verify exact original plus1000 argument and mutex state before supplying declared absent-pool failure. Keep native instructions and old frozen fixed-clock VM unchanged; focused controls before rerunning controller.",
+  "device_io": false,
+  "sounds_emitted": false
+}

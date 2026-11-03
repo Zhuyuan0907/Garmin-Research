@@ -1,0 +1,23 @@
+--- executed/preparation_API
++++ final/expanded_4k_stock_restore.py
+@@ -313,6 +313,8 @@
+     require(stock.compressed_sha256==RECIPE_SHA and stock.compressed_bytes==RECIPE_BYTES
+             and stock.uncompressed_sha256=='44ac0746da599dfd67f317bcba70fa891f315576cf0995f8a483ed9ba18401aa',
+             'Only unchanged closed production recipe supported')
++    require(digest((json.dumps(stock.data,ensure_ascii=False,separators=(',',':'))+'\n').encode())
++            ==stock.uncompressed_sha256, 'Loaded pinned stock recipe data changed after verified decode')
+     current=_parse_candidate_prefix(coherent_prefix)
+     require(len(actual_mdr_header)==772 and digest(actual_mdr_header)==MDR_HEADER_SHA,
+             'Exact measured MDR772 header required')
+@@ -407,8 +409,11 @@
+         require(type(stream) is io.BufferedReader and stream.mode=='rb',
+                 'Production opens only an actual read-only file')
+         witness=_hash_file_fresh(stream,CANDIDATE_BYTES,CANDIDATE_SHA)
++        verified_stat=tuple(witness['stat_before_after'])
+         log.append({'purpose':'fresh_complete_supported_input_hash_before_first_yield',**witness})
++        require(tuple(identity(stream))==verified_stat, 'Input changed after fresh full SHA before restore')
+         yield from _restored_blocks(stream,stock,binding,log)
++        require(tuple(identity(stream))==verified_stat, 'Input stat differs from fresh full SHA witness at EOF')
+ 
+ 
+ def reconstructed_stock_hash(candidate_path, recipe_path, binding_path, binding_sha256, read_receipts=None):

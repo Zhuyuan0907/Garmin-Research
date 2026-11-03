@@ -1,0 +1,15 @@
+{
+  "kind": "Pure host static-analysis failure; no guest executed",
+  "session": 66049,
+  "terminal_exit_code": 1,
+  "actual_terminal_chunk": "0a2bb9",
+  "source_snapshot": "staging/native-player-global-subobject/package-marker/source-at-static-string-decoding-failure.py",
+  "boundary": "UTF16 literal reader decoded 100 bytes including unrelated data beyond the native NUL terminator; a later non-string surrogate caused UnicodeDecodeError.",
+  "exact_opcode_assertions_reached": true,
+  "protected_1274_before_check_completed": true,
+  "protected_after_check_or_success_artifact_completed": false,
+  "native_or_firmware_fault": false,
+  "guest_execution": false,
+  "existing_frozen_files_modified": false,
+  "correction": "Read complete UTF16 code units only through the first NUL terminator, then decode that bounded string. Preserve this failed attempt; rerun only the new host static analyzer."
+}

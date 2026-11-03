@@ -1,0 +1,13 @@
+{
+  "command": "python3 -B staging/native-player-sbc-sync/build_sbc_sync_v1.py",
+  "actual_terminal_result": {
+    "chunk_id": "ae3f40",
+    "wall_time_seconds": 0.998895615,
+    "exit_code": 1,
+    "original_token_count": 359,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-sbc-sync/build_sbc_sync_v1.py\", line 121, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-sbc-sync/build_sbc_sync_v1.py\", line 87, in main\n    run(['arm-linux-gnueabi-gcc',*flags,*extra,'-c',str(p),'-o',str(obj)])\n    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-sbc-sync/build_sbc_sync_v1.py\", line 81, in run\n    if r.returncode:raise RuntimeError(r.stderr[-3000:])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: /root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c: In function ‘sbc_pack_frame_internal’:\n/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c:831:73: error: unused parameter ‘len’ [-Werror=unused-parameter]\n  831 |                                         struct sbc_frame *frame, size_t len,\n      |                                                                  ~~~~~~~^~~\n/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c: In function ‘sbc_set_a2dp’:\n/root/garmin/sources/deep-research/sbc-2.1/sbc/sbc.c:1092:51: error: unused parameter ‘flags’ [-Werror=unused-parameter]\n 1092 | static int sbc_set_a2dp(sbc_t *sbc, unsigned long flags,\n      |                                     ~~~~~~~~~~~~~~^~~~~\ncc1: all warnings being treated as errors\n\n"
+  },
+  "terminal": true,
+  "retry_or_rerun_forbidden": true,
+  "scope": "Compile failure in unchanged upstream SBC source for unused parameters under root -Werror. No guest ran and original library unchanged."
+}

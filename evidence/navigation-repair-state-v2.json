@@ -1,0 +1,183 @@
+{
+  "updated_utc": "2026-10-05T15:15:08.831648+00:00",
+  "goal_status": "active",
+  "goal_complete": false,
+  "current_goal_priority": "navigation_search_repair",
+  "research_goal_status": "paused",
+  "native_app_research_status": "deferred_until_navigation_verified",
+  "navigation_repair_status": "offline_v2_candidate_packaged_waiting_for_device",
+  "candidate": true,
+  "repair_estimate_percent": 65,
+  "estimate_is_planning_not_verified_success": true,
+  "device_installed": false,
+  "device_search_verified": false,
+  "device_routing_verified": false,
+  "stock_maps_modified": false,
+  "completed_offline_details": [
+    "原韌體有限指令探針確認：常用漢字及Extension A/B走原生implicit排序，補SRT中文頁本身不會改變該路徑。",
+    "在v1實際MDR索引定位8組地名排序反例；修正主機產生的中文implicit字序及已驗範圍的非BMP處理。",
+    "確認原韌體讀取16/10/6位元權重，原編譯工具寫16/8/8；已同時修正字元與expansion記錄封裝並加入溢位拒絕。",
+    "48個字串三層權重、23組三種比較強度均吻合原韌體函式；18175既有BMP、2610expansion數值保留，非中文控制及maxPrimary不變。",
+    "第二版36圖磚已重編；全部LBL/MDR/SRT身份、記錄封裝與索引指標核對通過，臺中市分組可達民權路與民和路對照。",
+    "第二版實際NET/RGN/LBL核對道路名稱、臺中市歸屬及5個來源座標；包內地圖、安裝/還原和校驗資料完成ZIP讀回。",
+    "原廠地址manager存在依可用圖資分流及JAI地圖ID核對；尚未證明車機UI選到新版OSM，也未證明兩小時搜尋的根因。",
+    "鍵盤code_page950會被原程式解析；輸入字元到地圖查詢的轉碼流程仍未連接，沒有更改鍵盤檔。"
+  ],
+  "remaining_physical_checks": [
+    "USB 實機身份、安裝讀回及原廠資料保留驗證。",
+    "只啟用新版 OSM 與只啟用原廠 CN＋Address Point 的兩組對照。",
+    "地址→臺中市→民權路的候選、門牌、地圖位置與搜尋耗時。",
+    "以民和路一／二段作道路辨識對照；其他道路尚無使用者實測案例，不當成已確認故障。",
+    "GPS 定位後的路線計算及實際導引；確認問題解決後才恢復音樂／App 研究。"
+  ],
+  "package": {
+    "all_passed": true,
+    "candidate": true,
+    "candidate_version": 2,
+    "created_utc": "2026-10-05T15:12:09.214770+00:00",
+    "created_at_local": "2026-10-05T23:12:09.214792+08:00",
+    "zip": "reports/downloads/Garmin-2565RT-navigation-repair-v2.zip",
+    "zip_bytes": 98671846,
+    "zip_sha256": "f22f991f6e654290432c283b68757b827cd612d629d53890d29fb5d61fe62d3d",
+    "map_path": "staging/navigation-repair-v2/compiled/gmapsupp.img",
+    "map_bytes": 131829760,
+    "map_sha256": "664c46c99697b61ba383b5571b0a49356336746c9bbf3f94403aae583787f117",
+    "complete_zip_member_readback": true,
+    "member_count": 46,
+    "offline_verification": [
+      {
+        "path": "staging/navigation-repair-v2/build-manifest.json",
+        "bytes": 5781,
+        "sha256": "55b3a4ce14f9292b6bc923fa2405ea6b68f04410ba1adf7eb90a67d6ff9ad42b"
+      },
+      {
+        "path": "staging/navigation-repair-v2/sort-verification.json",
+        "bytes": 14385,
+        "sha256": "e518c0be91ec10d016855a7f57eb2bf1c653afa198207d09f2cea27c84662e22"
+      },
+      {
+        "path": "staging/navigation-mdr-query-v2/candidate-mdr-query-proof-v3.json",
+        "bytes": 78649,
+        "sha256": "cbd3d61e90352f2c9570d6ce017afa73a916fe0cacc2e9ff17cb5c9bc0e4880a"
+      },
+      {
+        "path": "staging/navigation-road-regression-v2/road-city-regression-proof-v2.json",
+        "bytes": 19309,
+        "sha256": "27b31382216e6d1230f1517a769f45999a66130dfe72d47bb95cc5caf35d77d8"
+      },
+      {
+        "path": "staging/navigation-firmware-sort-v1/packed-shadow-alignment-proof-v2.json",
+        "bytes": 55166,
+        "sha256": "58c84efdf0b7c5df8f7f7f6fed479283f2dc473fea2762b064be1eedac616ad3"
+      },
+      {
+        "path": "staging/navigation-firmware-sort-v1/packed-hard-guard-proof-v2.json",
+        "bytes": 118,
+        "sha256": "1544afbb7313bbf509ff7fd2f3e3b752a1c94d956353679a3977f1ab990160fa"
+      },
+      {
+        "path": "staging/navigation-native-srt-layout-v1/srt-layout-evidence.json",
+        "bytes": 25287,
+        "sha256": "302138eb9c7f5368e6d2a0dfcb00622263195a7d5f5aa632f6262652125ea101"
+      },
+      {
+        "path": "staging/navigation-map-layers-v2/installer-test-results.json",
+        "bytes": 2238,
+        "sha256": "ca20b7d1f7db2666a4dd095dc78dbd9fc44aa521831f090a6450c802ebaddd53"
+      },
+      {
+        "path": "staging/navigation-map-layers-v1/installer-test-results.json",
+        "bytes": 4691,
+        "sha256": "24a88b581119c54f363771f2752d0d13fcf3fe6c0d20dfb135bca97ba2a89144"
+      }
+    ],
+    "stock_maps_modified": false,
+    "device_installed": false,
+    "device_search_verified": false,
+    "device_routing_verified": false,
+    "GarminOS_recompiled": false,
+    "canonical_state_or_report_updated": false,
+    "status": "offline_v2_candidate_packaged_waiting_for_physical_verification",
+    "download_url": "http://172.16.60.187:8767/Garmin-2565RT-navigation-repair-v2.zip"
+  },
+  "download_url": "http://172.16.60.187:8767/Garmin-2565RT-navigation-repair-v2.zip",
+  "physical_ab_test_success": false,
+  "known_limits": [
+    "未安裝實機；中文輸入、地址/門牌查詢、耗時與路線結果仍待確認。",
+    "原指令驗證使用合成記憶體與有限函式，不能等同車機UI或完整GarminOS模擬。",
+    "已驗原生漢字範圍：3400–4DBF、4E00–9FBB、20000–2A6D6；其他nonBMP/emoji未宣稱支援。",
+    "高雄/旗津原始界線缺兩段方式，未補造幾何；OSM地址完整性亦需實機核對。",
+    "原廠CN＋Address Point維持互補；與OSM疊加是否影响搜尋須A/B，不先認定衝突。"
+  ],
+  "sources": {
+    "layers": "staging/navigation-map-layers-v1/layer-inventory.json",
+    "road_coverage": "staging/navigation-road-coverage-v1/road-coverage-proof.json",
+    "root_closure": "staging/navigation-road-coverage-v1/native-all-city-closure-proof.json",
+    "sort_proof": "staging/navigation-search-encoding-v1/writer-only-fixture-proof.json",
+    "build": "staging/navigation-repair-v2/build-manifest.json",
+    "sort_verifier": "staging/navigation-search-encoding-v2/verify_navigation_sort_v2.py",
+    "road_regression": "staging/navigation-road-regression-v1/road-city-regression-proof-v2.json",
+    "installer": "staging/navigation-map-layers-v2/install_navigation_bundle.py",
+    "package_builder": "scripts/package_navigation_repair_v1.py",
+    "download_server": "scripts/serve_navigation_download.py",
+    "download_service_unit": "staging/navigation-repair-v1/download-service.unit",
+    "download_readback": "staging/navigation-repair-v2/download-web-verification.json",
+    "device_preflight": "evidence/navigation-bundle-20261005T231323766290+0800.json",
+    "build_script": "scripts/build_navigation_repair_v2.py",
+    "build_receipt": "staging/navigation-repair-v2/build-terminal-receipt.json",
+    "package": "staging/navigation-repair-v2/package-result.json",
+    "package_script": "scripts/package_navigation_repair_v2.py",
+    "sort": "staging/navigation-repair-v2/sort-verification.json",
+    "MDR": "staging/navigation-mdr-query-v2/candidate-mdr-query-proof-v3.json",
+    "roads": "staging/navigation-road-regression-v2/road-city-regression-proof-v2.json",
+    "native_alignment": "staging/navigation-firmware-sort-v1/packed-shadow-alignment-proof-v2.json",
+    "native_seal": "staging/navigation-firmware-sort-v1/sealed-manifest-v1.json",
+    "independent_packing": "staging/navigation-native-srt-layout-v1/srt-layout-evidence.json",
+    "address_dispatch": "staging/navigation-firmware-address-v1/address-dispatch-evidence.json",
+    "keyboard": "staging/navigation-keyboard-query-v1/keyboard-metadata-dispatch-proof-v2.json",
+    "download_source": "scripts/serve_navigation_download_v2.py",
+    "download_unit": "staging/navigation-repair-v2/download-service.unit",
+    "package_terminal": "staging/navigation-repair-v2/package-terminal-receipt.json",
+    "download_deployment": "staging/navigation-repair-v2/download-deployment.json",
+    "sort_terminal": "staging/navigation-search-encoding-v2/fullmap-verifier-terminal-receipt.json",
+    "road_terminal": "staging/navigation-road-regression-v2/road-regression-terminal-receipt.json",
+    "MDR_terminal": "staging/navigation-mdr-query-v2/candidate-mdr-query-v3-terminal-tool-receipt.json",
+    "installer_adaptation": "staging/navigation-map-layers-v2/installer-test-results.json",
+    "package_preparation": "staging/navigation-map-layers-v2/preparation-review-rev2.json",
+    "package_preparation_seal": "staging/navigation-map-layers-v2/preparation-file-seal.json"
+  },
+  "user_confirmed_primary_case": "地址→已指定台中市→民權路；目前只有此路已實際測試",
+  "other_missing_roads_confirmed": false,
+  "required_work_remaining": true,
+  "candidate_version": 2,
+  "previous_candidate_status": "superseded_after_native_sort_incompatibilities_identified",
+  "previous_candidate_state": "evidence/navigation-repair-state-v1.json",
+  "previous_candidate_installable": false,
+  "GarminOS_recompiled": false,
+  "firmware_modified": false,
+  "next": "核對USB實機、安裝第二版候選並讀回；新版OSM單独與原廠CN＋Address Point分別測地址→台中市→民權路、路段位置、耗時與GPS路由。導航實機確認後依原先指示繼續音樂／App研究。",
+  "findings": {
+    "native_sort": "Verified scoped host/native ordering alignment after Han and packed-weight corrections; actual device query still unverified.",
+    "layers": "Original CN and Address Point are complementary versioned products; retained with original basemap/JCV/SID/SQLite/POI.",
+    "query": "Actual map availability dispatch exists; checkbox source and OSM address caller remain unverified.",
+    "symptom": "Only Taichung 民權路 is user-confirmed; 民和路 is a control. Two-hour search symptom cause not established."
+  },
+  "native_instruction_probe_is_physical_device_test": false,
+  "progress_components": [
+    {
+      "name": "離線修正、編圖與封装",
+      "weight": 65,
+      "completed_points": 65
+    },
+    {
+      "name": "實機安裝與讀回",
+      "weight": 10,
+      "completed_points": 0
+    },
+    {
+      "name": "地址與路線驗收",
+      "weight": 25,
+      "completed_points": 0
+    }
+  ]
+}

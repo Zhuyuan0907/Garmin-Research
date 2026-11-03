@@ -1,0 +1,25 @@
+
+/root/garmin/staging/native-player-reserved-tail/build-v1/reserved-tail-EMULATION-ONLY.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+02f96098 <resident_loader_read_gate>:
+ 2f96098:	e3510000 	cmp	r1, #0
+ 2f9609c:	13500000 	cmpne	r0, #0
+ 2f960a0:	0a00000a 	beq	2f960d0 <resident_loader_read_gate+0x38>
+ 2f960a4:	e590c018 	ldr	ip, [r0, #24]
+ 2f960a8:	e59f2028 	ldr	r2, [pc, #40]	@ 2f960d8 <resident_loader_read_gate+0x40>
+ 2f960ac:	e15c0002 	cmp	ip, r2
+ 2f960b0:	1a000006 	bne	2f960d0 <resident_loader_read_gate+0x38>
+ 2f960b4:	e590201c 	ldr	r2, [r0, #28]
+ 2f960b8:	e3520603 	cmp	r2, #3145728	@ 0x300000
+ 2f960bc:	1a000003 	bne	2f960d0 <resident_loader_read_gate+0x38>
+ 2f960c0:	e59f2014 	ldr	r2, [pc, #20]	@ 2f960dc <resident_loader_read_gate+0x44>
+ 2f960c4:	e042200c 	sub	r2, r2, ip
+ 2f960c8:	e580201c 	str	r2, [r0, #28]
+ 2f960cc:	ea0027d1 	b	2fa0018 <__stock_reader_tail_relocated_from_arm>
+ 2f960d0:	e3a00004 	mov	r0, #4
+ 2f960d4:	e12fff1e 	bx	lr
+ 2f960d8:	02d4bb74 	.word	0x02d4bb74
+ 2f960dc:	02f96000 	.word	0x02f96000

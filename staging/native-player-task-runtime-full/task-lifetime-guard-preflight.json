@@ -1,0 +1,330 @@
+{
+  "updated_utc": "2026-10-04T06:34:39.264927+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "staging/native-player-task-mutex/native-task-singleton-return-terminal-probe.json": "a5153bd98f499b6691e71de20b5b7421e79edc560e14f7a49d73155924521d71",
+    "staging/native-player-task-mutex/source-at-native-task-singleton-return.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "staging/native-player-task-mutex/auxiliary-mutex-wrapper-preflight.json": "60a33a3ae453fa150c7fd395e7ee4c388536dbd5adef6baf4d3bb03c4dca4467",
+    "staging/native-player-task-mutex/gui-worker-boot-preflight.json": "dfb39b1beaf8587206fa43f95ae1029699cba5133058b1bd737ad694c1e13087",
+    "staging/native-player-task-mutex/gui-worker-boot-erratum-and-inputs.json": "4a54d4470370a731f98b195fe4970317f74dbe891ead0d516a07612f4ab5ac6d",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_voice_acceptance.py": "61c874ba4ceb0eada863b92c42579c81bd0d176cb10ef6f87b40b41a6d226e04",
+    "scripts/emulate_native_task_lifecycle.py": "f80f7935b0d6c2e51ce650462238f4bb7b95206adfe42672383a7cb80ff5c9ad",
+    "scripts/emulate_native_task_creation.py": "cd9dd7494c472b0131c8d367d1362416122cadbc8261123b1682d3273455328a",
+    "scripts/emulate_native_player_menu_loaded.py": "eb54cee452d9551aa84e6485524d01b6a04d7a4369ca1d2f3fc9bd4899f91ce8",
+    "scripts/emulate_native_voice_outer.py": "f6691a09db57998fbfd1cd53db7e107f5dd0cbb91270580163a2944b9ec650d1",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "analysis_mode": "Read-only crosscheck of preserved4903journal plus originalstores/prologues; no loader/emulator/device execution.",
+  "preserved_terminal": {
+    "session": 4903,
+    "singleton": "0x08800520",
+    "controller": "0x09503f90",
+    "currentCPU_SP": "0x09503f90",
+    "currentCPU_PC": "0x00010000",
+    "seven_actual_restore_destinations_reached": true,
+    "full_scoped_final_guards_passed": false,
+    "whole_TCB_memory_snapshot_available": false
+  },
+  "inference_qualification": "Expectedvalues are derivations from exactoriginalstores and preservedjournal, not independentevidence that4903guestwholeTCBs were read. NewwholeguardVM must read each listed value and preserve its rawsnapshot. If allocationaddresses differ, resolve from nativebuilder outputs and descriptors ratherthanhostseeding these constants.",
+  "task_inventory": [
+    {
+      "role": "controller",
+      "TCB": "0x9503f90",
+      "stack_start": "0x09500000",
+      "stack_top": "0x09504000",
+      "TCB_bytes": 108,
+      "base_priority": 16,
+      "effective_priority": 16,
+      "state": 1,
+      "TCB_zero_ready_next": "0x88092b0",
+      "owned_head": "0x0",
+      "descriptor": "0x09400820",
+      "descriptor_metadata": "0x0",
+      "flags": "0x0ed1a247",
+      "context_pointer": "0x09503e94",
+      "context_scope": "Last consumed reacquisition context only; framecontent may be overwritten during later return/unlock. Validate currentCPU SP9503F90 and restoredidentity, do nottreat stale savedframe as resumablelivecontroller.",
+      "all_task_next_plus40": "0x9508f90",
+      "all_task_previous_link_plus44": "0x2d227f0"
+    },
+    {
+      "role": "idle",
+      "TCB": "0x9508f90",
+      "stack_start": "0x09505000",
+      "stack_top": "0x09509000",
+      "TCB_bytes": 108,
+      "base_priority": 240,
+      "effective_priority": 240,
+      "state": 1,
+      "TCB_zero_ready_next": "0x0",
+      "owned_head": "0x0",
+      "descriptor": "0x09400800",
+      "descriptor_metadata": "0x0",
+      "flags": "0x0ed1a247",
+      "context_pointer": "0x09508f5c",
+      "context_scope": "Original13word initialbuilder frame still resident; CPSR1F ARM, savedPC09400000, savedSP9508F90, savedLR358FA5, initialr4-r12zero.",
+      "all_task_next_plus40": "0x0",
+      "all_task_previous_link_plus44": "0x9503fb8"
+    },
+    {
+      "role": "timer",
+      "TCB": "0x2d227c8",
+      "stack_start": "0x02d226f4",
+      "stack_top": "0x02d22834",
+      "TCB_bytes": 108,
+      "base_priority": 1,
+      "effective_priority": 1,
+      "state": 2,
+      "TCB_zero_blocked_marker": "0xffffffff",
+      "owned_head": "0x08805290",
+      "descriptor": "0x02d226e0",
+      "descriptor_metadata": "0x0",
+      "flags": "0x0ed1a247",
+      "context_pointer": "0x02d2278c",
+      "context_scope": "Derived original2FD034 persistentwait save: entrySP=TCB, local8+save52; savedPC2FD0AC, savedSP2D227C0, savedLR353D7D. Needs newlive-read confirmation; initialrestore2D22794 is older.",
+      "all_task_next_plus40": "0x9503f90",
+      "all_task_previous_link_plus44": "0x8804fe0"
+    },
+    {
+      "role": "dispatcher",
+      "TCB": "0x8804fb8",
+      "stack_start": "0x08801024",
+      "stack_top": "0x08805024",
+      "TCB_bytes": 108,
+      "base_priority": 92,
+      "effective_priority": 92,
+      "state": 1,
+      "TCB_zero_ready_next": "0x9508f90",
+      "owned_head": "0x034a59ac",
+      "descriptor": "0x08800fcc",
+      "descriptor_metadata": "0x08800fe0",
+      "descriptor_word1_TCB_plus8": "0x08805024",
+      "flags": "0x5ed1a247",
+      "TCB_byte19": 20,
+      "TCB_byte20": 8,
+      "context_pointer": "0x08804f1c",
+      "context_scope": "Live suspended native300D08 lockframe. Nativefullrelease alreadytransferred globalowner and cleared node marker but pendinglock has not returned.",
+      "all_task_next_plus40": "0x2d227c8",
+      "all_task_previous_link_plus44": "0x88092d8"
+    },
+    {
+      "role": "Thread",
+      "TCB": "0x88092b0",
+      "stack_start": "0x08805320",
+      "stack_top": "0x08809320",
+      "TCB_bytes": 108,
+      "base_priority": 92,
+      "effective_priority": 92,
+      "state": 1,
+      "TCB_zero_ready_next": "0x8804fb8",
+      "owned_head": "0x0",
+      "descriptor": "0x0880522c",
+      "descriptor_metadata": "0x08805240",
+      "descriptor_word1_TCB_plus8": "0x0",
+      "flags": "0x5ed1a247",
+      "TCB_byte19": 0,
+      "TCB_byte20": 0,
+      "context_pointer": "0x08809254",
+      "context_scope": "Live suspended original358E70 save duringunlock. Lastrestored Threadpostframe8809244 is older, not terminalTCB+12.",
+      "all_task_next_plus40": "0x8804fb8",
+      "all_task_previous_link_plus44": "0xf0908c"
+    }
+  ],
+  "all_task_list": {
+    "head_address": "0xf0908c",
+    "expected_head": "0x88092b0",
+    "expected_chain": [
+      "0x88092b0",
+      "0x8804fb8",
+      "0x2d227c8",
+      "0x9503f90",
+      "0x9508f90"
+    ],
+    "next_offset": 40,
+    "previous_link_pointer_offset": 44,
+    "originalinsert_PC": "0x358cd2",
+    "alllist_set_should_equal_observed_nativeTCBset": true
+  },
+  "ready_list": {
+    "head_address": "0xf09090",
+    "expected_chain": [
+      "0x9503f90",
+      "0x88092b0",
+      "0x8804fb8",
+      "0x9508f90"
+    ],
+    "next_offset": 0,
+    "priority_offset": 17,
+    "state_offset": 22,
+    "expected_priorities": [
+      16,
+      92,
+      92,
+      240
+    ],
+    "equal_priority_FIFO": true,
+    "reason": "Threadremainsready acrossunlockreschedule; finalglobaltransfer insertsdispatcher after equalpriorityThread bynative300C0C BLS loop."
+  },
+  "mutex_inventory": [
+    {
+      "pointer": "0x34a59ac",
+      "kind": "ordinaryglobal",
+      "owner": "0x8804fb8",
+      "next_owned": "0x0",
+      "previous_owned_link": "0x8804fd8",
+      "waiter_head": "0x0",
+      "recursion_u16": 0,
+      "tag": "0x31041c",
+      "logical_observed_count": 1,
+      "pending_semantics": "Owner acquirednative via300BB8 while dispatcher has notyetrestored its oldlockframe."
+    },
+    {
+      "pointer": "0x8805290",
+      "kind": "retainedconditiontoken",
+      "owner": "0x2d227c8",
+      "next_owned": "0x0",
+      "previous_owned_link": "0x2d227e8",
+      "waiter_head": "0x0",
+      "recursion_u16": 0,
+      "logical_observed_count": 0,
+      "pending_semantics": "Retainedtoken deliberatelyexcluded from ordinarymutexcounter. Originalsignal/broadcast clearedwaitermarker, didnot transfer tokenowner."
+    },
+    {
+      "pointer": "0x8805274",
+      "kind": "Threadordinarymutex",
+      "owner": "0x0",
+      "waiter_head": "0x0",
+      "recursion_u16": 0,
+      "tag": "0x31041c",
+      "logical_observed_count": 0,
+      "pending_semantics": "Threadunlock suspendedafter transfer tocontroller; controller subsequentlyreleased it. Do notrequire ownerThread when resuming oldunlockepilogue."
+    },
+    {
+      "pointer": "0x88052ac",
+      "kind": "conditionauxiliary",
+      "owner": "0x0",
+      "waiter_head": "0x0",
+      "recursion_u16": 0,
+      "tag": "0x6048e8",
+      "logical_observed_count": 0
+    },
+    {
+      "pointer": "0x88009bc",
+      "kind": "recursivewrapper",
+      "owner": "0x0",
+      "waiter_head": "0x0",
+      "recursion_u16": 0,
+      "tag": "0x46c2c8",
+      "logical_observed_count": 0
+    }
+  ],
+  "live_resumable_context_frames": [
+    {
+      "role": "dispatcher_pending_lock",
+      "context": "0x8804f1c",
+      "format": 0,
+      "word_count": 13,
+      "bytes": 52,
+      "fields": {
+        "0_CPSR_low_masked": "(word0&0xff)==0xbf, Thumb/system/IRQmasked; highflags recorded ratherthan invented",
+        "1_saved_PC": "0x300d98",
+        "2_r4": "0x9503f90",
+        "3_r5": "0x34a59ac",
+        "4_r6": "0x8804fb8",
+        "5_r7": "0x8804f50",
+        "11_saved_SP": "0x8804f50",
+        "12_saved_LR": "0x3009f1"
+      },
+      "native_store": "0x300d64",
+      "derive": "entrySP8804F78 - lock8 - contention32 - save52 =8804F1C"
+    },
+    {
+      "role": "Thread_pending_unlock",
+      "context": "0x8809254",
+      "format": 0,
+      "word_count": 13,
+      "bytes": 52,
+      "fields": {
+        "0_CPSR_low_masked": "(word0&0xff)==0xbf, Thumb/system/IRQmasked; highflags recorded ratherthan invented",
+        "1_saved_PC": "0x358ebc",
+        "2_r4": "0x88092b0",
+        "11_saved_SP": "0x8809288",
+        "12_saved_LR": "0x300911"
+      },
+      "native_store": "0x358e9c",
+      "derive": "unlockentrySP8809298 - unlock16 - save52 =8809254",
+      "original_unlock_local_frame": {
+        "SP": "0x8809288",
+        "SP_plus4": "originalIRQtoken lowbyte1F (before nativeIRQmask, inARMinterwork)",
+        "SP_plus12": "0x310415 nativeunlock originatingcallerLR"
+      }
+    }
+  ],
+  "waiter_inventory": {
+    "queued_waiter_heads_all_zero": true,
+    "resident_successfully_transferred_node": {
+      "address": "0x8804f50",
+      "belongs_to_TCB": "0x8804fb8",
+      "next_plus0": "0x0",
+      "success_marker_plus4": "0x0",
+      "saved_contention_r1_plus8": "0x9503f90",
+      "still_on_live_dispatcher_stack": true,
+      "not_on_any_sem_waiter_queue": true
+    },
+    "returned_controller_nodes": {
+      "condition_wait_node": "0x9503ea8",
+      "reacquisition_wait_node": "0x9503ec8",
+      "guard": "These were popped/unwound fromcontrollerstack; do notdemand theyretain historicalmarker/contents or dereferenceas currentwaiters."
+    }
+  },
+  "native_internal_semaphores": {
+    "TCB_offsets": [
+      56,
+      80
+    ],
+    "bytes_each": 24,
+    "expected_owner_waiter_and_recursion_zero": true,
+    "tag_offset16": "For metadata!=0, originalbuilder writesmetadatafirstword atTCB+72/+96; otherwise0. Record/compare correspondingmetadataword ratherthan requiring all24 byteszero.",
+    "qualification": "No originalinternal semaphore lockcall appears in4903acceptedmutexjournal; verify actualnewVM values beforeasserting."
+  },
+  "checks": [
+    "Traverse ALL+40 bounded to exactly observednativeTCBset, no cycles/duplicates; each previouslinkpointer+44 must name globalhead or predecessor+40 whose wordequals thisTCB. No terminatedstate80 in thisterminalinventory.",
+    "Traverse readyTCB+0 boundedto the fourexpectednativeTCBs; eachstate1, prioritysorted, timerstate2 excluded; compare terminalrunningcontroller andheadcontroller withoutclaiming actualdevicebootinventory.",
+    "Read whole108byteTCB and eachdescriptor20bytes; verify originalplacement align_down(stack_top-108,8), priorities/C/D/flagsmagic, metadatareferences and unfreedguarded backing.",
+    "Traverse everyownedhead+32 bounded overdeclared24bytes sems; verify ownerTCB and coherent prev-linkpointer; expect exactlyglobalownedbydispatcher plusconditiontokenownedbytimer. Unownedsemnext/prev maystaystale; do notrequirezeros.",
+    "Traverse allregisteredsem waitqueues+12; expectednone atthecontrollerreturnboundary. Residentdispatcher successnode hasmarker0 and isnotqueued; pendinglock != blockedstate4 now.",
+    "Check dispatcher andThread13word contexts fromcurrentTCB+12, format0, memoryrangeinside stillresident guardedstack, expectedPC/r4-r7/SP/LR and CPSRThumb/system/IRQmask. Currentcontroller savedframecontent neednotbe resumable afterits return.",
+    "For allnative TCBs, fullTCB isinside declaredstorage withno freedbacking; livecontext and semsuccessnode ranges areinside taskstack andbelowTCB; metadata/objects remainresident. Check rawallocationguards/descriptorguards and explicitsynthetic controller/idle/timerleadingcanaries.",
+    "Compare nativeordinarycounter dictionary to actualowner+recursion for registeredoriginalsemobjects; allow exactlyglobal1 and retainedconditioncounter0 withnativeowner timer. Do notzero or sweep counters to satisfy oldcleanup predicates.",
+    "Require pending_condition/release/lowerwait/notification/constructor stacks emptyfor controllerreturn; permit exactlydispatcherglobal lock andThreadordinaryunlock suspendedframes; compare originalentrySP/LR and nativecaller against eachframe.",
+    "Verify alloriginalcode_images, conditionalcopy-backed code/initialregions, loadedRXcode, voiceheaderafter12/fullRAMtail,40exports,99imports or existingimportguard, private12/player2 interfaces, DBbytehash/SQLclosure, rawallocation/descriptor canaries and explicitfixturefootprints using existingimmutableguards; preserve properindividualscopes."
+  ],
+  "no_fake_wake_background_route": {
+    "entry": "original0x2fd034 Thumbwait invoked fromstill-runningcontroller",
+    "new_posted_event_bits": 0,
+    "guest_owner_ready_list_context_patch_bytes": 0,
+    "expected_first_background_resume": "Thread currentTCBcontext savedPC358EBC dueequalpriorityFIFO",
+    "expected_later_background_resume": "dispatchercurrentTCBcontext savedPC300D98 afterThreadnativewait/sleep relinquishes CPU",
+    "qualification": "This is a proposed originalcontrollerwait control, notexecutedby thispreflight. NativeThread sleep/readinesscode can reachadditionalundeclaredOS/clockinventory; stop/capture ratherthanfakewait/event/readinesssuccess or restartworkerentry.",
+    "endpoint_guards": [
+      "Journal everynative save/restore/actualdestination with unchangedCPUstate; pendingThreadunlock onlypops atoriginal30092A/310414 onThreadstack.",
+      "Dispatcherlock marker0 should native300D98 return0, then300A0A epilog ownerdispatcher andentryLR310409/SP8804F78.",
+      "Do notfree stacks/TCBs/objects/module on entryreturn or keepresident flag alone; no safetyclaimuntil callbackquiescence and originalexit/listremoval/reclamation proved."
+    ]
+  },
+  "old_finish_inapplicable": {
+    "paths": [
+      "scripts/emulate_native_player_menu_loaded.py:187",
+      "scripts/emulate_native_voice_outer.py:78"
+    ],
+    "reason": "finish() performsoriginalouterclose/regioncleanup and verify_released demandsallmutexcounts0 plus genericSTACK. Legitimateresidentglobalowner/pendingcontexts failthatcleanup scope; use read-onlywholeguards atthisterminalboundary, nothostsweeps/SPrewrite or unstatedunload."
+  },
+  "new_runtime_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "safe_cleanup_unload_verified": false,
+  "install_candidate": false,
+  "limits": "Preflightguard plan plus exactstaticderivations. Doesnot execute4903 again, read liveguestTCBs, provebackgroundcompletion, realIRQ/kernelclock/readiness, colddeviceboot, safeunload, physicalGUI/App or directphoneaudio."
+}

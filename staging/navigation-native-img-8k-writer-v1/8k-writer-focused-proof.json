@@ -1,0 +1,316 @@
+{
+  "schema": "garmin-ap-8k-focused-tests/v1",
+  "created_utc": "2026-10-06T17:55:55.876322+00:00",
+  "all_passed": true,
+  "positive_controls": [
+    {
+      "case": "noncontiguous4K_to8K_identity_conversion",
+      "all6_logical_hashes_match": true,
+      "MDR_output_blocks": 241,
+      "MDR_FAT_parts": 2,
+      "dir_end": 16384,
+      "actual_changed_header_offsets": [
+        15,
+        24,
+        95,
+        98,
+        460
+      ],
+      "output_bytes": 2039808,
+      "tail_padding_verified": true
+    },
+    {
+      "case": "explicit_streaming_MDR_240_8Kblocks",
+      "MDR_FAT_parts": 1,
+      "output_bytes": 2031616,
+      "other5_hashes_preserved": true,
+      "supplier_called_once": true,
+      "max_chunk_bytes": 65536
+    },
+    {
+      "case": "explicit_streaming_MDR_241_8Kblocks",
+      "MDR_FAT_parts": 2,
+      "output_bytes": 2039808,
+      "other5_hashes_preserved": true,
+      "supplier_called_once": true,
+      "max_chunk_bytes": 65536
+    },
+    {
+      "case": "268MiB_arithmetic_boundary_only",
+      "MDR_declared_bytes": 268304384,
+      "image_bytes": 268435456,
+      "large_output_allocated": false,
+      "maximum_block_index": 32762
+    },
+    {
+      "case": "partial_output_writes",
+      "independent_digest_match": true
+    },
+    {
+      "case": "exclusive_new_path_with_pair_iterator",
+      "independent_digest_match": true,
+      "partial_path_cleanup_supported": true
+    }
+  ],
+  "rejection_controls": [
+    {
+      "case": "268MiB_one_byte_excess",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Output exceeds explicit AP8K268MiB profile capacity"
+    },
+    {
+      "case": "MDR_u32_overflow",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "MDR replacement size outside finite range"
+    },
+    {
+      "case": "MDR_bool_size",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "MDR replacement size outside finite range"
+    },
+    {
+      "case": "MDR_zero_size",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "MDR replacement size outside finite range"
+    },
+    {
+      "case": "replacement_unknown_component",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Only explicit MDR replacement is supported"
+    },
+    {
+      "case": "duplicate_explicit_MDR",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Duplicate MDR replacement"
+    },
+    {
+      "case": "invalid_supplier_type",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Invalid replacement supplier"
+    },
+    {
+      "case": "supplier_not_callable",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Invalid replacement supplier"
+    },
+    {
+      "case": "short_supplier",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Supplier ended before declared MDR size"
+    },
+    {
+      "case": "long_supplier",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Supplier exceeds declared MDR size"
+    },
+    {
+      "case": "empty_chunk",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Supplier chunk empty or exceeds1MiB bound"
+    },
+    {
+      "case": "nonbytes_chunk",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Supplier chunks must be bytes-like"
+    },
+    {
+      "case": "chunk_over1MiB",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Supplier chunk empty or exceeds1MiB bound"
+    },
+    {
+      "case": "supplier_exception",
+      "rejected": true,
+      "error_type": "RuntimeError",
+      "reason": "supplier interruption"
+    },
+    {
+      "case": "output_nonempty",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Output stream must be new and empty"
+    },
+    {
+      "case": "output_same_stream",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Source/destination stream alias"
+    },
+    {
+      "case": "output_stalled_write",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Output write stalled/returned invalid count"
+    },
+    {
+      "case": "source_nonwhole4K",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Input IMG must have whole4K blocks"
+    },
+    {
+      "case": "source_wrong_exponent",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Only4096-byte allocation blocks supported"
+    },
+    {
+      "case": "source_wrong_sector_profile",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Expected AP16 sectors/track profile"
+    },
+    {
+      "case": "source_wrong_capacity_profile",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Input exceeds its original declared container capacity"
+    },
+    {
+      "case": "source_XOR",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Only DSKIMG XOR0 containers supported"
+    },
+    {
+      "case": "source_bad_magic",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Only DSKIMG XOR0 containers supported"
+    },
+    {
+      "case": "source_bad_55AA",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Invalid header end marker"
+    },
+    {
+      "case": "source_wrong_dirStart",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Unsupported metadata directory row"
+    },
+    {
+      "case": "source_component_duplicate_name",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Duplicate component path"
+    },
+    {
+      "case": "source_component_root_alias",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Repeated/overlapping allocated block"
+    },
+    {
+      "case": "source_component_uint16_outside",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Allocated block outside input file"
+    },
+    {
+      "case": "source_nonuniform_continuation_metadata",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Nonuniform continuation metadata cannot be losslessly reblocked: 00004171.MDR"
+    },
+    {
+      "case": "source_continuation_size",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Continuation row has nonzero logical size"
+    },
+    {
+      "case": "source_continuation_duplicate_part",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Duplicate component path"
+    },
+    {
+      "case": "root_more240_blocks_arithmetic",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Root allocation requires unsupported continuation"
+    },
+    {
+      "case": "FAT_uint16_reserved_sentinel",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Invalid/reserved uint16 block number"
+    },
+    {
+      "case": "path_existing_destination",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Output path already exists or is symlink"
+    },
+    {
+      "case": "path_same_source",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Duplicate source/destination path"
+    },
+    {
+      "case": "path_hardlink_existing",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Output path already exists or is symlink"
+    },
+    {
+      "case": "same_inode_distinct_streams",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Source/destination inode alias"
+    },
+    {
+      "case": "path_dangling_symlink",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Output path already exists or is symlink"
+    },
+    {
+      "case": "path_short_supplier_cleanup",
+      "rejected": true,
+      "error_type": "ValueError",
+      "reason": "Supplier ended before declared MDR size"
+    },
+    {
+      "case": "path_error_supplier_cleanup",
+      "rejected": true,
+      "error_type": "RuntimeError",
+      "reason": "supplier interruption"
+    }
+  ],
+  "synthetic_source_bytes": 2015232,
+  "source_construction_bytes_read": 12288,
+  "source_fixture_noncontiguous_MDR": true,
+  "original_component_bytes_read": false,
+  "original97MB_image_copied_or_repacked": false,
+  "large268MiB_output_generated": false,
+  "supplier_replaces_MDR_only": true,
+  "header_checksum_rule_known": false,
+  "byte15_zero_on_output": true,
+  "device_acceptance_verified": false,
+  "MDR_semantics_or_native_CPU_verified": false,
+  "full_Taiwan_updated": false,
+  "Java_or_map_compilation": false,
+  "scope_limits": [
+    "Only exact XOR0/AP4K source geometry six-name profile supported.",
+    "268MiB is this explicit AP8K profile, not GarminOS platform maximum.",
+    "Synthetic independent reader/rolling hashes prove container allocation/content; original parser/firmware/device acceptance remains untested.",
+    "Directory root<=240blocks, uniform unknown per-component continuation metadata required."
+  ]
+}

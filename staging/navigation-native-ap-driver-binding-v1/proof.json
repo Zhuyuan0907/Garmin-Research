@@ -1,0 +1,542 @@
+{
+  "schema": "bounded-native-map-record-file-driver-binding/v1",
+  "outcome": "Concrete native component-enumeration→descriptor→volume/sector-reader bridge; AP physical instance and driver vtable/render consumer unresolved at depth boundary",
+  "MAIN_SHA_inherited": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "MAIN_stat": [
+    45826,
+    524501,
+    46962176,
+    1790961981702588961,
+    1791193582221334548
+  ],
+  "startup_copy_translation_used": true,
+  "conditional_runtime44_54_not_needed": true,
+  "all_capture_sha_and_stats_passed": true,
+  "code_and_literal_read_bytes": 11328,
+  "read_operations": 89,
+  "code_read_budget": 65536,
+  "maximum_followed_callee_depth": 3,
+  "call_paths": [
+    {
+      "seed": "1101EA",
+      "calls": [
+        [
+          "1102C0",
+          "10F8D8",
+          1
+        ],
+        [
+          "10FADA",
+          "3324B8",
+          2
+        ],
+        [
+          "332514",
+          "123920",
+          3
+        ]
+      ],
+      "unfollowed_next": [
+        "123A78→11D678",
+        "1239B6→123F6C",
+        "12394C→11D5D0"
+      ]
+    },
+    {
+      "seed": "1101EA",
+      "calls": [
+        [
+          "110508",
+          "2FBA70",
+          1
+        ],
+        [
+          "2FBA84",
+          "2FB988",
+          2
+        ],
+        [
+          "2FB99E",
+          "122FBC",
+          3
+        ]
+      ],
+      "short_path_note": "110508 is in captured seed continuation. The longer1102C0→10F8D8→2FBA70 route would make122FBC depth4 and was not used to justify its follow.",
+      "unfollowed_next": [
+        "122FDC→2BF698"
+      ]
+    },
+    {
+      "seed": "2CABBC",
+      "calls": [
+        [
+          "2CABFE",
+          "2CAB14",
+          1
+        ]
+      ],
+      "status": "Registry/property iteration, not a renderer"
+    },
+    {
+      "seed": "2CA82C",
+      "calls": [
+        [
+          "2CA8AA",
+          "2CA670",
+          1
+        ]
+      ],
+      "status": "Registry/property prepare/update, not a renderer"
+    }
+  ],
+  "witnesses": [
+    {
+      "name": "Component enum supplies actual descriptor and byte position to native fread",
+      "instructions": [
+        {
+          "address": "0x10fad0",
+          "bytes": "2948",
+          "mnemonic": "ldr",
+          "operands": "r0, [pc, #0xa4]",
+          "literal_address": "0x10fb78",
+          "literal_value": "0xf004ec"
+        },
+        {
+          "address": "0x10fad2",
+          "bytes": "0068",
+          "mnemonic": "ldr",
+          "operands": "r0, [r0]"
+        },
+        {
+          "address": "0x10fad4",
+          "bytes": "0161",
+          "mnemonic": "str",
+          "operands": "r1, [r0, #0x10]"
+        },
+        {
+          "address": "0x10fad6",
+          "bytes": "069a",
+          "mnemonic": "ldr",
+          "operands": "r2, [sp, #0x18]"
+        },
+        {
+          "address": "0x10fad8",
+          "bytes": "0399",
+          "mnemonic": "ldr",
+          "operands": "r1, [sp, #0xc]"
+        },
+        {
+          "address": "0x10fada",
+          "bytes": "22f2edfc",
+          "mnemonic": "bl",
+          "operands": "#0x3324b8"
+        }
+      ],
+      "interpretation": "Literal F004EC is address of global file-descriptor pointer. Dereference at10FAD2 produces r0=file descriptor; store+10 writes byte position. r1=destination, r2=512 from SP+18. No address-of-handle is passed to3324B8."
+    },
+    {
+      "name": "Wrapper and lower reader receive same descriptor pointer",
+      "instructions": [
+        {
+          "address": "0x3324ba",
+          "bytes": "0700",
+          "mnemonic": "movs",
+          "operands": "r7, r0"
+        },
+        {
+          "address": "0x3324ee",
+          "bytes": "3c69",
+          "mnemonic": "ldr",
+          "operands": "r4, [r7, #0x10]"
+        },
+        {
+          "address": "0x3324f4",
+          "bytes": "f968",
+          "mnemonic": "ldr",
+          "operands": "r1, [r7, #0xc]"
+        },
+        {
+          "address": "0x332510",
+          "bytes": "6112",
+          "mnemonic": "asrs",
+          "operands": "r1, r4, #9"
+        },
+        {
+          "address": "0x332512",
+          "bytes": "3800",
+          "mnemonic": "movs",
+          "operands": "r0, r7"
+        },
+        {
+          "address": "0x332514",
+          "bytes": "f1f504fa",
+          "mnemonic": "bl",
+          "operands": "#0x123920"
+        }
+      ],
+      "interpretation": "r7=r0 at entry; r4=file+10 byte position. Before BL123920 r1=r4>>9 and r0=r7. Therefore these two functions use the same descriptor; +14 must not be assigned two different object meanings."
+    },
+    {
+      "name": "Native descriptor resolves actual volume record and block geometry fields",
+      "instructions": [
+        {
+          "address": "0x12392c",
+          "bytes": "e18c",
+          "mnemonic": "ldrh",
+          "operands": "r1, [r4, #0x26]"
+        },
+        {
+          "address": "0x12392e",
+          "bytes": "7423",
+          "mnemonic": "movs",
+          "operands": "r3, #0x74"
+        },
+        {
+          "address": "0x123930",
+          "bytes": "5948",
+          "mnemonic": "ldr",
+          "operands": "r0, [pc, #0x164]",
+          "literal_address": "0x123a98",
+          "literal_value": "0xf7b3dc"
+        },
+        {
+          "address": "0x123932",
+          "bytes": "5943",
+          "mnemonic": "muls",
+          "operands": "r1, r3, r1"
+        },
+        {
+          "address": "0x123934",
+          "bytes": "c069",
+          "mnemonic": "ldr",
+          "operands": "r0, [r0, #0x1c]"
+        },
+        {
+          "address": "0x123936",
+          "bytes": "4518",
+          "mnemonic": "adds",
+          "operands": "r5, r0, r1"
+        },
+        {
+          "address": "0x123940",
+          "bytes": "a878",
+          "mnemonic": "ldrb",
+          "operands": "r0, [r5, #2]"
+        },
+        {
+          "address": "0x123942",
+          "bytes": "8140",
+          "mnemonic": "lsls",
+          "operands": "r1, r0"
+        }
+      ],
+      "interpretation": "volume=(*(F7B3DC+1c)) + u16(file+26)*0x74. volume+2 supplies dynamic sectors-per-block shift; volume+4e declared blocks shifted to cache sentinel. The actual runtime volume array is unobserved mutable RAM, not a proved AP instance."
+    },
+    {
+      "name": "Lower sector read boundary and successful cache-index assignment",
+      "instructions": [
+        {
+          "address": "0x123a66",
+          "bytes": "e368",
+          "mnemonic": "ldr",
+          "operands": "r3, [r4, #0xc]"
+        },
+        {
+          "address": "0x123a68",
+          "bytes": "2069",
+          "mnemonic": "ldr",
+          "operands": "r0, [r4, #0x10]"
+        },
+        {
+          "address": "0x123a76",
+          "bytes": "2000",
+          "mnemonic": "movs",
+          "operands": "r0, r4"
+        },
+        {
+          "address": "0x123a78",
+          "bytes": "f9f7fefd",
+          "mnemonic": "bl",
+          "operands": "#0x11d678"
+        },
+        {
+          "address": "0x123a80",
+          "bytes": "0c98",
+          "mnemonic": "ldr",
+          "operands": "r0, [sp, #0x30]"
+        },
+        {
+          "address": "0x123a8c",
+          "bytes": "6061",
+          "mnemonic": "str",
+          "operands": "r0, [r4, #0x14]"
+        }
+      ],
+      "interpretation": "11D678 is the next unfollowed sector-read helper. On its successful path123A80 loads requested logical sector and123A8C writes file+14: current cache-sector index, not logical start. No driver callback was substituted or executed."
+    },
+    {
+      "name": "True GMP and MDR literal comparisons are separately bound",
+      "instructions": [
+        {
+          "address": "0x10fb58",
+          "bytes": "0fa0",
+          "mnemonic": "adr",
+          "operands": "r0, #0x3c"
+        },
+        {
+          "address": "0x10fb5a",
+          "bytes": "39f2ddfb",
+          "mnemonic": "bl",
+          "operands": "#0x349318"
+        },
+        {
+          "address": "0x10fc5a",
+          "bytes": "daa0",
+          "mnemonic": "adr",
+          "operands": "r0, #0x368"
+        },
+        {
+          "address": "0x10fc5c",
+          "bytes": "39f25cfb",
+          "mnemonic": "bl",
+          "operands": "#0x349318"
+        }
+      ],
+      "exact_data": [
+        {
+          "address": "0x10fb98",
+          "bytes": "474d5000",
+          "ASCII": "GMP"
+        },
+        {
+          "address": "0x10ffc4",
+          "bytes": "4d445200",
+          "ASCII": "MDR"
+        },
+        {
+          "address": "0x10fb90",
+          "bytes": "4d505300",
+          "ASCII": "MPS"
+        }
+      ],
+      "interpretation": "ADR10FB58 reaches10FB98 GMP; ADR10FC5A reaches10FFC4 MDR. MPS at10FB90 is a different branch and was explicitly corrected during this scope."
+    }
+  ],
+  "exact_component_name_literals": [
+    {
+      "address": "0x10fb90",
+      "raw_hex": "4d505300",
+      "ASCII": "MPS"
+    },
+    {
+      "address": "0x10fb94",
+      "raw_hex": "54524500",
+      "ASCII": "TRE"
+    },
+    {
+      "address": "0x10fb98",
+      "raw_hex": "474d5000",
+      "ASCII": "GMP"
+    },
+    {
+      "address": "0x10ffb4",
+      "raw_hex": "4c424c00",
+      "ASCII": "LBL"
+    },
+    {
+      "address": "0x10ffb8",
+      "raw_hex": "52474e00",
+      "ASCII": "RGN"
+    },
+    {
+      "address": "0x10ffbc",
+      "raw_hex": "4e455400",
+      "ASCII": "NET"
+    },
+    {
+      "address": "0x10ffc0",
+      "raw_hex": "4e4f4400",
+      "ASCII": "NOD"
+    },
+    {
+      "address": "0x10ffc4",
+      "raw_hex": "4d445200",
+      "ASCII": "MDR"
+    },
+    {
+      "address": "0x10ffc8",
+      "raw_hex": "53525400",
+      "ASCII": "SRT"
+    }
+  ],
+  "file_descriptor_fields": [
+    {
+      "offset": "0x00..0x0a",
+      "type": "8+3 name bytes",
+      "status": "122FBC parses numeric volume: filename to an uppercase 8.3-shaped descriptor name; input AP physical filename not bound"
+    },
+    {
+      "offset": "0x0b",
+      "type": "u8 flags",
+      "status": "Wrapper checks bit6;123920 passes bit7 to11D5D0; open ORs two FAT attribute bits. Other semantics held"
+    },
+    {
+      "offset": "0x0c",
+      "type": "u32 byte length",
+      "status": "2FBA38 copies from FAT-buffer+0c;3324F4 bounds position+request against it"
+    },
+    {
+      "offset": "0x10",
+      "type": "u32 byte position",
+      "status": "Map enum writes row_index<<9;3324EE reads;33253C updates after copy"
+    },
+    {
+      "offset": "0x14",
+      "type": "u32 cached logical sector or declared-capacity sentinel",
+      "status": "332504 compares against bytepos>>9;123A80/A8C stores requested sector on success. Initial open uses declaredblocks<<blockshift"
+    },
+    {
+      "offset": "0x18",
+      "type": "u32 initial sector",
+      "status": "2FB9DE copies volume+6c default; special volume flag copies FAT firstblock<<blockshift;123964 adds requested sector"
+    },
+    {
+      "offset": "0x1c",
+      "type": "u32 unknown cache/bookkeeping field",
+      "status": "123926 saves it and123A5C later uses it. Lifetime/meaning not resolved"
+    },
+    {
+      "offset": "0x20",
+      "type": "pointer to shared512-byte buffer",
+      "status": "33252E uses it for data copy;1239CE temporarily indexes FAT blocklist at+20. Do not name it permanently FAT buffer;11D678 buffer lifetime remains untraced"
+    },
+    {
+      "offset": "0x24",
+      "type": "u16 mirror/cached block",
+      "status": "2FBA1A stores low16 of file+18 before special firstblock shift. Exact eventual role held"
+    },
+    {
+      "offset": "0x26",
+      "type": "u16 volume ordinal",
+      "status": "122FBC obtains it from numeric path prefix;12392C uses it to index116-byte volume records"
+    }
+  ],
+  "volume_record_stride": 116,
+  "volume_fields": [
+    {
+      "offset": "0x00",
+      "type": "u8 active",
+      "status": "Open checks nonzero"
+    },
+    {
+      "offset": "0x02",
+      "type": "u8 sectors-per-block shift",
+      "status": "Used by2FBA2E/4C and123942/3A46; no delta==3 guard in selected consumers"
+    },
+    {
+      "offset": "0x45",
+      "type": "u8 flag",
+      "status": "Low bit selects special firstblock-based file+18 initialization"
+    },
+    {
+      "offset": "0x48",
+      "type": "u16 sector bytes",
+      "status": "21195E exports value to output+0"
+    },
+    {
+      "offset": "0x4c",
+      "type": "u16 mask",
+      "status": "12397C reads for remainder masking; exact producer derivation inherited only"
+    },
+    {
+      "offset": "0x4e",
+      "type": "u16 declared block count",
+      "status": "Open/reader initial cache sentinel is count<<blockshift"
+    },
+    {
+      "offset": "0x60",
+      "type": "u32 base subtraction term",
+      "status": "123A62 reads during mapped-sector arithmetic; origin not followed here"
+    },
+    {
+      "offset": "0x64",
+      "type": "u32 division term",
+      "status": "12396C/974 and123990 use it for native division; producer not followed here"
+    },
+    {
+      "offset": "0x6c",
+      "type": "u32 default starting sector",
+      "status": "2FB9D8..DE uses for file+18 when open r2=ffff"
+    },
+    {
+      "offset": "0x70",
+      "type": "allocation bitmap pointer",
+      "status": "1239DE..3A28 path handlesFFFF block; no actual mutation/execution in this scope"
+    }
+  ],
+  "shared_global": {
+    "runtime": "0xf7b3dc",
+    "volume_pointer_offset": "0x1c",
+    "device_count_offset": "0x20",
+    "actual_runtime_contents_not_read": true
+  },
+  "ABI": {
+    "open_wrapper": "2FBA70(r0=address_of_file_pointer,r1=numeric-volume:8.3 path,r2=startselector);2FB988 dereferences*[r0]",
+    "fread": "3324B8(r0=file descriptor,r1=destination,r2=byte_count)",
+    "logical_sector_resolver": "123920(r0=same file descriptor,r1=requested bytepos>>9)",
+    "next_sector_reader": "11D678(r0=same file descriptor,r1=mapped sector,r2=read/extent-control flag): not yet traced",
+    "fixed_callback": "10F146 BLXr6 with prior PC literal10C605 is a selected fixed helper, not proof of physical IMG driver vtable"
+  },
+  "original_slot_getter_fixture": {
+    "proof": "slot-getter-cpu-proof.json",
+    "sha256": "0f130d2d4fdc6427a7df320037c44851b383975a5812a47aaa616163e09c8feb",
+    "fixture_group_count": 1,
+    "fixtures": 4,
+    "all_passed": true,
+    "CPU": "ARM1176",
+    "no_semantic_or_return_hooks": true,
+    "scope": "Original FE67E byte getter only; does not instantiate an AP volume or driver"
+  },
+  "inherited_offline_4K_isolation": {
+    "path": "staging/navigation-v3-expanded4k-offline-isolation-v1/proof.json",
+    "bytes": 4214,
+    "sha256": "7b5315087aebfda01db11d72bc206aaba23780031d90b92edcfcee3c0188c41a",
+    "immutable_stat": [
+      45826,
+      538399,
+      4214,
+      1791347659645611251,
+      1791347659645611251
+    ],
+    "all_six_logical_components_equal": true,
+    "IMG_was_not_opened_by_this_scope": true,
+    "installable": false,
+    "checksum_CHS_renderer_unknown_preserved": true
+  },
+  "scope_corrections": [
+    "MPS10FB90 was initially verbally mislabeled MDR; final bytes bind MDR at10FFC4 separately.",
+    "3324B8 +14 initially verbally called logicalstart; original same-pointer setup and successful STR prove current cache-sector. +18 is initialsector.",
+    "Capture labels are search hypotheses. The label map_backend_kind_getter actually exports volume information, and driver_binding_open_leaf122FBC is an8.3 parser. No label name is semantic evidence.",
+    "component_name_pool_data_only_not_code disassembly/literal guesses are excluded from executable evidence, while all its explicit reads remain counted."
+  ],
+  "remaining_questions": [
+    "True physical AP filename/device index→active volume instance registration and device operations/vtable callback selection.",
+    "11D678 actual low-level reader/buffer mapping and its device callback;123F6C blocklist refresh;11D5D0 status gate.",
+    "Actual native logicaloffset/cross-block read comparison among original4K, v3_8K, expanded4K. Requires separate next scope/input authorization.",
+    "How native component records reach NT/drawing consumer and its additional admission/geometry checks."
+  ],
+  "AP_physical_file_instance_bound": false,
+  "driver_vtable_bound": false,
+  "actual_IMG_metadata_or_GMP_read": false,
+  "actual_map_admission_or_drawing_tested": false,
+  "hard_8K_limit_proved": false,
+  "hard_128MiB_limit_proved": false,
+  "old_closed_CPU_suite_executed": false,
+  "no_whole_MAIN_IMG_hash": true,
+  "no_IMG_USB_device_access": true,
+  "no_original_or_sealed_inputs_modified": true,
+  "all_handles_closed": true,
+  "all_assigned_finite_checks_passed": true,
+  "bounded_gap_preserved": true,
+  "full_address_update_complete": false
+}

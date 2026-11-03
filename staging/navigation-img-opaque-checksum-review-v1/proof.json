@@ -1,0 +1,76 @@
+{
+  "updated_utc": "2026-10-07T04:45:15.429966+00:00",
+  "schema": "four-header-opaque-byte-negative-additive-check/v1",
+  "actual_prior_tool_chunk": "63a53e",
+  "actual_fresh_header_bytes_read": 2048,
+  "observations": [
+    {
+      "name": "original4K",
+      "input": "staging/navigation-country-native-candidate-v2/gmapprom1.img",
+      "bytes_read": 512,
+      "opaque_byte15": 219,
+      "prefix_byte_sums_mod256": {
+        "16": 116,
+        "64": 137,
+        "256": 217,
+        "512": 187
+      },
+      "sum512_excluding15": 224,
+      "all_source_stats_unchanged": true
+    },
+    {
+      "name": "v3_8K",
+      "input": "staging/navigation-country-native-lane-candidate-v3/gmapprom1.img",
+      "bytes_read": 512,
+      "opaque_byte15": 0,
+      "prefix_byte_sums_mod256": {
+        "16": 153,
+        "64": 190,
+        "256": 31,
+        "512": 5
+      },
+      "sum512_excluding15": 5,
+      "all_source_stats_unchanged": true
+    },
+    {
+      "name": "v3_content_4K",
+      "input": "staging/navigation-v3-expanded4k-offline-isolation-v1/v3-content-expanded4k-experiment.img.disabled",
+      "bytes_read": 512,
+      "opaque_byte15": 219,
+      "prefix_byte_sums_mod256": {
+        "16": 116,
+        "64": 137,
+        "256": 39,
+        "512": 122
+      },
+      "sum512_excluding15": 159,
+      "all_source_stats_unchanged": true
+    },
+    {
+      "name": "Search_v2",
+      "input": "staging/navigation-country-address-package-v3/roadmap/Taiwan_OSM_SearchRepair_v2.img",
+      "bytes_read": 512,
+      "opaque_byte15": 0,
+      "prefix_byte_sums_mod256": {
+        "16": 137,
+        "64": 149,
+        "256": 204,
+        "512": 77
+      },
+      "sum512_excluding15": 77,
+      "all_source_stats_unchanged": true
+    }
+  ],
+  "negative_conclusion": "Original219 is neither a zero-sum adjustment for the whole512-byte header nor validated by the sampled prefix sums. This does not identify the actual checksum algorithm or its covered ranges.",
+  "primary_reference": {
+    "title": "mkgmap ImgHeader.java",
+    "url": "https://raw.githubusercontent.com/openstreetmap/mkgmap/master/src/uk/me/parabola/imgfmt/sys/ImgHeader.java",
+    "verified_using_web_tool": true,
+    "relevant_code": "OFF_CHECKSUM at0x0F; createHeader sets it to0; writeSizeValues constructs block/CHS/LBA geometry.",
+    "scope": "Public mkgmap convention, not a Garmin1352 NT AP admission or renderer specification."
+  },
+  "checksum_algorithm_verified": false,
+  "device_IO": false,
+  "whole_IMG_hash_or_sum_repeated": false,
+  "new_installation_authorized_by_this_result": false
+}

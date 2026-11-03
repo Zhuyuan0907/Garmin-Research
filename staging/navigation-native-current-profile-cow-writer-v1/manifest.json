@@ -1,0 +1,42 @@
+{
+  "API_signatures": {
+    "Explicit8KAdapter": "from_container(Source4K,synthetic_fixture=False)",
+    "PackedAppend": "(level,record_count,bit_length,supplier)",
+    "SelectedRange": "(one_based_street_ID,first_child,count,next_level,original_flags)",
+    "Source4K": "writer.eight().Source4K(readonly_source_file)",
+    "capacity_bind": "plan.bind_container(adapter)",
+    "later_full_output": "bound.repack_stream(new_empty_destination)",
+    "plan_current_mdr": "(adapter.source,appends={4:PackedAppend,5:PackedAppend,6:PackedAppend},selected_ranges=(),synthetic_fixture=False)"
+  },
+  "actual_source_descriptor_path": "staging/navigation-native-current-profile-cow-writer-v1/actual-current-source-layout.json",
+  "actual_source_profile_proof_path": "staging/navigation-native-current-profile-cow-writer-v1/actual-current-source-bounded-proof.json",
+  "all_assigned_checks_passed": true,
+  "dependencies": [
+    {
+      "functions": "Source4K container parser; explicit plan_repack/repack_stream/Replacement; no MDR semantics.",
+      "path": "staging/navigation-native-img-8k-writer-v1/ap_8k_writer.py",
+      "sha256": "f4c870f2494d82f93a64f3de70b215c3ae38a85263f977016093c2fef46c1716"
+    },
+    {
+      "functions": "Only StreamIMG logical/FAT parser, via sealed AP8K dependency; withdrawn L3 helpers never called.",
+      "path": "staging/navigation-native-general-writer-v1/native_ap_writer.py",
+      "sha256": "cb190d5f3c70f0e81e9d49808dff044e4717b5061f749e7720af56aee39b0cf8"
+    }
+  ],
+  "full_actual_COW_IMG_generated": false,
+  "native_CPU_or_device_acceptance_verified": false,
+  "new_controls_proof_path": "staging/navigation-native-current-profile-cow-writer-v1/new-current-profile-controls-proof.json",
+  "producer_lower_parent_patch_semantics_verified_here": false,
+  "production_current_source": {
+    "L3_sha256": "2cd4c24f263cb6df6c863d1113992f3959090c1d99ebf26159288109b1d9ad21",
+    "bytes": 128356352,
+    "logical_MDR_bytes": 124255307,
+    "path": "staging/navigation-country-native-candidate-v2/gmapprom1.img",
+    "seal_sha256": "659ae2d149b45098542fd90cd0a3000e74e3c9e2d76077f4d1ecdbbeec022766",
+    "sha256": "925a515b668f3878ef0acea3e1c79188c15216f1af7f039c0e426942907ebefb"
+  },
+  "schema": "current-profile-cow-writer-API-manifest/v1",
+  "source_reads_path": "staging/navigation-native-current-profile-cow-writer-v1/actual-current-source-read-receipts.json",
+  "writer_path": "staging/navigation-native-current-profile-cow-writer-v1/current_profile_cow_writer.py",
+  "writer_sha256": "71673de65c6e94da664ad8bc8b81307c37a6dfbf94d819eebfa888274b688c9e"
+}

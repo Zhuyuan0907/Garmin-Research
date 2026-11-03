@@ -1,0 +1,101 @@
+
+Discarded input sections
+
+ .comment       0x00000000       0x20 /root/garmin/staging/native-aa-framing/framing.o
+ .note.GNU-stack
+                0x00000000        0x0 /root/garmin/staging/native-aa-framing/framing.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x08900000                        . = 0x8900000
+
+.text           0x08900000      0x894
+ *(.text .text.*)
+ .text          0x08900000        0x0 /root/garmin/staging/native-aa-framing/framing.o
+ .text.aa_frame_init
+                0x08900000       0x88 /root/garmin/staging/native-aa-framing/framing.o
+                0x08900000                aa_frame_init
+ .text.aa_frame_feed
+                0x08900088      0x1c8 /root/garmin/staging/native-aa-framing/framing.o
+                0x08900088                aa_frame_feed
+ .text.aa_frame_peek
+                0x08900250       0x8c /root/garmin/staging/native-aa-framing/framing.o
+                0x08900250                aa_frame_peek
+ .text.aa_frame_release
+                0x089002dc       0x64 /root/garmin/staging/native-aa-framing/framing.o
+                0x089002dc                aa_frame_release
+ .text.aa_frame_cancel
+                0x08900340       0x4c /root/garmin/staging/native-aa-framing/framing.o
+                0x08900340                aa_frame_cancel
+ .text.aa_frame_encode
+                0x0890038c      0x110 /root/garmin/staging/native-aa-framing/framing.o
+                0x0890038c                aa_frame_encode
+ .text.aa_message_init
+                0x0890049c       0x78 /root/garmin/staging/native-aa-framing/framing.o
+                0x0890049c                aa_message_init
+ .text.aa_message_push
+                0x08900514      0x248 /root/garmin/staging/native-aa-framing/framing.o
+                0x08900514                aa_message_push
+ .text.aa_message_peek
+                0x0890075c       0x70 /root/garmin/staging/native-aa-framing/framing.o
+                0x0890075c                aa_message_peek
+ .text.aa_message_release
+                0x089007cc       0x5c /root/garmin/staging/native-aa-framing/framing.o
+                0x089007cc                aa_message_release
+ .text.aa_message_cancel
+                0x08900828       0x4c /root/garmin/staging/native-aa-framing/framing.o
+                0x08900828                aa_message_cancel
+ .text.aa_frame_context_bytes
+                0x08900874        0x8 /root/garmin/staging/native-aa-framing/framing.o
+                0x08900874                aa_frame_context_bytes
+ .text.aa_frame_view_bytes
+                0x0890087c        0x8 /root/garmin/staging/native-aa-framing/framing.o
+                0x0890087c                aa_frame_view_bytes
+ .text.aa_message_context_bytes
+                0x08900884        0x8 /root/garmin/staging/native-aa-framing/framing.o
+                0x08900884                aa_message_context_bytes
+ .text.aa_message_view_bytes
+                0x0890088c        0x8 /root/garmin/staging/native-aa-framing/framing.o
+                0x0890088c                aa_message_view_bytes
+ *(.rodata .rodata.*)
+                0x08900894                        __code_end = .
+
+.data           0x08900894        0x0
+ .data          0x08900894        0x0 /root/garmin/staging/native-aa-framing/framing.o
+
+.glue_7         0x08900894        0x0
+ .glue_7        0x08900894        0x0 linker stubs
+
+.glue_7t        0x08900894        0x0
+ .glue_7t       0x08900894        0x0 linker stubs
+
+.vfp11_veneer   0x08900894        0x0
+ .vfp11_veneer  0x08900894        0x0 linker stubs
+
+.v4_bx          0x08900894        0x0
+ .v4_bx         0x08900894        0x0 linker stubs
+
+.bss            0x08900894        0x0
+ *(.bss .bss.*)
+ .bss           0x08900894        0x0 /root/garmin/staging/native-aa-framing/framing.o
+ *(COMMON)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+ *(.ARM.exidx*)
+ *(.ARM.extab*)
+LOAD /root/garmin/staging/native-aa-framing/framing.o
+LOAD /usr/lib/gcc-cross/arm-linux-gnueabi/14/libgcc.a
+OUTPUT(/root/garmin/staging/native-aa-framing/framing.elf elf32-littlearm)
+LOAD linker stubs
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x2f /root/garmin/staging/native-aa-framing/framing.o

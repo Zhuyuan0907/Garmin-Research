@@ -1,0 +1,24 @@
+{
+  "command": "staging/unicorn-stream-venv/bin/python -B staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py",
+  "launch_tool_result": {
+    "chunk_id": "a44d3d",
+    "wall_time_seconds": 1.001146372,
+    "session_id": 76207,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "tool_result": {
+    "chunk_id": "a9731a",
+    "wall_time_seconds": 0.000016389,
+    "exit_code": 1,
+    "original_token_count": 351,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py\", line 637, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py\", line 576, in main\n    row=verify_case(d,n,elf,symbols);row['case_sha256']=h;row['actual_original_and_ELF_instruction_visits']=d['instructions'];rows.append(row);sources[rel(p)]=h\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py\", line 423, in verify_case\n    sync=verify_sync(d,rp,symbols)\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py\", line 455, in verify_sync\n    require(word(z,0xF090A0)==timer and word(z,0xF0909C)==0 and word(z,0xF09098)==0,'Native Timerpublication and untouched infinitywait timedhead/tick')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py\", line 37, in require\n    if not x: raise AssertionError(msg)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Native Timerpublication and untouched infinitywait timedhead/tick\n"
+  },
+  "terminal": true,
+  "guest_execution": false,
+  "canonical_write": false,
+  "source_sha256": {
+    "staging/native-player-mixer-sync/verification-v3/verify_mixer_sync_v3_files_v2.py": "7112ecee5fa061c9923aeb19ff0370b49afad506e0b5fd2407c6b50bfaf4c7ea"
+  },
+  "failure_kind": "FILE verifier incorrectly expected zero initial clock/timed words; frozen MAIN initialized bytes must be preserved rather than assumed zero."
+}

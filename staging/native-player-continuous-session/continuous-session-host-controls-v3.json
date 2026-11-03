@@ -1,0 +1,80 @@
+{
+  "all_passed": true,
+  "group_count": 25,
+  "ASan_UBSan": true,
+  "validation": "Actual immutable controller C plus new guard C, HOST execution only",
+  "actual_terminal_tool_chunks": {
+    "compile": "182ffe",
+    "execution": "4d4075"
+  },
+  "actual_terminal_exit_codes": {
+    "compile": 0,
+    "execution": 0
+  },
+  "compile_command": [
+    "gcc",
+    "-std=c11",
+    "-O1",
+    "-g",
+    "-fno-pie",
+    "-no-pie",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-I",
+    "native/sbc-prototype",
+    "staging/native-player-continuous-session/music_session_guard_v3.c",
+    "native/ui-music-control-prototype/ui_music_control.c",
+    "staging/native-player-continuous-session/host_session_controls_v3.c",
+    "-o",
+    "staging/native-player-continuous-session/host-session-controls-v3"
+  ],
+  "execution_command": [
+    "staging/native-player-continuous-session/host-session-controls-v3"
+  ],
+  "source_sha256": {
+    "staging/native-player-continuous-session/music_session_guard_v3.c": "897d5deb7c7f894b009b262b673c6469e1bf292f89987151120f5d7a00bb4a95",
+    "staging/native-player-continuous-session/music_session_guard_v3.h": "86f39fea5ab6e5d9c04684241cbfae59516a32d1273640772e07926c6188b6d9",
+    "staging/native-player-continuous-session/host_session_controls_v3.c": "97e9c217e2e318ced9b6d2327eb6e80ed9b8cf5df2c6ad8e3cf38aa0b17d1c11",
+    "native/ui-music-control-prototype/ui_music_control.c": "ec5907cb0543716539e375a3be24923ecf307ecf5c530a8000464a5ecdd6984f",
+    "native/ui-music-control-prototype/ui_music_control.h": "a10af2e7436530c263e0ba429442514300e3e8d3cd9f28d552905af8ab89136b",
+    "native/sbc-prototype/memory_output.h": "26537024aab4dd0fa886a5b6d47c5c736177ffdd28e4f6083f8f92aba5ce51a9",
+    "native/ui-music-native-adapter/native_adapter.h": "29f82bb70282d124fe123fbe92eae2ca152afb6cd81d104503112de695edf153"
+  },
+  "binary_sha256": "ed83442f2531e8c106eaa7b1f85828da73142d10148ed5123a700621e26784ec",
+  "group_names": [
+    "01_exact_owned_queue_fingerprint_one_call_original_alloc_failure5",
+    "02_foreign_actor_ISR_wrong_anchor_do_not_consume_owned_permit",
+    "03_native_callback_slot_only_other_channel_preserved_HOST_RAM_fixture",
+    "04_native_matching_pool_wrong_capture_actor_rejected",
+    "05_native_matching_pool_stale_capture_generation_rejected",
+    "06_native_matching_pool_ISR_capture_rejected",
+    "07_full_pull_actor_index_typed_leases_retained_to_HOST_full_return",
+    "08_reentry_and_selection_cannot_replace_live_borrow_frame",
+    "09_stop_invalidates_read_restart_blocked_empty_refs_NEVER_STOP_DONE",
+    "10_shared_mutation_gate_covers_pre_reader_window_and_complete_native_call_scope",
+    "11_stop_racing_actual_mock_queue_return0_is_not_cancel_completion",
+    "12_remote17_F1_consumer_cannot_resume_locally_stopped_route",
+    "13_delayed_reused_index_and_pool_match_do_not_resurrect_returned_frame",
+    "14_other_native_channels_passthrough_no_App_source9_binding_granted",
+    "15_uncertified_native_writer_closure_leaves_witness_untouched",
+    "16_original_keyFFFF_r2kind_r3flags_stackparamslenmeta_negative_control",
+    "17_original_profile_rewrite_invalidates_guard_callback_permit",
+    "18_HOST_recycled_slot_generation9_does_not_invalidate_session1",
+    "19_recycled_FIFO_ticket_cannot_register_a_second_native_anchor",
+    "20_registration_seed5_cannot_be_used_as_session1_selection",
+    "21_native_record_replacement_rejects_pull_even_with_live_session",
+    "22_unprepared_native_provider_rejects_live_session_pull",
+    "23_reader_reprofile_detected_inside_full_return_lease",
+    "24_stale_session_epoch_cannot_reuse_a_live_buffer_generation",
+    "25_Stop_denies_new_producer_copy_lease_without_fabricating_STOP_DONE"
+  ],
+  "fixtures": "HOST actor/IRQ nesting/native record/provider/mocked seven-argument queue/wake/cancel and unexecuted reader identity stub",
+  "guest_native_instructions_executed": false,
+  "native_ownership_certified": false,
+  "native_STOP_DONE": false,
+  "physical_audio": false,
+  "device_io": false
+}

@@ -1,0 +1,1323 @@
+{
+  "schema": "stock-fts-token-codec-proof/v1",
+  "created_utc": "2026-10-05T17:49:09.663299+00:00",
+  "all_bounded_checks_passed": true,
+  "scope": {
+    "FILE_ONLY": true,
+    "sqlite_mode_ro_immutable": true,
+    "native_execution": false,
+    "native_query_caller_verified": false,
+    "hardware_query_success": false,
+    "whole_database_decoded": false,
+    "whole_MAIN_rehashed": false,
+    "whole_backup_rehashed": false,
+    "AP_payload_read": false,
+    "candidate_or_canonical_mutated": false,
+    "stock_NT_AP_update_implementation": false
+  },
+  "inputs": {
+    "MAIN": "evidence/firmware-analysis/main_02bd.bin",
+    "MAIN_sha256_inherited": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "MAIN_identity_newly_rehashed": false,
+    "database": "backups/20261002T154458Z/files/.System/SQLite/Prefecture/TWNJAI.db",
+    "database_bytes": 12743680,
+    "database_identity_from_existing_backup_verification": true,
+    "section_mapping": "evidence/firmware-analysis/native-sections.json",
+    "source_sha256": "1e77a8dd44103c366daa6f22a631d06e09e58ad0f19495a4e088c21b65b6a92e",
+    "static_fragments_sha256": "a30252c60a0b6c7a4b04d6d55a4074d16acb4610fd56971556b77d5a8b064e7a"
+  },
+  "codec_contract": {
+    "token_layout": "one prefix byte ('q'+UTF-8-byte-length), then two a..p nibble letters per encrypted byte",
+    "example_three_byte_token": "t + six nibble letters; tk is not a two-byte fixed tag",
+    "transform": "original sequential-XOR-swap RC4-style KSA/PRGA, with 128-byte fixed stock key repeated to 256",
+    "context": "identity table 0x06921D64; initialized scheduled context 0x06921E64; copy258 bytes separately for each token",
+    "literal_decoder_high_nibble": "(ASCII-1)<<4 modulo byte, equivalent to (ASCII-a)<<4 for a..p",
+    "native_text_iterator": "calls token encoder0x0442545A from0x044254C0; complete iterator/normalization semantics not proved",
+    "plaintext_encoding_in_selected_witnesses": "strict UTF-8, one Unicode scalar per token",
+    "stock_taichung_plaintext": "台中市",
+    "stock_taichung_is_TAI_U53F0": true,
+    "OSM_source_TAI_U81FA_comparison": "source node8528998711 is 臺中市; strings differ but query normalization/address caller not verified; difference alone is not established root cause"
+  },
+  "checks": [
+    {
+      "name": "exact static codec instructions and context literals",
+      "passed": true,
+      "opcode_guards": 23
+    },
+    {
+      "name": "256 one-byte host transform controls",
+      "passed": true
+    },
+    {
+      "name": "22 bounded city token UTF-8 decode and inverse",
+      "passed": true
+    },
+    {
+      "name": "six bounded immutable FTS8 host lookups with linked names",
+      "passed": true
+    }
+  ],
+  "city_query": "SELECT id,index_record,record FROM japan_addr_info WHERE record>>28=1 ORDER BY record LIMIT 22",
+  "city_witnesses": [
+    {
+      "id": 1,
+      "record": 268435457,
+      "record_hex": "0x10000001",
+      "index_record": "tkgajhftkkamejtkgcoen",
+      "decoded_text": "基隆市",
+      "unicode_codepoints": [
+        "U+57FA",
+        "U+9686",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a60975",
+          "plain_hex": "e59fba",
+          "text": "基",
+          "codepoint": "U+57FA"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa0c49",
+          "plain_hex": "e99a86",
+          "text": "隆",
+          "codepoint": "U+9686"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 253,
+      "record": 268435458,
+      "record_hex": "0x10000002",
+      "index_record": "tkgbjhptkgbkfitkgcoen",
+      "decoded_text": "台北市",
+      "unicode_codepoints": [
+        "U+53F0",
+        "U+5317",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a6197f",
+          "plain_hex": "e58fb0",
+          "text": "台",
+          "codepoint": "U+53F0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a61a58",
+          "plain_hex": "e58c97",
+          "text": "北",
+          "codepoint": "U+5317"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 1143,
+      "record": 268435459,
+      "record_hex": "0x10000003",
+      "index_record": "tkfaahptkgbkfitkgcoen",
+      "decoded_text": "新北市",
+      "unicode_codepoints": [
+        "U+65B0",
+        "U+5317",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a5007f",
+          "plain_hex": "e696b0",
+          "text": "新",
+          "codepoint": "U+65B0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a61a58",
+          "plain_hex": "e58c97",
+          "text": "北",
+          "codepoint": "U+5317"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 4418,
+      "record": 268435460,
+      "record_hex": "0x10000004",
+      "index_record": "tkfdhemtkgakfntkgcoen",
+      "decoded_text": "桃園市",
+      "unicode_codepoints": [
+        "U+6843",
+        "U+5712",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a5374c",
+          "plain_hex": "e6a183",
+          "text": "桃",
+          "codepoint": "U+6843"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a60a5d",
+          "plain_hex": "e59c92",
+          "text": "園",
+          "codepoint": "U+5712"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 8789,
+      "record": 268435461,
+      "record_hex": "0x10000005",
+      "index_record": "tkfaahptkednhgtkgcoen",
+      "decoded_text": "新竹市",
+      "unicode_codepoints": [
+        "U+65B0",
+        "U+7AF9",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a5007f",
+          "plain_hex": "e696b0",
+          "text": "新",
+          "codepoint": "U+65B0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a43d76",
+          "plain_hex": "e7abb9",
+          "text": "竹",
+          "codepoint": "U+7AF9"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 9290,
+      "record": 268435462,
+      "record_hex": "0x10000006",
+      "index_record": "tkfaahptkednhgtkecogm",
+      "decoded_text": "新竹縣",
+      "unicode_codepoints": [
+        "U+65B0",
+        "U+7AF9",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a5007f",
+          "plain_hex": "e696b0",
+          "text": "新",
+          "codepoint": "U+65B0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a43d76",
+          "plain_hex": "e7abb9",
+          "text": "竹",
+          "codepoint": "U+7AF9"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 10761,
+      "record": 268435463,
+      "record_hex": "0x10000007",
+      "index_record": "tklbnfitkfdgfitkecogm",
+      "decoded_text": "苗栗縣",
+      "unicode_codepoints": [
+        "U+82D7",
+        "U+6817",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "ab1d58",
+          "plain_hex": "e88b97",
+          "text": "苗",
+          "codepoint": "U+82D7"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a53658",
+          "plain_hex": "e6a097",
+          "text": "栗",
+          "codepoint": "U+6817"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 12987,
+      "record": 268435464,
+      "record_hex": "0x10000008",
+      "index_record": "tkgbjhptkhcogctkgcoen",
+      "decoded_text": "台中市",
+      "unicode_codepoints": [
+        "U+53F0",
+        "U+4E2D",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a6197f",
+          "plain_hex": "e58fb0",
+          "text": "台",
+          "codepoint": "U+53F0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a72e62",
+          "plain_hex": "e4b8ad",
+          "text": "中",
+          "codepoint": "U+4E2D"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 18363,
+      "record": 268435465,
+      "record_hex": "0x10000009",
+      "index_record": "tkgclhptkgbkfjtkecogm",
+      "decoded_text": "彰化縣",
+      "unicode_codepoints": [
+        "U+5F70",
+        "U+5316",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62b7f",
+          "plain_hex": "e5bdb0",
+          "text": "彰",
+          "codepoint": "U+5F70"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a61a59",
+          "plain_hex": "e58c96",
+          "text": "化",
+          "codepoint": "U+5316"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 23162,
+      "record": 268435466,
+      "record_hex": "0x1000000a",
+      "index_record": "tkgblfitkfbmfktkecogm",
+      "decoded_text": "南投縣",
+      "unicode_codepoints": [
+        "U+5357",
+        "U+6295",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a61b58",
+          "plain_hex": "e58d97",
+          "text": "南",
+          "codepoint": "U+5357"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a51c5a",
+          "plain_hex": "e68a95",
+          "text": "投",
+          "codepoint": "U+6295"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 25381,
+      "record": 268435467,
+      "record_hex": "0x1000000b",
+      "index_record": "tkkanhntkfaifitkecogm",
+      "decoded_text": "雲林縣",
+      "unicode_codepoints": [
+        "U+96F2",
+        "U+6797",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa0d7d",
+          "plain_hex": "e99bb2",
+          "text": "雲",
+          "codepoint": "U+96F2"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a50858",
+          "plain_hex": "e69e97",
+          "text": "林",
+          "codepoint": "U+6797"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 27567,
+      "record": 268435468,
+      "record_hex": "0x1000000c",
+      "index_record": "tkgaoegtkeciggtkgcoen",
+      "decoded_text": "嘉義市",
+      "unicode_codepoints": [
+        "U+5609",
+        "U+7FA9",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a60e46",
+          "plain_hex": "e59889",
+          "text": "嘉",
+          "codepoint": "U+5609"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42866",
+          "plain_hex": "e7bea9",
+          "text": "義",
+          "codepoint": "U+7FA9"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 28026,
+      "record": 268435469,
+      "record_hex": "0x1000000d",
+      "index_record": "tkgaoegtkeciggtkecogm",
+      "decoded_text": "嘉義縣",
+      "unicode_codepoints": [
+        "U+5609",
+        "U+7FA9",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a60e46",
+          "plain_hex": "e59889",
+          "text": "嘉",
+          "codepoint": "U+5609"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42866",
+          "plain_hex": "e7bea9",
+          "text": "義",
+          "codepoint": "U+7FA9"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 29576,
+      "record": 268435470,
+      "record_hex": "0x1000000e",
+      "index_record": "tkgbjhptkgblfitkgcoen",
+      "decoded_text": "台南市",
+      "unicode_codepoints": [
+        "U+53F0",
+        "U+5357",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a6197f",
+          "plain_hex": "e58fb0",
+          "text": "台",
+          "codepoint": "U+53F0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a61b58",
+          "plain_hex": "e58d97",
+          "text": "南",
+          "codepoint": "U+5357"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 33201,
+      "record": 268435471,
+      "record_hex": "0x1000000f",
+      "index_record": "tkkdnfhtkkaneltkgcoen",
+      "decoded_text": "高雄市",
+      "unicode_codepoints": [
+        "U+9AD8",
+        "U+96C4",
+        "U+5E02"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa3d57",
+          "plain_hex": "e9ab98",
+          "text": "高",
+          "codepoint": "U+9AD8"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa0d4b",
+          "plain_hex": "e99b84",
+          "text": "雄",
+          "codepoint": "U+96C4"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62e4d",
+          "plain_hex": "e5b882",
+          "text": "市",
+          "codepoint": "U+5E02"
+        }
+      ]
+    },
+    {
+      "id": 39484,
+      "record": 268435472,
+      "record_hex": "0x10000010",
+      "index_record": "tkgcheatkfalhotkecogm",
+      "decoded_text": "屏東縣",
+      "unicode_codepoints": [
+        "U+5C4F",
+        "U+6771",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a62740",
+          "plain_hex": "e5b18f",
+          "text": "屏",
+          "codepoint": "U+5C4F"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a50b7e",
+          "plain_hex": "e69db1",
+          "text": "東",
+          "codepoint": "U+6771"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 43020,
+      "record": 268435473,
+      "record_hex": "0x10000011",
+      "index_record": "tkgdifdtklaogctkecogm",
+      "decoded_text": "宜蘭縣",
+      "unicode_codepoints": [
+        "U+5B9C",
+        "U+862D",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a63853",
+          "plain_hex": "e5ae9c",
+          "text": "宜",
+          "codepoint": "U+5B9C"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "ab0e62",
+          "plain_hex": "e898ad",
+          "text": "蘭",
+          "codepoint": "U+862D"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 45000,
+      "record": 268435474,
+      "record_hex": "0x10000012",
+      "index_record": "tklbmhotklafgbtkecogm",
+      "decoded_text": "花蓮縣",
+      "unicode_codepoints": [
+        "U+82B1",
+        "U+84EE",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "ab1c7e",
+          "plain_hex": "e88ab1",
+          "text": "花",
+          "codepoint": "U+82B1"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "ab0561",
+          "plain_hex": "e893ae",
+          "text": "蓮",
+          "codepoint": "U+84EE"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 46712,
+      "record": 268435475,
+      "record_hex": "0x10000013",
+      "index_record": "tkgbjhptkfalhotkecogm",
+      "decoded_text": "台東縣",
+      "unicode_codepoints": [
+        "U+53F0",
+        "U+6771",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a6197f",
+          "plain_hex": "e58fb0",
+          "text": "台",
+          "codepoint": "U+53F0"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a50b7e",
+          "plain_hex": "e69db1",
+          "text": "東",
+          "codepoint": "U+6771"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 47591,
+      "record": 268435476,
+      "record_hex": "0x10000014",
+      "index_record": "tkfciebtkfcpfjtkecogm",
+      "decoded_text": "澎湖縣",
+      "unicode_codepoints": [
+        "U+6F8E",
+        "U+6E56",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a52841",
+          "plain_hex": "e6be8e",
+          "text": "澎",
+          "codepoint": "U+6F8E"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a52f59",
+          "plain_hex": "e6b996",
+          "text": "湖",
+          "codepoint": "U+6E56"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 47826,
+      "record": 268435477,
+      "record_hex": "0x10000015",
+      "index_record": "tkkbbfotkkaaeptkecogm",
+      "decoded_text": "金門縣",
+      "unicode_codepoints": [
+        "U+91D1",
+        "U+9580",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa115e",
+          "plain_hex": "e98791",
+          "text": "金",
+          "codepoint": "U+91D1"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa004f",
+          "plain_hex": "e99680",
+          "text": "門",
+          "codepoint": "U+9580"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    },
+    {
+      "id": 48154,
+      "record": 268435478,
+      "record_hex": "0x10000016",
+      "index_record": "tkkbggmtkfchfatkecogm",
+      "decoded_text": "連江縣",
+      "unicode_codepoints": [
+        "U+9023",
+        "U+6C5F",
+        "U+7E23"
+      ],
+      "units": [
+        {
+          "offset": 0,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "aa166c",
+          "plain_hex": "e980a3",
+          "text": "連",
+          "codepoint": "U+9023"
+        },
+        {
+          "offset": 7,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a52750",
+          "plain_hex": "e6b19f",
+          "text": "江",
+          "codepoint": "U+6C5F"
+        },
+        {
+          "offset": 14,
+          "prefix": "t",
+          "utf8_bytes": 3,
+          "encrypted_hex": "a42e6c",
+          "plain_hex": "e7b8a3",
+          "text": "縣",
+          "codepoint": "U+7E23"
+        }
+      ]
+    }
+  ],
+  "bounded_FTS8_host_controls": [
+    {
+      "input_label": "台中市",
+      "host_encoded_control": "tkgbjhptkhcogctkgcoen",
+      "fts_expression": "\"tkgbjhptkhcogctkgcoen*\"",
+      "matching_fts_rows": 1,
+      "witness_limit": 24,
+      "witnesses": [
+        {
+          "index_record": "tkgbjhptkhcogctkgcoen",
+          "decoded_index_text": "台中市",
+          "record_info": 3324688,
+          "info_id": 12987,
+          "record_level_flag": 1,
+          "source_info_index_record": "tkgbjhptkhcogctkgcoen",
+          "source_info_decoded_text": "台中市",
+          "source_record": 268435464,
+          "source_record_hex": "0x10000008"
+        }
+      ]
+    },
+    {
+      "input_label": "臺中市",
+      "host_encoded_control": "tklbbhftkhcogctkgcoen",
+      "fts_expression": "\"tklbbhftkhcogctkgcoen*\"",
+      "matching_fts_rows": 0,
+      "witness_limit": 24,
+      "witnesses": []
+    },
+    {
+      "input_label": "民權路",
+      "host_encoded_control": "tkfcgfotkfdkeftklcbga",
+      "fts_expression": "\"tkfcgfotkfdkeftklcbga*\"",
+      "matching_fts_rows": 6,
+      "witness_limit": 24,
+      "witnesses": [
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 3774257,
+          "info_id": 14743,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805321042,
+          "source_record_hex": "0x30003952"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4023857,
+          "info_id": 15718,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805322013,
+          "source_record_hex": "0x30003d1d"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4177969,
+          "info_id": 16320,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805322612,
+          "source_record_hex": "0x30003f74"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4297265,
+          "info_id": 16786,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805323075,
+          "source_record_hex": "0x30004143"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4503345,
+          "info_id": 17591,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805323874,
+          "source_record_hex": "0x30004462"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4541489,
+          "info_id": 17740,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805324022,
+          "source_record_hex": "0x300044f6"
+        }
+      ]
+    },
+    {
+      "input_label": "民權",
+      "host_encoded_control": "tkfcgfotkfdkef",
+      "fts_expression": "\"tkfcgfotkfdkef*\"",
+      "matching_fts_rows": 17,
+      "witness_limit": 24,
+      "witnesses": [
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfi",
+          "decoded_index_text": "民權街",
+          "record_info": 3695921,
+          "info_id": 14437,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfi",
+          "source_info_decoded_text": "民權街",
+          "source_record": 805320737,
+          "source_record_hex": "0x30003821"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 3774257,
+          "info_id": 14743,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805321042,
+          "source_record_hex": "0x30003952"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfi",
+          "decoded_index_text": "民權街",
+          "record_info": 3901489,
+          "info_id": 15240,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfi",
+          "source_info_decoded_text": "民權街",
+          "source_record": 805321537,
+          "source_record_hex": "0x30003b41"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkhcoeptkldhfi",
+          "decoded_index_text": "民權一街",
+          "record_info": 3971889,
+          "info_id": 15515,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkhcoeptkldhfi",
+          "source_info_decoded_text": "民權一街",
+          "source_record": 805321811,
+          "source_record_hex": "0x30003c53"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4023857,
+          "info_id": 15718,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805322013,
+          "source_record_hex": "0x30003d1d"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4177969,
+          "info_id": 16320,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805322612,
+          "source_record_hex": "0x30003f74"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfi",
+          "decoded_index_text": "民權街",
+          "record_info": 4266801,
+          "info_id": 16667,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfi",
+          "source_info_decoded_text": "民權街",
+          "source_record": 805322957,
+          "source_record_hex": "0x300040cd"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfitkfaahptkldhfitkgcbhi",
+          "decoded_index_text": "民權街新街巷",
+          "record_info": 4267057,
+          "info_id": 16668,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfitkfaahptkldhfitkgcbhi",
+          "source_info_decoded_text": "民權街新街巷",
+          "source_record": 805322958,
+          "source_record_hex": "0x300040ce"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfitkkabfdtkgbpectkgcbhi",
+          "decoded_index_text": "民權街關前巷",
+          "record_info": 4267313,
+          "info_id": 16669,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfitkkabfdtkgbpectkgcbhi",
+          "source_info_decoded_text": "民權街關前巷",
+          "source_record": 805322959,
+          "source_record_hex": "0x300040cf"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4297265,
+          "info_id": 16786,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805323075,
+          "source_record_hex": "0x30004143"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfi",
+          "decoded_index_text": "民權街",
+          "record_info": 4388145,
+          "info_id": 17141,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfi",
+          "source_info_decoded_text": "民權街",
+          "source_record": 805323427,
+          "source_record_hex": "0x300042a3"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfi",
+          "decoded_index_text": "民權街",
+          "record_info": 4468273,
+          "info_id": 17454,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfi",
+          "source_info_decoded_text": "民權街",
+          "source_record": 805323738,
+          "source_record_hex": "0x300043da"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkldhfi",
+          "decoded_index_text": "民權街",
+          "record_info": 4503089,
+          "info_id": 17590,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkldhfi",
+          "source_info_decoded_text": "民權街",
+          "source_record": 805323873,
+          "source_record_hex": "0x30004461"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4503345,
+          "info_id": 17591,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805323874,
+          "source_record_hex": "0x30004462"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkhcoeptkldhfi",
+          "decoded_index_text": "民權一街",
+          "record_info": 4540977,
+          "info_id": 17738,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkhcoeptkldhfi",
+          "source_info_decoded_text": "民權一街",
+          "source_record": 805324020,
+          "source_record_hex": "0x300044f4"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftkhcmedtkldhfi",
+          "decoded_index_text": "民權二街",
+          "record_info": 4541233,
+          "info_id": 17739,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftkhcmedtkldhfi",
+          "source_info_decoded_text": "民權二街",
+          "source_record": 805324021,
+          "source_record_hex": "0x300044f5"
+        },
+        {
+          "index_record": "tkfcgfotkfdkeftklcbga",
+          "decoded_index_text": "民權路",
+          "record_info": 4541489,
+          "info_id": 17740,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkfdkeftklcbga",
+          "source_info_decoded_text": "民權路",
+          "source_record": 805324022,
+          "source_record_hex": "0x300044f6"
+        }
+      ]
+    },
+    {
+      "input_label": "民和路",
+      "host_encoded_control": "tkfcgfotkgaeedtklcbga",
+      "fts_expression": "\"tkfcgfotkgaeedtklcbga*\"",
+      "matching_fts_rows": 3,
+      "witness_limit": 24,
+      "witnesses": [
+        {
+          "index_record": "tkfcgfotkgaeedtklcbgatkhcmedtkfdihk",
+          "decoded_index_text": "民和路二段",
+          "record_info": 3969329,
+          "info_id": 15505,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkgaeedtklcbgatkhcmedtkfdihk",
+          "source_info_decoded_text": "民和路二段",
+          "source_record": 805321801,
+          "source_record_hex": "0x30003c49"
+        },
+        {
+          "index_record": "tkfcgfotkgaeedtklcbgatkhcoeptkfdihk",
+          "decoded_index_text": "民和路一段",
+          "record_info": 4264753,
+          "info_id": 16659,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkgaeedtklcbgatkhcoeptkfdihk",
+          "source_info_decoded_text": "民和路一段",
+          "source_record": 805322949,
+          "source_record_hex": "0x300040c5"
+        },
+        {
+          "index_record": "tkfcgfotkgaeedtklcbgatkhcmedtkfdihk",
+          "decoded_index_text": "民和路二段",
+          "record_info": 4265009,
+          "info_id": 16660,
+          "record_level_flag": 3,
+          "source_info_index_record": "tkfcgfotkgaeedtklcbgatkhcmedtkfdihk",
+          "source_info_decoded_text": "民和路二段",
+          "source_record": 805322950,
+          "source_record_hex": "0x300040c6"
+        }
+      ]
+    },
+    {
+      "input_label": "184號",
+      "host_encoded_control": "rhcrhlrhhtklapfa",
+      "fts_expression": "\"rhcrhlrhhtklapfa*\"",
+      "matching_fts_rows": 0,
+      "witness_limit": 24,
+      "witnesses": []
+    }
+  ],
+  "limits": [
+    "Host algorithm reconstructed from frozen original instructions; no original instruction execution in this task.",
+    "Six host FTS8 queries do not reproduce Garmin UI or complete native caller, normalization, map-manager selection, or query ABI.",
+    "Only 22 city records and selected FTS witnesses decoded; no whole NT/AP payload or database export.",
+    "Record keys are existing stock indexing references; host token construction alone cannot rebuild/update the NT/AP carrier.",
+    "A zero host lookup for 184號 does not establish absence of address184 from stock AP or its native house-number provider."
+  ]
+}

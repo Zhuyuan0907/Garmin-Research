@@ -1,0 +1,40 @@
+
+/root/garmin/staging/native-player-reserved-tail/build-v2/reserved-tail-EMULATION-ONLY.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+02f96098 <resident_loader_read_gate>:
+ 2f96098:	e3510000 	cmp	r1, #0
+ 2f9609c:	13500000 	cmpne	r0, #0
+ 2f960a0:	03a03001 	moveq	r3, #1
+ 2f960a4:	13a03000 	movne	r3, #0
+ 2f960a8:	1a000004 	bne	2f960c0 <resident_loader_read_gate+0x28>
+ 2f960ac:	e3a00004 	mov	r0, #4
+ 2f960b0:	e12fff1e 	bx	lr
+ 2f960b4:	e3a00004 	mov	r0, #4
+ 2f960b8:	e28dd03c 	add	sp, sp, #60	@ 0x3c
+ 2f960bc:	e49df004 	pop	{pc}		@ (ldr pc, [sp], #4)
+ 2f960c0:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+ 2f960c4:	e24dd03c 	sub	sp, sp, #60	@ 0x3c
+ 2f960c8:	e28d2004 	add	r2, sp, #4
+ 2f960cc:	e790c003 	ldr	ip, [r0, r3]
+ 2f960d0:	e2833004 	add	r3, r3, #4
+ 2f960d4:	e3530034 	cmp	r3, #52	@ 0x34
+ 2f960d8:	e482c004 	str	ip, [r2], #4
+ 2f960dc:	1afffffa 	bne	2f960cc <resident_loader_read_gate+0x34>
+ 2f960e0:	e59d201c 	ldr	r2, [sp, #28]
+ 2f960e4:	e59f3028 	ldr	r3, [pc, #40]	@ 2f96114 <resident_loader_read_gate+0x7c>
+ 2f960e8:	e1520003 	cmp	r2, r3
+ 2f960ec:	1afffff0 	bne	2f960b4 <resident_loader_read_gate+0x1c>
+ 2f960f0:	e59d3020 	ldr	r3, [sp, #32]
+ 2f960f4:	e3530603 	cmp	r3, #3145728	@ 0x300000
+ 2f960f8:	1affffed 	bne	2f960b4 <resident_loader_read_gate+0x1c>
+ 2f960fc:	e59f3014 	ldr	r3, [pc, #20]	@ 2f96118 <resident_loader_read_gate+0x80>
+ 2f96100:	e28d0004 	add	r0, sp, #4
+ 2f96104:	e0433002 	sub	r3, r3, r2
+ 2f96108:	e58d3020 	str	r3, [sp, #32]
+ 2f9610c:	eb0027d1 	bl	2fa0058 <__stock_reader_tail_relocated_from_arm>
+ 2f96110:	eaffffe8 	b	2f960b8 <resident_loader_read_gate+0x20>
+ 2f96114:	02d4bb74 	.word	0x02d4bb74
+ 2f96118:	02f96000 	.word	0x02f96000

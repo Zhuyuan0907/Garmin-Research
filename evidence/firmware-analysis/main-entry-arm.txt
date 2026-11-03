@@ -1,0 +1,73 @@
+
+evidence/firmware-analysis/main_02bd.bin:     file format binary
+
+
+Disassembly of section .data:
+
+00050018 <.data+0x18>:
+   50018:	e1a0800c 	mov	r8, ip
+   5001c:	e59f0160 	ldr	r0, [pc, #352]	@ 0x50184
+   50020:	e3a01000 	mov	r1, #0
+   50024:	e5801008 	str	r1, [r0, #8]
+   50028:	e3a00000 	mov	r0, #0
+   5002c:	eb1a419b 	bl	0x6e06a0
+   50030:	e3a00001 	mov	r0, #1
+   50034:	e59f114c 	ldr	r1, [pc, #332]	@ 0x50188
+   50038:	eb1a418b 	bl	0x6e066c
+   5003c:	e3a00001 	mov	r0, #1
+   50040:	e59f1144 	ldr	r1, [pc, #324]	@ 0x5018c
+   50044:	eb1a417a 	bl	0x6e0634
+   50048:	e3a00001 	mov	r0, #1
+   5004c:	eb1a4193 	bl	0x6e06a0
+   50050:	e3a00001 	mov	r0, #1
+   50054:	e59f1134 	ldr	r1, [pc, #308]	@ 0x50190
+   50058:	eb1a4183 	bl	0x6e066c
+   5005c:	e3a00001 	mov	r0, #1
+   50060:	e59f112c 	ldr	r1, [pc, #300]	@ 0x50194
+   50064:	eb1a4172 	bl	0x6e0634
+   50068:	ee110f50 	mrc	15, 0, r0, cr1, cr0, {2}
+   5006c:	e380060f 	orr	r0, r0, #15728640	@ 0xf00000
+   50070:	ee010f50 	mcr	15, 0, r0, cr1, cr0, {2}
+   50074:	e3a00000 	mov	r0, #0
+   50078:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+   5007c:	e3a00101 	mov	r0, #1073741824	@ 0x40000000
+   50080:	eee80a10 	vmsr	fpexc, r0
+   50084:	e10f0000 	mrs	r0, CPSR
+   50088:	e200001f 	and	r0, r0, #31
+   5008c:	e3500013 	cmp	r0, #19
+   50090:	03a08000 	moveq	r8, #0
+   50094:	03a0b000 	moveq	fp, #0
+   50098:	03a0a000 	moveq	sl, #0
+   5009c:	03a09000 	moveq	r9, #0
+   500a0:	e3a000d1 	mov	r0, #209	@ 0xd1
+   500a4:	e121f000 	msr	CPSR_c, r0
+   500a8:	e59fd0e8 	ldr	sp, [pc, #232]	@ 0x50198
+   500ac:	e3a000d2 	mov	r0, #210	@ 0xd2
+   500b0:	e121f000 	msr	CPSR_c, r0
+   500b4:	e59fd0e0 	ldr	sp, [pc, #224]	@ 0x5019c
+   500b8:	e3a000d3 	mov	r0, #211	@ 0xd3
+   500bc:	e121f000 	msr	CPSR_c, r0
+   500c0:	e59fd0d8 	ldr	sp, [pc, #216]	@ 0x501a0
+   500c4:	e3a000db 	mov	r0, #219	@ 0xdb
+   500c8:	e121f000 	msr	CPSR_c, r0
+   500cc:	e59fd0d0 	ldr	sp, [pc, #208]	@ 0x501a4
+   500d0:	e3a000df 	mov	r0, #223	@ 0xdf
+   500d4:	e121f000 	msr	CPSR_c, r0
+   500d8:	e59fd0c8 	ldr	sp, [pc, #200]	@ 0x501a8
+   500dc:	e3a01a02 	mov	r1, #8192	@ 0x2000
+   500e0:	ee011f10 	mcr	15, 0, r1, cr1, cr0, {0}
+   500e4:	e3a01000 	mov	r1, #0
+   500e8:	ee051f10 	mcr	15, 0, r1, cr5, cr0, {0}
+   500ec:	ee071f17 	mcr	15, 0, r1, cr7, cr7, {0}
+   500f0:	ee081f17 	mcr	15, 0, r1, cr8, cr7, {0}
+   500f4:	ee120f10 	mrc	15, 0, r0, cr2, cr0, {0}
+   500f8:	e1a00000 	nop			@ (mov r0, r0)
+   500fc:	e24ff004 	sub	pc, pc, #4
+   50100:	ee110f10 	mrc	15, 0, r0, cr1, cr0, {0}
+   50104:	e3800a01 	orr	r0, r0, #4096	@ 0x1000
+   50108:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
+   5010c:	ee120f10 	mrc	15, 0, r0, cr2, cr0, {0}
+   50110:	e1a00000 	nop			@ (mov r0, r0)
+   50114:	e24ff004 	sub	pc, pc, #4
+   50118:	e28f0001 	add	r0, pc, #1
+   5011c:	e12fff10 	bx	r0

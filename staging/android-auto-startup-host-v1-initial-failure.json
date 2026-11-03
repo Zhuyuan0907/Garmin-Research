@@ -1,0 +1,10 @@
+{
+  "actual_terminal_result": {
+    "chunk_id": "6a56c1",
+    "wall_time_seconds": 0.000025,
+    "exit_code": 1,
+    "original_token_count": 230,
+    "output": "Traceback (most recent call last):\n  File \"/root/garmin/scripts/test_aa_bootstrap_host.py\", line 452, in <module>\n    main()\n    ~~~~^^\n  File \"/root/garmin/scripts/test_aa_bootstrap_host.py\", line 418, in main\n    metrics = tests(lib, tls, rx, tls_helper, rx_helper, fixtures)\n  File \"/root/garmin/scripts/test_aa_bootstrap_host.py\", line 282, in tests\n    boot, pair, result, events, tail, _, _ = run(**options)\n                                             ~~~^^^^^^^^^^^\n  File \"/root/garmin/scripts/test_aa_bootstrap_host.py\", line 246, in run\n    proto_auth(body)\n    ~~~~~~~~~~^^^^^^\n  File \"/root/garmin/scripts/test_aa_bootstrap_host.py\", line 176, in proto_auth\n    cls = message_factory.GetMessageClass(pool.FindMessageTypeByName('host.Auth'))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: module 'google.protobuf.message_factory' has no attribute 'GetMessageClass'. Did you mean: 'GetMessages'?\n"
+  },
+  "scope": "host fixture compatibility error before successful suite; not a protocol success"
+}

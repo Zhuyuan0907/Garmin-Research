@@ -1,0 +1,2037 @@
+{
+  "updated_utc": "2026-10-04T09:23:11.727001+00:00",
+  "MAIN_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+  "source_sha256": {
+    "scripts/probe_native_heap_settings_boot.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-heap-settings-boot/runner-at-run.py": "667d7225ba4abd5f653e917694f0e776850fa8056456dea47d6240a97ebe288c",
+    "staging/native-player-heap-settings-boot/inputs-before-run.json": "8ef0c0fc4af8b1e7037fc6c6462c40a56af27210a0c809403afd855e3b117675",
+    "staging/native-player-heap-settings-boot/heap-settings-terminal-probe.json": "280e25a54dbb90a41b8c6134e857e0d6e1ce1f199570bbec327816df285d60c1",
+    "staging/native-player-heap-settings-boot/terminal-metadata.json": "f87ec4745417b9858892ea381c44745164a957b185ca177e3098d73a45e06b7a",
+    "staging/native-player-task-mutex/task-mutex-static-preflight.json": "ce58164830245667cfd0d805b97e0abd609239c354ffc3f1bcd7ee82cc1f878d",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "scripts/analyze_native_gui_worker_boot.py": "4c9f1002b0b496953156ffa4b95f2a8103fc30c42eca52f693898184dd975d74",
+    "scripts/analyze_native_task_mutex_static.py": "6614da71ab4c0d5d298e602c50559c2a356e754c8cefb74ac7d4a176e44fe5ca",
+    "scripts/probe_native_task_mutex.py": "ae5236477a15d99f5dc8b44abbfa59c7abd89a045a5c321d5aa3ae1e8544c97a",
+    "scripts/probe_native_kernel_context.py": "240a4fafb5c09097959caac3362265cc47fffe9c9951e75b026048bf02468d77",
+    "scripts/emulate_native_kernel_context.py": "14071090f7d97794b2e174a773642bbcc38c3905177a29d50905d3fc33bba36d",
+    "scripts/emulate_native_task_lifecycle.py": "f80f7935b0d6c2e51ce650462238f4bb7b95206adfe42672383a7cb80ff5c9ad",
+    "evidence/firmware-analysis/native-task-lifecycle-emulation.json": "54b861e4a3b91bf11d2912be14fb1fd47440744f62c7edae45ae537a04b47411",
+    "scripts/emulate_native_pcm_initialization.py": "399d3d43eed7290da03302102d2e10cfbbf42d2e6bfa68d9039fb173ab8bdbb4",
+    "scripts/emulate_native_player_widget.py": "c7375c9cc2d7298c6890cf4904fc9c88f5f2636de06ea1cfd572cd0ee0ffdd6a"
+  },
+  "static_only": true,
+  "new_guest_execution": false,
+  "device_io": false,
+  "sounds_emitted": false,
+  "existing_sources_or_proofs_modified": false,
+  "frozen_terminal": {
+    "session_id": 46928,
+    "exit_code": 1,
+    "probe_sha256": "280e25a54dbb90a41b8c6134e857e0d6e1ce1f199570bbec327816df285d60c1",
+    "metadata_sha256": "f87ec4745417b9858892ea381c44745164a957b185ca177e3098d73a45e06b7a",
+    "observed_error": "Invalid instruction (UC_ERR_INSN_INVALID)",
+    "observed_registers": {
+      "r0": "0x666",
+      "r1": "0x666",
+      "r2": "0xcccc",
+      "r3": "0xffffff9c",
+      "lr": "0x2cc247",
+      "pc": "0x3404dc",
+      "sp": "0x9503f68"
+    },
+    "native_restore_count": 11,
+    "last_native_restore": {
+      "current": "0x9503f90",
+      "previous_running_task": "0x9508f90",
+      "saved_context": "0x9503f54",
+      "saved_PC": "0x2fd0ac",
+      "context_format": 0,
+      "original_restore_entry_reached": true,
+      "original_task_resume_destination_reached": true,
+      "python_CPU_context_restore": false
+    },
+    "controller_TCB_plus28_observed_before_settings": "0x0",
+    "settings_initializer_returned": false,
+    "full_scoped_final_guards_passed": false,
+    "CPSR_FPEXC_CPACR_FPSCR_FP_bank_at_fault_not_captured": true,
+    "native_handler_entry_or_architectural_exception_delivery_not_observed": true
+  },
+  "observed_opcode": {
+    "PC": "0x3404dc",
+    "opcode_hex": "100a00ee",
+    "instruction": "vmov s0, r0",
+    "original_caller": [
+      {
+        "address": "0x2cc23c",
+        "mode": "Thumb",
+        "opcode_hex": "f3f7a0e9",
+        "instruction": "blx #0x2bf580"
+      },
+      {
+        "address": "0x2cc240",
+        "mode": "Thumb",
+        "opcode_hex": "0800",
+        "instruction": "movs r0, r1"
+      },
+      {
+        "address": "0x2cc242",
+        "mode": "Thumb",
+        "opcode_hex": "74f04ce9",
+        "instruction": "blx #0x3404dc"
+      },
+      {
+        "address": "0x2cc246",
+        "mode": "Thumb",
+        "opcode_hex": "1f49",
+        "instruction": "ldr r1, [pc, #0x7c]"
+      },
+      {
+        "address": "0x2cc248",
+        "mode": "Thumb",
+        "opcode_hex": "acf098e9",
+        "instruction": "blx #0x37857c"
+      }
+    ],
+    "full_native_callee_CFG": "0x3404dc",
+    "u32_input_observed": 1638,
+    "expected_float_bits": "0x44ccc000",
+    "expected_result_is_math_not_runtime_observation": true
+  },
+  "bounded_CFGs": {
+    "0x20ebd4": {
+      "entry": "0x20ebd4",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x20ebd4",
+          "mode": "ARM",
+          "opcode_hex": "0010a0e3",
+          "instruction": "mov r1, #0"
+        },
+        {
+          "address": "0x20ebd8",
+          "mode": "ARM",
+          "opcode_hex": "101ae8ee",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "address": "0x20ebdc",
+          "mode": "ARM",
+          "opcode_hex": "1eff2fe1",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [],
+      "returns_or_external_tails": [
+        "0x20ebdc"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 3,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x20ed68": {
+      "entry": "0x20ed68",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x20ed68",
+          "mode": "ARM",
+          "opcode_hex": "00402de9",
+          "instruction": "stmdb sp!, {lr}"
+        },
+        {
+          "address": "0x20ed6c",
+          "mode": "ARM",
+          "opcode_hex": "04d04de2",
+          "instruction": "sub sp, sp, #4"
+        },
+        {
+          "address": "0x20ed70",
+          "mode": "ARM",
+          "opcode_hex": "30101fe5",
+          "instruction": "ldr r1, [pc, #-0x30]",
+          "literal_address": "0x20ed48",
+          "literal_value": "0x3ab1038"
+        },
+        {
+          "address": "0x20ed74",
+          "mode": "ARM",
+          "opcode_hex": "0000a0e3",
+          "instruction": "mov r0, #0"
+        },
+        {
+          "address": "0x20ed78",
+          "mode": "ARM",
+          "opcode_hex": "000081e5",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x20ed7c",
+          "mode": "ARM",
+          "opcode_hex": "0304a0e3",
+          "instruction": "mov r0, #0x3000000"
+        },
+        {
+          "address": "0x20ed80",
+          "mode": "ARM",
+          "opcode_hex": "100ae1ee",
+          "instruction": "vmsr fpscr, r0"
+        },
+        {
+          "address": "0x20ed84",
+          "mode": "ARM",
+          "opcode_hex": "0000a0e3",
+          "instruction": "mov r0, #0"
+        },
+        {
+          "address": "0x20ed88",
+          "mode": "ARM",
+          "opcode_hex": "00008de5",
+          "instruction": "str r0, [sp]"
+        },
+        {
+          "address": "0x20ed8c",
+          "mode": "ARM",
+          "opcode_hex": "34001fe5",
+          "instruction": "ldr r0, [pc, #-0x34]",
+          "literal_address": "0x20ed60",
+          "literal_value": "0x2d226b4"
+        },
+        {
+          "address": "0x20ed90",
+          "mode": "ARM",
+          "opcode_hex": "34101fe5",
+          "instruction": "ldr r1, [pc, #-0x34]",
+          "literal_address": "0x20ed64",
+          "literal_value": "0x3ab1028"
+        },
+        {
+          "address": "0x20ed94",
+          "mode": "ARM",
+          "opcode_hex": "0221e0e3",
+          "instruction": "mvn r2, #0x80000000"
+        },
+        {
+          "address": "0x20ed98",
+          "mode": "ARM",
+          "opcode_hex": "0c309fe5",
+          "instruction": "ldr r3, [pc, #0xc]",
+          "literal_address": "0x20edac",
+          "literal_value": "0x20edb1"
+        },
+        {
+          "address": "0x20ed9c",
+          "mode": "ARM",
+          "opcode_hex": "07f606fb",
+          "instruction": "blx #0x3cc5c2",
+          "direct_call": "0x3cc5c2",
+          "target_mode": "Thumb"
+        },
+        {
+          "address": "0x20eda0",
+          "mode": "ARM",
+          "opcode_hex": "04d08de2",
+          "instruction": "add sp, sp, #4"
+        },
+        {
+          "address": "0x20eda4",
+          "mode": "ARM",
+          "opcode_hex": "0040bde8",
+          "instruction": "ldm sp!, {lr}"
+        },
+        {
+          "address": "0x20eda8",
+          "mode": "ARM",
+          "opcode_hex": "1eff2fe1",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [
+        {
+          "call": "0x20ed9c",
+          "entry": "0x3cc5c2",
+          "mode": "Thumb",
+          "continuation": "0x20eda0",
+          "actual_LR": "0x20eda0"
+        }
+      ],
+      "returns_or_external_tails": [
+        "0x20eda8"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 17,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x20edb0": {
+      "entry": "0x20edb0",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x20edb0",
+          "mode": "Thumb",
+          "opcode_hex": "024a",
+          "instruction": "ldr r2, [pc, #8]",
+          "literal_address": "0x20edbc",
+          "literal_value": "0x3ab1038"
+        },
+        {
+          "address": "0x20edb2",
+          "mode": "Thumb",
+          "opcode_hex": "1168",
+          "instruction": "ldr r1, [r2]"
+        },
+        {
+          "address": "0x20edb4",
+          "mode": "Thumb",
+          "opcode_hex": "401a",
+          "instruction": "subs r0, r0, r1"
+        },
+        {
+          "address": "0x20edb6",
+          "mode": "Thumb",
+          "opcode_hex": "00d1",
+          "instruction": "bne #0x20edba"
+        },
+        {
+          "address": "0x20edb8",
+          "mode": "Thumb",
+          "opcode_hex": "1060",
+          "instruction": "str r0, [r2]"
+        },
+        {
+          "address": "0x20edba",
+          "mode": "Thumb",
+          "opcode_hex": "7047",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [],
+      "returns_or_external_tails": [
+        "0x20edba"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 6,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x6e0820": {
+      "entry": "0x6e0820",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x6e0820",
+          "mode": "ARM",
+          "opcode_hex": "1c0090e5",
+          "instruction": "ldr r0, [r0, #0x1c]"
+        },
+        {
+          "address": "0x6e0824",
+          "mode": "ARM",
+          "opcode_hex": "000050e3",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x6e0828",
+          "mode": "ARM",
+          "opcode_hex": "1c009015",
+          "instruction": "ldrne r0, [r0, #0x1c]"
+        },
+        {
+          "address": "0x6e082c",
+          "mode": "ARM",
+          "opcode_hex": "1eff2fe1",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [],
+      "returns_or_external_tails": [
+        "0x6e082c"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 4,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x6e0830": {
+      "entry": "0x6e0830",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x6e0830",
+          "mode": "ARM",
+          "opcode_hex": "10402de9",
+          "instruction": "push {r4, lr}"
+        },
+        {
+          "address": "0x6e0834",
+          "mode": "ARM",
+          "opcode_hex": "0020a0e1",
+          "instruction": "mov r2, r0"
+        },
+        {
+          "address": "0x6e0838",
+          "mode": "ARM",
+          "opcode_hex": "1c0090e5",
+          "instruction": "ldr r0, [r0, #0x1c]"
+        },
+        {
+          "address": "0x6e083c",
+          "mode": "ARM",
+          "opcode_hex": "0140a0e1",
+          "instruction": "mov r4, r1"
+        },
+        {
+          "address": "0x6e0840",
+          "mode": "ARM",
+          "opcode_hex": "000050e3",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x6e0844",
+          "mode": "ARM",
+          "opcode_hex": "1080bd08",
+          "instruction": "popeq {r4, pc}",
+          "resolved_native_return": true
+        },
+        {
+          "address": "0x6e0848",
+          "mode": "ARM",
+          "opcode_hex": "0410d0e5",
+          "instruction": "ldrb r1, [r0, #4]"
+        },
+        {
+          "address": "0x6e084c",
+          "mode": "ARM",
+          "opcode_hex": "000051e3",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x6e0850",
+          "mode": "ARM",
+          "opcode_hex": "0200a001",
+          "instruction": "moveq r0, r2"
+        },
+        {
+          "address": "0x6e0854",
+          "mode": "ARM",
+          "opcode_hex": "6b59e80b",
+          "instruction": "bleq #0xf6e08",
+          "direct_call": "0xf6e08",
+          "target_mode": "ARM"
+        },
+        {
+          "address": "0x6e0858",
+          "mode": "ARM",
+          "opcode_hex": "1c4080e5",
+          "instruction": "str r4, [r0, #0x1c]"
+        },
+        {
+          "address": "0x6e085c",
+          "mode": "ARM",
+          "opcode_hex": "1080bde8",
+          "instruction": "pop {r4, pc}",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [
+        {
+          "call": "0x6e0854",
+          "entry": "0xf6e08",
+          "mode": "ARM",
+          "continuation": "0x6e0858",
+          "actual_LR": "0x6e0858"
+        }
+      ],
+      "returns_or_external_tails": [
+        "0x6e0844",
+        "0x6e085c"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 12,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0xf6edc": {
+      "entry": "0xf6edc",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0xf6edc",
+          "mode": "Thumb",
+          "opcode_hex": "70b5",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "address": "0xf6ede",
+          "mode": "Thumb",
+          "opcode_hex": "4a42",
+          "instruction": "rsbs r2, r1, #0"
+        },
+        {
+          "address": "0xf6ee0",
+          "mode": "Thumb",
+          "opcode_hex": "5207",
+          "instruction": "lsls r2, r2, #0x1d"
+        },
+        {
+          "address": "0xf6ee2",
+          "mode": "Thumb",
+          "opcode_hex": "520f",
+          "instruction": "lsrs r2, r2, #0x1d"
+        },
+        {
+          "address": "0xf6ee4",
+          "mode": "Thumb",
+          "opcode_hex": "c069",
+          "instruction": "ldr r0, [r0, #0x1c]"
+        },
+        {
+          "address": "0xf6ee6",
+          "mode": "Thumb",
+          "opcode_hex": "5118",
+          "instruction": "adds r1, r2, r1"
+        },
+        {
+          "address": "0xf6ee8",
+          "mode": "Thumb",
+          "opcode_hex": "0025",
+          "instruction": "movs r5, #0"
+        },
+        {
+          "address": "0xf6eea",
+          "mode": "Thumb",
+          "opcode_hex": "8e08",
+          "instruction": "lsrs r6, r1, #2"
+        },
+        {
+          "address": "0xf6eec",
+          "mode": "Thumb",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0xf6eee",
+          "mode": "Thumb",
+          "opcode_hex": "16d0",
+          "instruction": "beq #0xf6f1e"
+        },
+        {
+          "address": "0xf6ef0",
+          "mode": "Thumb",
+          "opcode_hex": "8468",
+          "instruction": "ldr r4, [r0, #8]"
+        },
+        {
+          "address": "0xf6ef2",
+          "mode": "Thumb",
+          "opcode_hex": "002c",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "address": "0xf6ef4",
+          "mode": "Thumb",
+          "opcode_hex": "13d0",
+          "instruction": "beq #0xf6f1e"
+        },
+        {
+          "address": "0xf6ef6",
+          "mode": "Thumb",
+          "opcode_hex": "24f1eaeb",
+          "instruction": "blx #0x21b6cc",
+          "direct_call": "0x21b6cc",
+          "target_mode": "ARM"
+        },
+        {
+          "address": "0xf6efa",
+          "mode": "Thumb",
+          "opcode_hex": "1c49",
+          "instruction": "ldr r1, [pc, #0x70]",
+          "literal_address": "0xf6f6c",
+          "literal_value": "0xfce3e2ca"
+        },
+        {
+          "address": "0xf6efc",
+          "mode": "Thumb",
+          "opcode_hex": "2268",
+          "instruction": "ldr r2, [r4]"
+        },
+        {
+          "address": "0xf6efe",
+          "mode": "Thumb",
+          "opcode_hex": "8a42",
+          "instruction": "cmp r2, r1"
+        },
+        {
+          "address": "0xf6f00",
+          "mode": "Thumb",
+          "opcode_hex": "07d0",
+          "instruction": "beq #0xf6f12"
+        },
+        {
+          "address": "0xf6f02",
+          "mode": "Thumb",
+          "opcode_hex": "2160",
+          "instruction": "str r1, [r4]"
+        },
+        {
+          "address": "0xf6f04",
+          "mode": "Thumb",
+          "opcode_hex": "2100",
+          "instruction": "movs r1, r4"
+        },
+        {
+          "address": "0xf6f06",
+          "mode": "Thumb",
+          "opcode_hex": "0831",
+          "instruction": "adds r1, #8"
+        },
+        {
+          "address": "0xf6f08",
+          "mode": "Thumb",
+          "opcode_hex": "4a42",
+          "instruction": "rsbs r2, r1, #0"
+        },
+        {
+          "address": "0xf6f0a",
+          "mode": "Thumb",
+          "opcode_hex": "5207",
+          "instruction": "lsls r2, r2, #0x1d"
+        },
+        {
+          "address": "0xf6f0c",
+          "mode": "Thumb",
+          "opcode_hex": "520f",
+          "instruction": "lsrs r2, r2, #0x1d"
+        },
+        {
+          "address": "0xf6f0e",
+          "mode": "Thumb",
+          "opcode_hex": "8918",
+          "instruction": "adds r1, r1, r2"
+        },
+        {
+          "address": "0xf6f10",
+          "mode": "Thumb",
+          "opcode_hex": "6160",
+          "instruction": "str r1, [r4, #4]"
+        },
+        {
+          "address": "0xf6f12",
+          "mode": "Thumb",
+          "opcode_hex": "6568",
+          "instruction": "ldr r5, [r4, #4]"
+        },
+        {
+          "address": "0xf6f14",
+          "mode": "Thumb",
+          "opcode_hex": "b100",
+          "instruction": "lsls r1, r6, #2"
+        },
+        {
+          "address": "0xf6f16",
+          "mode": "Thumb",
+          "opcode_hex": "6918",
+          "instruction": "adds r1, r5, r1"
+        },
+        {
+          "address": "0xf6f18",
+          "mode": "Thumb",
+          "opcode_hex": "6160",
+          "instruction": "str r1, [r4, #4]"
+        },
+        {
+          "address": "0xf6f1a",
+          "mode": "Thumb",
+          "opcode_hex": "24f1e0eb",
+          "instruction": "blx #0x21b6dc",
+          "direct_call": "0x21b6dc",
+          "target_mode": "ARM"
+        },
+        {
+          "address": "0xf6f1e",
+          "mode": "Thumb",
+          "opcode_hex": "2800",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0xf6f20",
+          "mode": "Thumb",
+          "opcode_hex": "70bc",
+          "instruction": "pop {r4, r5, r6}"
+        },
+        {
+          "address": "0xf6f22",
+          "mode": "Thumb",
+          "opcode_hex": "08bc",
+          "instruction": "pop {r3}"
+        },
+        {
+          "address": "0xf6f24",
+          "mode": "Thumb",
+          "opcode_hex": "1847",
+          "instruction": "bx r3",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [
+        {
+          "call": "0xf6ef6",
+          "entry": "0x21b6cc",
+          "mode": "ARM",
+          "continuation": "0xf6efa",
+          "actual_LR": "0xf6efb"
+        },
+        {
+          "call": "0xf6f1a",
+          "entry": "0x21b6dc",
+          "mode": "ARM",
+          "continuation": "0xf6f1e",
+          "actual_LR": "0xf6f1f"
+        }
+      ],
+      "returns_or_external_tails": [
+        "0xf6f24"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 35,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x358d24": {
+      "entry": "0x358d24",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x358d24",
+          "mode": "Thumb",
+          "opcode_hex": "0020",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x358d26",
+          "mode": "Thumb",
+          "opcode_hex": "0349",
+          "instruction": "ldr r1, [pc, #0xc]",
+          "literal_address": "0x358d34",
+          "literal_value": "0xf09094"
+        },
+        {
+          "address": "0x358d28",
+          "mode": "Thumb",
+          "opcode_hex": "0968",
+          "instruction": "ldr r1, [r1]"
+        },
+        {
+          "address": "0x358d2a",
+          "mode": "Thumb",
+          "opcode_hex": "0029",
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "address": "0x358d2c",
+          "mode": "Thumb",
+          "opcode_hex": "01d1",
+          "instruction": "bne #0x358d32"
+        },
+        {
+          "address": "0x358d2e",
+          "mode": "Thumb",
+          "opcode_hex": "0248",
+          "instruction": "ldr r0, [pc, #8]",
+          "literal_address": "0x358d38",
+          "literal_value": "0xf09090"
+        },
+        {
+          "address": "0x358d30",
+          "mode": "Thumb",
+          "opcode_hex": "0068",
+          "instruction": "ldr r0, [r0]"
+        },
+        {
+          "address": "0x358d32",
+          "mode": "Thumb",
+          "opcode_hex": "7047",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [],
+      "returns_or_external_tails": [
+        "0x358d32"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 8,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x3404dc": {
+      "entry": "0x3404dc",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x3404dc",
+          "mode": "ARM",
+          "opcode_hex": "100a00ee",
+          "instruction": "vmov s0, r0"
+        },
+        {
+          "address": "0x3404e0",
+          "mode": "ARM",
+          "opcode_hex": "400ab8ee",
+          "instruction": "vcvt.f32.u32 s0, s0"
+        },
+        {
+          "address": "0x3404e4",
+          "mode": "ARM",
+          "opcode_hex": "100a10ee",
+          "instruction": "vmov r0, s0"
+        },
+        {
+          "address": "0x3404e8",
+          "mode": "ARM",
+          "opcode_hex": "1eff2fe1",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [],
+      "returns_or_external_tails": [
+        "0x3404e8"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 4,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x210eb6": {
+      "entry": "0x210eb6",
+      "entry_mode": "Thumb",
+      "instructions": [
+        {
+          "address": "0x210eb6",
+          "mode": "Thumb",
+          "opcode_hex": "4c48",
+          "instruction": "ldr r0, [pc, #0x130]",
+          "literal_address": "0x210fe8",
+          "literal_value": "0xffff0094"
+        },
+        {
+          "address": "0x210eb8",
+          "mode": "Thumb",
+          "opcode_hex": "4c49",
+          "instruction": "ldr r1, [pc, #0x130]",
+          "literal_address": "0x210fec",
+          "literal_value": "0xffff0038"
+        },
+        {
+          "address": "0x210eba",
+          "mode": "Thumb",
+          "opcode_hex": "0860",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x210ebc",
+          "mode": "Thumb",
+          "opcode_hex": "4c48",
+          "instruction": "ldr r0, [pc, #0x130]",
+          "literal_address": "0x210ff0",
+          "literal_value": "0x20ebe0"
+        },
+        {
+          "address": "0x210ebe",
+          "mode": "Thumb",
+          "opcode_hex": "4d49",
+          "instruction": "ldr r1, [pc, #0x134]",
+          "literal_address": "0x210ff4",
+          "literal_value": "0xffff0024"
+        },
+        {
+          "address": "0x210ec0",
+          "mode": "Thumb",
+          "opcode_hex": "0860",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x210ec2",
+          "mode": "Thumb",
+          "opcode_hex": "4d48",
+          "instruction": "ldr r0, [pc, #0x134]",
+          "literal_address": "0x210ff8",
+          "literal_value": "0x6e931c"
+        },
+        {
+          "address": "0x210ec4",
+          "mode": "Thumb",
+          "opcode_hex": "4d49",
+          "instruction": "ldr r1, [pc, #0x134]",
+          "literal_address": "0x210ffc",
+          "literal_value": "0xffff0028"
+        },
+        {
+          "address": "0x210ec6",
+          "mode": "Thumb",
+          "opcode_hex": "0860",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x210ec8",
+          "mode": "Thumb",
+          "opcode_hex": "4d48",
+          "instruction": "ldr r0, [pc, #0x134]",
+          "literal_address": "0x211000",
+          "literal_value": "0x6e92f8"
+        },
+        {
+          "address": "0x210eca",
+          "mode": "Thumb",
+          "opcode_hex": "4e49",
+          "instruction": "ldr r1, [pc, #0x138]",
+          "literal_address": "0x211004",
+          "literal_value": "0xffff002c"
+        },
+        {
+          "address": "0x210ecc",
+          "mode": "Thumb",
+          "opcode_hex": "0860",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x210ece",
+          "mode": "Thumb",
+          "opcode_hex": "4e48",
+          "instruction": "ldr r0, [pc, #0x138]",
+          "literal_address": "0x211008",
+          "literal_value": "0x6e92d4"
+        },
+        {
+          "address": "0x210ed0",
+          "mode": "Thumb",
+          "opcode_hex": "4e49",
+          "instruction": "ldr r1, [pc, #0x138]",
+          "literal_address": "0x21100c",
+          "literal_value": "0xffff0030"
+        },
+        {
+          "address": "0x210ed2",
+          "mode": "Thumb",
+          "opcode_hex": "0860",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x210ed4",
+          "mode": "Thumb",
+          "opcode_hex": "7047",
+          "instruction": "bx lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [],
+      "returns_or_external_tails": [
+        "0x210ed4"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 16,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x20ebe0": {
+      "entry": "0x20ebe0",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x20ebe0",
+          "mode": "ARM",
+          "opcode_hex": "1f102de9",
+          "instruction": "push {r0, r1, r2, r3, r4, ip}"
+        },
+        {
+          "address": "0x20ebe4",
+          "mode": "ARM",
+          "opcode_hex": "00004fe1",
+          "instruction": "mrs r0, spsr"
+        },
+        {
+          "address": "0x20ebe8",
+          "mode": "ARM",
+          "opcode_hex": "200010e3",
+          "instruction": "tst r0, #0x20"
+        },
+        {
+          "address": "0x20ebec",
+          "mode": "ARM",
+          "opcode_hex": "1700001a",
+          "instruction": "bne #0x20ec50"
+        },
+        {
+          "address": "0x20ebf0",
+          "mode": "ARM",
+          "opcode_hex": "04101ee5",
+          "instruction": "ldr r1, [lr, #-4]"
+        },
+        {
+          "address": "0x20ebf4",
+          "mode": "ARM",
+          "opcode_hex": "01c2a0e1",
+          "instruction": "lsl ip, r1, #4"
+        },
+        {
+          "address": "0x20ebf8",
+          "mode": "ARM",
+          "opcode_hex": "03c14ce2",
+          "instruction": "sub ip, ip, #0xc0000000"
+        },
+        {
+          "address": "0x20ebfc",
+          "mode": "ARM",
+          "opcode_hex": "03025ce3",
+          "instruction": "cmp ip, #0x30000000"
+        },
+        {
+          "address": "0x20ec00",
+          "mode": "ARM",
+          "opcode_hex": "1200002a",
+          "instruction": "bhs #0x20ec50"
+        },
+        {
+          "address": "0x20ec04",
+          "mode": "ARM",
+          "opcode_hex": "38c19fe5",
+          "instruction": "ldr ip, [pc, #0x138]",
+          "literal_address": "0x20ed44",
+          "literal_value": "0x20ec10"
+        },
+        {
+          "address": "0x20ec08",
+          "mode": "ARM",
+          "opcode_hex": "0f2c01e2",
+          "instruction": "and r2, r1, #0xf00"
+        },
+        {
+          "address": "0x20ec0c",
+          "mode": "ARM",
+          "opcode_hex": "22f39ce7",
+          "instruction": "ldr pc, [ip, r2, lsr #6]",
+          "resolved_table": "0x20ec10",
+          "index": "opcode coprocessor bits11:8",
+          "targets": [
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec58",
+            "0x20ec58",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50",
+            "0x20ec50"
+          ]
+        },
+        {
+          "address": "0x20ec50",
+          "mode": "ARM",
+          "opcode_hex": "1f10bde8",
+          "instruction": "pop {r0, r1, r2, r3, r4, ip}"
+        },
+        {
+          "address": "0x20ec54",
+          "mode": "ARM",
+          "opcode_hex": "b96913ea",
+          "instruction": "b #0x6e9340",
+          "external_tail": "0x6e9340",
+          "not_recursed": "generic undefined/fatal path not fully recursed"
+        },
+        {
+          "address": "0x20ec58",
+          "mode": "ARM",
+          "opcode_hex": "1fc000e2",
+          "instruction": "and ip, r0, #0x1f"
+        },
+        {
+          "address": "0x20ec5c",
+          "mode": "ARM",
+          "opcode_hex": "10005ce3",
+          "instruction": "cmp ip, #0x10"
+        },
+        {
+          "address": "0x20ec60",
+          "mode": "ARM",
+          "opcode_hex": "1f005c13",
+          "instruction": "cmpne ip, #0x1f"
+        },
+        {
+          "address": "0x20ec64",
+          "mode": "ARM",
+          "opcode_hex": "f9ffff1a",
+          "instruction": "bne #0x20ec50"
+        },
+        {
+          "address": "0x20ec68",
+          "mode": "ARM",
+          "opcode_hex": "10caf8ee",
+          "instruction": "vmrs ip, fpexc"
+        },
+        {
+          "address": "0x20ec6c",
+          "mode": "ARM",
+          "opcode_hex": "01011ce3",
+          "instruction": "tst ip, #0x40000000"
+        },
+        {
+          "address": "0x20ec70",
+          "mode": "ARM",
+          "opcode_hex": "0000000a",
+          "instruction": "beq #0x20ec78"
+        },
+        {
+          "address": "0x20ec74",
+          "mode": "ARM",
+          "opcode_hex": "f5ffffea",
+          "instruction": "b #0x20ec50"
+        },
+        {
+          "address": "0x20ec78",
+          "mode": "ARM",
+          "opcode_hex": "20402de9",
+          "instruction": "push {r5, lr}"
+        },
+        {
+          "address": "0x20ec7c",
+          "mode": "ARM",
+          "opcode_hex": "0101a0e3",
+          "instruction": "mov r0, #0x40000000"
+        },
+        {
+          "address": "0x20ec80",
+          "mode": "ARM",
+          "opcode_hex": "100ae8ee",
+          "instruction": "vmsr fpexc, r0"
+        },
+        {
+          "address": "0x20ec84",
+          "mode": "ARM",
+          "opcode_hex": "262805fa",
+          "instruction": "blx #0x358d24",
+          "direct_call": "0x358d24",
+          "target_mode": "Thumb"
+        },
+        {
+          "address": "0x20ec88",
+          "mode": "ARM",
+          "opcode_hex": "b8109fe5",
+          "instruction": "ldr r1, [pc, #0xb8]",
+          "literal_address": "0x20ed48",
+          "literal_value": "0x3ab1038"
+        },
+        {
+          "address": "0x20ec8c",
+          "mode": "ARM",
+          "opcode_hex": "004091e5",
+          "instruction": "ldr r4, [r1]"
+        },
+        {
+          "address": "0x20ec90",
+          "mode": "ARM",
+          "opcode_hex": "040050e1",
+          "instruction": "cmp r0, r4"
+        },
+        {
+          "address": "0x20ec94",
+          "mode": "ARM",
+          "opcode_hex": "2500000a",
+          "instruction": "beq #0x20ed30"
+        },
+        {
+          "address": "0x20ec98",
+          "mode": "ARM",
+          "opcode_hex": "000081e5",
+          "instruction": "str r0, [r1]"
+        },
+        {
+          "address": "0x20ec9c",
+          "mode": "ARM",
+          "opcode_hex": "0050a0e1",
+          "instruction": "mov r5, r0"
+        },
+        {
+          "address": "0x20eca0",
+          "mode": "ARM",
+          "opcode_hex": "000054e3",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "address": "0x20eca4",
+          "mode": "ARM",
+          "opcode_hex": "1400000a",
+          "instruction": "beq #0x20ecfc"
+        },
+        {
+          "address": "0x20eca8",
+          "mode": "ARM",
+          "opcode_hex": "0400a0e1",
+          "instruction": "mov r0, r4"
+        },
+        {
+          "address": "0x20ecac",
+          "mode": "ARM",
+          "opcode_hex": "db4613eb",
+          "instruction": "bl #0x6e0820",
+          "direct_call": "0x6e0820",
+          "target_mode": "ARM"
+        },
+        {
+          "address": "0x20ecb0",
+          "mode": "ARM",
+          "opcode_hex": "000050e3",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x20ecb4",
+          "mode": "ARM",
+          "opcode_hex": "0700001a",
+          "instruction": "bne #0x20ecd8"
+        },
+        {
+          "address": "0x20ecb8",
+          "mode": "ARM",
+          "opcode_hex": "0400a0e1",
+          "instruction": "mov r0, r4"
+        },
+        {
+          "address": "0x20ecbc",
+          "mode": "ARM",
+          "opcode_hex": "9410a0e3",
+          "instruction": "mov r1, #0x94"
+        },
+        {
+          "address": "0x20ecc0",
+          "mode": "ARM",
+          "opcode_hex": "85a0fbfa",
+          "instruction": "blx #0xf6edc",
+          "direct_call": "0xf6edc",
+          "target_mode": "Thumb"
+        },
+        {
+          "address": "0x20ecc4",
+          "mode": "ARM",
+          "opcode_hex": "0010a0e1",
+          "instruction": "mov r1, r0"
+        },
+        {
+          "address": "0x20ecc8",
+          "mode": "ARM",
+          "opcode_hex": "0400a0e1",
+          "instruction": "mov r0, r4"
+        },
+        {
+          "address": "0x20eccc",
+          "mode": "ARM",
+          "opcode_hex": "0140a0e1",
+          "instruction": "mov r4, r1"
+        },
+        {
+          "address": "0x20ecd0",
+          "mode": "ARM",
+          "opcode_hex": "d64613eb",
+          "instruction": "bl #0x6e0830",
+          "direct_call": "0x6e0830",
+          "target_mode": "ARM"
+        },
+        {
+          "address": "0x20ecd4",
+          "mode": "ARM",
+          "opcode_hex": "0400a0e1",
+          "instruction": "mov r0, r4"
+        },
+        {
+          "address": "0x20ecd8",
+          "mode": "ARM",
+          "opcode_hex": "200b80ec",
+          "instruction": "vstmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}"
+        },
+        {
+          "address": "0x20ecdc",
+          "mode": "ARM",
+          "opcode_hex": "840080e2",
+          "instruction": "add r0, r0, #0x84"
+        },
+        {
+          "address": "0x20ece0",
+          "mode": "ARM",
+          "opcode_hex": "101af8ee",
+          "instruction": "vmrs r1, fpexc"
+        },
+        {
+          "address": "0x20ece4",
+          "mode": "ARM",
+          "opcode_hex": "020111e3",
+          "instruction": "tst r1, #0x80000000"
+        },
+        {
+          "address": "0x20ece8",
+          "mode": "ARM",
+          "opcode_hex": "102af91e",
+          "instruction": "vmrsne r2, fpinst"
+        },
+        {
+          "address": "0x20ecec",
+          "mode": "ARM",
+          "opcode_hex": "010211e3",
+          "instruction": "tst r1, #0x10000000"
+        },
+        {
+          "address": "0x20ecf0",
+          "mode": "ARM",
+          "opcode_hex": "103afa1e",
+          "instruction": "vmrsne r3, fpinst2"
+        },
+        {
+          "address": "0x20ecf4",
+          "mode": "ARM",
+          "opcode_hex": "10caf1ee",
+          "instruction": "vmrs ip, fpscr"
+        },
+        {
+          "address": "0x20ecf8",
+          "mode": "ARM",
+          "opcode_hex": "0e1080e8",
+          "instruction": "stm r0, {r1, r2, r3, ip}"
+        },
+        {
+          "address": "0x20ecfc",
+          "mode": "ARM",
+          "opcode_hex": "0500a0e1",
+          "instruction": "mov r0, r5"
+        },
+        {
+          "address": "0x20ed00",
+          "mode": "ARM",
+          "opcode_hex": "c64613eb",
+          "instruction": "bl #0x6e0820",
+          "direct_call": "0x6e0820",
+          "target_mode": "ARM"
+        },
+        {
+          "address": "0x20ed04",
+          "mode": "ARM",
+          "opcode_hex": "000050e3",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x20ed08",
+          "mode": "ARM",
+          "opcode_hex": "0800000a",
+          "instruction": "beq #0x20ed30"
+        },
+        {
+          "address": "0x20ed0c",
+          "mode": "ARM",
+          "opcode_hex": "200b90ec",
+          "instruction": "vldmia r0, {d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15}"
+        },
+        {
+          "address": "0x20ed10",
+          "mode": "ARM",
+          "opcode_hex": "840080e2",
+          "instruction": "add r0, r0, #0x84"
+        },
+        {
+          "address": "0x20ed14",
+          "mode": "ARM",
+          "opcode_hex": "0e1090e8",
+          "instruction": "ldm r0, {r1, r2, r3, ip}"
+        },
+        {
+          "address": "0x20ed18",
+          "mode": "ARM",
+          "opcode_hex": "101ae8ee",
+          "instruction": "vmsr fpexc, r1"
+        },
+        {
+          "address": "0x20ed1c",
+          "mode": "ARM",
+          "opcode_hex": "020111e3",
+          "instruction": "tst r1, #0x80000000"
+        },
+        {
+          "address": "0x20ed20",
+          "mode": "ARM",
+          "opcode_hex": "102ae91e",
+          "instruction": "vmsrne fpinst, r2"
+        },
+        {
+          "address": "0x20ed24",
+          "mode": "ARM",
+          "opcode_hex": "01021113",
+          "instruction": "tstne r1, #0x10000000"
+        },
+        {
+          "address": "0x20ed28",
+          "mode": "ARM",
+          "opcode_hex": "103aea1e",
+          "instruction": "vmsrne fpinst2, r3"
+        },
+        {
+          "address": "0x20ed2c",
+          "mode": "ARM",
+          "opcode_hex": "10cae1ee",
+          "instruction": "vmsr fpscr, ip"
+        },
+        {
+          "address": "0x20ed30",
+          "mode": "ARM",
+          "opcode_hex": "2040bde8",
+          "instruction": "pop {r5, lr}"
+        },
+        {
+          "address": "0x20ed34",
+          "mode": "ARM",
+          "opcode_hex": "04e04ee2",
+          "instruction": "sub lr, lr, #4"
+        },
+        {
+          "address": "0x20ed38",
+          "mode": "ARM",
+          "opcode_hex": "1f10bde8",
+          "instruction": "pop {r0, r1, r2, r3, r4, ip}"
+        },
+        {
+          "address": "0x20ed3c",
+          "mode": "ARM",
+          "opcode_hex": "0ef0b0e1",
+          "instruction": "movs pc, lr",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [
+        {
+          "call": "0x20ec84",
+          "entry": "0x358d24",
+          "mode": "Thumb",
+          "continuation": "0x20ec88",
+          "actual_LR": "0x20ec88"
+        },
+        {
+          "call": "0x20ed00",
+          "entry": "0x6e0820",
+          "mode": "ARM",
+          "continuation": "0x20ed04",
+          "actual_LR": "0x20ed04"
+        },
+        {
+          "call": "0x20ecac",
+          "entry": "0x6e0820",
+          "mode": "ARM",
+          "continuation": "0x20ecb0",
+          "actual_LR": "0x20ecb0"
+        },
+        {
+          "call": "0x20ecc0",
+          "entry": "0xf6edc",
+          "mode": "Thumb",
+          "continuation": "0x20ecc4",
+          "actual_LR": "0x20ecc4"
+        },
+        {
+          "call": "0x20ecd0",
+          "entry": "0x6e0830",
+          "mode": "ARM",
+          "continuation": "0x20ecd4",
+          "actual_LR": "0x20ecd4"
+        }
+      ],
+      "returns_or_external_tails": [
+        "0x20ec54",
+        "0x20ed3c"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 72,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0xf6e08": {
+      "entry": "0xf6e08",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0xf6e08",
+          "mode": "ARM",
+          "opcode_hex": "05c08fe2",
+          "instruction": "add ip, pc, #5"
+        },
+        {
+          "address": "0xf6e0c",
+          "mode": "ARM",
+          "opcode_hex": "1cff2fe1",
+          "instruction": "bx ip",
+          "explicit_interworking_target": "0xf6e14",
+          "target_mode": "Thumb"
+        },
+        {
+          "address": "0xf6e14",
+          "mode": "Thumb",
+          "opcode_hex": "70b5",
+          "instruction": "push {r4, r5, r6, lr}"
+        },
+        {
+          "address": "0xf6e16",
+          "mode": "Thumb",
+          "opcode_hex": "c469",
+          "instruction": "ldr r4, [r0, #0x1c]"
+        },
+        {
+          "address": "0xf6e18",
+          "mode": "Thumb",
+          "opcode_hex": "0500",
+          "instruction": "movs r5, r0"
+        },
+        {
+          "address": "0xf6e1a",
+          "mode": "Thumb",
+          "opcode_hex": "002c",
+          "instruction": "cmp r4, #0"
+        },
+        {
+          "address": "0xf6e1c",
+          "mode": "Thumb",
+          "opcode_hex": "11d0",
+          "instruction": "beq #0xf6e42"
+        },
+        {
+          "address": "0xf6e1e",
+          "mode": "Thumb",
+          "opcode_hex": "2079",
+          "instruction": "ldrb r0, [r4, #4]"
+        },
+        {
+          "address": "0xf6e20",
+          "mode": "Thumb",
+          "opcode_hex": "0028",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0xf6e22",
+          "mode": "Thumb",
+          "opcode_hex": "0ed1",
+          "instruction": "bne #0xf6e42"
+        },
+        {
+          "address": "0xf6e24",
+          "mode": "Thumb",
+          "opcode_hex": "2821",
+          "instruction": "movs r1, #0x28"
+        },
+        {
+          "address": "0xf6e26",
+          "mode": "Thumb",
+          "opcode_hex": "2800",
+          "instruction": "movs r0, r5"
+        },
+        {
+          "address": "0xf6e28",
+          "mode": "Thumb",
+          "opcode_hex": "00f058f8",
+          "instruction": "bl #0xf6edc",
+          "direct_call": "0xf6edc",
+          "target_mode": "Thumb"
+        },
+        {
+          "address": "0xf6e2c",
+          "mode": "Thumb",
+          "opcode_hex": "4ecc",
+          "instruction": "ldm r4!, {r1, r2, r3, r6}"
+        },
+        {
+          "address": "0xf6e2e",
+          "mode": "Thumb",
+          "opcode_hex": "4ec0",
+          "instruction": "stm r0!, {r1, r2, r3, r6}"
+        },
+        {
+          "address": "0xf6e30",
+          "mode": "Thumb",
+          "opcode_hex": "4ecc",
+          "instruction": "ldm r4!, {r1, r2, r3, r6}"
+        },
+        {
+          "address": "0xf6e32",
+          "mode": "Thumb",
+          "opcode_hex": "4ec0",
+          "instruction": "stm r0!, {r1, r2, r3, r6}"
+        },
+        {
+          "address": "0xf6e34",
+          "mode": "Thumb",
+          "opcode_hex": "06cc",
+          "instruction": "ldm r4!, {r1, r2}"
+        },
+        {
+          "address": "0xf6e36",
+          "mode": "Thumb",
+          "opcode_hex": "06c0",
+          "instruction": "stm r0!, {r1, r2}"
+        },
+        {
+          "address": "0xf6e38",
+          "mode": "Thumb",
+          "opcode_hex": "2838",
+          "instruction": "subs r0, #0x28"
+        },
+        {
+          "address": "0xf6e3a",
+          "mode": "Thumb",
+          "opcode_hex": "0121",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0xf6e3c",
+          "mode": "Thumb",
+          "opcode_hex": "0171",
+          "instruction": "strb r1, [r0, #4]"
+        },
+        {
+          "address": "0xf6e3e",
+          "mode": "Thumb",
+          "opcode_hex": "0400",
+          "instruction": "movs r4, r0"
+        },
+        {
+          "address": "0xf6e40",
+          "mode": "Thumb",
+          "opcode_hex": "e861",
+          "instruction": "str r0, [r5, #0x1c]"
+        },
+        {
+          "address": "0xf6e42",
+          "mode": "Thumb",
+          "opcode_hex": "2000",
+          "instruction": "movs r0, r4"
+        },
+        {
+          "address": "0xf6e44",
+          "mode": "Thumb",
+          "opcode_hex": "70bd",
+          "instruction": "pop {r4, r5, r6, pc}",
+          "resolved_native_return": true
+        }
+      ],
+      "direct_calls": [
+        {
+          "call": "0xf6e28",
+          "entry": "0xf6edc",
+          "mode": "Thumb",
+          "continuation": "0xf6e2c",
+          "actual_LR": "0xf6e2d"
+        }
+      ],
+      "returns_or_external_tails": [
+        "0xf6e44"
+      ],
+      "unresolved_local_exits": [],
+      "instruction_count": 26,
+      "instruction_bound": 256,
+      "callees_only_recursed_if_separately_listed": true
+    },
+    "0x358ec4": {
+      "entry": "0x358ec4",
+      "entry_mode": "ARM",
+      "instructions": [
+        {
+          "address": "0x358ec4",
+          "mode": "ARM",
+          "instruction": "add ip, pc, #1",
+          "opcode_hex": "01c08fe2"
+        },
+        {
+          "address": "0x358ec8",
+          "mode": "ARM",
+          "instruction": "bx ip",
+          "explicit_interworking_target": "0x358ecc",
+          "target_mode": "Thumb",
+          "verified_target_producer": "0x358ec4",
+          "opcode_hex": "1cff2fe1"
+        },
+        {
+          "address": "0x358ecc",
+          "mode": "Thumb",
+          "instruction": "bl #0x20b8ce",
+          "direct_call": "0x20b8ce",
+          "call_target_mode": "Thumb",
+          "opcode_hex": "b2f6fffc"
+        },
+        {
+          "address": "0x358ed0",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [pc, #0x3c]",
+          "literal_address": "0x358f10",
+          "literal_value": "0xf09090",
+          "opcode_hex": "0f48"
+        },
+        {
+          "address": "0x358ed2",
+          "mode": "Thumb",
+          "instruction": "ldr r0, [r0]",
+          "opcode_hex": "0068"
+        },
+        {
+          "address": "0x358ed4",
+          "mode": "Thumb",
+          "instruction": "ldrb r1, [r0, #0x17]",
+          "opcode_hex": "c17d"
+        },
+        {
+          "address": "0x358ed6",
+          "mode": "Thumb",
+          "instruction": "ldr r4, [r0, #0xc]",
+          "opcode_hex": "c468"
+        },
+        {
+          "address": "0x358ed8",
+          "mode": "Thumb",
+          "instruction": "ldm r4!, {r5, r6}",
+          "opcode_hex": "60cc"
+        },
+        {
+          "address": "0x358eda",
+          "mode": "Thumb",
+          "instruction": "cmp r1, #1",
+          "opcode_hex": "0129"
+        },
+        {
+          "address": "0x358edc",
+          "mode": "Thumb",
+          "instruction": "bx pc",
+          "explicit_interworking_target": "0x358ee0",
+          "target_mode": "ARM",
+          "verified_target_producer": "architectural Thumb PC",
+          "opcode_hex": "7847"
+        },
+        {
+          "address": "0x358ee0",
+          "mode": "ARM",
+          "instruction": "bl #0x20ebd4",
+          "direct_call": "0x20ebd4",
+          "call_target_mode": "ARM",
+          "opcode_hex": "3bd7faeb"
+        },
+        {
+          "address": "0x358ee4",
+          "mode": "ARM",
+          "instruction": "ldmeq r4!, {r0, r1, r2, r3}",
+          "opcode_hex": "0f00b408"
+        },
+        {
+          "address": "0x358ee8",
+          "mode": "ARM",
+          "instruction": "mrs ip, apsr",
+          "opcode_hex": "00c00fe1"
+        },
+        {
+          "address": "0x358eec",
+          "mode": "ARM",
+          "instruction": "bic ip, ip, #0x1f",
+          "opcode_hex": "1fc0cce3"
+        },
+        {
+          "address": "0x358ef0",
+          "mode": "ARM",
+          "instruction": "orr ip, ip, #0x13",
+          "opcode_hex": "13c08ce3"
+        },
+        {
+          "address": "0x358ef4",
+          "mode": "ARM",
+          "instruction": "msr cpsr_c, ip",
+          "opcode_hex": "0cf021e1"
+        },
+        {
+          "address": "0x358ef8",
+          "mode": "ARM",
+          "instruction": "msr spsr_fsxc, r5",
+          "opcode_hex": "05f06fe1"
+        },
+        {
+          "address": "0x358efc",
+          "mode": "ARM",
+          "instruction": "bic lr, r6, #1",
+          "opcode_hex": "01e0c6e3"
+        },
+        {
+          "address": "0x358f00",
+          "mode": "ARM",
+          "instruction": "ldm r4, {r4, r5, r6, r7, r8, sb, sl, fp, ip, sp, lr} ^",
+          "opcode_hex": "f07fd4e8"
+        },
+        {
+          "address": "0x358f04",
+          "mode": "ARM",
+          "instruction": "mov r0, r0",
+          "opcode_hex": "0000a0e1"
+        },
+        {
+          "address": "0x358f08",
+          "mode": "ARM",
+          "instruction": "movs pc, lr",
+          "resolved_terminal": "saved_native_task_context_dispatch",
+          "opcode_hex": "0ef0b0e1"
+        }
+      ],
+      "returns_or_resolved_tail_dispatch": [
+        "0x358f08"
+      ],
+      "known_external_tails": [],
+      "unresolved_indirect_callee_sites": [],
+      "unresolved_local_exits": [],
+      "instruction_limit_reached": false
+    }
+  },
+  "bounds": {
+    "new_CFG_count": 11,
+    "mixed_restore_reused_and_bytes_rechecked": true,
+    "max_instructions_per_new_CFG": 256,
+    "table_dispatch_resolved": true,
+    "complete_kernel_exception_entry_or_allocator_verified": false,
+    "generic_fatal_6E9340_not_recursed": true,
+    "whole_firmware_caller_scan_exhaustive": false
+  },
+  "restore_disable": {
+    "call": "0x358ee0",
+    "callee": "0x20ebd4",
+    "continuation": "0x358ee4",
+    "written_FPEXC": 0,
+    "disable_unconditional_for_both_integer_context_formats": true,
+    "no_FP_save_restore_in_integer_restore": true,
+    "prior_stored_lifecycle_proof": {
+      "path": "evidence/firmware-analysis/native-task-lifecycle-emulation.json",
+      "source_sha256": "f80f7935b0d6c2e51ce650462238f4bb7b95206adfe42672383a7cb80ff5c9ad",
+      "unicorn_version": "2.1.0",
+      "four_offline_restore_cases_assert_FPEXC_40000000_before_zero_after": true,
+      "not_executed_by_this_review": true
+    }
+  },
+  "startup_prerequisites": {
+    "native_CP10_CP11_enable_and_initial_FPEXC": [
+      {
+        "address": "0x50068",
+        "mode": "ARM",
+        "opcode_hex": "500f11ee",
+        "instruction": "mrc p15, #0, r0, c1, c0, #2"
+      },
+      {
+        "address": "0x5006c",
+        "mode": "ARM",
+        "opcode_hex": "0f0680e3",
+        "instruction": "orr r0, r0, #0xf00000"
+      },
+      {
+        "address": "0x50070",
+        "mode": "ARM",
+        "opcode_hex": "500f01ee",
+        "instruction": "mcr p15, #0, r0, c1, c0, #2"
+      },
+      {
+        "address": "0x50074",
+        "mode": "ARM",
+        "opcode_hex": "0000a0e3",
+        "instruction": "mov r0, #0"
+      },
+      {
+        "address": "0x50078",
+        "mode": "ARM",
+        "opcode_hex": "950f07ee",
+        "instruction": "mcr p15, #0, r0, c7, c5, #4"
+      },
+      {
+        "address": "0x5007c",
+        "mode": "ARM",
+        "opcode_hex": "0101a0e3",
+        "instruction": "mov r0, #0x40000000"
+      },
+      {
+        "address": "0x50080",
+        "mode": "ARM",
+        "opcode_hex": "100ae8ee",
+        "instruction": "vmsr fpexc, r0"
+      }
+    ],
+    "CPACR_or_mask": "0x00f00000",
+    "initial_FPEXC": "0x40000000",
+    "vector_install_CFG": "0x210eb6",
+    "undefined_handler_store": {
+      "PC": "0x210ec0",
+      "pointer_literal": "0x210ff0",
+      "pointer": "0x20ebe0",
+      "destination_literal": "0x210ff4",
+      "destination": "0xffff0024"
+    },
+    "FP_initializer_boot_call": [
+      {
+        "address": "0x210f2e",
+        "mode": "Thumb",
+        "opcode_hex": "fdf71cef",
+        "instruction": "blx #0x20ed68"
+      }
+    ],
+    "complete_boot_or_high_vector_mapping_in_46928_verified": false
+  },
+  "handler_ABI": {
+    "entry": "0x20ebe0",
+    "mode": "ARM",
+    "requires_architectural_undefined_banked_SP_LR_SPSR": true,
+    "entry_push_bytes": 24,
+    "entry_push": [
+      "r0",
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "ip"
+    ],
+    "fault_word": "[undefined_LR-4]",
+    "accepted_original_fault_modes": [
+      "0x10",
+      "0x1f"
+    ],
+    "requires_original_fault_Thumb_bit_clear": true,
+    "accepted_opcode_filter": "(((opcode<<4)&0xffffffff)-0xc0000000)&0xffffffff < 0x30000000",
+    "accepted_coprocessors": [
+      10,
+      11
+    ],
+    "table": "0x20ec10",
+    "requires_FPEXC_EN_clear": "0x20ec68..0x20ec74",
+    "extra_push": [
+      "r5",
+      "undefined LR"
+    ],
+    "total_handler_live_stack_bytes": 32,
+    "native_enable": "0x20ec80 writes FPEXC40000000",
+    "current_query": "20EC84 BLX358D24; returns wordF09090 when wordF09094==0, else0",
+    "requires_selected_head_matches_actual_running_task": true,
+    "return_epilogue": [
+      "20ED30 POP r5,lr",
+      "20ED34 lr-=4",
+      "20ED38 POP r0-r4,ip",
+      "20ED3C MOVS pc,lr"
+    ],
+    "returns_with_SPSR_and_retries_exact_fault_PC": true,
+    "ordinary_callee_LR_is_not_undefined_LR": true
+  },
+  "FP_owner_context": {
+    "owner_global": "0x3ab1038",
+    "owner_literal": "0x20ed48",
+    "original_zero_range": {
+      "call": 966140,
+      "runtime_start": 16196172,
+      "runtime_end": 61542508,
+      "size": 45346336,
+      "conditional": false
+    },
+    "owner_writer": "20EC98 stores current before context save/restore",
+    "same_owner_path": "20EC94→20ED30 after enabling",
+    "old_owner_zero_path": "20ECA4→20ECFC",
+    "TCB_metadata_offset": 28,
+    "metadata_FP_context_offset": 28,
+    "query": "0x6e0820",
+    "attach": "0x6e0830",
+    "metadata_writable_flag_byte_offset": 4,
+    "metadata_clone_if_flag_zero": "6E0854→ARM F6E08→Thumb F6E14; original F6EDC(TCB,0x28), copy40, flag1, replace TCB+28",
+    "metadata_clone_requires_valid_allocator_and_40byte_metadata": true,
+    "old_context_allocation": {
+      "call": "0x20ecc0",
+      "callee": "0xf6edc",
+      "r0": "old ownerTCB",
+      "r1": "0x94",
+      "alignment": 8,
+      "allocator_advance_bytes": 152,
+      "requires_metadata_nonzero_and_metadata_plus8_nonzero": true,
+      "allocation_NULL_not_checked_before_VSTM": true
+    },
+    "context_layout": {
+      "D0_D15": [
+        0,
+        128
+      ],
+      "unused_hole": [
+        128,
+        132
+      ],
+      "FPEXC": 132,
+      "FPINST": 136,
+      "FPINST2": 140,
+      "FPSCR": 144,
+      "requested_bytes": 148,
+      "allocation_advance_bytes": 152,
+      "save": "20ECD8 VSTM D0-D15,20ECF8 STM four control words",
+      "FPINST_read_if_FPEXC_bit31": true,
+      "FPINST2_read_if_FPEXC_bit28": true,
+      "unused_control_words_not_asserted_zero": true,
+      "restore": "20ED0C VLDM D0-D15,20ED14 LDM control,20ED18 FPEXC,20ED20/28 conditionalFPINST,20ED2C FPSCR"
+    },
+    "new_current_missing_context": "20ED08→20ED30; no FP bank zeroing or current allocation",
+    "first_controller_owner_zero_metadata_zero": "Complete original handler may enable/setowner/find no newcontext/retry without allocation; initialFPbank remains declared input.",
+    "later_different_task_old_owner_metadata_zero": "F6EDC returns0 then unchecked VSTM20ECD8 would writeNULL. No multitask floatingcontext claim."
+  },
+  "FP_initializer": {
+    "entry": "0x20ed68",
+    "owner_zero_store": "0x20ed78",
+    "FPSCR_store": "0x20ed80",
+    "FPSCR_value": "0x03000000",
+    "requires_VFP_access_already_enabled": true,
+    "listener": {
+      "list": "0x2d226b4",
+      "node": "0x3ab1028",
+      "bytes": 16,
+      "order": "0x7fffffff",
+      "callback": "0x20edb1",
+      "argument": 0,
+      "call": "0x20ed9c",
+      "entry": "0x3cc5c2",
+      "callee_mode": "Thumb",
+      "continuation_and_actual_LR": "0x20eda0",
+      "caller_mode": "ARM",
+      "ctor_return": "0x20eda8",
+      "preserve_existing_nonempty_listener_inventory_and_actual_insertion": true
+    },
+    "exit_callback": {
+      "entry": "0x20edb0",
+      "r0": "exitingTCB",
+      "r1": "unused registeredargument0",
+      "clears_owner_only_if_matching": true,
+      "does_not_free_context_or_metadata": true
+    }
+  },
+  "cause_assessment": {
+    "original_restore_disables_FPEXC": true,
+    "missing_lazy_FP_prerequisites_is_supported_inference": true,
+    "FPEXC_at_fault_is_not_observed": true,
+    "CPACR_at_fault_is_not_observed": true,
+    "unicorn_exception_routing_or_configuration_not_disambiguated": true,
+    "ancestor_fixture_location": "scripts/emulate_native_player_widget.py WidgetVM supplies CPACR00F00000/FPEXC40000000/FPSCR0; fault register state absent, subsequent original restore disables FPEXC.",
+    "opcode_replacement_or_host_float_result_is_not_native_handler_proof": true
+  },
+  "next_guard_requirements": [
+    "Use new source/namespace. Preserve46928 terminal and frozen dependencies; no hot rewrite.",
+    "Capture CPSR/FPEXC/CPACR/FPSCR/D0-D15, supported FPINST/FPINST2, owner3AB1038, actualrunning/selectedTCB and TCB+28/metadata before restore, at fault, at handlerentry and after retry.",
+    "Guard mapped native highvector/undefined entry or explicitly classify host exceptioninjection as fixture. Enter undefinedmode0x1B with bankedSP/LR, original fault CPSR in SPSR and undefinedLR=faultPC+4.",
+    "Guard original32byte exceptionframe/stack/canaries and r0-r5/ip/ordinarycalleeLR; original20ED3C must restore SPSR and retry3404DC, then native3404E8 returns via2CC247.",
+    "Native20ED68 adds exact listener continuation20EDA0/node3AB1028/order7FFFFFFF/callback20EDB1/arg0. Preserve both heaplisteners and existingnodes; no reset of live list/owner.",
+    "Add wholeBSS CPUjournal/guard for node3AB1028..owner3AB1038+4 and exact ownerwriters20EC98/20ED78/20EDB8.",
+    "Owner0 plus firstcontroller metadata0 needs no allocator, with declared FPinitial bank. Other-task FP requires valid metadata/native allocation; no NULLstore, tagseed or fake return.",
+    "Declared FPallocation fixture needs0x98 bytes for request0x94; guard +80 hole/+94padding and CPUhistory. Guard metadata40byteclone and original TCB+28/metadata+28 changes separately.",
+    "Maintain fullTCB108/internalmutex/ownedheap/twoTimertokens/ALL/ready/pendingops, four backgroundframes52, Threadtimednode20 and initializedbank/settings/heap guards.",
+    "No finalsettings/foreground/nativehardwareexception/realallocator/physicalApp claim without new terminal proof."
+  ],
+  "assertions_passed": true
+}

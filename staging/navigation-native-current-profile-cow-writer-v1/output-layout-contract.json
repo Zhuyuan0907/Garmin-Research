@@ -1,0 +1,34 @@
+{
+  "actual_output_descriptor_generated": false,
+  "current_planned_IMG_bytes": 153346048,
+  "current_planned_MDR_bytes": 149220356,
+  "current_source_layout_artifact": "actual-current-source-layout.json",
+  "fields": {
+    "block_bytes": "8192 integer",
+    "candidate_bytes": "Actual output length; equal completed stream receipt and fresh stat.",
+    "candidate_sha256": "Fresh completed actual output whole hash; never a capacity estimate.",
+    "components": "Array in exact source six-component order; each {name,size,blocks,parts}.",
+    "components[].parts": "Array of {part,size,blocks,row_hex}; row_hex=1024 hexadecimal characters from actual512-byte FAT row.",
+    "metadata_bytes": "Actual FAT root extent, 8192 aligned.",
+    "metadata_prefix_sha256": "Fresh hash of actual output bytes [0, metadata_bytes).",
+    "source_v2": "{sha256,bytes}; exact sealed 925a515b... output128356352 B.",
+    "tables": "Array {level,start,bytes,stride,count,widths,flags}, levels1..6, actual MDR descriptors."
+  },
+  "future_descriptor_schema": "garmin-native-ap-explicit8k-cow-layout/v1",
+  "profile": "AP8K-9+4-32768blocks-524288sectors",
+  "schema": "current-profile-cow-output-layout-contract/v1",
+  "source_layout_is_output_descriptor": false,
+  "validation_rules": [
+    "Parts0..n-1 are contiguous; each<=240blocks; part0 size=component.size, continuation size0; component.blocks equals all parts.blocks concatenated.",
+    "Root has no continuation, <=240 allocated metadata blocks, exact metadata root flags/name/extent.",
+    "All allocation blocks unique, uint16 below65535, in actual EOF; inactive FAT bytes and final component padding zero.",
+    "Exact six component names/order; metadata and header allocation changes obey sealed AP8K adapter.",
+    "Header allowed byte changes from source are offsets15,24,25,95,96,98,458,459,460,461; output byte15zero; bytes512..4096 unchanged.",
+    "Header 9+4 exponents,32 sectors at0x18/0x5f,32768blocks,524288sectors;268435456 bytes explicit declared capacity, not platform maximum.",
+    "Lower strides128/126/68 and all descriptor bitfields unchanged; L3stride112/first23 unchanged.",
+    "Current lower count*stride significant prefixes retained; current L5 final2padding bits are replaced by actual append start, not byte-concatenated.",
+    "Unknown MDR prefix/L2/L1 bytes and nonallocation FAT metadata retained.",
+    "Stock recipe checksum and exact stock-prefix/L3 inverse reconstruction binding belongs to independently verified restore API.",
+    "Checksum/header/device acceptance remains unknown; future descriptor is readback evidence, not device validation."
+  ]
+}

@@ -1,0 +1,957 @@
+{
+  "updated_utc": "2026-10-03T07:07:35.238311+00:00",
+  "exact_target": {
+    "HWID": 1352,
+    "software": "8.00",
+    "stock_sha256": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8"
+  },
+  "source_sha256": {
+    "scripts/analyze_native_usb_host_candidates.py": "167df379127a0ab30507be65d5a527e6d52a88a11feb3f6a5adc6fdec88e6d0c",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "sources/native-usb/musb_regs.h": "589ac714a769b65b27bc9a35ab1e8037775b6c720a1acd70be6c319367c632a6",
+    "sources/native-usb/source-snapshots.json": "b1d34a71fe4f75d29006b3ec6b48e5ca1a2117a8fe70798fa13d1dd1cfe8f4d5"
+  },
+  "scanned_startup_backed_regions": [
+    {
+      "runtime_start": 71303168,
+      "runtime_end": 74501656,
+      "conditional": true
+    },
+    {
+      "runtime_start": 88080384,
+      "runtime_end": 89247296,
+      "conditional": true
+    },
+    {
+      "runtime_start": 327680,
+      "runtime_end": 13309852,
+      "conditional": false
+    }
+  ],
+  "Thumb_base_construction_pattern": "MOVS81 then LSL21",
+  "anchor_count": 15,
+  "candidates": [
+    {
+      "anchor": "0x1bb0c8",
+      "instructions": [
+        {
+          "address": "0x1bb0c8",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1bb0ca",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1bb0cc",
+          "instruction": "ldrb r1, [r0, #1]"
+        },
+        {
+          "address": "0x1bb0ce",
+          "instruction": "movs r2, #0xbf"
+        },
+        {
+          "address": "0x1bb0d0",
+          "instruction": "ands r1, r2"
+        },
+        {
+          "address": "0x1bb0d2",
+          "instruction": "strb r1, [r0, #1]"
+        },
+        {
+          "address": "0x1bb0d4",
+          "instruction": "pop {r4, pc}"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bb0cc",
+          "operation": "ldrb",
+          "effective_address": "0x10200001",
+          "offset": 1
+        },
+        {
+          "instruction": "0x1bb0d2",
+          "operation": "strb",
+          "effective_address": "0x10200001",
+          "offset": 1
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bb130",
+      "instructions": [
+        {
+          "address": "0x1bb130",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1bb132",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1bb134",
+          "instruction": "ldrb r1, [r0, #0xb]"
+        },
+        {
+          "address": "0x1bb136",
+          "instruction": "movs r2, #4"
+        },
+        {
+          "address": "0x1bb138",
+          "instruction": "orrs r1, r2"
+        },
+        {
+          "address": "0x1bb13a",
+          "instruction": "strb r1, [r0, #0xb]"
+        },
+        {
+          "address": "0x1bb13c",
+          "instruction": "ldr r1, [pc, #0x1c4]"
+        },
+        {
+          "address": "0x1bb13e",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "address": "0x1bb140",
+          "instruction": "strb r0, [r1]"
+        },
+        {
+          "address": "0x1bb142",
+          "instruction": "bl #0x1bb0d6"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bb134",
+          "operation": "ldrb",
+          "effective_address": "0x1020000b",
+          "offset": 11
+        },
+        {
+          "instruction": "0x1bb13a",
+          "operation": "strb",
+          "effective_address": "0x1020000b",
+          "offset": 11
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bb17a",
+      "instructions": [
+        {
+          "address": "0x1bb17a",
+          "instruction": "movs r4, #0x81"
+        },
+        {
+          "address": "0x1bb17c",
+          "instruction": "lsls r4, r4, #0x15"
+        },
+        {
+          "address": "0x1bb17e",
+          "instruction": "strb r6, [r4, #0xe]"
+        },
+        {
+          "address": "0x1bb180",
+          "instruction": "movs r5, #0x10"
+        },
+        {
+          "address": "0x1bb182",
+          "instruction": "movs r0, #1"
+        },
+        {
+          "address": "0x1bb184",
+          "instruction": "strb r0, [r4, #0xe]"
+        },
+        {
+          "address": "0x1bb186",
+          "instruction": "strh r6, [r4, #0x10]"
+        },
+        {
+          "address": "0x1bb188",
+          "instruction": "strh r6, [r4, #0x12]"
+        },
+        {
+          "address": "0x1bb18a",
+          "instruction": "ldr r0, [pc, #0x178]"
+        },
+        {
+          "address": "0x1bb18c",
+          "instruction": "ldr r0, [r0, #0xc]"
+        },
+        {
+          "address": "0x1bb18e",
+          "instruction": "lsls r1, r0, #0x15"
+        },
+        {
+          "address": "0x1bb190",
+          "instruction": "lsrs r1, r1, #0x15"
+        },
+        {
+          "address": "0x1bb192",
+          "instruction": "strh r1, [r4, #0x14]"
+        },
+        {
+          "address": "0x1bb194",
+          "instruction": "movs r1, #0x80"
+        },
+        {
+          "address": "0x1bb196",
+          "instruction": "strh r1, [r4, #0x16]"
+        },
+        {
+          "address": "0x1bb198",
+          "instruction": "lsls r0, r0, #0x10"
+        },
+        {
+          "address": "0x1bb19a",
+          "instruction": "lsrs r0, r0, #0x10"
+        },
+        {
+          "address": "0x1bb19c",
+          "instruction": "bl #0x1bb154"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bb17e",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        },
+        {
+          "instruction": "0x1bb184",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        },
+        {
+          "instruction": "0x1bb186",
+          "operation": "strh",
+          "effective_address": "0x10200010",
+          "offset": 16
+        },
+        {
+          "instruction": "0x1bb188",
+          "operation": "strh",
+          "effective_address": "0x10200012",
+          "offset": 18
+        },
+        {
+          "instruction": "0x1bb192",
+          "operation": "strh",
+          "effective_address": "0x10200014",
+          "offset": 20
+        },
+        {
+          "instruction": "0x1bb196",
+          "operation": "strh",
+          "effective_address": "0x10200016",
+          "offset": 22
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bb232",
+      "instructions": [
+        {
+          "address": "0x1bb232",
+          "instruction": "movs r1, #0x81"
+        },
+        {
+          "address": "0x1bb234",
+          "instruction": "lsls r1, r1, #0x15"
+        },
+        {
+          "address": "0x1bb236",
+          "instruction": "ldrb r5, [r1, #0xa]"
+        },
+        {
+          "address": "0x1bb238",
+          "instruction": "ldrh r4, [r1, #2]"
+        },
+        {
+          "address": "0x1bb23a",
+          "instruction": "ldr r7, [pc, #0xc8]"
+        },
+        {
+          "address": "0x1bb23c",
+          "instruction": "ldrh r2, [r7, #2]"
+        },
+        {
+          "address": "0x1bb23e",
+          "instruction": "orrs r4, r2"
+        },
+        {
+          "address": "0x1bb240",
+          "instruction": "movs r2, #0"
+        },
+        {
+          "address": "0x1bb242",
+          "instruction": "strh r2, [r7, #2]"
+        },
+        {
+          "address": "0x1bb244",
+          "instruction": "ldrh r6, [r1, #4]"
+        },
+        {
+          "address": "0x1bb246",
+          "instruction": "blx #0x21b6dc"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bb236",
+          "operation": "ldrb",
+          "effective_address": "0x1020000a",
+          "offset": 10
+        },
+        {
+          "instruction": "0x1bb238",
+          "operation": "ldrh",
+          "effective_address": "0x10200002",
+          "offset": 2
+        },
+        {
+          "instruction": "0x1bb244",
+          "operation": "ldrh",
+          "effective_address": "0x10200004",
+          "offset": 4
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bb26c",
+      "instructions": [
+        {
+          "address": "0x1bb26c",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1bb26e",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1bb270",
+          "instruction": "ldrb r0, [r0, #1]"
+        },
+        {
+          "address": "0x1bb272",
+          "instruction": "lsls r0, r0, #0x1b"
+        },
+        {
+          "address": "0x1bb274",
+          "instruction": "bpl #0x1bb27a"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bb270",
+          "operation": "ldrb",
+          "effective_address": "0x10200001",
+          "offset": 1
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bb2d4",
+      "instructions": [
+        {
+          "address": "0x1bb2d4",
+          "instruction": "movs r1, #0x81"
+        },
+        {
+          "address": "0x1bb2d6",
+          "instruction": "lsls r1, r1, #0x15"
+        },
+        {
+          "address": "0x1bb2d8",
+          "instruction": "ldrh r2, [r1, #2]"
+        },
+        {
+          "address": "0x1bb2da",
+          "instruction": "movs r1, #1"
+        },
+        {
+          "address": "0x1bb2dc",
+          "instruction": "lsls r1, r0"
+        },
+        {
+          "address": "0x1bb2de",
+          "instruction": "ldr r0, [pc, #0x24]"
+        },
+        {
+          "address": "0x1bb2e0",
+          "instruction": "bics r2, r1"
+        },
+        {
+          "address": "0x1bb2e2",
+          "instruction": "strh r2, [r0, #2]"
+        },
+        {
+          "address": "0x1bb2e4",
+          "instruction": "ldrh r0, [r0, #2]"
+        },
+        {
+          "address": "0x1bb2e6",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x1bb2e8",
+          "instruction": "beq #0x1bb2ee"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bb2d8",
+          "operation": "ldrh",
+          "effective_address": "0x10200002",
+          "offset": 2
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bd0f2",
+      "instructions": [
+        {
+          "address": "0x1bd0f2",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1bd0f4",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1bd0f6",
+          "instruction": "ldrh r1, [r0, #0x12]"
+        },
+        {
+          "address": "0x1bd0f8",
+          "instruction": "lsls r1, r1, #0x1d"
+        },
+        {
+          "address": "0x1bd0fa",
+          "instruction": "bpl #0x1bd106"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bd0f6",
+          "operation": "ldrh",
+          "effective_address": "0x10200012",
+          "offset": 18
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bd124",
+      "instructions": [
+        {
+          "address": "0x1bd124",
+          "instruction": "movs r4, #0x81"
+        },
+        {
+          "address": "0x1bd126",
+          "instruction": "lsls r4, r4, #0x15"
+        },
+        {
+          "address": "0x1bd128",
+          "instruction": "strb r1, [r4, #0xe]"
+        },
+        {
+          "address": "0x1bd12a",
+          "instruction": "ldr r0, [pc, #0x5c]"
+        },
+        {
+          "address": "0x1bd12c",
+          "instruction": "ldrb r2, [r0, #1]"
+        },
+        {
+          "address": "0x1bd12e",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x1bd130",
+          "instruction": "beq #0x1bd138"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bd128",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1bffe0",
+      "instructions": [
+        {
+          "address": "0x1bffe0",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1bffe2",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1bffe4",
+          "instruction": "strb r1, [r0, #0xe]"
+        },
+        {
+          "address": "0x1bffe6",
+          "instruction": "ldrh r1, [r0, #0x12]"
+        },
+        {
+          "address": "0x1bffe8",
+          "instruction": "lsrs r2, r1, #1"
+        },
+        {
+          "address": "0x1bffea",
+          "instruction": "lsls r2, r2, #1"
+        },
+        {
+          "address": "0x1bffec",
+          "instruction": "movs r1, #8"
+        },
+        {
+          "address": "0x1bffee",
+          "instruction": "orrs r2, r1"
+        },
+        {
+          "address": "0x1bfff0",
+          "instruction": "strh r2, [r0, #0x12]"
+        },
+        {
+          "address": "0x1bfff2",
+          "instruction": "ldrh r2, [r0, #0x12]"
+        },
+        {
+          "address": "0x1bfff4",
+          "instruction": "lsrs r2, r2, #1"
+        },
+        {
+          "address": "0x1bfff6",
+          "instruction": "lsls r2, r2, #1"
+        },
+        {
+          "address": "0x1bfff8",
+          "instruction": "orrs r2, r1"
+        },
+        {
+          "address": "0x1bfffa",
+          "instruction": "strh r2, [r0, #0x12]"
+        },
+        {
+          "address": "0x1bfffc",
+          "instruction": "movs r0, #3"
+        },
+        {
+          "address": "0x1bfffe",
+          "instruction": "bl #0x1bb2d4"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1bffe4",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        },
+        {
+          "instruction": "0x1bffe6",
+          "operation": "ldrh",
+          "effective_address": "0x10200012",
+          "offset": 18
+        },
+        {
+          "instruction": "0x1bfff0",
+          "operation": "strh",
+          "effective_address": "0x10200012",
+          "offset": 18
+        },
+        {
+          "instruction": "0x1bfff2",
+          "operation": "ldrh",
+          "effective_address": "0x10200012",
+          "offset": 18
+        },
+        {
+          "instruction": "0x1bfffa",
+          "operation": "strh",
+          "effective_address": "0x10200012",
+          "offset": 18
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1c0020",
+      "instructions": [
+        {
+          "address": "0x1c0020",
+          "instruction": "movs r3, #0x81"
+        },
+        {
+          "address": "0x1c0022",
+          "instruction": "lsls r3, r3, #0x15"
+        },
+        {
+          "address": "0x1c0024",
+          "instruction": "strb r1, [r3, #0xe]"
+        },
+        {
+          "address": "0x1c0026",
+          "instruction": "ldr r4, [pc, #0x24c]"
+        },
+        {
+          "address": "0x1c0028",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x1c002a",
+          "instruction": "asrs r2, r0, #2"
+        },
+        {
+          "address": "0x1c002c",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x1c002e",
+          "instruction": "bls #0x1c003e"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1c0024",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1c00fc",
+      "instructions": [
+        {
+          "address": "0x1c00fc",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1c00fe",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1c0100",
+          "instruction": "strb r1, [r0, #0xe]"
+        },
+        {
+          "address": "0x1c0102",
+          "instruction": "ldrh r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x1c0104",
+          "instruction": "lsrs r1, r1, #1"
+        },
+        {
+          "address": "0x1c0106",
+          "instruction": "lsls r1, r1, #1"
+        },
+        {
+          "address": "0x1c0108",
+          "instruction": "strh r1, [r0, #0x16]"
+        },
+        {
+          "address": "0x1c010a",
+          "instruction": "bx lr"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1c0100",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        },
+        {
+          "instruction": "0x1c0102",
+          "operation": "ldrh",
+          "effective_address": "0x10200016",
+          "offset": 22
+        },
+        {
+          "instruction": "0x1c0108",
+          "operation": "strh",
+          "effective_address": "0x10200016",
+          "offset": 22
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1c0110",
+      "instructions": [
+        {
+          "address": "0x1c0110",
+          "instruction": "movs r4, #0x81"
+        },
+        {
+          "address": "0x1c0112",
+          "instruction": "lsls r4, r4, #0x15"
+        },
+        {
+          "address": "0x1c0114",
+          "instruction": "strb r0, [r4, #0xe]"
+        },
+        {
+          "address": "0x1c0116",
+          "instruction": "ldrh r0, [r4, #0x18]"
+        },
+        {
+          "address": "0x1c0118",
+          "instruction": "ldr r3, [pc, #0x16c]"
+        },
+        {
+          "address": "0x1c011a",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x1c011c",
+          "instruction": "lsls r0, r0, #0x13"
+        },
+        {
+          "address": "0x1c011e",
+          "instruction": "lsrs r0, r0, #0x13"
+        },
+        {
+          "address": "0x1c0120",
+          "instruction": "lsrs r2, r0, #2"
+        },
+        {
+          "address": "0x1c0122",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x1c0124",
+          "instruction": "bls #0x1c0134"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1c0114",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        },
+        {
+          "instruction": "0x1c0116",
+          "operation": "ldrh",
+          "effective_address": "0x10200018",
+          "offset": 24
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1c042c",
+      "instructions": [
+        {
+          "address": "0x1c042c",
+          "instruction": "movs r0, #0x81"
+        },
+        {
+          "address": "0x1c042e",
+          "instruction": "lsls r0, r0, #0x15"
+        },
+        {
+          "address": "0x1c0430",
+          "instruction": "strb r6, [r0, #0xe]"
+        },
+        {
+          "address": "0x1c0432",
+          "instruction": "ldrh r2, [r0, #0x16]"
+        },
+        {
+          "address": "0x1c0434",
+          "instruction": "lsrs r2, r2, #1"
+        },
+        {
+          "address": "0x1c0436",
+          "instruction": "lsls r2, r2, #1"
+        },
+        {
+          "address": "0x1c0438",
+          "instruction": "strh r2, [r0, #0x16]"
+        },
+        {
+          "address": "0x1c043a",
+          "instruction": "movs r0, r1"
+        },
+        {
+          "address": "0x1c043c",
+          "instruction": "blx #0x21b6dc"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1c0430",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        },
+        {
+          "instruction": "0x1c0432",
+          "operation": "ldrh",
+          "effective_address": "0x10200016",
+          "offset": 22
+        },
+        {
+          "instruction": "0x1c0438",
+          "operation": "strh",
+          "effective_address": "0x10200016",
+          "offset": 22
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x1c23f8",
+      "instructions": [
+        {
+          "address": "0x1c23f8",
+          "instruction": "movs r3, #0x81"
+        },
+        {
+          "address": "0x1c23fa",
+          "instruction": "lsls r3, r3, #0x15"
+        },
+        {
+          "address": "0x1c23fc",
+          "instruction": "strb r1, [r3, #0xe]"
+        },
+        {
+          "address": "0x1c23fe",
+          "instruction": "ldr r4, [pc, #0xd4]"
+        },
+        {
+          "address": "0x1c2400",
+          "instruction": "movs r1, #0"
+        },
+        {
+          "address": "0x1c2402",
+          "instruction": "lsrs r2, r0, #2"
+        },
+        {
+          "address": "0x1c2404",
+          "instruction": "cmp r2, #0"
+        },
+        {
+          "address": "0x1c2406",
+          "instruction": "bls #0x1c2416"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x1c23fc",
+          "operation": "strb",
+          "effective_address": "0x1020000e",
+          "offset": 14
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    },
+    {
+      "anchor": "0x332012",
+      "instructions": [
+        {
+          "address": "0x332012",
+          "instruction": "movs r1, #0x81"
+        },
+        {
+          "address": "0x332014",
+          "instruction": "lsls r1, r1, #0x15"
+        },
+        {
+          "address": "0x332016",
+          "instruction": "cmp r0, #0"
+        },
+        {
+          "address": "0x332018",
+          "instruction": "ldrb r0, [r1, #1]"
+        },
+        {
+          "address": "0x33201a",
+          "instruction": "beq #0x332022"
+        }
+      ],
+      "resolved_straight_line_USB_accesses": [
+        {
+          "instruction": "0x332018",
+          "operation": "ldrb",
+          "effective_address": "0x10200001",
+          "offset": 1
+        }
+      ],
+      "stop_reason": "Stopped before branch/call/return; no control-flow join inference",
+      "instruction_pattern_not_confirmed_function_entry": true
+    }
+  ],
+  "DEVCTL_offset60_in_resolved_straight_line_prefixes": [],
+  "excluded_raw_word_candidate": {
+    "address": "0x6f058c",
+    "raw_word": "0x10200080",
+    "actual_role": "ARM EORNE instruction in saturating/fixed-point helper, not a MMIO pointer",
+    "bounded_original_instructions": [
+      {
+        "address": "0x6f0588",
+        "instruction": "lsls r0, r0, #0x10"
+      },
+      {
+        "address": "0x6f058c",
+        "instruction": "eorne r0, r0, r0, lsl #1"
+      },
+      {
+        "address": "0x6f0590",
+        "instruction": "clzne r0, r0"
+      },
+      {
+        "address": "0x6f0594",
+        "instruction": "bx lr"
+      }
+    ],
+    "original_bytes_sha256": "4e2f255a80ff631ef7be3f31642242e29793cdeeeaec55288a8b35c895d7f915"
+  },
+  "all_assertions_passed": true,
+  "register_names_from_MUSB_are_inference": true,
+  "device_io": false,
+  "firmware_modified": false,
+  "device_install_candidate": false,
+  "actual_host_driver_registration_VBUS_or_AOA_verified": false,
+  "scope": "Specific instruction-shape scan of startup-backed regions, including conditional code. Fifteen Thumb MOVS81/LSL21 anchors and only straight-line prefixes until control flow. No exhaustive address/ARM/register/indirect/embedded-module search and no whole-driver absence claim. No offset60 in these prefixes is not proof DEVCTL/host absent. Raw word 10200080 at6F058C positively excluded as an ARM instruction. Primary MUSB names remain comparison inference, not hardware/controller/host/VBUS or current phone evidence."
+}

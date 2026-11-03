@@ -1,0 +1,58 @@
+{
+  "schema": "unresolved-name-prioritization-actual-execution-receipt/v1",
+  "created_utc": "2026-10-06T18:41:01.370200+00:00",
+  "actual_terminal_runs": [
+    {
+      "tool": "exec_command + write_stdin",
+      "command": "python3 staging/navigation-native-unresolved-name-plan-v1/prioritize_unresolved_names.py",
+      "initial_chunk_id": "1e1c27",
+      "session_id": 89798,
+      "terminal_chunk_id": "596671",
+      "exit_code": 0
+    },
+    {
+      "tool": "exec_command",
+      "command": "python3 staging/navigation-native-unresolved-name-plan-v1/add_family_and_deeper_path_constraints.py",
+      "terminal_chunk_id": "d384c9",
+      "exit_code": 0
+    }
+  ],
+  "artifacts": {
+    "unresolved-name-plan.json": {
+      "bytes": 471265,
+      "sha256": "3c4d84b8527ecbe02ae87ee7c032a82ccfcbc8ba17b1ebe70d10a7bd78386e19"
+    },
+    "family-and-deeper-path-constraints.json": {
+      "bytes": 76348,
+      "sha256": "3da077be35f8b16c9c82659453ae71ee633ed480ca684f3ed38d6dee7fbef33e"
+    },
+    "bounded-name-samples.jsonl.gz": {
+      "bytes": 242714,
+      "sha256": "3171b85bacb3817bd6de5dec9d69287c1fa1352d52caed593b1a9fd56d042401"
+    },
+    "unresolved-name-classification-by-city.csv": {
+      "bytes": 1389,
+      "sha256": "0799084ba167b103787d32dc189fff2fba71850bae33945ad073983d690203c8"
+    },
+    "PRIORITY-PLAN.txt": {
+      "bytes": 2986,
+      "sha256": "6d33935918735015ee24e63b9dfc5da47a318c6be090b1f33ace0101d9d3bd8d"
+    },
+    "prioritize_unresolved_names.py": {
+      "bytes": 19245,
+      "sha256": "e41a2eb23427fbb165fe9c08950d274ebcf2d94fb5fe8a622bb1c5da0e7026bc"
+    },
+    "add_family_and_deeper_path_constraints.py": {
+      "bytes": 11461,
+      "sha256": "282f76d3fcb741f83530fac20314619a0be4414eaa09d7d68e7474058bd837fd"
+    }
+  },
+  "complete_unresolved_classification_groups": 2278269,
+  "original_unresolved_file_fresh_read_scope": "Bounded compressed prefix393226B/20000rows only; no complete EOF/pass/hash.",
+  "additional_original_or_source_large_data_read": false,
+  "alias_applied": false,
+  "native_data_modified": false,
+  "native_CPU_executed": false,
+  "device_IO": false,
+  "full_Taiwan_native_update_complete": false
+}

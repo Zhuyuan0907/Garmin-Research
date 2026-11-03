@@ -1,0 +1,1525 @@
+{
+  "schema": "AP-header-control-materializer-synthetic-tests/v1",
+  "all_assigned_checks_passed": true,
+  "unittest_methods": 17,
+  "failures": 0,
+  "errors": 0,
+  "synthetic_receipt_cases": 24,
+  "fixture_max_bytes": 4096,
+  "real_IMG_bytes_read": 0,
+  "real_IMG_bytes_written": 0,
+  "real_materialization_executed": false,
+  "small_catalog_reads_bytes": 33651,
+  "catalog_input_receipts": [
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/prepared-control-plan.json",
+      "bytes": 5276,
+      "sha256": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+      "stat_before": [
+        45826,
+        539794,
+        5276,
+        1791359084268207745,
+        1791359084268207745
+      ],
+      "stat_after": [
+        45826,
+        539794,
+        5276,
+        1791359084268207745,
+        1791359084268207745
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/proof.json",
+      "bytes": 2853,
+      "sha256": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+      "stat_before": [
+        45826,
+        539797,
+        2853,
+        1791359084789279036,
+        1791359084789279036
+      ],
+      "stat_after": [
+        45826,
+        539797,
+        2853,
+        1791359084789279036,
+        1791359084789279036
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/sealed-files.json",
+      "bytes": 2064,
+      "sha256": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da",
+      "stat_before": [
+        45826,
+        539800,
+        2064,
+        1791359084804925599,
+        1791359084804925599
+      ],
+      "stat_after": [
+        45826,
+        539800,
+        2064,
+        1791359084804925599,
+        1791359084804925599
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/eightK_end_mirror-header.bin",
+      "bytes": 512,
+      "sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+      "stat_before": [
+        45826,
+        539792,
+        512,
+        1791359084252939757,
+        1791359084256851713
+      ],
+      "stat_after": [
+        45826,
+        539792,
+        512,
+        1791359084252939757,
+        1791359084256851713
+      ]
+    },
+    {
+      "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/expanded_fourK_geometry-header.bin",
+      "bytes": 512,
+      "sha256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+      "stat_before": [
+        45826,
+        539793,
+        512,
+        1791359084261389281,
+        1791359084264851736
+      ],
+      "stat_after": [
+        45826,
+        539793,
+        512,
+        1791359084261389281,
+        1791359084264851736
+      ]
+    }
+  ],
+  "receipts": [
+    {
+      "case": "success_eightK_end_mirror",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-qeo20y2g/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-qeo20y2g/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": true,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5086,
+          "bytes": 4096,
+          "mtime_ns": 1791360670127651704,
+          "ctime_ns": 1791360670127651704,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-7e02a48f9ccc5d7ab5a90237ab36054e.partial",
+        "partial_inode": [
+          35,
+          5087
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5086,
+          "bytes": 4096,
+          "mtime_ns": 1791360670127651704,
+          "ctime_ns": 1791360670127651704,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5087,
+          "bytes": 4096,
+          "mtime_ns": 1791360670127912520,
+          "ctime_ns": 1791360670127961872,
+          "mode": 292,
+          "nlink": 1
+        },
+        "actual_saved_output_fullhash_verified": true,
+        "full_hashes_and_length_verified": true,
+        "directory_fsync_after_publish": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5086,
+          "bytes": 4096,
+          "mtime_ns": 1791360670127651704,
+          "ctime_ns": 1791360670127651704,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5086,
+          "bytes": 4096,
+          "mtime_ns": 1791360670127651704,
+          "ctime_ns": 1791360670127651704,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "success_expanded_fourK_geometry",
+      "receipt": {
+        "control": "expanded_fourK_geometry",
+        "source": "/tmp/ap-header-synthetic-g6_lt3b_/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-g6_lt3b_/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": true,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5090,
+          "bytes": 4096,
+          "mtime_ns": 1791360670129040837,
+          "ctime_ns": 1791360670129040837,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-d91222f446096ec495f39f2746139f50.partial",
+        "partial_inode": [
+          35,
+          5091
+        ],
+        "source_actual_full_sha256": "692c73459ed5376f6c23205d3cd101d169af8f170971e2e85b0b11e84cb76bf4",
+        "generated_computed_full_sha256": "5486dcf59da6fc9b919c07047c2dcd3f95806400f25a01fd90a0a846933496f9",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5090,
+          "bytes": 4096,
+          "mtime_ns": 1791360670129040837,
+          "ctime_ns": 1791360670129040837,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "5486dcf59da6fc9b919c07047c2dcd3f95806400f25a01fd90a0a846933496f9",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5091,
+          "bytes": 4096,
+          "mtime_ns": 1791360670129257671,
+          "ctime_ns": 1791360670129291264,
+          "mode": 292,
+          "nlink": 1
+        },
+        "actual_saved_output_fullhash_verified": true,
+        "full_hashes_and_length_verified": true,
+        "directory_fsync_after_publish": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5090,
+          "bytes": 4096,
+          "mtime_ns": 1791360670129040837,
+          "ctime_ns": 1791360670129040837,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5090,
+          "bytes": 4096,
+          "mtime_ns": 1791360670129040837,
+          "ctime_ns": 1791360670129040837,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "wrong_source_header",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-tk2_ml36/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-tk2_ml36/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 512,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5094,
+          "bytes": 4096,
+          "mtime_ns": 1791360670130211415,
+          "ctime_ns": 1791360670130211415,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5094,
+          "bytes": 4096,
+          "mtime_ns": 1791360670130211415,
+          "ctime_ns": 1791360670130211415,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5094,
+          "bytes": 4096,
+          "mtime_ns": 1791360670130211415,
+          "ctime_ns": 1791360670130211415,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "wrong_original_full_sha",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-vx8s1cvm/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-vx8s1cvm/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5097,
+          "bytes": 4096,
+          "mtime_ns": 1791360670131084806,
+          "ctime_ns": 1791360670131084806,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-00f37f9b61575254b5a6e42f1a71f1e1.partial",
+        "partial_inode": [
+          35,
+          5098
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5097,
+          "bytes": 4096,
+          "mtime_ns": 1791360670131084806,
+          "ctime_ns": 1791360670131084806,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5097,
+          "bytes": 4096,
+          "mtime_ns": 1791360670131084806,
+          "ctime_ns": 1791360670131084806,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "wrong_expected_virtual_sha",
+      "receipt": {
+        "control": "expanded_fourK_geometry",
+        "source": "/tmp/ap-header-synthetic-1vxo8e2z/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-1vxo8e2z/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5101,
+          "bytes": 4096,
+          "mtime_ns": 1791360670132012660,
+          "ctime_ns": 1791360670132012660,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-c052ac586d7cd098943b5ea3a0b72ee9.partial",
+        "partial_inode": [
+          35,
+          5102
+        ],
+        "source_actual_full_sha256": "692c73459ed5376f6c23205d3cd101d169af8f170971e2e85b0b11e84cb76bf4",
+        "generated_computed_full_sha256": "5486dcf59da6fc9b919c07047c2dcd3f95806400f25a01fd90a0a846933496f9",
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5101,
+          "bytes": 4096,
+          "mtime_ns": 1791360670132012660,
+          "ctime_ns": 1791360670132012660,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5101,
+          "bytes": 4096,
+          "mtime_ns": 1791360670132012660,
+          "ctime_ns": 1791360670132012660,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "existing_output_no_overwrite",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-vrmgwdsc/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-vrmgwdsc/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "symlink_final",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-xw2o0rvb/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-xw2o0rvb/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "symlink_parent",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-tikw7tre/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-tikw7tre/staging/link/other.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "source_symlink",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-7yltgxpb/staging/source-link.img",
+        "output": "/tmp/ap-header-synthetic-7yltgxpb/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "source_stat",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-q4jd8jj8/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-q4jd8jj8/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "atomic_destination_race",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-enny9d_a/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-enny9d_a/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5124,
+          "bytes": 4096,
+          "mtime_ns": 1791360670137654305,
+          "ctime_ns": 1791360670137654305,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-5993fda620c71f68da590b0add58cf48.partial",
+        "partial_inode": [
+          35,
+          5125
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5124,
+          "bytes": 4096,
+          "mtime_ns": 1791360670137654305,
+          "ctime_ns": 1791360670137654305,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5125,
+          "bytes": 4096,
+          "mtime_ns": 1791360670137924010,
+          "ctime_ns": 1791360670137960973,
+          "mode": 292,
+          "nlink": 1
+        },
+        "actual_saved_output_fullhash_verified": true,
+        "full_hashes_and_length_verified": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5124,
+          "bytes": 4096,
+          "mtime_ns": 1791360670137654305,
+          "ctime_ns": 1791360670137654305,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5124,
+          "bytes": 4096,
+          "mtime_ns": 1791360670137654305,
+          "ctime_ns": 1791360670137654305,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "write_failure",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-zvlgtymi/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-zvlgtymi/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 512,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5129,
+          "bytes": 4096,
+          "mtime_ns": 1791360670138804438,
+          "ctime_ns": 1791360670138804438,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-dc222c82127d176c70b472fe3c619e9c.partial",
+        "partial_inode": [
+          35,
+          5130
+        ],
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5129,
+          "bytes": 4096,
+          "mtime_ns": 1791360670138804438,
+          "ctime_ns": 1791360670138804438,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5129,
+          "bytes": 4096,
+          "mtime_ns": 1791360670138804438,
+          "ctime_ns": 1791360670138804438,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "partial_fsync_failure",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-m6vho9yv/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-m6vho9yv/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5133,
+          "bytes": 4096,
+          "mtime_ns": 1791360670139919867,
+          "ctime_ns": 1791360670139919867,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-f1b02a85a76cdc9328e999fa02fd65e6.partial",
+        "partial_inode": [
+          35,
+          5134
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5133,
+          "bytes": 4096,
+          "mtime_ns": 1791360670139919867,
+          "ctime_ns": 1791360670139919867,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5133,
+          "bytes": 4096,
+          "mtime_ns": 1791360670139919867,
+          "ctime_ns": 1791360670139919867,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5133,
+          "bytes": 4096,
+          "mtime_ns": 1791360670139919867,
+          "ctime_ns": 1791360670139919867,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "corrupt_saved_partial_before_readback",
+      "receipt": {
+        "control": "expanded_fourK_geometry",
+        "source": "/tmp/ap-header-synthetic-loxo5bek/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-loxo5bek/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5137,
+          "bytes": 4096,
+          "mtime_ns": 1791360670140955055,
+          "ctime_ns": 1791360670140955055,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-32dbfe732f6e437dd973c308b18b749c.partial",
+        "partial_inode": [
+          35,
+          5138
+        ],
+        "source_actual_full_sha256": "692c73459ed5376f6c23205d3cd101d169af8f170971e2e85b0b11e84cb76bf4",
+        "generated_computed_full_sha256": "5486dcf59da6fc9b919c07047c2dcd3f95806400f25a01fd90a0a846933496f9",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5137,
+          "bytes": 4096,
+          "mtime_ns": 1791360670140955055,
+          "ctime_ns": 1791360670140955055,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "50e98d44400476df4dbfd36e1e4565ef5e5ec66369533c195a9ff93c5fef6880",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5138,
+          "bytes": 4096,
+          "mtime_ns": 1791360670141231000,
+          "ctime_ns": 1791360670141231000,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5137,
+          "bytes": 4096,
+          "mtime_ns": 1791360670140955055,
+          "ctime_ns": 1791360670140955055,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5137,
+          "bytes": 4096,
+          "mtime_ns": 1791360670140955055,
+          "ctime_ns": 1791360670140955055,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "post_link_fsync_failure",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-k61lcwf8/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-k61lcwf8/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": true,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5141,
+          "bytes": 4096,
+          "mtime_ns": 1791360670142038854,
+          "ctime_ns": 1791360670142038854,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-c8fe32b77310e8d8396f0492d3486f6f.partial",
+        "partial_inode": [
+          35,
+          5142
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5141,
+          "bytes": 4096,
+          "mtime_ns": 1791360670142038854,
+          "ctime_ns": 1791360670142038854,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5142,
+          "bytes": 4096,
+          "mtime_ns": 1791360670142278169,
+          "ctime_ns": 1791360670142310577,
+          "mode": 292,
+          "nlink": 1
+        },
+        "actual_saved_output_fullhash_verified": true,
+        "full_hashes_and_length_verified": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5141,
+          "bytes": 4096,
+          "mtime_ns": 1791360670142038854,
+          "ctime_ns": 1791360670142038854,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5141,
+          "bytes": 4096,
+          "mtime_ns": 1791360670142038854,
+          "ctime_ns": 1791360670142038854,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "partial_inode_replaced",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-1sgq6j1a/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-1sgq6j1a/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "not_removed_ownership_or_cleanup_error",
+        "source_unchanged": true,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5145,
+          "bytes": 4096,
+          "mtime_ns": 1791360670143126875,
+          "ctime_ns": 1791360670143126875,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-ec8b580ac9a717818a18b851e6e13f2b.partial",
+        "partial_inode": [
+          35,
+          5146
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5145,
+          "bytes": 4096,
+          "mtime_ns": 1791360670143126875,
+          "ctime_ns": 1791360670143126875,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5146,
+          "bytes": 4096,
+          "mtime_ns": 1791360670143364284,
+          "ctime_ns": 1791360670143396691,
+          "mode": 292,
+          "nlink": 1
+        },
+        "actual_saved_output_fullhash_verified": true,
+        "full_hashes_and_length_verified": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5145,
+          "bytes": 4096,
+          "mtime_ns": 1791360670143126875,
+          "ctime_ns": 1791360670143126875,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5145,
+          "bytes": 4096,
+          "mtime_ns": 1791360670143126875,
+          "ctime_ns": 1791360670143126875,
+          "mode": 292,
+          "nlink": 1
+        },
+        "cleanup_error": "Partial inode ownership changed",
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "source_stat_changes_during_readback",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-_5mka_k8/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-_5mka_k8/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 4096,
+        "generated_bytes_written": 4096,
+        "partial_created": true,
+        "published": false,
+        "partial_cleanup": "owned_partial_removed",
+        "source_unchanged": false,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "source_stat_before": {
+          "dev": 35,
+          "ino": 5150,
+          "bytes": 4096,
+          "mtime_ns": 1791360670144274008,
+          "ctime_ns": 1791360670144274008,
+          "mode": 292,
+          "nlink": 1
+        },
+        "partial_name": ".ap-header-control-767697690dd9417ffd893433032fc785.partial",
+        "partial_inode": [
+          35,
+          5151
+        ],
+        "source_actual_full_sha256": "3bad00ea692fcadab57dc4c08b97e2bd31855476dca027170530db6a9b32db4f",
+        "generated_computed_full_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "source_stat_after": {
+          "dev": 35,
+          "ino": 5150,
+          "bytes": 4096,
+          "mtime_ns": 1791360670144274008,
+          "ctime_ns": 1791360670144274008,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_and_computed_hashes_and_length_verified": true,
+        "output_fsync_before_publish": true,
+        "saved_output_bytes_read": 4096,
+        "actual_saved_output_sha256": "001a1b53a6f0b1a02c2dd930d80d3fd64c843b0eb701f3fe93be5228c1dbc798",
+        "saved_output_stat_after_readback": {
+          "dev": 35,
+          "ino": 5151,
+          "bytes": 4096,
+          "mtime_ns": 1791360670144516620,
+          "ctime_ns": 1791360670144550435,
+          "mode": 292,
+          "nlink": 1
+        },
+        "actual_saved_output_fullhash_verified": true,
+        "source_stat_final_close": {
+          "dev": 35,
+          "ino": 5150,
+          "bytes": 4096,
+          "mtime_ns": 1791360670145274008,
+          "ctime_ns": 1791360670144550435,
+          "mode": 292,
+          "nlink": 1
+        },
+        "source_stat_final_path": {
+          "dev": 35,
+          "ino": 5150,
+          "bytes": 4096,
+          "mtime_ns": 1791360670145274008,
+          "ctime_ns": 1791360670144550435,
+          "mode": 292,
+          "nlink": 1
+        },
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "metadata_default",
+      "receipt": {
+        "schema": "fixed-closed-AP-header-control-catalog/v1",
+        "catalog_pins": {
+          "prepared-control-plan.json": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+          "proof.json": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+          "sealed-files.json": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da"
+        },
+        "controls": [
+          {
+            "name": "eightK_end_mirror",
+            "source": "staging/navigation-country-native-lane-candidate-v3/gmapprom1.img",
+            "bytes": 153346048,
+            "source_sha256": "1f468eb78cc1268951873c82ffce4abe3292dcece69c0eee405c5d7aca3cc360",
+            "expected_generated_sha256": "9af1e68e1308bf28deeb7f7d4c7cfab88efd0063c38f4f2df77fcde352990dd3",
+            "source_stat_pin": [
+              45826,
+              538039,
+              153346048,
+              1791317242895661512,
+              1791318525389002569
+            ],
+            "source_header_sha256": "e3b9dad35486683869b4bfc811e591a2af020c5764b12cfb4d9cf31a441e0ca3",
+            "corrected_header_sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+            "changed_offsets": [
+              452
+            ]
+          },
+          {
+            "name": "expanded_fourK_geometry",
+            "source": "staging/navigation-v3-expanded4k-offline-isolation-v1/v3-content-expanded4k-experiment.img.disabled",
+            "bytes": 153337856,
+            "source_sha256": "cc019c5f83c7fce442d0a6b64d8cc216dbc39e1cfa08dfe3f57c757f3bdfbfe9",
+            "expected_generated_sha256": "8749b2614f0ef4cfb3ac631dd316b35dd3551e3ab97d2ac058f13a89052f50f6",
+            "source_stat_pin": [
+              45826,
+              538397,
+              153337856,
+              1791347653105259871,
+              1791347659645611251
+            ],
+            "source_header_sha256": "3ec84ec4bec34f19eb7970600eee244bf2f3b1fd1d7b48a925e924519bf1684b",
+            "corrected_header_sha256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+            "changed_offsets": [
+              24,
+              95,
+              451,
+              452,
+              453
+            ]
+          }
+        ],
+        "small_catalog_input_receipts": [
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/prepared-control-plan.json",
+            "bytes": 5276,
+            "sha256": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+            "stat_before": [
+              45826,
+              539794,
+              5276,
+              1791359084268207745,
+              1791359084268207745
+            ],
+            "stat_after": [
+              45826,
+              539794,
+              5276,
+              1791359084268207745,
+              1791359084268207745
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/proof.json",
+            "bytes": 2853,
+            "sha256": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+            "stat_before": [
+              45826,
+              539797,
+              2853,
+              1791359084789279036,
+              1791359084789279036
+            ],
+            "stat_after": [
+              45826,
+              539797,
+              2853,
+              1791359084789279036,
+              1791359084789279036
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/sealed-files.json",
+            "bytes": 2064,
+            "sha256": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da",
+            "stat_before": [
+              45826,
+              539800,
+              2064,
+              1791359084804925599,
+              1791359084804925599
+            ],
+            "stat_after": [
+              45826,
+              539800,
+              2064,
+              1791359084804925599,
+              1791359084804925599
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/eightK_end_mirror-header.bin",
+            "bytes": 512,
+            "sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+            "stat_before": [
+              45826,
+              539792,
+              512,
+              1791359084252939757,
+              1791359084256851713
+            ],
+            "stat_after": [
+              45826,
+              539792,
+              512,
+              1791359084252939757,
+              1791359084256851713
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/expanded_fourK_geometry-header.bin",
+            "bytes": 512,
+            "sha256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+            "stat_before": [
+              45826,
+              539793,
+              512,
+              1791359084261389281,
+              1791359084264851736
+            ],
+            "stat_after": [
+              45826,
+              539793,
+              512,
+              1791359084261389281,
+              1791359084264851736
+            ]
+          }
+        ],
+        "source_IMG_opened_or_statted": false,
+        "installable": false,
+        "checksum_policy_UI_or_rootcause_verified": false
+      }
+    },
+    {
+      "case": "metadata_list",
+      "receipt": {
+        "schema": "fixed-closed-AP-header-control-catalog/v1",
+        "catalog_pins": {
+          "prepared-control-plan.json": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+          "proof.json": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+          "sealed-files.json": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da"
+        },
+        "controls": [
+          {
+            "name": "eightK_end_mirror",
+            "source": "staging/navigation-country-native-lane-candidate-v3/gmapprom1.img",
+            "bytes": 153346048,
+            "source_sha256": "1f468eb78cc1268951873c82ffce4abe3292dcece69c0eee405c5d7aca3cc360",
+            "expected_generated_sha256": "9af1e68e1308bf28deeb7f7d4c7cfab88efd0063c38f4f2df77fcde352990dd3",
+            "source_stat_pin": [
+              45826,
+              538039,
+              153346048,
+              1791317242895661512,
+              1791318525389002569
+            ],
+            "source_header_sha256": "e3b9dad35486683869b4bfc811e591a2af020c5764b12cfb4d9cf31a441e0ca3",
+            "corrected_header_sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+            "changed_offsets": [
+              452
+            ]
+          },
+          {
+            "name": "expanded_fourK_geometry",
+            "source": "staging/navigation-v3-expanded4k-offline-isolation-v1/v3-content-expanded4k-experiment.img.disabled",
+            "bytes": 153337856,
+            "source_sha256": "cc019c5f83c7fce442d0a6b64d8cc216dbc39e1cfa08dfe3f57c757f3bdfbfe9",
+            "expected_generated_sha256": "8749b2614f0ef4cfb3ac631dd316b35dd3551e3ab97d2ac058f13a89052f50f6",
+            "source_stat_pin": [
+              45826,
+              538397,
+              153337856,
+              1791347653105259871,
+              1791347659645611251
+            ],
+            "source_header_sha256": "3ec84ec4bec34f19eb7970600eee244bf2f3b1fd1d7b48a925e924519bf1684b",
+            "corrected_header_sha256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+            "changed_offsets": [
+              24,
+              95,
+              451,
+              452,
+              453
+            ]
+          }
+        ],
+        "small_catalog_input_receipts": [
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/prepared-control-plan.json",
+            "bytes": 5276,
+            "sha256": "dc636ce504acb7ef3a8b0980d4f91b796f05fc6f07dcbb52aed9d73c6740f655",
+            "stat_before": [
+              45826,
+              539794,
+              5276,
+              1791359084268207745,
+              1791359084268207745
+            ],
+            "stat_after": [
+              45826,
+              539794,
+              5276,
+              1791359084268207745,
+              1791359084268207745
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/proof.json",
+            "bytes": 2853,
+            "sha256": "dace2db29b3a7d36dc74e775b78501bbe0d9673da77e8f524a05fe7b662e7683",
+            "stat_before": [
+              45826,
+              539797,
+              2853,
+              1791359084789279036,
+              1791359084789279036
+            ],
+            "stat_after": [
+              45826,
+              539797,
+              2853,
+              1791359084789279036,
+              1791359084789279036
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/sealed-files.json",
+            "bytes": 2064,
+            "sha256": "b3365a9aa57c0181adcbebf80ce3ac3c58463706b9e773280db3433e9eba67da",
+            "stat_before": [
+              45826,
+              539800,
+              2064,
+              1791359084804925599,
+              1791359084804925599
+            ],
+            "stat_after": [
+              45826,
+              539800,
+              2064,
+              1791359084804925599,
+              1791359084804925599
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/eightK_end_mirror-header.bin",
+            "bytes": 512,
+            "sha256": "b6eafaf1f5a2414fef59da913645ab62d7c9b151ea1e6662b913323bad0e2c5b",
+            "stat_before": [
+              45826,
+              539792,
+              512,
+              1791359084252939757,
+              1791359084256851713
+            ],
+            "stat_after": [
+              45826,
+              539792,
+              512,
+              1791359084252939757,
+              1791359084256851713
+            ]
+          },
+          {
+            "path": "staging/navigation-AP-coherent-geometry-virtual-controls-v2/expanded_fourK_geometry-header.bin",
+            "bytes": 512,
+            "sha256": "63ad71122370c5c5954520f34861c15cccac506ce0692f51856ec0cf4cc162c6",
+            "stat_before": [
+              45826,
+              539793,
+              512,
+              1791359084261389281,
+              1791359084264851736
+            ],
+            "stat_after": [
+              45826,
+              539793,
+              512,
+              1791359084261389281,
+              1791359084264851736
+            ]
+          }
+        ],
+        "source_IMG_opened_or_statted": false,
+        "installable": false,
+        "checksum_policy_UI_or_rootcause_verified": false
+      }
+    },
+    {
+      "case": "python_O_rejection",
+      "receipt": {
+        "optimized_python": true,
+        "rejected": true,
+        "receipt": {
+          "control": "eightK_end_mirror",
+          "source": "/tmp/ap-header-synthetic-5j4l_fvy/staging/synthetic-source.img",
+          "output": "/tmp/ap-header-synthetic-5j4l_fvy/staging/synthetic-output.img.disabled",
+          "expected_bytes": 4096,
+          "source_bytes_read": 4096,
+          "generated_bytes_written": 4096,
+          "partial_created": true,
+          "published": false,
+          "partial_cleanup": "owned_partial_removed",
+          "source_unchanged": true,
+          "source_handle_closed": true,
+          "output_handle_closed": true,
+          "readback_handle_closed": true,
+          "all_handles_closed": true,
+          "installable": false,
+          "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+          "source_stat_before": {
+            "dev": 35,
+            "ino": 5155,
+            "bytes": 4096,
+            "mtime_ns": 1791360670866581085,
+            "ctime_ns": 1791360670866581085,
+            "mode": 292,
+            "nlink": 1
+          },
+          "partial_name": ".ap-header-control-f22008ce7e32c354cb2269b8c4da0f12.partial",
+          "partial_inode": [
+            35,
+            5156
+          ],
+          "source_actual_full_sha256": "ddcb34fc9fe1333fca944cd0cc1907cc3de900ec451047e022a49c9a3f37950e",
+          "generated_computed_full_sha256": "527bba1a8384a94c706d192fc2db09a0d85f7f634b0b462d6d3b199e6d87a23f",
+          "source_stat_final_close": {
+            "dev": 35,
+            "ino": 5155,
+            "bytes": 4096,
+            "mtime_ns": 1791360670866581085,
+            "ctime_ns": 1791360670866581085,
+            "mode": 292,
+            "nlink": 1
+          },
+          "source_stat_final_path": {
+            "dev": 35,
+            "ino": 5155,
+            "bytes": 4096,
+            "mtime_ns": 1791360670866581085,
+            "ctime_ns": 1791360670866581085,
+            "mode": 292,
+            "nlink": 1
+          },
+          "parent_handle_closed": true
+        }
+      }
+    },
+    {
+      "case": "output_or_size_suffix",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-nrlx08n0/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-nrlx08n0/staging/invalid.img",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "output_or_size_outside",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-6mb40exq/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-6mb40exq/outside.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "output_or_size_truncated",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-fghhcuay/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-fghhcuay/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    },
+    {
+      "case": "output_or_size_extra",
+      "receipt": {
+        "control": "eightK_end_mirror",
+        "source": "/tmp/ap-header-synthetic-vomczzf9/staging/synthetic-source.img",
+        "output": "/tmp/ap-header-synthetic-vomczzf9/staging/synthetic-output.img.disabled",
+        "expected_bytes": 4096,
+        "source_bytes_read": 0,
+        "generated_bytes_written": 0,
+        "partial_created": false,
+        "published": false,
+        "partial_cleanup": "not_created",
+        "source_unchanged": null,
+        "source_handle_closed": true,
+        "output_handle_closed": true,
+        "readback_handle_closed": true,
+        "all_handles_closed": true,
+        "installable": false,
+        "checksum_policy_or_UI_or_renderer_rootcause_verified": false,
+        "parent_handle_closed": true
+      }
+    }
+  ],
+  "source_sha256": "dfbf182f4d1b40fc4315c5568a7e92c521c35d1c764bc1946e53269f7f958142",
+  "test_source_sha256": "7732a4747825466986d424dc227d3ee9522ffc1ae7d614e421d34cace92d8089",
+  "installable": false,
+  "actual_device_UI_renderer_or_checksum_policy_verified": false
+}

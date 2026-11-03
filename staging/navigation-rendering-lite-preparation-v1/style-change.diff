@@ -1,0 +1,23 @@
+--- baseline-style/polygons
++++ lite-style/polygons
+@@ -125,15 +125,15 @@
+ 
+ # building tag should be last
+ amenity=* & area!=no & amenity!=grave_yard {add name='${amenity|subst:"_=> "}'} [0x23 resolution 24]
+-building=* & building!=no [0x13 resolution 24]
+-tourism=* & area!=no & waterway!=* {add name='${tourism|subst:"_=> "}'} [0x21 resolution 24]
++building=* & building!=no { set mkgmap:execute_finalize_rules=true; set mkgmap:lite-building-suppressed=yes }
++mkgmap:lite-building-suppressed!=yes & (tourism=* & area!=no & waterway!=*) {add name='${tourism|subst:"_=> "}'} [0x21 resolution 24]
+ 
+ # man_made can be used on areas or lines
+-man_made=* & area!=no {add name='${man_made|subst:"_=> "}'} [0x24 resolution 24]
++mkgmap:lite-building-suppressed!=yes & (man_made=* & area!=no) {add name='${man_made|subst:"_=> "}'} [0x24 resolution 24]
+ 
+ # render small named islands
+-place=island & name=* & area_size() < 1000000 [0x53 resolution 19]
+-place=islet & name=* [0x53 resolution 20]
++mkgmap:lite-building-suppressed!=yes & (place=island & name=* & area_size() < 1000000) [0x53 resolution 19]
++mkgmap:lite-building-suppressed!=yes & (place=islet & name=*) [0x53 resolution 20]
+ 
+ <finalize>
+ # The finalizer section is executed for each element when a rule with an element type matches

@@ -1,0 +1,8 @@
+{
+  "all_passed": false,
+  "exception": "ValueError('Host RSS bound exceeded')",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/garmin/staging/native-player-inline-fields/code-marker/emulate_cache_marker_prototype_v3.py\", line 215, in <module>\n    try:main()\n        ~~~~^^\n  File \"/root/garmin/staging/native-player-inline-fields/code-marker/emulate_cache_marker_prototype_v3.py\", line 203, in main\n    r,baseline=one(stock,inventory,'original_baseline',original);cases.append(r);print(json.dumps({'case':r['name'],'passed':True,'raw_returns':[e['raw_return'] for e in r['entry_layers']]}),flush=True)\n               ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/staging/native-player-inline-fields/code-marker/emulate_cache_marker_prototype_v3.py\", line 171, in one\n    print(json.dumps({'phase':'constructed','name':name,'host_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}),flush=True);require(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss<200*1024,'Host RSS bound exceeded')\n                                                                                                                                             ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/scripts/emulate_native_vpm_filesystem.py\", line 51, in require\n    if not condition: raise ValueError(message)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Host RSS bound exceeded\n",
+  "source_sha256": "bd67c7cc204979c33dbfc01813175d5b10217327bf5fe0b0f5b04a9c6ad66e4d",
+  "emulation_only": true,
+  "no_device_io": true
+}

@@ -1,0 +1,186 @@
+
+/root/garmin/staging/native-player-warm-retirement/build-v1/warm-player-EMULATION-ONLY.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+02fa0e04 <mw_attach_stage1>:
+ 2fa0e04:	e59f2240 	ldr	r2, [pc, #576]	@ 2fa104c <mw_attach_stage1+0x248>
+ 2fa0e08:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+ 2fa0e0c:	e5923000 	ldr	r3, [r2]
+ 2fa0e10:	e3a00000 	mov	r0, #0
+ 2fa0e14:	e2833001 	add	r3, r3, #1
+ 2fa0e18:	e5823000 	str	r3, [r2]
+ 2fa0e1c:	ebffef79 	bl	2f9cc08 <mcs_native_normal_context>
+ 2fa0e20:	e3500000 	cmp	r0, #0
+ 2fa0e24:	0a000086 	beq	2fa1044 <mw_attach_stage1+0x240>
+ 2fa0e28:	e59f3220 	ldr	r3, [pc, #544]	@ 2fa1050 <mw_attach_stage1+0x24c>
+ 2fa0e2c:	e12fff33 	blx	r3
+ 2fa0e30:	e59f821c 	ldr	r8, [pc, #540]	@ 2fa1054 <mw_attach_stage1+0x250>
+ 2fa0e34:	e59f321c 	ldr	r3, [pc, #540]	@ 2fa1058 <mw_attach_stage1+0x254>
+ 2fa0e38:	e59f621c 	ldr	r6, [pc, #540]	@ 2fa105c <mw_attach_stage1+0x258>
+ 2fa0e3c:	e1a04000 	mov	r4, r0
+ 2fa0e40:	e12fff33 	blx	r3
+ 2fa0e44:	e5981118 	ldr	r1, [r8, #280]	@ 0x118
+ 2fa0e48:	e5983130 	ldr	r3, [r8, #304]	@ 0x130
+ 2fa0e4c:	e5962fa8 	ldr	r2, [r6, #4008]	@ 0xfa8
+ 2fa0e50:	e1833001 	orr	r3, r3, r1
+ 2fa0e54:	e1933002 	orrs	r3, r3, r2
+ 2fa0e58:	13a03001 	movne	r3, #1
+ 2fa0e5c:	03a03000 	moveq	r3, #0
+ 2fa0e60:	e3540000 	cmp	r4, #0
+ 2fa0e64:	03833001 	orreq	r3, r3, #1
+ 2fa0e68:	e3530000 	cmp	r3, #0
+ 2fa0e6c:	e1a05000 	mov	r5, r0
+ 2fa0e70:	0a000004 	beq	2fa0e88 <mw_attach_stage1+0x84>
+ 2fa0e74:	e59f31e4 	ldr	r3, [pc, #484]	@ 2fa1060 <mw_attach_stage1+0x25c>
+ 2fa0e78:	e12fff33 	blx	r3
+ 2fa0e7c:	e59f41e0 	ldr	r4, [pc, #480]	@ 2fa1064 <mw_attach_stage1+0x260>
+ 2fa0e80:	e59f21e0 	ldr	r2, [pc, #480]	@ 2fa1068 <mw_attach_stage1+0x264>
+ 2fa0e84:	ea00005d 	b	2fa1000 <mw_attach_stage1+0x1fc>
+ 2fa0e88:	e59f71dc 	ldr	r7, [pc, #476]	@ 2fa106c <mw_attach_stage1+0x268>
+ 2fa0e8c:	e59f01dc 	ldr	r0, [pc, #476]	@ 2fa1070 <mw_attach_stage1+0x26c>
+ 2fa0e90:	e12fff37 	blx	r7
+ 2fa0e94:	e59f01d8 	ldr	r0, [pc, #472]	@ 2fa1074 <mw_attach_stage1+0x270>
+ 2fa0e98:	e12fff37 	blx	r7
+ 2fa0e9c:	e59f01d4 	ldr	r0, [pc, #468]	@ 2fa1078 <mw_attach_stage1+0x274>
+ 2fa0ea0:	e12fff37 	blx	r7
+ 2fa0ea4:	e59f31d0 	ldr	r3, [pc, #464]	@ 2fa107c <mw_attach_stage1+0x278>
+ 2fa0ea8:	e59330a0 	ldr	r3, [r3, #160]	@ 0xa0
+ 2fa0eac:	e3530000 	cmp	r3, #0
+ 2fa0eb0:	0a000059 	beq	2fa101c <mw_attach_stage1+0x218>
+ 2fa0eb4:	e5961fd0 	ldr	r1, [r6, #4048]	@ 0xfd0
+ 2fa0eb8:	e59f21c0 	ldr	r2, [pc, #448]	@ 2fa1080 <mw_attach_stage1+0x27c>
+ 2fa0ebc:	e1510002 	cmp	r1, r2
+ 2fa0ec0:	1a000055 	bne	2fa101c <mw_attach_stage1+0x218>
+ 2fa0ec4:	e5962fc0 	ldr	r2, [r6, #4032]	@ 0xfc0
+ 2fa0ec8:	e1530002 	cmp	r3, r2
+ 2fa0ecc:	1a000052 	bne	2fa101c <mw_attach_stage1+0x218>
+ 2fa0ed0:	e59f31ac 	ldr	r3, [pc, #428]	@ 2fa1084 <mw_attach_stage1+0x280>
+ 2fa0ed4:	e55320b7 	ldrb	r2, [r3, #-183]	@ 0xffffff49
+ 2fa0ed8:	e3520008 	cmp	r2, #8
+ 2fa0edc:	1a000050 	bne	2fa1024 <mw_attach_stage1+0x220>
+ 2fa0ee0:	e59f21a0 	ldr	r2, [pc, #416]	@ 2fa1088 <mw_attach_stage1+0x284>
+ 2fa0ee4:	e5d21040 	ldrb	r1, [r2, #64]	@ 0x40
+ 2fa0ee8:	e3510008 	cmp	r1, #8
+ 2fa0eec:	1a00004c 	bne	2fa1024 <mw_attach_stage1+0x220>
+ 2fa0ef0:	e5d810f0 	ldrb	r1, [r8, #240]	@ 0xf0
+ 2fa0ef4:	e3510008 	cmp	r1, #8
+ 2fa0ef8:	1a000049 	bne	2fa1024 <mw_attach_stage1+0x220>
+ 2fa0efc:	e5d810a5 	ldrb	r1, [r8, #165]	@ 0xa5
+ 2fa0f00:	e3510000 	cmp	r1, #0
+ 2fa0f04:	1a000048 	bne	2fa102c <mw_attach_stage1+0x228>
+ 2fa0f08:	e59800a8 	ldr	r0, [r8, #168]	@ 0xa8
+ 2fa0f0c:	e59f1178 	ldr	r1, [pc, #376]	@ 2fa108c <mw_attach_stage1+0x288>
+ 2fa0f10:	e1500001 	cmp	r0, r1
+ 2fa0f14:	1a000044 	bne	2fa102c <mw_attach_stage1+0x228>
+ 2fa0f18:	e59f1134 	ldr	r1, [pc, #308]	@ 2fa1054 <mw_attach_stage1+0x250>
+ 2fa0f1c:	e59100f4 	ldr	r0, [r1, #244]	@ 0xf4
+ 2fa0f20:	e59f1168 	ldr	r1, [pc, #360]	@ 2fa1090 <mw_attach_stage1+0x28c>
+ 2fa0f24:	e1500001 	cmp	r0, r1
+ 2fa0f28:	1a000041 	bne	2fa1034 <mw_attach_stage1+0x230>
+ 2fa0f2c:	e1d220b8 	ldrh	r2, [r2, #8]
+ 2fa0f30:	e3520000 	cmp	r2, #0
+ 2fa0f34:	1a00003e 	bne	2fa1034 <mw_attach_stage1+0x230>
+ 2fa0f38:	e59f2154 	ldr	r2, [pc, #340]	@ 2fa1094 <mw_attach_stage1+0x290>
+ 2fa0f3c:	e59228f8 	ldr	r2, [r2, #2296]	@ 0x8f8
+ 2fa0f40:	e3520000 	cmp	r2, #0
+ 2fa0f44:	1a00003a 	bne	2fa1034 <mw_attach_stage1+0x230>
+ 2fa0f48:	e59f2148 	ldr	r2, [pc, #328]	@ 2fa1098 <mw_attach_stage1+0x294>
+ 2fa0f4c:	e5d2207c 	ldrb	r2, [r2, #124]	@ 0x7c
+ 2fa0f50:	e3520000 	cmp	r2, #0
+ 2fa0f54:	159f4140 	ldrne	r4, [pc, #320]	@ 2fa109c <mw_attach_stage1+0x298>
+ 2fa0f58:	1a000012 	bne	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa0f5c:	e55330b5 	ldrb	r3, [r3, #-181]	@ 0xffffff4b
+ 2fa0f60:	e3530000 	cmp	r3, #0
+ 2fa0f64:	1a000034 	bne	2fa103c <mw_attach_stage1+0x238>
+ 2fa0f68:	e59f3130 	ldr	r3, [pc, #304]	@ 2fa10a0 <mw_attach_stage1+0x29c>
+ 2fa0f6c:	e59f2130 	ldr	r2, [pc, #304]	@ 2fa10a4 <mw_attach_stage1+0x2a0>
+ 2fa0f70:	e5d31000 	ldrb	r1, [r3]
+ 2fa0f74:	e3510000 	cmp	r1, #0
+ 2fa0f78:	1a00002f 	bne	2fa103c <mw_attach_stage1+0x238>
+ 2fa0f7c:	e2833001 	add	r3, r3, #1
+ 2fa0f80:	e1530002 	cmp	r3, r2
+ 2fa0f84:	1afffff9 	bne	2fa0f70 <mw_attach_stage1+0x16c>
+ 2fa0f88:	e59f3118 	ldr	r3, [pc, #280]	@ 2fa10a8 <mw_attach_stage1+0x2a4>
+ 2fa0f8c:	e5d330a0 	ldrb	r3, [r3, #160]	@ 0xa0
+ 2fa0f90:	e3530001 	cmp	r3, #1
+ 2fa0f94:	13e04f4d 	mvnne	r4, #308	@ 0x134
+ 2fa0f98:	1a000002 	bne	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa0f9c:	e1a00004 	mov	r0, r4
+ 2fa0fa0:	ebffd475 	bl	2f9617c <rg_claim_locked>
+ 2fa0fa4:	e1a04000 	mov	r4, r0
+ 2fa0fa8:	e1a00005 	mov	r0, r5
+ 2fa0fac:	e59f30ac 	ldr	r3, [pc, #172]	@ 2fa1060 <mw_attach_stage1+0x25c>
+ 2fa0fb0:	e12fff33 	blx	r3
+ 2fa0fb4:	e3540000 	cmp	r4, #0
+ 2fa0fb8:	1a000005 	bne	2fa0fd4 <mw_attach_stage1+0x1d0>
+ 2fa0fbc:	ebffd59f 	bl	2f96640 <rg_validation_test_hook>
+ 2fa0fc0:	e59f10e4 	ldr	r1, [pc, #228]	@ 2fa10ac <mw_attach_stage1+0x2a8>
+ 2fa0fc4:	e59f00e4 	ldr	r0, [pc, #228]	@ 2fa10b0 <mw_attach_stage1+0x2ac>
+ 2fa0fc8:	ebffdb70 	bl	2f97d90 <aas_initialize>
+ 2fa0fcc:	e2504000 	subs	r4, r0, #0
+ 2fa0fd0:	0a000000 	beq	2fa0fd8 <mw_attach_stage1+0x1d4>
+ 2fa0fd4:	ebffd48a 	bl	2f96204 <rg_abandon_unpublished>
+ 2fa0fd8:	e59f50d4 	ldr	r5, [pc, #212]	@ 2fa10b4 <mw_attach_stage1+0x2b0>
+ 2fa0fdc:	e59f0094 	ldr	r0, [pc, #148]	@ 2fa1078 <mw_attach_stage1+0x274>
+ 2fa0fe0:	e12fff35 	blx	r5
+ 2fa0fe4:	e59f0088 	ldr	r0, [pc, #136]	@ 2fa1074 <mw_attach_stage1+0x270>
+ 2fa0fe8:	e12fff35 	blx	r5
+ 2fa0fec:	e59f007c 	ldr	r0, [pc, #124]	@ 2fa1070 <mw_attach_stage1+0x26c>
+ 2fa0ff0:	e12fff35 	blx	r5
+ 2fa0ff4:	e3540000 	cmp	r4, #0
+ 2fa0ff8:	059f20b8 	ldreq	r2, [pc, #184]	@ 2fa10b8 <mw_attach_stage1+0x2b4>
+ 2fa0ffc:	1affff9f 	bne	2fa0e80 <mw_attach_stage1+0x7c>
+ 2fa1000:	e5923000 	ldr	r3, [r2]
+ 2fa1004:	e1a00004 	mov	r0, r4
+ 2fa1008:	e2833001 	add	r3, r3, #1
+ 2fa100c:	e5823000 	str	r3, [r2]
+ 2fa1010:	e59f30a4 	ldr	r3, [pc, #164]	@ 2fa10bc <mw_attach_stage1+0x2b8>
+ 2fa1014:	e5834000 	str	r4, [r3]
+ 2fa1018:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
+ 2fa101c:	e59f409c 	ldr	r4, [pc, #156]	@ 2fa10c0 <mw_attach_stage1+0x2bc>
+ 2fa1020:	eaffffe0 	b	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa1024:	e59f4098 	ldr	r4, [pc, #152]	@ 2fa10c4 <mw_attach_stage1+0x2c0>
+ 2fa1028:	eaffffde 	b	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa102c:	e3e04e13 	mvn	r4, #304	@ 0x130
+ 2fa1030:	eaffffdc 	b	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa1034:	e59f408c 	ldr	r4, [pc, #140]	@ 2fa10c8 <mw_attach_stage1+0x2c4>
+ 2fa1038:	eaffffda 	b	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa103c:	e59f4088 	ldr	r4, [pc, #136]	@ 2fa10cc <mw_attach_stage1+0x2c8>
+ 2fa1040:	eaffffd8 	b	2fa0fa8 <mw_attach_stage1+0x1a4>
+ 2fa1044:	e3e04f4b 	mvn	r4, #300	@ 0x12c
+ 2fa1048:	eaffff8c 	b	2fa0e80 <mw_attach_stage1+0x7c>
+ 2fa104c:	02faf838 	.word	0x02faf838
+ 2fa1050:	00358d25 	.word	0x00358d25
+ 2fa1054:	034e8000 	.word	0x034e8000
+ 2fa1058:	0021b6cc 	.word	0x0021b6cc
+ 2fa105c:	034e7000 	.word	0x034e7000
+ 2fa1060:	0021b6dc 	.word	0x0021b6dc
+ 2fa1064:	fffffed2 	.word	0xfffffed2
+ 2fa1068:	02faf830 	.word	0x02faf830
+ 2fa106c:	003009a1 	.word	0x003009a1
+ 2fa1070:	034e8110 	.word	0x034e8110
+ 2fa1074:	034e8128 	.word	0x034e8128
+ 2fa1078:	034e7fa0 	.word	0x034e7fa0
+ 2fa107c:	00f09000 	.word	0x00f09000
+ 2fa1080:	d4475b83 	.word	0xd4475b83
+ 2fa1084:	034e7fff 	.word	0x034e7fff
+ 2fa1088:	034e8100 	.word	0x034e8100
+ 2fa108c:	00277c6b 	.word	0x00277c6b
+ 2fa1090:	0000ffff 	.word	0x0000ffff
+ 2fa1094:	034e6000 	.word	0x034e6000
+ 2fa1098:	034e5d00 	.word	0x034e5d00
+ 2fa109c:	fffffecd 	.word	0xfffffecd
+ 2fa10a0:	034e803c 	.word	0x034e803c
+ 2fa10a4:	034e8080 	.word	0x034e8080
+ 2fa10a8:	034e9300 	.word	0x034e9300
+ 2fa10ac:	034e3cf4 	.word	0x034e3cf4
+ 2fa10b0:	034e7f48 	.word	0x034e7f48
+ 2fa10b4:	003008b1 	.word	0x003008b1
+ 2fa10b8:	02faf834 	.word	0x02faf834
+ 2fa10bc:	02faf82c 	.word	0x02faf82c
+ 2fa10c0:	fffffed1 	.word	0xfffffed1
+ 2fa10c4:	fffffed0 	.word	0xfffffed0
+ 2fa10c8:	fffffece 	.word	0xfffffece
+ 2fa10cc:	fffffecc 	.word	0xfffffecc

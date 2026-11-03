@@ -1,0 +1,17 @@
+/* Exact sealed warm ELF symbol bindings. */
+#define MH_READY_CONTROLLER 0x02fbd040u
+#define MH_CREATE_RETURNS 0x02fbd050u
+#define MH_ADAPTER 0x02fbd05cu
+#define MH_INITIALIZED 0x02fbd0d0u
+#define MH_READY_POST_RETURNS 0x02fbd038u
+#define MH_BIND_READY 0x02f98b94u
+#define MH_INITIALIZE_RESULT 0x02fbd0a0u
+#define MH_READY_POSTS 0x02fbd03cu
+#define MH_SELF_TCB 0x02fbd044u
+#define MH_CALLBACK_ARGUMENT 0x02fbd048u
+#define MH_WORKER_ENTRIES 0x02fbd04cu
+#define MH_PUBLICATION_CHECKS 0x02fbd034u
+#define MH_PUBLICATION_ERRORS 0x02fbd030u
+#define MEMORY_OUTPUT_CONTROL 0x02fba6a8u
+#define MEDIA_QUEUE_CONTROL 0x02fba290u
+#define MH_CONTEXT 0x02fab084u

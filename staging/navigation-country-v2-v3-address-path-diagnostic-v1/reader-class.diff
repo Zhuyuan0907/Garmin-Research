@@ -1,0 +1,10 @@
+--- pinned_previous_Image
++++ isolated_Image_with_handle_registry
+@@ -6,6 +6,7 @@
+         self.before = stat(p)
+         self.size = self.before[2]
+         self.f = p.open('rb')
++        OPEN_HANDLES.append(self.f)
+         need(self.size > 0 and self.size % block_bytes == 0, 'Whole physical blocks')
+         h = self.physical(0, 512, 'actual AP header')
+         self.header = h

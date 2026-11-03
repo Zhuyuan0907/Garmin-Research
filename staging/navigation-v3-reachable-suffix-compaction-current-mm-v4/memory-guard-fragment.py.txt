@@ -1,0 +1,58 @@
+class Observer:
+    def __init__(self):
+        self.p=HERE/'actual-phase-observations.jsonl';self.f=self.p.open('xb')
+        self.rows=0;self.bytes=0;self.h=hashlib.sha256();self.last=None;self.max_observed={}
+    def snapshot(self,phase,detail=None,enforce=True):
+        # ru_maxrss survives exec; retain it as evidence, never use it to
+        # reject this current address space or reset/normalize the counter.
+        ru=None;ru_error=None
+        try:
+            ru=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+            if type(ru) is not int or ru<0:
+                ru_error='invalid diagnostic ru_maxrss';ru=None
+        except Exception as exc:
+            ru_error=type(exc).__name__+': '+str(exc)
+        proc={};proc_errors=[]
+        try:
+            with open('/proc/self/status','r') as f:
+                for line in f:
+                    key,_,value=line.partition(':')
+                    if key in {'VmRSS','VmHWM','VmSize','VmPeak'}:
+                        parts=value.split()
+                        if len(parts)!=2 or parts[1]!='kB' or not parts[0].isascii() or not parts[0].isdigit():
+                            proc_errors.append('invalid Linux kB field '+key);continue
+                        if key+'_KiB' in proc:
+                            proc_errors.append('duplicate Linux status field '+key);continue
+                        proc[key+'_KiB']=int(parts[0])
+        except Exception as exc:
+            proc_errors.append(type(exc).__name__+': '+str(exc))
+        for key in ('VmRSS_KiB','VmHWM_KiB'):
+            if key not in proc:proc_errors.append('missing required '+key)
+        guarded=max(proc['VmRSS_KiB'],proc['VmHWM_KiB']) if not proc_errors else None
+        row=dict(ordinal=self.rows,utc=datetime.now(timezone.utc).isoformat(),phase=phase,
+                 ru_maxrss_KiB=ru,ru_maxrss_diagnostic_error=ru_error,proc_status=proc,
+                 proc_status_errors=proc_errors,RSS_cap_KiB=RSS_CAP_KIB,
+                 guarded_post_exec_current_mm_KiB=guarded,
+                 RSS_guard_method='max(/proc/self/status VmRSS, VmHWM)',
+                 ru_maxrss_is_historical_peak=True,ru_maxrss_diagnostic_only=True,
+                 proc_memory_accounting_is_approximate=True,
+                 IMG_bytes_read=STATE['IMG_bytes_read'],IMG_read_ops=STATE['IMG_read_ops'],
+                 MDR_stream_started=STATE['MDR_stream_started'],source_handle_open=STATE['source_handle_open'],
+                 fixed_counts=COUNTS,detail=detail)
+        raw=json.dumps(row,ensure_ascii=False,separators=(',',':'),sort_keys=True).encode()+b'\n'
+        need(self.bytes+len(raw)<=500000,'Phase observation ledger bounded500KB')
+        self.f.write(raw);self.f.flush();os.fsync(self.f.fileno())
+        self.h.update(raw);self.bytes+=len(raw);self.rows+=1;self.last=row;STATE['phase']=phase
+        for key,val in {'ru_maxrss_KiB':ru,**proc,'guarded_post_exec_current_mm_KiB':guarded}.items():
+            if type(val) is int:self.max_observed[key]=max(self.max_observed.get(key,0),val)
+        if enforce and (proc_errors or guarded>RSS_CAP_KIB):
+            STATE['own_RSS_guard_value_KiB']=guarded;STATE['own_RSS_guard_threshold_KiB']=RSS_CAP_KIB
+            STATE['own_RSS_guard_ru_maxrss_diagnostic_KiB']=ru;STATE['own_RSS_guard_proc_errors']=proc_errors
+            if proc_errors:
+                raise OwnBudgetError('Required current-mm VmRSS/VmHWM accounting unavailable: '+', '.join(proc_errors))
+            raise OwnBudgetError('Own Python post-exec VmRSS/VmHWM budget exceeded: '+str(guarded)+' KiB > '+str(RSS_CAP_KIB)+' KiB')
+        return guarded
+    def close(self):
+        self.f.flush();os.fsync(self.f.fileno());self.f.close()
+        return dict(path=str(self.p.relative_to(ROOT)),rows=self.rows,bytes=self.bytes,sha256=self.h.hexdigest(),
+                    actual_max_observed=self.max_observed,last_observation=self.last)

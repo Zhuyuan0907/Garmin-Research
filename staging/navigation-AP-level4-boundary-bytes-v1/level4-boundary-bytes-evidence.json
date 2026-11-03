@@ -1,0 +1,124 @@
+{
+  "created_utc": "2026-10-05T18:20:20.907899+00:00",
+  "source": {
+    "path": "staging/navigation-AP-level4-boundary-bytes-v1/read_level4_boundary_bytes.py",
+    "bytes": 4960,
+    "sha256": "f6a91add84a4538ee35b1ac7edb1220d3a25285fac2edbc4472fb315b7030460"
+  },
+  "scope": "Only first and last original level4 child records for selected stock Minquan street; no intervening records.",
+  "dependencies": [
+    {
+      "path": "staging/navigation-AP-provider-records-v1/read_AP_provider_records.py",
+      "bytes": 12830,
+      "sha256": "e1844c7ab21e7804e151b865dff5db271eca2a501f31c46d54b72f5b492e3e4e"
+    },
+    {
+      "path": "staging/navigation-native-AP-child-range-v1/original-child-range-and-level4-plans-proof-v1.json",
+      "bytes": 26110,
+      "sha256": "a3cbaf0bb87b16c39d59f2078b283bad7d0fbadec3ebb6ec1eabfe996620a4d9"
+    }
+  ],
+  "source_map": {
+    "path": "backups/20261002T154458Z/files/.System/gmapprom1.img",
+    "bytes": 96739328,
+    "verified_backup_sha256_reference": "864d128f8d4660570d443b2e14772c9c5356ebdf0bbb6a5891f3318b836053c2",
+    "whole_map_digest_repeated": false,
+    "stat_unchanged": true
+  },
+  "selected_child_range": {
+    "explicit_level": 4,
+    "first_ID": 904706,
+    "last_inclusive_ID": 904789,
+    "record_count": 84,
+    "entire_range_read": false
+  },
+  "cases": [
+    {
+      "name": "selected_street_child_first",
+      "explicit_level": 4,
+      "explicit_low28_ID": 904706,
+      "MDRrelative_byte_offset": 72315828,
+      "initial_bit_offset": 0,
+      "bytes": 16,
+      "hex": "6b01300b807752e60303972a119ed055",
+      "sha256": "cb4269c385ee4416fd9ef30a4a3947b549cf6dea42f560cb90addf05f6731442",
+      "FAT_mapping": [
+        {
+          "logical_offset": 72315828,
+          "logical_offset_hex": "0x44f73b4",
+          "logical_block_index": 17655,
+          "FAT_part": 73,
+          "FAT_slot_in_part": 135,
+          "allocated_disk_block": 17670,
+          "within_block": 948,
+          "physical_offset": 72377268,
+          "bytes": 16
+        }
+      ],
+      "record_field_semantics_decoded_or_named_here": false
+    },
+    {
+      "name": "selected_street_child_last",
+      "explicit_level": 4,
+      "explicit_low28_ID": 904789,
+      "MDRrelative_byte_offset": 72317156,
+      "initial_bit_offset": 0,
+      "bytes": 16,
+      "hex": "ffff2f34000000000000252b1106d055",
+      "sha256": "c05d9eb9fd67961ab925c6481820d7b7bdc1c648bb72dfeee36ff0fd3cca3d70",
+      "FAT_mapping": [
+        {
+          "logical_offset": 72317156,
+          "logical_offset_hex": "0x44f78e4",
+          "logical_block_index": 17655,
+          "FAT_part": 73,
+          "FAT_slot_in_part": 135,
+          "allocated_disk_block": 17670,
+          "within_block": 2276,
+          "physical_offset": 72378596,
+          "bytes": 16
+        }
+      ],
+      "record_field_semantics_decoded_or_named_here": false
+    }
+  ],
+  "actual_source_read_log": [
+    {
+      "purpose": "disk_header",
+      "physical_offset": 0,
+      "bytes": 512
+    },
+    {
+      "purpose": "directory_extent_header",
+      "physical_offset": 4096,
+      "bytes": 512
+    },
+    {
+      "purpose": "IMG_public_directory",
+      "physical_offset": 4096,
+      "bytes": 53248
+    },
+    {
+      "purpose": "selected_street_child_first",
+      "physical_offset": 72377268,
+      "bytes": 16
+    },
+    {
+      "purpose": "selected_street_child_last",
+      "physical_offset": 72378596,
+      "bytes": 16
+    }
+  ],
+  "body_bytes_read": 32,
+  "total_map_bytes_read_including_FAT": 54304,
+  "stock_record_field_semantics_confirmed_here": false,
+  "children_named_houses_here": false,
+  "original_native_reader_executed_here": false,
+  "stock_map_or_DB_modified": false,
+  "whole_AP_decoded": false,
+  "unlock_or_decryption_performed": false,
+  "device_IO": false,
+  "physical_query_or_routing_verified_by_this_probe": false,
+  "old_checks_or_reads_replayed": false,
+  "all_bounded_source_checks_passed": true
+}

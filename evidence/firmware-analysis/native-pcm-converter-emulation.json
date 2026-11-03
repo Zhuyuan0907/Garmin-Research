@@ -1,0 +1,287 @@
+{
+  "updated_utc": "2026-10-02T20:41:25.158013+00:00",
+  "build_manifest": "staging/native-pcm-converter/manifest.json",
+  "elf_sha256": "da422bfa47be9a79a60b30dddc62c0ab5c41ad73dac45e29ac8f0568acda8bff",
+  "configuration_cases": [
+    {
+      "source_rate": 16000,
+      "channels": 1,
+      "input_sample_frames": 1024,
+      "output_samples": 1024,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "6d84eeef41987d2e1797555a825b3f046aaa92a7c278255ec0e47f998dc8b7ec",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 16000,
+      "channels": 2,
+      "input_sample_frames": 1024,
+      "output_samples": 1024,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "31acf0c6a0acd1b0f1829dbd01de499745aa43249fa6637a5720e1caf21f0b64",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 32000,
+      "channels": 1,
+      "input_sample_frames": 1024,
+      "output_samples": 512,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "6241cdde3efe32090eab57889ff51b3f51c11ccf3b11f6f15e3a3fe0dfc1dda8",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 32000,
+      "channels": 2,
+      "input_sample_frames": 1024,
+      "output_samples": 512,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "1305075a76d70e83d105dc73a90c1aa5e7222bd39b7cbf953c52c7b0ef578866",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 44100,
+      "channels": 1,
+      "input_sample_frames": 1024,
+      "output_samples": 372,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "7410442e936e1da615db895e140172f75bd223f5539251c5ed19d1f816393539",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 44100,
+      "channels": 2,
+      "input_sample_frames": 1024,
+      "output_samples": 372,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "911fed29e0eb1f16811f1d04e7b87d3512a2ad1855f2313e752c2461b18d9fa2",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 48000,
+      "channels": 1,
+      "input_sample_frames": 1024,
+      "output_samples": 342,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "2bfe919bb7112bafb17ed4ba02a37c50ed19692c3853d7c6302f5565fb5ea0c3",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    },
+    {
+      "source_rate": 48000,
+      "channels": 2,
+      "input_sample_frames": 1024,
+      "output_samples": 342,
+      "mixed_chunk_calls": 28,
+      "uniform_chunk_calls": 8,
+      "pcm_sha256": "789810526885ba20b97843bb78c441aac8c96b6f905534385f5facc617e10f3b",
+      "absolute_position_convolution_byte_identical": true,
+      "chunk_boundary_invariant": true,
+      "passed": true
+    }
+  ],
+  "configuration_count": 8,
+  "signal_cases": [
+    {
+      "rate": 44100,
+      "input_hz": 1000,
+      "output_rms_gain_db": -0.0006482648130442453,
+      "output_rms_s16_units": 8484.648105303853,
+      "output_exactly_zero": false,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "within0.2dB",
+      "passed": true
+    },
+    {
+      "rate": 44100,
+      "input_hz": 6000,
+      "output_rms_gain_db": -0.052198340131585544,
+      "output_rms_s16_units": 8434.441516193669,
+      "output_exactly_zero": false,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "within0.2dB",
+      "passed": true
+    },
+    {
+      "rate": 44100,
+      "input_hz": 10000,
+      "output_rms_gain_db": -76.88318101781634,
+      "output_rms_s16_units": 1.2148067526320132,
+      "output_exactly_zero": false,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "below-55dB",
+      "passed": true
+    },
+    {
+      "rate": 44100,
+      "input_hz": 12000,
+      "output_rms_gain_db": -78.1436121147558,
+      "output_rms_s16_units": 1.05071671820977,
+      "output_exactly_zero": false,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "below-55dB",
+      "passed": true
+    },
+    {
+      "rate": 48000,
+      "input_hz": 1000,
+      "output_rms_gain_db": 0.0022340449685123217,
+      "output_rms_s16_units": 8487.464102663953,
+      "output_exactly_zero": false,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "within0.2dB",
+      "passed": true
+    },
+    {
+      "rate": 48000,
+      "input_hz": 6000,
+      "output_rms_gain_db": -0.10696958992101058,
+      "output_rms_s16_units": 8381.423177710989,
+      "output_exactly_zero": false,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "within0.2dB",
+      "passed": true
+    },
+    {
+      "rate": 48000,
+      "input_hz": 10000,
+      "output_rms_gain_db": null,
+      "output_rms_s16_units": 0.0,
+      "output_exactly_zero": true,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "below-55dB",
+      "passed": true
+    },
+    {
+      "rate": 48000,
+      "input_hz": 12000,
+      "output_rms_gain_db": null,
+      "output_rms_s16_units": 0.0,
+      "output_exactly_zero": true,
+      "measurement": "Actual emulated output, transient excluded",
+      "requirement": "below-55dB",
+      "passed": true
+    }
+  ],
+  "guard_cases": [
+    {
+      "name": "small_capacity",
+      "returned": -23,
+      "recovery_matches_clean_reset": true,
+      "passed": true
+    },
+    {
+      "name": "over_128_frames",
+      "returned": -21,
+      "recovery_matches_clean_reset": true,
+      "passed": true
+    },
+    {
+      "name": "null_input",
+      "returned": -21,
+      "recovery_matches_clean_reset": true,
+      "passed": true
+    },
+    {
+      "name": "null_output",
+      "returned": -21,
+      "recovery_matches_clean_reset": true,
+      "passed": true
+    },
+    {
+      "name": "null_written",
+      "returned": -21,
+      "recovery_matches_clean_reset": true,
+      "passed": true
+    },
+    {
+      "name": "bad_format_22050_2",
+      "returned": -20,
+      "passed": true
+    },
+    {
+      "name": "bad_format_44100_0",
+      "returned": -20,
+      "passed": true
+    },
+    {
+      "name": "bad_format_48000_3",
+      "returned": -20,
+      "passed": true
+    },
+    {
+      "name": "empty_chunk",
+      "returned": 0,
+      "passed": true
+    }
+  ],
+  "guard_page_fault_controls": [
+    {
+      "kind": "read",
+      "first_access_mapped": true,
+      "second_access_unmapped_fault": 6,
+      "fault_pc": "0x10004",
+      "passed": true
+    },
+    {
+      "kind": "write",
+      "first_access_mapped": true,
+      "second_access_unmapped_fault": 7,
+      "fault_pc": "0x10004",
+      "passed": true
+    }
+  ],
+  "one_second_44100_input_frames": 44100,
+  "one_second_output_samples": 16000,
+  "antiphase_stereo_silent": true,
+  "dc_gain_exact_after_transient": true,
+  "16000_mono_bypass_extrema_preserved": true,
+  "all_passed": true,
+  "fir_saturation_cases": [
+    {
+      "target_extreme": 32767,
+      "last_output_sample": 32767,
+      "signed_coefficient_extrema_input": true,
+      "passed": true
+    },
+    {
+      "target_extreme": -32768,
+      "last_output_sample": -32768,
+      "signed_coefficient_extrema_input": true,
+      "passed": true
+    }
+  ],
+  "unmapped_end_pages_and_leading_canaries": true,
+  "memory_hooks_used_for_bounds_claims": false,
+  "instructions_executed_total": 46268557,
+  "device_io": false,
+  "audible_output": false,
+  "native_avdtp_sbc_pcm_integration_verified": false,
+  "native_on_device_verified": false,
+  "real_time_performance_measured": false,
+  "source_urls": [
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample_poly.html",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.kaiser.html"
+  ],
+  "limitations": "Standalone ARMv6 converter with synthetic in-memory PCM only. Absolute-position convolution uses the generated Q15 table, not a second C streaming implementation. Chunk invariance, count/DC/extrema/downmix and actual-output spectral tests support local arithmetic and filtering only. No SBC/AVDTP/native module/stock PCM integration, real scheduling, hardware sample clock, navigation concurrency or audible device output verified. Causal filter uses initial zeros and does not flush its tail. Observed tone rejection is not an exhaustive frequency/noise characterization."
+}

@@ -1,0 +1,6 @@
+{
+  "error": "UcError()",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/garmin/staging/navigation-native-ap-sector-reader-matrix-v1/run_matrix.py\", line 141, in <module>\n    try:main()\n        ~~~~^^\n  File \"/root/garmin/staging/navigation-native-ap-sector-reader-matrix-v1/run_matrix.py\", line 128, in main\n    expected=im.logical(off,n);status,raw,pos=vm.read(off,n);need(status==0 and raw==expected and pos==off+n,'actual native GMP bytes/cursor '+name+' '+label)\n                                              ~~~~~~~^^^^^^^\n  File \"/root/garmin/staging/navigation-native-ap-sector-reader-matrix-v1/run_matrix.py\", line 114, in read\n    try:self.uc.emu_start(0x3324b9,RETURN,timeout=30_000_000,count=500000)\n        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/unicorn/unicorn_py3/unicorn.py\", line 543, in emu_start\n    raise UcError(status)\nunicorn.unicorn_py3.unicorn.UcError: Invalid memory fetch (UC_ERR_FETCH_UNMAPPED)\n",
+  "source_sha256": "fd3a131aeab204e1ed1b3fe119690db0dc2fee16cd6e17259a7031f790a17372",
+  "no_success_claim": true
+}

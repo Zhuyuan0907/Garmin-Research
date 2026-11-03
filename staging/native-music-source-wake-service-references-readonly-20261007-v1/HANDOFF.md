@@ -1,0 +1,13 @@
+# Bounded Source wake/service references
+
+Four fresh C files (37,685 B) were read: mixer_source_task_v4.c, mixer_source_task_sync_v2.c, initializer_sync_bridge_v1.c and music_session_guard_sync_v1.c. All ordinary source read handles closed. Prior pause/driver/controller/v4-guard captures were reused historically, with no new body/stat reads. No binaries, source-snapshots, firmware/RAM, ASM instruction reads, imports, compile/tests, native/guest execution, devices/BT/DBus or audio.
+
+The actual references found are Source descriptor word0→mh_source_entry, original task builder/registry/POST C calls; initialize_source/stage1→aas_initialize (prior driver provides initial controller init→READY→start→service); and a separate pre-sync CONFIG hook provider plus post-initializer ms_validate_completed_sync→ms_original_sync_completed. The sync guard checks that flag before admitting complete mixer pulls. It does not notify controller READY, source_started or cleanup_returned.
+
+The v4/sync Source loops discard WAIT bits and only dispatch mailbox commands; v4/sync PCM comes from make_pcm. Prior pause variant consumes copied media events, with command-before-data, but does not call controller service. Command5 delegates localStop/mixer messages, not full stop completion. Controller token APIs have definitions in prior capture, but no direct references/callback registrations in the bounded fresh family. This is not a global source/ASM/callback-table absence claim.
+
+ms_before_original_sync has no selected C caller; its comment refers to an assembly tail-call bridge. That hook/selector/pull production registration was not read or run. Different Source variants define the same mh_* names and must not be treated as one linked artifact. mh_initialized is set after initializer return even on failure; initialization result remains a required guard. Sync completion is a PLAY gate, not App/native readiness.
+
+Next file-only evidence: exact Source wake/iteration→umc_service glue; publication callback giving native record token/generation/cookie; whole original cleanup-return callback giving the same identity and complete native retirement observations. Root/peer own separate cancel/provider/output/package reviews. No native live test requested.
+
+Actual reads 8b67d4 and36f57a EXIT0; filename/stat preflights cdf62d/92e36c/791cea EXIT0, separate from body counters. Output hashes bind emitted bytes plus actual size/stat; no independent full output readback claimed. Sealer terminal receipt will be saved after its actual return. Native ownership/STOP_DONE/App/directphone/speaker/install false. Finite scope complete; STOP.

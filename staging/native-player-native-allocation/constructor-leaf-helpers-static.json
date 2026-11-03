@@ -1,0 +1,88 @@
+{
+  "all_passed": true,
+  "file_and_source_only": true,
+  "source_sha256": {
+    "staging/native-player-native-allocation/analyze_constructor_leaf_helpers_static.py": "dd60268c47094c9383ae56c4ac6242ebd68fdc1fd28c74a01a3c5ded4396bb07",
+    "scripts/analyze_native_sections.py": "6eb6cd5e57b6d4f96790f6fafb6b92b5f5621ec9491e4ac1e810571a6e7c935f",
+    "evidence/firmware-analysis/main_02bd.bin": "10ab7e1f864f3e9b39806b7d3b7c7eb11ba597fdd8cfc0796e281f509c5a54a8",
+    "staging/native-player-native-allocation/constructor-continuation-static.json": "8bb7c9eb57635265aac8ecd349e0c8985452fa9cce9d3e50ebb6c18538560d60"
+  },
+  "leaf_bodies": [
+    {
+      "entry": "0x3619bc",
+      "Thumb": true,
+      "instructions": [
+        {
+          "PC": "0x3619bc",
+          "opcode_hex": "81b0",
+          "instruction": "sub sp, #4"
+        },
+        {
+          "PC": "0x3619be",
+          "opcode_hex": "0090",
+          "instruction": "str r0, [sp]"
+        },
+        {
+          "PC": "0x3619c0",
+          "opcode_hex": "01b0",
+          "instruction": "add sp, #4"
+        },
+        {
+          "PC": "0x3619c2",
+          "opcode_hex": "7047",
+          "instruction": "bx lr"
+        }
+      ]
+    },
+    {
+      "entry": "0x39132a",
+      "Thumb": true,
+      "instructions": [
+        {
+          "PC": "0x39132a",
+          "opcode_hex": "0020",
+          "instruction": "movs r0, #0"
+        },
+        {
+          "PC": "0x39132c",
+          "opcode_hex": "7047",
+          "instruction": "bx lr"
+        }
+      ]
+    },
+    {
+      "entry": "0x3819d4",
+      "Thumb": true,
+      "instructions": [
+        {
+          "PC": "0x3819d4",
+          "opcode_hex": "0800",
+          "instruction": "movs r0, r1"
+        },
+        {
+          "PC": "0x3819d6",
+          "opcode_hex": "7047",
+          "instruction": "bx lr"
+        }
+      ]
+    }
+  ],
+  "exact_leaf_instruction_count": 8,
+  "native_caller_targets": {
+    "0x39556c": "0x3619bc",
+    "0x395570": "0x39132a",
+    "0x395580": "0x3819d4"
+  },
+  "39132A_unconditionally_returns_zero_in_original_code": true,
+  "3819D4_returns_actual_caller_r1_stack_pointer": true,
+  "3619BC_writes_only_actual_temporary_stack_word": true,
+  "later_holder_literal_address": "0x395934",
+  "later_holder_literal_word": "0xf720a4",
+  "runtime_execution_or_native_return_verified": false,
+  "guest_executed": false,
+  "VM_import_or_instantiation": false,
+  "device_io": false,
+  "next_362A2C_still_requires_native60_and16_allocations_and_holder_lifetime": true,
+  "timer_semantics_at395552_not_established": true,
+  "physical_App_audio_or_full_foreground_verified": false
+}

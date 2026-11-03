@@ -1,0 +1,9 @@
+{
+  "actual_terminal_result": {
+    "chunk_id": "70418e",
+    "wall_time_seconds": 0.682637949,
+    "exit_code": 1,
+    "original_token_count": 332,
+    "output": "{\"stage\": \"running_native_controller_two_streams\", \"worker_TCB\": \"0x183110a0\", \"host_command_injections\": 0}\nTraceback (most recent call last):\n  File \"/root/garmin/scripts/probe_os20_resident_music_v1.py\", line 214, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/root/garmin/scripts/probe_os20_resident_music_v1.py\", line 187, in main\n    final=machine.run();path=OUT/'resident-native-proof.json.gz';compressed(path,final)\n  File \"/root/garmin/scripts/probe_os20_resident_music_v1.py\", line 112, in run\n    self.u.emu_start(0x358ec4,0,count=500000,timeout=60_000_000)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3/dist-packages/unicorn/unicorn_py3/unicorn.py\", line 546, in emu_start\n    raise self._hook_exception\n  File \"/usr/lib/python3/dist-packages/unicorn/unicorn_py3/unicorn.py\", line 216, in wrapper\n    return func(uc, *args, **kwargs)\n  File \"/usr/lib/python3/dist-packages/unicorn/unicorn_py3/unicorn.py\", line 820, in __hook_code_cb\n    callback(uc, address, size, user_data)\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/garmin/scripts/probe_os20_resident_music_v1.py\", line 58, in code\n    raise AssertionError(('Native controller failure',self.word(JOB+24*4)))\nAssertionError: ('Native controller failure', 6)\n"
+  }
+}

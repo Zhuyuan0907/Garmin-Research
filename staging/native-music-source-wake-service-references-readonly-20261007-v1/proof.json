@@ -1,0 +1,87 @@
+{
+  "schema": "source-wake-service-call-reference-file-proof-v1",
+  "scope": "native-music-source-wake-service-references-readonly-20261007-v1",
+  "all_assigned_checks_passed": true,
+  "STOP": true,
+  "review_only": true,
+  "no_execution_of_reviewed_sources": true,
+  "conclusion": "Source task descriptor/entry and initializer CONFIG/PLAY gate have concrete C references; initial controller init/READY/start/service is delegated to prior aas_initialize. No later service or started/cleanup token call/registration is established in this bounded family; sync/initialized flags are separate from controller READY/publication/cleanup APIs.",
+  "fresh_sources": 4,
+  "fresh_source_bytes": 37685,
+  "source_byte_cap": 122880,
+  "per_file_byte_cap": 65536,
+  "file_cap": 10,
+  "fresh_read_receipts": [
+    {
+      "chunk_id": "8b67d4",
+      "exit_code": 0,
+      "terminal": true,
+      "source_bytes": 19861
+    },
+    {
+      "chunk_id": "36f57a",
+      "exit_code": 0,
+      "terminal": true,
+      "source_bytes": 17824
+    }
+  ],
+  "fresh_source_sha256": {
+    "staging/native-player-mixer-handoff/mixer_source_task_v4.c": "2d5ff34ebb168f3135a46835471821e78cbaeaebd8f212c1fca2f14d6b28e876",
+    "staging/native-player-mixer-sync/mixer_source_task_sync_v2.c": "3a5bfcd23fd9b1f3944f96d32957082f8a904eeb071373c77b53cc06be802ce7",
+    "staging/native-player-mixer-sync/initializer_sync_bridge_v1.c": "bd78bf9ece77339aac996d98dc5f8e9ff28c748273d405e2b7914f895b81cb5a",
+    "staging/native-player-mixer-sync/music_session_guard_sync_v1.c": "1f814efcbf92817142e42841952898748fc9d4335a3fcbaec28770912c28e984"
+  },
+  "checks": {
+    "descriptor_entry_registrations": 3,
+    "pre_sync_CONFIG_C_provider": true,
+    "post_sync_initializer_validation_C_provider": true,
+    "pull_sync_complete_gate": true,
+    "initial_controller_calls_delegated_to_prior_driver": true,
+    "direct_fresh_target_controller_reference_count": 0,
+    "prior_capture_reuse_explicit": true,
+    "bounded_negative_only": true,
+    "no_global_callgraph_or_binary_claim": true,
+    "source_budget": true,
+    "handles_closed": true
+  },
+  "precise_limit": "Exact-name text review and direct C call/descriptor references; no claim about unreviewed ASM, macro-generated/image callback tables or all project sources.",
+  "prior_scope": {
+    "path": "staging/native-music-loaded-controller-lifecycle-readonly-20261007-v1/proof.json",
+    "sha256": "451d9217e8d6faa832fb6cff574ba165db52e853f9297da3008c5d2a3cbc7271",
+    "reopened": false,
+    "reused_source_count": 5,
+    "source_content_reads_this_scope": 0
+  },
+  "missing_evidence": [
+    "Source-owner iteration/event callback actually invoking controller service after startup.",
+    "Publication bridge delivering native Source record token with current controller generation/cookie.",
+    "Whole original cleanup return bridge delivering the same token, with full native retirement/cancel observations.",
+    "Production bindings for pre-sync/selector/pull bridges and module/context residency; separate native ownership proof."
+  ],
+  "target_flags": {
+    "native_owner": false,
+    "STOP_DONE": false,
+    "native_App": false,
+    "direct_phone_A2DP": false,
+    "speaker": false,
+    "installable": false
+  },
+  "activity_counters": {
+    "native_or_producer_imports": 0,
+    "compile_or_tests": 0,
+    "native_guest_emulator": 0,
+    "ASM_instruction_reads": 0,
+    "MAIN_binary_RAM": 0,
+    "device_or_DBUS_or_BT_query": 0,
+    "audio": 0,
+    "shared_or_original_source_edits": 0,
+    "interrupted_guest_retry": 0
+  },
+  "limitations": [
+    "The v4/sync Source prototypes generate deterministic PCM; the later pause family drains copied packets. They are alternative artifacts, not simultaneously linked proof.",
+    "Current-source hashes and C ordering do not prove original full-return/runtime scheduling or actual device readiness.",
+    "Prior captures are historical with no new body read/stat validation; not mislabeled fresh.",
+    "Index/stat metadata is separate and not a complete underlying filesystem-I/O total.",
+    "Final source validation checks stat only. Artifact hashes bind emitted bytes plus actual size/stat, not independent full output readback."
+  ]
+}

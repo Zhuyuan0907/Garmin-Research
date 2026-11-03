@@ -1,0 +1,3182 @@
+{
+  "schema": "country-existing-lane-path-matching/v1",
+  "started_utc": "2026-10-06T19:03:22.138278+00:00",
+  "finished_utc": "2026-10-06T19:06:49.923106+00:00",
+  "all_assigned_checks_passed": true,
+  "script_sha256": "ec910fb881cff3ff37f19cf99da352b67d38264dabe604dcaeeb66005ee0c49f",
+  "inputs": [
+    {
+      "path": "staging/navigation-native-lane-path-resolution-v1/resolve_lane_paths.py",
+      "bytes": 23851,
+      "sha256": "11e2632d21111f2c84fab984303fa2518e14fbb2166b5b7736eb08b62ff92cdc",
+      "stat_before": [
+        45826,
+        537593,
+        23851,
+        1791312244900107844,
+        1791312244900107844
+      ],
+      "stat_after": [
+        45826,
+        537593,
+        23851,
+        1791312244900107844,
+        1791312244900107844
+      ],
+      "stat_unchanged": true,
+      "content_passes": 1
+    },
+    {
+      "path": "staging/navigation-native-deeper-address-plan-v1/inspect_deeper_address_paths.py",
+      "bytes": 15932,
+      "sha256": "1348bcb2f0191bd1fa5b32ca446ee15b084e76dd7ed3ea33c31b5351b2d021ec",
+      "stat_before": [
+        45826,
+        537452,
+        15932,
+        1791310084576672522,
+        1791310084576672522
+      ],
+      "stat_after": [
+        45826,
+        537452,
+        15932,
+        1791310084576672522,
+        1791310084576672522
+      ],
+      "stat_unchanged": true,
+      "content_passes": 1
+    },
+    {
+      "path": "staging/navigation-native-lane-path-resolution-v1/proof.json",
+      "bytes": 3321486,
+      "sha256": "d020ae04a8d466dade1e5f03927e20930b476c1637e199bc8dc003ad8b2acdf0",
+      "stat_before": [
+        45826,
+        537605,
+        3321486,
+        1791312245564109003,
+        1791312245564109003
+      ],
+      "stat_after": [
+        45826,
+        537605,
+        3321486,
+        1791312245564109003,
+        1791312245564109003
+      ],
+      "stat_unchanged": true,
+      "content_passes": 1
+    },
+    {
+      "path": "staging/navigation-country-address-ready-join-v1/proof.json",
+      "bytes": 357380,
+      "sha256": "b61cd949152fece0548265ccf438c14d3bbeeddfc5e3ae05140df20d3aa0a175",
+      "stat_before": [
+        45826,
+        537509,
+        357380,
+        1791311086559367675,
+        1791311086559367675
+      ],
+      "stat_after": [
+        45826,
+        537509,
+        357380,
+        1791311086559367675,
+        1791311086559367675
+      ],
+      "stat_unchanged": true,
+      "content_passes": 1
+    },
+    {
+      "path": "staging/navigation-taiwan-address-ingestion-v1/native-hierarchy.jsonl.gz",
+      "bytes": 1210093,
+      "sha256": "45333390cec4996db40b4a4a987eb421641fec352203bb318aedfd6a6fce2776",
+      "stat_before": [
+        45826,
+        537256,
+        1210093,
+        1791306524903793153,
+        1791306524903793153
+      ],
+      "stat_after": [
+        45826,
+        537256,
+        1210093,
+        1791306524903793153,
+        1791306524903793153
+      ],
+      "stat_unchanged": true,
+      "content_passes": 1
+    }
+  ],
+  "one_pass_unresolved_input": {
+    "path": "staging/navigation-country-address-ready-join-v1/unresolved-native-name-group-keys.jsonl.gz",
+    "rows": 2278269,
+    "bytes": 45568995,
+    "sha256": "75ab32345e3cf8b1e1892ae029a5271a4be46908e2e647e1396244304a0252ba",
+    "uncompressed_sha256": "51ff38640fe3d1fb53b35114c43ed35a1c7998dc0490964f488b3dce89f61651",
+    "uncompressed_bytes": 1191069561,
+    "gzip_validated_EOF": true,
+    "full_content_passes": 1,
+    "stat_before": [
+      45826,
+      537510,
+      45568995,
+      1791311085499107497,
+      1791311085499107497
+    ],
+    "stat_after": [
+      45826,
+      537510,
+      45568995,
+      1791311085499107497,
+      1791311085499107497
+    ],
+    "stat_unchanged": true
+  },
+  "source_classification_counts": {
+    "missing_native_street": 1996063,
+    "missing_native_street_in_direct_city_district_unverified": 277514,
+    "missing_native_district": 4688,
+    "missing_native_city": 4
+  },
+  "held_reason_group_counts": {
+    "source_classification_missing_native_street_in_direct_city_district_unverified": 277514,
+    "no_exact_native_street_prefix": 80943,
+    "exact_path_token_not_found": 75025,
+    "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens": 29392,
+    "resolved_parent_has_no_observed_numeric_house_leaves": 4634,
+    "source_classification_missing_native_district": 4688,
+    "source_classification_missing_native_city": 4
+  },
+  "held_examples": {
+    "source_classification_missing_native_street_in_direct_city_district_unverified": [
+      {
+        "source_key": {
+          "group_id": 23,
+          "raw_address": [
+            "台北市",
+            "北投區",
+            "大度路三段296巷",
+            "51"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "北投區",
+            "大度路三段296巷",
+            "51號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 4,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "51號",
+          "primary_ref": 64,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 61,
+          "raw_address": [
+            "臺北市",
+            "信義區",
+            "信義路五段150巷",
+            "221"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "信義區",
+            "信義路五段150巷",
+            "221號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 5,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "221號",
+          "primary_ref": 841,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 108,
+          "raw_address": [
+            "臺北市",
+            "大安區",
+            "辛亥路二段171巷",
+            "8"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "大安區",
+            "辛亥路二段171巷",
+            "8號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "8號",
+          "primary_ref": 25,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 112,
+          "raw_address": [
+            "臺北市",
+            "信義區",
+            "吳興街600巷",
+            "81"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "信義區",
+            "吳興街600巷",
+            "81號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 25,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "81號",
+          "primary_ref": 92,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 129,
+          "raw_address": [
+            "台北市",
+            "中正區",
+            "晉江街48巷4弄",
+            "6"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "中正區",
+            "晉江街48巷4弄",
+            "6號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 6,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "6號",
+          "primary_ref": 23,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 147,
+          "raw_address": [
+            "臺北市",
+            "中正區",
+            "羅斯福路三段316巷8弄",
+            "1"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "中正區",
+            "羅斯福路三段316巷8弄",
+            "1號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 4,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "1號",
+          "primary_ref": 18,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 155,
+          "raw_address": [
+            "臺北市",
+            "大安區",
+            "新生南路三段56巷",
+            "7"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "大安區",
+            "新生南路三段56巷",
+            "7號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 4,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "7號",
+          "primary_ref": 24,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 156,
+          "raw_address": [
+            "臺北市",
+            "大安區",
+            "羅斯福路三段283巷",
+            "28"
+          ],
+          "normalized_planning_key": [
+            "台北市",
+            "大安區",
+            "羅斯福路三段283巷",
+            "28號"
+          ],
+          "native_match": "missing_native_street_in_direct_city_district_unverified",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "28號",
+          "primary_ref": 41,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_street_in_direct_city_district_unverified",
+        "exact_path_records": [],
+        "decode_guard": null
+      }
+    ],
+    "no_exact_native_street_prefix": [
+      {
+        "source_key": {
+          "group_id": 34,
+          "raw_address": [
+            "台中市",
+            "大甲區",
+            "新正路",
+            "6"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "大甲區",
+            "新正路",
+            "6號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "6號",
+          "primary_ref": 23,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 41,
+          "raw_address": [
+            "高雄市",
+            "大樹區",
+            "九堂路鐵路巷",
+            "15"
+          ],
+          "normalized_planning_key": [
+            "高雄市",
+            "大樹區",
+            "九堂路鐵路巷",
+            "15號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "15號",
+          "primary_ref": 30,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 196,
+          "raw_address": [
+            "臺東縣",
+            "綠島鄉",
+            "溫泉路",
+            "167"
+          ],
+          "normalized_planning_key": [
+            "台東縣",
+            "綠島鄉",
+            "溫泉路",
+            "167號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "167號",
+          "primary_ref": 166,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 212,
+          "raw_address": [
+            "高雄市",
+            "左營區",
+            "博愛2路",
+            "450"
+          ],
+          "normalized_planning_key": [
+            "高雄市",
+            "左營區",
+            "博愛2路",
+            "450號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "450號",
+          "primary_ref": 5451,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 266,
+          "raw_address": [
+            "屏東縣",
+            "獅子鄉",
+            "內獅巷",
+            "88"
+          ],
+          "normalized_planning_key": [
+            "屏東縣",
+            "獅子鄉",
+            "內獅巷",
+            "88號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "88號",
+          "primary_ref": 99,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 288,
+          "raw_address": [
+            "桃園市",
+            "中壢區",
+            "中原里中華路一段",
+            "256"
+          ],
+          "normalized_planning_key": [
+            "桃園市",
+            "中壢區",
+            "中原里中華路一段",
+            "256號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "256號",
+          "primary_ref": 883,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 758,
+          "raw_address": [
+            "臺中市",
+            "北屯區",
+            "北屯區和祥街185巷",
+            "12"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "北屯區",
+            "北屯區和祥街185巷",
+            "12號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "12號",
+          "primary_ref": 28,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1020,
+          "raw_address": [
+            "臺南市",
+            "仁德區",
+            "中洲五街",
+            "236"
+          ],
+          "normalized_planning_key": [
+            "台南市",
+            "仁德區",
+            "中洲五街",
+            "236號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "236號",
+          "primary_ref": 856,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "no_exact_native_street_prefix",
+        "exact_path_records": [],
+        "decode_guard": null
+      }
+    ],
+    "exact_path_token_not_found": [
+      {
+        "source_key": {
+          "group_id": 101,
+          "raw_address": [
+            "新北市",
+            "新莊區",
+            "後港一路56巷14弄",
+            "1"
+          ],
+          "normalized_planning_key": [
+            "新北市",
+            "新莊區",
+            "後港一路56巷14弄",
+            "1號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "1號",
+          "primary_ref": 18,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 1620,
+            "native_record": 805307988,
+            "primary_ref": 157669,
+            "primary_label": "後港一路",
+            "first_child": 205070,
+            "child_count": 195,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 205121,
+            "native_record": 1073946945,
+            "primary_ref": 3186,
+            "primary_label": "56巷",
+            "first_child": 273252,
+            "child_count": 21,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 3236,
+          "raw_address": [
+            "高雄市",
+            "甲仙區",
+            "中興路44巷",
+            "10"
+          ],
+          "normalized_planning_key": [
+            "高雄市",
+            "甲仙區",
+            "中興路44巷",
+            "10號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "10號",
+          "primary_ref": 26,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 39148,
+            "native_record": 805345516,
+            "primary_ref": 14736,
+            "primary_label": "中興路",
+            "first_child": 1869004,
+            "child_count": 30,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 3431,
+          "raw_address": [
+            "高雄市",
+            "苓雅區",
+            "中正一路42巷10弄",
+            "5"
+          ],
+          "normalized_planning_key": [
+            "高雄市",
+            "苓雅區",
+            "中正一路42巷10弄",
+            "5號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "5號",
+          "primary_ref": 22,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 36018,
+            "native_record": 805342386,
+            "primary_ref": 149851,
+            "primary_label": "中正一路",
+            "first_child": 1733296,
+            "child_count": 209,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 4530,
+          "raw_address": [
+            "新北市",
+            "板橋區",
+            "僑中二街38巷156弄",
+            "36"
+          ],
+          "normalized_planning_key": [
+            "新北市",
+            "板橋區",
+            "僑中二街38巷156弄",
+            "36號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "36號",
+          "primary_ref": 51,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 1327,
+            "native_record": 805307695,
+            "primary_ref": 125397,
+            "primary_label": "僑中二街",
+            "first_child": 162037,
+            "child_count": 56,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 4704,
+          "raw_address": [
+            "臺南市",
+            "中西區",
+            "青年路226巷16弄",
+            "6"
+          ],
+          "normalized_planning_key": [
+            "台南市",
+            "中西區",
+            "青年路226巷16弄",
+            "6號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "6號",
+          "primary_ref": 23,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 30292,
+            "native_record": 805336660,
+            "primary_ref": 81303,
+            "primary_label": "青年路",
+            "first_child": 1446434,
+            "child_count": 205,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 1446637,
+            "native_record": 1075188461,
+            "primary_ref": 3335,
+            "primary_label": "226巷",
+            "first_child": 1590273,
+            "child_count": 56,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 6222,
+          "raw_address": [
+            "花蓮縣",
+            "花蓮市",
+            "北濱街136巷",
+            "34"
+          ],
+          "normalized_planning_key": [
+            "花蓮縣",
+            "花蓮市",
+            "北濱街136巷",
+            "34號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "34號",
+          "primary_ref": 49,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 44706,
+            "native_record": 805351074,
+            "primary_ref": 243108,
+            "primary_label": "北濱街",
+            "first_child": 2046032,
+            "child_count": 174,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 7439,
+          "raw_address": [
+            "台南市",
+            "中西區",
+            "大勇街6巷",
+            "16"
+          ],
+          "normalized_planning_key": [
+            "台南市",
+            "中西區",
+            "大勇街6巷",
+            "16號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "16號",
+          "primary_ref": 31,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 30216,
+            "native_record": 805336584,
+            "primary_ref": 6071,
+            "primary_label": "大勇街",
+            "first_child": 1438189,
+            "child_count": 127,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 9531,
+          "raw_address": [
+            "台中市",
+            "大里區",
+            "國中路十股巷166弄",
+            "1"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "大里區",
+            "國中路十股巷166弄",
+            "1號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "1號",
+          "primary_ref": 18,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "exact_path_token_not_found",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 13620,
+            "native_record": 805319988,
+            "primary_ref": 49114,
+            "primary_label": "國中路十股巷",
+            "first_child": 837573,
+            "child_count": 60,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      }
+    ],
+    "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens": [
+      {
+        "source_key": {
+          "group_id": 354,
+          "raw_address": [
+            "新北市",
+            "板橋區",
+            "僑中二街段",
+            "156"
+          ],
+          "normalized_planning_key": [
+            "新北市",
+            "板橋區",
+            "僑中二街段",
+            "156號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "156號",
+          "primary_ref": 792,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 373,
+          "raw_address": [
+            "南投縣",
+            "埔里鎮",
+            "信義路(台14線)",
+            "316"
+          ],
+          "normalized_planning_key": [
+            "南投縣",
+            "埔里鎮",
+            "信義路(台14線)",
+            "316號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "316號",
+          "primary_ref": 956,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1887,
+          "raw_address": [
+            "臺中市",
+            "后里區",
+            "三豐路四段",
+            "269"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "后里區",
+            "三豐路四段",
+            "269號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "269號",
+          "primary_ref": 903,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1888,
+          "raw_address": [
+            "臺中市",
+            "后里區",
+            "三豐路三段",
+            "640"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "后里區",
+            "三豐路三段",
+            "640號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "640號",
+          "primary_ref": 7717,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 2812,
+          "raw_address": [
+            "屏東縣",
+            "春日鄉",
+            "古華路二巷",
+            "18"
+          ],
+          "normalized_planning_key": [
+            "屏東縣",
+            "春日鄉",
+            "古華路二巷",
+            "18號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "18號",
+          "primary_ref": 226,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 2938,
+          "raw_address": [
+            "桃園市",
+            "平鎮區",
+            "東勢里金陵路五段",
+            "108"
+          ],
+          "normalized_planning_key": [
+            "桃園市",
+            "平鎮區",
+            "東勢里金陵路五段",
+            "108號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "108號",
+          "primary_ref": 119,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 5788,
+          "raw_address": [
+            "臺中市",
+            "后里區",
+            "三豐路四段",
+            "46"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "后里區",
+            "三豐路四段",
+            "46號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "46號",
+          "primary_ref": 61,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 5789,
+          "raw_address": [
+            "臺中市",
+            "后里區",
+            "三豐路四段",
+            "8"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "后里區",
+            "三豐路四段",
+            "8號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 2,
+          "coordinate_status": "source_coordinate_conflict",
+          "house_label": "8號",
+          "primary_ref": 25,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "longest_exact_prefix_suffix_not_supported_numeric_lane_alley_tokens",
+        "exact_path_records": [],
+        "decode_guard": null
+      }
+    ],
+    "resolved_parent_has_no_observed_numeric_house_leaves": [
+      {
+        "source_key": {
+          "group_id": 597,
+          "raw_address": [
+            "臺南市",
+            "北區",
+            "北成路402巷",
+            "24"
+          ],
+          "normalized_planning_key": [
+            "台南市",
+            "北區",
+            "北成路402巷",
+            "24號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "24號",
+          "primary_ref": 37,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 30432,
+            "native_record": 805336800,
+            "primary_ref": 182448,
+            "primary_label": "北成路",
+            "first_child": 1457580,
+            "child_count": 270,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 1457763,
+            "native_record": 1075199587,
+            "primary_ref": 16561,
+            "primary_label": "402巷",
+            "first_child": 1599631,
+            "child_count": 4,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1183,
+          "raw_address": [
+            "花蓮縣",
+            "壽豐鄉",
+            "中山路101巷",
+            "2號"
+          ],
+          "normalized_planning_key": [
+            "花蓮縣",
+            "壽豐鄉",
+            "中山路101巷",
+            "2號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "2號",
+          "primary_ref": 19,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 45832,
+            "native_record": 805352200,
+            "primary_ref": 200,
+            "primary_label": "中山路",
+            "first_child": 2090987,
+            "child_count": 16,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 2090991,
+            "native_record": 1075832815,
+            "primary_ref": 6095,
+            "primary_label": "101巷",
+            "first_child": 2294726,
+            "child_count": 1,
+            "child_level_and_flags": 13,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1184,
+          "raw_address": [
+            "花蓮縣",
+            "壽豐鄉",
+            "中山路101巷",
+            "35號"
+          ],
+          "normalized_planning_key": [
+            "花蓮縣",
+            "壽豐鄉",
+            "中山路101巷",
+            "35號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "35號",
+          "primary_ref": 50,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 45832,
+            "native_record": 805352200,
+            "primary_ref": 200,
+            "primary_label": "中山路",
+            "first_child": 2090987,
+            "child_count": 16,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 2090991,
+            "native_record": 1075832815,
+            "primary_ref": 6095,
+            "primary_label": "101巷",
+            "first_child": 2294726,
+            "child_count": 1,
+            "child_level_and_flags": 13,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 25783,
+          "raw_address": [
+            "台中市",
+            "太平區",
+            "育英街67巷",
+            "1"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "太平區",
+            "育英街67巷",
+            "1號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "1號",
+          "primary_ref": 18,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 14424,
+            "native_record": 805320792,
+            "primary_ref": 46340,
+            "primary_label": "育英街",
+            "first_child": 754961,
+            "child_count": 30,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 754986,
+            "native_record": 1074496810,
+            "primary_ref": 6608,
+            "primary_label": "67巷",
+            "first_child": 882018,
+            "child_count": 2,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 27475,
+          "raw_address": [
+            "彰化縣",
+            "田中鎮",
+            "興酪路二段2巷",
+            "6"
+          ],
+          "normalized_planning_key": [
+            "彰化縣",
+            "田中鎮",
+            "興酪路二段2巷",
+            "6號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "6號",
+          "primary_ref": 23,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 20225,
+            "native_record": 805326593,
+            "primary_ref": 467377,
+            "primary_label": "興酪路二段",
+            "first_child": 1079327,
+            "child_count": 56,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 1079328,
+            "native_record": 1074821152,
+            "primary_ref": 6187,
+            "primary_label": "2巷",
+            "first_child": 1223819,
+            "child_count": 1,
+            "child_level_and_flags": 13,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 40437,
+          "raw_address": [
+            "臺中市",
+            "中區",
+            "市府路84巷",
+            "3號"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "中區",
+            "市府路84巷",
+            "3號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "3號",
+          "primary_ref": 20,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 16704,
+            "native_record": 805323072,
+            "primary_ref": 1047,
+            "primary_label": "市府路",
+            "first_child": 904087,
+            "child_count": 145,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 904141,
+            "native_record": 1074645965,
+            "primary_ref": 3154,
+            "primary_label": "84巷",
+            "first_child": 1021744,
+            "child_count": 1,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 40438,
+          "raw_address": [
+            "臺中市",
+            "中區",
+            "市府路84巷",
+            "5號"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "中區",
+            "市府路84巷",
+            "5號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "5號",
+          "primary_ref": 22,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 16704,
+            "native_record": 805323072,
+            "primary_ref": 1047,
+            "primary_label": "市府路",
+            "first_child": 904087,
+            "child_count": 145,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 904141,
+            "native_record": 1074645965,
+            "primary_ref": 3154,
+            "primary_label": "84巷",
+            "first_child": 1021744,
+            "child_count": 1,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 48133,
+          "raw_address": [
+            "臺中市",
+            "南區",
+            "忠孝路123巷",
+            "2號"
+          ],
+          "normalized_planning_key": [
+            "台中市",
+            "南區",
+            "忠孝路123巷",
+            "2號"
+          ],
+          "native_match": "missing_native_street",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "2號",
+          "primary_ref": 19,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "resolved_parent_has_no_observed_numeric_house_leaves",
+        "exact_path_records": [
+          {
+            "level": 3,
+            "one_based_ID": 16395,
+            "native_record": 805322763,
+            "primary_ref": 6048,
+            "primary_label": "忠孝路",
+            "first_child": 887625,
+            "child_count": 250,
+            "child_level_and_flags": 4,
+            "next_level": 4
+          },
+          {
+            "level": 4,
+            "one_based_ID": 887748,
+            "native_record": 1074629572,
+            "primary_ref": 6177,
+            "primary_label": "123巷",
+            "first_child": 1006844,
+            "child_count": 1,
+            "child_level_and_flags": 5,
+            "next_level": 5
+          }
+        ],
+        "decode_guard": null
+      }
+    ],
+    "source_classification_missing_native_district": [
+      {
+        "source_key": {
+          "group_id": 1015,
+          "raw_address": [
+            "苗栗縣",
+            "頭份鎮",
+            "中華路",
+            "951"
+          ],
+          "normalized_planning_key": [
+            "苗栗縣",
+            "頭份鎮",
+            "中華路",
+            "951號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "951號",
+          "primary_ref": 12808,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1106,
+          "raw_address": [
+            "彰化縣",
+            "員林鎮",
+            "中山南路",
+            "131"
+          ],
+          "normalized_planning_key": [
+            "彰化縣",
+            "員林鎮",
+            "中山南路",
+            "131號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "131號",
+          "primary_ref": 140,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1108,
+          "raw_address": [
+            "彰化縣",
+            "員林鎮",
+            "中山南路",
+            "27"
+          ],
+          "normalized_planning_key": [
+            "彰化縣",
+            "員林鎮",
+            "中山南路",
+            "27號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "27號",
+          "primary_ref": 40,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1134,
+          "raw_address": [
+            "彰化縣",
+            "員林鎮",
+            "中山路一段",
+            "844"
+          ],
+          "normalized_planning_key": [
+            "彰化縣",
+            "員林鎮",
+            "中山路一段",
+            "844號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "844號",
+          "primary_ref": 29335,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1136,
+          "raw_address": [
+            "彰化縣",
+            "員林鎮",
+            "中正路",
+            "495"
+          ],
+          "normalized_planning_key": [
+            "彰化縣",
+            "員林鎮",
+            "中正路",
+            "495號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "495號",
+          "primary_ref": 5506,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1139,
+          "raw_address": [
+            "苗栗縣",
+            "頭份鎮",
+            "中華路",
+            "922"
+          ],
+          "normalized_planning_key": [
+            "苗栗縣",
+            "頭份鎮",
+            "中華路",
+            "922號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "922號",
+          "primary_ref": 10413,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1140,
+          "raw_address": [
+            "苗栗縣",
+            "頭份鎮",
+            "仁愛路",
+            "70"
+          ],
+          "normalized_planning_key": [
+            "苗栗縣",
+            "頭份鎮",
+            "仁愛路",
+            "70號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "70號",
+          "primary_ref": 82,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 1288,
+          "raw_address": [
+            "台南市",
+            "中區",
+            "西門路一段",
+            "506"
+          ],
+          "normalized_planning_key": [
+            "台南市",
+            "中區",
+            "西門路一段",
+            "506號"
+          ],
+          "native_match": "missing_native_district",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "506號",
+          "primary_ref": 3009,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_district",
+        "exact_path_records": [],
+        "decode_guard": null
+      }
+    ],
+    "source_classification_missing_native_city": [
+      {
+        "source_key": {
+          "group_id": 822807,
+          "raw_address": [
+            "台北巿",
+            "大安區",
+            "基隆路四段42巷",
+            "5號"
+          ],
+          "normalized_planning_key": [
+            "台北巿",
+            "大安區",
+            "基隆路四段42巷",
+            "5號"
+          ],
+          "native_match": "missing_native_city",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "5號",
+          "primary_ref": 22,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_city",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 4630647,
+          "raw_address": [
+            "嘉義巿",
+            "西區",
+            "民族路",
+            "621"
+          ],
+          "normalized_planning_key": [
+            "嘉義巿",
+            "西區",
+            "民族路",
+            "621號"
+          ],
+          "native_match": "missing_native_city",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "621號",
+          "primary_ref": 8090,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_city",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 4630799,
+          "raw_address": [
+            "屏東市",
+            "屏東市",
+            "瑞光路三段",
+            "291"
+          ],
+          "normalized_planning_key": [
+            "屏東市",
+            "屏東市",
+            "瑞光路三段",
+            "291號"
+          ],
+          "native_match": "missing_native_city",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "291號",
+          "primary_ref": 932,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_city",
+        "exact_path_records": [],
+        "decode_guard": null
+      },
+      {
+        "source_key": {
+          "group_id": 4630817,
+          "raw_address": [
+            "彰化市",
+            "彰化市",
+            "中山路一段530巷",
+            "40"
+          ],
+          "normalized_planning_key": [
+            "彰化市",
+            "彰化市",
+            "中山路一段530巷",
+            "40號"
+          ],
+          "native_match": "missing_native_city",
+          "candidate_native_street_records": [],
+          "source_node_count": 1,
+          "coordinate_status": "coordinate_ready_global_bounds",
+          "house_label": "40號",
+          "primary_ref": 55,
+          "label_status": "existing_numeric_label_ref",
+          "source_group_ledger_reference": "staging/navigation-taiwan-address-ingestion-v1/address-planning-groups.jsonl.gz"
+        },
+        "reason": "source_classification_missing_native_city",
+        "exact_path_records": [],
+        "decode_guard": null
+      }
+    ]
+  },
+  "matched_group_counts": {
+    "groups": 1806069,
+    "house_present_unique": 1729220,
+    "next5_groups": 1268335,
+    "coordinate_source_coordinate_conflict": 13697,
+    "source_label_existing_numeric_label_ref": 1806023,
+    "next6_groups": 537734,
+    "house_absent": 76849,
+    "coordinate_coordinate_ready_global_bounds": 1792372,
+    "source_label_numeric_label_ref_absent": 46
+  },
+  "city_group_counts": {
+    "台南市": {
+      "source_groups": 283400,
+      "matched_groups": 261841,
+      "held_groups": 21559
+    },
+    "台北市": {
+      "source_groups": 159307,
+      "held_groups": 159307
+    },
+    "台中市": {
+      "source_groups": 339875,
+      "held_groups": 34974,
+      "matched_groups": 304901
+    },
+    "高雄市": {
+      "source_groups": 334202,
+      "held_groups": 23366,
+      "matched_groups": 310836
+    },
+    "新北市": {
+      "source_groups": 246546,
+      "matched_groups": 238701,
+      "held_groups": 7845
+    },
+    "花蓮縣": {
+      "source_groups": 34342,
+      "matched_groups": 32901,
+      "held_groups": 1441
+    },
+    "台東縣": {
+      "source_groups": 28806,
+      "held_groups": 6159,
+      "matched_groups": 22647
+    },
+    "屏東縣": {
+      "source_groups": 81917,
+      "held_groups": 12626,
+      "matched_groups": 69291
+    },
+    "桃園市": {
+      "source_groups": 295185,
+      "held_groups": 41924,
+      "matched_groups": 253261
+    },
+    "南投縣": {
+      "source_groups": 57,
+      "held_groups": 27,
+      "matched_groups": 30
+    },
+    "新竹市": {
+      "source_groups": 61478,
+      "held_groups": 61478
+    },
+    "基隆市": {
+      "source_groups": 56690,
+      "held_groups": 56690
+    },
+    "苗栗縣": {
+      "source_groups": 43806,
+      "held_groups": 4995,
+      "matched_groups": 38811
+    },
+    "彰化縣": {
+      "source_groups": 168457,
+      "held_groups": 21597,
+      "matched_groups": 146860
+    },
+    "金門縣": {
+      "source_groups": 3647,
+      "held_groups": 1060,
+      "matched_groups": 2587
+    },
+    "雲林縣": {
+      "source_groups": 48455,
+      "held_groups": 5184,
+      "matched_groups": 43271
+    },
+    "新竹縣": {
+      "source_groups": 68668,
+      "matched_groups": 59546,
+      "held_groups": 9122
+    },
+    "宜蘭縣": {
+      "source_groups": 78,
+      "held_groups": 29,
+      "matched_groups": 49
+    },
+    "嘉義縣": {
+      "source_groups": 19140,
+      "held_groups": 2520,
+      "matched_groups": 16620
+    },
+    "嘉義市": {
+      "source_groups": 39,
+      "held_groups": 39
+    },
+    "連江縣": {
+      "source_groups": 6,
+      "held_groups": 6
+    },
+    "澎湖縣": {
+      "source_groups": 4164,
+      "held_groups": 248,
+      "matched_groups": 3916
+    },
+    "台北巿": {
+      "source_groups": 1,
+      "held_groups": 1
+    },
+    "嘉義巿": {
+      "source_groups": 1,
+      "held_groups": 1
+    },
+    "屏東市": {
+      "source_groups": 1,
+      "held_groups": 1
+    },
+    "彰化市": {
+      "source_groups": 1,
+      "held_groups": 1
+    }
+  },
+  "unique_resolved_source_city_district_fullstreet_paths": 122040,
+  "unique_actual_house_parent_records": 122040,
+  "unique_parent_rawflag_counts": {
+    "5": 80579,
+    "6": 41461
+  },
+  "unique_parent_levels": {
+    "4": 85970,
+    "5": 36070
+  },
+  "artifacts": {
+    "matched_groupkeys": {
+      "path": "staging/navigation-country-lane-path-match-v1/matched-native-lane-groupkeys.jsonl.gz",
+      "rows": 1806069,
+      "bytes": 93105359,
+      "sha256": "6a8e4c913446cf21671007fcd574a31ec2d4c6bfe718e52ad62e3734c41fb8bd",
+      "uncompressed_sha256": "088361ee49437686ed2ad157c3766c31b7a528b0593feac208454cad33931d02",
+      "uncompressed_bytes": 2225864808,
+      "hashes_computed_while_writing": true
+    },
+    "unique_parent_paths": {
+      "path": "staging/navigation-country-lane-path-match-v1/unique-parent-paths.jsonl.gz",
+      "rows": 122040,
+      "bytes": 12054789,
+      "sha256": "a63b64ca3921c6c9018b320d8b3f3ea9d255b5f856329c2e6f738db3a7d0cb23",
+      "uncompressed_sha256": "67720fc400c261a000da01bcd617acaa26a804674be4b63ea083d45e6edec70e",
+      "uncompressed_bytes": 140800894,
+      "hashes_computed_while_writing": true
+    },
+    "unique_actual_parent_groups": {
+      "path": "staging/navigation-country-lane-path-match-v1/unique-actual-parent-group-counts.jsonl.gz",
+      "rows": 122040,
+      "bytes": 593327,
+      "sha256": "b08337652caea3e9df03fdd6f75a336a5cdedc43a0879f313e784ab7ea01b562",
+      "uncompressed_sha256": "7a3126db2af118fca870db3a618e1648b1059e288c7f5584ea850d3351960750",
+      "uncompressed_bytes": 7629326,
+      "hashes_computed_while_writing": true
+    },
+    "original_map_read_log": {
+      "path": "staging/navigation-country-lane-path-match-v1/original-map-read-log.jsonl.gz",
+      "rows": 248353,
+      "bytes": 13827753,
+      "sha256": "8063d4119cd9bb166e1c0b1d7b4710bd4f599b02054727ae5cc8b564e1556c7a",
+      "uncompressed_sha256": "9d711475bbc7c6394d53dbcce80350efdc14889e88483d72c6c07d018f20b0b2",
+      "uncompressed_bytes": 48265197,
+      "hashes_computed_while_writing": true
+    },
+    "progress_receipts": {
+      "path": "staging/navigation-country-lane-path-match-v1/progress-receipts.jsonl.gz",
+      "rows": 22,
+      "bytes": 1150,
+      "sha256": "97c009a9d1029788c1e4ec131df724f71e21d586bfe24620a3935935502ecb4c",
+      "uncompressed_sha256": "e3b7689d3bc224237015e2d8ba3b0f3a78ab4ba72b116be18c353ba924e376c4",
+      "uncompressed_bytes": 5252,
+      "hashes_computed_while_writing": true
+    },
+    "sorted_summary_runs": [
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00000.jsonl.gz",
+        "rows": 5000,
+        "bytes": 526017,
+        "sha256": "4f48f78637212820162235f7a3162ae8d7133322d1529c9a22431784e1b28de1",
+        "uncompressed_sha256": "a54d63ad42302a9d54eb34946de55fab2411649ad8d71395b6daa8dc01630b7c",
+        "uncompressed_bytes": 5643406,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00001.jsonl.gz",
+        "rows": 5000,
+        "bytes": 496936,
+        "sha256": "6c735239c1124d037b3434e328bb7ccd7a13843a59ec3e5c8fc765ea2ce05d7b",
+        "uncompressed_sha256": "aa9a3b17f0dee9a11803ae9581de62b317c45225a9c69ebbde6cea69e10d553b",
+        "uncompressed_bytes": 5737937,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00002.jsonl.gz",
+        "rows": 5000,
+        "bytes": 495036,
+        "sha256": "e45fbf46b35b001124309e9e72323e293a1fbb371ee17c445f04236a23fe9a95",
+        "uncompressed_sha256": "c0842c2f8ae9676090ba8c76fe1f0cfb3b0ca74f7d731b4d669b8044ddeb9816",
+        "uncompressed_bytes": 5777787,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00003.jsonl.gz",
+        "rows": 5000,
+        "bytes": 491856,
+        "sha256": "26800c5a450656da9de2b8542fd8bf3769db82ed87eaddbc3951043af07c6e89",
+        "uncompressed_sha256": "8d8d6ae0d3301c4063356b38ecbb53c3fc8134a66d1f76f82354a29f7dcabdb4",
+        "uncompressed_bytes": 5765374,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00004.jsonl.gz",
+        "rows": 5000,
+        "bytes": 498516,
+        "sha256": "a0613e2cc300d031d44116a96a6fc027f7a2d8c0da3896037e6b179b97581652",
+        "uncompressed_sha256": "e28069fb761679ada531590d945ade1464a3d8442cf17605a057fc74b423d313",
+        "uncompressed_bytes": 5748310,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00005.jsonl.gz",
+        "rows": 5000,
+        "bytes": 496224,
+        "sha256": "bd9c8d4771c96f1d3ba55f34fd9495cdabde27bb4f73051bccfa678a1f351339",
+        "uncompressed_sha256": "e9eb67d36fa34043fd967490173f12fd9ee4efff81be6b1cb6b3c7697f8dc6a8",
+        "uncompressed_bytes": 5756511,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00006.jsonl.gz",
+        "rows": 5000,
+        "bytes": 491596,
+        "sha256": "c0cd802f7207ded965c53486f1ff529c2a3cfb4f58ca55846459206b3192247d",
+        "uncompressed_sha256": "0a9f39aacfdfc10c21aa1e403b27dbdbac1a9c9b1e83cbd8b5c18c28059aa0f1",
+        "uncompressed_bytes": 5882957,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00007.jsonl.gz",
+        "rows": 5000,
+        "bytes": 498397,
+        "sha256": "700885e3044fb6517076d38ccc0f00ee8df0d6453f036c3e66e0218663cf9724",
+        "uncompressed_sha256": "f822f67b55e5615492f73c4dd9174ae439cc4bb36a340397faeab46720695f64",
+        "uncompressed_bytes": 5868185,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00008.jsonl.gz",
+        "rows": 5000,
+        "bytes": 498919,
+        "sha256": "8ec8c8f5343f7b1d588357660d0671af60e18aebfacbeb02561e55467b2f9c49",
+        "uncompressed_sha256": "b669821eb1d46a115a6e9e9c1ae0bc57296df12c39e2e0a0862a7bd39e7f7e8e",
+        "uncompressed_bytes": 5767343,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00009.jsonl.gz",
+        "rows": 5000,
+        "bytes": 493177,
+        "sha256": "b473d616d44ef7e07024ddbe0c9545cc2e5852743411fbf2ceb2f399bcf7e378",
+        "uncompressed_sha256": "cb9d866bc2fe97582aa2f795b34e7fe09188b25732c174013e19919c3a90c654",
+        "uncompressed_bytes": 5731695,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00010.jsonl.gz",
+        "rows": 5000,
+        "bytes": 499563,
+        "sha256": "56c7849615c277aee40b7a2591fca87482a7bf8a268b638bf2072f6502958b4c",
+        "uncompressed_sha256": "641f6aa4b0c9f6d63c716eedadaf96a00b333485959228711912dab571a0be9f",
+        "uncompressed_bytes": 5714111,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00011.jsonl.gz",
+        "rows": 5000,
+        "bytes": 501504,
+        "sha256": "cd39442686230d1ac53e810254d5bf648acdc4e85eed796545324caa2e2a5e6e",
+        "uncompressed_sha256": "3bec41fd899d1617dde02b8e05b84d03d201eb5bf75e6e33deb227e0cc3ae94c",
+        "uncompressed_bytes": 5763728,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00012.jsonl.gz",
+        "rows": 5000,
+        "bytes": 493871,
+        "sha256": "c9c6f80d0eddfea8895e6987837e97640a99b67fbe29b164812ea56bbdc4a51c",
+        "uncompressed_sha256": "3ee3785c024517bce7543aa885bdacb495476b58ab3f8d73d83a7e70b337e294",
+        "uncompressed_bytes": 5810505,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00013.jsonl.gz",
+        "rows": 5000,
+        "bytes": 486874,
+        "sha256": "da44ec66151b31a13301f4ef9ba7ef91258c580641b24b8f5cf9751b3fc41969",
+        "uncompressed_sha256": "c0dd134336ee779c1fb80b42b512918e5e527b2903faaebd0f497afb1b5fd0cc",
+        "uncompressed_bytes": 5841951,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00014.jsonl.gz",
+        "rows": 5000,
+        "bytes": 502224,
+        "sha256": "30fabf20f4e7e33a45e185b6131558cbbdd667094e21cbcd848668128d388951",
+        "uncompressed_sha256": "2fa762c32195b864c5731e07dc6f1a4922e85bcae4c29c826a4f870bab0aba5c",
+        "uncompressed_bytes": 5753351,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00015.jsonl.gz",
+        "rows": 5000,
+        "bytes": 496124,
+        "sha256": "1db562d35d95d4a869ce969c5119be339f4330cb7499e61a77ae3beecedc40b9",
+        "uncompressed_sha256": "1e7ac79e2f4f6393dd87c7291aacfa5502fb14ac924435b052c7c0ce9bf7ddf2",
+        "uncompressed_bytes": 5832431,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00016.jsonl.gz",
+        "rows": 5000,
+        "bytes": 504150,
+        "sha256": "713345425b58a1a36908b92bd6230abe7eef9fb1edc78e4e5d3ae65b7b8206d3",
+        "uncompressed_sha256": "4fd88b30ade053a31837e89c2626e0411f2c36fcc08e1885b0227520419509e4",
+        "uncompressed_bytes": 5747024,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00017.jsonl.gz",
+        "rows": 5000,
+        "bytes": 496429,
+        "sha256": "dd177ad763870384676f0767eded1a507b11d56e778150c569367152e4d7b71a",
+        "uncompressed_sha256": "c48cddf236b6e6a53dd80b1d6a8f1acc89f95959d4f8630fb838aa7a86c1d185",
+        "uncompressed_bytes": 5769929,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00018.jsonl.gz",
+        "rows": 5000,
+        "bytes": 485682,
+        "sha256": "800a0b242717ac55911c520e5b81765da0bc0494c5ff49fccc32e38f22c416c9",
+        "uncompressed_sha256": "cf604ab9870de1e46710bfa5bc2def2d2e14307b2dac0cb7868f54e93b0c3f55",
+        "uncompressed_bytes": 5764883,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00019.jsonl.gz",
+        "rows": 5000,
+        "bytes": 486655,
+        "sha256": "8a93c21dc304f292b08ebf50753e5724410dd501715a1cb36569611b8db189e0",
+        "uncompressed_sha256": "98f82694ea4d96ef351707b67d0c58a563f25802070741635f93ddeab6524117",
+        "uncompressed_bytes": 5872821,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00020.jsonl.gz",
+        "rows": 5000,
+        "bytes": 485781,
+        "sha256": "18a2c5094b79ce4041efa86ee5f904a1795cea49cd3f394207e6e9b9c13c3ea7",
+        "uncompressed_sha256": "178b1eb51358ce6274a3921cc15a7014cd1dd21326390c3a89c69ff9c694bdb8",
+        "uncompressed_bytes": 5797009,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00021.jsonl.gz",
+        "rows": 5000,
+        "bytes": 493320,
+        "sha256": "d4bc4d2346fbf41931286faa3fc8c59012d95e911bfaaeaff4ce38ef6ced0b7b",
+        "uncompressed_sha256": "f7d72d795cf58a343ae0df4255dbfa4554335d68b688a06b81b4fb8e1caa0766",
+        "uncompressed_bytes": 5757834,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00022.jsonl.gz",
+        "rows": 5000,
+        "bytes": 494886,
+        "sha256": "60fe0076416c4181ee4506c2243613bc07cb403e611752a6e849f40e390cd67a",
+        "uncompressed_sha256": "2c3d58fda48bcabb1edb0fe4e40d0bf6eb126fb365feb979bc82f5f6681f6a4c",
+        "uncompressed_bytes": 5727143,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00023.jsonl.gz",
+        "rows": 5000,
+        "bytes": 506394,
+        "sha256": "45c5679a270610a5fb916907c66ae45102e1ad581be1e82a31df390687918258",
+        "uncompressed_sha256": "709a2046c6f601460d58618015baf55b8408a8ae5acaf36d5aa187bdc0aa52bf",
+        "uncompressed_bytes": 5669251,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00024.jsonl.gz",
+        "rows": 5000,
+        "bytes": 482300,
+        "sha256": "2739e56b984486ea87c2cac613c77559607dcd4de1b9a0f7537119a24759c405",
+        "uncompressed_sha256": "741afc09a50d810d71a62da595635af861eb320be7ce82e4cf80098c975967b8",
+        "uncompressed_bytes": 5794804,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00025.jsonl.gz",
+        "rows": 5000,
+        "bytes": 494860,
+        "sha256": "7baf89eac2f29ad0c78b59f84fc663be4b04c26bdf1102952d8a42b91a7f8c27",
+        "uncompressed_sha256": "f110460da3c7225fe06116f5fb5fa724af048446865f17740edb7d7c840145d6",
+        "uncompressed_bytes": 5663154,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00026.jsonl.gz",
+        "rows": 538,
+        "bytes": 54789,
+        "sha256": "6e7441606ec73f05e6b4f69ef246d5aa575be8e0e18cd2feef7d763ce61155f3",
+        "uncompressed_sha256": "d8795f4bd6a11470ac123a12e58a897c3c0786dc75caaeca958f7fd273a30269",
+        "uncompressed_bytes": 609653,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00000.jsonl.gz",
+        "rows": 5000,
+        "bytes": 25615,
+        "sha256": "92d0d0daca46d6b04d4e3ddd1293157523f7c216f0ab175df93080a2175cb6e5",
+        "uncompressed_sha256": "c2df2b066fd879c778ee6584e5de7d9202118d67a3fb52e5d8979b6348240981",
+        "uncompressed_bytes": 312395,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00001.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24996,
+        "sha256": "be24f62eb60fcdd3ec13ccf2d3dbef56a1b8cfce570c4581da9a73605e5b1a01",
+        "uncompressed_sha256": "d7f6656800dd0325ef0d4478c67606d4e142a84b2b1af416e7d29f77fa503ec5",
+        "uncompressed_bytes": 312802,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00002.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24832,
+        "sha256": "2536e9dfd25ceed05ba4db80fa4fad5e92c5149dc41f0d503afcf2e0c01b08d5",
+        "uncompressed_sha256": "3f1be8de3f327ab411bff4dd87f89e0cc4315276c61c3c5f20ec1c427f57a2f2",
+        "uncompressed_bytes": 312617,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00003.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24921,
+        "sha256": "59cae9064a4a5d467a01526bda4457b9a2960c017ac92a6607d878fb47ab7e6e",
+        "uncompressed_sha256": "1fd0c51860f03f49dc6a091e8cac8e66204ae5f6f91915ac75d16e19e0be51e2",
+        "uncompressed_bytes": 312807,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00004.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24167,
+        "sha256": "478bc0d9cce5906a236f7f3203e82374019d899da492d516a1db06fa7a1c7299",
+        "uncompressed_sha256": "4e2b7840d0a9a3338496ee6ec83b13e03ff11eb3f4d3a10ce2b37778c5fbc677",
+        "uncompressed_bytes": 311578,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00005.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24059,
+        "sha256": "1045c5f6358feae286f9cb913be3a6cfd4f820a86f23ce0a621313d9f64b7817",
+        "uncompressed_sha256": "53c252c255b0238d48ee2ca617bf79baad89c3285001ea7d80ce1e9a1aeaea9a",
+        "uncompressed_bytes": 311892,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00006.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24235,
+        "sha256": "b7ee41a66e03e116116017e99372d18eb60c6375f11d497295458da956388c48",
+        "uncompressed_sha256": "46a33939639c56b4f4855f5caa7b3ef17289007c687e15b1f7dca6bfa88a3267",
+        "uncompressed_bytes": 312129,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00007.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24960,
+        "sha256": "37dc38a59b83b94f80d93f9788d3854fcb1bf51f6315688b9c58a1b6a249e9ff",
+        "uncompressed_sha256": "3b5970cccb1de15911bde481411c3fa971cf0a11aac9112a0b99e4a63c2dd1f7",
+        "uncompressed_bytes": 312867,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00008.jsonl.gz",
+        "rows": 5000,
+        "bytes": 25230,
+        "sha256": "35b0b484a2ff0a5fdf593abe694d3bf60ddca0b754fddcbdfd28820910fa9816",
+        "uncompressed_sha256": "ba61a9fa612232673bf42424c44dc04098f415a38016dc364fec84626fc13ad3",
+        "uncompressed_bytes": 313153,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00009.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24693,
+        "sha256": "2b97961561502698a8676f88264e49fd08c478ce217f06d18cd71368100fcc86",
+        "uncompressed_sha256": "8226a59b6ae07516709babc1ceb01cb91ff9e587d00dc0615a8ee39911884b05",
+        "uncompressed_bytes": 312469,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00010.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24956,
+        "sha256": "585f4c10ba79e84975242126b025acd538335a1bf01ff1ef4f9d282df47738e3",
+        "uncompressed_sha256": "be00c92b03a2907fed12d46390147a74021f4a383fe904341125f8a0322d62ad",
+        "uncompressed_bytes": 312912,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00011.jsonl.gz",
+        "rows": 5000,
+        "bytes": 25405,
+        "sha256": "7a37ee28b44212ab7b294c3fddd431a80e7d20a1c1fecdf678d0710a3a516651",
+        "uncompressed_sha256": "f25dd076a6075f2422c2756c74ad88d60015aaf188647c7a2e587038d5d51447",
+        "uncompressed_bytes": 313110,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00012.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24529,
+        "sha256": "34aeadc80cfce245aee60b761a3c884232a9a7e04fca7e97624e539a1c3130ee",
+        "uncompressed_sha256": "15736bea9119a3b90b6e9ebfcee1459ddf6e11f2095d1f1cea96ce525166fd99",
+        "uncompressed_bytes": 312436,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00013.jsonl.gz",
+        "rows": 5000,
+        "bytes": 23327,
+        "sha256": "057ec52dbd37d5b075bb4823391dc1a87b8a6e8897a367265a520a93b4911d61",
+        "uncompressed_sha256": "bddd80a4e958e0202d6647b174dca742ebbc01699f6fb700cebd742983182a23",
+        "uncompressed_bytes": 311642,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00014.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24013,
+        "sha256": "82c79e0dd2b59156caf3128a1c578834825c1feb9a5ad4dd896f7c6eeb9cddb3",
+        "uncompressed_sha256": "990eaed8189c26ed50eab8bb350db376963d2b2e418deacf88050e353be40d13",
+        "uncompressed_bytes": 311991,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00015.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24296,
+        "sha256": "9af3c1d22f7f86df2ffb8a8c0d88f11db851d861c2d395bed72bfafe184435b1",
+        "uncompressed_sha256": "5705f05c3849697f5327b9d363ff942b9429df4e9115f88d989f026a9d07095b",
+        "uncompressed_bytes": 312430,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00016.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24716,
+        "sha256": "5f1fa9873e32fcadcd822064ca26a4b25af609af9b63dd5e718117493df087d5",
+        "uncompressed_sha256": "46d85fd733448f0f0c91249b888d5ea9e13fe5954ca46812aa61d32c670b436e",
+        "uncompressed_bytes": 312458,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00017.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24804,
+        "sha256": "0baf91b2986a2cf2397a927ac5b1e18a4de0af6471abd535245baf897cb9a611",
+        "uncompressed_sha256": "2bd7b9a36d81f620e1581470447f899ec533953e86322a0b596701740bf827eb",
+        "uncompressed_bytes": 312552,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00018.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24752,
+        "sha256": "da5dd6417b48793c9e1334ba93d3018a80bb58760b34d430423606bf8f9ecb88",
+        "uncompressed_sha256": "d56aad3f61b12cc31688a03bcc7a9a47941d58df945d09e3d81f90825e0e4571",
+        "uncompressed_bytes": 312766,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00019.jsonl.gz",
+        "rows": 5000,
+        "bytes": 25173,
+        "sha256": "baea5549a4cb60eebc25601e76d235500a498a158ffe5206771e4f0d80b004da",
+        "uncompressed_sha256": "14b58fc330c10852e5ceae09add186d4ba4ed245ebc40516afa7a47936941087",
+        "uncompressed_bytes": 312901,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00020.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24533,
+        "sha256": "340ab3b36a706e141881ddb848c612e74bd950a837df67f0e0b5c4975e970e88",
+        "uncompressed_sha256": "eb243bcdfb885f38966cd570366cdedb5419ecc803a8e4fb1d3389b097ff321d",
+        "uncompressed_bytes": 312372,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00021.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24175,
+        "sha256": "d632fdbba9d938b6f583f0f60d336bdcafc2bda6a9a291441c69850064f39136",
+        "uncompressed_sha256": "445e8f8de43eac6c9c895449b051beee355b032ebe63835b3ad4b2ccdd1dc75c",
+        "uncompressed_bytes": 312006,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00022.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24377,
+        "sha256": "1f6f4bae602f7e480ab84342e3f61641c6be2dcab7c62223e6924ecf6512ae4f",
+        "uncompressed_sha256": "fbc726cfa56e6b88a48e456732284148c0b21915cbe35ac01ad4d00d01712ffd",
+        "uncompressed_bytes": 311975,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00023.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24719,
+        "sha256": "7b45bb62f98c0941b11e0277dad38de80bced3c30f88311c5b08f0b67044a77e",
+        "uncompressed_sha256": "8cae6c3f0df2329216c48422bda0df514c0c5aab4be7af07eca11bc307d2452f",
+        "uncompressed_bytes": 312234,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00024.jsonl.gz",
+        "rows": 5000,
+        "bytes": 23544,
+        "sha256": "8a93cd93c588576f2a9d1e13565236e9d9ee6cbc18398416c847eaf3688d2874",
+        "uncompressed_sha256": "2dc169d021b6511ffb0cb7716db6617b9d54a03ae07c26ee80c8c2e4745ff109",
+        "uncompressed_bytes": 311799,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00025.jsonl.gz",
+        "rows": 5000,
+        "bytes": 24190,
+        "sha256": "85aad37a05ac58e6fd63291648b361f47df28c184658c8c2add9b847a062f219",
+        "uncompressed_sha256": "56c37ec8d75823613f84cd20eb81e0ef0e6f485d0137a0569e21d24ee7b113fb",
+        "uncompressed_bytes": 311985,
+        "hashes_computed_while_writing": true
+      },
+      {
+        "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00026.jsonl.gz",
+        "rows": 538,
+        "bytes": 2832,
+        "sha256": "8f97982246c35ab898c67f390674f705de7d7332116126d343667b171dc5d870",
+        "uncompressed_sha256": "621833990aef3581a59d1aa9e2d3d1358be9b02729affef28f37b0525d8f7c81",
+        "uncompressed_bytes": 33559,
+        "hashes_computed_while_writing": true
+      }
+    ]
+  },
+  "sorted_summary_run_EOF_readbacks": [
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00001.jsonl.gz",
+      "rows": 5000,
+      "sha256": "6c735239c1124d037b3434e328bb7ccd7a13843a59ec3e5c8fc765ea2ce05d7b",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00002.jsonl.gz",
+      "rows": 5000,
+      "sha256": "e45fbf46b35b001124309e9e72323e293a1fbb371ee17c445f04236a23fe9a95",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00003.jsonl.gz",
+      "rows": 5000,
+      "sha256": "26800c5a450656da9de2b8542fd8bf3769db82ed87eaddbc3951043af07c6e89",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00007.jsonl.gz",
+      "rows": 5000,
+      "sha256": "700885e3044fb6517076d38ccc0f00ee8df0d6453f036c3e66e0218663cf9724",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00006.jsonl.gz",
+      "rows": 5000,
+      "sha256": "c0cd802f7207ded965c53486f1ff529c2a3cfb4f58ca55846459206b3192247d",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00022.jsonl.gz",
+      "rows": 5000,
+      "sha256": "60fe0076416c4181ee4506c2243613bc07cb403e611752a6e849f40e390cd67a",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00021.jsonl.gz",
+      "rows": 5000,
+      "sha256": "d4bc4d2346fbf41931286faa3fc8c59012d95e911bfaaeaff4ce38ef6ced0b7b",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00019.jsonl.gz",
+      "rows": 5000,
+      "sha256": "8a93c21dc304f292b08ebf50753e5724410dd501715a1cb36569611b8db189e0",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00018.jsonl.gz",
+      "rows": 5000,
+      "sha256": "800a0b242717ac55911c520e5b81765da0bc0494c5ff49fccc32e38f22c416c9",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00024.jsonl.gz",
+      "rows": 5000,
+      "sha256": "2739e56b984486ea87c2cac613c77559607dcd4de1b9a0f7537119a24759c405",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00020.jsonl.gz",
+      "rows": 5000,
+      "sha256": "18a2c5094b79ce4041efa86ee5f904a1795cea49cd3f394207e6e9b9c13c3ea7",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00014.jsonl.gz",
+      "rows": 5000,
+      "sha256": "30fabf20f4e7e33a45e185b6131558cbbdd667094e21cbcd848668128d388951",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00015.jsonl.gz",
+      "rows": 5000,
+      "sha256": "1db562d35d95d4a869ce969c5119be339f4330cb7499e61a77ae3beecedc40b9",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00013.jsonl.gz",
+      "rows": 5000,
+      "sha256": "da44ec66151b31a13301f4ef9ba7ef91258c580641b24b8f5cf9751b3fc41969",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00023.jsonl.gz",
+      "rows": 5000,
+      "sha256": "45c5679a270610a5fb916907c66ae45102e1ad581be1e82a31df390687918258",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00017.jsonl.gz",
+      "rows": 5000,
+      "sha256": "dd177ad763870384676f0767eded1a507b11d56e778150c569367152e4d7b71a",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00016.jsonl.gz",
+      "rows": 5000,
+      "sha256": "713345425b58a1a36908b92bd6230abe7eef9fb1edc78e4e5d3ae65b7b8206d3",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00012.jsonl.gz",
+      "rows": 5000,
+      "sha256": "c9c6f80d0eddfea8895e6987837e97640a99b67fbe29b164812ea56bbdc4a51c",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00008.jsonl.gz",
+      "rows": 5000,
+      "sha256": "8ec8c8f5343f7b1d588357660d0671af60e18aebfacbeb02561e55467b2f9c49",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00005.jsonl.gz",
+      "rows": 5000,
+      "sha256": "bd9c8d4771c96f1d3ba55f34fd9495cdabde27bb4f73051bccfa678a1f351339",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00009.jsonl.gz",
+      "rows": 5000,
+      "sha256": "b473d616d44ef7e07024ddbe0c9545cc2e5852743411fbf2ceb2f399bcf7e378",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00025.jsonl.gz",
+      "rows": 5000,
+      "sha256": "7baf89eac2f29ad0c78b59f84fc663be4b04c26bdf1102952d8a42b91a7f8c27",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00004.jsonl.gz",
+      "rows": 5000,
+      "sha256": "a0613e2cc300d031d44116a96a6fc027f7a2d8c0da3896037e6b179b97581652",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00010.jsonl.gz",
+      "rows": 5000,
+      "sha256": "56c7849615c277aee40b7a2591fca87482a7bf8a268b638bf2072f6502958b4c",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00026.jsonl.gz",
+      "rows": 538,
+      "sha256": "6e7441606ec73f05e6b4f69ef246d5aa575be8e0e18cd2feef7d763ce61155f3",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00000.jsonl.gz",
+      "rows": 5000,
+      "sha256": "4f48f78637212820162235f7a3162ae8d7133322d1529c9a22431784e1b28de1",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/paths-00011.jsonl.gz",
+      "rows": 5000,
+      "sha256": "cd39442686230d1ac53e810254d5bf648acdc4e85eed796545324caa2e2a5e6e",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00019.jsonl.gz",
+      "rows": 5000,
+      "sha256": "baea5549a4cb60eebc25601e76d235500a498a158ffe5206771e4f0d80b004da",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00018.jsonl.gz",
+      "rows": 5000,
+      "sha256": "da5dd6417b48793c9e1334ba93d3018a80bb58760b34d430423606bf8f9ecb88",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00013.jsonl.gz",
+      "rows": 5000,
+      "sha256": "057ec52dbd37d5b075bb4823391dc1a87b8a6e8897a367265a520a93b4911d61",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00014.jsonl.gz",
+      "rows": 5000,
+      "sha256": "82c79e0dd2b59156caf3128a1c578834825c1feb9a5ad4dd896f7c6eeb9cddb3",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00015.jsonl.gz",
+      "rows": 5000,
+      "sha256": "9af3c1d22f7f86df2ffb8a8c0d88f11db851d861c2d395bed72bfafe184435b1",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00024.jsonl.gz",
+      "rows": 5000,
+      "sha256": "8a93cd93c588576f2a9d1e13565236e9d9ee6cbc18398416c847eaf3688d2874",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00001.jsonl.gz",
+      "rows": 5000,
+      "sha256": "be24f62eb60fcdd3ec13ccf2d3dbef56a1b8cfce570c4581da9a73605e5b1a01",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00003.jsonl.gz",
+      "rows": 5000,
+      "sha256": "59cae9064a4a5d467a01526bda4457b9a2960c017ac92a6607d878fb47ab7e6e",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00002.jsonl.gz",
+      "rows": 5000,
+      "sha256": "2536e9dfd25ceed05ba4db80fa4fad5e92c5149dc41f0d503afcf2e0c01b08d5",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00020.jsonl.gz",
+      "rows": 5000,
+      "sha256": "340ab3b36a706e141881ddb848c612e74bd950a837df67f0e0b5c4975e970e88",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00021.jsonl.gz",
+      "rows": 5000,
+      "sha256": "d632fdbba9d938b6f583f0f60d336bdcafc2bda6a9a291441c69850064f39136",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00016.jsonl.gz",
+      "rows": 5000,
+      "sha256": "5f1fa9873e32fcadcd822064ca26a4b25af609af9b63dd5e718117493df087d5",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00007.jsonl.gz",
+      "rows": 5000,
+      "sha256": "37dc38a59b83b94f80d93f9788d3854fcb1bf51f6315688b9c58a1b6a249e9ff",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00006.jsonl.gz",
+      "rows": 5000,
+      "sha256": "b7ee41a66e03e116116017e99372d18eb60c6375f11d497295458da956388c48",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00005.jsonl.gz",
+      "rows": 5000,
+      "sha256": "1045c5f6358feae286f9cb913be3a6cfd4f820a86f23ce0a621313d9f64b7817",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00012.jsonl.gz",
+      "rows": 5000,
+      "sha256": "34aeadc80cfce245aee60b761a3c884232a9a7e04fca7e97624e539a1c3130ee",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00011.jsonl.gz",
+      "rows": 5000,
+      "sha256": "7a37ee28b44212ab7b294c3fddd431a80e7d20a1c1fecdf678d0710a3a516651",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00010.jsonl.gz",
+      "rows": 5000,
+      "sha256": "585f4c10ba79e84975242126b025acd538335a1bf01ff1ef4f9d282df47738e3",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00009.jsonl.gz",
+      "rows": 5000,
+      "sha256": "2b97961561502698a8676f88264e49fd08c478ce217f06d18cd71368100fcc86",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00008.jsonl.gz",
+      "rows": 5000,
+      "sha256": "35b0b484a2ff0a5fdf593abe694d3bf60ddca0b754fddcbdfd28820910fa9816",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00022.jsonl.gz",
+      "rows": 5000,
+      "sha256": "1f6f4bae602f7e480ab84342e3f61641c6be2dcab7c62223e6924ecf6512ae4f",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00026.jsonl.gz",
+      "rows": 538,
+      "sha256": "8f97982246c35ab898c67f390674f705de7d7332116126d343667b171dc5d870",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00025.jsonl.gz",
+      "rows": 5000,
+      "sha256": "85aad37a05ac58e6fd63291648b361f47df28c184658c8c2add9b847a062f219",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00017.jsonl.gz",
+      "rows": 5000,
+      "sha256": "0baf91b2986a2cf2397a927ac5b1e18a4de0af6471abd535245baf897cb9a611",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00004.jsonl.gz",
+      "rows": 5000,
+      "sha256": "478bc0d9cce5906a236f7f3203e82374019d899da492d516a1db06fa7a1c7299",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00000.jsonl.gz",
+      "rows": 5000,
+      "sha256": "92d0d0daca46d6b04d4e3ddd1293157523f7c216f0ab175df93080a2175cb6e5",
+      "EOF_verified": true
+    },
+    {
+      "path": "staging/navigation-country-lane-path-match-v1/sorted-summary-runs/parents-00023.jsonl.gz",
+      "rows": 5000,
+      "sha256": "7b45bb62f98c0941b11e0277dad38de80bced3c30f88311c5b08f0b67044a77e",
+      "EOF_verified": true
+    }
+  ],
+  "summary_distinct_key_batch_limit": 5000,
+  "original_AP": {
+    "path": "backups/20261002T154458Z/files/.System/gmapprom1.img",
+    "stat_before": [
+      1795,
+      1752,
+      96739328,
+      1462797208000000000,
+      1462797208000000000
+    ],
+    "stat_after": [
+      1795,
+      1752,
+      96739328,
+      1462797208000000000,
+      1462797208000000000
+    ],
+    "stat_unchanged": true,
+    "full_SHA_reference_from_backup": "864d128f8d4660570d443b2e14772c9c5356ebdf0bbb6a5891f3318b836053c2",
+    "fresh_full_image_hash": false,
+    "actual_bounded_read_bytes": 71660924,
+    "actual_read_operations": 248353,
+    "explicit_read_budget_bytes": 402653184
+  },
+  "original_directory": {
+    "logical_offset": 600,
+    "raw_hex": "a8c78505780000001400000001000000",
+    "u32_LE": [
+      92653480,
+      120,
+      20,
+      1
+    ]
+  },
+  "original_tables": [
+    {
+      "level": 1,
+      "start": 92653144,
+      "bytes": 336,
+      "record_bits": 122,
+      "count": 22,
+      "widths": [
+        16,
+        9,
+        24,
+        19,
+        1,
+        10,
+        0,
+        0
+      ],
+      "reference_flags": [
+        1,
+        1
+      ],
+      "unused_tail_bits": 4,
+      "directory_raw_hex": "58c68505500100007a000000c18441c90a000000"
+    },
+    {
+      "level": 2,
+      "start": 92647913,
+      "bytes": 5231,
+      "record_bits": 122,
+      "count": 343,
+      "widths": [
+        16,
+        9,
+        24,
+        19,
+        1,
+        10,
+        0,
+        0
+      ],
+      "reference_flags": [
+        1,
+        1
+      ],
+      "unused_tail_bits": 2,
+      "directory_raw_hex": "e9b185056f1400007a000000c18441c90a000000"
+    },
+    {
+      "level": 3,
+      "start": 91983716,
+      "bytes": 664197,
+      "record_bits": 111,
+      "count": 47870,
+      "widths": [
+        22,
+        9,
+        24,
+        19,
+        1,
+        12,
+        0,
+        0
+      ],
+      "reference_flags": [
+        1,
+        0
+      ],
+      "unused_tail_bits": 6,
+      "directory_raw_hex": "648f7b0585220a006f000000c18459490c000000"
+    },
+    {
+      "level": 4,
+      "start": 57840548,
+      "bytes": 34143168,
+      "record_bits": 128,
+      "count": 2133948,
+      "widths": [
+        22,
+        9,
+        24,
+        19,
+        1,
+        10,
+        0,
+        0
+      ],
+      "reference_flags": [
+        1,
+        1
+      ],
+      "unused_tail_bits": 0,
+      "directory_raw_hex": "a4937203c0fb080280000000c18459c90a000000"
+    },
+    {
+      "level": 5,
+      "start": 20968286,
+      "bytes": 36872262,
+      "record_bits": 126,
+      "count": 2341096,
+      "widths": [
+        21,
+        9,
+        24,
+        19,
+        1,
+        9,
+        0,
+        0
+      ],
+      "reference_flags": [
+        1,
+        1
+      ],
+      "unused_tail_bits": 0,
+      "directory_raw_hex": "5ef33f0146a032027e000000c18455c909000000"
+    },
+    {
+      "level": 6,
+      "start": 4195100,
+      "bytes": 16773186,
+      "record_bits": 68,
+      "count": 1973316,
+      "widths": [
+        0,
+        0,
+        24,
+        19,
+        1,
+        0,
+        0,
+        0
+      ],
+      "reference_flags": [
+        1,
+        0
+      ],
+      "unused_tail_bits": 0,
+      "directory_raw_hex": "1c03400042f0ff0044000000c184014000000000"
+    }
+  ],
+  "actual_GMP_LBL_descriptor": {
+    "GMP_header_hex": "39004741524d494e20474d500100df070c180a060500000000ec0000005b0200006a0300000000000000000000000000000000000000000000",
+    "GMP_subfile_offsets": [
+      236,
+      603,
+      874,
+      0,
+      0,
+      0,
+      0
+    ],
+    "LBL_GMP_offset": 874,
+    "LBL_header_sha256": "28049ee30eff50debb3f76131711ddad507c788ac587849cff7b6b16de6da428",
+    "LBL_stored_GMP_logical_pool_start": 6566,
+    "GMP_pool_start": 6566,
+    "pool_bytes": 3805432,
+    "label_shift": 3,
+    "encoding": 10,
+    "codepage": 950
+  },
+  "cache_and_decode_receipts": {
+    "root_cache": {
+      "limit": 12000,
+      "peak_entries": 12000,
+      "hits": 116519,
+      "misses": 17641,
+      "evictions": 5641
+    },
+    "path_cache": {
+      "limit": 50000,
+      "peak_entries": 50000,
+      "hits": 1751568,
+      "misses": 134160,
+      "evictions": 84160
+    },
+    "group_cache_accounting_limit_bytes": 33554432,
+    "group_cache_peak_accounting_bytes": 33554432,
+    "group_cache_hits": 1940247,
+    "group_cache_misses": 161105,
+    "group_cache_evictions": 156181,
+    "actual_complete_group_reads": 161105,
+    "actual_decoded_child_rows": 4552747,
+    "original_branch_guards": {},
+    "label_cache": {
+      "limit": 80000,
+      "peak_entries": 52212,
+      "hits": 4518176,
+      "misses": 52212,
+      "evictions": 0
+    }
+  },
+  "max_RSS_KiB": 424240,
+  "explicit_max_RSS_KiB": 512000,
+  "elapsed_seconds": 207.7850225099828,
+  "matching_policy": "Only missing_native_street, exact city/district, longest exact native normalized street prefix, positive numeric巷/弄 suffix tokens, exact actual child primary labels. No alias, fuzzy, guessed字形, stripped route annotation or flattened L3 substitute.",
+  "preserved_flags_policy": "Original full raw flags retained; nextlevel is raw&7. Raw13 without observed direct numeric houses held. Unknown branch guards remain held, never converted.",
+  "JAI_constraint": "Actual unique parent_record must be grouped once. This tool neither creates nor modifies JAI families.",
+  "inherited_small_proof_reuse": "Sealed 20-example source methods and passed proof referenced; old main/controls/map cases/CPU not rerun.",
+  "source_coordinate_values_or_complete_source_IDs_available": false,
+  "source_full_group_ledger_reopened": false,
+  "source_ready_ledgers_reopened": false,
+  "PBF_accessed": false,
+  "native_CPU_executed": false,
+  "new_native_records_encoded": false,
+  "IMG_MDR_JAI_DB_modified": false,
+  "device_IO": false,
+  "canonical_or_ZIP_modified": false,
+  "full_Taiwan_native_update_complete": false,
+  "limits": [
+    "Matching plans only. Later exact group-ID join must recover original source IDs/coordinates and independently check eligibility before any writer use.",
+    "Only exact existing numeric lane/alley paths. New streets/admins, direct-city districts, unsupported names/branches and unknown flag semantics remain held.",
+    "Existing global numeric text ref is not stock parent membership proof; actual leaf membership is separately observed, with duplicates retained.",
+    "Coordinate readiness/label status are inherited metadata only. No entrances, navigation query, route or physical acceptance established.",
+    "Counts concern this sealed unresolved input and exact resolver; no claim of complete street/address coverage or Taiwan2026 native update."
+  ]
+}

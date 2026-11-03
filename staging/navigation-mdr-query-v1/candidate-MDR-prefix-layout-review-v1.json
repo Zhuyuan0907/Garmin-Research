@@ -1,0 +1,47 @@
+{
+  "all_passed": true,
+  "checked_utc": "2026-10-05T14:36:27.482083+00:00",
+  "checks": {
+    "candidate_Unicode65001": true,
+    "street_prefix_MDR8_empty": true,
+    "name_prefix_MDR12_empty": true,
+    "combined_name_prefix_MDR17_empty": true,
+    "MDR29_no_string_or17_pointer": true,
+    "MDR29_flags_match_three24_22_25_pointers": true,
+    "official_multibyte_condition_excludes_MDR17_additions": true,
+    "MDR21_28_region_indexes_intentionally_omitted": true
+  },
+  "scope": "Static exact-r4924 writer interpretation plus frozen candidate MDR headers; no new candidate reads or key execution.",
+  "exact_sources": {
+    "staging/navigation-mdr-query-v1/reference/MDRFile.java": "cd1efb49ce172ef4195df6723f8a6e803c063091d36c3c1e7f5c9d21bc5396de",
+    "staging/navigation-mdr-query-v1/reference/Mdr29.java": "b48e509d6593bc1dd2cade8274e135f6b9d1d23347a2e9f16ca332be1fbc03b8",
+    "staging/navigation-mdr-query-v1/reference/Mdr6.java": "1163a04f374807a7eef84e1bc2737004a99d83e03958ded02fdbbd81274c668d",
+    "staging/navigation-mdr-query-v1/reference/Mdr8.java": "21bce4301cfba0eb4f80b1d45e8836642eda9ca400a8e6c2788a4ecf5ab788cf",
+    "staging/navigation-mdr-query-v1/reference/Mdr12.java": "f7993403cb78cbdf63cdefb39e99356da9bceefdb4f7ec4221aa677dd6663df5",
+    "staging/navigation-mdr-query-v1/reference/Mdr17.java": "5b61d8b4f79d135708c3f5ad0b976b222d6b8095a90b1cf2f7f6c283dcdf2b39",
+    "staging/navigation-mdr-query-v1/reference/Mdr18.java": "17106272b371b829211c7334a4da1bc2045f803e9f895fa198a153af27e74e86",
+    "staging/navigation-mdr-query-v1/reference/Mdr19.java": "b47771185fd6d66f5e427884e44a31380f67e373cfc62493607a58b00a4a0b5c",
+    "staging/navigation-mdr-query-v1/reference/Mdr2x.java": "96e35f1af9b0c544f59520ce08a9bac5b1d40ceb9df299d1abe844d1a5b85de5",
+    "staging/navigation-mdr-query-v1/reference/Mdr5.java": "e6bd9ea2b745309396e307bae378d05a35b85f594dfd27141bc4aa624b2b6d3f"
+  },
+  "frozen_MDR_query_proof_sha256": "c9b8450d19cf68d3c3929bdfc138f49ca9e32be4ed4cc3eab2c457ba6e8beb52",
+  "actual_nonempty_related_sections": {
+    "MDR6": "map index + local ZIP index; sorted in writer, no serialized name-prefix bytes",
+    "MDR18": "POI natural-type field plus first MDR19 record pointer",
+    "MDR19": "flagged MDR11 POI record pointers, grouped by POI type",
+    "MDR20": "direct map/LBL/name-offset/repeat records grouped by city",
+    "MDR22": "direct map/LBL/name-offset/repeat records grouped by country",
+    "MDR29": "MDR24 start, MDR22 start, MDR25 start; exact widths1/3/2 bytes here"
+  },
+  "host_SortKey_first_bytes_serialized_in_requested_city_street_fast_prefix_tables": false,
+  "hypothetical_nonempty_PrefixIndex_generation_implementation_reviewed": false,
+  "native_key_byte_difference_by_itself_proves_current_prefix_corruption": false,
+  "native_CJK_order_equivalence_or_address_UI_verified": false,
+  "candidate_status": "held_pending_native_order_and_physical_search_clarification",
+  "limitations": [
+    "This scoped finding concerns actual current city/street MDR tables, not all firmware search acceleration.",
+    "Empty prefix tables remove this particular serialized-prefix hypothesis; they do not prove native comparison, duplicate grouping or UI compatibility.",
+    "Actual mixed-name native ordering and caller behavior require a separate bounded check.",
+    "No image/backup hash, old scope rerun, guest, USB, installation or canonical mutation."
+  ]
+}

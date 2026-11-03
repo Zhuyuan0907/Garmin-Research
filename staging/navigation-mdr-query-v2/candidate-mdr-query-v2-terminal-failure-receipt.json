@@ -1,0 +1,23 @@
+{
+  "scope": "Actual new v2 reader terminal setup failure; no completed MDR query/producers-controls scope",
+  "observed_utc": "2026-10-05T15:06:07+00:00",
+  "actual_tool_result": {
+    "tool": "exec_command",
+    "exit_code": 1,
+    "chunk_id": "ffd872",
+    "session_id": null
+  },
+  "command": "python3 staging/navigation-mdr-query-v2/query_candidate_mdr_v2.py --producer-controls staging/navigation-firmware-sort-v1/packed-fixture-aligned-v2.tsv",
+  "source": "staging/navigation-mdr-query-v2/query_candidate_mdr_v2.py",
+  "source_sha256": "d5a8cf59721dd624f6053a4d19b7e24e22735590d9c0b34393a6529a3b8e0908",
+  "all_passed": false,
+  "error": "ValueError: Selected writer must materialize all missing BMP pages",
+  "failed_source_guard": "len(page_offsets) == 255",
+  "MDR_global_order_join_query_completed": false,
+  "Java_producer_KEY_CMP_completed": false,
+  "failure_is_reader_assumption_not_proved_map_or_firmware_fault": true,
+  "frozen_writer_actual_scope": "writeSrt8 leaves surrogate pages 0xD8..0xDF absent; non-surrogate missing BMP pages are materialized",
+  "candidate_modified": false,
+  "canonical_modified": false,
+  "whole_IMG_sha_repeated": false
+}
